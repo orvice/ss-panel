@@ -7,9 +7,9 @@
 
 //Define DB Connection
 define('DB_HOST','localhost');
-define('DB_USER','shadow');
-define('DB_PWD','shadow');
-define('DB_DBNAME','shadow');
+define('DB_USER','root');
+define('DB_PWD','password');
+define('DB_DBNAME','db');
 define('DB_CHARSET','utf8');
 
 //Define system Path

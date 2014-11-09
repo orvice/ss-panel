@@ -1,8 +1,7 @@
 ss-panel
 ========
 
-A simple front end of Shadowsocks
-A front end of https://github.com/mengskysama/shadowsocks/tree/manyuser
+A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tree/manyuser
 
 ### Install
 1. import sql/user.sql to you MySQL Database

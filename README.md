@@ -4,6 +4,6 @@ ss-panel
 A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tree/manyuser
 
 ### Install
-1. import sql/user.sql to you MySQL Database
-2. rename lib/config-sample.php to config.php,and edit the database infomation.
-3. All done.
+* Import sql/user.sql to you MySQL Database
+* Rename lib/config-sample.php to config.php,and edit the database infomation.
+* All done.

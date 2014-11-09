@@ -18,6 +18,9 @@ define('SS_PATH','');
 //name
 $site_name = "Shadow X";
 
+//初始化流量
+$a_transfer = 30000000000;
+
 //Version
 $version   ="0.1.3";
 

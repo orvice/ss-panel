@@ -7,9 +7,6 @@ require_once 'lib/user.func.php';
 require_once 'lib/reg.func.php';
 require_once 'lib/invite_code.class.php';
 
-//defian Plan
-$a_transfer = 30000000000;
-
 //验证Post是否空
 if(empty($_POST)){
     header("location:reg.php");

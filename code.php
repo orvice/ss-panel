@@ -37,7 +37,6 @@ include_once 'lib/config.php';
 
     <div class="jumbotron">
         <p class="lead"> 邀请码实时刷新</p>
-        <p>如遇到无邀请码请发邮件到 ss#orx.me索取。</p>
     </div>
 
     <div class="row marketing">

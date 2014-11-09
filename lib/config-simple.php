@@ -22,7 +22,7 @@ $site_name = "Shadow X";
 $version   ="0.1.3";
 
 //invite only
-$invite_only = true;
+$invite_only = false;
 
 //set timezone
 date_default_timezone_set('PRC');

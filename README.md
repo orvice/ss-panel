@@ -18,4 +18,8 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 * Visit tools/code_add.php to add invite code.
 
 ### Cron Job
-* You can set up a cron job to visit tools/cron.php every day.
+You can set up a cron job to run tools/cron.php every day.
+
+```
+0 0 * * * php /home/www/tools/cron.php
+```

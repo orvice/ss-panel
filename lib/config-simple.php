@@ -19,10 +19,10 @@ define('SS_PATH','');
 $site_name = "Shadow X";
 
 //初始化流量
-$a_transfer = 30000000000;
+$a_transfer = 3*1024*1024*1024;
 
 //Version
-$version   ="0.1.3";
+$version   ="0.1.4";
 
 //invite only
 $invite_only = false;

@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gitf_time`, `last_rest_pass_time`, `reg_date`) VALUES
-(1, 'user', 'test@test.com', '9003d1df22eb4d3820015070385194c8', '0000000', 1410609560, 3, 4, 'A', 30000000000, 50000, 1, 1, 7, 0, 0, '2014-11-07 00:00:00'),
+(1, 'user', 'test@test.com', '9003d1df22eb4d3820015070385194c8', '0000000', 1410609560, 3, 4, 'A', 30000000000, 50000, 1, 1, 7, 0, 0, '2014-11-07 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +61,7 @@ INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`uid`,`port`);
+ ADD PRIMARY KEY (`uid`);
 
 --
 -- AUTO_INCREMENT for dumped tables

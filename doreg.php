@@ -52,7 +52,9 @@ if($okk){
             echo ' <script>alert("注册成功，返回登录!")</script> ';
             echo " <script>window.location='login.php';</script> " ;
             //删除邀请码
-            $ic->invite_code_del();
+            if($invite_only){
+                $ic->invite_code_del();
+            }
         }else{
             echo ' <script>alert("未知错误!")</script> ';
             echo " <script>window.location='reg.php';</script> " ;

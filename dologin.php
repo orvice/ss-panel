@@ -16,7 +16,7 @@ require_once 'lib/user.func.php';
 if(!empty($_POST)){
 
     //获取_POST并赋值
-    $username = $_POST['username'];
+    $username = mysqli_real_escape_string($dbc,trim($_POST['username']));
     $pwd      = md5($_POST['password']); //md5加密
     $rem = $_POST['remember_me'];
     $rt = user_login_check($username,$pwd);

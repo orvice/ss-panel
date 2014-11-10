@@ -11,10 +11,10 @@ require_once 'lib/invite_code.class.php';
 if(empty($_POST)){
     header("location:reg.php");
 }else{
-    $username = $_POST['username'];
-    $pwd      = $_POST['password'];
-    $email    = $_POST['email'];
-    $code     = $_POST['code'];
+    $username = mysqli_real_escape_string($dbc,trim($_POST['username']));
+    $pwd      = mysqli_real_escape_string($dbc,trim($_POST['password']));
+    $email    = mysqli_real_escape_string($dbc,trim($_POST['email']));
+    $code     = mysqli_real_escape_string($dbc,trim($_POST['code']));
 
     setcookie("reg_name",$username,time()+60);
     setcookie("reg_email",$email,time()+60);

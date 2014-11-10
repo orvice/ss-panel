@@ -2,9 +2,9 @@
 include_once 'header.inc.php';
 //get post value
 if(!empty($_POST)){
-    $now_pwd = $_POST['nowpassword'];
-    $pwd = $_POST['password'];
-    $email = $_POST['email'];
+    $now_pwd = mysqli_real_escape_string($dbc,trim($_POST['nowpassword']));
+    $pwd = mysqli_real_escape_string($dbc,trim($_POST['password']));
+    $email = mysqli_real_escape_string($dbc,trim($_POST['email']));
     //验证当前密码
     if(!pwd_verify($uid,$now_pwd)){
         echo ' <script>alert("当前密码错误!")</script> ';

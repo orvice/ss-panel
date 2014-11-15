@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `invite_code` (
 --
 
 INSERT INTO `invite_code` (`id`, `code`) VALUES
-(1, '00b845d96ac6cb97'),
+(1, '00b845d96ac6cb97');
 
 
 --

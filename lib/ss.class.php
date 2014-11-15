@@ -25,7 +25,7 @@ class ss {
     }
 
     //获取流量
-    function get_tranfer(){
+    function get_transfer(){
         global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
         $query = $dbc->query($sql);
@@ -76,5 +76,26 @@ class ss {
             return $rs['transfer_enable'];
         }
     }
+
+    //get money
+    function  get_money(){
+        global $dbc;
+        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
+        $query = $dbc->query($sql);
+        if(!$query){
+            return 0;
+        }else{
+            $rs = $query->fetch_array();
+            return $rs['money'];
+        }
+    }
+
+    //get unused traffic
+    function unused_transfer(){
+        global $dbc;
+        return $this->get_transfer_enable() - $this->get_transfer();
+    }
+
+
 
 } 

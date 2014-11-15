@@ -28,8 +28,7 @@ $unused_transfer = round($unused_transfer,2);
                    <p> 密码: <?php echo $oo->get_pass();?> </p>
                    <p> 套餐: <span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
                    <p> 可用流量: <?php echo $all_transfer ."GB";?> </p>
-                   <p> 剩余流量: <?php echo  $unused_transfer."GB";?> </p>
-                   <p> 账户余额: <?php echo $oo->get_money();?>元</p>
+                   <p> 剩余流量: <?php echo  $unused_transfer."GB";?> </p> 
                   </div>
               </div>
           </div>

@@ -28,7 +28,7 @@ function is_username_ok($username){
 // $pass ss密码
 function reg($username,$email,$pwd,$pass,$transfer,$port){
     global $dbc;
-    $sql ="INSERT INTO `shadow`.`user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gitf_time`, `last_rest_pass_time`,`reg_date`)
+    $sql ="INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gitf_time`, `last_rest_pass_time`,`reg_date`)
            VALUES (NULL, '$username', '$email', '$pwd', '$pass', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', '0', '0',now())";
     $query = $dbc->query($sql);
     if($query){

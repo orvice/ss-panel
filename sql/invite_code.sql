@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 05, 2014 at 06:09 PM
+-- Generation Time: Nov 15, 2014 at 03:33 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.5.14
 
@@ -28,16 +28,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `invite_code` (
 `id` int(32) NOT NULL,
-  `code` varchar(32) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=91 ;
+  `code` varchar(32) NOT NULL,
+  `user` int(32) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3644 ;
 
 --
 -- Dumping data for table `invite_code`
 --
 
-INSERT INTO `invite_code` (`id`, `code`) VALUES
-(1, '00b845d96ac6cb97');
-
+INSERT INTO `invite_code` (`id`, `code`, `user`) VALUES
+(3639, '193c77e35a4a3f', 1),
+(3643, '134201a5b85900', 0);
 
 --
 -- Indexes for dumped tables
@@ -57,7 +58,7 @@ ALTER TABLE `invite_code`
 -- AUTO_INCREMENT for table `invite_code`
 --
 ALTER TABLE `invite_code`
-MODIFY `id` int(32) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=91;
+MODIFY `id` int(32) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3644;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

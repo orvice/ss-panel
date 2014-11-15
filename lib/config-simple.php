@@ -30,7 +30,9 @@ date_default_timezone_set('PRC');
 //Using Mysqli
 $dbc = new mysqli(DB_HOST,DB_USER,DB_PWD,DB_DBNAME);
 $db_char = DB_CHARSET;
+//设置编码和时区
 $dbc->query("SET NAMES utf8");
+$dbc->query("SET time_zone = ‘+8:00′");
 
 //定义流量
 $tomb = 1024*1024;

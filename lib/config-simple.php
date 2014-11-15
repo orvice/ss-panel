@@ -18,14 +18,11 @@ define('SS_PATH','');
 //name
 $site_name = "Shadow X";
 
-//初始化流量
-$a_transfer = 3*1024*1024*1024;
-
 //Version
-$version   ="0.1.4";
+$version   ="0.1.6";
 
 //invite only
-$invite_only = false;
+$invite_only = true;
 
 //set timezone
 date_default_timezone_set('PRC');
@@ -34,3 +31,10 @@ date_default_timezone_set('PRC');
 $dbc = new mysqli(DB_HOST,DB_USER,DB_PWD,DB_DBNAME);
 $db_char = DB_CHARSET;
 $dbc->query("SET NAMES utf8");
+
+//定义流量
+$tomb = 1024*1024;
+$togb = $tomb*1024;
+
+//define Plan
+$a_transfer = $togb*30 ;

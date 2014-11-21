@@ -49,13 +49,12 @@ $unix_time = $oo->get_last_unix_time();
                             <p>用户名: <?php echo $user_name; ?></p>
                             <p>邮箱: <?php echo $user_email;  ?></p>
                             <p> 套餐: <span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
-                           
+
                     </div><!-- /.box -->
             </div>
         </div>
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-</div><!-- ./wrapper -->
+</aside><!-- /.right-side --> 
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

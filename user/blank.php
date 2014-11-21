@@ -24,8 +24,7 @@ include_once 'lib/slidebar_left.inc.php';  ?>
     <!-- Main content -->
     <section class="content">
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-</div><!-- ./wrapper -->
+</aside><!-- /.right-side --> 
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

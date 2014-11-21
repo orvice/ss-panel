@@ -78,8 +78,7 @@ $all_user    = $ssmin->user_all_count();
         </div><!-- /.row -->
 
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-</div><!-- ./wrapper -->
+</aside><!-- /.right-side --> 
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

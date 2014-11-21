@@ -98,8 +98,7 @@ if(!empty($_POST)){
             </div>
         </div>
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-</div><!-- ./wrapper -->
+</aside><!-- /.right-side --> 
 <?php include_once 'lib/footer.inc.php'; ?>
 <script LANGUAGE="javascript">
 

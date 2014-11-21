@@ -96,6 +96,17 @@ class ss {
         return $this->get_transfer_enable() - $this->get_transfer();
     }
 
-
+    //get last time
+    function get_last_unix_time(){
+        global $dbc;
+        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
+        $query = $dbc->query($sql);
+        if(!$query){
+            return 0;
+        }else{
+            $rs = $query->fetch_array();
+            return $rs['t'];
+        }
+    }
 
 } 

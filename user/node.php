@@ -7,20 +7,6 @@
 <body class="skin-blue">
 <?php include_once 'lib/nav.inc.php';
 include_once 'lib/slidebar_left.inc.php';
-if($oo->get_transfer()<1000000)
-{
-    $transfers=0;}else{ $transfers = $oo->get_transfer();
-
-}
-//计算流量并保留2位小数
-$transfers = $transfers/$tomb;
-$transfers = round($transfers,2);
-$all_transfer = $oo->get_transfer_enable()/$togb;
-$all_transfer = round($all_transfer,2);
-$unused_transfer =  $oo->unused_transfer()/$togb;
-$unused_transfer = round($unused_transfer,2);
-//最后在线时间
-$unix_time = $oo->get_last_unix_time();
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -37,22 +23,32 @@ $unix_time = $oo->get_last_unix_time();
     </section>
     <!-- Main content -->
     <section class="content">
+        <!-- START PROGRESS BARS -->
+        <h2 class="page-header">Node List</h2>
         <div class="row">
-            <!-- left column -->
             <div class="col-md-6">
-                <!-- general form elements -->
-                <div class="box box-primary">
+                <div class="box box-solid">
                     <div class="box-header">
-                        <h3 class="box-title">我的信息</h3>
+                        <i class="fa fa-th-list"></i>
+                        <h3 class="box-title">节点</h3>
                     </div><!-- /.box-header -->
-                        <div class="box-body">
-                            <p>用户名: <?php echo $user_name; ?></p>
-                            <p>邮箱: <?php echo $user_email;  ?></p>
-                            <p> 套餐: <span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
-                           
-                    </div><!-- /.box -->
-            </div>
-        </div>
+                    <div class="box-body">
+                        <div class="callout callout-info">
+                            <h4>加密方式</h4>
+                            <p>无特殊说明加密方式均为<code>aes-256-cfb</code></p>
+                        </div>
+                        <h4>美国</h4>
+                        <p>1号:  <code>la.cattt.com</code>   </p>
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col (left) -->
+
+
+
+            </div><!-- /.col (right) -->
+        </div><!-- /.row -->
+        <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->

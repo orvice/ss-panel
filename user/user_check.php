@@ -1,6 +1,4 @@
 <?php
-session_start();
-$sessionId = session_id();
 require_once '../lib/config.php';
 require_once '../lib/comm.func.php';
 require_once '../lib/user.func.php';

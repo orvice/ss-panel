@@ -1,21 +1,23 @@
 <?php
 /**
- * Shadowsocks Class
+ * User Shadowsocks  info Class
  */
 
 class ss {
     //
     public  $uid;
+    private $dbc;
 
     function  __construct($uid){
+        global $dbc;
         $this->uid = $uid;
+        $this->dbc = $dbc;
     }
 
     //返回端口号
     function  get_port(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -26,9 +28,8 @@ class ss {
 
     //获取流量
     function get_transfer(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -40,9 +41,8 @@ class ss {
 
     //返回密码
     function  get_pass(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -53,9 +53,8 @@ class ss {
 
     //返回Plan
     function  get_plan(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -66,9 +65,8 @@ class ss {
 
     //返回transfer_enable
     function  get_transfer_enable(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -79,9 +77,8 @@ class ss {
 
     //get money
     function  get_money(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
@@ -92,21 +89,25 @@ class ss {
 
     //get unused traffic
     function unused_transfer(){
-        global $dbc;
+        //global $dbc;
         return $this->get_transfer_enable() - $this->get_transfer();
     }
 
     //get last time
     function get_last_unix_time(){
-        global $dbc;
         $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $dbc->query($sql);
+        $query = $this->dbc->query($sql);
         if(!$query){
             return 0;
         }else{
             $rs = $query->fetch_array();
             return $rs['t'];
         }
+    }
+
+    //add transfer
+    function  add_transfer(){
+
     }
 
 } 

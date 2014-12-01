@@ -7,27 +7,20 @@ include_once 'lib/config.php';
     <meta charset="utf-8">
     <title>登录</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="author" content=""> 
     <!-- Le styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sign-in.css" rel="stylesheet">
-
-
+    <link href="css/sign-in.css" rel="stylesheet"> 
 </head>
 <body>
 <div class="container">
-    <div class="row">
-
-        <div class="main">
-
-            <h3>请登录或 <a href="reg.php">注册</a></h3>
-
+    <div class="row"> 
+        <div class="main"> 
+            <h3>请登录或 <a href="reg.php">注册</a></h3> 
             <div class="login-or">
                 <hr class="hr-or">
                 <span class="span-or">登录</span>
-            </div>
-
+            </div> 
             <form role="form" name="login" method="post" action="dologin.php" onsubmit="return logincheck()">
                 <div class="form-group">
                     <label for="inputUsernameEmail">用户名</label>
@@ -46,15 +39,11 @@ include_once 'lib/config.php';
                 <button type="submit" class="btn btn btn-primary">
                     登录
                 </button>
-            </form>
-
-        </div>
-
+            </form> 
+        </div> 
     </div>
-</div>
-
-<script LANGUAGE="javascript">
-
+</div> 
+<script LANGUAGE="javascript"> 
     function logincheck()
     {
         if(document.login.username.value.length==0){
@@ -67,11 +56,8 @@ include_once 'lib/config.php';
             alert("请输入密码!");
             document.login.password.focus();
             return false;
-        }
-
-
-    }
-
+        } 
+    } 
 </script>
 <?php include_once 'ana.php'?>
 </body>

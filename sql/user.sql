@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gitf_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`) VALUES
+INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`) VALUES
 (1, 'user', 'test@test.com', '0003d1df22eb4d3820015070385194c8', '0000000', 1415974052, 4441822111, 1219001110, 'A', 32212254720, 50000, 1, 1, 7, 0, 0, '2014-11-07 00:00:00', 0, 0.00);
 
 --

@@ -1,3 +1,7 @@
+<?php
+//引入配置文件
+require_once 'user_check.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +49,9 @@ $unix_time = $oo->get_last_unix_time();
             <!-- START PROGRESS BARS -->
             <h2 class="page-header">使用信息</h2>
             <div class="row">
+
+                 
+
                 <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
@@ -54,7 +61,7 @@ $unix_time = $oo->get_last_unix_time();
                             <p> 已用流量: <?php echo $transfers."MB";?> </p>
                             <div class="progress progress-striped">
                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $used_100; ?>%">
-                                    <span class="sr-only">40% Complete (success)</span>
+                                    <span class="sr-only">Transfer</span>
                                 </div>
                             </div>
                             <p> 可用流量: <?php echo $all_transfer ."GB";?> </p>
@@ -62,6 +69,11 @@ $unix_time = $oo->get_last_unix_time();
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (left) -->
+
+
+
+                
+
                 <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
@@ -78,7 +90,7 @@ $unix_time = $oo->get_last_unix_time();
             </div><!-- /.row -->
             <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
-</aside><!-- /.right-side --> 
+</aside><!-- /.right-side -->
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

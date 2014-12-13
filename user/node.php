@@ -1,3 +1,7 @@
+<?php
+//引入配置文件
+require_once 'user_check.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,19 +42,16 @@ include_once 'lib/slidebar_left.inc.php';
                             <p>无特殊说明加密方式均为<code>aes-256-cfb</code></p>
                         </div>
                         <h4>美国</h4>
-                        <p>1号:  <code>la.cattt.com</code>   </p>
-
+                        <p>1号:  <code>ip</code> </p>
+                         
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (left) -->
 
-
-
-            </div><!-- /.col (right) -->
-        </div><!-- /.row -->
+           
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
-</aside><!-- /.right-side --> 
+</aside><!-- /.right-side -->
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

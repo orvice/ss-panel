@@ -5,7 +5,7 @@ require_once '../lib/user.func.php';
 require_once '../lib/ss.class.php';
 //检测是否登录，若没登录则转向登录界面
 if(!isset($_COOKIE['user_name'])||!isset($_COOKIE['user_uid'])||!isset($_COOKIE['user_pwd'])){
-    header("Location:../login.php");
+    header("Location:login.php");
     exit();
 }else{
     //co
@@ -18,7 +18,7 @@ if(!isset($_COOKIE['user_name'])||!isset($_COOKIE['user_uid'])||!isset($_COOKIE[
     $pw = get_user_pass($uid);
     $pw = co_pw($pw);
     if($pw != $user_pwd){
-        header("Location:../login.php");
+        header("Location:login.php");
     }
 }
 $oo = new ss($uid);

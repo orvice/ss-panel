@@ -1,3 +1,7 @@
+<?php
+//引入配置文件
+require_once 'user_check.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,13 +52,12 @@ $unix_time = $oo->get_last_unix_time();
                         <div class="box-body">
                             <p>用户名: <?php echo $user_name; ?></p>
                             <p>邮箱: <?php echo $user_email;  ?></p>
-                            <p> 套餐: <span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
-
+                            <p> 套餐: <span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p> 
                     </div><!-- /.box -->
             </div>
         </div>
     </section><!-- /.content -->
-</aside><!-- /.right-side --> 
+</aside><!-- /.right-side -->
 <?php include_once 'lib/footer.inc.php'; ?>
 </body>
 </html>

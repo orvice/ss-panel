@@ -1,3 +1,7 @@
+<?php
+//引入配置文件
+require_once 'user_check.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,7 +102,7 @@ if(!empty($_POST)){
             </div>
         </div>
     </section><!-- /.content -->
-</aside><!-- /.right-side --> 
+</aside><!-- /.right-side -->
 <?php include_once 'lib/footer.inc.php'; ?>
 <script LANGUAGE="javascript">
 

@@ -37,7 +37,7 @@
                 <a href="my.php" class="btn btn-default btn-flat">我的信息</a>
             </div>
             <div class="pull-right">
-                <a href="../logout.php?action=logout" class="btn btn-default btn-flat">退出</a>
+                <a href="logout.php?action=logout" class="btn btn-default btn-flat">退出</a>
             </div>
         </li>
     </ul>

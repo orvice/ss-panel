@@ -1,19 +1,30 @@
-<?php
-include_once 'header.inc.php';
-?>
-<body>
-    <?php include_once 'nav.php'; ?>
-        <div class="container-fluid">
-          <div class="row">  <?php  include_once 'seliderbar_left.inc.php'; ?>
-              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                  <h2 class="sub-header">Title</h2>
-                  <div class="table-responsive"> 
-                   <p>Content</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理后台</title>
+    <?php include_once 'lib/header.inc.php'; ?>
+</head>
+<body class="skin-blue">
+<?php include_once 'lib/nav.inc.php';
+include_once 'lib/slidebar_left.inc.php';  ?>
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            用户中心
+            <small>User Panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="index.php"><i class="fa fa-dashboard"></i>ShadowX</a></li>
+            <li class="active">UserCenter</li>
+        </ol>
+    </section>
 
-                  </div>
-              </div>
-          </div>
-      </div> <!-- #container -->
-  <?php include_once 'footer.inc.php'; ?>
-  </body>
+    <!-- Main content -->
+    <section class="content">
+    </section><!-- /.content -->
+</aside><!-- /.right-side --> 
+<?php include_once 'lib/footer.inc.php'; ?>
+</body>
 </html>

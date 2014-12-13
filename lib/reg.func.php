@@ -26,14 +26,24 @@ function is_username_ok($username){
     }
 }
 // $pass ss密码
-function reg($username,$email,$pwd,$pass,$transfer,$port){
+function reg($username,$email,$pwd,$pass,$transfer,$port,$invite_num,$money){
     global $dbc;
-    $sql ="INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gitf_time`, `last_rest_pass_time`,`reg_date`)
-           VALUES (NULL, '$username', '$email', '$pwd', '$pass', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', '0', '0',now())";
+    $sql ="INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `reg_date`,`invite_num`,`money`)
+           VALUES (NULL, '$username', '$email', '$pwd', '$pass', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', now(),$invite_num,$money)";
     $query = $dbc->query($sql);
     if($query){
         return 1;
     }else{
         return 0;
+    }
+}
+//邮箱地址验证
+function isEmailOK($email){
+    //邮箱正则
+    $isEmail= '/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/';
+    if(preg_match($isEmail,$email)){
+        return true;
+    }else{
+        return false;
     }
 }

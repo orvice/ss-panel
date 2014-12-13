@@ -2,7 +2,7 @@
 <html class="bg-black">
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>ShadowX登录</title>
     <!-- bootstrap 3.0.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -33,7 +33,7 @@
                 <input type="password"  name="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input type="checkbox" name="remember_me" value="week"/>保存Cookie7天  <a href="#">忘记密码</a>
+                <input type="checkbox" name="remember_me" value="week"/>保存Cookie7天  <a href="resetpwd.php">忘记密码</a>
             </div>
         </div>
         <div class="footer">

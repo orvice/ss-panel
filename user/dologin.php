@@ -2,12 +2,19 @@
 /**
  *  Login pages
  */
- //设置编码
-header("content-type:text/html;charset=utf-8"); 
+
+
+//设置编码
+header("content-type:text/html;charset=utf-8");
+
 //引用数据库连接文件
-require_once 'lib/config.php';
-require_once 'lib/user.func.php';  
-if(!empty($_POST)){ 
+require_once '../lib/config.php';
+require_once '../lib/user.func.php';
+//require_once 'lib/func/pw.func.php';
+
+
+if(!empty($_POST)){
+
     //获取_POST并赋值
     $username = mysqli_real_escape_string($dbc,trim($_POST['username']));
     $pwd      = md5($_POST['password']); //md5加密
@@ -26,14 +33,13 @@ if(!empty($_POST)){
         setcookie("user_name", $username, time()+$ext);
         setcookie("user_pwd",$pw,time()+$ext);
         setcookie("user_uid",$id,time()+$ext);
-        header("location: user/index.php ");
+        header("location: index.php ");
         exit;
     }
     else {
         echo ' <script>alert("用户名或密码错误!")</script> ';
         echo " <script>window.location='login.php';</script> " ;
-    } 
-}else{
-	echo " <script>window.location='login.php';</script> " ;
+    }
+
 }
 ?>

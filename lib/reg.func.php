@@ -37,3 +37,13 @@ function reg($username,$email,$pwd,$pass,$transfer,$port,$invite_num,$money){
         return 0;
     }
 }
+//邮箱地址验证
+function isEmailOK($email){
+    //邮箱正则
+    $isEmail= '/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/';
+    if(preg_match($isEmail,$email)){
+        return true;
+    }else{
+        return false;
+    }
+}

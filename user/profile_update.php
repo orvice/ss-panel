@@ -65,31 +65,25 @@ if(!empty($_POST)){
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">编辑</h3>
+                        <h3 class="box-title">资料修改</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <form role="form" name="edit" method="post" action="profile_update.php" onsubmit="return check()">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="inputPassword">当前密码</label>
-                                <input type="password" class="form-control" name="nowpassword">
+                                <input type="password" class="form-control" placeholder="当前密码(必填)" name="nowpassword">
                             </div>
 
                             <div class="form-group">
-                                <label class="pull-right" >*留空则不修改密码</label>
-                                <label for="inputPassword">密码</label>
-                                <input type="password" class="form-control" name="password">
+                                <input type="password" class="form-control" placeholder="新密码(不修改请留空)" name="password">
                             </div>
 
                             <div class="form-group">
-                                <label for="inputPassword">确认密码</label>
-                                <input type="password" class="form-control" name="repassword">
+                                <input type="password" placeholder="确认密码" class="form-control" name="repassword">
                             </div>
 
                             <div class="form-group">
-                                <label for="inputPassword">邮箱</label>
-                                <label class="pull-right" >*留空则不修改</label>
-                                <input type="text" class="form-control" name="email">
+                                <input type="text" placeholder="邮箱(不修改请留空)" class="form-control" name="email">
                             </div>
 
                         </div><!-- /.box-body -->

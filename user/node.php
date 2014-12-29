@@ -65,22 +65,7 @@ include_once 'lib/slidebar_left.inc.php';
                         <?php }?>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
-            </div><!-- /.col (right) -->
-            <div class="col-md-6">
-                <div class="box box-solid">
-                    <div class="box-header">
-                        <i class="fa fa-align-left"></i>
-                        <h3 class="box-title">不限流量节点</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="callout callout-info">
-                            <h4>说明</h4>
-                            <p>使用此端口和密码不限制流量，将不会占用你ShadowX账户的流量。</p>
-                            <p>暂时关闭</p>
-                        </div>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
+            </div><!-- /.col (right) --> 
         </div><!-- /.row -->
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->

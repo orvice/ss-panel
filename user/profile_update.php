@@ -5,7 +5,7 @@ require_once 'user_check.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ShadowX</title>
+    <title><?php echo $site_name;?></title>
     <?php include_once 'lib/header.inc.php'; ?>
 </head>
 <body class="skin-blue">
@@ -52,10 +52,6 @@ if(!empty($_POST)){
             用户中心
             <small>User Panel</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i>ShadowX</a></li>
-            <li class="active">UserCenter</li>
-        </ol>
     </section>
     <!-- Main content -->
     <section class="content">

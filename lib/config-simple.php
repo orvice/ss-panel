@@ -19,7 +19,7 @@ define('SS_PATH','');
 $site_name = "Shadow X";
 
 //Version
-$version   ="0.1.6";
+$version   ="0.2.1";
 
 //invite only
 $invite_only = true;

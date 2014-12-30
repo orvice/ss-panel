@@ -5,7 +5,7 @@ include_once '../lib/config.php';
 <html class="bg-black">
 <head>
     <meta charset="UTF-8">
-    <title>ShadowX注册</title>
+    <title><?php echo $site_name;?>注册</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />

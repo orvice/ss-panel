@@ -1,8 +1,8 @@
 <?php
 require_once '../lib/config.php';
-require_once '../lib/comm.func.php';
-require_once '../lib/user.func.php';
-require_once '../lib/ss.class.php';
+require_once '../lib/func/comm.func.php';
+require_once '../lib/func/user.func.php';
+require_once '../lib/class/ss.class.php';
 //检测是否登录，若没登录则转向登录界面
 if(!isset($_COOKIE['user_name'])||!isset($_COOKIE['user_uid'])||!isset($_COOKIE['user_pwd'])){
     header("Location:login.php");

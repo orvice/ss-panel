@@ -24,7 +24,7 @@ include_once '../lib/config.php';
 <body class="bg-black">
 
 <div class="form-box" id="login-box">
-    <div class="header">ShadowX 注册</div>
+    <div class="header"><?php echo $site_name;?>注册</div>
     <form name="reg" role="form" action="doreg.php" method="post" onsubmit="return regcheck()" >
         <div class="body bg-gray">
             <div class="form-group">

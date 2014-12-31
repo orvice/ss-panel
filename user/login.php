@@ -1,8 +1,11 @@
+<?php
+include_once '../lib/config.php';
+?>
 <!DOCTYPE html>
 <html class="bg-black">
 <head>
     <meta charset="utf-8">
-    <title>ShadowX登录</title>
+    <title><?php echo $site_name;?>登录</title>
     <!-- bootstrap 3.0.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -44,7 +47,6 @@
 </div>
 
 <script LANGUAGE="javascript">
-
     function logincheck()
     {
         if(document.login.username.value.length==0){
@@ -58,17 +60,12 @@
             document.login.password.focus();
             return false;
         }
-
-
     }
-
 </script>
 <!-- jQuery 2.0.2 -->
 <script src="../js/jquery-2.0.3.min.js"></script>
 <!-- Bootstrap -->
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-
 </body>
-
 </html>
 

@@ -27,12 +27,8 @@ class invite_code {
     }
 
     //删除邀请码
-    function invite_code_del(){
-        $query_sql = "SELECT * FROM `invite_code` WHERE `code` ='$this->code' LIMIT 1";
-        $query = $this->dbc->query($query_sql);
-        $rs = $query->fetch_array();
-        $id = $rs['id'];
-        $sql = "DELETE FROM `invite_code` WHERE `id` ='$id' ";
+    function invite_code_del(){ 
+        $sql = "DELETE FROM `invite_code` WHERE `code` ='$this->code' LIMIT 1 ";
         $query = $this->dbc->query($sql);
         return $query;
     }

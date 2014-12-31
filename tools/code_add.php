@@ -1,10 +1,10 @@
 <?php
 
 require_once '../lib/config.php';
-require_once '../lib/comm.func.php';
-require_once '../lib/user.func.php';
-require_once '../lib/reg.func.php';
-require_once '../lib/invite_code.class.php';
+require_once '../lib/func/comm.func.php';
+require_once '../lib/func/user.func.php';
+require_once '../lib/func/reg.func.php';
+require_once '../lib/class/invite_code.class.php';
 
 $num = 10;
 //$user = $_GET['user'];

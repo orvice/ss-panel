@@ -2,10 +2,10 @@
 header("Content-type: text/html; charset=utf-8");
 //注册处理页面
 require_once '../lib/config.php';
-require_once '../lib/comm.func.php';
-require_once '../lib/user.func.php';
-require_once '../lib/reg.func.php';
-require_once '../lib/invite_code.class.php';
+require_once '../lib/func/comm.func.php';
+require_once '../lib/func/user.func.php';
+require_once '../lib/func/reg.func.php';
+require_once '../lib/class/invite_code.class.php';
 
 //验证Post是否空
 if(empty($_POST) || empty($_POST['username'])){

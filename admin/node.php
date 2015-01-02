@@ -25,10 +25,8 @@ include_once 'lib/slidebar_left.inc.php';
     <section class="content">
             <div class="row">
                 <div class="col-xs-12">
+                    <p> <a class="btn btn-success btn-sm" href="node_add.php">添加</a> </p>
                     <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Node</h3>
-                        </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
@@ -39,7 +37,7 @@ include_once 'lib/slidebar_left.inc.php';
                                     <th>操作</th>
                                 </tr>
                                 <?php
-                                $sql ="SELECT * FROM `ss_node` WHERE `node_type` = '0' ORDER BY node_order ";
+                                $sql ="SELECT * FROM `ss_node`  ORDER BY node_order ";
                                 $query =  $dbc->query($sql);
                                 while ( $rs = $query->fetch_array()){ ?>
                                     <tr>
@@ -48,8 +46,8 @@ include_once 'lib/slidebar_left.inc.php';
                                         <td><?php echo $rs['node_info']; ?></td>
                                         <td><?php echo $rs['node_order']; ?></td>
                                         <td>
-                                            <a class="btn btn-info btn-sm" href="node_edit.php?id=<?php echo $rs['node_id']; ?>">编辑</a>
-                                            <a class="btn btn-danger btn-sm" href="node_del.php?id=<?php echo $rs['node_id']; ?>">删除</a>
+                                            <a class="btn btn-info btn-sm" href="node_edit.php?id=<?php echo $rs['id']; ?>">编辑</a>
+                                            <a class="btn btn-danger btn-sm" href="node_del.php?id=<?php echo $rs['id']; ?>">删除</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

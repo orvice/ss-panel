@@ -9,7 +9,7 @@ header("content-type:text/html;charset=utf-8");
 
 //引用数据库连接文件
 require_once '../lib/config.php';
-require_once '../lib/user.func.php';
+require_once '../lib/func/user.func.php';
 //require_once 'lib/func/pw.func.php';
 
 

@@ -14,7 +14,7 @@ if(!$oo->is_able_to_check_in()){
     if($oo->unused_transfer()<2048*$tomb){
         $transfer_to_add = 2048;
     }else{
-        $transfer_to_add = rand(1,100);
+        $transfer_to_add = rand($check_min,$check_max);
     }
     $oo->add_transfer($transfer_to_add*$tomb);
     $oo->update_last_check_in_time();

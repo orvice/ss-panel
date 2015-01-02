@@ -39,4 +39,9 @@ $tomb = 1024*1024;
 $togb = $tomb*1024;
 
 //define Plan
-$a_transfer = $togb*30 ;
+//注册用户的初始化流量
+$a_transfer = $togb*5;
+
+//签到设置 签到活的的最低最高流量
+$check_min = 1;
+$check_max = 100;

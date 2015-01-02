@@ -87,9 +87,31 @@ if(!empty($_POST)){
                         <div class="box-footer">
                             <button type="submit" name="action" value="add" class="btn btn-primary">修改</button>
                         </div>
+                        </form>
 
                 </div><!-- /.box -->
             </div>
+
+            <div class="col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header">
+                        <i class="fa fa-align-left"></i>
+                        <h3 class="box-title">Shadowsocks连接密码修改</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <form role="form" name="edit" method="post" action="profile_update_pass_do.php"  >
+                        <div class="form-group">
+                            <input type="text" placeholder="输入新密码" class="form-control" name="pass">
+                        </div>
+
+                        <div class="box-footer">
+                           <button type="submit" name="action" value="edit" class="btn btn-primary">修改</button>
+                        </div>
+                        </form>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col (right) -->
+
         </div>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->

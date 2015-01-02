@@ -16,10 +16,10 @@ define('DB_CHARSET','utf8');
 define('SS_PATH','');
 
 //name
-$site_name = "Shadow X";
+$site_name = "ss-panel";
 
 //Version
-$version   ="0.2.1";
+$version   ="0.2.4";
 
 //invite only
 $invite_only = true;

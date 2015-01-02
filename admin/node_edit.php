@@ -60,9 +60,9 @@ if(!empty($_GET)){
                     <form role="form" method="post" action="node_edit.php">
                         <div class="box-body">
 
-                            <div class="form-group">
-                                <label for="cate_title">ID</label>
-                                <input  class="form-control" name="node_id" value="<?php echo $rs['id'];?>" disabled="disabled">
+                            <div class="form-group" style="display:none" >
+                                <label for="cate_title" >ID</label>
+                                <input  class="form-control" name="node_id" value="<?php echo $id;?>"  >
                             </div>
 
                             <div class="form-group">

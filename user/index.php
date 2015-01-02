@@ -50,10 +50,7 @@ $unix_time = $oo->get_last_unix_time();
                             <h3 class="box-title">公告&FAQ</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p>流量不会重置，可以通过签到获取流量。</p>
-                            <p>使用的问题请尽量到Google+发帖</p>
-                            <p>流量可以通过签到获取，基本每天可以用1G流量。</p>
-                            <p> <a href="http://goo.gl/58OZvQ">请到Google+查看公告。</a>关注我的<a href="https://twitter.com/orvice">Twitter</a> </p>
+                            
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->
@@ -76,9 +73,7 @@ $unix_time = $oo->get_last_unix_time();
                     </div><!-- /.box -->
                 </div><!-- /.col (left) -->
 
-
-
-                <div class="col-md-6">
+              <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
                             <h3 class="box-title">签到获取流量</h3>
@@ -88,12 +83,13 @@ $unix_time = $oo->get_last_unix_time();
                             <?php  if($oo->is_able_to_check_in())  { ?>
                             <p><a class="btn btn-success btn-flat" href="docheckin.php">签到</a> </p>
                             <?php  }else{ ?>
-                            <p><a class="btn btn-success btn-flat disabled" href="#">未达到签到要求</a> </p>
+                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a> </p>
                             <?php  } ?>
                             <p>上次签到时间<code><?php echo date('Y-m-d H:i:s',$oo->get_last_check_in_time());?></code></p>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->
+              
 
                 <div class="col-md-6">
                     <div class="box box-solid">

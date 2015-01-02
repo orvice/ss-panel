@@ -149,4 +149,10 @@ class ss {
         $query = $this->dbc->query($sql);
     }
 
+    //update ss pass
+    function update_ss_pass($pass){
+        $sql = "UPDATE `user` SET `passwd` = '$pass' WHERE `uid` = '$this->uid'";
+        $query = $this->dbc->query($sql);
+    }
+
 } 

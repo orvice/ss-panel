@@ -54,3 +54,4 @@ $check_max = 100;
 $site_name = "Shadow X";
 
 //invite only
+$invite_only = true;

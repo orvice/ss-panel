@@ -29,6 +29,5 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_check_in_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`) VALUES
-(11, 'user1', 'user@msn.com',  '211e114055aeaf79e9b374819ab7d452', '0000000',  1420423709, 25442965504,  9583696025, 'A',  347149959168, 50000,  1,  1,  7,  0,  1420386514, 0,  '2014-11-07 00:00:00',  0,  0),;
+(11, 'user1', 'user@msn.com',  '211e114055aeaf79e9b374819ab7d452', '0000000',  1420423709, 25442965504,  9583696025, 'A',  347149959168, 50000,  1,  1,  7,  0,  1420386514, 0,  '2014-11-07 00:00:00',  0,  0);
 
--- 2015-01-05 02:13:42

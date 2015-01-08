@@ -46,7 +46,7 @@ include_once 'lib/config.php';
             <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks"><h4>Android</h4></a>
             <p>Android客户端</p>
 
-            <h4><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/">Shadowsocks-GUI</a></h4>
+            <h4><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/">Shadowsocks C#</a></h4>
             <p> Windows用户推荐此客户端.</p>
 
 

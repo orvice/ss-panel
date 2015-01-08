@@ -44,14 +44,15 @@ $togb = $tomb*1024;
 
 //define Plan
 //注册用户的初始化流量
+//默认5GiB
 $a_transfer = $togb*5;
 
-//签到设置 签到活的的最低最高流量
+//签到设置 签到活的的最低最高流量,单位MB
 $check_min = 1;
 $check_max = 100;
 
 //name
-$site_name = "Shadow X";
+$site_name = "ss-panel";
 
 //invite only
 $invite_only = true;

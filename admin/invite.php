@@ -56,6 +56,12 @@ include_once 'lib/slidebar_left.inc.php';
                         <div class="box-footer">
                             <button type="submit" name="action" value="add" class="btn btn-primary">添加</button>
                         </div>
+
+                        <div class="box-footer">
+                            <p>邀请码类别0的<a href="../code.php">在这里查看</a> </p>
+                            <p>邀请码类别1的<a href="invite_code.php">在这里查看</a> </p>
+                            <p>邀请码类别2的<a href="../user/code.php">在这里查看</a> </p>
+                        </div>
                     </form>
                 </div>
             </div><!-- /.box -->

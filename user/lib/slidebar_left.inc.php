@@ -40,6 +40,12 @@
                         <i class="fa  fa-pencil"></i> <span>修改资料</span>
                     </a>
                 </li>
+
+                <li  >
+                    <a href="code.php">
+                        <i class="fa fa-users"></i> <span>查看邀请</span>
+                    </a>
+                </li>
  
             </ul>
         </section>

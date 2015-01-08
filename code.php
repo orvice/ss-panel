@@ -71,13 +71,9 @@ include_once 'lib/config.php';
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; <?php echo $site_name; ?> 2014</p>
-    </div>
-
-    <?php include_once 'ana.php'?>
+    </div><?php
+    include_once 'footer.php';
+    include_once 'ana.php';?>
 
 </div> <!-- /container -->
 

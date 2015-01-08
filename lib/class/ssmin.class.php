@@ -7,7 +7,7 @@ class ssmin {
 
     private $dbc;
 
-    function  __construct($uid){
+    function  __construct(){
         global $dbc;
         $this->dbc = $dbc;
     }
@@ -49,6 +49,13 @@ class ssmin {
         $now = time();
         $time = $now-$time;
         $sql = "SELECT COUNT(uid) FROM `user` WHERE `t` >$time ";
+        $query = $this->dbc->query($sql);
+        $row = $query->fetch_array();
+        return $row[0];
+    }
+
+    function node_count(){
+        $sql = "SELECT COUNT(id) FROM `ss_node` ";
         $query = $this->dbc->query($sql);
         $row = $query->fetch_array();
         return $row[0];

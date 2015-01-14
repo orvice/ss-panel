@@ -29,9 +29,7 @@ include_once 'lib/config.php';
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
-
 <div class="container">
     <?php include_once 'nav.php';?>
 
@@ -61,23 +59,15 @@ include_once 'lib/config.php';
                 <tr>
                     <td><?php echo $a;$a++; ?></td>
                      <td><?php echo $rs['code'];?></td>
-                    <td>可用</td>
-
+                    <td>可用</td> 
                 </tr>
-                <?php } ?>
-
-
-
+                <?php } ?> 
                 </tbody>
             </table>
         </div>
     </div><?php
     include_once 'footer.php';
     include_once 'ana.php';?>
-
 </div> <!-- /container -->
-
-
-
 </body>
 </html>

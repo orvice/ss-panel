@@ -51,12 +51,12 @@ if($okk){
         echo ' <script>alert("用户名长度错误!")</script> ';
         echo " <script>window.location='reg.php';</script> " ;
     }
-    if(!isEmailOK($email)){
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $info_ok = 0;
         echo ' <script>alert("邮箱地址错误")</script> ';
         echo " <script>window.location='reg.php';</script> " ;
     }
-
 
     if($info_ok){
         //do reg

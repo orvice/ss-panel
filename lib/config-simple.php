@@ -21,7 +21,7 @@ define('DB_CHARSET','utf8');
 define('SS_PATH','');
 
 //Version
-$version   ="0.2.5";
+$version   ="0.2.8";
 
 //set timezone
 date_default_timezone_set('PRC');

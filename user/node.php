@@ -32,17 +32,28 @@ include_once 'lib/slidebar_left.inc.php';
                         <h3 class="box-title">节点</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <div class="callout callout-info">
-                            <h4>加密方式</h4>
-                            <p>无特殊说明加密方式均为<code>aes-256-cfb</code></p>
+                        <div class="callout callout-warning">
+                            <h4>注意!</h4>
+                            <p>请勿在任何地方公开节点地址！</p>
                         </div><?php
                         $sql ="SELECT * FROM `ss_node` WHERE `node_type` = '0' ORDER BY node_order ";
                         $query =  $dbc->query($sql);
                         while ( $rs = $query->fetch_array()){
                         ?>
-                        <p><?php echo $rs['node_name']; ?>:  <code><?php echo $rs['node_server']; ?></code><?php echo $rs['node_info']; ?> </p>
+                            <div class="callout callout-info">
+                                <h4><?php echo $rs['node_name']; ?></h4>
+                                <p> <a class="btn btn-xs bg-purple btn-flat margin" href="#">地址:</a> <code><?php echo $rs['node_server']; ?></code>
+                                    <a class="btn btn-xs bg-orange btn-flat margin" href="#"><?php echo $rs['node_status']; ?></a>
+                                    <a class="btn btn-xs bg-green btn-flat margin" href="#"><?php echo $rs['node_method']; ?></a>
+                                    <a class="btn btn-xs bg-blue btn-flat margin" target="_blank" href="node_json.php?id=<?php echo $rs['id']; ?>">配置文件</a>
+                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">二维码</a>
+                                </p>
+                                <p> <?php echo $rs['node_info']; ?></p>
+                            </div>
                         <?php }?>
                     </div><!-- /.box-body -->
+
+
                 </div><!-- /.box -->
             </div><!-- /.col (left) -->
 
@@ -61,11 +72,21 @@ include_once 'lib/slidebar_left.inc.php';
                         $query =  $dbc->query($sql);
                         while ( $rs = $query->fetch_array()){
                             ?>
-                            <p><?php echo $rs['node_name']; ?>:  <code><?php echo $rs['node_server']; ?></code><?php echo $rs['node_info']; ?> </p>
+                            <div class="callout callout-info">
+                                <h4><?php echo $rs['node_name']; ?></h4>
+                                <p> <a class="btn btn-xs bg-purple btn-flat margin" href="#">地址:</a> <code><?php echo $rs['node_server']; ?></code>
+                                    <a class="btn btn-xs bg-orange btn-flat margin" href="#"><?php echo $rs['node_status']; ?></a>
+                                    <a class="btn btn-xs bg-green btn-flat margin" href="#"><?php echo $rs['node_method']; ?></a>
+                                    <a class="btn btn-xs bg-blue btn-flat margin" target="_blank" href="node_json.php?id=<?php echo $rs['id']; ?>">配置文件</a>
+                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">二维码</a>
+                                </p>
+                                <p> <?php echo $rs['node_info']; ?></p>
+                            </div>
                         <?php }?>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
-            </div><!-- /.col (right) --> 
+            </div><!-- /.col (right) -->
+             
         </div><!-- /.row -->
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->

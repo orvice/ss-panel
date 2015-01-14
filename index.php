@@ -29,9 +29,7 @@ include_once 'lib/config.php';
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
-
 <div class="container">
     <?php include_once 'nav.php';?>
 
@@ -45,11 +43,8 @@ include_once 'lib/config.php';
         <div class="col-lg-6">
             <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks"><h4>Android</h4></a>
             <p>Android客户端</p>
-
             <h4><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/">Shadowsocks C#</a></h4>
             <p> Windows用户推荐此客户端.</p>
-
-
         </div>
 
         <div class="col-lg-6">
@@ -58,16 +53,11 @@ include_once 'lib/config.php';
 
             <h4><a href="https://github.com/ohdarling/GoAgentX/releases">GoAgentX</a></h4>
             <p> Mac用户推荐此客户端.</p>
-
-
         </div>
     </div><?php
             include_once 'footer.php';
             include_once 'ana.php';?>
-
 </div> <!-- /container -->
-
-
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

@@ -46,7 +46,7 @@ include_once 'lib/slidebar_left.inc.php';
                                     <a class="btn btn-xs bg-orange btn-flat margin" href="#"><?php echo $rs['node_status']; ?></a>
                                     <a class="btn btn-xs bg-green btn-flat margin" href="#"><?php echo $rs['node_method']; ?></a>
                                     <a class="btn btn-xs bg-blue btn-flat margin" target="_blank" href="node_json.php?id=<?php echo $rs['id']; ?>">配置文件</a>
-                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">QR二维码</a>
+                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">二维码</a>
                                 </p>
                                 <p> <?php echo $rs['node_info']; ?></p>
                             </div>
@@ -78,7 +78,7 @@ include_once 'lib/slidebar_left.inc.php';
                                     <a class="btn btn-xs bg-orange btn-flat margin" href="#"><?php echo $rs['node_status']; ?></a>
                                     <a class="btn btn-xs bg-green btn-flat margin" href="#"><?php echo $rs['node_method']; ?></a>
                                     <a class="btn btn-xs bg-blue btn-flat margin" target="_blank" href="node_json.php?id=<?php echo $rs['id']; ?>">配置文件</a>
-                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">QR二维码</a>
+                                    <a class="btn btn-xs bg-yellow btn-flat margin" target="_blank"  href="node_qr.php?id=<?php echo $rs['id']; ?>">二维码</a>
                                 </p>
                                 <p> <?php echo $rs['node_info']; ?></p>
                             </div>

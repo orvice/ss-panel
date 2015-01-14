@@ -14,12 +14,12 @@ $port = $oo->get_port();
 //for qr
 require_once '../lib/func/phpqrcode.php';
 $ssurl =  $method.":".$pass."@".$server.":".$port;
-$ssqr = "ss://".$ssurl;
+$ssqr = "ss://".base64_encode($ssurl);
 ?>
-<p>ss://<?php echo $ssqr;?></p>
-<p>ss://<?php echo base64_encode($ssurl);?></p>
+<p>ss://<?php echo $ssurl;?></p>
+<p><?php echo $ssqr;?></p>
 <?php
-$value = base64_encode($ssqr); //二维码内容
+$value = $ssqr; //二维码内容
 $errorCorrectionLevel = 'L';//容错级别
 $matrixPointSize = 6;//生成图片大小
 //生成二维码图片

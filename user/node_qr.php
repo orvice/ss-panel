@@ -43,8 +43,10 @@ if ($logo !== FALSE) {
         $logo_qr_height, $logo_width, $logo_height);
 }
 //输出图片
-imagepng($QR, 'qr.png');
-echo '<img src="qr.png">';
+$qrpng = $id.".png";
+imagepng($QR, $qrpng);
+?>
+<img src="<?php echo $qrpng; ?>">
 
 
 

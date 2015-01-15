@@ -15,7 +15,7 @@ if(!empty($_POST)){
     $node_name     = $_POST['node_name'];
     $node_type     = $_POST['node_type'];
     $node_server   = $_POST['node_server'];
-	$node_method   = $_POST['node_method'];
+    $node_method   = $_POST['node_method'];
     $node_info     = $_POST['node_info'];
     $node_status   = $_POST['node_status'];
     $node_order    = $_POST['node_order'];
@@ -65,7 +65,7 @@ if(!empty($_POST)){
                                 <input  class="form-control" name="node_method" value="<?php echo $rs['node_method'];?>" >
                             </div>
 							
-							<div class="form-group">
+                            <div class="form-group">
                                 <label for="cate_title">节点描述</label>
                                 <input  class="form-control" name="node_info" value="<?php echo $rs['node_info'];?>" >
                             </div>

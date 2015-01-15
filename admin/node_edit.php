@@ -18,7 +18,7 @@ if(!empty($_POST)){
     $node_name     = $_POST['node_name'];
     $node_type     = $_POST['node_type'];
     $node_server   = $_POST['node_server'];
-	$node_method   = $_POST['node_method'];
+    $node_method   = $_POST['node_method'];
     $node_info     = $_POST['node_info'];
     $node_status   = $_POST['node_status'];
     $node_order    = $_POST['node_order'];
@@ -76,7 +76,7 @@ if(!empty($_GET)){
                                 <input  class="form-control" name="node_server" value="<?php echo $rs['node_server'];?>" >
                             </div>
 							
-							<div class="form-group">
+                                <div class="form-group">
                                 <label for="cate_method">加密方式</label>
                                 <input  class="form-control" name="node_method" value="<?php echo $rs['node_method'];?>" >
                             </div>

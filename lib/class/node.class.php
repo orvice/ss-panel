@@ -11,17 +11,18 @@
          $this->dbc = $dbc;
      }
 
-     function add($node_name,$node_type,$node_server,$node_info,$node_status,$node_order){
-         $sql = "INSERT INTO  `ss_node` (`id`, `node_name`, `node_type`, `node_server`, `node_info`, `node_status`, `node_order`)
-            VALUES (NULL, '$node_name', '$node_type', '$node_server', '$node_info', '$node_status', '$node_order')";
+     function add($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order){
+         $sql = "INSERT INTO  `ss_node` (`id`, `node_name`, `node_type`, `node_server`, `node_method`, `node_info`, `node_status`, `node_order`)
+            VALUES (NULL, '$node_name', '$node_type', '$node_server', '$node_method', '$node_info', '$node_status', '$node_order')";
          $query = $this->dbc->query($sql);
          return $query;
      }
-     function update($node_name,$node_type,$node_server,$node_info,$node_status,$node_order){
+     function update($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order){
          $sql = " UPDATE `ss_node` SET
                   `node_name` = '$node_name',
                   `node_type` = '$node_type',
                   `node_server` = '$node_server',
+                  `node_method` = '$node_method',
                   `node_info` = '$node_info',
                   `node_status` = '$node_status',
                   `node_order` = '$node_order'

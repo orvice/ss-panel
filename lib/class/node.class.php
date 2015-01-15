@@ -12,8 +12,13 @@
      }
 
      function add($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order){
+<<<<<<< HEAD
+         $sql = "INSERT INTO  `ss_node` (`id`, `node_name`, `node_type`, `node_server`, `node_method`,`node_info`, `node_status`, `node_order`)
+            VALUES (NULL, '$node_name', '$node_type', '$node_server','$node_method', '$node_info', '$node_status', '$node_order')";
+=======
          $sql = "INSERT INTO  `ss_node` (`id`, `node_name`, `node_type`, `node_server`, `node_method`, `node_info`, `node_status`, `node_order`)
             VALUES (NULL, '$node_name', '$node_type', '$node_server', '$node_method', '$node_info', '$node_status', '$node_order')";
+>>>>>>> master
          $query = $this->dbc->query($sql);
          return $query;
      }

@@ -82,6 +82,11 @@ if(!empty($_GET)){
                             </div>
 
                             <div class="form-group">
+                                <label for="cate_method">加密方式</label>
+                                <input  class="form-control" name="node_method" value="<?php echo $rs['node_method'];?>" >
+                            </div>
+
+                            <div class="form-group">
                                 <label for="cate_title">节点描述</label>
                                 <input  class="form-control" name="node_info" value="<?php echo $rs['node_info'];?>" >
                             </div>

@@ -32,6 +32,7 @@ include_once 'lib/slidebar_left.inc.php';
                                 <tr>
                                     <th>ID</th>
                                     <th>节点</th>
+									<th>加密</th>
                                     <th>描述</th>
                                     <th>排序</th>
                                     <th>操作</th>
@@ -43,6 +44,7 @@ include_once 'lib/slidebar_left.inc.php';
                                     <tr>
                                         <td>#<?php echo $rs['id']; ?></td>
                                         <td> <?php echo $rs['node_name']; ?></td>
+										<td> <?php echo $rs['node_method']; ?></td>
                                         <td><?php echo $rs['node_info']; ?></td>
                                         <td><?php echo $rs['node_order']; ?></td>
                                         <td>

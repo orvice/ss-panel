@@ -45,7 +45,7 @@ include_once 'lib/slidebar_left.inc.php';
 
                             <tbody>
                             <?php
-                            $sql = "SELECT * FROM `invite_code` WHERE user = '2' limit 1 ";
+                            $sql = "SELECT * FROM `invite_code` WHERE user = '2' ORDER BY RAND() limit 1 ";
                             $query = $dbc->query($sql);
                             $a = 0;
                             while($rs = $query->fetch_array()){

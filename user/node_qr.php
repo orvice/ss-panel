@@ -43,7 +43,7 @@ if ($logo !== FALSE) {
         $logo_qr_height, $logo_width, $logo_height);
 }
 //输出图片
-$qrpng = $id.".png";
+$qrpng = "tmp/".$id."-".time().".png";
 imagepng($QR, $qrpng);
 ?>
 <img src="<?php echo $qrpng; ?>">

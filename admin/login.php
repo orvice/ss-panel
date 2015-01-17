@@ -2,7 +2,7 @@
 <html class="bg-black">
 <head>
     <meta charset="utf-8">
-    <title>ShadowX登录</title>
+    <title><?php echo $site_name; ?></title>
     <!-- bootstrap 3.0.2 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->

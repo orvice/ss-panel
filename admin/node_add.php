@@ -60,18 +60,12 @@ if(!empty($_POST)){
                                 <input  class="form-control" name="node_server" value="<?php echo $rs['node_server'];?>" >
                             </div>
 
-                            <div class="form-group">
-<<<<<<< HEAD
+                            <div class="form-group"> 
                                 <label for="cate_method">加密方式</label>
                                 <input  class="form-control" name="node_method" value="<?php echo $rs['node_method'];?>" >
                             </div>
 
-=======
-                                <label for="cate_title">加密方式</label>
-                                <input  class="form-control" name="node_method" value="<?php echo $rs['node_method'];?>" >
-                            </div>
-							
->>>>>>> master
+
                             <div class="form-group">
                                 <label for="cate_title">节点描述</label>
                                 <input  class="form-control" name="node_info" value="<?php echo $rs['node_info'];?>" >

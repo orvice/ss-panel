@@ -56,3 +56,6 @@ $site_name = "ss-panel";
 
 //invite only
 $invite_only = true;
+//用户注册后获得的邀请码最低最高
+$user_invite_min = '1';
+$user_invite_max = '1';

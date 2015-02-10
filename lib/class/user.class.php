@@ -19,6 +19,9 @@
                   `passwd` = '$user_passwd',
                   `transfer_enable` = '$transfer_enable'
                   WHERE  `uid` = '$this->uid' ";
+         $reset = " UPDATE `user` SET `transfer_enable` = '1' WHERE `uid` = '$this->uid' ";
+         $this->dbc->query($reset);
+         sleep(15);
          $query = $this->dbc->query($sql);
          return $query;
      }

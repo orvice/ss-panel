@@ -154,7 +154,7 @@ class ss {
         //$sql = "UPDATE `user` SET `passwd` = '$pass' WHERE `uid` = '$this->uid'";
         //$query = $this->dbc->query($sql);
         $transfer = $this->get_transfer_enable();
-        $sql0 = "UPDATE  `user` SET `transfer_enable` = '1' WHERE  `uid` = '$this->uid'";
+        $sql0 = "UPDATE  `user` SET `transfer_enable` = '-9999' WHERE  `uid` = '$this->uid'";
         $sql1 = "UPDATE  `user` SET `transfer_enable` = '$transfer' WHERE  `uid` = '$this->uid'";
         $this->dbc->query($sql0);
         sleep(15);

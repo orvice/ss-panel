@@ -2,6 +2,7 @@
 require_once '../lib/config.php';
 require_once '../lib/func/comm.func.php';
 require_once '../lib/func/admin.func.php';
+require_once '../lib/class/user.class.php';
 require_once '../lib/class/node.class.php';
 require_once '../lib/class/invite_code.class.php';
 //检测是否登录，若没登录则转向登录界面

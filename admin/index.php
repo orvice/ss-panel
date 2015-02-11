@@ -67,7 +67,7 @@ $node_count  = $ssmin->node_count();
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="user.php" class="small-box-footer">
                         查看 <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>

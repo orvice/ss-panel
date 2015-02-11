@@ -29,7 +29,11 @@
                     </a>
                 </li>
 
-
+                <li >
+                    <a href="user.php">
+                        <i class="fa fa-user"></i> <span>查看用户</span>
+                    </a>
+                </li>
 
                 <li  >
                     <a href="invite.php">

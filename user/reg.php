@@ -41,7 +41,7 @@ include_once '../lib/config.php';
 
 
             <div class="form-group">
-                <input type="text" name="email" class="form-control" id="inputUsernameEmail" value="<?php echo $_COOKIE['reg_name'];?>" placeholder="邮箱" >
+                <input type="text" name="email" class="form-control" id="Email" value="<?php echo $_COOKIE['reg_email'];?>" placeholder="邮箱" >
             </div>
 
             <?php if($invite_only){ ?>

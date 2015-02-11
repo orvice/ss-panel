@@ -66,7 +66,7 @@ if($okk){
         $port = get_last_port() + rand(2, 7);
 
         //邀请码数量
-        $invite_num = rand(1, 1);
+        $invite_num = rand($user_invite_min,$user_invite_max);
 
         $rt = reg($username, $email, $pwd, $pass, $transfer, $port, $invite_num, 0.00);
         if ($rt) {

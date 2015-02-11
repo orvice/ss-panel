@@ -79,7 +79,7 @@ $unix_time = $oo->get_last_unix_time();
                             <h3 class="box-title">签到获取流量</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p> 24小时内可以签到一次，剩余流量小于2G可以一次获得2G流量。 </p>
+                            <p> 24小时内可以签到一次 </p>
                             <?php  if($oo->is_able_to_check_in())  { ?>
                             <p><a class="btn btn-success" href="docheckin.php">签到</a> </p>
                             <?php  }else{ ?>

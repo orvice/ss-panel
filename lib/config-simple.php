@@ -21,7 +21,7 @@ define('DB_CHARSET','utf8');
 define('SS_PATH','');
 
 //Version
-$version   ="0.2.8";
+$version   ="0.3.2";
 
 //set timezone
 date_default_timezone_set('PRC');
@@ -56,3 +56,7 @@ $site_name = "ss-panel";
 
 //invite only
 $invite_only = true;
+//用户注册后获得的邀请码最低最高
+//都设置为0用户就不能邀请
+$user_invite_min = '1';
+$user_invite_max = '1';

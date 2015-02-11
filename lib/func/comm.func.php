@@ -12,7 +12,7 @@ function get_last_port(){
 
 //Gravatar
 function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
-    $url = 'https://secure.gravatar.com/avatar/';
+    $url = 'http://gravatar.duoshuo.com/avatar/';
     $url .= md5( strtolower( trim( $email ) ) );
     $url .= "?s=$s&d=$d&r=$r";
     if ( $img ) {
@@ -22,4 +22,16 @@ function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts
         $url .= ' />';
     }
     return $url;
+}
+
+//获取随机字符串
+function get_random_char( $length = 8 ) {
+    // 密码字符集，可任意添加你需要的字符
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $char = '';
+    for ( $i = 0; $i < $length; $i++ )
+    {
+        $char .= $chars[ mt_rand(0, strlen($chars) - 1) ];
+    }
+    return $char;
 }

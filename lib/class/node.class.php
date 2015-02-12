@@ -2,13 +2,16 @@
 
  class node {
 
-     public $id;
+     public  $id;
      private $dbc;
+     private $db;
 
-     function __construct($id){
+     function __construct($id=0){
          global $dbc;
+         global $db;
          $this->id  = $id;
          $this->dbc = $dbc;
+         $this->db  = $db;
      }
 
      function add($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order){
@@ -37,4 +40,11 @@
          return $query;
      }
 
+     function get_node_array($node_type){
+         $node_array = $this->db->select("ss_node","*",[
+             "node_type[=]" => $node_type,
+             //"LIMIT" => 21
+         ]);
+         return $node_array;
+     }
 }

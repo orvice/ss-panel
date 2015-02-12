@@ -1,6 +1,8 @@
 <?php
-include_once 'lib/config.php';
+require_once 'lib/config.php';
+require_once 'lib/class/invite_code.class.php';
 include_once 'header.php';
+$c = new invite_code();
 ?>
 <body>
 <div class="container">
@@ -24,11 +26,7 @@ include_once 'header.php';
                 </thead>
                 <tbody>
                 <?php
-                $datas = $db->select("invite_code","*",
-                    [
-                    "user[=]" => 0,
-                    "LIMIT" => 21
-                ]);
+                $datas = $c->get_code_array(0,21);
                 $a = 0;
                 foreach($datas as $data ){
                 ?>

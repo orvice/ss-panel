@@ -30,13 +30,13 @@ include_once '../lib/config.php';
       <form role="form" action="dologin.php" method="post" onsubmit="return logincheck()">
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="username"  name="username" class="form-control" placeholder="Username" required autofocus>
+                <input type="text"  name="username" class="form-control" placeholder="Username or Email" required autofocus>
             </div>
             <div class="form-group">
                 <input type="password"  name="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input type="checkbox" name="remember_me" value="week"/>保存Cookie7天   
+                <input type="checkbox" name="remember_me" value="week"> 保存Cookie7天  <a href="resetpwd.php">忘记密码</a>
             </div>
         </div>
         <div class="footer">

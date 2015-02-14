@@ -6,7 +6,7 @@
      private $dbc;
      private $db;
 
-     function __construct($uid){
+     function __construct($uid=0){
          global $dbc;
          global $db;
          $this->uid = $uid;
@@ -67,10 +67,39 @@
         }
     }
 
+    //login check
+    function login_check($username,$passwd){
+        if($this->db->has("user",[
+            "AND" => [
+                "OR" => [
+                    "user_name" => $username,
+                    "email" => $username
+                ],
+                "pass" => $passwd
+            ]
+        ])){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+     //根据用户名返回UID
+     function get_user_uid($username){
+         $datas = $this->db->select("user","*", [
+             "OR" => [
+                 "user_name" => $username,
+                 "email" => $username
+             ],
+             "LIMIT" => 1
+         ]);
+         return $datas['0']['uid'];
+     }
+
     // 用户注册 $pass ss密码
     function reg($username,$email,$pass,$passwd,$plan,$transfer,$port,$invite_num,$money){
         $sql ="INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `reg_date`,`invite_num`,`money`)
-           VALUES (NULL, '$username', '$email', '$pwd', '$pass', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', now(),$invite_num,$money)";
+           VALUES (NULL, '$username', '$email', '$pass', '$passwd', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', now(),$invite_num,$money)";
         $query = $this->dbc->query($sql);
         $this->db->insert("user",[
             "user_name" => $username,

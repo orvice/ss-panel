@@ -3,7 +3,7 @@ ss-panel
 
 A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tree/manyuser
 
-[演示](https://cattt.com)
+[演示](https://cattt.com) [安装&更新教程](https://bbs.yekuba.com/forum-38-1.html)
 
 
 ### 安装

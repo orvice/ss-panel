@@ -41,7 +41,7 @@ $db = new medoo([
 ]);
 
 //Version
-$version   ="0.3.5";
+$version   ="0.3.8";
 
 //set timezone
 date_default_timezone_set('PRC');

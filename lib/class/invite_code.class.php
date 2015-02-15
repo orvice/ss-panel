@@ -7,11 +7,14 @@ class invite_code {
 
     public $code;
     private $dbc;
+    private $db;
 
     function  __construct($code=0){
         global $dbc;
+        global $db;
         $this->code = $code;
         $this->dbc  = $dbc;
+        $this->db   = $db;
     }
 
     //邀请码是否有效检测
@@ -43,6 +46,15 @@ class invite_code {
             $sql = "INSERT INTO `invite_code` (`id`, `code`, `user`) VALUES (NULL, '$code', '$user')";
             $this->dbc->query($sql);
         }
+    }
+
+    function get_code_array($user,$num){
+        $array = $this->db->select("invite_code","*",
+            [
+                "user[=]" => $user,
+                "LIMIT" => $num
+            ]);
+        return $array;
     }
 
 }

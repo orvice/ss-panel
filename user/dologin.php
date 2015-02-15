@@ -9,9 +9,10 @@ header("content-type:text/html;charset=utf-8");
 
 //引用数据库连接文件
 require_once '../lib/config.php';
+require_once '../lib/class/user.class.php';
 require_once '../lib/func/user.func.php';
 //require_once 'lib/func/pw.func.php';
-
+$u = new user();
 
 if(!empty($_POST)){
 
@@ -19,7 +20,7 @@ if(!empty($_POST)){
     $username = mysqli_real_escape_string($dbc,trim($_POST['username']));
     $pwd      = md5($_POST['password']); //md5加密
     $rem = $_POST['remember_me'];
-    $rt = user_login_check($username,$pwd);
+    $rt = $u->login_check($username,$pwd);
     if($rt==1){
         if($rem= "week"){
             $ext = 3600*24*7;
@@ -27,7 +28,7 @@ if(!empty($_POST)){
             $ext = 3600;
         }
         //获取用户id
-        $id = get_user_uid($username);
+        $id = $u->get_user_uid($username);
         //处理密码
         $pw = co_pw($pwd);
         setcookie("user_name", $username, time()+$ext);

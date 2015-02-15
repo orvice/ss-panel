@@ -1,6 +1,8 @@
 <?php
-include_once 'lib/config.php';
+require_once 'lib/config.php';
+require_once 'lib/class/invite_code.class.php';
 include_once 'header.php';
+$c = new invite_code();
 ?>
 <body>
 <div class="container">
@@ -8,6 +10,7 @@ include_once 'header.php';
 
     <div class="jumbotron">
         <p class="lead"> 邀请码实时刷新</p>
+        <p>如遇到无邀请码请找已经注册的用户获取。</p>
     </div>
 
     <div class="row marketing">
@@ -21,17 +24,15 @@ include_once 'header.php';
                     <th>状态</th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM `invite_code` WHERE user = '0' limit 21 ";
-                $query = $dbc->query($sql);
+                $datas = $c->get_code_array(0,21);
                 $a = 0;
-                while($rs = $query->fetch_array()){
+                foreach($datas as $data ){
                 ?>
                 <tr>
                     <td><?php echo $a;$a++; ?></td>
-                     <td><?php echo $rs['code'];?></td>
+                     <td><?php echo $data['code'];?></td>
                     <td>可用</td>
                 </tr>
                 <?php } ?>
@@ -39,8 +40,9 @@ include_once 'header.php';
             </table>
         </div>
     </div><?php
-    include_once 'footer.php';
-    include_once 'ana.php';?>
+            include_once 'footer.php';
+            include_once 'ana.php';?>
+
 </div> <!-- /container -->
 </body>
 </html>

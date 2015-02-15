@@ -10,6 +10,7 @@ header("content-type:text/html;charset=utf-8");
 //引用数据库连接文件
 require_once '../lib/config.php';
 require_once '../lib/class/user.class.php';
+require_once '../lib/class/ss.class.php';
 require_once '../lib/func/user.func.php';
 //require_once 'lib/func/pw.func.php';
 $u = new user();
@@ -29,6 +30,9 @@ if(!empty($_POST)){
         }
         //获取用户id
         $id = $u->get_user_uid($username);
+        //获得用户user_name，email登录的时候需要
+        $s = new ss($id);
+        $username = $s->get_user_info_array()['user_name'];
         //处理密码
         $pw = co_pw($pwd);
         setcookie("user_name", $username, time()+$ext);

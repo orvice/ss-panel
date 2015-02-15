@@ -38,7 +38,7 @@ $togb = $tomb*1024;
                                     <th>端口</th>
                                     <th>设置流量</th>
                                     <th>剩余流量</th>
-                                    <th>最后登录</th>
+                                    <th>最后签到</th>
                                     <th>操作</th>
                                 </tr>
                                 <?php

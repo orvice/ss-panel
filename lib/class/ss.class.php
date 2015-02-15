@@ -6,88 +6,51 @@
 class ss {
     //
     public  $uid;
-    private $dbc;
     private $db;
 
     function  __construct($uid=0){
-        global $dbc;
         global $db;
-        $this->uid = $uid;
-        $this->dbc = $dbc;
+        $this->uid = $uid; 
         $this->db  = $db;
+    }
+
+    //user info array
+    function get_user_info_array(){
+        $datas = $this->db->select("user","*",[
+            "uid" => $this->uid,
+            "LIMIT" => "1"
+        ]);
+        return $datas['0'];
     }
 
     //返回端口号
     function  get_port(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['port'];
-        }
+         return $this->get_user_info_array()['port'];
     }
 
     //获取流量
     function get_transfer(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['u']+$rs['d'];
-        }
-
+        return $this->get_user_info_array()['u']+$this->get_user_info_array()['d'];
     }
 
     //返回密码
     function  get_pass(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['passwd'];
-        }
+        return $this->get_user_info_array()['passwd'];
     }
 
     //返回Plan
     function  get_plan(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['plan'];
-        }
+        return $this->get_user_info_array()['plan'];
     }
 
     //返回transfer_enable
     function  get_transfer_enable(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['transfer_enable'];
-        }
+        return $this->get_user_info_array()['transfer_enable'];
     }
 
     //get money
     function  get_money(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['money'];
-        }
+        return $this->get_user_info_array()['money'];
     }
 
     //get unused traffic
@@ -98,33 +61,18 @@ class ss {
 
     //get last time
     function get_last_unix_time(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['t'];
-        }
+        return $this->get_user_info_array()['t'];
     }
 
     //get last check in time
     function get_last_check_in_time(){
-        $sql = "SELECT * FROM `user` WHERE uid = '$this->uid'";
-        $query = $this->dbc->query($sql);
-        if(!$query){
-            return 0;
-        }else{
-            $rs = $query->fetch_array();
-            return $rs['last_check_in_time'];
-        }
+        return $this->get_user_info_array()['last_check_in_time'];
     }
 
     //check is able to check in
     function is_able_to_check_in(){
-        global $tomb;
         $now = time();
-        if( $now-$this->get_last_check_in_time() > 3600*24 ){
+        if( $now-$this->get_last_check_in_time() > 3600*22 ){
             return 1;
         }else{
             return 0;
@@ -134,28 +82,35 @@ class ss {
     //update last check_in time
     function update_last_check_in_time(){
         $now = time();
-        $sql = "UPDATE `user` SET `last_check_in_time` ='$now' WHERE `uid` =$this->uid ";
-        $this->dbc->query($sql);
+        $this->db->update("user",[
+            "last_check_in_time" => $now
+        ],[
+            "uid" => $this->uid
+        ]);
     }
 
     //add transfer 添加流量
     function  add_transfer($transfer=0){
         $transfer = $this->get_transfer_enable()+$transfer;
-        $sql = "UPDATE  `user` SET `transfer_enable` = '$transfer' WHERE  `uid` = $this->uid  ";
-        $this->dbc->query($sql);
+        $this->db->update("user",[
+            "transfer_enable" => $transfer
+        ],[
+            "uid" => $this->uid
+        ]);
     }
 
     //add money
     function add_money($uid,$money){
         $money = $this->get_money()+$money;
-        $sql = "UPDATE  `user` SET `money` = '$money' WHERE  `uid` ='$uid' ";
-        $query = $this->dbc->query($sql);
+        $this->db->update("user",[
+            "money" => $money
+        ],[
+            "uid" => $uid
+        ]);
     }
 
     //update ss pass
     function update_ss_pass($pass){
-        //$sql = "UPDATE `user` SET `passwd` = '$pass' WHERE `uid` = '$this->uid'";
-        //$query = $this->dbc->query($sql);
         $this->db->update("user",[
             "passwd" => $pass
         ],[

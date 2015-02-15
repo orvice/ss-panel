@@ -7,11 +7,14 @@ class ss {
     //
     public  $uid;
     private $dbc;
+    private $db;
 
     function  __construct($uid=0){
         global $dbc;
+        global $db;
         $this->uid = $uid;
         $this->dbc = $dbc;
+        $this->db  = $db;
     }
 
     //返回端口号
@@ -153,14 +156,11 @@ class ss {
     function update_ss_pass($pass){
         //$sql = "UPDATE `user` SET `passwd` = '$pass' WHERE `uid` = '$this->uid'";
         //$query = $this->dbc->query($sql);
-        $transfer = $this->get_transfer_enable();
-        $sql0 = "UPDATE  `user` SET `transfer_enable` = '-9999' WHERE  `uid` = '$this->uid'";
-        $sql1 = "UPDATE  `user` SET `transfer_enable` = '$transfer' WHERE  `uid` = '$this->uid'";
-        $this->dbc->query($sql0);
-        sleep(15);
-        $this->dbc->query($sql1);
-        $sql2 = "UPDATE `user` SET `passwd` = '$pass' WHERE `uid` = '$this->uid'";
-        $query = $this->dbc->query($sql2);
+        $this->db->update("user",[
+            "passwd" => $pass
+        ],[
+            "uid" => $this->uid
+        ]);
     }
 
-} 
+}

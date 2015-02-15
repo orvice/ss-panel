@@ -20,3 +20,6 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 * Rename dir admin
 * visit /admin
 * Default username: admin password: 12345678
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/orvice/ss-panel/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

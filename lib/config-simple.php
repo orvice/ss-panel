@@ -22,7 +22,7 @@ define('DB_TYPE','mysql');
 define('SS_PATH','');
 
 //Connect to DB using medoo
-require_once 'class/medoo.php';
+require_once 'class/medoo.class.php';
 $db = new medoo([
     // required
     'database_type' => DB_TYPE,

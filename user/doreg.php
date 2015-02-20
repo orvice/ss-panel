@@ -71,7 +71,9 @@ if($okk){
         //默认信息  $pass ss密码  $transfer 流量  $port 端口
         $pass = get_temp_pass();
         $transfer = $a_transfer;
-        $port = get_last_port() + rand(2, 7);
+        $r = new \Ss\User\Reg();
+        $last_port = $r->get_last_port();
+        $port = $last_port + rand(2, 7);
 
         //邀请码数量
         $invite_num = rand($user_invite_min,$user_invite_max);

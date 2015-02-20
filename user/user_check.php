@@ -1,9 +1,7 @@
 <?php
 require_once '../lib/config.php';
 require_once '../lib/func/comm.func.php';
-require_once '../lib/func/user.func.php';
-require_once '../lib/class/ss.class.php';
-require_once '../lib/class/node.class.php';
+require_once '../lib/func/user.func.php'; 
 //检测是否登录，若没登录则转向登录界面
 if(!isset($_COOKIE['user_name'])||!isset($_COOKIE['user_uid'])||!isset($_COOKIE['user_pwd'])){
     header("Location:login.php");
@@ -22,4 +20,4 @@ if(!isset($_COOKIE['user_name'])||!isset($_COOKIE['user_uid'])||!isset($_COOKIE[
         header("Location:login.php");
     }
 }
-$oo = new ss($uid);
+$oo = new Ss\User\Ss($uid);

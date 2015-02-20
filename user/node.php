@@ -1,7 +1,7 @@
 <?php
 //引入配置文件
 require_once 'user_check.php';
-$node = new node();
+$node = new Ss\Node\Node();
 ?>
 <!DOCTYPE html>
 <html>

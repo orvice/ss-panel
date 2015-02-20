@@ -6,7 +6,7 @@
 namespace Ss\User;
 
 
-class User_check {
+class UserCheck {
 
     private $db;
 

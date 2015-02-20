@@ -6,58 +6,13 @@
  * https://orvice.org
  */
 
-//Define DB Connection
+//Define DB Connection  数据库信息
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PWD','password');
 define('DB_DBNAME','db');
 define('DB_CHARSET','utf8');
-define('DB_TYPE','mysql');
-
-/*
- * 下面别修改
- */
-
-//Define system Path
-define('SS_PATH','');
-
-//Connect to DB using medoo
-require_once 'class/medoo.class.php';
-$db = new medoo([
-    // required
-    'database_type' => DB_TYPE,
-    'database_name' => DB_DBNAME,
-    'server' => DB_HOST,
-    'username' => DB_USER,
-    'password' => DB_PWD,
-    'charset' => DB_CHARSET,
-
-    // optional
-    'port' => 3306,
-    // driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
-    'option' => [
-        PDO::ATTR_CASE => PDO::CASE_NATURAL
-    ]
-]);
-
-//Version
-$version   ="0.3.9";
-
-//set timezone
-date_default_timezone_set('PRC');
-
-//Using Mysqli
-$dbc = new mysqli(DB_HOST,DB_USER,DB_PWD,DB_DBNAME);
-$db_char = DB_CHARSET;
-$dbc->query("SET NAMES utf8");
-$dbc->query("SET time_zone = '+8:00'");
-
-//定义流量
-$tomb = 1024*1024;
-$togb = $tomb*1024;
-
-
-
+define('DB_TYPE','mysql'); 
 /*
  * 下面的东西根据需求修改
  */
@@ -80,3 +35,7 @@ $invite_only = true;
 //都设置为0用户就不能邀请
 $user_invite_min = '1';
 $user_invite_max = '1';
+
+//
+require_once '../dir.php';
+require_once 'do.php';

@@ -24,7 +24,7 @@ $db = new medoo([
 $db_table['user'] = "user";
 
 //Version
-$version   ="0.3.5";
+$version   ="0.3.9";
 
 //set timezone
 date_default_timezone_set('PRC');
@@ -39,6 +39,10 @@ $dbc->query("SET time_zone = '+8:00'");
 $tomb = 1024*1024;
 $togb = $tomb*1024;
 
+//Define system Path
+$ss_path = __DIR__;
+$ss_path = substr($ss_path,0,strlen($ss_path)-3);
+define('SS_PATH',$ss_path);
 //autoload class
 spl_autoload_register('autoload');
 function autoload($class){

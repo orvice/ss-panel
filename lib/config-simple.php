@@ -37,5 +37,4 @@ $user_invite_min = '1';
 $user_invite_max = '1';
 
 //
-require_once '../dir.php';
 require_once 'do.php';

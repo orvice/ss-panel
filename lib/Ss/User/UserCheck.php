@@ -47,4 +47,21 @@ class UserCheck {
             return false;
         }
     }
+
+    //login check
+    function login_check($username,$passwd){
+        if($this->db->has("user",[
+            "AND" => [
+                "OR" => [
+                    "user_name" => $username,
+                    "email" => $username
+                ],
+                "pass" => $passwd
+            ]
+        ])){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 }

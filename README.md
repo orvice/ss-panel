@@ -5,6 +5,9 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 
 [Demo](https://cattt.com)
 
+### Requirements
+PHP >= 5.4
+PDO
 
 ### Install
 * Import sql/*.sql to your MySQL Database

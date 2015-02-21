@@ -2,11 +2,12 @@
 header("Content-type: text/html; charset=utf-8");
 //注册处理页面
 require_once '../lib/config.php';
+require_once '../lib/class/user.class.php';
 require_once '../lib/func/comm.func.php';
 require_once '../lib/func/user.func.php';
 require_once '../lib/func/reg.func.php';
 require_once '../lib/class/invite_code.class.php';
-
+$u = new user();
 //验证Post是否空
 if(empty($_POST) || empty($_POST['username'])){
     header("location:reg.php");
@@ -41,11 +42,18 @@ if($invite_only){
 if($okk){
     $info_ok = 1;
     //用户名检测
-    if(is_username_ok($username)==0){
+    if($u->is_username_used($username)==0){
         $info_ok = 0;
         echo ' <script>alert("用户名已经被使用!")</script> ';
         echo " <script>window.location='reg.php';</script> " ;
     }
+
+    if($u->is_email_used($email)==0){
+        $info_ok = 0;
+        echo ' <script>alert("邮箱已经被使用!")</script> ';
+        echo " <script>window.location='reg.php';</script> " ;
+    }
+
     if(strlen($username)<7||strlen($username)>32){
         $info_ok = 0;
         echo ' <script>alert("用户名长度错误!")</script> ';
@@ -63,7 +71,9 @@ if($okk){
         //默认信息  $pass ss密码  $transfer 流量  $port 端口
         $pass = get_temp_pass();
         $transfer = $a_transfer;
-        $port = get_last_port() + rand(2, 7);
+        $r = new \Ss\User\Reg();
+        $last_port = $r->get_last_port();
+        $port = $last_port + rand(2, 7);
 
         //邀请码数量
         $invite_num = rand($user_invite_min,$user_invite_max);

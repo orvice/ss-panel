@@ -1,8 +1,7 @@
 <?php
 require_once 'lib/config.php';
-require_once 'lib/class/invite_code.class.php';
 include_once 'header.php';
-$c = new invite_code();
+$c = new Ss\User\InviteCode();
 ?>
 <body>
 <div class="container">

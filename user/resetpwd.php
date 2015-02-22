@@ -43,6 +43,7 @@ require_once '../lib/config.php';
         </div>
         <div class="footer">
             <button type="submit" id="submit" class="btn bg-olive btn-block"  name="submit" >申请重置</button>
+            <a href="login.php">返回登录</a>
         </div>
 
 

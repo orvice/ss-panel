@@ -14,6 +14,9 @@ CREATE TABLE `ss_reset_pwd` (
   `uni_char` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `ss_reset_pwd`
+MODIFY `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT;
+
 INSERT INTO `ss_reset_pwd` (`id`, `init_time`, `expire_time`, `user_id`, `uni_char`) VALUES
 (0,	1424448190,	1424534590,	1,	'2MzU5ODFkYzM4MmVkZTM2ZTdjNGNhNDI');
 

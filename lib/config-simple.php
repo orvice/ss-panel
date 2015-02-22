@@ -28,6 +28,7 @@ $check_max = 100;
 
 //name
 $site_name = "ss-panel";
+$site_url  = "https://panel.com/";
 
 //invite only
 $invite_only = true;

@@ -64,4 +64,17 @@ class UserCheck {
             return 0;
         }
     }
+
+    function UsernameEmailCheck($username,$email){
+        if($this->db->has("user",[
+            "AND" => [
+                    "user_name" => $username,
+                    "email" => $email
+            ]
+        ])){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 }

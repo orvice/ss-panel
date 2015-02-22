@@ -8,7 +8,7 @@ class ResetPwd {
     private $db;
     private $uid;
 
-    function __construct($uid){
+    function __construct($uid=0){
         global $db;
         $this->db  = $db;
         $this->uid = $uid;
@@ -26,6 +26,7 @@ class ResetPwd {
             "user_id" => $this->uid,
             "uni_char" => $uni_char
         ]);
+        return $uni_char;
     }
 
     function IsCharOK($char,$uid){
@@ -53,6 +54,34 @@ class ResetPwd {
         }else{
             //Null
             return false;
+        }
+    }
+
+    function Del($char,$uid)
+    {
+        $this->db->delete("ss_reset_pwd", [
+            "AND" => [
+                "user_id" => $uid,
+                "uni_char" => $char
+            ]
+        ]);
+    }
+
+    function LogCount(){
+        $sum = $this->db->count("ss_reset_pwd",[
+            "AND" => [
+                "user_id" => $this->uid,
+                "expire_time[>]" => time()
+            ]
+        ]);
+        return $sum;
+    }
+
+    function IsAbleToReset(){
+        if($this->LogCount()>5){
+            return false;
+        }else{
+            return true;
         }
     }
 }

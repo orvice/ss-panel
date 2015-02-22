@@ -37,5 +37,11 @@ $invite_only = true;
 $user_invite_min = '1';
 $user_invite_max = '1';
 
+//mail-gun
+// Get your key from https://mailgun.com
+$mailgun_key = "";
+$mailgun_domain = "";
+
+
 //
 require_once 'do.php';

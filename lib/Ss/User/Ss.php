@@ -7,7 +7,7 @@ namespace Ss\User;
 class Ss {
     //
     public  $uid;
-    private $db;
+    public $db;
 
     function  __construct($uid=0){
         global $db;

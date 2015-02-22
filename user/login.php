@@ -41,6 +41,7 @@ include_once '../lib/config.php';
         </div>
         <div class="footer">
             <button type="submit" class="btn bg-olive btn-block"  name="login" >登录</button>
+            <a href="reg.php">木有帐号?注册-></a>
         </div>
       </form>
 

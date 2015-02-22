@@ -29,19 +29,14 @@ $uid  = $_GET['uid'];
 
 <div class="form-box" id="login-box">
 
-    <div class="header">重置密码</div>
+    <div class="header">确认重置密码</div>
 
         <div class="body bg-gray">
-            <div class="form-group">
-                <input type="text" id="code" name="code" class="form-control" value="<?php echo $code;?>" required autofocus>
-            </div>
-
-            <div class="form-group">
-                <input type="text" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
-            </div>
 
             <div class="form-group">
                 <input type="text" id="email" name="email" class="form-control" placeholder="请输入邮箱" required>
+                <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" required autofocus>
+                <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
             </div>
 
             <div id="info" class="form-group">
@@ -49,7 +44,8 @@ $uid  = $_GET['uid'];
 
         </div>
         <div class="footer">
-            <button type="submit" id="submit" class="btn bg-olive btn-block"  name="submit" >申请重置</button>
+            <button type="submit" id="submit" class="btn bg-olive btn-block"  name="submit" >确认重置</button>
+            <a href="login.php">返回登录</a>
         </div>
 
 
@@ -85,4 +81,3 @@ $uid  = $_GET['uid'];
 </body>
 
 </html>
-

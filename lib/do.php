@@ -35,9 +35,6 @@ $db_char = DB_CHARSET;
 $dbc->query("SET NAMES utf8");
 $dbc->query("SET time_zone = '+8:00'");
 
-//定义流量
-$tomb = 1024*1024;
-$togb = $tomb*1024;
 
 //Define system Path
 $ss_path = __DIR__;

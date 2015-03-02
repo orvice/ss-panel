@@ -6,10 +6,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo get_gravatar($user_email);?>" class="img-circle" alt="User Image" />
+                    <img src="<?php echo Ss\Etc\Comm::get_gravatar($user_email);?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>欢迎, <?php echo $_COOKIE[user_name];?></p>
+                    <p>欢迎, <?php echo $_COOKIE['user_name'];?></p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>

@@ -14,6 +14,7 @@ require_once '../lib/class/ss.class.php';
 require_once '../lib/func/user.func.php';
 //require_once 'lib/func/pw.func.php';
 $u = new user();
+$check = new \Ss\User\UserCheck();
 
 if(!empty($_POST)){
 
@@ -21,7 +22,7 @@ if(!empty($_POST)){
     $username = mysqli_real_escape_string($dbc,trim($_POST['username']));
     $pwd      = md5($_POST['password']); //md5加密
     $rem = $_POST['remember_me'];
-    $rt = $u->login_check($username,$pwd);
+    $rt = $check->login_check($username,$pwd);
     if($rt==1){
         if($rem= "week"){
             $ext = 3600*24*7;
@@ -31,7 +32,7 @@ if(!empty($_POST)){
         //获取用户id
         $id = $u->get_user_uid($username);
         //获得用户user_name，email登录的时候需要
-        $s = new ss($id);
+        $s = new Ss\User\Ss($id);
         $username = $s->get_user_info_array()['user_name'];
         //处理密码
         $pw = co_pw($pwd);

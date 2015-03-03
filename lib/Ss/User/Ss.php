@@ -54,7 +54,7 @@ class Ss {
         return $this->get_user_info_array()['money'];
     }
 
-    //get unused traffic
+    //get unused transfer
     function unused_transfer(){
         //global $dbc;
         return $this->get_transfer_enable() - $this->get_transfer();

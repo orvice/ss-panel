@@ -118,5 +118,14 @@ class Ss {
             "uid" => $this->uid
         ]);
     }
+    
+    // set transfer enable
+    function set_transfer($transfer){
+        $this->db->update("user",[
+            "transfer_enable" => $transfer
+        ],[
+            "uid" => $this->uid
+        ]);
+    }
 
 }

@@ -54,7 +54,7 @@ class Ss {
         return $this->get_user_info_array()['money'];
     }
 
-    //get unused traffic
+    //get unused transfer
     function unused_transfer(){
         //global $dbc;
         return $this->get_transfer_enable() - $this->get_transfer();
@@ -114,6 +114,15 @@ class Ss {
     function update_ss_pass($pass){
         $this->db->update("user",[
             "passwd" => $pass
+        ],[
+            "uid" => $this->uid
+        ]);
+    }
+    
+    // set transfer enable
+    function set_transfer($transfer){
+        $this->db->update("user",[
+            "transfer_enable" => $transfer
         ],[
             "uid" => $this->uid
         ]);

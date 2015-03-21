@@ -37,9 +37,9 @@ class Ana extends Db {
     }
 
     //签到用户
-    function CheckInUser(){
+    function CheckInUser($time){
         $c = $this->db->count("user","uid",[
-            "last_check_in_time[>]" => "0"
+            "last_check_in_time[>]" => time()-$time
         ]);
         return $c;
     }

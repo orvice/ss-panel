@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: orvice
- * Date: 2/20/15
- * Time: 3:11 PM
- */
 
 namespace Ss\Etc;
 

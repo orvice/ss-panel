@@ -22,10 +22,12 @@ if($id != $uid ){
     $u   = new \Ss\User\User($uid);
     if($rst->IsCharOK($code,$uid)){
         $NewPwd = md5(time().$uid.$email);
-        $mg->sendMessage($domain, array('from'    => "no-reply@".$mailgun_domain,
+        $mg->sendMessage($domain, array(
+            'from'    => "postmaster@".$mailgun_domain,
             'to'      => $email,
-            'subject' => $site_name."您的新密码",
-            'text'    => "您的新密码为:".$NewPwd));
+            'subject' => $site_name." - 您的新密码",
+            'html'    => '您的新密码为:<input type="text" name="pwd" name="yourname" size="50" maxlength="50" readonly value="'.$NewPwd.'"><br />请尽快修改密码！'
+            ));
         $u->UpdatePWd($NewPwd);
         $rst->Del($code,$uid);
         $a['code'] = '1';
@@ -36,8 +38,3 @@ if($id != $uid ){
     }
 }
 echo json_encode($a);
-
-
-
-
-

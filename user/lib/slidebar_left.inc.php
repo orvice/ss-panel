@@ -17,7 +17,7 @@
 
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="active">
+                <li >
                     <a href="index.php">
                         <i class="fa fa-dashboard"></i> <span>用户中心</span>
                     </a>

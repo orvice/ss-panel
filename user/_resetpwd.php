@@ -1,20 +1,18 @@
 <?php
 //设置编码
 header("content-type:text/html;charset=utf-8");
-require_once '../config.php';
+require_once '../lib/config.php';
 //mailgun
-require '../Ss/Ext/mailgun-php/vendor/autoload.php';
+require '../lib/Ss/Ext/mailgun-php/vendor/autoload.php';
 use Mailgun\Mailgun;
 $mg = new Mailgun($mailgun_key);
 $domain = $mailgun_domain;
 //
-$username = $_GET['username'];
 $email    = $_GET['email'];
 $c = new \Ss\User\UserCheck();
 $q = new \Ss\User\Query();
-
 $a = [];
-if($c->UsernameEmailCheck($username,$email)){
+if($c->IsEmailUsed($email)){
     $uid = $q->GetUidByEmail($email);
     $rst = new \Ss\User\ResetPwd($uid);
     if($rst->IsAbleToReset()){
@@ -27,6 +25,7 @@ if($c->UsernameEmailCheck($username,$email)){
             'text'    => '请访问此链接申请重置密码'.$site_url."/user/resetpwd_do.php?code=".$code."&uid=".$uid));
 
         $a['code'] = '1';
+        $a['ok'] = '1';
         $a['msg']  =  "已经发送到邮箱";
     }else{
         $a['code'] = '1';
@@ -34,7 +33,7 @@ if($c->UsernameEmailCheck($username,$email)){
     }
 }else{
     $a['code'] = '0';
-    $a['msg']  =  "用户名邮箱不符";
+    $a['msg']  =  "邮箱不存在";
 }
 echo json_encode($a);
 

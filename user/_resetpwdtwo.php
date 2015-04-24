@@ -1,9 +1,9 @@
 <?php
 //设置编码
 header("content-type:text/html;charset=utf-8");
-require_once '../config.php';
+require_once '../lib/config.php';
 //mailgun
-require '../Ss/Ext/mailgun-php/vendor/autoload.php';
+require '../lib/Ss/Ext/mailgun-php/vendor/autoload.php';
 use Mailgun\Mailgun;
 $mg = new Mailgun($mailgun_key);
 $domain = $mailgun_domain;
@@ -29,6 +29,7 @@ if($id != $uid ){
         $u->UpdatePWd($NewPwd);
         $rst->Del($code,$uid);
         $a['code'] = '1';
+        $a['ok'] = '1';
         $a['msg']  =  "新密码已经发送到您的邮箱";
     }else{
         $a['code'] = '0';

@@ -2,6 +2,7 @@
 
 namespace Ss\Etc;
 
+//use Ss\Etc\Medoo;
 
 class Db {
 

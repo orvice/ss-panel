@@ -44,10 +44,8 @@ $unix_time = $oo->get_last_unix_time();
                             <h3 class="box-title">公告&FAQ</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p>流量不会重置，可以通过签到获取流量。</p>
-                            <p>流量购买功能将于近期重新开放。</p>
-                            <p>流量可以通过签到获取，基本每天可以用1G流量。</p>
-                            <p> <a href="http://goo.gl/58OZvQ">请到Google+查看公告。</a>关注我的<a href="https://twitter.com/orvice">Twitter</a> </p>
+                            <p>流量不会重置，可以通过签到获取流量。</p> 
+                            <p>流量可以通过签到获取，基本每天可以用1G流量。</p> 
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->

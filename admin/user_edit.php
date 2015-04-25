@@ -39,6 +39,8 @@ if(!empty($_GET)){
                     <form role="form" method="post" action="user_edit.php">
                         <div class="box-body">
 
+                            <p>注意 此模块暂未完成</p>
+
 
                             <input type="hidden" class="form-control" name="user_uid" value="<?php echo $uid;?>"  >
 

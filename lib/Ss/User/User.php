@@ -1,14 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: orvice
- * Date: 2/22/15
- * Time: 8:26 PM
- */
+
 
 namespace Ss\User;
-
-
 
 
  class User {

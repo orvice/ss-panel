@@ -40,4 +40,8 @@ class Comm {
         }
         return $char;
     }
+
+    static function ToDateTime($time){
+        return date('Y-m-d H:i:s',$time);
+    }
 }

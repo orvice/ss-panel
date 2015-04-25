@@ -1,11 +1,11 @@
 <?php
 
 namespace Ss\Node;
-
+// extends Ss\Etc\Db
  class Node {
 
      public  $id;
-     private $db;
+     public  $db;
 
      function __construct($id=0){
          global $db;

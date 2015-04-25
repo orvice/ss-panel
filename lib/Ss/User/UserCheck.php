@@ -16,35 +16,34 @@ class UserCheck {
     }
 
     //is username used
-    function is_username_used($username){
+    function IsUsernameUsed($username){
         if($this->db->has("user",[
             "user_name" => $username
         ])){
-            //用户名不可用
-            return 0;
-        }else{
-            //用户名可用
             return 1;
+        }else{
+            return 0;
         }
     }
 
     //is email used
-    function is_email_used($email){
+    function IsEmailUsed($email){
         if($this->db->has("user",[
             "email" => $email
         ])){
-            return 0;
-        }else{
             return 1;
+        }else{
+            return 0;
         }
     }
 
+
     //
-    function is_email_legal($email){
+    function IsEmailLegal($email){
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return true;
+            return 1;
         }else{
-            return false;
+            return 0;
         }
     }
 
@@ -56,6 +55,20 @@ class UserCheck {
                     "user_name" => $username,
                     "email" => $username
                 ],
+                "pass" => $passwd
+            ]
+        ])){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    //email Login
+    function EmailLogin($email,$passwd){
+        if($this->db->has("user",[
+            "AND" => [
+                 "email" => $email,
                 "pass" => $passwd
             ]
         ])){

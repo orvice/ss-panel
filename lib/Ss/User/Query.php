@@ -18,7 +18,7 @@ class Query {
         $this->db  = $db;
     }
 
-    //根据用户名返回UID
+    //根据email返回UID
     function GetUidByEmail($email){
         $datas = $this->db->select("user","*",[
             "email" => $email,
@@ -26,4 +26,7 @@ class Query {
         ]);
         return $datas['0']['uid'];
     }
+
+
+
 }

@@ -7,7 +7,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `ss_reset_pwd`;
 CREATE TABLE `ss_reset_pwd` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `init_time` int(11) NOT NULL,
   `expire_time` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,

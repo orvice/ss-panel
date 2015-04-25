@@ -1,28 +1,22 @@
 <?php
-//引入配置文件
-require_once 'user_check.php';
+require_once '_main.php';
+$node = new Ss\Node\Node();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $site_name;?></title>
-    <?php include_once 'lib/header.inc.php'; ?>
-</head>
-<body class="skin-blue">
-<?php include_once 'lib/nav.inc.php';
-include_once 'lib/slidebar_left.inc.php';
-?>
-<!-- Right side column. Contains the navbar and content of the page -->
-<aside class="right-side">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            节点列表
-            <small>Node List</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+
+    <!-- =============================================== -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                节点列表
+                <small>Node List</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <p> <a class="btn btn-success btn-sm" href="node_add.php">添加</a> </p>
@@ -38,9 +32,9 @@ include_once 'lib/slidebar_left.inc.php';
                                     <th>操作</th>
                                 </tr>
                                 <?php
-                                $sql ="SELECT * FROM `ss_node`  ORDER BY node_order ";
-                                $query =  $dbc->query($sql);
-                                while ( $rs = $query->fetch_array()){ ?>
+                                $n = new \Ss\Node\Node();
+                                $nodes = $n->AllNode();
+                                foreach($nodes as $rs){ ?>
                                     <tr>
                                         <td>#<?php echo $rs['id']; ?></td>
                                         <td> <?php echo $rs['node_name']; ?></td>
@@ -59,8 +53,7 @@ include_once 'lib/slidebar_left.inc.php';
                 </div>
             </div>
 
-    </section><!-- /.content -->
-</aside><!-- /.right-side -->
-<?php include_once 'lib/footer.inc.php'; ?>
-</body>
-</html>
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+<?php
+require_once '_footer.php'; ?>

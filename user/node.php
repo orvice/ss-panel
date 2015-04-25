@@ -30,7 +30,7 @@ $node = new Ss\Node\Node();
                                 <h4>注意!</h4>
                                 <p>请勿在任何地方公开节点地址！</p>
                             </div><?php
-                            $node0 = $node->get_node_array(0);
+                            $node0 = $node->NodesArray(0);
                             foreach($node0 as $row){
                                 ?>
                                 <div class="nav-tabs-custom">
@@ -72,9 +72,9 @@ $node = new Ss\Node\Node();
                         <div class="box-body">
                             <div class="callout callout-warning">
                                 <h4>注意!</h4>
-                                <p>此节点仅Plan B用户可用.</p>
+                                <p>....</p>
                             </div><?php
-                            $node1 = $node->get_node_array(1);
+                            $node1 = $node->NodesArray(1);
                             foreach($node1 as $row){
                                 ?>
                                 <div class="nav-tabs-custom">
@@ -104,21 +104,7 @@ $node = new Ss\Node\Node();
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->
-                <div class="col-md-6">
-                    <div class="box box-solid">
-                        <div class="box-header">
-                            <i class="fa fa-align-left"></i>
-                            <h3 class="box-title">不限流量节点</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="callout callout-info">
-                                <h4>说明</h4>
-                                <p>使用此端口和密码不限制流量，将不会占用你ShadowX账户的流量。</p>
-                                <p>暂时关闭</p>
-                            </div>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div><!-- /.col (right) -->
+                 
             </div><!-- /.row -->
             <!-- END PROGRESS BARS -->
         </section><!-- /.content -->

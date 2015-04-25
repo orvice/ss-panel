@@ -1,16 +1,5 @@
 <?php
-//引入配置文件
-require_once 'user_check.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $site_name;?></title>
-    <?php include_once 'lib/header.inc.php'; ?>
-</head>
-<body class="skin-blue">
-<?php include_once 'lib/nav.inc.php';
-include_once 'lib/slidebar_left.inc.php';
+require_once '_main.php';
 
 //更新
 if(!empty($_POST)){
@@ -22,8 +11,8 @@ if(!empty($_POST)){
     $node_info     = $_POST['node_info'];
     $node_status   = $_POST['node_status'];
     $node_order    = $_POST['node_order'];
-    $n = new node($node_id);
-    $query = $n->update($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order);
+    $node = new \Ss\Node\NodeInfo($node_id);
+    $query = $node->Update($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order);
     if($query){
         echo ' <script>alert("更新成功!")</script> ';
         echo " <script>window.location='node.php';</script> " ;
@@ -33,20 +22,24 @@ if(!empty($_POST)){
 if(!empty($_GET)){
     //获取id
     $id = $_GET['id'];
-    $sql = "SELECT * FROM `ss_node` WHERE id = '$id' ";
-    $query = $dbc->query($sql);
-    $rs = $query->fetch_array();
+    $node = new \Ss\Node\NodeInfo($id);
+    $rs = $node->NodeArray();
 }
+
 ?>
-<!-- Right side column. Contains the navbar and content of the page -->
-<aside class="right-side">
+
+<!-- =============================================== -->
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            节点列表
-            <small>Node List</small>
+            节点编辑
+            <small>Node Update</small>
         </h1>
     </section>
+
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -76,7 +69,7 @@ if(!empty($_GET)){
                                 <input  class="form-control" name="node_server" value="<?php echo $rs['node_server'];?>" >
                             </div>
 
-                               
+
 
                             <div class="form-group">
                                 <label for="cate_method">加密方式</label>
@@ -112,7 +105,6 @@ if(!empty($_GET)){
             </div><!-- /.box -->
         </div>   <!-- /.row -->
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-<?php include_once 'lib/footer.inc.php'; ?>
-</body>
-</html>
+</div><!-- /.content-wrapper -->
+<?php
+require_once '_footer.php'; ?>

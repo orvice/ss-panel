@@ -1,66 +1,30 @@
 <?php
-//引入配置文件
-require_once 'user_check.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $site_name;?></title>
-    <?php include_once 'lib/header.inc.php'; ?>
-</head>
-<body class="skin-blue">
-<?php include_once 'lib/nav.inc.php';
-include_once 'lib/slidebar_left.inc.php';
+require_once '_main.php';
 
-$tomb = 1024*1024;
-$togb = $tomb*1024;
 
 //更新
-if(!empty($_POST)){
-    $user_uid = $_POST['user_uid'];
-    $user_name = $_POST['user_name'];
-    if(!empty($_POST['user_pass'])) {
-      $user_pass = md5($_POST['user_pass']);
-    }else{
-      $user_pass = $_POST['user_pass_hidden'];
-    }
-    if(!empty($_POST['user_email'])) {
-      $user_email = $_POST['user_email'];
-    }else{
-      $user_email = $_POST['user_email_hidden'];
-    }
-    $user_passwd = $_POST['user_passwd'];
-    if(!empty($_POST['transfer_enable'])) {
-      $transfer_enable = $togb*$_POST['transfer_enable'];
-    }else{
-      $transfer_enable = $_POST['transfer_enable_hidden'];
-    }
-    $n = new user($user_uid);
-    $query = $n->update($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable);
-    if($query){
-        echo ' <script>alert("更新成功!")</script> ';
-        echo " <script>window.location='user.php';</script> " ;
-    }
-var_dump($query);
-}
 
 if(!empty($_GET)){
     //获取id
     $uid = $_GET['uid'];
-    $sql = "SELECT * FROM `user` WHERE uid = '$uid' ";
-    $query = $dbc->query($sql);
-    $rs = $query->fetch_array();
+    $u = new \Ss\User\UserInfo($uid);
+    $rs = $u->UserArray();
 }
+
 ?>
-<!-- Right side column. Contains the navbar and content of the page -->
-<aside class="right-side">
+
+<!-- =============================================== -->
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            用户列表
-            <small>User List</small>
+            用户管理
+            <small>User Manage</small>
         </h1>
     </section>
+
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -75,10 +39,8 @@ if(!empty($_GET)){
                     <form role="form" method="post" action="user_edit.php">
                         <div class="box-body">
 
-                            <div class="form-group" style="display:none" >
-                                <label for="cate_title" >ID</label>
-                                <input  class="form-control" name="user_uid" value="<?php echo $uid;?>"  >
-                            </div>
+
+                            <input type="hidden" class="form-control" name="user_uid" value="<?php echo $uid;?>"  >
 
                             <div class="form-group">
                                 <label for="cate_title">用户名</label>
@@ -87,8 +49,7 @@ if(!empty($_GET)){
 
                             <div class="form-group">
                                 <label for="cate_title">用户邮箱</label>
-                                <input type="hidden" name="user_email_hidden" value="<?php echo $rs['email'];?>" >
-                                <input  class="form-control" name="user_email" placeholder="新邮箱(不修改请留空)" >
+                                <input  class="form-control" name="user_email" value="<?php echo $rs['email'];?>"  >
                             </div>
 
                             <div class="form-group">
@@ -118,7 +79,6 @@ if(!empty($_GET)){
             </div><!-- /.box -->
         </div>   <!-- /.row -->
     </section><!-- /.content -->
-</aside><!-- /.right-side -->
-<?php include_once 'lib/footer.inc.php'; ?>
-</body>
-</html>
+</div><!-- /.content-wrapper -->
+<?php
+require_once '_footer.php'; ?>

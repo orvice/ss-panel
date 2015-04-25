@@ -84,6 +84,16 @@ class UserInfo {
         ]);
     }
 
+    function IsAdmin(){
+        if($this->db->has("ss_user_admin",[
+            "uid" => $this->uid
+        ])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function DelMe(){
         $this->db->delete($this->table,[
             "uid" => $this->uid

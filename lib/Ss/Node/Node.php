@@ -34,16 +34,6 @@ namespace Ss\Node;
          return 1;
      }
 
-
-     function get_node_array($node_type){
-         $node_array = $this->db->select("ss_node","*",[
-             "node_type[=]" => $node_type,
-             "ORDER" => "node_order",
-             //"LIMIT" => 21
-         ]);
-         return $node_array;
-     }
-
      function NodesArray($node_type){
          $node_array = $this->db->select("ss_node","*",[
              "node_type[=]" => $node_type,

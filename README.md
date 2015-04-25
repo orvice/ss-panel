@@ -26,5 +26,6 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 Be sure you have install composer,and than run:
 
 ```
-composer install
+$ curl -sS https://getcomposer.org/installer | php
+$ php composer.phar  install
 ```

@@ -12,9 +12,13 @@ $code     = $_GET['code'];
 $email    = $_GET['email'];
 $uid      = $_GET['uid'];
 //
-$q  = new \Ss\User\Query();
-$id = $q->GetUidByEmail($email);
-if($id != $uid ){
+$ur = new \Ss\User\UserInfo($uid);
+if($ur->GetEmail() == $email){
+    $rs = '1';
+}else{
+    $rs = '0';
+}
+if(!$rs){
     $a['code'] = '0';
     $a['msg']  =  "邮箱错误";
 }else{

@@ -1,5 +1,7 @@
 <?php
 require_once '../lib/config.php';
+$code = $_GET['code'];
+$uid  = $_GET['uid'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,13 +44,16 @@ require_once '../lib/config.php';
             <p id="msg-error-p"></p>
         </div>
 
+        <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" >
+        <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" >
+
         <div class="form-group has-feedback">
             <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
             <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <button type="submit" id="reset" class="btn btn-primary btn-block btn-flat">发送重置密码邮件</button>
+            <button type="submit" id="reset" class="btn btn-primary btn-block btn-flat">确认重置</button>
         </div>
 
         <a href="login.php" class="text-center">返回登录</a>

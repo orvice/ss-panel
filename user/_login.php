@@ -1,6 +1,7 @@
 <?php
 require_once '../lib/config.php';
 $email = $_POST['email'];
+$email = strtolower($email);
 $passwd = $_POST['passwd'];
 $passwd = \Ss\User\Comm::SsPW($passwd);
 $rem = $_POST['remember_me'];

@@ -23,7 +23,7 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 * You can Add User ID into table 'ss_user_admin'
 
 ### Send mail using mail-gun
-Be sure you have install composer,and than run:
+Run:
 
 ```
 $ curl -sS https://getcomposer.org/installer | php

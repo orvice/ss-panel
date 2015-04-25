@@ -3,7 +3,7 @@
 header("content-type:text/html;charset=utf-8");
 require_once '../lib/config.php';
 //mailgun
-require '../lib/Ss/Ext/mailgun-php/vendor/autoload.php';
+require '../vendor/autoload.php';
 use Mailgun\Mailgun;
 $mg = new Mailgun($mailgun_key);
 $domain = $mailgun_domain;

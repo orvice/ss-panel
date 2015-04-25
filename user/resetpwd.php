@@ -34,7 +34,7 @@ $uid  = $_GET['uid'];
 
         <div id="msg-success" class="alert alert-info alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
+            <h4><i class="icon fa fa-info"></i> 成功!</h4>
             <p id="msg-success-p"></p>
         </div>
 

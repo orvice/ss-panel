@@ -21,3 +21,11 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 ### Admin
 * The user who uid is 1 is Admin by default.
 * You can Add User ID into table 'ss_user_admin'
+
+### Send mail using mail-gun
+Run:
+
+```
+$ curl -sS https://getcomposer.org/installer | php
+$ php composer.phar  install
+```

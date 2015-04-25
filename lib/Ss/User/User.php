@@ -10,12 +10,19 @@ namespace Ss\User;
      private $dbc;
      private $db;
 
+     private $table = "user";
+
      function __construct($uid=0){
          global $dbc;
          global $db;
          $this->uid = $uid;
          $this->dbc = $dbc;
          $this->db  = $db;
+     }
+
+     function AllUser(){
+        $datas = $this->db->select($this->table,"*");
+        return $datas;
      }
 
      function update($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable){

@@ -8,7 +8,7 @@
 $db_table['user'] = "user";
 
 //Version
-$version   ="2.1.1";
+$version   ="2.0.2";
 
 //set timezone
 date_default_timezone_set('PRC');
@@ -29,7 +29,7 @@ spl_autoload_register('autoload');
 function autoload($class){
     require_once SS_PATH.'/lib/'.str_replace('\\','/',$class).'.php';
 }
-require_once 'class/medoo.class.php';
+require_once 'Ss/Ext/Medoo.php';
 $db = new medoo([
     // required
     'database_type' => DB_TYPE,

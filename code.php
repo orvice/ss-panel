@@ -1,7 +1,7 @@
 <?php
 require_once 'lib/config.php';
 include_once 'header.php';
-$c = new Ss\User\InviteCode();
+$c = new \Ss\User\Invite();
 ?>
 <body>
 <div class="container">
@@ -25,7 +25,7 @@ $c = new Ss\User\InviteCode();
                 </thead>
                 <tbody>
                 <?php
-                $datas = $c->get_code_array(0,21);
+                $datas = $c->CodeArray();
                 $a = 0;
                 foreach($datas as $data ){
                 ?>

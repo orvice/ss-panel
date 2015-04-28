@@ -1,3 +1,5 @@
+-- Adminer 4.1.0 MySQL dump
+
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
@@ -25,9 +27,11 @@ CREATE TABLE `user` (
   `reg_date` datetime NOT NULL,
   `invite_num` int(8) NOT NULL,
   `money` decimal(12,2) NOT NULL,
+  `ref_by` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_check_in_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`) VALUES
-(11, 'user1', 'user@msn.com',  '211e114055aeaf79e9b374819ab7d452', '0000000',  1420423709, 25442965504,  9583696025, 'A',  347149959168, 50000,  1,  1,  7,  0,  1420386514, 0,  '2014-11-07 00:00:00',  0,  0);
+INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_check_in_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`, `ref_by`) VALUES
+(1,	'user',	'me@me.com',	'6864f389d9876436bc8778ff071d1b6c',	'ZrJUQkzE',	1427454468,	25570082746,	19210700227,	'B',	385601241088,	50000,	1,	1,	7,	0,	1429758822,	0,	'2015-03-24 00:00:00',	0,	1.20,	0);
 
+-- 2015-04-28 14:54:26

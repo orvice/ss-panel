@@ -6,7 +6,7 @@
 $reset_date = '1';
 //日期符合就清零 
 if (date('d')==$reset_date){
-    $this->db->update("user",[
+    $db->update("user",[
         "u" => "0",
         "d" => "0"
     ]);

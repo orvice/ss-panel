@@ -1,7 +1,8 @@
 ss-panel
 ========
 
-A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tree/manyuser
+A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser
+)  
 
 [Demo](https://cattt.com)
 
@@ -29,3 +30,9 @@ Run:
 $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar  install
 ```
+
+### Thanks to
+
+* [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
+* [Medoo](https://github.com/catfan/Medoo)
+

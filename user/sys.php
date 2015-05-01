@@ -23,7 +23,7 @@ $ssmin = new \Ss\Etc\Ana();
                     <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">ShadowX统计信息</h3>
+                            <h3 class="box-title"><?php echo $site_name;  ?>统计信息</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="callout callout-warning">

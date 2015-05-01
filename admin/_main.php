@@ -32,7 +32,7 @@ require_once '_check.php';
 <div class="wrapper">
 
     <header class="main-header">
-        <a href="../../index2.html" class="logo"><?php echo $site_name;  ?></a>
+        <a href="index.php" class="logo"><?php echo $site_name;  ?></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->

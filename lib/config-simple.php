@@ -29,7 +29,7 @@ $a_transfer = $togb*5;
 $check_min = 1;
 $check_max = 100;
 
-//name
+//name
 $site_name = "ss-panel";
 $site_url  = "https://panel.com/";
 

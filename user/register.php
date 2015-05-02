@@ -29,7 +29,7 @@ require_once '../lib/config.php';
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">注册，然后变成一直猫。</p>
+        <p class="login-box-msg">注册，然后变成一只猫。</p>
 
         <div id="msg-success" class="alert alert-info alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -45,11 +45,11 @@ require_once '../lib/config.php';
 
 
             <div class="form-group has-feedback">
-                <input type="text" id="name" class="form-control" placeholder="贵姓"/>
+                <input type="text" id="name" class="form-control" placeholder="昵称"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" id="email" class="form-control" placeholder="Email"/>
+                <input type="text" id="email" class="form-control" placeholder="邮箱"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

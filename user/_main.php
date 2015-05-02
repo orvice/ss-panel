@@ -56,7 +56,7 @@ require_once '_check.php';
                                 <img src="<?php echo \Ss\User\Comm::Gravatar($U->GetEmail());  ?>" class="img-circle" alt="User Image" />
                                 <p>
                                     <?php echo $U->GetEmail(); ?>
-                                    <small>加入时间<?php echo $U->RegDate(); ?></small>
+                                    <small>加入时间：<?php echo $U->RegDate(); ?></small>
                                 </p>
                             </li>
                             <li class="user-footer">

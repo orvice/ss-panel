@@ -43,11 +43,11 @@ require_once '../lib/config.php';
         </div>
             <form>
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input id="passwd" name="Password" type="password" class="form-control" placeholder="Password"/>
+                <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             </form>

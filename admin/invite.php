@@ -38,7 +38,7 @@ $code = $invite->CodeArray();
 
                                 <div class="form-group">
                                     <label for="cate_title">邀请码类别</label>
-                                    <input  class="form-control" name="code_type"  placeholder="0为公开,其他数字为对应的用户UID" >
+                                    <input  class="form-control" name="code_type"  placeholder="0为公开，其他数字为对应用户的UID" >
                                 </div>
 
                                 <div class="form-group">

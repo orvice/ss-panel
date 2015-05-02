@@ -16,4 +16,4 @@ A simple front end of Shadowsocks  https://github.com/mengskysama/shadowsocks/tr
 ### 管理
 * 建议修改admin文件夹名字。
 * 访问 /admin
-* 默认管理员邮箱：me@me.com 密码: 12345678
+* 默认管理员邮箱：me@me.com 密码：12345678

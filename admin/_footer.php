@@ -1,7 +1,7 @@
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-         耗时：<?php
+         Processed in：<?php
         $Runtime->Stop();
         echo $Runtime->SpendTime()."ms";
         ?>

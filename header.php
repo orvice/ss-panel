@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asset/css/flat-ui.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="asset/css/jumbotron-narrow.css" rel="stylesheet">

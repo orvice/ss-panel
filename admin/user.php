@@ -27,8 +27,9 @@ $Users = new Ss\User\User();
                                     <th>用户名</th>
                                     <th>邮箱</th>
                                     <th>端口</th>
-                                    <th>总流量(G)</th>
-                                    <th>剩余流量(G)</th>
+                                    <th>总流量</th>
+                                    <th>剩余流量</th>
+                                    <th>已使用流量</th>
                                     <th>最后签到</th>
                                     <th>操作</th>
                                 </tr>
@@ -40,8 +41,9 @@ $Users = new Ss\User\User();
                                         <td><?php echo $rs['user_name']; ?></td>
                                         <td><?php echo $rs['email']; ?></td>
                                         <td><?php echo $rs['port']; ?></td>
-                                        <td><?php echo round($rs['transfer_enable']/$togb,2); ?></td>
-                                        <td><?php echo round(($rs['transfer_enable']-$rs['u']-$rs['d'])/$togb,2); ?></td>
+                                        <td><?php flowAutoShow($rs['transfer_enable']); ?></td>
+                                        <td><?php flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d'])); ?></td>
+                                        <td><?php flowAutoShow(($rs['u']+$rs['d'])); ?></td>
                                         <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="user_edit.php?uid=<?php echo $rs['uid']; ?>">查看</a>

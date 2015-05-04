@@ -1,5 +1,6 @@
 <?php
 require_once '../lib/config.php';
+require_once '../lib/util.php';
 require_once '_check.php';
 ?>
 <!DOCTYPE html>

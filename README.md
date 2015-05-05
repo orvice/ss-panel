@@ -31,7 +31,7 @@ $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar  install
 ```
 
-Add mail-smtp
+### Add mail-smtp
 支持发送纯文本邮件和HTML格式的邮件，可以多收件人，多抄送，多秘密抄送，带附件(单个或多个附件),支持到服务器的ssl连接
 需要的php扩展：sockets、Fileinfo和openssl。
 

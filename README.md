@@ -26,6 +26,7 @@ A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shad
 ### Send mail using mail-gun
 Run:
 
+Add mail-smtp
 ```
 $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar  install

@@ -25,17 +25,21 @@ $a_transfer = $togb*5;
 //签到设置 签到活的的最低最高流量,单位MB
 $check_min = 1;
 $check_max = 100;
+
 //name
 $site_name = "ss-panel";
 $site_url  = "https://panel.com/";
+
 //用户注册后获得的邀请码最低最高
 //都设置为0用户就不能邀请
 $user_invite_min = '1';
 $user_invite_max = '1';
+
 //mail-gun
 // Get your key from https://mailgun.com
 $mailgun_key = "";
 $mailgun_domain = "";
+
 //
 //选择邮件服务
 //mail-gun
@@ -56,5 +60,7 @@ $mail_smtp_Server = "smtp.gmail.com";
 $mail_smtp_Account = "xxxx@gmail.com";
 //邮件密码
 $mail_smtp_password = "密码";
+
 //
 require_once 'do.php';
+

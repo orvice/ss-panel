@@ -1,8 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 //设置编码
 header("content-type:text/html;charset=utf-8");
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 require_once 'config.php';
 require 'Ss/mail-smtp.php';
 

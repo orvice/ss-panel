@@ -6,6 +6,7 @@
  * https://orvice.org
  */
 //定义流量
+$tokb = 1024;
 $tomb = 1024*1024;
 $togb = $tomb*1024;
 //Define DB Connection  数据库信息

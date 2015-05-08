@@ -119,4 +119,28 @@ class Ss {
         ]);
     }
 
+    //user info array
+    function getUserArray(){
+        $datas = $this->db->select("user","*",[
+            "uid" => $this->uid,
+            "LIMIT" => "1"
+        ]);
+        return $datas['0'];
+    }
+
+    //获取已用流量
+    function getUsedTransfer(){
+        return $this->getUserArray()['u']+$this->getUserArray()['d'];
+    }
+
+    //获取总流量
+    function getTransferEnable(){
+        return $this->getUserArray()['transfer_enable'];
+    }
+
+    //剩余流量
+    function getUnusedTransfer(){
+        return $this->getTransferEnable()-$this->getUsedTransfer();
+    }
+
 }

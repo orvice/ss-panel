@@ -8,7 +8,7 @@
 $db_table['user'] = "user";
 
 //Version
-$version   ="2.2.7";
+$version   ="2.2.9";
 
 //set timezone
 date_default_timezone_set('PRC');

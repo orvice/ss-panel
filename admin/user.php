@@ -21,7 +21,7 @@ $Users = new Ss\User\User();
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-body">
-                            <table class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                               <thead>
                                 <tr>
                                     <th>ID</th>
@@ -35,7 +35,7 @@ $Users = new Ss\User\User();
                                     <th>操作</th>
                                 </tr>
                               </thead>
-                                <tbody>
+                              <tbody>
                                 <?php
                                 $us = $Users->AllUser();
                                 foreach ( $us as $rs ){ ?>

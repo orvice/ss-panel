@@ -44,4 +44,24 @@ $user_invite_max = '1';
 $mailgun_key = "";
 $mailgun_domain = "";
 //
+//选择邮件服务
+//mail-gun
+//mail-smtp
+$Selectmailservice = "mail-smtp";
+//
+//mail-smtp
+//
+//设置smtp服务器连接方式:  
+//加密连接(ssl) = "1"
+//普通连接 = "0"
+$mail_smtp_Connection = "1";
+//smtp服务器端口 25 , 465 ...
+$mail_smtp_Port = 465;
+//smtp服务器
+$mail_smtp_Server = "smtp.gmail.com";
+//邮件帐号
+$mail_smtp_Account = "xxxx@gmail.com";
+//邮件密码
+$mail_smtp_password = "密码";
+//
 require_once 'do.php';

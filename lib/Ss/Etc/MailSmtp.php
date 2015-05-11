@@ -17,7 +17,7 @@
 * $mail->sendMail(); //发送
 * 后台信息输出已被关闭，你可以把所有echo 前的“//”去掉，就可以看到了，如果报错200,请重新加上，就没事问题了！
 */
-class MySendMail {
+class MailSmtp {
     /**
     * @var string 邮件传输代理用户名
     * @access protected

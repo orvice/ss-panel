@@ -39,15 +39,19 @@ $site_url  = "https://panel.com/";
 $user_invite_min = '1';
 $user_invite_max = '1';
 
-//mail-gun
-// Get your key from https://mailgun.com
-$mailgun_key = "";
-$mailgun_domain = "";
+
 //
 //选择邮件服务
 //mail-gun
 //mail-smtp
 $Selectmailservice = "mail-smtp";
+
+//mail-gun
+// Get your key from https://mailgun.com
+$mailgun_key = "";
+$mailgun_domain = "";
+
+
 //
 //mail-smtp
 //
@@ -63,5 +67,8 @@ $mail_smtp_Server = "smtp.gmail.com";
 $mail_smtp_Account = "xxxx@gmail.com";
 //邮件密码
 $mail_smtp_password = "密码";
+
+
+
 //
 require_once 'do.php';

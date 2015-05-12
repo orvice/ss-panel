@@ -4,7 +4,7 @@ header("content-type:text/html;charset=utf-8");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once 'config.php';
-require 'Ss/mail-smtp.php';
+require 'Ss/Etc/MailSmtp.php';
 
 /*
 echo "smtp服务器连接方式:". $mail_smtp_Connection."<br />";

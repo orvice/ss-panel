@@ -23,7 +23,7 @@ if($c->IsEmailUsed($email)){
        //判断邮件服务
       if($Selectmailservice == "mail-smtp"){
           //mail-smtp
-          require '../lib/Ss/mail-smtp.php';
+          require '../lib/Ss/Etc/MailSmtp.php';
           $mail = new MySendMail();
           
               //判断smtp服务器连接方式

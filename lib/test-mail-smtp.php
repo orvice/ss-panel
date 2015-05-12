@@ -14,7 +14,7 @@ echo "邮件帐号:".$mail_smtp_Account."<br />";
 echo "邮件密码:".$mail_smtp_password."<br />";
 */
 
-$mail = new MySendMail();
+$mail = new MailSmtp();
 if($mail_smtp_Connection=="1"){
   $mail->setServer($mail_smtp_Server,$mail_smtp_Account,$mail_smtp_password, $mail_smtp_Port, true); 
 }else{

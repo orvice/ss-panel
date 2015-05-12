@@ -24,7 +24,7 @@ if($c->IsEmailUsed($email)){
       if($Selectmailservice == "mail-smtp"){
           //mail-smtp
           require '../lib/Ss/Etc/MailSmtp.php';
-          $mail = new MySendMail();
+          $mail = new \Ss\Etc\MailSmtp();
           
               //判断smtp服务器连接方式
               if($mail_smtp_Connection=="1"){

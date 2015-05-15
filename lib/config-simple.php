@@ -45,6 +45,8 @@ $user_invite_max = '1';
 //mail-gun
 //mail-smtp
 $Selectmailservice = "mail-smtp";
+//邮件发件人
+$sender = "xxx@xxx.xx";
 
 //mail-gun
 // Get your key from https://mailgun.com

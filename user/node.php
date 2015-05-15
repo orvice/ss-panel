@@ -36,13 +36,7 @@ $node = new Ss\Node\Node();
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs pull-right">
                                         <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                操作 <span class="caret"></span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_json.php?id=<?php echo $row['id']; ?>">配置文件</a></li>
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_qr.php?id=<?php echo $row['id']; ?>">二维码</a></li>
-                                            </ul>
+                                            <a role="menuitem" data-toggle="modal" data-target="#myModal" tabindex="-1" href="node_qr_json.php?id=<?php echo $row['id']; ?>" title="二维码 - 配置信息">查看</a>
                                         </li>
                                         <li class="pull-left header"><i class="fa fa-angle-right"></i> <?php echo $row['node_name']; ?></li>
                                     </ul>
@@ -80,13 +74,7 @@ $node = new Ss\Node\Node();
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs pull-right">
                                         <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                操作 <span class="caret"></span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_json.php?id=<?php echo $row['id']; ?>">配置文件</a></li>
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_qr.php?id=<?php echo $row['id']; ?>">二维码</a></li>
-                                            </ul>
+                                            <a role="menuitem" data-toggle="modal" data-target="#myModal" tabindex="-1" href="node_qr_json.php?id=<?php echo $row['id']; ?>" title="二维码 - 配置信息">查看</a>
                                         </li>
                                         <li class="pull-left header"><i class="fa fa-angle-right"></i> <?php echo $row['node_name']; ?></li>
                                     </ul>
@@ -109,5 +97,6 @@ $node = new Ss\Node\Node();
             <!-- END PROGRESS BARS -->
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+<script src="../asset/js/modal.js" type="text/javascript"></script>
 <?php
 require_once '_footer.php'; ?>

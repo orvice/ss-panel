@@ -9,7 +9,7 @@ require_once '_main.php'; ?>
         <section class="content-header">
             <h1>
                 删除我的账户
-                <small>Bye Bye</small>
+                <small>Deactivated My Account</small>
             </h1>
         </section>
 

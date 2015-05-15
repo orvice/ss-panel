@@ -22,6 +22,8 @@ $ssqr = "ss://".base64_encode($ssurl);
 		<div align="center">
 			<div id="qrcode"></div>
 		</div>
+		<script src="../asset/js/jQuery.min.js"></script>
+		<script src="../asset/js/jquery.qrcode.min.js"></script>
 		<script>
 jQuery('#qrcode').qrcode("<?php echo $ssqr;?>");</script>
 		<div id="qrcode" style="text-align: center;"></div>

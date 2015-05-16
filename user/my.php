@@ -29,6 +29,7 @@ require_once '_main.php'; ?>
                         </div><!-- /.box -->
                     </div>
                 </div>
+            </div>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php

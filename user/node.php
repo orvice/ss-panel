@@ -109,8 +109,7 @@ $node = new Ss\Node\Node();
             <!-- END PROGRESS BARS -->
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
-<!-- jQuery 2.1.3 -->
-<script src="../asset/js/jQuery.min.js"></script>
+
 <script src="../asset/js/modal.js" type="text/javascript"></script>
 <?php
 require_once '_footer.php'; ?>

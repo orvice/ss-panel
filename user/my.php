@@ -21,15 +21,21 @@ require_once '_main.php'; ?>
                     <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-body">
-                            <p>用户名：<?php echo $user_name; ?></p>
-                            <p>邮箱：<?php echo $user_email;  ?></p>
+                            <p>用户名：<?php echo $U->GetUserName(); ?></p>
+                            <p>邮箱：<?php echo $user_email; ?></p>
                             <p> 套餐：<span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
                             <p> 账户余额：<?php echo $oo->get_money();?>元 </p>
                             <p><a class="btn btn-danger btn-sm" href="kill.php">删除我的账户</a></p>
                         </div><!-- /.box -->
                     </div>
                 </div>
+            </div>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+<?php
+include_once '../Public_javascript.php';
+?>
+<!-- 在下面添加功能引用的js -->
+
 <?php
 require_once '_footer.php'; ?>

@@ -9,7 +9,7 @@ require_once '_main.php'; ?>
         <section class="content-header">
             <h1>
                 删除我的账户
-                <small>Bye Bye</small>
+                <small>Deactivated My Account</small>
             </h1>
         </section>
 
@@ -53,6 +53,11 @@ require_once '_main.php'; ?>
                 </div>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+<?php
+include_once '../Public_javascript.php';
+?>
+<!-- 在下面添加功能引用的js -->
+
 <?php
 require_once '_footer.php'; ?>
 

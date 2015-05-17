@@ -106,6 +106,11 @@ $unix_time = $oo->get_last_unix_time();
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php
+include_once '../Public_javascript.php';
+?>
+<!-- 在下面添加功能引用的js -->
+
+<?php
 require_once '_footer.php'; ?>
 
 <script>

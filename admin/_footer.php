@@ -24,5 +24,13 @@ include_once '../ana.php';
 <script src='../asset/plugins/fastclick/fastclick.min.js'></script>
 <!-- AdminLTE App -->
 <script src="../asset/js/app.min.js" type="text/javascript"></script>
+<!-- 下面加载 dataTables 要用的 js 文件 -->
+<script src="../asset/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+<script src="../asset/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function () {
+    $("#example1").dataTable();
+  });
+</script>
 </body>
 </html>

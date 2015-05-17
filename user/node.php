@@ -40,8 +40,8 @@ $node = new Ss\Node\Node();
                                                 操作 <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_json.php?id=<?php echo $row['id']; ?>">配置文件</a></li>
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_qr.php?id=<?php echo $row['id']; ?>">二维码</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal" href="javascript:void(0)" data-url="node_json.php?id=<?php echo $row['id']; ?>" title="<?php echo $row['node_name']; ?>" >配置文件</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal" href="javascript:void(0)" data-url="node_qr.php?id=<?php echo $row['id']; ?>" title="<?php echo $row['node_name']; ?>" >二维码</a></li>
                                             </ul>
                                         </li>
                                         <li class="pull-left header"><i class="fa fa-angle-right"></i> <?php echo $row['node_name']; ?></li>
@@ -84,8 +84,8 @@ $node = new Ss\Node\Node();
                                                 操作 <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_json.php?id=<?php echo $row['id']; ?>">配置文件</a></li>
-                                                <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="node_qr.php?id=<?php echo $row['id']; ?>">二维码</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal" href="javascript:void(0)" data-url="node_json.php?id=<?php echo $row['id']; ?>" title="<?php echo $row['node_name']; ?>" >配置文件</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal" href="javascript:void(0)" data-url="node_qr.php?id=<?php echo $row['id']; ?>" title="<?php echo $row['node_name']; ?>" >二维码</a></li>
                                             </ul>
                                         </li>
                                         <li class="pull-left header"><i class="fa fa-angle-right"></i> <?php echo $row['node_name']; ?></li>
@@ -109,6 +109,8 @@ $node = new Ss\Node\Node();
             <!-- END PROGRESS BARS -->
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+
+<script src="../asset/js/modal.js" type="text/javascript"></script>
 <?php
 include_once '../Public_javascript.php';
 ?>

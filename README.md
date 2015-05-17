@@ -51,7 +51,7 @@ $ php composer.phar  install
 
 修改：
 
-移到以下内容至新文件Public_javascript.php并在所有调用<?php require_once '_footer.php'; ?>的文件加入<?php include_once '../Public_javascript.php'; ?>调用。
+移动以下内容至新文件Public_javascript.php并在所有调用<?php require_once '_footer.php'; ?>的文件加入<?php include_once '../Public_javascript.php'; ?>调用。
 ```
 <!-- jQuery 2.1.3 -->
 <script src="../asset/js/jQuery.min.js"></script>

@@ -31,19 +31,6 @@ require_once '../lib/config.php';
     <div class="register-box-body">
         <p class="login-box-msg">注册，然后变成一只猫。</p>
 
-        <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
-            <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 成功!</h4>
-            <p id="msg-success-p"></p>
-        </div>
-
-        <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
-            <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-            <p id="msg-error-p"></p>
-        </div>
-
-
             <div class="form-group has-feedback">
                 <input type="text" id="name" class="form-control" placeholder="昵称"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -73,6 +60,18 @@ require_once '../lib/config.php';
             <div class="form-group has-feedback">
                 <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">同意服务条款并提交注册</button>
             </div>
+            
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> 成功!</h4>
+                <p id="msg-success-p"></p>
+            </div>
+    
+            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                <p id="msg-error-p"></p>
+            </div>
 
         <a href="login.php" class="text-center">已经注册？请登录</a>
     </div><!-- /.form-box -->
@@ -98,7 +97,7 @@ require_once '../lib/config.php';
 </script>
 <script>
     $(document).ready(function(){
-        $("#reg").click(function(){
+         function register(){
             $.ajax({
                 type:"POST",
                 url:"_reg.php",
@@ -128,14 +127,20 @@ require_once '../lib/config.php';
                     $("#msg-error").show(100);
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
-            })
-        })
+            });
+        }
+        $("html").keydown(function(event){
+            register();
+        });
+        $("#reg").click(function(){
+            register();
+        });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
-        })
+        });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
-        })
+        });
     })
 </script>
 </body>

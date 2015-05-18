@@ -130,12 +130,12 @@ require_once '../lib/config.php';
             });
         }
         $("html").keydown(function(event){
-            register();
-        });
-        $("#reg").click(function(){
             if(event.keyCode==13){
                 register();
             }
+        });
+        $("#reg").click(function(){
+            register();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

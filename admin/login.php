@@ -30,17 +30,6 @@ require_once '../lib/config.php';
     <div class="login-box-body">
         <p class="login-box-msg">登录到管理面板</p>
 
-        <div id="msg-success" class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
-           <p id="msg-success-p"></p>
-        </div>
-
-        <div id="msg-error" class="alert alert-warning alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-            <p id="msg-error-p"></p>
-        </div>
             <form>
             <div class="form-group has-feedback">
                 <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
@@ -63,6 +52,18 @@ require_once '../lib/config.php';
                     <button id="login" type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div><!-- /.col -->
             </div>
+                
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
+               <p id="msg-success-p"></p>
+            </div>
+    
+            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                <p id="msg-error-p"></p>
+            </div>
 
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
@@ -81,12 +82,12 @@ require_once '../lib/config.php';
             increaseArea: '20%' // optional
         });
     });
-    $("#msg-error").hide();
-    $("#msg-success").hide();
+    // $("#msg-error").hide(100);
+    // $("#msg-success").hide(100);
 </script>
 <script>
     $(document).ready(function(){
-        $("#login").click(function(){
+        function login(){
             $.ajax({
                 type:"POST",
                 url:"_login.php",
@@ -98,20 +99,34 @@ require_once '../lib/config.php';
                 },
                 success:function(data){
                     if(data.ok){
-                        $("#msg-error").hide();
-                        $("#msg-success").show();
+                        $("#msg-error").hide(100);
+                        $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         window.setTimeout("location.href='index.php'", 2000);
                     }else{
-                        $("#msg-error").show();
+                        $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
+                     $("#msg-error").hide(10);
+                     $("#msg-error").show(100);
+                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
-            })
-        })
+            });
+        }
+        $("html").keydown(function(event){
+            login();
+        });
+        $("#login").click(function(){
+            login();
+        });
+        $("#ok-close").click(function(){
+            $("#msg-success").hide(100);
+        });
+        $("#error-close").click(function(){
+            $("#msg-error").hide(100);
+        });
     })
 </script>
 </body>

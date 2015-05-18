@@ -116,7 +116,9 @@ require_once '../lib/config.php';
             });
         }
         $("html").keydown(function(event){
-            login();
+            if(event.keyCode==13){
+                login();
+            }
         });
         $("#login").click(function(){
             login();

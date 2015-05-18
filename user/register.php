@@ -133,7 +133,9 @@ require_once '../lib/config.php';
             register();
         });
         $("#reg").click(function(){
-            register();
+            if(event.keyCode==13){
+                register();
+            }
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

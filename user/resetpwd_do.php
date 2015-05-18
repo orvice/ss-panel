@@ -104,7 +104,9 @@ $uid  = $_GET['uid'];
             });
         }
         $("html").keydown(function(event){
-            reset();
+            if(event.keyCode==13){
+                reset();
+            }
         });
         $("#reset").click(function(){
             reset();

@@ -19,6 +19,15 @@ $db_char = DB_CHARSET;
 $dbc->query("SET NAMES utf8");
 $dbc->query("SET time_zone = '+8:00'");
 
+//$dbinfo
+$dbInfo['database_type'] = DB_TYPE;
+$dbInfo['database_name'] = DB_DBNAME;
+$dbInfo['server'] = DB_HOST;
+$dbInfo['username'] = DB_USER;
+$dbInfo['password'] = DB_PWD;
+$dbInfo['charset'] = DB_CHARSET;
+
+
 
 //Define system Path
 $ss_path = __DIR__;

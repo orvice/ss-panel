@@ -14,11 +14,11 @@ class Comm {
     }
 
     static function toMB($value){
-        return $value/1024*1024;
+        return $value/(1024*1024);
     }
 
     static function toGB($value){
-        return $value/1024*1024*1024;
+        return $value/(1024*1024*1024);
     }
 
 

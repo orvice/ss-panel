@@ -25,17 +25,16 @@ namespace Ss\User;
         return $datas;
      }
 
-     function update($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable,$invite_num){
-         $sql = " UPDATE `user` SET
-                  `user_name` = '$user_name',
-                  `email` = '$user_email',
-                  `pass` = '$user_pass',
-                  `passwd` = '$user_passwd',
-                  `transfer_enable` = '$transfer_enable',
-                  `invite_num` = '$invite_num'
-                  WHERE  `uid` = '$this->uid' ";
-         $query = $this->dbc->query($sql);
-         return $query;
+     function updateUser($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable){
+         $this->db->update($this->table,[
+             `user_name` => '$user_name',
+             `email` => '$user_email',
+             `pass` => '$user_pass',
+             `passwd` => '$user_passwd',
+             `transfer_enable` => '$transfer_enable'
+         ],[
+             "uid" => $this->uid
+         ]);
      }
      //del user
      function del(){

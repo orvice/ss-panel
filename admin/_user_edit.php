@@ -29,7 +29,7 @@ if(!empty($_POST)){
       
     //更新
     $User = new Ss\User\User($user_uid);
-    $query = $User->update($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable,$invite_num);
+    $query = $User->updateUser($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable,$invite_num);
     if($query){
                 $ue['code'] = '1';
                 $ue['ok'] = '1';
@@ -40,4 +40,3 @@ if(!empty($_POST)){
     }
 }
 echo json_encode($ue);
-?>

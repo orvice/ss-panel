@@ -33,15 +33,15 @@ $ssmin = new \Ss\Etc\Ana();
                             <p>当前时间：<?php  echo  date("Y-m-d H:i",time()); ?></p>
 			                <p>当前版本：<code><?php echo $version; ?></code></p>
                             <p><?php echo $site_name;  ?>已经产生流量<code><?php echo $ssmin->getTrafficGB(); ?></code>GB。</p>
-                            <p>注册用户：<code><?php echo $ssmin->user_all_count();?> </code></p>
-                            <p>已经有<code><?php echo $ssmin->user_active_count();?></code>个用户使用了<?php echo $site_name; ?>服务。</p>
-                            <p>签到用户：<code><?php echo   $ssmin->CheckInUser(time()); ?></code></p>
+                            <p>注册用户：<code><?php echo $ssmin->allUserCount();?> </code></p>
+                            <p>已经有<code><?php echo $ssmin->activedUserCount();?></code>个用户使用了<?php echo $site_name; ?>服务。</p>
+                            <p>签到用户：<code><?php echo   $ssmin->checkinUser(time()); ?></code></p>
                             <p>24小时签到用户：<code><?php echo   $ssmin->CheckInUser(3600*24); ?></code></p>
-                            <p>过去1小时在线人数：<code><?php echo $ssmin->user_time_count(3600);?></code>。</p>
-                            <p>过去5分钟在线人数：<code><?php echo $ssmin->user_time_count(300);?></code>。</p>
-                            <p>过去1分钟在线人数：<code><?php echo $ssmin->user_time_count(60);?></code>。</p>
-                            <p>实时在线人数：<code><?php echo $ssmin->user_time_count(10);?></code>。</p>
-                            <p>过去24小时在线人数：<code><?php echo $ssmin->user_time_count(3600*24);?></code>。</p>
+                            <p>过去1小时在线人数：<code><?php echo $ssmin->onlineUserCount(3600);?></code>。</p>
+                            <p>过去5分钟在线人数：<code><?php echo $ssmin->onlineUserCount(300);?></code>。</p>
+                            <p>过去1分钟在线人数：<code><?php echo $ssmin->onlineUserCount(60);?></code>。</p>
+                            <p>实时在线人数：<code><?php echo $ssmin->onlineUserCount(10);?></code>。</p>
+                            <p>过去24小时在线人数：<code><?php echo $ssmin->onlineUserCount(3600*24);?></code>。</p>
                         </div><!-- /.box -->
                     </div>
                 </div>

@@ -22,13 +22,13 @@ class Ana extends Db {
     }
 
     //统计用户
-    function user_all_count(){
+    function allUserCount(){
         $c = $this->db->count("user","uid");
         return $c;
     }
 
     //有效用户统计
-    function user_active_count(){
+    function activedUserCount(){
         $c = $this->db->count("user","uid",[
             "t[>]" => "0"
         ]);
@@ -36,7 +36,7 @@ class Ana extends Db {
     }
 
     //签到用户
-    function CheckInUser($time){
+    function checkinUser($time){
         $c = $this->db->count("user","uid",[
             "last_check_in_time[>]" => time()-$time
         ]);
@@ -44,7 +44,7 @@ class Ana extends Db {
     }
 
     //过去一段时间内的在线人数
-    function user_time_count($time){
+    function onlineUserCount($time){
         $now = time();
         $time = $now-$time;
         $c = $this->db->count("user","uid",[
@@ -53,7 +53,7 @@ class Ana extends Db {
         return $c;
     }
 
-    function node_count(){
+    function nodeCount(){
         $c = $this->db->count("ss_node","id");
         return $c;
     }

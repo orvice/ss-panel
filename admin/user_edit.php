@@ -69,7 +69,7 @@ if(!empty($_GET)){
                         </div><!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="Submit" id="Submit" name="action" value="edit" class="btn btn-primary">修改</button>
+                            <button type="submit" id="submit" name="submit"   class="btn btn-primary">修改</button>
                         </div>
                         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
                             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
@@ -89,7 +89,7 @@ if(!empty($_GET)){
 
 <script>
     $(document).ready(function(){
-        $("#Submit").click(function(){
+        $("#submit").click(function(){
             $.ajax({
                 type:"POST",
                 url:"_user_edit.php",

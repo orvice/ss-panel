@@ -94,6 +94,11 @@ if(!empty($_GET)){
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
+<?php
+include_once '../Public_javascript.php';
+?>
+<!-- 在下面添加功能引用的js -->
+
 <script>
     $(document).ready(function(){
         $("#Submit").click(function(){
@@ -140,10 +145,5 @@ if(!empty($_GET)){
         })
     })
 </script>
-<?php
-include_once '../Public_javascript.php';
-?>
-<!-- 在下面添加功能引用的js -->
-
 <?php
 require_once '_footer.php'; ?>

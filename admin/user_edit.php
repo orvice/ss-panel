@@ -42,35 +42,28 @@ if(!empty($_GET)){
 
                             <div class="form-group">
                                 <label for="cate_title">用户名</label>
-                                <input  class="form-control" id="user_name" value="<?php echo $rs['user_name'];?>" >
+                                <input  class="form-control" id="name" value="<?php echo $rs['user_name'];?>" >
                             </div>
 
                             <div class="form-group">
                                 <label for="cate_title">用户邮箱</label>
-                                <input  class="form-control" id="user_email" value="<?php echo $rs['email'];?>"  >
+                                <input  class="form-control" id="email" value="<?php echo $rs['email'];?>"  >
                             </div>
 
                             <div class="form-group">
-                                <label for="cate_title">用户密码</label>
-                                <input type="hidden" id="user_pass_hidden" value="<?php echo $rs['pass'];?>" >
-                                <input  class="form-control" id="user_pass" placeholder="新密码(不修改请留空)" >
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cate_title">连接密码</label>
-                                <input  class="form-control" id="user_passwd" value="<?php echo $rs['passwd'];?>" >
+                                <label for="cate_title">SS连接密码</label>
+                                <input  class="form-control" id="passwd" value="<?php echo $rs['passwd'];?>" >
                             </div>
 
                             <div class="form-group">
                                 <label for="cate_title">设置流量</label>
-                                <input type="hidden" id="transfer_enable_hidden" value="<?php echo $rs['transfer_enable'];?>" >
-                                <input   class="form-control" id="transfer_enable"  placeholder="单位为GB，直接输入数值" >
+                                <input   class="form-control" id="transfer_enable"  value="<?php echo $rs['transfer_enable']/$togb;?>" placeholder="单位为GB，直接输入数值" >
                             </div>
                             
                             <div class="form-group">
                                 <label for="cate_title">邀请码数量</label>
-                                <input type="hidden" id="invite_num_hidden" value="<?php echo $rs['invite_num'];?>" >
-                                <input  class="form-control" id="invite_num" placeholder="<?php echo $rs['invite_num'];?>" 
+
+                                <input  class="form-control" id="invite_num"  value="<?php echo $rs['invite_num'];?>"  >
                             </div>
 
                         </div><!-- /.box-body -->
@@ -102,17 +95,12 @@ if(!empty($_GET)){
                 url:"_user_edit.php",
                 dataType:"json",
                 data:{
-                    user_uid: $("#user_uid").val(),
-                    user_name: $("#user_name").val(),
-                    user_email: $("#user_email").val(),
-                    user_email_hidden: $("#user_email_hidden").val(),
-                    user_pass: $("#user_pass").val(),
-                    user_pass_hidden: $("#user_pass_hidden").val(),
-                    user_passwd: $("#user_passwd").val(),
+                    uid: $("#uid").val(),
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    passwd: $("#passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
-                    transfer_enable_hidden: $("#transfer_enable_hidden").val(),
-                    invite_num: $("#invite_num").val(),
-                    invite_num_hidden: $("#invite_num_hidden").val()
+                    invite_num: $("#invite_num").val()
                 },
                 success:function(data){
                     if(data.ok){

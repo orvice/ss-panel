@@ -33,6 +33,7 @@ $Users = new Ss\User\User();
                                     <th>剩余流量</th>
                                     <th>已使用流量</th>
                                     <th>最后签到</th>
+                                    <th>邀请码</th>
                                     <th>操作</th>
                                 </tr>
                               </thead>
@@ -41,7 +42,7 @@ $Users = new Ss\User\User();
                                 $us = $Users->AllUser();
                                 foreach ( $us as $rs ){ ?>
                                     <tr>
-                                        <td>#<?php echo $rs['uid']; ?></td>
+                                        <td><?php echo $rs['uid']; ?></td>
                                         <td><?php echo $rs['user_name']; ?></td>
                                         <td><?php echo $rs['email']; ?></td>
                                         <td><?php echo $rs['port']; ?></td>
@@ -49,6 +50,7 @@ $Users = new Ss\User\User();
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d'])); ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['u']+$rs['d'])); ?></td>
                                         <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
+                                        <th><?php echo $rs['invite_num']; ?></th>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="user_edit.php?uid=<?php echo $rs['uid']; ?>">查看</a>
                                             <a class="btn btn-danger btn-sm" href="user_del.php?uid=<?php echo $rs['uid']; ?>">删除</a>

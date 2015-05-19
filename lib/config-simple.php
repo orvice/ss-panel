@@ -33,6 +33,7 @@ $check_max = 100;
 //name
 $site_name = "ss-panel";
 $site_url  = "https://panel.com/";
+$salt = "ss-panel";
 
 //用户注册后获得的邀请码最低最高
 //都设置为0用户就不能邀请

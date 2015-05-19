@@ -7,17 +7,16 @@ namespace Ss\Etc;
 class Ana extends Db {
 
     //获取本月流量
-    function get_month_traffic(){
+    function getMonthTraffic(){
         $u = $this->db->sum("user","u");
         $d = $this->db->sum("user","d");
         $traffic = $u+$d;
         return $traffic;
     }
 
-    function GetTrafficGB(){
-        global $togb;
-        $mt = $this->get_month_traffic();
-        $mt = $mt/$togb;
+    function getTrafficGB(){
+        $mt = $this->getMonthTraffic();
+        $mt = Comm::toGB($mt);
         $mt = round($mt,3);
         return $mt;
     }

@@ -108,27 +108,27 @@ $uid  = $_GET['uid'];
         function resetcheck(){
                     var msg_id=0;
                     if($("#email").val().length==0){
-                        $("#email").focus();
+                        id_name="#email";
                         msg_out("请输入邮箱","error");
                         msg_id=1;
                         return false;
                     }
                     var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                     if(!email_reg.test($("#email").val())) {
-                        $("#email").focus();
+                        id_name="#email";
                         msg_out("请输入有效的邮箱！","error");
                         msg_id=1;
                         return false;
                     }
                     if($("#msg-success-p").eq(0)[0].innerHTML=="已经发送到邮箱"){
-                            msg_out("已经发送到邮箱","success");
+                            msg_out("已经发送到邮箱！","success");
                             msg_id=1;
                             $("#msg-error-p").html(null);
                      }
                     if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误，请重新输入！"){
                          if($("#email").val()==inpemail){
-                            $("#email").focus();
+                            id_name="#email";
                             msg_out("邮箱错误，请重新输入！","error");
                             msg_id=1;
                             return false;
@@ -142,6 +142,7 @@ $uid  = $_GET['uid'];
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
+                    $(id_name).focus();
         }
         $("html").keydown(function(event){
             if(event.keyCode==13){
@@ -156,6 +157,7 @@ $uid  = $_GET['uid'];
         });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
+            $(id_name).focus();
         });
     })
 </script>

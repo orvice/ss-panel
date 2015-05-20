@@ -122,20 +122,20 @@ require_once '../lib/config.php';
             {
                 var msg_id=0,msgcss="error";
                 if($("#email").val().length==0){
-                    $("#email").focus();
+                    id_name="#email";
                     msg_out("请输入邮箱","error");
                     msg_id=1;
                     return false;
                 }
                 var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 if(!email_reg.test($("#email").val())) {
-                    $("#email").focus();
+                    id_name="#email";
                     msg_out("请输入有效的邮箱！","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#passwd").val().length==0){
-                    $("#passwd").focus();
+                    id_name="#passwd";
                     msg_out("请输入密码","error");
                     msg_id=1;
                     return false;
@@ -149,7 +149,7 @@ require_once '../lib/config.php';
                 if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){
                      if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
-                        $("#passwd").focus();
+                        id_name="#passwd";
                         msg_out("邮箱或者密码错误，请重新输入！","error");
                         msg_id=1;
                         return false;
@@ -160,9 +160,16 @@ require_once '../lib/config.php';
                 }
             }
             function msg_out(msgout,msgcss){
+                // if($("#msg-error").css("display")=="block"){
+                //     msgcss="error";
+                // }
+                // if($("#msg-success").css("display")=="block"){
+                //     msgcss="success";
+                // }
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
+                    $(id_name).focus();
             }
        
         $("html").keydown(function(event){
@@ -178,6 +185,7 @@ require_once '../lib/config.php';
         });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
+            $(id_name).focus();
         });
     })
 </script>

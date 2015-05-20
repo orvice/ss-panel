@@ -134,57 +134,57 @@ require_once '../lib/config.php';
         function registercheck(){
                 var msg_id=0;
                 if($("#name").val().length==0){
-                    $("#name").focus();
+                    id_name="#name";
                     msg_out("请输入昵称","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#email").val().length==0){
-                    $("#email").focus();
+                    id_name="#email";
                     msg_out("请输入邮箱","error");
                     msg_id=1;
                     return false;
                 }
                 var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 if(!email_reg.test($("#email").val())) {
-                    $("#email").focus();
+                    id_name="#email";
                     msg_out("请输入有效的邮箱！","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#passwd").val().length==0){
-                    $("#passwd").focus();
+                    id_name="#passwd";
                     msg_out("请输入密码","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#repasswd").val().length==0){
-                    $("#repasswd").focus();
+                    id_name="#repasswd";
                     msg_out("请输入重复密码","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#passwd").val() != $("#repasswd").val()){
-                    $("#repasswd").focus();
+                    id_name="#repasswd";
                     msg_out("两次密码不一样，请重新输入！","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#code").val().length==0){
-                    $("#code").focus();
+                    id_name="#code";
                     msg_out("请输入邀请码","error");
                     msg_id=1;
                     return false;
                 }
                 if($("#msg-success-p").eq(0)[0].innerHTML=="注册成功"){
-                        msg_out("注册成功！","success");
+                        msg_out("注册成功","success");
                         msg_id=1;
                         $("#msg-error-p").html(null);
                 }
                 if($("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效" 
                    || $("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效，请重新输入！"){
                      if($("#code").val()==incode){
-                        $("#code").focus();
+                        id_name="#code";
                         msg_out("邀请码无效，请重新输入！","error");
                         msg_id=1;
                         return false;
@@ -198,6 +198,7 @@ require_once '../lib/config.php';
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
+                    $(id_name).focus();
             }
         $("html").keydown(function(event){
             if(event.keyCode==13){
@@ -212,6 +213,7 @@ require_once '../lib/config.php';
         });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
+            $(id_name).focus();
         });
     })
 </script>

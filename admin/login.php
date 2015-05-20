@@ -53,7 +53,7 @@ require_once '../lib/config.php';
                 </div><!-- /.col -->
             </div>
                 
-            <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+            <div id="msg-success" class="alert alert-info alert-dismissable"style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
                <p id="msg-success-p"></p>
@@ -120,21 +120,21 @@ require_once '../lib/config.php';
             {
                 var msg_id=0;
                 if($("#email").val().length==0){
+                    id_name="#email";
                     msg_out("请输入邮箱","error");
-                    $("#email").focus();
                     msg_id=1;
                     return false;
                 }
                 var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 if(!email_reg.test($("#email").val())) {
+                    id_name="#email";
                     msg_out("请输入有效的邮箱！","error");
-                    $("#email").focus();
                     msg_id=1;
                     return false;
                 }
                 if($("#passwd").val().length==0){
+                    id_name="#passwd";
                     msg_out("请输入密码","error");
-                    $("#passwd").focus();
                     msg_id=1;
                     return false;
                 }
@@ -147,7 +147,7 @@ require_once '../lib/config.php';
                 if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){
                      if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
-                    	$("#passwd").focus();
+                        id_name="#passwd";
                         msg_out("邮箱或者密码错误，请重新输入！","error");
                         msg_id=1;
                         return false;
@@ -161,6 +161,7 @@ require_once '../lib/config.php';
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
+                    $(id_name).focus();
             }
         $("html").keydown(function(event){
             if(event.keyCode==13){
@@ -175,6 +176,7 @@ require_once '../lib/config.php';
         });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
+            $(id_name).focus();
         });
     })
 </script>

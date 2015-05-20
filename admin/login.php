@@ -53,13 +53,13 @@ require_once '../lib/config.php';
                 </div><!-- /.col -->
             </div>
                 
-            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="position: fixed; width: 25%; text-align: center; display: none;">
                 <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
                <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-danger" style="display: none;">
+            <div id="msg-error" class="alert alert-danger" style="position: fixed; width: 25%; text-align: center; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -139,14 +139,15 @@ require_once '../lib/config.php';
                     return false;
                 }
                 if($("#msg-success-p").eq(0)[0].innerHTML=="欢迎回来"
-                    || $("#msg-success-p").eq(0)[0].innerHTML=="你已成功登录，如果页面不跳转，请刷新！"){
-                        msg_out("你已成功登录，如果页面不跳转，请刷新！","success");
+                    || $("#msg-success-p").eq(0)[0].innerHTML=="你已成功登录！"){
+                        msg_out("你已成功登录！","success");
                         msg_id=1;
-                        $("#msg-error-p").html("");
+                        $("#msg-error-p").html(null);
                 }
                 if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){
                      if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
+                    	$("#passwd").focus();
                         msg_out("邮箱或者密码错误，请重新输入！","error");
                         msg_id=1;
                         return false;

@@ -44,13 +44,13 @@ $uid  = $_GET['uid'];
             <button type="submit" id="reset" class="btn btn-primary btn-block btn-flat">确认重置</button>
         </div>
         
-        <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+        <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-info"></i> 成功!</h4>
             <p id="msg-success-p"></p>
         </div>
 
-        <div id="msg-error" class="alert alert-danger" style="display: none;">
+        <div id="msg-error" class="alert alert-danger" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
             <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
             <p id="msg-error-p"></p>
@@ -108,26 +108,27 @@ $uid  = $_GET['uid'];
         function resetcheck(){
                     var msg_id=0;
                     if($("#email").val().length==0){
-                        msg_out("请输入邮箱","error");
                         $("#email").focus();
+                        msg_out("请输入邮箱","error");
                         msg_id=1;
                         return false;
                     }
                     var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                     if(!email_reg.test($("#email").val())) {
-                        msg_out("请输入有效的邮箱！","error");
                         $("#email").focus();
+                        msg_out("请输入有效的邮箱！","error");
                         msg_id=1;
                         return false;
                     }
                     if($("#msg-success-p").eq(0)[0].innerHTML=="已经发送到邮箱"){
                             msg_out("已经发送到邮箱","success");
                             msg_id=1;
-                            $("#msg-error-p").html("");
+                            $("#msg-error-p").html(null);
                      }
                     if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误，请重新输入！"){
                          if($("#email").val()==inpemail){
+                            $("#email").focus();
                             msg_out("邮箱错误，请重新输入！","error");
                             msg_id=1;
                             return false;

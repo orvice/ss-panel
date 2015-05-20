@@ -59,7 +59,7 @@ require_once '../lib/config.php';
                <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+            <div id="msg-error" class="alert alert-danger" style="display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -82,8 +82,6 @@ require_once '../lib/config.php';
             increaseArea: '20%' // optional
         });
     });
-    // $("#msg-error").hide(100);
-    // $("#msg-success").hide(100);
 </script>
 <script>
     $(document).ready(function(){
@@ -114,14 +112,62 @@ require_once '../lib/config.php';
                      $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
             });
+            
+            inemail=$("#email").val();
+            inpasswd=$("#passwd").val();
         }
+        function logincheck()
+            {
+                var msg_id=0;
+                if($("#email").val().length==0){
+                    msg_out("请输入邮箱","error");
+                    $("#email").focus();
+                    msg_id=1;
+                    return false;
+                }
+                var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!email_reg.test($("#email").val())) {
+                    msg_out("请输入有效的邮箱！","error");
+                    $("#email").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val().length==0){
+                    msg_out("请输入密码","error");
+                    $("#passwd").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#msg-success-p").eq(0)[0].innerHTML=="欢迎回来"
+                    || $("#msg-success-p").eq(0)[0].innerHTML=="你已成功登录，如果页面不跳转，请刷新！"){
+                        msg_out("你已成功登录，如果页面不跳转，请刷新！","success");
+                        msg_id=1;
+                        $("#msg-error-p").html("");
+                }
+                if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误"
+                    || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！","error"){
+                     if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
+                        msg_out("邮箱或者密码错误，请重新输入！");
+                        msg_id=1;
+                        return false;
+                    }
+                }
+                if(msg_id==0){
+                    login();
+                }
+            }
+            function msg_out(msgout,msgcss){
+                    $("#msg-"+msgcss).hide(10);
+                    $("#msg-"+msgcss).show(100);
+                    $("#msg-"+msgcss+"-p").html(msgout);
+            }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                login();
+                logincheck();
             }
         });
         $("#login").click(function(){
-            login();
+            logincheck();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

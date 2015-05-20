@@ -144,10 +144,10 @@ require_once '../lib/config.php';
                         msg_id=1;
                         $("#msg-error-p").html("");
                 }
-                if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误"
-                    || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！","error"){
+                if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
+                    || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){
                      if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
-                        msg_out("邮箱或者密码错误，请重新输入！");
+                        msg_out("邮箱或者密码错误，请重新输入！","error");
                         msg_id=1;
                         return false;
                     }

@@ -67,7 +67,7 @@ require_once '../lib/config.php';
                 <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+            <div id="msg-error" class="alert alert-danger" style="display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -128,14 +128,84 @@ require_once '../lib/config.php';
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
             });
+            
+            incode=$("#code").val();
         }
+        function registercheck(){
+                var msg_id=0;
+                if($("#name").val().length==0){
+                    msg_out("请输入昵称","error");
+                    $("#name").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#email").val().length==0){
+                    msg_out("请输入邮箱","error");
+                    $("#email").focus();
+                    msg_id=1;
+                    return false;
+                }
+                var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!email_reg.test($("#email").val())) {
+                    msg_out("请输入有效的邮箱！","error");
+                    $("#email").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val().length==0){
+                    msg_out("请输入密码","error");
+                    $("#passwd").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#repasswd").val().length==0){
+                    msg_out("请输入重复密码","error");
+                    $("#repasswd").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val() != $("#repasswd").val()){
+                    msg_out("两次密码不一样，请重新输入！","error");
+                    $("#repasswd").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#code").val().length==0){
+                    msg_out("请输入邀请码","error");
+                    $("#code").focus();
+                    msg_id=1;
+                    return false;
+                }
+                if($("#msg-success-p").eq(0)[0].innerHTML=="注册成功"
+                   || $("#msg-success-p").eq(0)[0].innerHTML=="你已注册成功，如果页面不跳转，请刷新！"){
+                        msg_out("你已注册成功，如果页面不跳转，请刷新！","success");
+                        msg_id=1;
+                        $("#msg-error-p").html("");
+                }
+                if($("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效" 
+                   || $("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效，请重新输入！"){
+                     if($("#code").val()==incode){
+                        msg_out("邀请码无效，请重新输入！","error");
+                        msg_id=1;
+                        return false;
+                    }
+                }
+                if(msg_id==0){
+                    register();
+                }
+            }
+            function msg_out(msgout,msgcss){
+                    $("#msg-"+msgcss).hide(10);
+                    $("#msg-"+msgcss).show(100);
+                    $("#msg-"+msgcss+"-p").html(msgout);
+            }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                register();
+                registercheck();
             }
         });
         $("#reg").click(function(){
-            register();
+            registercheck();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

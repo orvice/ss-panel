@@ -50,7 +50,7 @@ $uid  = $_GET['uid'];
             <p id="msg-success-p"></p>
         </div>
 
-        <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+        <div id="msg-error" class="alert alert-danger" style="display: none;">
             <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
             <p id="msg-error-p"></p>
@@ -102,14 +102,53 @@ $uid  = $_GET['uid'];
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
             });
+            
+            inpemail=$("#email").val();
+        }
+        function resetcheck(){
+                    var msg_id=0;
+                    if($("#email").val().length==0){
+                        msg_out("请输入邮箱","error");
+                        $("#email").focus();
+                        msg_id=1;
+                        return false;
+                    }
+                    var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                    if(!email_reg.test($("#email").val())) {
+                        msg_out("请输入有效的邮箱！","error");
+                        $("#email").focus();
+                        msg_id=1;
+                        return false;
+                    }
+                    if($("#msg-success-p").eq(0)[0].innerHTML=="已经发送到邮箱"){
+                            msg_out("已经发送到邮箱","success");
+                            msg_id=1;
+                            $("#msg-error-p").html("");
+                     }
+                    if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误" 
+                    || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱错误，请重新输入！"){
+                         if($("#email").val()==inpemail){
+                            msg_out("邮箱错误，请重新输入！","error");
+                            msg_id=1;
+                            return false;
+                            }
+                    }
+                    if(msg_id==0){ 
+                            reset();
+                    }
+        }
+        function msg_out(msgout,msgcss){
+                    $("#msg-"+msgcss).hide(10);
+                    $("#msg-"+msgcss).show(100);
+                    $("#msg-"+msgcss+"-p").html(msgout);
         }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                reset();
+                resetcheck();
             }
         });
         $("#reset").click(function(){
-            reset();
+            resetcheck();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

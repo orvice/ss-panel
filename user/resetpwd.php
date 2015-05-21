@@ -36,7 +36,7 @@ $uid  = $_GET['uid'];
             <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
             
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
+                <input id="email" name="Email" type="text" class="form-control" autofocus="autofocus" placeholder="邮箱"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
 
@@ -50,7 +50,7 @@ $uid  = $_GET['uid'];
                 <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-danger" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+            <div id="msg-error" class="alert alert-danger" title="点击关闭" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -144,7 +144,6 @@ $uid  = $_GET['uid'];
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
-                    $(id_name).focus();
         }
         $("html").keydown(function(event){
             if(event.keyCode==13){
@@ -157,7 +156,7 @@ $uid  = $_GET['uid'];
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
+        $("#msg-error").click(function(){
             $("#msg-error").hide(100);
             $(id_name).focus();
         });

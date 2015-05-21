@@ -32,7 +32,7 @@ require_once '../lib/config.php';
         <p class="login-box-msg">注册，然后变成一只猫。</p>
 
             <div class="form-group has-feedback">
-                <input type="text" id="name" class="form-control" placeholder="用户名"/>
+                <input type="text" id="name" class="form-control" autofocus="autofocus" placeholder="用户名"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -67,7 +67,7 @@ require_once '../lib/config.php';
                 <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-danger" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
+            <div id="msg-error" class="alert alert-danger" title="点击关闭" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -207,7 +207,6 @@ require_once '../lib/config.php';
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
-                    $(id_name).focus();
             }
         $("html").keydown(function(event){
             if(event.keyCode==13){
@@ -220,7 +219,7 @@ require_once '../lib/config.php';
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
+        $("#msg-error").click(function(){
             $("#msg-error").hide(100);
             $(id_name).focus();
         });

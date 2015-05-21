@@ -163,12 +163,14 @@ require_once '../lib/config.php';
                     $("#msg-"+msgcss).hide(10);
                     $("#msg-"+msgcss).show(100);
                     $("#msg-"+msgcss+"-p").html(msgout);
-                    $(id_name).focus();
             }
        
         $("html").keydown(function(event){
             if(event.keyCode==13){
                 logincheck();
+            }
+            if(event.keyCode==27){
+                error_close();
             }
         });
         $("#login").click(function(){
@@ -178,9 +180,17 @@ require_once '../lib/config.php';
             $("#msg-success").hide(100);
         });
         $("#msg-error").click(function(){
-            $("#msg-error").hide(100);
-            $(id_name).focus();
+            error_close();
         });
+        function error_close(){
+            if($("#msg-error").css('display')=="block"){
+                $("#msg-error").hide(100);
+                $(id_name).focus();
+                if(id_name=="#email"){
+                    $(id_name).select();
+                }
+            }
+        }
     })
 </script>
 </body>

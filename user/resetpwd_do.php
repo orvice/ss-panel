@@ -147,6 +147,9 @@ $uid  = $_GET['uid'];
             if(event.keyCode==13){
                 resetcheck();
             }
+            if(event.keyCode==27){
+                error_close();
+            }
         });
         $("#reset").click(function(){
             resetcheck();
@@ -155,9 +158,17 @@ $uid  = $_GET['uid'];
             $("#msg-success").hide(100);
         });
         $("#msg-error").click(function(){
-            $("#msg-error").hide(100);
-            $(id_name).focus();
+            error_close();
         });
+        function error_close(){
+            if($("#msg-error").css('display')=="block"){
+                $("#msg-error").hide(100);
+                $(id_name).focus();
+                if(id_name=="#email"){
+                    $(id_name).select();
+                }
+            }
+        }
     })
 </script>
 

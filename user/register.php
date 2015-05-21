@@ -212,6 +212,9 @@ require_once '../lib/config.php';
             if(event.keyCode==13){
                 registercheck();
             }
+            if(event.keyCode==27){
+                error_close();
+            }
         });
         $("#reg").click(function(){
             registercheck();
@@ -219,10 +222,18 @@ require_once '../lib/config.php';
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
-        $("#msg-error").click(function(){
-            $("#msg-error").hide(100);
-            $(id_name).focus();
+       $("#msg-error").click(function(){
+            error_close();
         });
+        function error_close(){
+            if($("#msg-error").css('display')=="block"){
+                $("#msg-error").hide(100);
+                $(id_name).focus();
+                if(id_name=="#email"){
+                    $(id_name).select();
+                }
+            }
+        }
     })
 </script>
 </body>

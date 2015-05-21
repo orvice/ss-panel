@@ -36,7 +36,7 @@ $uid  = $_GET['uid'];
             <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
             
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
 

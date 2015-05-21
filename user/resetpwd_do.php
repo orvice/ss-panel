@@ -36,7 +36,7 @@ $uid  = $_GET['uid'];
         <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" >
 
         <div class="form-group has-feedback">
-            <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+            <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
             <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
@@ -121,7 +121,7 @@ $uid  = $_GET['uid'];
                         return false;
                     }
                     if($("#msg-success-p").eq(0)[0].innerHTML=="已经发送到邮箱"){
-                            msg_out("已经发送到邮箱！","success");
+                            msg_out("已经发送到邮箱","success");
                             msg_id=1;
                             $("#msg-error-p").html(null);
                      }

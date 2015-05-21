@@ -32,7 +32,7 @@ require_once '../lib/config.php';
         <p class="login-box-msg">注册，然后变成一只猫。</p>
 
             <div class="form-group has-feedback">
-                <input type="text" id="name" class="form-control" placeholder="昵称"/>
+                <input type="text" id="name" class="form-control" placeholder="用户名"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -61,13 +61,13 @@ require_once '../lib/config.php';
                 <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">同意服务条款并提交注册</button>
             </div>
             
-            <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> 成功!</h4>
                 <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-danger" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+            <div id="msg-error" class="alert alert-danger" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -90,9 +90,6 @@ require_once '../lib/config.php';
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
         });
-        // $("#msg-error").hide(100);
-        // $("#msg-success").hide(100);
-
     });
 </script>
 <script>
@@ -135,7 +132,13 @@ require_once '../lib/config.php';
                 var msg_id=0;
                 if($("#name").val().length==0){
                     id_name="#name";
-                    msg_out("请输入昵称","error");
+                    msg_out("请输入用户名","error");
+                    msg_id=1;
+                    return false;
+                }
+                if(($("#name").val()).length<7){
+                    id_name="#name";
+                    msg_out("用户名太短，长度为7个字符。","error");
                     msg_id=1;
                     return false;
                 }
@@ -155,6 +158,12 @@ require_once '../lib/config.php';
                 if($("#passwd").val().length==0){
                     id_name="#passwd";
                     msg_out("请输入密码","error");
+                    msg_id=1;
+                    return false;
+                }
+                if(($("#passwd").val()).length<8){
+                    id_name="#passwd";
+                    msg_out("密码太短，长度为8位以上。","error");
                     msg_id=1;
                     return false;
                 }

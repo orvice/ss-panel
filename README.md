@@ -65,6 +65,7 @@ $ php composer.phar  install
 <script src="../asset/js/app.min.js" type="text/javascript"></script>
 ```
 
+优化-登录-注册-重置密码_页面
 如果你的提示文字已修改，请在新文件对应的提示文字修改，以防本地验证失效！
 还针对按回车不放的用户优化，禁止重复提交，预防多余不必要的请求连接。
 修复已知问题，改用浮动层，不会再因为弹出提示而改变页面排版。

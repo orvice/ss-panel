@@ -7,6 +7,7 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
         $user_pwd  = $_COOKIE['user_pwd'];
 
         $U = new \Ss\User\UserInfo($uid);
+        $user_name = $U->GetUserName();
         //验证cookie
         $pwd = $U->GetPasswd();
         $pw = \Ss\User\Comm::CoPW($pwd);

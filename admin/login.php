@@ -32,7 +32,7 @@ require_once '../lib/config.php';
 
             <form>
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
+                <input id="email" name="Email" type="text" class="form-control" autofocus="autofocus" placeholder="邮箱"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -53,13 +53,13 @@ require_once '../lib/config.php';
                 </div><!-- /.col -->
             </div>
                 
-            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+            <div id="msg-success" class="alert alert-info alert-dismissable"style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
                <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+            <div id="msg-error" class="alert alert-danger" title="点击关闭" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -82,8 +82,6 @@ require_once '../lib/config.php';
             increaseArea: '20%' // optional
         });
     });
-    // $("#msg-error").hide(100);
-    // $("#msg-success").hide(100);
 </script>
 <script>
     $(document).ready(function(){
@@ -114,21 +112,82 @@ require_once '../lib/config.php';
                      $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
             });
+            
+            inemail=$("#email").val();
+            inpasswd=$("#passwd").val();
         }
+        function logincheck()
+            {
+                var msg_id=0;
+                if($("#email").val().length==0){
+                    id_name="#email";
+                    msg_out("请输入邮箱","error");
+                    msg_id=1;
+                    return false;
+                }
+                var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!email_reg.test($("#email").val())) {
+                    id_name="#email";
+                    msg_out("请输入有效的邮箱！","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val().length==0){
+                    id_name="#passwd";
+                    msg_out("请输入密码","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#msg-success-p").eq(0)[0].innerHTML=="欢迎回来"
+                    || $("#msg-success-p").eq(0)[0].innerHTML=="你已成功登录！"){
+                        msg_out("你已成功登录！","success");
+                        msg_id=1;
+                        $("#msg-error-p").html(null);
+                }
+                if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
+                    || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){
+                     if($("#passwd").val()==inpasswd && $("#email").val()==inemail){
+                        id_name="#passwd";
+                        msg_out("邮箱或者密码错误，请重新输入！","error");
+                        msg_id=1;
+                        return false;
+                    }
+                }
+                if(msg_id==0){
+                    login();
+                }
+            }
+            function msg_out(msgout,msgcss){
+                    $("#msg-"+msgcss).hide(10);
+                    $("#msg-"+msgcss).show(100);
+                    $("#msg-"+msgcss+"-p").html(msgout);
+            }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                login();
+                logincheck();
+            }
+            if(event.keyCode==27){
+                error_close();
             }
         });
         $("#login").click(function(){
-            login();
+            logincheck();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
-            $("#msg-error").hide(100);
+        $("#msg-error").click(function(){
+            error_close();
         });
+        function error_close(){
+            if($("#msg-error").css('display')=="block"){
+                $("#msg-error").hide(100);
+                $(id_name).focus();
+                if(id_name=="#email"){
+                    $(id_name).select();
+                }
+            }
+        }
     })
 </script>
 </body>

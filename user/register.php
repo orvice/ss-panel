@@ -32,7 +32,7 @@ require_once '../lib/config.php';
         <p class="login-box-msg">注册，然后变成一只猫。</p>
 
             <div class="form-group has-feedback">
-                <input type="text" id="name" class="form-control" placeholder="昵称"/>
+                <input type="text" id="name" class="form-control" autofocus="autofocus" placeholder="用户名"/>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -61,13 +61,13 @@ require_once '../lib/config.php';
                 <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">同意服务条款并提交注册</button>
             </div>
             
-            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> 成功!</h4>
                 <p id="msg-success-p"></p>
             </div>
     
-            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+            <div id="msg-error" class="alert alert-danger" title="点击关闭" style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -148px !important; position: fixed !important; display: none;">
                 <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
                 <p id="msg-error-p"></p>
@@ -90,9 +90,6 @@ require_once '../lib/config.php';
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
         });
-        // $("#msg-error").hide(100);
-        // $("#msg-success").hide(100);
-
     });
 </script>
 <script>
@@ -128,21 +125,115 @@ require_once '../lib/config.php';
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
             });
+            
+            incode=$("#code").val();
         }
+        function registercheck(){
+                var msg_id=0;
+                if($("#name").val().length==0){
+                    id_name="#name";
+                    msg_out("请输入用户名","error");
+                    msg_id=1;
+                    return false;
+                }
+                if(($("#name").val()).length<7){
+                    id_name="#name";
+                    msg_out("用户名太短，长度为7个字符。","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#email").val().length==0){
+                    id_name="#email";
+                    msg_out("请输入邮箱","error");
+                    msg_id=1;
+                    return false;
+                }
+                var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!email_reg.test($("#email").val())) {
+                    id_name="#email";
+                    msg_out("请输入有效的邮箱！","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val().length==0){
+                    id_name="#passwd";
+                    msg_out("请输入密码","error");
+                    msg_id=1;
+                    return false;
+                }
+                if(($("#passwd").val()).length<8){
+                    id_name="#passwd";
+                    msg_out("密码太短，长度为8位以上。","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#repasswd").val().length==0){
+                    id_name="#repasswd";
+                    msg_out("请输入重复密码","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#passwd").val() != $("#repasswd").val()){
+                    id_name="#repasswd";
+                    msg_out("两次密码不一样，请重新输入！","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#code").val().length==0){
+                    id_name="#code";
+                    msg_out("请输入邀请码","error");
+                    msg_id=1;
+                    return false;
+                }
+                if($("#msg-success-p").eq(0)[0].innerHTML=="注册成功"){
+                        msg_out("注册成功","success");
+                        msg_id=1;
+                        $("#msg-error-p").html(null);
+                }
+                if($("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效" 
+                   || $("#msg-error-p").eq(0)[0].innerHTML=="邀请码无效，请重新输入！"){
+                     if($("#code").val()==incode){
+                        id_name="#code";
+                        msg_out("邀请码无效，请重新输入！","error");
+                        msg_id=1;
+                        return false;
+                    }
+                }
+                if(msg_id==0){
+                    register();
+                }
+            }
+            function msg_out(msgout,msgcss){
+                    $("#msg-"+msgcss).hide(10);
+                    $("#msg-"+msgcss).show(100);
+                    $("#msg-"+msgcss+"-p").html(msgout);
+            }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                register();
+                registercheck();
+            }
+            if(event.keyCode==27){
+                error_close();
             }
         });
         $("#reg").click(function(){
-            register();
+            registercheck();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
-            $("#msg-error").hide(100);
+       $("#msg-error").click(function(){
+            error_close();
         });
+        function error_close(){
+            if($("#msg-error").css('display')=="block"){
+                $("#msg-error").hide(100);
+                $(id_name).focus();
+                if(id_name=="#email"){
+                    $(id_name).select();
+                }
+            }
+        }
     })
 </script>
 </body>

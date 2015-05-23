@@ -52,7 +52,7 @@ $ php composer.phar  install
 修改：
 
 移动以下内容至新文件Public_javascript.php并在所有调用<?php require_once '_footer.php'; ?>的文件加入<?php include_once '../Public_javascript.php'; ?>调用。
-```
+```html
 <!-- jQuery 2.1.3 -->
 <script src="../asset/js/jQuery.min.js"></script>
 <!-- Bootstrap 3.3.2 JS -->
@@ -86,9 +86,9 @@ if($("#msg-success-p").eq(0)[0].innerHTML=="欢迎回来"
                       // 这里第一个是提示文字，如果要改，上面判断的也要一起改。
                       //第二个是显示的样式，分两个： 出错了（error）成功（success ）
                         msg_out("你已成功登录","success");
-                        //msg_id=1 不执行（提）登（交）录
-                        msg_id=1;
-                         $("#msg-error-p").html("");
+                        //如果 msg_id=1 不执行（提）登（交）录
+                        msg_id=0;
+                         $("#msg-error-p").html(null);
                 }
                 if($("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误" 
                     || $("#msg-error-p").eq(0)[0].innerHTML=="邮箱或者密码错误，请重新输入！"){

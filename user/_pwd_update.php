@@ -22,5 +22,5 @@ if($U->GetPasswd() != $nowpwd) {
     $pwd = \Ss\User\Comm::SsPW($pwd);
     $U->UpdatePwd($pwd);
 }
-//echo
+
 echo json_encode($a);

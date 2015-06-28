@@ -43,9 +43,10 @@ $user_invite_max = '1';
 
 //
 //选择邮件服务
+// smtp未完成，现在只能用mailgun
 //mail-gun
 //mail-smtp
-$Selectmailservice = "mail-smtp";
+$Selectmailservice = "mail-gun";
 //邮件发件人
 $sender = "xxx@xxx.xx";
 
@@ -57,7 +58,7 @@ $mailgun_domain = "";
 
 //
 //mail-smtp
-//
+// smtp发件方式暂时无法使用
 //设置smtp服务器连接方式:  
 //加密连接(ssl) = "1"
 //普通连接 = "0"

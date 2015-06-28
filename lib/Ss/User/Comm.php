@@ -18,6 +18,11 @@ class Comm {
         return $pwd;
     }
 
+    static function md5WithSaltPw($pwd){
+        global $salt;
+        return md5($pwd.$salt);
+    }
+
     //Gravatar
     static function Gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
         //$url = 'http://gravatar.duoshuo.com/avatar/';

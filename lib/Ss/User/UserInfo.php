@@ -84,7 +84,7 @@ class UserInfo {
         ]);
     }
 
-    function IsAdmin(){
+    function isAdmin(){
         if($this->db->has("ss_user_admin",[
             "uid" => $this->uid
         ])){

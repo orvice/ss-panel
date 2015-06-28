@@ -32,22 +32,8 @@ $uid  = $_GET['uid'];
     <div class="login-box-body">
         <p class="login-box-msg">重置密码</p>
 
-        <div id="msg-success" class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 成功!</h4>
-            <p id="msg-success-p"></p>
-        </div>
-
-        <div id="msg-error" class="alert alert-warning alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-            <p id="msg-error-p"></p>
-        </div>
-
-
-                <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" required autofocus>
-                <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
-
+            <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" required autofocus>
+            <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" required autofocus>
 
             <div class="form-group has-feedback">
                 <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
@@ -56,6 +42,18 @@ $uid  = $_GET['uid'];
 
             <div class="form-group has-feedback">
                 <button type="submit" id="reset" class="btn btn-primary btn-block btn-flat">重置</button>
+            </div>
+    
+            <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> 成功!</h4>
+                <p id="msg-success-p"></p>
+            </div>
+    
+            <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+                <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                <p id="msg-error-p"></p>
             </div>
 
         <a href="login.php" class="text-center">返回登录</a>
@@ -77,33 +75,50 @@ $uid  = $_GET['uid'];
             increaseArea: '20%' // optional
         });
     });
-    $("#msg-error").hide();
-    $("#msg-success").hide();
+    // $("#msg-error").hide();
+    // $("#msg-success").hide();
 </script>
 
 <script>
     $(document).ready(function(){
-        $("#reset").click(function(){
-            $.ajax({
+          function reset(){
+               $.ajax({
                 type:"GET",
                 url:"_resetpwd.php?username="+$("#username").val()+"&email="+$("#email").val(),
                 dataType:"json",
                 success:function(data){
                     if(data.ok){
-                        $("#msg-error").hide();
-                        $("#msg-success").show();
+                        $("#msg-error").hide(100);
+                        $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         window.setTimeout("location.href='index.php'", 2000);
                     }else{
-                        $("#msg-error").show();
+                        $("#msg-error").hide(10);
+                        $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }
-            })
-        })
+            });
+          }
+        $("html").keydown(function(event){
+            if(event.keyCode==13){
+                reset();
+            }
+        });
+        $("#reset").click(function(){
+            reset();
+        });
+        $("#ok-close").click(function(){
+            $("#msg-success").hide(100);
+        });
+        $("#error-close").click(function(){
+            $("#msg-error").hide(100);
+        });
     })
 </script>
 

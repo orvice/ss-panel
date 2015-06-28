@@ -10,7 +10,7 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
         //验证cookie
         $pwd = $U->GetPasswd();
         $pw = \Ss\User\Comm::CoPW($pwd);
-        if($pw != $user_pwd){
+        if($pw != $user_pwd || $pw == null || $user_pwd == null  ){
             header("Location:login.php");
         }
 }else{

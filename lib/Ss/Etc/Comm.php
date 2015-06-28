@@ -5,14 +5,22 @@ namespace Ss\Etc;
 
 class Comm {
 
-    //获取最后一个用户的port
-    function get_last_port(){
-        global $dbc;
-        $sql = "SELECT * FROM `user` ORDER BY UID DESC LIMIT 1";
-        $query = $dbc->query($sql);
-        $rs = $query->fetch_array();
-        return $rs['port'];
+
+    private $kb = 1024, $mb = 1048576, $gb = 1073741824;
+
+    // to kb mb gb
+    static function toKB($value){
+        return $value/1024;
     }
+
+    static function toMB($value){
+        return $value/(1024*1024);
+    }
+
+    static function toGB($value){
+        return $value/(1024*1024*1024);
+    }
+
 
     //Gravatar
     static function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {

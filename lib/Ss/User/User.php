@@ -7,16 +7,13 @@ namespace Ss\User;
  class User {
 
      public  $uid;
-     private $dbc;
      private $db;
 
      private $table = "user";
 
      function __construct($uid=0){
-         global $dbc;
          global $db;
          $this->uid = $uid;
-         $this->dbc = $dbc;
          $this->db  = $db;
      }
 
@@ -25,16 +22,16 @@ namespace Ss\User;
         return $datas;
      }
 
-     function update($user_name,$user_email,$user_pass,$user_passwd,$transfer_enable){
-         $sql = " UPDATE `user` SET
-                  `user_name` = '$user_name',
-                  `email` = '$user_email',
-                  `pass` = '$user_pass',
-                  `passwd` = '$user_passwd',
-                  `transfer_enable` = '$transfer_enable'
-                  WHERE  `uid` = '$this->uid' ";
-         $query = $this->dbc->query($sql);
-         return $query;
+     function updateUser($name,$email,$passwd,$transfer_enable,$invite_num){
+         return $this->db->update($this->table,[
+             `user_name` => $name,
+             `email` => $email,
+             `passwd` => $passwd,
+             `transfer_enable` => $transfer_enable,
+             'invite_num' => $invite_num
+         ],[
+             "uid" => $this->uid
+         ]);
      }
      //del user
      function del(){
@@ -102,32 +99,6 @@ namespace Ss\User;
              "LIMIT" => 1
          ]);
          return $datas['0']['uid'];
-     }
-
-     // 用户注册 $pass ss密码
-     function reg($username,$email,$pass,$passwd,$plan,$transfer,$port,$invite_num,$money){
-         $sql ="INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `reg_date`,`invite_num`,`money`)
-           VALUES (NULL, '$username', '$email', '$pass', '$passwd', '0', '0', '0', 'A', '$transfer', '$port', '1', '1', '7', now(),$invite_num,$money)";
-         $query = $this->dbc->query($sql);
-         $this->db->insert("user",[
-             "user_name" => $username,
-             "email"     => $email,
-             "pass" => $pass,
-             "passwd" => $passwd,
-             "t"  => "0",
-             "u"  => "0",
-             "d"  => "0",
-             "plan" => $plan,
-             "transfer" => $transfer,
-             "port"  => $port,
-             "invite_num" => $invite_num,
-             "money" => $money
-         ]);
-         if($query){
-             return 1;
-         }else{
-             return 0;
-         }
      }
 
      function UpdatePWd($pwd){

@@ -8,7 +8,7 @@
 $db_table['user'] = "user";
 
 //Version
-$version   ="2.2.9";
+$version   ="2.3.1";
 
 //set timezone
 date_default_timezone_set('PRC');
@@ -18,6 +18,15 @@ $dbc = new mysqli(DB_HOST,DB_USER,DB_PWD,DB_DBNAME);
 $db_char = DB_CHARSET;
 $dbc->query("SET NAMES utf8");
 $dbc->query("SET time_zone = '+8:00'");
+
+//$dbinfo
+$dbInfo['database_type'] = DB_TYPE;
+$dbInfo['database_name'] = DB_DBNAME;
+$dbInfo['server'] = DB_HOST;
+$dbInfo['username'] = DB_USER;
+$dbInfo['password'] = DB_PWD;
+$dbInfo['charset'] = DB_CHARSET;
+
 
 
 //Define system Path

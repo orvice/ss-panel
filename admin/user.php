@@ -46,7 +46,7 @@ $Users = new Ss\User\User();
                                         <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="user_edit.php?uid=<?php echo $rs['uid']; ?>">查看</a>
-                                            <a class="btn btn-danger btn-sm" href="user_del.php?uid=<?php echo $rs['uid']; ?>">删除</a>
+                                            <a class="btn btn-danger btn-sm" href="user_del.php?uid=<?php echo $rs['uid']; ?>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

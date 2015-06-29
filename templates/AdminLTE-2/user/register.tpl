@@ -33,19 +33,19 @@
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="text" id="email" class="form-control" name="email" autofocus placeholder="邮箱"/>
+            <input type="text" id="email" class="form-control" name="email" placeholder="邮箱"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" id="passwd" class="form-control" autofocus placeholder="密码"/>
+            <input type="password" id="passwd" class="form-control" placeholder="密码"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" id="repasswd" class="form-control" autofocus placeholder="重复密码"/>
+            <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="text" id="code" class="form-control" autofocus placeholder="邀请码"/>
+            <input type="text" id="code" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
 

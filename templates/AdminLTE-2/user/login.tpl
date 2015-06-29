@@ -22,7 +22,7 @@
 <body class="login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../"><b><{ $site_name}></b></a>
+        <a href="../"><b><{$site_name}></b></a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">登录到用户中心</p>
@@ -33,7 +33,7 @@
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input id="passwd" name="Password" type="password" class="form-control" autofocus placeholder="密码"/>
+                <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
         </form>

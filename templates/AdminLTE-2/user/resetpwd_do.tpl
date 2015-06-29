@@ -27,8 +27,8 @@
     <div class="login-box-body">
         <p class="login-box-msg">重置密码</p>
         
-        <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" >
-        <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" >
+        <input type="hidden" id="code" name="code" class="form-control" value="<{$code|default:""}>" >
+        <input type="hidden" id="uid" name="uid" class="form-control" value="<{$uid|default:""}>" >
 
         <div class="form-group has-feedback">
             <input id="email" name="email" type="text" class="form-control" autofocus="autofocus" placeholder="邮箱"/>

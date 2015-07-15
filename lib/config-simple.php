@@ -40,6 +40,7 @@ $site_url  = "https://panel.com/";
 $salt = "ss-panel";
 /**
  * 密码加密方式，注意： 2.4以前的版本，请修改加密方式为「1」，否则会使密码失效！
+ * 更多说明见wiki https://github.com/orvice/ss-panel/wiki/Install-Guide-zh_cn
  * 加密方式:
  * 1 md5
  * 2 带salt的Sha256加密，新安装建议使用此加密方式！

@@ -32,6 +32,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`uid`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `plan`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_check_in_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `money`, `ref_by`) VALUES
-(1,	'user',	'me@me.com',	'6864f389d9876436bc8778ff071d1b6c',	'ZrJUQkzE',	1427454468,	25570082746,	19210700227,	'B',	385601241088,	50000,	1,	1,	7,	0,	1429758822,	0,	'2015-03-24 00:00:00',	0,	1.20,	0);
+(1,	'user',	'first@blood.com',	'c5a4e7e6882845ea7bb4d9462868219b',	'LoveFish',	1427454468,	25570082746,	19210700227,	'B',	385601241088,	10000,	1,	1,	7,	0,	1429758822,	0,	'1997-01-27 00:00:00',	0,	1.20,	0);
 
 -- 2015-04-28 14:54:26

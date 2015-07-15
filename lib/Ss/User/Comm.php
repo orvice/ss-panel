@@ -14,7 +14,15 @@ class Comm {
 
     //pwd on db
     static function SsPW($pwd){
-        $pwd = md5($pwd);
+        global $salt;
+        global $pwd_mode;
+        switch ($pwd_mode){
+            case 1 :
+                $pwd = md5($pwd);
+                break;
+            case 2 :
+                $pwd = hash('sha256',$pwd.$salt);
+        }
         return $pwd;
     }
 
@@ -37,6 +45,7 @@ class Comm {
         }
         return $url;
     }
+
 
 
 }

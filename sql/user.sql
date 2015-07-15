@@ -10,7 +10,7 @@ CREATE TABLE `user` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(128) CHARACTER SET utf8mb4 NOT NULL,
   `email` varchar(32) NOT NULL,
-  `pass` varchar(32) NOT NULL,
+  `pass` varchar(64) NOT NULL,
   `passwd` varchar(16) NOT NULL,
   `t` int(11) NOT NULL DEFAULT '0',
   `u` bigint(20) NOT NULL,

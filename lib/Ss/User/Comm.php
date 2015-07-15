@@ -7,15 +7,27 @@ class Comm {
 
     //pwd on cookies
     static function CoPW($pw){
-        $x =  base64_encode($pw);
-        $x = substr($x,6,12);
+        global $salt;
+        //$x =  base64_encode($pw.$salt);
+        $x =  hash('sha256',$pw.$salt);
+        $x = substr($x,5,45);
         return $x;
     }
 
     //pwd on db
     static function SsPW($pwd){
-        $pwd = md5($pwd);
-        return $pwd;
+        global $salt;
+        global $pwd_mode;
+        switch ($pwd_mode){
+            case 1 :
+                return md5($pwd);
+                break;
+            case 2 :
+                return hash('sha256',$pwd.$salt);
+                break;
+            default:
+                return hash('sha256',$pwd.$salt);
+        }
     }
 
     static function md5WithSaltPw($pwd){
@@ -37,6 +49,7 @@ class Comm {
         }
         return $url;
     }
+
 
 
 }

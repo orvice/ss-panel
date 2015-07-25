@@ -21,7 +21,10 @@
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Navbar Link</a></li>
+            <li><a href="index.php">首页</a></li>
+            <li><a href="http://shadowsocks.org/en/download/clients.html">客户端下载</a></li>
+            <li><a href="code.php">邀请码</a></li>
+            <li><a href="user">用户中心</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>

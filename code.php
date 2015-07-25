@@ -2,7 +2,7 @@
 require_once 'lib/config.php';
 include_once 'header.php';
 $c = new \Ss\User\Invite();
-?>  
+?>
 
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">

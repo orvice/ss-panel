@@ -2,27 +2,24 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                <h5 class="white-text">关于</h5>
+                <p class="grey-text text-lighten-4">本站提供某种帐号用于科学上网.</p>
 
 
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">Settings</h5>
+                <h5 class="white-text">用户</h5>
                 <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    <li><a class="white-text" href="user">用户中心</a></li>
+                    <li><a class="white-text" href="user/login.php">登录</a></li>
+                    <li><a class="white-text" href="user/register.php">注册</a></li>
                 </ul>
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">Connect</h5>
+                <h5 class="white-text">页面</h5>
                 <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    <li><a class="white-text" href="code.php">邀请码</a></li>
+                    <li><a class="white-text" href="user/tos.php">TOS</a></li>
                 </ul>
             </div>
         </div>

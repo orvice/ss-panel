@@ -38,7 +38,7 @@
 
 <!--  Scripts-->
 <script src="asset/js/jQuery.min.js"></script>
-<script src="asset/materialize/js/materialize.js"></script>
+<script src="asset/materialize/js/materialize.min.js"></script>
 <script src="asset/materialize/js/init.js"></script>
 
 </body>

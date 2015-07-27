@@ -17,7 +17,7 @@
             <li><a href="index.php">首页</a></li>
             <li><a href="http://shadowsocks.org/en/download/clients.html">客户端下载</a></li>
             <li><a href="code.php">邀请码</a></li>
-            <li><a href="user">用户中心</a></li>
+            <li><a href="user/">用户中心</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">

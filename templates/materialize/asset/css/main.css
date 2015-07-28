@@ -1,0 +1,665 @@
+@charset "UTF-8";
+
+nav {
+    background-color: #3FA0F2;
+    border-bottom: 2px solid #47C9F9;
+}
+
+nav ul { margin-right: 20px }
+nav ul li:hover,
+nav ul li.active { background-color: #47C9F9 }
+/* Konec Hlavička webu */
+/* TAB sub-menu */
+ul.tabs li.tab a { color: #fff }
+ul.tabs .indicator {
+    height: 4px;
+    background-color: #ffd54f;
+}
+ul.tabs,
+ul.tabs li.tab { background-color: #3FA0F2 }
+/* Konec TAB sub-menu */
+/* TITULNÍ STRÁNKA */
+.noscript {
+    background-color: #bf360c;
+    margin-bottom: 2rem;
+    border: 2px solid #fff;
+}
+.noscript i {
+    font-size: 2rem;
+    color: #fff;
+}
+.noscript span {
+    color: #fff;
+}
+.noscript span a {
+    color: #fff;
+    text-decoration: underline;
+}
+.noscript span b {
+    vertical-align: baseline;
+}
+.noscript span a:hover {
+    color: #eee;
+}
+.hlavnistranka {
+    background: linear-gradient(to bottom,#47C9F9 0%,#3FA0F2 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.hlavnistranka .col {
+    display: inline-block;
+    float: none;
+}
+.hlavnistranka hr {
+    background: #3FA0F2;
+    margin: 1.2rem 0 3rem;
+    border: 0;
+    height: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+.hlavnistranka h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3.5rem;
+}
+.hlavnistranka p {
+    color: #fff;
+    text-align: center;
+    margin-top: -0.5rem;
+}
+#aktualne-souboru {
+    color: #fff;
+    font-weight: 300;
+}
+.hlavnistranka #prihlasitse {
+    background-color: #ffa000;
+}
+.hlavnistranka #registrace {
+    background-color: #47C9F9;
+}
+.hlavnistranka-funkce { margin-top: 3rem }
+.hlavnistranka-funkce h4 { color: #fff; font-weight: 400 }
+#vice-informaci {
+    margin-bottom: 4rem;
+}
+#vice-informaci p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    width: 85%;
+    margin: 1rem auto;
+}
+#vice-informaci-btn {
+    background-color: #4CAEEA;
+    margin-bottom: -1.5rem;
+}
+/* Konec TITULNÍ STRÁNKA */
+/* ADMIN */
+.admin_uzivatele_ovladaci_panel .btn {
+    margin-top: 0.7rem;
+    background-color: #47C9F9;
+}
+#modal_uprava_uzivatele_css i {
+    color: #558b2f;
+    font-size: 20px;
+}
+#modal_odstranit_uzivatele_css i {
+    color: #bf360c;
+    font-size: 20px;
+}
+#modal_odstranit_uzivatele { max-width: 30% }
+#uzivatelIDinput { display: none }
+#admin_odstraneni_uzivatele_ano {
+    background-color: #558b2f;
+    margin-bottom: 0;
+}
+#admin_odstraneni_uzivatele_ne {
+    background-color: #d84315;
+    margin-bottom: 0;
+}
+table .admin { background-color: #dcedc8; font-weight: 700 }
+#admin_editace_uzivatele_ulozit { background-color: #3FA0F2 }
+#admin_editace_uzivatele_storno { background-color: #757575 }
+.tab-sub-menu { background-color: #3FA0F2; height: 48px; }
+/* Konec ADMIN */
+/* NASTAVENÍ */
+#admin_nastaveni_ulozit { background-color: #3FA0F2 }
+#admin_nastaveni_reset { background-color: #757575 }
+/* Konec NASTAVENÍ */
+/* LOGY */
+#log {
+    max-width: 100%;
+    background-color: #eeeeee;
+    padding: 20px 30px 20px 30px;
+    border-radius: 5px;
+    border: 2px solid #3FA0F2;
+}
+.log-list .btn i { 
+    color: #fff;
+}
+.log-list span { 
+    font-weight: 500;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+.log-list span b { 
+    color: #9e9e9e;
+    font-weight: 700;
+}
+.log-list span i { 
+    color: #9e9e9e;
+    font-size: 1.7rem;
+}
+.log-list form { margin: -0.25rem auto 0 }
+.log-list i { font-style: normal; color: red; }
+.log-list u { text-decoration: none; color: #03a9f4; font-weight: bold; }
+#logy_filtr_input { width: auto; margin-right: 10px; }
+#modal_vycistit_log_form { background-color: #d84315 }
+#log_filtrovat { background-color: #03a9f4 }
+/* Konec LOGY */
+/* WEB ZABLOKOVÁN */
+.webzablokovan {
+    background: linear-gradient(to bottom,#47C9F9 0%,#3FA0F2 100%);
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.webzablokovan .col {
+    display: inline-block;
+    float: none;
+}
+.webzablokovan h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3.5rem;
+}
+.webzablokovan #web-zablokovan-img {
+    display: block;
+    width: 16rem;
+    height: auto;
+    margin: 0 auto;
+}
+.webzablokovan #web-zablokovan-img:hover { cursor: Default }
+.webzablokovan #web-zablokovan-img img {
+    width: 100%;
+    height: auto;
+}
+.webzablokovan p {
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+}
+.webzablokovan #nacist-znovu {
+    background-color: #47C9F9;
+    margin: 0 auto 5%;
+}
+.webzablokovan #nacist-znovu:hover { background-color: #ffa000 }
+#admin_prihlaseni_prihlasit_se { background-color: #47C9F9 }
+#admin_prihlaseni_zavrit { background-color: #757575 }
+/* Konec WEB ZABLOKOVÁN */
+/* CHYBA 404 */
+.chyba404 {
+    background: linear-gradient(to bottom,#47C9F9 0%,#3FA0F2 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.chyba404 .col {
+    display: inline-block;
+    float: none;
+    text-align: left;
+}
+.chyba404 h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 20%;
+    font-size: 3.5rem;
+}
+.chyba404 #chyba-404-img {
+    display: block;
+    width: 16rem;
+    height: auto;
+    margin: 3% auto;
+}
+.chyba404 #chyba-404-img:hover { cursor: Default }
+.chyba404 p {
+    color: #fff;
+    text-align: center;
+    margin-top: 2%;
+}
+.chyba404 #prejit-na-hlavni-stranku {
+    background-color: #47C9F9;
+    margin: 0 auto 20%;
+}
+.chyba404 #prejit-na-hlavni-stranku:hover { background-color: #ffa000 }
+/* Konec CHYBA 404 */
+/* CHYBA 403 */
+.chyba403 {
+    background: linear-gradient(to bottom,#47C9F9 0%,#3FA0F2 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.chyba403 .col {
+    display: inline-block;
+    float: none;
+    text-align: left;
+}
+.chyba403 h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 15%;
+    font-size: 3.5rem;
+}
+.chyba403 #chyba-403-img {
+    display: block;
+    width: 16rem;
+    height: auto;
+    margin: 3% auto;
+}
+.chyba403 #chyba-403-img:hover { cursor: Default }
+.chyba403 p {
+    color: #fff;
+    text-align: center;
+    margin-top: 2%;
+}
+.chyba403 #prejit-na-hlavni-stranku {
+    background-color: #47C9F9;
+    margin: 0 auto 20%;
+}
+.chyba403 #prejit-na-hlavni-stranku:hover { background-color: #ffa000 }
+/* Konec CHYBA 403 */
+/* HLAVNÍ STRANA (PŘIHLÁŠENÍ) */
+#logo { 
+    width: auto;
+    height: auto;
+    margin: 3rem 0 1rem;
+}
+.hlavnistrankaprihlaseni {
+    background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.hlavnistrankaprihlaseni .col {
+    display: inline-block;
+    float: none;
+}
+.hlavnistrankaprihlaseni hr {
+	background: #3FA0F2;
+	margin: 4rem 0 3rem;
+	border: 0;
+	height: 3px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	}
+.hlavnistrankaprihlaseni h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3.5rem;
+}
+.hlavnistrankaprihlaseni p {
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+}
+.hlavnistrankaprihlaseni #registrace {
+    background-color: #47C9F9;
+    margin: 0 auto 2rem;
+}
+.hlavnistrankaprihlaseni #registrace:hover {
+ background-color: #6495ED; 
+ }
+ .hlavnistrankaprihlaseni #login:hover {
+ background-color: #03D0F1; 
+ }
+.prihlasovaci-formular {
+    background-color:#fafafa;
+    margin: 0 auto 3rem;
+    border-radius:5px;
+    padding: 1.5rem 2rem 0.5rem;
+}
+.prihlasovaci-formular #login { background-color: #3FA0F2 }
+.prihlasovaci-formular #zapomenute-heslo { background-color: #47C9F9 }
+#prizpusobive-mockup h3, #materialize-podpora h3 {
+    font-weight: 300;
+	color: #fff;
+}
+#prizpusobive-mockup img {
+    width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+}
+#materialize-podpora img {
+	width: 100%;
+	height: auto;
+	margin: 1.5rem auto 5rem;
+}
+
+.btn, .btn-large, .btn-flat {
+    margin-bottom: 30px;
+} 
+/* Konec HLAVNÍ STRANA */
+/* STRÁNKA REGISTRACE (REGISTRACE) */
+.strankaregistrace {
+    background: linear-gradient(to bottom,#47C9F9 0%,#3FA0F2 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.strankaregistrace .col {
+    display: inline-block;
+    float: none;
+}
+.strankaregistrace h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3.5rem;
+}
+.strankaregistrace p {
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+}
+.strankaregistrace #prihlasit-se {
+    background-color: #47C9F9;
+    margin: 1% auto 2rem;
+}
+.strankaregistrace #prihlasit-se:hover { background-color: #ffa000 }
+.registracni-formular {
+    background-color:#fafafa;
+    margin: 1rem auto 3rem;
+    border-radius:5px;
+    padding: 1.5rem 2rem 0.5rem!important;
+}
+.registracni-formular #registrovatse { 
+    background-color: #3FA0F2;
+    margin-top: 7rem; 
+}
+/* Konec STRÁNKA REGISTRACE */
+/* UŽIVATEL-PŘEHLED */
+#profilovy_obrazek_input {
+    display: none;
+}
+#profilovy_obrazek_form img {
+    cursor: pointer;
+}
+.card .card-image {
+    max-height: 120px;
+}
+.card .card-image img {
+    min-height: 100px;
+}
+.card .card-content {
+    padding: 0px 16px 16px 16px;
+}
+.card .card-content span.card-title {
+    color: #3FA0F2;
+    font-size: 1.5rem;
+}
+.card-image #profilovy_obrazek {
+    width: 100px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+/* Konec UŽIVATEL-PŘEHLED */
+
+/* UŽIVATEL-NAHRÁT */
+.misto-na-disku {
+    text-align: center;
+    font-weight: 700;
+}
+.misto-na-disku p {
+    font-size: 1.3rem;
+    color: #3FA0F2;
+    margin-bottom: 0.5rem;
+}
+.misto-na-disku #zabrane {
+    color: #3FA0F2;
+}
+.misto-na-disku #volne {
+    color: rgba(255, 167, 38, 0.8);
+}
+#nebo-kliknete {
+    font-size: 1.5rem!important;
+}
+.progress {
+    background-color: rgba(255, 167, 38, 0.3);
+}
+.progress .determinate {
+    background-color: #3FA0F2;
+}
+.progress .indeterminate{
+    background-color: #3FA0F2;
+}
+.dz-message i {
+    font-size: 8.5rem;
+    color: #C8C8C8;
+    cursor: hand!important;
+}
+/* Konec UŽIVATEL-NAHRÁT */
+
+/* UŽIVATEL-SOUBORY */
+.zadne-soubory-nenahrany {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 300;
+}
+.zadne-soubory-nenahrany i {
+    font-size: 7rem;
+}
+
+.soubor {
+    padding: 2px;
+}
+.box {
+    background-color: #fff;
+    padding: 0px 0px 6px 0px;
+    position: relative;
+    margin-bottom: 1.5rem;
+    max-height: 210px;
+}
+.box .nahled img {
+    min-height: 150px;
+    width: 100%;
+}
+.box .typ-souboru img {
+    position: absolute;
+    top: 6;
+}
+.box .telo-boxu .nazev {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0.2rem 0rem 0.1rem 0rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+.box .telo-boxu .velikost {
+    color: #ffab40;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+}
+.box input[type='checkbox'] {
+    display: none;
+}
+.fixed-top-bar {
+    width: 100%;
+    padding: 15px 10px 5px 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 2rem;
+    margin-top: -22px;
+}
+#nova-slozka-btn,#sdilet-btn,#vybrat-vse-btn {
+    background-color: #3FA0F2;
+}
+#aktualizovat-vse-btn {
+    background-color: #47C9F9;
+}
+#smazat-btn {
+    background-color: #d84315;
+}
+/* Konec UŽIVATEL-SOUBORY */
+
+
+/* Konec PŘEDNAČÍTAČ */
+
+/* EFEKTY */
+/* Konec EFEKTY */
+
+/* NAHRÁVAČ */
+.dropzone {
+  min-height:360px;
+  height:auto!important;
+  height:360px;
+
+}
+#nahravac {
+    margin-top: 2rem;
+}
+#nahravac .dz-message {
+    text-align: center;
+}
+#nahravac .dz-message span {
+    font-size: 2rem;
+    color: #d3d3d3;
+}
+#nahravac .dz-message span img {
+    opacity: 0.3;
+    width: 13rem;
+    height: auto;
+    margin-top: 1rem;
+}
+/* Konec NAHRÁVAČ */
+
+/* OSTATNÍ */
+.toast .btn, .toast .btn-large, .toast .btn-flat {
+    margin-left: 0;
+}
+.zpet-na-horu {
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    display: none;
+    background-color: #3FA0F2;
+}
+.zpet-na-horu:hover {
+    background-color: #ffab40;
+}
+::-moz-selection { background: #ffa726; color: #fff; }
+::selection { background: #16A6D0; color: #fff; }
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(2, 124, 255, 0.92); 
+}
+
+::-moz-scrollbar {
+    width: 12px;
+}
+::-moz-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+::-moz-scrollbar-Scrollbar {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.g-recaptcha {
+    left: 50%;
+    position: absolute;
+    margin-left: -152px;
+    margin-top: 7px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=date]:focus,
+textarea:focus {
+  border-bottom: 1px solid #0788E5;
+  -webkit-box-shadow: 0 1px 0 0 #0788E5;
+  -moz-box-shadow: 0 1px 0 0 #0788E5;
+  box-shadow: 0 1px 0 0 #0788E5;
+}
+.input-field .prefix.active {
+    color: #4CAEEA;
+}
+.input-field input[type=text]:focus+label,.input-field input[type=password]:focus+label,.input-field input[type=email]:focus+label,.input-field input[type=date]:focus+label,.input-field textarea:focus+label{color:#4CAEEA}
+.center { display:block; margin: 0 auto; }
+.text-icon {
+    font-size: 2rem;
+    vertical-align: middle;
+    line-height: 1;
+}
+.center-btn { text-align: center }
+.modal { padding: 0px 0px 0px; width: 50%; }
+.modal p { text-align: center }
+.modal h4 { text-align: center }
+.hide { display: none }
+span i { vertical-align: middle }
+span b { vertical-align: middle; font-weight: 500; }
+input[type=number] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bdbdbd;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.row { margin-bottom: 0}
+/* Konec OSTATNÍ */
+/* FIX */
+@media only screen and (max-width: 992px) {
+    ul.side-nav li {
+        display: block;
+    }
+    .modal {
+        width: 80%;
+    }
+}
+/* Konec FIX */
+/* Další Optimalizace pro různé displeje */
+@media only screen and (max-width: 25em) {
+	.webzablokovan h1 { margin-top: 5% }
+	.webzablokovan span { width: 80% }
+	.webzablokovan #nacist-znovu { margin-bottom: 10% }
+	.chyba404,.chyba403 h1 { margin-top: 5% }
+	.chyba404,.chyba403 #prejit-na-hlavni-stranku { margin-bottom: 5% }
+	#modal_odstranit_uzivatele { max-width: 80% }
+    .hlavnistrankaprihlaseni h1,.strankaregistrace h1 { margin-top: 5% }
+    .hidem { display: none }
+    .registracni-formular #registrovatse { margin-top: 1rem }
+    .g-recaptcha {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        left: 0;
+        position: relative;
+    }
+}

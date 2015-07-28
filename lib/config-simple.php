@@ -70,13 +70,12 @@ $mail_smtp_Account = "xxxx@gmail.com";
 //邮件密码
 $mail_smtp_password = "密码";
 
-
-
 //引入smarty配置
 require_once 'smarty.inc.php';
 //
 require_once 'do.php';
-//在smarty全局传递$site_name，$version，$Runtime。
+//在smarty全局传递$site_name，$site_url，$version，$Runtime。
 $smarty->assign('site_name',$site_name);
-$smarty->assign('version',$version);
+$smarty->assign('site_url',$site_url);
+$smarty->assign('version',$version." + smarty");
 $smarty->assign('Runtime',$Runtime);

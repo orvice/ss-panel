@@ -16,12 +16,12 @@
     </div>
 </div>
 
-  <div class="container">
+<div class="container">
     <div class="section">
       <div class="row card-panel  light-blue lighten-5 z-depth-2">
         <div class="col s12 m3 hoverable">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks"><i class="mdi-hardware-phone-android"></i></h2>
+            <h2 class="center light-blue-text"><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks" target="_blank"><i class="mdi-hardware-phone-android"></i></h2>
                 <h6 class="center">Android</h6></a>
                 <p class="center">Android 客户端</p>
           </div>
@@ -29,7 +29,7 @@
 
         <div class="col s12 m4 hoverable">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/"><i class="mdi-hardware-laptop-windows "></i></h2>
+            <h2 class="center light-blue-text"><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank"><i class="mdi-hardware-laptop-windows"></i></h2>
                 <h6 class="center">Shadowsocks C#</h6></a>
                 <p class="center"> Windows 推荐此客户端。</p>
           </div>
@@ -37,7 +37,7 @@
 
         <div class="col s12 m2 hoverable">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="https://itunes.apple.com/us/app/shadowsocks/id665729974?mt=8"><i class="mdi-hardware-phone-iphone"></i></h2>
+            <h2 class="center light-blue-text"><a href="https://itunes.apple.com/us/app/shadowsocks/id665729974?mt=8" target="_blank"><i class="mdi-hardware-phone-iphone"></i></h2>
                 
                 <h6 class="center">iOS</h6></a>
                 <p class="center">iOS 客户端</p>
@@ -46,7 +46,7 @@
 
         <div class="col s12 m3 hoverable">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="https://github.com/ohdarling/GoAgentX/releases"><i class="mdi-hardware-laptop-mac"></i></h2>
+            <h2 class="center light-blue-text"><a href="https://github.com/ohdarling/GoAgentX/releases" target="_blank"><i class="mdi-hardware-laptop-mac"></i></h2>
                 <h6 class="center">GoAgentX</h6></a>
                 <p class="center"> OS X 推荐此客户端。</p>
           </div>

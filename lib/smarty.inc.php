@@ -31,7 +31,9 @@ $smarty=new smarty(); //实例化smarty
 $smarty->settemplatedir(__ROOT__."templates/".$templates_dir); //设置模板文件存放目录
 $smarty->setcompiledir(__ROOT__."templates_c/".$templates_dir); //设置生成文件存放目录
 $smarty->setcachedir(__ROOT__."cache/".$templates_dir); //设置缓存文件存放目录
-$smarty->assign('resources_dir',"../templates/".$templates_dir); //设置模板资源(css/js/font/png/gif...)目录
+// 设置模板资源(css/js/font/png/gif...)目录
+// $smarty->assign('resources_dir',"../templates/".$templates_dir); //程序放在根目录时请选用这个
+$smarty->assign('resources_dir',$site_url."templates/".$templates_dir); //程序放在二级以上目录请选用这个，根目录也可以使用。
 $smarty->addPluginsDir(__ROOT__."myPlugins/"); //自定义插件目录
 $smarty->left_delimiter = "<{"; //设置左标示符
 $smarty->right_delimiter = "}>"; //设置右标示符

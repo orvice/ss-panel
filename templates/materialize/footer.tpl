@@ -3,7 +3,7 @@
 	      <div class="row">
 	        <div class="col 0 s12">
 	          <h5 class="white-text">用户建议</h5>
-	          <p class="nav-wrapper card-panel waves-effect hoverable">如果你正在使用XXX公司的任何与网络相关的硬件和软件，请不要使用本站服务，根据网上反映的情况，该公司的产品会后台上报VPN，SS(shadowsocks)，SSH等等的ip信息，导致很多的VPN，SS(shadowsocks)，SSH服务不能正常使用。<br/><b style="color:red;">站长可以任意修改这里的内容！</b></p>
+	          <p class="nav-wrapper card-panel waves-effect hoverable">当前网页要在支持Html5较新版本的浏览器才能正常使用，如果你的当前浏览显示不正常，请更新浏览器，推荐使用谷歌浏览器（Chrome）、OPERA、Firefox ...<br/>如果你正在使用XXX公司的任何与网络相关的硬件和软件，请不要使用本站服务，根据网上反映的情况，该公司的产品会后台上报VPN，SS(shadowsocks)，SSH等等的ip信息，导致很多的VPN，SS(shadowsocks)，SSH服务不能正常使用。<br/><b style="color:red;">站长可以任意修改这里的内容！</b></p>
 	        </div>
 	        <div class="col l3 s12">
 	          <h5 class="white-text">Terms of Service</h5>

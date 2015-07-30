@@ -87,7 +87,7 @@
           </div>
         </div>
 
-                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.j?<{date('Ymd_h')}>s"></script>
+                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{date('Ymd_h')}>s"></script>
                 <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{date('Ymd_h')}>"></script>
 <script>
     $(document).ready(function(){

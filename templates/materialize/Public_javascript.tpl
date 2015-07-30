@@ -6,18 +6,4 @@
 		<script type="text/javascript" src="<{$resources_dir}>/asset/js/backtotop.js"></script>
 		<!-- 选择风格模板 -->
 		<script src="<{$resources_dir}>/asset/js/templates.js"></script>
-	<script type="text/javascript">
-		// 设置本地保存的Cookie模板名
-		// setCookie("templates","materialize/AdminLTE-2",365); 
-		function setCookie(name,value,Days) 
-		{ 
-		    var Days; 
-		    var exp = new Date(); 
-		    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-		    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString() + ";path=/";
-		    console.log(name + "="+ escape (value) + ";expires=" + exp.toGMTString() + ";path=/");
-		    // 重新加载当前网页
-		    document.location.reload();
-		}
-	</script>
 		<{block name="javascript"}><{/block}>

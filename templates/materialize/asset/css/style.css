@@ -5,11 +5,12 @@
  *
  * Made By MaterializeCSS.com
  */
-html {
+html {   
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
     font-size: inherit;
   }
 body {
+    background-color: #00A8FF;
     background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%);
     min-height: 100vh;
     flex-direction: column;

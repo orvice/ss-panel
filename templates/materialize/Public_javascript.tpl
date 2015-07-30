@@ -4,7 +4,8 @@
 		<script src="<{$resources_dir}>/asset/js/init.js"></script>
 		<link type="text/css" rel="stylesheet" href="<{$resources_dir}>/asset/css/backtotop.css"  media="screen,projection"/>
 		<script type="text/javascript" src="<{$resources_dir}>/asset/js/backtotop.js"></script>
-	<!-- <script type="text/javascript" src="<{$resources_dir}>/asset/js/scrolltopcontrol.js"></script> -->
+		<!-- 选择风格模板 -->
+		<script src="<{$resources_dir}>/asset/js/templates.js"></script>
 	<script type="text/javascript">
 		// 设置本地保存的Cookie模板名
 		// setCookie("templates","materialize/AdminLTE-2",365); 

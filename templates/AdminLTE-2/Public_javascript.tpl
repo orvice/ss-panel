@@ -8,3 +8,5 @@
 <script src='<{$resources_dir}>/asset/plugins/fastclick/fastclick.min.js'></script>
 <!-- AdminLTE App -->
 <script src="<{$resources_dir}>/asset/js/app.min.js" type="text/javascript"></script>
+<!-- 选择风格模板 -->
+<script src="<{$resources_dir}>/asset/js/templates.js"></script>

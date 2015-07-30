@@ -1,7 +1,7 @@
 <{extends file="header.tpl"}><{block name="title" prepend}>用户管理 - <{/block}><{block name="contents"}>
     <!-- 加载dataTables样式文件 dataTables.bootstrap.css -->
-    <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/jquery.dataTables.min.css?<{date('Ymd_h')}>" rel="stylesheet" type="text/css" />
+    <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.bootstrap.css?<{date('Ymd_h')}>" rel="stylesheet" type="text/css" />
     <style>
       .btn{
         padding: 0 1rem;
@@ -68,12 +68,12 @@
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* javascript *}>
 <!-- 下面加载 dataTables 要用的 js 文件 -->
-<script src="<{$resources_dir}>/asset/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="<{$resources_dir}>/asset/plugins/datatables/media/js/jquery.dataTables.min.js?<{date('Ymd_h')}>" type="text/javascript"></script>
 <script type="text/javascript">
   $(document).ready(function () {
         $('#example1').dataTable({
             "language": {
-                "url": "<{$resources_dir}>/asset/plugins/datatables/media/Chinese.json"
+                "url": "<{$resources_dir}>/asset/plugins/datatables/media/Chinese.json?<{date('Ymd_h')}>"
             }
         });
     });

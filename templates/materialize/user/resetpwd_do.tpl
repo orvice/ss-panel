@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
         <meta name="robots" content="noindex,nofollow">
-        <link rel="icon" href="favicon.png">
+        <link rel="icon" href="favicon.png?<{date('Ymd_h')}>">
         <meta name="theme-color" content="#4CAEEA">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,17 +14,17 @@
         <meta name="apple-mobile-web-app-title" content="DiskForYou">
         <meta name="msapplication-TileColor" content="#4CAEEA">
         <meta name="application-name" content="DiskForYou">
-        <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css" />
+        <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css?<{date('Ymd_h')}>" />
         <script>
           paceOptions = {
             elements: true
           };
         </script>
-        <script src="<{$resources_dir}>/asset/js/pace.min.js"></script>
-        <link href="<{$resources_dir}>/asset/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/Material_Icons.css" rel="stylesheet">
+        <script src="<{$resources_dir}>/asset/js/pace.min.js?<{date('Ymd_h')}>"></script>
+        <link href="<{$resources_dir}>/asset/css/materialize.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<{$resources_dir}>/asset/css/style.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<{$resources_dir}>/asset/css/main.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<{$resources_dir}>/asset/css/Material_Icons.css?<{date('Ymd_h')}>" rel="stylesheet">
         <style>
           html { 
                   background-color: #00A8FF;
@@ -87,8 +87,8 @@
           </div>
         </div>
 
-                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js"></script>
-                <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js"></script>
+                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.j?<{date('Ymd_h')}>s"></script>
+                <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{date('Ymd_h')}>"></script>
 <script>
     $(document).ready(function(){
           function reset(){

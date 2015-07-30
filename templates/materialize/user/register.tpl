@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="ZH">
     <head>
-        <meta charset="utf-8">
-        <title>注册 - <{$site_name}></title>
-        <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css" />
-        <script>
-            paceOptions = {
-              elements: true
-            };
-        </script>
-        <script src="<{$resources_dir}>/asset/js/pace.min.js"></script>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
-        <meta name="robots" content="noindex,nofollow">
-      <!-- Favicon -->
-      <link rel="icon" href="favicon.png">
-            <meta name="theme-color" content="#4CAEEA">
-            <meta name="mobile-web-app-capable" content="yes">
-            <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png">
-            <meta name="apple-mobile-web-app-capable" content="yes">
-            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-            <meta name="apple-mobile-web-app-title" content="DiskForYou">
-            <link rel="apple-touch-icon" href="apple-touch-icon.png">
-      <meta name="msapplication-TileImage" content="favicon-win.png">
-      <meta name="msapplication-TileColor" content="#4CAEEA">
-      <meta name="application-name" content="DiskForYou">
-         <link href="<{$resources_dir}>/asset/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/Material_Icons.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>注册 - <{$site_name}></title>
+    <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css?<{date('Ymd_h')}>" />
+    <script>
+        paceOptions = {
+          elements: true
+        };
+    </script>
+    <script src="<{$resources_dir}>/asset/js/pace.min.js?<{date('Ymd_h')}>"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
+    <meta name="robots" content="noindex,nofollow">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png?<{date('Ymd_h')}>">
+    <meta name="theme-color" content="#4CAEEA">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DiskForYou">
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <!-- <meta name="msapplication-TileImage" content="favicon-win.png"> -->
+    <meta name="msapplication-TileColor" content="#4CAEEA">
+    <meta name="application-name" content="DiskForYou">
+    <link href="<{$resources_dir}>/asset/css/materialize.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="<{$resources_dir}>/asset/css/style.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="<{$resources_dir}>/asset/css/main.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="<{$resources_dir}>/asset/css/Material_Icons.css?<{date('Ymd_h')}>" rel="stylesheet">
     </head>
     <body>
         <div class="row hlavnistrankaprihlaseni">
@@ -119,8 +119,8 @@
              <a href="#!" onclick="$('#msg-success').closeModal();" class="modal-action modal-close waves-effect btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
           </div>
         </div>
-                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js"></script>
-                 <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js"></script>
+                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{date('Ymd_h')}>"></script>
+                 <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{date('Ymd_h')}>"></script>
             <script>
                 $(document).ready(function(){
                     function register(){

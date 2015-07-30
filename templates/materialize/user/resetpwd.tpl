@@ -52,6 +52,8 @@
 
                     <form  action="javascript:void(0);" autocomplete="off" method="POST">
                       <div class="input-field">
+                     	<input type="hidden" id="code" name="code" class="form-control" value="<{$code|default:""}>" >
+                        <input type="hidden" id="uid" name="uid" class="form-control" value="<{$uid|default:""}>" >
                         <i class="mdi-content-mail prefix"></i>
                         <input id="email" type="email" name="email" class="validate" maxlength="30" required>
                         <label for="email">邮箱 Email</label>

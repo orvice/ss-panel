@@ -62,7 +62,7 @@
                       </div>
                       <div class="input-field">
                         <i class="mdi-action-lock prefix"></i>
-                        <input id="password" type="password" name="password" class="validate" maxlength="30" required>
+                        <input id="password" type="password" name="password" class="validate" required>
                         <label for="password">密码 PassWord</label>
                       </div>
                         <p class="modal-trigger waves-effect">

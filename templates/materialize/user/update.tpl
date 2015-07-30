@@ -18,17 +18,17 @@
                       <div class="black-text">
                         <div class="input-field">
                         <i class="mdi-action-lock prefix"></i>
-                        <input id="nowpwd" type="password" name="password" class="validate" maxlength="30" required>
+                        <input id="nowpwd" type="password" name="password" class="validate" required>
                         <label for="nowpwd">当前密码(必填)</label>
                       </div>
                       <div class="input-field">
                         <i class="mdi-action-lock prefix"></i>
-                        <input id="pwd" type="password" name="password" class="validate" maxlength="30" required>
+                        <input id="pwd" type="password" name="password" class="validate" maxlength="18" required>
                         <label for="pwd">新密码</label>
                       </div>
                       <div class="input-field">
                         <i class="mdi-action-lock prefix"></i>
-                        <input id="repwd" type="password" name="password" class="validate" maxlength="30" required>
+                        <input id="repwd" type="password" name="password" class="validate" maxlength="18" required>
                         <label for="repwd">确认密码</label>
                       </div>
                           <button id="pwd-update" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>

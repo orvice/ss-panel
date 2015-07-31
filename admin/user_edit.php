@@ -37,7 +37,7 @@ if(!empty($_GET)){
 
                             <div class="form-group">
                                 <label for="cate_title">ID: <?php echo $uid;?></label>
-                                <input type="hidden" class="form-control" id="user_uid" value="<?php echo $uid;?>"  >
+                                <input type="hidden" class="form-control" id="uid" value="<?php echo $uid;?>"  >
                             </div>
 
                             <div class="form-group">
@@ -86,6 +86,8 @@ if(!empty($_GET)){
         </div>   <!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<?php
+require_once '_footer.php'; ?>
 
 <script>
     $(document).ready(function(){
@@ -99,7 +101,7 @@ if(!empty($_GET)){
                     name: $("#name").val(),
                     email: $("#email").val(),
                     passwd: $("#passwd").val(),
-                    transfer_enable: $("#transfer_enable").val(),
+                    transfer_enable: $("#transfer_enable").val() * 1024 * 1024 * 1024,
                     invite_num: $("#invite_num").val()
                 },
                 success:function(data){
@@ -128,5 +130,4 @@ if(!empty($_GET)){
         })
     })
 </script>
-<?php
-require_once '_footer.php'; ?>
+

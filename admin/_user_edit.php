@@ -3,7 +3,7 @@ require_once '../lib/config.php';
 require_once '_check.php';
 
 if(!empty($_POST)){
-    $uid = $_POST['user_uid'];
+    $uid = $_POST['uid'];
     $name = $_POST['name'];
     $passwd = $_POST['passwd'];
     $email = $_POST['email'];

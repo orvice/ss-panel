@@ -33,12 +33,11 @@ $c = new \Ss\User\Invite();
                         </thead>
                         <tbody>
                         <?php
-                        $datas = $c->CodeArray();
-                        $a = 0;
+                        $datas = $c->CodeArray(); 
                         foreach($datas as $data ){
                             ?>
                             <tr>
-                                <td><?php echo $a;$a++; ?></td>
+                                <td><?php echo $data['id'];?></td>
                                 <td><?php echo $data['code'];?></td>
                                 <td>可用</td>
                             </tr>

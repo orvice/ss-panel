@@ -1,4 +1,3 @@
-<{config_load file='Announcement.conf' section='index'}><{* 加载模板公告内容配置 *}>
 <{include file='header.tpl'}>
 <body>
 <div class="container">
@@ -6,8 +5,8 @@
 
     <div class="jumbotron">
         <h2><{$site_name}></h2>
-        <p class="lead"><{#Announcement#}><{* 每个月5G流量，美国节点。 *}></p>
-        <p><{#button#}><{* 按钮 *}></p>
+        <p class="lead"><{$index_Announcement}><{* 每个月5G流量，美国节点。 *}></p>
+        <p><{$index_button}><{* 按钮 *}></p>
     </div>
 
     <div class="row marketing">

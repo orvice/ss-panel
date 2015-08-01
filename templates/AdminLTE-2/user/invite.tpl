@@ -1,4 +1,3 @@
-<{config_load file='Announcement.conf' section='user_invite'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -69,11 +68,11 @@
                         <div class="box-body">
 
                             <div class="callout callout-warning">
-                                <{#Announcement_color_orange#}><{* 橙色公告内容 *}>
+                                <{$user_invite_Announcement_color_orange}><{* 橙色公告内容 *}>
                             </div>
 
                             <div class="callout callout-info">
-                                <{#Announcement_color_blue#}><{* 蓝色公告内容 *}>
+                                <{$user_invite_Announcement_color_blue}><{* 蓝色公告内容 *}>
                             </div>
 
                         </div><!-- /.box-body -->

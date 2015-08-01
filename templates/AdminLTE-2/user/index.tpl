@@ -1,4 +1,3 @@
-<{config_load file='Announcement.conf' section='user_index'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -22,7 +21,7 @@
                             <h3 class="box-title">公告&FAQ</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <{#Announcement#}> <{* 公告内容 *}>
+                            <{$user_index_Announcement}> <{* 公告内容 *}>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->

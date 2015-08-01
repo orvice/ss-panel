@@ -1,10 +1,9 @@
-<{config_load file='Announcement.conf' section='code'}><{* 加载模板公告内容配置 *}>
 <{include file='header.tpl'}>
 <body>
 <div class="container">
 <{include file='nav.tpl'}>
 
-    <div class="jumbotron"><{#Announcement#}><{* 提示内容：邀请码不定时发放！ *}>
+    <div class="jumbotron"><{$code_Announcement}><{* 提示内容：邀请码不定时发放！ *}>
     </div>
 
     <div class="row marketing">

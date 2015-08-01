@@ -1,10 +1,10 @@
-<{config_load file='Announcement.conf' section='footer'}><{* 加载模板公告内容配置 *}>
+
 	   <footer class="page-footer light-blue lighten-1">
 	    <div class="container">
 	      <div class="row">
 	        <div class="col 0 s12">
 	          <h5 class="white-text">用户建议</h5>
-	          <p class="nav-wrapper card-panel waves-effect hoverable"><{#Announcement#}><{* 用户建议的内容 *}></p>
+	          <p class="nav-wrapper card-panel waves-effect hoverable"><{$footer_Announcement}><{* 用户建议的内容 *}></p>
 	        </div>
 	        <div class="col l3 s12">
 	          <h5 class="white-text">Terms of Service</h5>

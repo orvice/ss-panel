@@ -1,6 +1,5 @@
 <{extends file="header.tpl"}><{block name="title" prepend}>邀请 - <{/block}>
 <{block name="contents"}>
-<{config_load file='Announcement.conf' section='user_invite'}><{* 加载模板公告内容配置 *}>
 <div class="had-container">
    <{include file='user/nav.tpl'}>
 
@@ -65,14 +64,14 @@
                     <div class="col s12">
                         <div class="card-panel orange darken-1 hoverable">
                           <div class="white-text">
-                              <{#Announcement_color_orange#}><{* 橙色公告内容 *}>
+                              <{$user_invite_Announcement_color_orange}><{* 橙色公告内容 *}>
                           </div>
                         </div>
                     </div>
                     <div class="col s12">
                         <div class="card-panel light-blue accent-3 hoverable">
                           <div class="white-text">
-                              <{#Announcement_color_blue#}><{* 蓝色公告内容 *}>
+                              <{$user_invite_Announcement_color_blue}><{* 蓝色公告内容 *}>
                           </div>
                         </div>
                     </div>

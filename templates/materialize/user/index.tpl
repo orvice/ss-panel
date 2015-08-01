@@ -1,6 +1,5 @@
 <{extends file="header.tpl"}> <{block name="title" prepend}>用户中心 - <{/block}>
 <{block name="contents"}>
-<{config_load file='Announcement.conf' section='user_index'}><{* 加载模板公告内容配置 *}>
 <div class="had-container ">
    <{include file='user/nav.tpl'}>
 
@@ -18,7 +17,7 @@
                       <span class="blue-text">
                         <h3 class="header center red-text">公告&FAQ</h3>
                           <div class="row black-text">
-                          <{#Announcement#}> <{* 公告内容 *}>
+                          <{$user_index_Announcement}> <{* 公告内容 *}>
                           </div>
                         </span>
                     </div>

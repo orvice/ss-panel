@@ -1,4 +1,3 @@
-<{config_load file='Announcement.conf' section='user_node'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -24,7 +23,7 @@
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="callout callout-warning">
-                                <{#Announcement_node#}><{* 普通节点公告内容 *}>
+                                <{$user_node_Announcement_node}><{* 普通节点公告内容 *}>
                             </div>
                             <{foreach $node0 as $row}>
                                 <div class="nav-tabs-custom">
@@ -65,7 +64,7 @@
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="callout callout-warning">
-                                <{#Announcement_node_pro#}><{* pro节点公告内容 *}>
+                                <{$user_node_Announcement_node_pro}><{* pro节点公告内容 *}>
                             </div>
                             <{foreach $node1 as $row}>
                                 <div class="nav-tabs-custom">

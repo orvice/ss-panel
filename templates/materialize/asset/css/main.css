@@ -39,6 +39,9 @@ footer {
   clear: both;
 }
  */ 
+ p {
+    font-weight: bold;
+}
  .black-text .white-text h4 {
   font-size: 22px;
   font-weight: 600;

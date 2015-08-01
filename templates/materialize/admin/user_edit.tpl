@@ -60,34 +60,14 @@
     </div>
 </div>
 
-
-<div id="msg-success" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;" title="点击关闭" onclick="$('#msg-success').closeModal();">
-    <div class="modal-content" id="ok-close">
-        <h4><i class="mdi-image-tag-faces" style="font-size: 1em;"></i>成功了!</h4>
-        <p id="msg-success-p" style=" COLOR: deepskyblue; FONT-SIZE: x-large;"></p>
-        <!-- <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe> -->
-    </div>
-    <div class="modal-footer">
-         <a href="#!" onclick="$('#msg-success').closeModal();" class="modal-action modal-close btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-    </div>
-</div>
- <div id="msg-error" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;" title="点击关闭" onclick="$('#msg-error').closeModal();">
-      <div class="modal-content" id="error-close">
-            <h4><i class="mdi-alert-error" style="font-size: 1em;"></i>出错了!</h4>
-            <p id="msg-error-p" style=" COLOR: RED; FONT-SIZE: x-large;"> </p>
-            <!-- <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe> -->
-      </div>
-  <div class="modal-footer">
-     <a href="#!" onclick="$('#msg-error').closeModal();" class="modal-action modal-close btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-  </div>
-</div>
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<script>
-    $("#msg-success").closeModal();
-    $("#msg-error").closeModal();
+<{* 请在下面加入你的 javascript *}>
+<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript">
+  _Prompt_msg();
 </script>
-<script>
+<script type="text/javascript">
     $(document).ready(function(){
         $("#Submit").click(function(){
             $.ajax({

@@ -51,6 +51,6 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* javascript *}>
+<{* 请在下面加入你的 javascript *}>
 
 <{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

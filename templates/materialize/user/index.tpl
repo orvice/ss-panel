@@ -9,12 +9,12 @@
           <small>User Center</small>
       </h5>
 
-        <div class="row card-panel color-panel grey lighten-4 z-depth-3" >
+        <div class="row card-panel color-panel grey lighten-4 z-depth-3">
             <div class="row">
                   <div class="col s12 m12 l6">
                     <div class="card-panel hoverable">
                       <span class="blue-text">
-                        <h3 class="header center red-text ">公告&FAQ</h3>
+                        <h3 class="header center red-text">公告&FAQ</h3>
                           <div class="row black-text">
                             <p>流量不会重置，可以通过签到获取流量。</p> 
                             <p>流量可以通过签到获取，基本每天最多可以领取1G流量。</p>
@@ -65,11 +65,11 @@
             <div class="col s12 m12 l6">
                 <div class="card-panel hoverable">
                   <span class="blue-text">
-                    <h5 class="header center black-text ">连接信息</h5>
+                    <h5 class="header center black-text">连接信息</h5>
                       <div class="black-text">
                         <p> 端口：<code><{$oo->get_port()}></code> </p>
                         <p> 密码：<{$oo->get_pass()}> </p>
-                        <p> 套餐：<span class="new badge hoverable" > <{$oo->get_plan()}> </span> </p>
+                        <p> 套餐：<span class="new badge hoverable"> <{$oo->get_plan()}> </span> </p>
                         <p> 最后使用时间：<code><{date('Y-m-d H:i:s',$unix_time)}></code> </p>
                       </div>
                   </span>
@@ -83,7 +83,8 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<script>
+<{* 请在下面加入你的 javascript *}>
+<script type="text/javascript">
     $(document).ready(function(){
         $("#checkin").click(function(){
             $.ajax({

@@ -48,21 +48,6 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<script>
-    $(document).ready(function(){
-        $("#checkin").click(function(){
-            $.ajax({
-                type:"GET",
-                url:"_checkin.php",
-                dataType:"json",
-                success:function(data){
-                    $("#checkin-msg").html(data.msg);
-                    $("#checkin-btn").hide();
-                },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
-                }
-            })
-        })
-    })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+<{* 请在下面加入你的 javascript *}>
+
+<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

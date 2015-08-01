@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html lang="ZH">
+<html lang="zh-CN">
     <head>
-    <meta charset="utf-8">
-    <title>注册 - <{$site_name}></title>
-    <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css?<{date('Ymd_h')}>" />
-    <script>
-        paceOptions = {
-          elements: true
-        };
-    </script>
-    <script src="<{$resources_dir}>/asset/js/pace.min.js?<{date('Ymd_h')}>"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
-    <meta name="robots" content="noindex,nofollow">
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.png?<{date('Ymd_h')}>">
-    <meta name="theme-color" content="#4CAEEA">
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png"> -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="DiskForYou">
-    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
-    <!-- <meta name="msapplication-TileImage" content="favicon-win.png"> -->
-    <meta name="msapplication-TileColor" content="#4CAEEA">
-    <meta name="application-name" content="DiskForYou">
-    <link href="<{$resources_dir}>/asset/css/materialize.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="<{$resources_dir}>/asset/css/style.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="<{$resources_dir}>/asset/css/main.css?<{date('Ymd_h')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="<{$resources_dir}>/asset/css/Material_Icons.css?<{date('Ymd_h')}>" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>注册 - <{$site_name}></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css?<{$version}><{date('Ym')}>" />
+        <script>
+            paceOptions = {
+              elements: true
+            };
+        </script>
+        <script src="<{$resources_dir}>/asset/js/pace.min.js?<{$version}><{date('Ym')}>"></script>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
+        <meta name="robots" content="noindex,nofollow">
+        <!-- Favicon -->
+        <link rel="icon" href="favicon.png?<{$version}><{date('Ym')}>">
+        <meta name="theme-color" content="#4CAEEA">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png"> -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="<{$site_name}>">
+        <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+        <!-- <meta name="msapplication-TileImage" content="favicon-win.png"> -->
+        <meta name="msapplication-TileColor" content="#4CAEEA">
+        <meta name="application-name" content="<{$site_name}>">
+        <link href="<{$resources_dir}>/asset/css/materialize.min.css?<{$version}><{date('Ym')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<{$resources_dir}>/asset/css/Material_Icons.css?<{$version}><{date('Ym')}>" rel="stylesheet">
+        <link href="<{$resources_dir}>/asset/css/main.css?<{$version}><{date('Ym')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
         <div class="row hlavnistrankaprihlaseni">
@@ -73,8 +72,8 @@
                         <label for="code">邀请码 Code</label>
                       </div>
                         <p class="tos modal-trigger waves-effect" >
-                            <input type="checkbox" class="filled-in" id="TOS"/>
-                            <label for="TOS">同意<a href="#!" onclick="$('#TOSINFO').openModal();" >《用户协议》</a></label>
+                            <input type="checkbox" class="filled-in" id="agree"/>
+                            <label for="agree">同意<a href="#!" onclick="$('#TOSINFO').openModal();" >《用户协议》</a></label>
                         </p>
                         <div class="center-btn">
                             <p>
@@ -92,7 +91,7 @@
                <div class="col 0 s12">
                  <h4>用户协议<small>Terms of Service</small></h4>
                       <p style="font-size: x-large;">
-                      <{include file='user/tos-info.tpl'}>
+                      <{include file='user/tos-content.tpl'}>
                       </p>
                 </div>
             </div>
@@ -100,28 +99,13 @@
               <a href="#!" onclick="$('#TOSINFO').closeModal();" class="modal-action modal-close waves-effect waves-green btn waves-light light-blue lighten-1 closetos">关闭</a>
             </div>
         </div>
-       <div id="msg-success" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;"title="点击关闭" >
-            <div class="modal-content" id="ok-close">
-                <h4><i class="mdi-image-tag-faces" style="font-size: 1em;"></i>成功了!</h4>
-                <p id="msg-success-p" style=" COLOR: deepskyblue; FONT-SIZE: x-large;"></p>
-            </div>
-            <div class="modal-footer">
-                 <a href="#!" onclick="$('#msg-success').closeModal();" class="modal-action modal-close btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-            </div>
-        </div>
-        
-         <div id="msg-error" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;"title="点击关闭" >
-              <div class="modal-content" id="error-close">
-                    <h4><i class="mdi-alert-error" style="font-size: 1em;"></i>出错了!</h4>
-                    <p id="msg-error-p" style=" COLOR: RED; FONT-SIZE: x-large;"> </p>
-              </div>
-          <div class="modal-footer">
-             <a href="#!" onclick="$('#msg-success').closeModal();" class="modal-action modal-close waves-effect btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-          </div>
-        </div>
-                <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{date('Ymd_h')}>"></script>
-                 <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{date('Ymd_h')}>"></script>
-            <script>
+            <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{$version}><{date('Ym')}>"></script>
+            <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{$version}><{date('Ym')}>"></script>
+            <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+            <script type="text/javascript">
+                _Prompt_msg();
+            </script>
+            <script type="text/javascript">
                 $(document).ready(function(){
                     function register(){
                         $.ajax({
@@ -135,7 +119,6 @@
                                 repasswd: $("#repassword").val(),
                                 code: $("#code").val(),
                                 agree: $("#agree").val(),
-                                TOS: $("#TOS").val()
                             },
                             success:function(data){
                                 if(data.ok){

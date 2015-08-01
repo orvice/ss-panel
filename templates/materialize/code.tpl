@@ -11,7 +11,7 @@
 <div class="had-container">
    <{include file='nav.tpl'}>
 <div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
+    <div class="container">
         <div class="row card-panel grey lighten-4 z-depth-3">
             <div class="row center">
             <h5 class="header col s12 light">

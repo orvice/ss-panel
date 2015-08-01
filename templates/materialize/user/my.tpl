@@ -33,6 +33,7 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
+<{* 请在下面加入你的 javascript *}>
 <script>
     $(document).ready(function(){
         $("#checkin").click(function(){

@@ -1,7 +1,9 @@
 <{extends file="header.tpl"}> <{block name="title" prepend}>用户中心 - <{/block}><{block name="contents"}>
 <div class="had-container">
    <{include file='admin/nav.tpl'}>
-
+<style type="text/css">
+  .btn0{width: 100%;}
+</style>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container ">
       <h5  class="white-text">
@@ -24,7 +26,7 @@
                         </div>
                       </h5>
                       <div class="center white-text">
-                       <a href="node.php" class="btn waves-effect waves-light light-blue lighten-5 teal-text center">
+                       <a href="node.php" class="btn btn0 waves-effect waves-light light-blue lighten-5 teal-text center">
                             管理
                         </a>
                       </div>
@@ -45,8 +47,8 @@
                               </p>
                       </div>
                     </h5>
-                      <div class="white-text">
-                        <a href="user.php" class="btn waves-effect waves-light light-blue lighten-5 teal-text center">
+                      <div class="center white-text">
+                        <a href="user.php" class="btn btn0 waves-effect waves-light light-blue lighten-5 teal-text center">
                             查看
                         </a>
                       </div>
@@ -61,21 +63,6 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<script>
-    $(document).ready(function(){
-        $("#checkin").click(function(){
-            $.ajax({
-                type:"GET",
-                url:"_checkin.php",
-                dataType:"json",
-                success:function(data){
-                    $("#checkin-msg").html(data.msg);
-                    $("#checkin-btn").hide();
-                },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
-                }
-            })
-        })
-    })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+<{* 请在下面加入你的 javascript *}>
+
+<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

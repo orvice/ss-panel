@@ -83,8 +83,8 @@
 
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-
-<script>
+<{* 请在下面加入你的 javascript *}>
+<script type="text/javascript">
     $(document).ready(function(){
         $("#ss-pwd-update").click(function(){
             $.ajax({

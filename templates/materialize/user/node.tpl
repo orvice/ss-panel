@@ -1,4 +1,6 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>节点列表 - <{/block}><{block name="contents"}>
+<{extends file="header.tpl"}><{block name="title" prepend}>节点列表 - <{/block}>
+<{block name="contents"}>
+<{config_load file='Announcement.conf' section='user_node'}><{* 加载模板公告内容配置 *}>
 <div class="had-container">
    <{include file='user/nav.tpl'}>
 
@@ -11,13 +13,10 @@
           <div class="row">
             <div class="col s12 m6 card-panel hoverable">
               <span class="header black-text">
-                <h5 class="header black-text"><i class="mdi-action-toc" style="font-size: 1em;"></i>「 节点 」</h5>
+                <h5 class="header black-text"><i class="mdi-editor-format-list-numbered" style="font-size: 1em;"></i>「 节点 」</h5>
                   <div class="col s12 orange darken-1 hoverable">
                   <span class="white-text">
-                    <h5 class="header black-text"> <h5>注意!</h5>
-                       <p>请勿在任何地方公开节点任何信息！</p>
-                    </h5>
-                  
+                    <h5 class="header black-text"><{#Announcement_node#}><{* 普通节点公告内容 *}></h5>                  
                   </span>
                 </div>
                 <{if count($node0)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
@@ -55,9 +54,7 @@
                 <h5 class="header black-text"><i class="mdi-device-storage" style="font-size: 1em;"></i>『 Pro节点 』</h5>
                   <div class="col s12 orange darken-1 hoverable">
                       <span class="white-text">
-                        <h5 class="header black-text"> <h5>注意!</h5>
-                           <p>请勿在任何地方公开节点任何信息！</p>
-                        </h5>
+                        <h5 class="header black-text"><{#Announcement_node_pro#}><{* pro节点公告内容 *}></h5>
                       </span>
                     </div>
                         <{if count($node1)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>

@@ -1,11 +1,10 @@
+<{config_load file='Announcement.conf' section='footer'}><{* 加载模板公告内容配置 *}>
 	   <footer class="page-footer light-blue lighten-1">
 	    <div class="container">
 	      <div class="row">
 	        <div class="col 0 s12">
 	          <h5 class="white-text">用户建议</h5>
-	          <p class="nav-wrapper card-panel waves-effect hoverable">当前网页要在支持Html5较新版本的浏览器才能正常使用，如果你的当前浏览显示不正常，请更新浏览器，推荐使用谷歌浏览器（Chrome）、OPERA、Firefox ...<br/>
-	          安卓版本4.4.4以下手机用户不推荐使用系统浏览器来访问。<br/>
-	          如果你正在使用XXX公司的任何与网络相关的硬件和软件，请不要使用本站服务，根据网上反映的情况，该公司的产品会后台上报VPN，SS(shadowsocks)，SSH等等的ip信息，导致很多的VPN，SS(shadowsocks)，SSH服务不能正常使用。<br/><b style="color:red;">站长可以任意修改这里的内容！</b></p>
+	          <p class="nav-wrapper card-panel waves-effect hoverable"><{#Announcement#}><{* 用户建议的内容 *}></p>
 	        </div>
 	        <div class="col l3 s12">
 	          <h5 class="white-text">Terms of Service</h5>

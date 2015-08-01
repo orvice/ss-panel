@@ -1,3 +1,4 @@
+<{config_load file='Announcement.conf' section='user_invite'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -68,16 +69,11 @@
                         <div class="box-body">
 
                             <div class="callout callout-warning">
-                                <h4>注意！</h4>
-                                <p>邀请码请给认识的需要的人。</p>
-                                <p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>
+                                <{#Announcement_color_orange#}><{* 橙色公告内容 *}>
                             </div>
 
                             <div class="callout callout-info">
-                                <h4>说明</h4>
-                                <p>用户注册48小时后，才可以生成邀请码。</p>
-                                <p>邀请码暂时无法购买，请珍惜。</p>
-                                <p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>
+                                <{#Announcement_color_blue#}><{* 蓝色公告内容 *}>
                             </div>
 
                         </div><!-- /.box-body -->

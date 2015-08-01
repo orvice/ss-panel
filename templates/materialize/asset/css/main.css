@@ -39,6 +39,10 @@ footer {
   clear: both;
 }
  */ 
+ .black-text .white-text h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
 .icon-block {
   padding: 0 15px;
 }
@@ -65,7 +69,7 @@ span.badge.new {
     /* font-weight: 500; */
     font-size: 1rem; 
     color: #fff;
-    background-color: #26a69a;
+    background-color: #3DAFF5;
     /* border-radius: 2px; */
 }
  span.badge.new:after {
@@ -229,7 +233,29 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   border-radius: 10px;
   background-image: -webkit-linear-gradient(360deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
 }
-
+.progress {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #C6FAFA;
+  border-radius: 2px;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+}
+.progress .determinate {
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #56CCFF;
+  -webkit-transition: width .3s linear;
+  -moz-transition: width .3s linear;
+  -o-transition: width .3s linear;
+  -ms-transition: width .3s linear;
+  transition: width 0.8s linear;
+}
 .center-btn { text-align: center }
 .modal { padding: 0px 0px 0px; width: 50%; }
 .modal p { text-align: center }

@@ -1,4 +1,6 @@
-<{extends file="header.tpl"}> <{block name="title" prepend}>用户中心 - <{/block}><{block name="contents"}>
+<{extends file="header.tpl"}> <{block name="title" prepend}>用户中心 - <{/block}>
+<{block name="contents"}>
+<{config_load file='Announcement.conf' section='user_index'}><{* 加载模板公告内容配置 *}>
 <div class="had-container ">
    <{include file='user/nav.tpl'}>
 
@@ -16,9 +18,7 @@
                       <span class="blue-text">
                         <h3 class="header center red-text">公告&FAQ</h3>
                           <div class="row black-text">
-                            <p>流量不会重置，可以通过签到获取流量。</p> 
-                            <p>流量可以通过签到获取，基本每天最多可以领取1G流量。</p>
-                            <p>请勿在任何地方公开本站任何节点信息！</p>
+                          <{#Announcement#}> <{* 公告内容 *}>
                           </div>
                         </span>
                     </div>

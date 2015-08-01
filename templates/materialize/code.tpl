@@ -1,4 +1,6 @@
-<{extends file='header.tpl'}><{block name="title" prepend}>邀请码 - <{/block}><{* 继承内容到父模板 *}><{block name="contents"}>
+<{extends file='header.tpl'}><{block name="title" prepend}>邀请码 - <{/block}><{* 继承内容到父模板 *}>
+<{block name="contents"}>
+<{config_load file='Announcement.conf' section='code'}><{* 加载模板公告内容配置 *}>
 <style>
           body { 
                   background-color: rgba(0, 168, 255, 0.56);
@@ -14,10 +16,7 @@
     <div class="container">
         <div class="row card-panel grey lighten-4 z-depth-3">
             <div class="row center">
-            <h5 class="header col s12 light">
-            	<p> 邀请码不定时发放！</p>
-            	<p>如遇到无邀请码请找已经注册的用户获取。</p>
-            </h5>
+            <h5 class="header col s12 light"><{#Announcement#}><{* 提示内容：邀请码不定时发放！ *}></h5>
             </div>
         </div>
     </div>

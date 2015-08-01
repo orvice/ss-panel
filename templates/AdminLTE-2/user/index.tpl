@@ -1,3 +1,4 @@
+<{config_load file='Announcement.conf' section='user_index'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -21,8 +22,7 @@
                             <h3 class="box-title">公告&FAQ</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p>流量不会重置，可以通过签到获取流量。</p> 
-                            <p>流量可以通过签到获取，基本每天可以用1G流量。</p> 
+                            <{#Announcement#}> <{* 公告内容 *}>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->

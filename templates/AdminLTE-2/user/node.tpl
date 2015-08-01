@@ -1,3 +1,4 @@
+<{config_load file='Announcement.conf' section='user_node'}><{* 加载模板公告内容配置 *}>
 <{include file='user/main.tpl'}>
     <!-- =============================================== -->
 
@@ -23,8 +24,7 @@
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="callout callout-warning">
-                                <h4>注意!</h4>
-                                <p>请勿在任何地方公开节点地址！</p>
+                                <{#Announcement_node#}><{* 普通节点公告内容 *}>
                             </div>
                             <{foreach $node0 as $row}>
                                 <div class="nav-tabs-custom">
@@ -65,8 +65,7 @@
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="callout callout-warning">
-                                <h4>注意!</h4>
-                                <p>....</p>
+                                <{#Announcement_node_pro#}><{* pro节点公告内容 *}>
                             </div>
                             <{foreach $node1 as $row}>
                                 <div class="nav-tabs-custom">

@@ -1,3 +1,4 @@
+<{config_load file='Announcement.conf' section='index'}><{* 加载模板公告内容配置 *}>
 <{include file='header.tpl'}>
 <div class="had-container">
    <{include file='nav.tpl'}>
@@ -7,10 +8,10 @@
         <div class="row card-panel grey lighten-4 z-depth-3">
             <h1 class="header center orange-text "><{$site_name}></h1>
             <div class="row center">
-            <h5 class="header col s12 light"><p> 每个月5G流量，美国节点。</p></h5>
+            <h5 class="header col s12 light"><{#Announcement#}><{* 每个月5G流量，美国节点。 *}></h5>
             </div>
             <div class="row center">
-            <a href="user/register.php" class="btn-large waves-effect waves-light light-blue lighten-1">立即注册</a>
+            <{#button#}><{* 按钮 *}>
             </div>
         </div>
     </div>

@@ -24,15 +24,16 @@ define('DB_TYPE','mysql');
 //define Plan
 //注册用户的初始化流量
 //默认5GiB
-$a_transfer = $togb*5;
+$a_transfer = $togb*90;
 
 //签到设置 签到活的的最低最高流量,单位MB
+//限制签到
 $check_min = 1;
-$check_max = 100;
+$check_max = 1;
 
 //name
-$site_name = "ss-panel";
-$site_url  = "https://panel.com/";
+$site_name = "看世界";
+$site_url  = "https://www.zyqf.ml/";
 /**
  * 站点盐值，用于加密密码
  * 第一次安装请修改此值，安装后请勿修改！！否则会使所有密码失效，仅限加密方式不为1的时候有效
@@ -49,8 +50,8 @@ $pwd_mode = 1;
 
 //用户注册后获得的邀请码最低最高
 //都设置为0用户就不能邀请
-$user_invite_min = '1';
-$user_invite_max = '1';
+$user_invite_min = '0';
+$user_invite_max = '0';
 
 
 //

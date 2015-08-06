@@ -79,5 +79,5 @@ $smarty->assign('site_name',$site_name);
 $smarty->assign('site_url',$site_url);
 $smarty->assign('version',$version." + smarty");
 $smarty->assign('Runtime',$Runtime);
-//模板公告内容配置
+//模板公告内容配置，可以通过用户中心修改。
 require_once 'announcement.php';

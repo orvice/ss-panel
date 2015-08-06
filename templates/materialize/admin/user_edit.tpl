@@ -17,8 +17,9 @@
                       <h5 class="header black-text">编辑用户</h5>
                       <div class="black-text">
                           <form role="form" method="post" action="javascript:void(0);">
-                              <div class="input-field">
-                                <input type="text" name="user_uid" id="user_uid" value="<{$uid}>" class="validate">
+                              ID: <{$uid}>
+                              <div class="input-field" style="display:none">
+                                <input type="text" name="user_uid" id="user_uid" value="<{$uid}>" class="validate" style="display:none">
                                 <label for="user_uid">ID: <{$uid}></label>
                               </div>
                               <div class="input-field">

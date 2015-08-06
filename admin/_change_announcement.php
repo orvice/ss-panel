@@ -1,7 +1,6 @@
 <?php
 /*
 $announcement_name 公告名称
-$original_content 原内容
 $new_content 新内容
 */
 //设置编码

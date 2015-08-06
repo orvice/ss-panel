@@ -91,7 +91,7 @@
                <div class="col 0 s12">
                  <h4>用户协议<small>Terms of Service</small></h4>
                       <p style="font-size: x-large;">
-                      <{include file='user/tos-content.tpl'}>
+                      <{$site_name}>，<{$tos_content}>
                       </p>
                 </div>
             </div>

@@ -201,7 +201,7 @@
                             return false;
                         }
                         if(document.getElementById("agree").checked===false){
-                            id_name=".tos";
+                            id_name="#agree";
                             msg_out("必须要同意<a href=\"#!\" onclick=\"$('#TOSINFO').openModal();\" >《用户协议》</a>才可以注册!","error");
                             msg_id=1;
                             return false;

@@ -100,12 +100,7 @@ img.user-image {
 .ss_node_btn{
     float: right;
 }
-/* 按钮无高度 */
-.ss_node_btn0 {
-    display: grid;
-    padding: 0 0.2rem;
-    margin-bottom: 0px;
-}
+
 /* 彩色面板 */
 .color-panel {
     background-image: linear-gradient(-45deg, rgba(224, 223, 145, 0.56), rgb(47, 185, 226));
@@ -141,7 +136,7 @@ table.dataTable tbody td {
 table {
     background-image: linear-gradient(-45deg, rgba(208, 14, 114, 0.56), yellow);
 }
-margin-bottom: 0px;
+/*margin-bottom: 0px;*/
 /*登录 注册 重置密码 页的*/
 .hlavnistrankaprihlaseni {
   position: static;
@@ -260,9 +255,23 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   transition: width 0.8s linear;
 }
 .center-btn { text-align: center }
-.modal { padding: 0px 0px 0px; width: 50%; }
+.modal { padding: 0px 0px 0px;}
 .modal p { text-align: center }
 .modal h4 { text-align: center }
+/* 小屏幕的modal窗口宽度为100% */
+@media only screen and (max-width : 992px) {
+.modal {
+  width: 100%; } }
+/* modal窗口中的内容离内边距为3px */
+.modal-content {
+  padding: 3px;
+}
 .hide { display: none }
 span i { vertical-align: middle }
 span b { vertical-align: middle; font-weight: 500; }
+/* 按钮无高度 */
+.ss_node_btn0 {
+    display: grid;
+    padding: 0 0.2rem;
+    margin-bottom: 0px;
+}

@@ -258,10 +258,26 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 .modal { padding: 0px 0px 0px;}
 .modal p { text-align: center }
 .modal h4 { text-align: center }
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #fafafa;
+  padding: 0;
+  max-height: 100%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity; 
+    
+}
 /* 小屏幕的modal窗口宽度为100% */
 @media only screen and (max-width : 992px) {
-.modal {
-  width: 100%; } }
+    .modal {
+      width: 100%; } 
+}
 /* modal窗口中的内容离内边距为3px */
 .modal-content {
   padding: 3px;

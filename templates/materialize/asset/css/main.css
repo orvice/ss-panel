@@ -19,6 +19,21 @@ body {
     width: 100%;
     height: 100%; 
 }
+/*滚动条*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
+  background-color: #D3F0FF;
+  border-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0094FF;
+  border-radius: 10px;
+  background-image: -webkit-linear-gradient(360deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
+}
 /*
 body, html {
   height: 100%;
@@ -216,21 +231,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 .input-field .prefix.active {
   color: #4CAEEA;
 }
-/*滚动条*/
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
-  background-color: #D3F0FF;
-  border-radius: 10px;
-}
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: #FFFFFF;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #0094FF;
-  border-radius: 10px;
-  background-image: -webkit-linear-gradient(360deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
-}
+
 .progress {
   position: relative;
   height: 4px;
@@ -258,36 +259,33 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 .modal { padding: 0px 0px 0px;}
 .modal p { text-align: center }
 .modal h4 { text-align: center }
-.modal {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: #fafafa;
-  padding: 0;
-  max-height: 100%;
-  width: 55%;
-  margin: auto;
-  overflow-y: auto;
-  border-radius: 2px;
-  will-change: top, opacity; 
-    
+/* modal窗口中的内容离内边距为24px */
+.modal .modal-content {
+  padding: 24px;
 }
 /* 小屏幕的modal窗口宽度为100% */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 720px) {
     .modal {
-      width: 100%; } 
-}
-/* modal窗口中的内容离内边距为3px */
-.modal .modal-content {
-  padding: 3px;
+      max-height: 85%;
+      width: 100%; 
+     } 
+ /* modal窗口中的内容离内边距为3px */
+    .modal .modal-content {
+      padding: 3px;
+    }
+    .modal .modal-footer {
+      border-radius: 0 0 2px 2px;
+      padding: 4px 6px;
+      height: 56px;
+      width: 100%;
+    }
 }
 .hide { display: none }
 span i { vertical-align: middle }
 span b { vertical-align: middle; font-weight: 500; }
-/* 按钮无高度 */
+/* 按钮高度2px */
 .ss_node_btn0 {
     display: grid;
     padding: 0 0.2rem;
-    margin-bottom: 0px;
+    margin-bottom: 2px;
 }

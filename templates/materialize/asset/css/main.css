@@ -279,7 +279,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
       width: 100%; } 
 }
 /* modal窗口中的内容离内边距为3px */
-.modal-content {
+.modal .modal-content {
   padding: 3px;
 }
 .hide { display: none }

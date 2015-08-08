@@ -92,7 +92,7 @@
 </div> 
   <div id="modalnode" class="modal"><!--  modal-fixed-footer -->
     <div class="modal-content">
-        <div id="no_node" style="margin: 20% 1% 1% 36%; display: none;">
+        <div id="no_node" style="margin: 12% 1% 1% 40%; display: none;">
             <!-- 循环闪烁的颜色 -->
             <div class="container">
                 <div class="preloader-wrapper big active">
@@ -141,7 +141,7 @@
         <div id="node"></div>      
     </div>
     <div class="modal-footer">   
-      <a href="#!" onclick="$('#modalnode').closeModal();" class="btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-green">关闭</a>
+      <button onclick="$('#modalnode').closeModal();" class="btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-green">关闭</button>
       <div id="node_btn"></div>
     </div>
   </div>

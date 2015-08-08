@@ -2,6 +2,7 @@
 		<script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{$version}><{date('Ym')}>"></script>
 		<script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{$version}><{date('Ym')}>"></script>
 		<script src="<{$resources_dir}>/asset/js/init.js?<{$version}><{date('Ym')}>"></script>
+		<{block name="javascript"}><{/block}>
 		<link type="text/css" rel="stylesheet" href="<{$resources_dir}>/asset/css/backtotop.css?<{$version}><{date('Ym')}>"  media="screen,projection"/>
 		<!-- 选择风格模板 -->
         <script type="text/javascript">
@@ -26,4 +27,4 @@
             window.addEventListener('load', async_load, false);
         	} 
             })(); 
-        </script><{block name="javascript"}><{/block}>
+        </script>

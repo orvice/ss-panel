@@ -29,7 +29,7 @@
 			    </div>
 	      </div>
 	    </div>
-
+	  	<a href="#!" class="cd-top btn-floating red darken-1 waves-effect" title="回到顶部">Top</a>
 	    <div class="footer-copyright">
 	      <div class="container" font="comic sans ms"> &copy; <{$site_name}> <{date('Y')}> Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> <{$version}>
 		      <div class="grey-text text-lighten-4 right">Processed in <{$Runtime->Stop()}> <{$Runtime->SpendTime()}> ms
@@ -37,7 +37,6 @@
 	      </div>
 	    </div>
 	  </footer>
-	  <a href="#!" class="cd-top btn-floating red darken-1 waves-effect">Top</a>
 		<{include file='Public_javascript.tpl'}>
     </body>
 </html>

@@ -5,6 +5,7 @@
   position: fixed;
   bottom: 40px;
   right: 10px;
+  border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   /* image replacement properties */
   overflow: hidden;
@@ -26,6 +27,7 @@
   /* the button becomes visible */
   visibility: visible;
   opacity: 1;
+  z-index: 1000;
 }
 .cd-top.cd-fade-out {
   /* if the user keeps scrolling down, the button is out of focus and becomes less visible */

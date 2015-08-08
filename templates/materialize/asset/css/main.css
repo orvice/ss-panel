@@ -263,21 +263,45 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 .modal .modal-content {
   padding: 24px;
 }
-/* 小屏幕的modal窗口宽度为100% */
+/* 平板以下的显示 */
 @media only screen and (max-width : 720px) {
+ /* modal窗口宽度为100% */
     .modal {
       max-height: 85%;
       width: 100%; 
      } 
- /* modal窗口中的内容离内边距为3px */
+ /* modal窗口中的内容离内边距为13px */
     .modal .modal-content {
-      padding: 3px;
+      padding: 13px;
     }
     .modal .modal-footer {
       border-radius: 0 0 2px 2px;
       padding: 4px 6px;
       height: 56px;
       width: 100%;
+    }
+    /*缩小二维码*/
+    #qrcode canvas{
+      width: 160px;
+      height: 160px;
+    }
+}
+/* 小屏手机 */
+@media only screen and (max-width : 480px) {
+ /* modal窗口中的内容离内边距为3px */
+    .modal .modal-content {
+      padding: 3px;
+    }
+    /* 文字自动换行 */
+    #ssqr_text{
+      word-wrap: break-word;
+    }
+    /*缩小二维码*/
+    #qrcode canvas{
+      width: 130px;
+      height: 130px;
+    /*  display: inline-block;
+      vertical-align: baseline;*/
     }
 }
 .hide { display: none }

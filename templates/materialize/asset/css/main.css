@@ -34,30 +34,12 @@ body {
   border-radius: 10px;
   background-image: -webkit-linear-gradient(360deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
 }
-/*
-body, html {
-  height: 100%;
-}
 
-.wrapper {
-  min-height: 100%;
-  height: auto!important;
-  margin: 0 auto -247px;
-}
-  */ 
- /* 
-footer {
-  padding: 0;
-  margin: 0;
-  background: #474747;
- height: 60px;
-  clear: both;
-}
- */ 
- p {
-    font-weight: bold;
-}
- .black-text .white-text h4 {
+/*body, html {
+  height: 100%;
+}*/
+
+.black-text .white-text h4 {
   font-size: 22px;
   font-weight: 600;
 }
@@ -104,12 +86,11 @@ code {
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
 img.user-image {
-    /* float: left;*/
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    margin-right: 10px;
-    margin-top: -2px;
+    margin-right: 2px;
+    margin-bottom: -8px;
 }
 
 .ss_node_btn{
@@ -292,6 +273,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     .modal .modal-content {
       padding: 3px;
     }
+    
     /* 文字自动换行 */
     #ssqr_text{
       word-wrap: break-word;
@@ -302,6 +284,19 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
       height: 130px;
     /*  display: inline-block;
       vertical-align: baseline;*/
+    }
+    #node p{
+      text-align: left;
+    }
+}
+/* 屏幕高度为465px以下使用 */
+@media only screen and (max-height : 465px) {
+  /* 缩小节点地址字距离 */
+    #node p{
+      margin-top: 3px;
+      height: 18px;
+      line-height: 0.9;
+      text-align: left;
     }
 }
 .hide { display: none }

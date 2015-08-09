@@ -16,7 +16,7 @@
 				<li><a class="waves-effect waves-yellow" href="update.php">修改资料</a></li>
 				<li><a class="waves-effect waves-yellow" href="invite.php">邀请好友</a></li>
 				<li><a class="waves-effect waves-yellow" href="sys.php">系统信息</a></li>
-				<li class="black-text"><a class="waves-effect waves-yellow" href="my.php" title="我的信息"><img src="<{$Gravatar_Email_img}>" alt="Gravatar_Email_img" class="circle user-image "><{$GetUserName}><br></a></li>
+				<li class="black-text"><a class="waves-effect waves-yellow" href="my.php" title="我的信息"><img src="<{$Gravatar_Email_img}>" alt="Gravatar_Email_img" class="circle user-image "><{$GetUserName}></a></li>
 				<li><a class="waves-effect waves-yellow" href="logout.php">退出</a></li>
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>

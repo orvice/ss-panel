@@ -70,7 +70,7 @@
 			            </li>
 			          </ul>
 		        </li>
-				<li class="black-text"><a class="waves-effect waves-yellow" href="my.php" title="我的信息"><img src="<{$Gravatar_Email_img}>" alt="Gravatar_Email_img" class="circle user-image "><{$GetUserName}><br></a></li>
+				<li class="black-text"><a class="waves-effect waves-yellow" href="my.php" title="我的信息"><img src="<{$Gravatar_Email_img}>" alt="Gravatar_Email_img" class="circle user-image "><{$GetUserName}></a></li>
 				<li><a class="waves-effect waves-yellow" href="logout.php">退出</a></li>
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>

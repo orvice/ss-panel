@@ -15,7 +15,7 @@ A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shad
 [ss pane_2.2.9_ _smarty_3.1.24_=_dev_0.2界面截图](https://github.com/xuanhuan/ss-panel/wiki/ss-pane_2.2.9_-_smarty_3.1.24_=_dev_0.2%E7%95%8C%E9%9D%A2)
 
 ### 管理后台 /admin    建议修改目录名称
-帐号：admin
+帐号：admin@admin.com
 密码：12345678
 (和用户中心共用)
 

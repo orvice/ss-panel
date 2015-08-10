@@ -59,7 +59,7 @@
                             
                             <div class="form-group">
                                 <label for="cate_title">邀请码数量</label>
-                                <input  class="form-control" id="invite_num" placeholder="<{$rs['invite_num']}>" 
+                                <input  class="form-control" id="invite_num" value="<{$rs['invite_num']}>" 
                             </div>
 
                         </div><!-- /.box-body -->
@@ -103,8 +103,7 @@
                     user_passwd: $("#user_passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: $("#transfer_enable_hidden").val(),
-                    invite_num: $("#invite_num").val(),
-                    invite_num_hidden: $("#invite_num_hidden").val()
+                    invite_num: $("#invite_num").val()
                 },
                 success:function(data){
                     if(data.ok){

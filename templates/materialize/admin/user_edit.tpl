@@ -84,8 +84,7 @@
                     user_passwd: $("#user_passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: $("#transfer_enable_hidden").val(),
-                    invite_num: $("#invite_num").val(),
-                    invite_num_hidden: $("#invite_num_hidden").val()
+                    invite_num: $("#invite_num").val()
                 },
                 success:function(data){
                     if(data.ok){

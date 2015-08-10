@@ -45,7 +45,7 @@ $smarty->assign('ana',file_get_contents(__ROOT__."/ana.php")); //读取统计代
 $smarty->debugging = false; // 默认
 // 地址：http://localhost/script.php?foo=bar&SMARTY_DEBUG
 // 设置开启调试信息的方式。 设置成NONE则不开启调试信息。 URL值意味着当URL参数中有SMARTY_DEBUG关键字则开启调试信息。 如果开启了 $debugging，则本设置将忽略。
-$smarty->debugging_ctrl = 'URL';
+// $smarty->debugging_ctrl = 'URL';
 // 调试控制器模版
 $smarty->debug_tpl = __ROOT__.'lib/Ss/smarty/debug.tpl';
 //将当前页面的URL(包含?后面的所有参数)进行md5加密,设置缓存文件名

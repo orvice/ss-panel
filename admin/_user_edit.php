@@ -6,7 +6,7 @@ if(!empty($_POST)){
     $uid = $_POST['user_uid'];
     $name = $_POST['user_name'];
     if(!empty($_POST['user_pass'])) {
-      $pass = md5($_POST['user_pass']);
+      $pass = \Ss\User\Comm::SsPW($_POST['user_pass']);
     }else{
       $pass = $_POST['user_pass_hidden'];
     }

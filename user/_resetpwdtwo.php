@@ -21,7 +21,7 @@ if(!$rs){
     $rst = new \Ss\User\ResetPwd($uid);
     $u   = new \Ss\User\User($uid);
     if($rst->IsCharOK($code,$uid)){
-        $NewPwd = md5(time().$uid.$email);
+        $NewPwd = \Ss\User\Comm::SsPW(time().$uid.$email);
         //邮件主题
        $Mail_title = $site_name."您的新密码";
         //邮件内容

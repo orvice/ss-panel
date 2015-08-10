@@ -45,7 +45,6 @@
                                 <label for="transfer_enable">设置流量 单位为GB</label>
                               </div>
                               <div class="input-field">
-                                <input  class="form-control" id="invite_num_hidden" value="<{$rs['invite_num']}>" style="display:none">
                                 <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
                                 <label for="invite_num">邀请码数量</label>
                               </div>

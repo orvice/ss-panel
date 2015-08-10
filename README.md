@@ -15,9 +15,22 @@ A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shad
 [ss pane_2.2.9_ _smarty_3.1.24_=_dev_0.2界面截图](https://github.com/xuanhuan/ss-panel/wiki/ss-pane_2.2.9_-_smarty_3.1.24_=_dev_0.2%E7%95%8C%E9%9D%A2)
 
 ### 管理后台 /admin    建议修改目录名称
-帐号：admin@admin.com
-密码：12345678
+默认管理帐号: first@blood.com 密码 1993
 (和用户中心共用)
+
+新版密码加密方式说明
+========
+
+当使用新的加密方式「带salt的sha256」加密，由于每个站点的$salt值都不同，所以初始密码「1993」是没有用的，安装完成后，访问
+```
+/pwd.php?pwd=1993
+```
+将获得的字符串更新到数据库user表的pass字段。
+
+注意：
+
+* $salt 不可随意修改！
+* 如果原来为2.4之前的版本，需要将pass字段的长度修改为64
 
 [Demo](https://cattt.com) [中文安装文档](https://github.com/orvice/ss-panel/wiki/Install-Guide-zh_cn)
 

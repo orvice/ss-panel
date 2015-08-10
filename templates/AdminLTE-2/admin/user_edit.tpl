@@ -59,7 +59,6 @@
                             
                             <div class="form-group">
                                 <label for="cate_title">邀请码数量</label>
-                                <input type="hidden" id="invite_num_hidden" value="<{$rs['invite_num']}>" >
                                 <input  class="form-control" id="invite_num" placeholder="<{$rs['invite_num']}>" 
                             </div>
 

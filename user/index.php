@@ -10,7 +10,7 @@ if($oo->get_transfer()<1000000)
 //计算流量并保留2位小数
 $all_transfer = $oo->get_transfer_enable()/$togb;
 $unused_transfer =  $oo->unused_transfer()/$togb;
-$used_100 = $oo->get_transfer()/$oo->get_transfer_enable();
+@$used_100 = $oo->get_transfer()/$oo->get_transfer_enable();
 $used_100 = round($used_100,2);
 $used_100 = $used_100*100;
 //计算流量并保留2位小数

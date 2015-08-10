@@ -17,7 +17,7 @@ if($c->IsEmailUsed($email)){
        //邮件主题
        $Mail_title = $site_name."重置密码";
        //邮件内容
-       $Mail_content = '请访问此链接：<a href="'.$site_url."/user/resetpwd_do.php?code=".$code."&uid=".$uid.'">申请重置密码</a><br />如果不能打开，请复制下面网址到浏览器的地址栏粘贴并按回车！<br />'.$site_url.'/user/resetpwd_do.php?code='.$code.'&uid='.$uid;
+       $Mail_content = '请访问此链接：<a href="'.$site_url."user/resetpwd_do.php?code=".$code."&uid=".$uid.'">申请重置密码</a><br />如果不能打开，请复制下面网址到浏览器的地址栏粘贴并按回车！<br />'.$site_url.'user/resetpwd_do.php?code='.$code.'&uid='.$uid;
        
        
        //判断邮件服务

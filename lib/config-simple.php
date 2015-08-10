@@ -33,6 +33,19 @@ $check_max = 100;
 //name
 $site_name = "ss-panel";
 $site_url  = "https://panel.com/";
+/**
+ * 站点盐值，用于加密密码
+ * 第一次安装请修改此值，安装后请勿修改！！否则会使所有密码失效，仅限加密方式不为1的时候有效
+ */
+$salt = "ss-panel";
+/**
+ * 密码加密方式，注意： 2.4以前的版本，请修改加密方式为「1」，否则会使密码失效！
+ * 更多说明见wiki https://github.com/orvice/ss-panel/wiki/Install-Guide-zh_cn
+ * 加密方式:
+ * 1 md5
+ * 2 带salt的Sha256加密，新安装建议使用此加密方式！
+ */
+$pwd_mode = 1;
 
 //用户注册后获得的邀请码最低最高
 //都设置为0用户就不能邀请

@@ -27,16 +27,16 @@
                   <div class="center black-text">
                     <p>当前时间：<{$time}></p>
                     <p>当前版本：<code><{$version}></code></p>
-                    <p><{$site_name}> 已经产生流量<code><{$GetTrafficGB}></code>GB。</p>
-                    <p>注册用户：<code><{$user_all_count}> </code></p>
-                    <p>已经有<code><{$user_active_count}></code>个用户使用了<{$site_name}> 服务。</p>
-                    <p>签到用户：<code><{$CheckInUser}></code></p>
-                    <p>24小时签到用户：<code><{$CheckInUser24}></code></p>
-                    <p>过去1小时在线人数：<code><{$user_time_count_1_h}></code>。</p>
-                    <p>过去5分钟在线人数：<code><{$user_time_count_5_i}></code>。</p>
-                    <p>过去1分钟在线人数：<code><{$user_time_count_1_i}></code>。</p>
-                    <p>实时在线人数：<code><{$user_time_count}></code>。</p>
-                    <p>过去24小时在线人数：<code><{$user_time_count_24_h}></code>。</p>
+                    <p><{$site_name}> 已经产生流量<code><{$getTrafficGB}></code>GB。</p>
+                    <p>注册用户：<code><{$allUserCount}> </code></p>
+                    <p>已经有<code><{$activedUserCount}></code>个用户使用了<{$site_name}> 服务。</p>
+                    <p>签到用户：<code><{$checkinUser}></code></p>
+                    <p>24小时签到用户：<code><{$CheckInUser_24}></code></p>
+                    <p>过去1小时在线人数：<code><{$onlineUserCount_1_h}></code>。</p>
+                    <p>过去5分钟在线人数：<code><{$onlineUserCount_5_i}></code>。</p>
+                    <p>过去1分钟在线人数：<code><{$onlineUserCount_1_i}></code>。</p>
+                    <p>实时在线人数：<code><{$onlineUserCount}></code>。</p>
+                    <p>过去24小时在线人数：<code><{$onlineUserCount_24_h}></code>。</p>
                   </div>
                 </div>
             </div>

@@ -104,7 +104,7 @@ namespace Ss\User;
 
      function UpdatePWd($pwd){
          $this->db->update("user",[
-            "pass" => md5($pwd)
+            "pass" => \Ss\User\Comm::SsPW($pwd)
          ],[
              "uid" => $this->uid
          ]);

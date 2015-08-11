@@ -30,6 +30,7 @@ $Users = new Ss\User\User();
                                     <th>剩余流量</th>
                                     <th>已使用流量</th>
                                     <th>最后签到</th>
+                                    <th>邀请人</th>
                                     <th>操作</th>
                                 </tr>
                                 <?php
@@ -44,6 +45,16 @@ $Users = new Ss\User\User();
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d'])); ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['u']+$rs['d'])); ?></td>
                                         <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
+                                        <td>
+<?php 
+if ( $rs['ref_by'] != 0 ){
+    $ref_u  = new \Ss\User\UserInfo($rs['ref_by']);
+    $ref_name = $ref_u->GetUserName();
+}
+
+echo $ref_name;
+?>
+                                        </td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="user_edit.php?uid=<?php echo $rs['uid']; ?>">查看</a>
                                             <a class="btn btn-danger btn-sm" href="user_del.php?uid=<?php echo $rs['uid']; ?>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>

@@ -4,7 +4,7 @@ header("content-type:text/html;charset=utf-8");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once 'config.php';
-require 'Ss/Etc/MailSmtp.php';
+require_once 'Ss/Etc/MailSmtp.php';
 
 /*
 echo "smtp服务器连接方式:". $mail_smtp_Connection."<br />";
@@ -14,7 +14,7 @@ echo "邮件帐号:".$mail_smtp_Account."<br />";
 echo "邮件密码:".$mail_smtp_password."<br />";
 */
 
-$mail = new MailSmtp();
+$mail = new \Ss\Etc\MailSmtp();
 if($mail_smtp_Connection=="1"){
   $mail->setServer($mail_smtp_Server,$mail_smtp_Account,$mail_smtp_password, $mail_smtp_Port, true); 
 }else{

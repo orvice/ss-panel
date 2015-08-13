@@ -53,8 +53,8 @@
                                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                                         <td><{$rs['invite_num']}></td>
                                         <td>
-                                            <a class="btn btn-info btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>
-                                            <a class="btn btn-danger btn-sm waves-effect waves-light red accent-4" href="user_del.php?uid=<{$rs['uid']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
+                                            <a class="btn btn-info btn-sm" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>
+                                            <a class="btn btn-danger btn-sm" href="user_del.php?uid=<{$rs['uid']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
                                         </td>
                                     </tr>
                                 <{/foreach}>

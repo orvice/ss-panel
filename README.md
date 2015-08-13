@@ -31,6 +31,8 @@ A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shad
 
 * $salt 不可随意修改！
 * 如果原来为2.4之前的版本，需要将pass字段的长度修改为64
+
+
 * 增加 Nginx 的配置文件，用于防止直接访问模板文件。 放在当前网站Nginx 配置文件相同目录，然后打开原来的配置文件，找到当前域名的server { } 在里面粘贴：include tpl.conf;
 * 增加Apache 的配置文件 .htaccess，用于防止直接访问模板文件，放在当前目录。
 

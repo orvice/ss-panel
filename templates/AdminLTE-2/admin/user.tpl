@@ -25,12 +25,12 @@
                                     <th>邮箱</th>
                                     <th>端口</th>
                                     <th>总流量</th>
-                                    <th>剩余<br />流量</th>
-                                    <th>已用<br />流量</th>
-                                    <th>上传<br />流量</th>
-                                    <th>下载<br />流量</th>
-                                    <th>最后<br />签到</th>
-                                    <th>注册<br />时间</th>
+                                    <th>剩余流量</th>
+                                    <th>已用流量</th>
+                                    <th>上传流量</th>
+                                    <th>下载流量</th>
+                                    <th>最后签到</th>
+                                    <th>注册时间</th>
                                     <th>邀请人</th>
                                     <th>邀请码</th>
                                     <th>操作</th>
@@ -50,7 +50,7 @@
                                         <td><{\Ss\Etc\Comm::flowAutoShow($rs['d'])}></td>
                                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
                                         <td><{$rs['reg_date']}></td>
-                                        <td><{get_ref_name rs=$rs}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
+                                        <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                                         <td><{$rs['invite_num']}></td>
                                         <td>
                                             <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>

@@ -7,8 +7,8 @@ $smarty->assign('us',$us);
 // 注册自定义插件 获取邀请人
 $smarty->registerPlugin('function','get_ref_name','get_ref_name');
 function get_ref_name($rs,$content){
-    if ($rs['rs']['ref_by'] != 0){
-        $ref_u  = new \Ss\User\UserInfo($rs['rs']['ref_by']);
+    if ($rs['rs'] != 0){
+        $ref_u  = new \Ss\User\UserInfo($rs['rs']);
         $ref_name = $ref_u->GetUserName();
     	return $ref_name;
     }else{

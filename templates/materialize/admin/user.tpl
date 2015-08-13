@@ -23,23 +23,26 @@
           <small>User Manage</small>
       </h5>   
       <div class="row card-panel no-padding-panel light-blue lighten-5 z-depth-2" id="index-banner">
-        <table id="example1" class="centered striped responsive-table hoverable">
+        <table id="user" class="centered striped responsive-table hoverable">
                 <thead>
                 <tr>
                     <th>ID</th>
-                      <th>用户名</th>
-                      <th>邮箱</th>
-                      <th>端口</th>
-                      <th>总流量</th>
-                      <th>剩余流量</th>
-                      <th>已用流量</th>
-                      <th>最后签到</th>
-                      <th>邀请码</th>
-                      <th>操作</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>端口</th>
+                    <th>总流量</th>
+                    <th>剩余流量</th>
+                    <th>已用流量</th>
+                    <th>上传流量</th>
+                    <th>下载流量</th>
+                    <th>最后签到</th>
+                    <th>注册时间</th>
+                    <th>邀请人</th>
+                    <th>邀请码</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
-               <{*  <{foreach_user us=$us}> 调用自定义插件 传$us 然后返回数据 *}>
                <{foreach $us as $rs}>
                     <tr>
                         <td><{$rs['uid']}></td>
@@ -49,7 +52,11 @@
                         <td><{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}></td>
                         <td><{\Ss\Etc\Comm::flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d']))}></td>
                         <td><{\Ss\Etc\Comm::flowAutoShow(($rs['u']+$rs['d']))}></td>
+                        <td><{\Ss\Etc\Comm::flowAutoShow($rs['u'])}></td>
+                        <td><{\Ss\Etc\Comm::flowAutoShow($rs['d'])}></td>
                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
+                        <td><{$rs['reg_date']}></td>
+                        <td><{get_ref_name rs=$rs}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                         <td><{$rs['invite_num']}></td>
                         <td>
                             <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>
@@ -69,12 +76,20 @@
 <{* 请在下面加入你的 javascript *}>
 <!-- 下面加载 dataTables 要用的 js 文件 -->
 <script src="<{$resources_dir}>/asset/plugins/datatables/media/js/jquery.dataTables.min.js?<{$version}><{date('Ym')}>" type="text/javascript"></script>
+<script type="text/javascript" language="javascript" src="<{$resources_dir}>/asset/plugins/datatables/media/js/file-size.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
   $(document).ready(function () {
-        $('#example1').dataTable({
+        $('#user').dataTable({
             "language": {
                 "url": "<{$resources_dir}>/asset/plugins/datatables/media/Chinese.json?<{$version}><{date('Ym')}>"
-            }
+            },
+            columnDefs: [
+           { type: 'file-size', targets: 4 },
+           { type: 'file-size', targets: 5 },
+           { type: 'file-size', targets: 6 },
+           { type: 'file-size', targets: 7 },
+           { type: 'file-size', targets: 8 }
+        ]
         });
     });
 </script>

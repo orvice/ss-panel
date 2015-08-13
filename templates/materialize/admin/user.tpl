@@ -56,7 +56,7 @@
                         <td><{\Ss\Etc\Comm::flowAutoShow($rs['d'])}></td>
                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
                         <td><{$rs['reg_date']}></td>
-                        <td><{get_ref_name rs=$rs}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
+                        <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                         <td><{$rs['invite_num']}></td>
                         <td>
                             <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>

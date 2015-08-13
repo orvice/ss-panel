@@ -73,9 +73,18 @@
 <!-- 下面加载 dataTables 要用的 js 文件 -->
 <script src="<{$resources_dir}>/asset/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
 <script src="<{$resources_dir}>/asset/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript" src="<{$resources_dir}>/asset/plugins/datatables/file-size.js"></script>
 <script type="text/javascript">
   $(function () {
-    $("#example1").dataTable();
+    $("#example1").dataTable({
+        columnDefs: [
+           { type: 'file-size', targets: 4 },
+           { type: 'file-size', targets: 5 },
+           { type: 'file-size', targets: 6 },
+           { type: 'file-size', targets: 7 },
+           { type: 'file-size', targets: 8 }
+        ]
+        });
   });
 </script>
 

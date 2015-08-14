@@ -3,15 +3,41 @@
     <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/jquery.dataTables.min.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
     <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.bootstrap.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
     <style>
-      .btn{
-          padding: 0 1rem;
-      }
       .btn-sm {
+          padding: 0 1rem;
           margin-bottom: 5px;
           background-color: #31B3D6;
       }
-      table.dataTable tbody td {
+      table {
+          table-layout: fixed;
+          word-wrap:break-word;
+        }
+      table.dataTable {
+          width: 100%;
+          margin: 0 auto;
+          clear: both;
+          border-collapse: separate;
+          border-spacing: 0;
+        }
+      table.dataTable tbody tr {
+          background-color: rgba(255, 255, 255, 0);
+        }
+      table.striped>tbody>tr:nth-child(odd) {
+          background-color: rgba(255, 255, 255, 0.31);
+        }
+      table.hoverable>tbody>tr:hover {
+          background-color: rgba(250, 248, 109, 0.86);
+        }
+      @media only screen and (max-width : 1042px) {
+          table.dataTable {
+          width: 100%;
+          }
+          table.dataTable tbody td {
           padding: 11px 10px;
+          }
+          table.dataTable thead > tr > th {
+              padding-right: 35px;
+          }
       }
     </style>
 <div class="had-container">
@@ -59,8 +85,8 @@
                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                         <td><{$rs['invite_num']}></td>
                         <td>
-                            <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>
-                            <a class="btn btn-sm waves-effect waves-light red accent-4" href="user_del.php?uid=<{$rs['uid']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
+                            <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>" style="width: 36px;">查看</a>
+                            <a class="btn btn-sm waves-effect waves-light red accent-4" href="user_del.php?uid=<{$rs['uid']}>" onclick="JavaScript:return confirm('确定删除吗？')" style="width: 36px;">删除</a>
                         </td>
                     </tr>
                 <{/foreach}>

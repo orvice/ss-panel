@@ -34,7 +34,7 @@
                                 <label for="node_method">加密方式</label>
                               </div>
                               <div class="input-field">
-                                <input id="node_info" type="text" name="node_info" value="<{$rs['node_info']}>" class="validate">
+                                <textarea id="node_info" type="text" name="node_info" class="materialize-textarea"><{$rs['node_info']}></textarea>
                                 <label for="node_info">节点描述</label>
                               </div>
                               <div class="input-field">

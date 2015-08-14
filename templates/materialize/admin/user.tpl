@@ -4,11 +4,11 @@
     <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.bootstrap.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
     <style>
       .btn{
-        padding: 0 1rem;
+          padding: 0 1rem;
       }
       .btn-sm {
           margin-bottom: 5px;
-        background-color: #31B3D6;
+          background-color: #31B3D6;
       }
       table.dataTable tbody td {
           padding: 11px 10px;

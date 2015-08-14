@@ -30,7 +30,7 @@ function _setCookie_(name,value,Days)
     document.location.reload();
 }
 //创建存放css的div
-_createDIV_("_templates_css","<style>#templates {position: fixed; top: 45%; right: 5px; text-align: center; width: 20px; background-color: #39AEF9; background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%); border: 1px solid #198EC7; border-radius: 8px; z-index: 1000;color: white;} ._hoverable:hover {transition: box-shadow .25s;    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}</style>");
+_createDIV_("_templates_css","<style>#templates {position: fixed; bottom: 8%; right: 5px; text-align: center; width: 20px; background-color: #39AEF9; background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%); border: 1px solid #198EC7; border-radius: 8px; z-index: 1000;color: white;} ._hoverable:hover {transition: box-shadow .25s;    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}</style>");
 // 判断模板
 if(_getCookie_("templates")=="materialize"){
     _createDIV_("_templates_div",'<a href="javascript:void(0)" title="使用AdminLTE-2模板" onclick="_setCookie_(\'templates\',\'AdminLTE-2\',365);"><div id="templates" class="waves-effect _hoverable"> 使用旧版 </div></a>');

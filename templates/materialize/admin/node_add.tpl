@@ -34,7 +34,7 @@
                                 <label for="node_method">加密方式</label>
                               </div>
                               <div class="input-field">
-                                <input id="node_info" type="text" name="node_info" class="validate">
+                                <textarea id="node_info" type="text" name="node_info" class="materialize-textarea"></textarea>
                                 <label for="node_info">节点描述</label>
                               </div>
                               <div class="input-field">
@@ -60,7 +60,6 @@
       </div>
     </div>
 </div>
-
 
 <div id="ss-msg-success" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;">
     <div class="modal-content" id="ok-close">

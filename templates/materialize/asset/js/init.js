@@ -1,4 +1,3 @@
-
 (function($){
   $(function(){
 
@@ -30,7 +29,6 @@
       });
     });
 
-
     // Floating-Fixed table of contents
     if ($('nav').length) {
       $('.toc-wrapper').pushpin({ top: $('nav').height() });
@@ -41,7 +39,6 @@
     else {
       $('.toc-wrapper').pushpin({ top: 0 });
     }
-
 
     // Toggle Flow Text
     var toggleFlowTextButton = $('#flow-toggle');

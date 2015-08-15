@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /user
-Disallow: /lib
-Disallow: /admin
-Disallow: /vendor

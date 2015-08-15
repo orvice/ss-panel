@@ -8,7 +8,7 @@ $c = new \Ss\User\Invite();
     <div class="container">
         <br><br>
         <div class="row center">
-            <h5  > 邀请码实时刷新</h5>
+            <h5>邀请码实时刷新</h5>
             <h5>如遇到无邀请码请找已经注册的用户获取。</h5>
         </div>
     </div>
@@ -16,8 +16,7 @@ $c = new \Ss\User\Invite();
 
 
 <div class="container">
-    <div class="section">
-
+    <div class="section"> 
         <!--   Icon Section   -->
         <div class="row">
             <div class="row marketing">
@@ -48,11 +47,7 @@ $c = new \Ss\User\Invite();
             </div>
         </div>
     </div>
-    <br><br>
-
-    <div class="section">
-
-    </div>
+    <br>  
 </div>
 <?php  include_once 'ana.php';
 include_once 'footer.php';?>

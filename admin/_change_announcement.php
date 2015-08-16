@@ -42,34 +42,39 @@ require_once '_check.php';
 }
 
 function change($announcement_name){
-	// 接收提交的内容
-	$new_content=$_POST['new_content'];
-	// 判断是否有这个文件 
-	$file_path="../lib/announcement.php"; 
-	if(file_exists($file_path)){ 
-		if($fp=fopen($file_path,"a+")){ 
-			// 读取文件 
-			$conn=fread($fp,filesize($file_path)); 
-			// 把' 换成 \'
-			$new_content=preg_replace('/\'/',"\'",$new_content); 
-			// 替换字符串,把$original_content的内容替换成$new_content的内容。
-			$conn=preg_replace('/\$'.$announcement_name.'=\'[\w\W]*?\';/im',
-				'\$'.$announcement_name.'=\''.$new_content.'\';',
-				$conn);
-			// 保存修改结果。
-			file_put_contents($file_path, $conn);			
-			$a['ok'] = '1';
-        	$a['msg']  = "修改成功！";
+	if (empty($_POST['new_content'])) {
+		$a['code'] = '0';
+        $a['msg']  =  "内容不能为空！";
+	}else{
+		// 接收提交的内容
+		$new_content=$_POST['new_content'];
+		// 判断是否有这个文件 
+		$file_path="../lib/announcement.php"; 
+		if(file_exists($file_path)){ 
+			if($fp=fopen($file_path,"a+")){ 
+				// 读取文件 
+				$conn=fread($fp,filesize($file_path)); 
+				// 把' 换成 \'
+				$new_content=preg_replace('/\'/',"\'",$new_content); 
+				// 替换字符串,把$original_content的内容替换成$new_content的内容。
+				$conn=preg_replace('/\$'.$announcement_name.'=\'[\w\W]*?\';/im',
+					'\$'.$announcement_name.'=\''.$new_content.'\';',
+					$conn);
+				// 保存修改结果。
+				file_put_contents($file_path, $conn);			
+				$a['ok'] = '1';
+	        	$a['msg']  = "修改成功！";
+			}else{ 
+				$a['code'] = '0';
+	        	$a['msg']  =  "文件打不开";
+			} 
 		}else{ 
 			$a['code'] = '0';
-        	$a['msg']  =  "文件打不开";
+	        $a['msg']  =  "没有这个文件";
 		} 
-	}else{ 
-		$a['code'] = '0';
-        $a['msg']  =  "没有这个文件";
-	} 
-	// 关闭资源
-	fclose($fp);
+		// 关闭资源
+		fclose($fp);
+	}
 	echo json_encode($a);
 }
 ?>

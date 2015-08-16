@@ -215,10 +215,10 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 .progress {
   position: relative;
-  height: 4px;
+  height: 10px;
   display: block;
   width: 100%;
-  background-color: #C6FAFA;
+  background-color: rgba(200, 200, 200, 0.48);
   border-radius: 2px;
   margin: 0.5rem 0 1rem 0;
   overflow: hidden;
@@ -230,6 +230,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   left: 0;
   bottom: 0;
   background-color: #56CCFF;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.28) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
   -webkit-transition: width .3s linear;
   -moz-transition: width .3s linear;
   -o-transition: width .3s linear;

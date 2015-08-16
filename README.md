@@ -66,6 +66,7 @@ $ php composer.phar  install
 
 ### Thanks to
 * [Materialize](http://materializecss.com/)
+* [smarty](http://www.smarty.net/)
 * [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 * [Medoo](https://github.com/catfan/Medoo)
 

@@ -25,13 +25,14 @@
                     </div><!-- /.box-header -->
                         <div class="box-body">
 
-                        <form role="form" method="post" action="javascript:void(0);">
+                        <form role="form" method="post" action="javascript:submit();">
                             <div class="form-group">
                                 <input type="text" class="form-control"  id="announcement_name" value="<{$announcement_name}>" style="display:none" >
                             </div>
 
                             <div class="form-group">
-                                <textarea id="new_content" type="text" name="new_content" class="textarea" placeholder="请输入内容" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><{$original_content}></textarea>
+                               <!--  <textarea id="new_content" type="text" name="new_content" class="textarea" placeholder="请输入内容" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><{$original_content}></textarea> -->
+                               <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
                             </div>
 
                         </div><!-- /.box-body -->
@@ -60,41 +61,39 @@
 <!-- 在下面添加功能引用的js -->
 
 <script>
-    $(document).ready(function(){
-        $("#Submit").click(function(){
-            $.ajax({
-                    type:"POST",
-                    url:"_change_announcement.php",
-                    dataType:"json",
-                    data:{
-                        announcement_name: $("#announcement_name").val(),
-                        new_content: $("#new_content").val()
-                    },
-                success:function(data){
-                    if(data.ok){
-                        $("#msg-error").hide(10);
-                        $("#msg-success").hide(10);
-                        $("#msg-success").show(100);
-                        $("#msg-success-p").html(data.msg);
-                    }else{
-                        $("#msg-error").show(100);
-                        $("#msg-error-p").html(data.msg);
-                    }
-                },
-                error:function(jqXHR){
-                    $("#msg-error").hide(10);
-                    $("#msg-error").show(100);
-                    $("#msg-error-p").html("发生错误："+jqXHR.status);
-                }
-            })
-        })
-        $("#ok-close").click(function(){
-            $("#msg-success").hide(100);
-        })
-        $("#error-close").click(function(){
-            $("#msg-error").hide(100);
-        })
+function submit(){
+    $.ajax({
+            type:"POST",
+            url:"_change_announcement.php",
+            dataType:"json",
+            data:{
+                announcement_name: $("#announcement_name").val(),
+                new_content: $("#new_content").val()
+            },
+        success:function(data){
+            if(data.ok){
+                $("#msg-error").hide(10);
+                $("#msg-success").hide(10);
+                $("#msg-success").show(100);
+                $("#msg-success-p").html(data.msg);
+            }else{
+                $("#msg-error").show(100);
+                $("#msg-error-p").html(data.msg);
+            }
+        },
+        error:function(jqXHR){
+            $("#msg-error").hide(10);
+            $("#msg-error").show(100);
+            $("#msg-error-p").html("发生错误："+jqXHR.status);
+        }
     })
+}
+$("#ok-close").click(function(){
+    $("#msg-success").hide(100);
+})
+$("#error-close").click(function(){
+    $("#msg-error").hide(100);
+})
 </script>
 
 <{include file='user/footer.tpl'}>

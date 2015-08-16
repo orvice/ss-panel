@@ -23,7 +23,7 @@ if (!$repeat) {
     <script type="text/javascript" src="'.$public.'Codemirror/js/vbscript.js"></script>
     <script type="text/javascript" src="'.$public.'Codemirror/js/htmlmixed.js"></script>
     
-    <textarea id="'.$args['id'].'" name="'.$args["name"].'" id="'.$args['id'].'"'.$args['class'].'>'.$content.'</textarea>
+    <textarea name="'.$args["name"].'" id="'.$args['id'].'"'.$args['class'].'>'.$content.'</textarea>
 
     <script type="text/javascript">
       // Define an extended mixed-mode that understands vbscript and

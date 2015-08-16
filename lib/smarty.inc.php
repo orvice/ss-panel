@@ -1,18 +1,14 @@
 <?php
 header("Content-type:text/html;charset=utf-8"); //指定编码
+// 请在调试时去除注释，输出错误信息。
 // error_reporting(E_ALL);
 // ini_set('display_errors', '1');
-// session_start(); //开启session
+// session_start(); //开启session，如果服务器内存在512以下，不建议开启。
 require_once 'Ss/smarty/Smarty.class.php'; //引用Smarty.class.php
-// define("_ROOT_",str_replace("\\","/",dirname(__FILE__)).'/'); //设置路径
 define("__ROOT__",str_replace("lib/smarty.inc.php","",str_replace("\\","/",__FILE__))); //设置路径
-// echo __ROOT__."<br />";
-// echo _ROOT_;
 // $templates_dir = "AdminLTE-2"; //模板目录
 // $templates_dir = "materialize"; //模板目录
 // 读取客户端的cookie templates 
-// empty($_COOKIE["templates"]) ? setrawcookie("templates",$templates_dir,time()+3600*24*7,"/") : $templates_dir = $_COOKIE["templates"] ;
-// // print_r ($_COOKIE["templates"]);
 if (!empty($_COOKIE["templates"])) {
 	if ($_COOKIE["templates"] === "materialize") {
 		$templates_dir = "materialize";
@@ -34,6 +30,8 @@ $smarty->setcachedir(__ROOT__."cache/".$templates_dir); //设置缓存文件存�
 // 设置模板资源(css/js/font/png/gif...)目录
 // $smarty->assign('resources_dir',"../templates/".$templates_dir); //程序放在根目录时请选用这个
 $smarty->assign('resources_dir',$site_url."templates/".$templates_dir); //程序放在二级以上目录请选用这个，根目录也可以使用。
+$public=$site_url."public/";
+$smarty->assign('public',$public); //公共资源目录，用于存放公共使用的js css images fonts
 $smarty->addPluginsDir(__ROOT__."myPlugins/"); //自定义插件目录
 $smarty->left_delimiter = "<{"; //设置左标示符
 $smarty->right_delimiter = "}>"; //设置右标示符

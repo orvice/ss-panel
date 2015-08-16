@@ -86,7 +86,7 @@
         },
         "bStateSave": true,
         "sScrollX": "100%",
-        "sScrollY": 395,
+        "sScrollY": "100%",
         "sScrollXInner": "110%",
         "bScrollCollapse": true,
         //流量排序

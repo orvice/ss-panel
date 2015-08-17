@@ -27,7 +27,6 @@
 
                             <div class="form-group">
                                 <label for="cate_title">ID: <{$uid}></label>
-                                <input type="hidden" class="form-control" id="user_uid" value="<{$uid}>"  >
                             </div>
 
                             <div class="form-group">
@@ -42,7 +41,6 @@
 
                             <div class="form-group">
                                 <label for="cate_title">用户密码</label>
-                                <input type="hidden" id="user_pass_hidden" value="<{$rs['pass']}>" >
                                 <input  class="form-control" id="user_pass" placeholder="新密码(不修改请留空)" >
                             </div>
 
@@ -53,8 +51,7 @@
 
                             <div class="form-group">
                                 <label for="cate_title">设置流量</label>
-                                <input type="hidden" id="transfer_enable_hidden" value="<{$rs['transfer_enable']}>" >
-                                <input   class="form-control" id="transfer_enable"  placeholder="单位为GB，直接输入数值" >
+                                <input   class="form-control" id="transfer_enable" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>" placeholder="单位为GB，直接输入数值" >
                             </div>
                             
                             <div class="form-group">
@@ -94,15 +91,15 @@
                 url:"_user_edit.php",
                 dataType:"json",
                 data:{
-                    user_uid: $("#user_uid").val(),
+                    user_uid: "<{$uid}>",
                     user_name: $("#user_name").val(),
                     user_email: $("#user_email").val(),
-                    user_email_hidden: $("#user_email_hidden").val(),
+                    user_email_hidden: "<{$rs['email']}>",
                     user_pass: $("#user_pass").val(),
-                    user_pass_hidden: $("#user_pass_hidden").val(),
+                    user_pass_hidden: "<{$rs['pass']}>",
                     user_passwd: $("#user_passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
-                    transfer_enable_hidden: $("#transfer_enable_hidden").val(),
+                    transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val()
                 },
                 success:function(data){

@@ -17,7 +17,6 @@
                       <h5 class="header black-text">修改<{$announcement_title}></h5>
                       <div class="black-text">
                           <form role="form" method="post" action="javascript:submit();">
-                              <input type="text" name="announcement_name" id="announcement_name" value="<{$announcement_name}>" style="display:none">
                               <div class="input-field">
                               <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
                               </div>
@@ -57,7 +56,7 @@ function submit(){
                 url:"_change_announcement.php",
                 dataType:"json",
                 data:{
-                    announcement_name: $("#announcement_name").val(),
+                    announcement_name: "<{$announcement_name}>",
                     new_content: $("#new_content").val(),
                     
                 },

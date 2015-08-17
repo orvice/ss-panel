@@ -63,7 +63,7 @@
                     <th>下载流量</th>
                     <th>注册时间</th>
                     <th>最后签到</th>
-                    <th>使用时间</th>
+                    <th>最近使用</th>
                     <th>邀请人</th>
                     <th>邀请码</th>
                     <th>操作</th>
@@ -111,6 +111,7 @@
             "language": {
                 "url": "<{$resources_dir}>/asset/plugins/datatables/media/Chinese.json?<{$version}><{date('Ym')}>"
             },
+            "bStateSave": true,
             columnDefs: [
            { type: 'file-size', targets: 4 },
            { type: 'file-size', targets: 5 },

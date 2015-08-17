@@ -1,7 +1,4 @@
 <{include file='admin/main.tpl'}>
-
-<!-- =============================================== -->
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -23,24 +20,22 @@
                     <div class="box-header">
                         <h3 class="box-title">修改<{$announcement_title}></h3>
                     </div><!-- /.box-header -->
+                    <{if $announcement_name!=null}>
                         <div class="box-body">
-
-                        <form role="form" method="post" action="javascript:submit();">
-                            <div class="form-group">
-                                <input type="text" class="form-control"  id="announcement_name" value="<{$announcement_name}>" style="display:none" >
-                            </div>
-
-                            <div class="form-group">
-                               <!--  <textarea id="new_content" type="text" name="new_content" class="textarea" placeholder="请输入内容" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><{$original_content}></textarea> -->
-                               <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
-                            </div>
-
+                            <form role="form" method="post" action="javascript:submit();">
+                                <div class="form-group">
+                                   <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="Submit" id="Submit" name="action" value="edit" class="btn btn-primary">修改</button>
+                                </div>
+                            </form>
                         </div><!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="Submit" id="Submit" name="action" value="edit" class="btn btn-primary">修改</button>
-                        </div>
-                        </form>
+                    <{else}>
+                        <div class="box-body">
+                            没有这个公告名称
+                        </div><!-- /.box-body -->
+                    <{/if}>
                         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
                             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
                             <h4><i class="icon fa fa-info"></i> 成功!</h4>
@@ -67,7 +62,7 @@ function submit(){
             url:"_change_announcement.php",
             dataType:"json",
             data:{
-                announcement_name: $("#announcement_name").val(),
+                announcement_name: "<{$announcement_name}>",
                 new_content: $("#new_content").val()
             },
         success:function(data){
@@ -95,5 +90,4 @@ $("#error-close").click(function(){
     $("#msg-error").hide(100);
 })
 </script>
-
 <{include file='user/footer.tpl'}>

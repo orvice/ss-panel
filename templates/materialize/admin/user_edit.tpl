@@ -18,10 +18,6 @@
                       <div class="black-text">
                           <form role="form" method="post" action="javascript:void(0);">
                               ID: <{$uid}>
-                              <div class="input-field" style="display:none">
-                                <input type="text" name="user_uid" id="user_uid" value="<{$uid}>" class="validate" style="display:none">
-                                <label for="user_uid">ID: <{$uid}></label>
-                              </div>
                               <div class="input-field">
                                 <input type="text" name="user_name" id="user_name" value="<{$rs['user_name']}>" class="validate">
                                 <label for="user_name">用户名</label>
@@ -31,7 +27,6 @@
                                 <label for="user_email">用户邮箱</label>
                               </div>
                               <div class="input-field">
-                                <input class="form-control" id="user_pass_hidden" value="<{$rs['pass']}>" style="display:none">
                                 <input type="text" name="user_pass" id="user_pass" class="validate">
                                 <label for="user_pass">用户密码 新密码(不修改请留空)</label>
                               </div>
@@ -40,7 +35,6 @@
                                 <label for="user_passwd">连接密码</label>
                               </div>
                               <div class="input-field">
-                                <input type="hidden" id="transfer_enable_hidden" value="<{$rs['transfer_enable']}>" style="display:none">
                                 <input type="text" name="transfer_enable" id="transfer_enable" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>" class="validate">
                                 <label for="transfer_enable">设置流量 单位为GB</label>
                               </div>
@@ -75,15 +69,15 @@
                 url:"_user_edit.php",
                 dataType:"json",
                 data:{
-                    user_uid: $("#user_uid").val(),
+                    user_uid: "<{$uid}>",
                     user_name: $("#user_name").val(),
                     user_email: $("#user_email").val(),
-                    user_email_hidden: $("#user_email_hidden").val(),
+                    user_email_hidden: "<{$rs['email']}>",
                     user_pass: $("#user_pass").val(),
-                    user_pass_hidden: $("#user_pass_hidden").val(),
+                    user_pass_hidden: "<{$rs['pass']}>",
                     user_passwd: $("#user_passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
-                    transfer_enable_hidden: $("#transfer_enable_hidden").val(),
+                    transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val()
                 },
                 success:function(data){

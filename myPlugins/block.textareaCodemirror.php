@@ -15,7 +15,7 @@ if (!$repeat) {
     $public='../public/';
     $editor = '
     <link rel="stylesheet" href="'.$public.'Codemirror/css/codemirror.css">
-    <script type="text/javascript" src="'.$public.'Codemirror/js/codemirror.js"></script>
+    <script type="text/javascript" src="'.$public.'Codemirror/js/codemirror-min.js"></script>
     <script type="text/javascript" src="'.$public.'Codemirror/js/selection-pointer.js"></script>
     <script type="text/javascript" src="'.$public.'Codemirror/js/xml.js"></script>
     <script type="text/javascript" src="'.$public.'Codemirror/js/javascript.js"></script>

@@ -70,6 +70,7 @@ $mailgun_domain = "";
 //
 //mail-smtp
 //
+//需要的php扩展：sockets、Fileinfo和openssl
 //设置smtp服务器连接方式:  
 //加密连接(ssl) = "1"
 //普通连接 = "0"

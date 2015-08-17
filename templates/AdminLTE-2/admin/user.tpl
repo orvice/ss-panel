@@ -31,6 +31,7 @@
                                     <th>上传流量</th>
                                     <th>下载流量</th>
                                     <th>最后签到</th>
+                                    <th>使用时间</th>
                                     <th>注册时间</th>
                                     <th>邀请人</th>
                                     <th>邀请码</th>
@@ -50,6 +51,7 @@
                                         <td><{\Ss\Etc\Comm::flowAutoShow($rs['u'])}></td>
                                         <td><{\Ss\Etc\Comm::flowAutoShow($rs['d'])}></td>
                                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
+                                        <td><{date('Y-m-d H:i:s',$rs['t'])}></td>
                                         <td><{$rs['reg_date']}></td>
                                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                                         <td><{$rs['invite_num']}></td>
@@ -87,7 +89,7 @@
         "bStateSave": true,
         "sScrollX": "100%",
         "sScrollY": "100%",
-        "sScrollXInner": "110%",
+        "sScrollXInner": "100%",
         "bScrollCollapse": true,
         //流量排序
         columnDefs: [

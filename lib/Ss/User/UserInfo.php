@@ -78,7 +78,7 @@ class UserInfo {
 
     function UpdatePwd($pass){
         $this->db->update("user",[
-            "pass" => $pass
+            "pass" => \Ss\User\Comm::SsPW($pass)
         ],[
             "uid" => $this->uid
         ]);

@@ -31,9 +31,6 @@ $uid  = $_GET['uid'];
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">重置密码</p>
-        
-        <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" >
-        <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" >
 
         <div class="form-group has-feedback">
             <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>

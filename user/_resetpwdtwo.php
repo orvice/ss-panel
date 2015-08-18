@@ -4,9 +4,11 @@ header("content-type:text/html;charset=utf-8");
 require_once '../lib/config.php';
 use Mailgun\Mailgun;
 //
-$code     = $_GET['code'];
-$email    = $_GET['email'];
-$uid      = $_GET['uid'];
+$code     = $_POST['code'];
+$email    = $_POST['email'];
+$uid      = $_POST['uid'];
+$password = $_POST['password'];
+$repasswd = $_POST['repasswd'];
 //
 $ur = new \Ss\User\UserInfo($uid);
 if($ur->GetEmail() == $email){
@@ -17,15 +19,21 @@ if($ur->GetEmail() == $email){
 if(!$rs){
     $a['code'] = '0';
     $a['msg']  =  "邮箱错误";
+}elseif($repasswd != $password){
+    $a['code'] = '0';
+    $a['msg'] = "两次密码输入不符";
+}elseif(strlen($password)<8){
+    $a['code'] = '0';
+    $a['msg'] = "密码太短";
 }else{
     $rst = new \Ss\User\ResetPwd($uid);
     $u   = new \Ss\User\User($uid);
     if($rst->IsCharOK($code,$uid)){
-        $NewPwd = \Ss\User\Comm::SsPW(time().$uid.$email);
+        $NewPwd = $password;
         //邮件主题
-       $Mail_title = $site_name."您的新密码";
+       $Mail_title = $site_name." 提示：您的新密码重置成功！";
         //邮件内容
-       $Mail_content ="您的新密码为:".$NewPwd;
+       $Mail_content ="您在 ".date("Y-m-d H:i:s")." 重置了密码。";
         
          //判断邮件服务
         if($Selectmailservice == "mail-smtp"){
@@ -66,15 +74,11 @@ if(!$rs){
         $rst->Del($code,$uid);
         $a['code'] = '1';
         $a['ok'] = '1';
-        $a['msg']  =  "新密码已经发送到您的邮箱！如果找不到，<br />请到“垃圾箱”找！";
+        $a['msg']  = $NewPwd."您的新密码重置成功！";
     }else{
         $a['code'] = '0';
-        $a['msg']  =  "链接无效";
+        $a['msg']  = "链接无效";
     }
 }
 echo json_encode($a);
-
-
-
-
-
+?>

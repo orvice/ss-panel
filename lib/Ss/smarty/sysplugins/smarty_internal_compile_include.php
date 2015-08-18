@@ -101,31 +101,29 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
         // flag if included template code should be merged into caller
         $merge_compiled_includes = ($compiler->smarty->merge_compiled_includes || ($compiler->inheritance && $compiler->smarty->inheritance_merge_compiled_includes) || $_attr['inline'] === true) && !$compiler->template->source->recompiled;
 
-        // variable template name ?
-        if ($compiler->has_variable_string || !((substr_count($include_file, '"') == 2 || substr_count($include_file, "'") == 2))
-            || substr_count($include_file, '(') != 0 || substr_count($include_file, '$_smarty_tpl->') != 0
-        ) {
-            $merge_compiled_includes = false;
-            if ($compiler->template->caching) {
-                // must use individual cache file
-                $_attr['caching'] = 1;
-            }
-            if ($compiler->inheritance && $compiler->smarty->inheritance_merge_compiled_includes && $_attr['inline'] !== true) {
-                $compiler->trigger_template_error(' variable template file names not allow within {block} tags');
-            }
-        }
-        // variable compile_id?
-        if (isset($_attr['compile_id'])) {
-            if (!((substr_count($_attr['compile_id'], '"') == 2 || substr_count($_attr['compile_id'], "'") == 2 || is_numeric($_attr['compile_id'])))
-                || substr_count($_attr['compile_id'], '(') != 0 || substr_count($_attr['compile_id'], '$_smarty_tpl->') != 0
-            ) {
+        if ($merge_compiled_includes && $_attr['inline'] !== true) {
+            // variable template name ?
+            if ($compiler->has_variable_string || !((substr_count($include_file, '"') == 2 || substr_count($include_file, "'") == 2)) || substr_count($include_file, '(') != 0 || substr_count($include_file, '$_smarty_tpl->') != 0) {
                 $merge_compiled_includes = false;
                 if ($compiler->template->caching) {
                     // must use individual cache file
-                    $_attr['caching'] = 1;
+                    //$_attr['caching'] = 1;
                 }
                 if ($compiler->inheritance && $compiler->smarty->inheritance_merge_compiled_includes && $_attr['inline'] !== true) {
-                    $compiler->trigger_template_error(' variable compile_id not allow within {block} tags');
+                    $compiler->trigger_template_error(' variable template file names not allow within {block} tags');
+                }
+            }
+            // variable compile_id?
+            if (isset($_attr['compile_id'])) {
+                if (!((substr_count($_attr['compile_id'], '"') == 2 || substr_count($_attr['compile_id'], "'") == 2 || is_numeric($_attr['compile_id']))) || substr_count($_attr['compile_id'], '(') != 0 || substr_count($_attr['compile_id'], '$_smarty_tpl->') != 0) {
+                    $merge_compiled_includes = false;
+                    if ($compiler->template->caching) {
+                        // must use individual cache file
+                        //$_attr['caching'] = 1;
+                    }
+                    if ($compiler->inheritance && $compiler->smarty->inheritance_merge_compiled_includes && $_attr['inline'] !== true) {
+                        $compiler->trigger_template_error(' variable compile_id not allow within {block} tags');
+                    }
                 }
             }
         }

@@ -340,11 +340,6 @@ abstract class Smarty_Internal_TemplateCompilerBase
         } else {
             $this->nocache_hash = $template->properties['nocache_hash'];
         }
-        // flag for nochache sections
-        $this->nocache = $nocache;
-        $this->tag_nocache = false;
-        // reset has nocache code flag
-        $this->template->has_nocache_code = false;
         $save_source = $this->template->source;
         // template header code
         $template_header = '';

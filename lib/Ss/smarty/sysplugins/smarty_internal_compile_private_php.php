@@ -43,13 +43,13 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
         if ($_attr['type'] == 'xml') {
             $compiler->tag_nocache = true;
             $save = $compiler->template->has_nocache_code;
-            $compiler->template->has_nocache_code = $save;
             $output = addcslashes($_attr['code'], "'\\");
             $compiler->parser->current_buffer->append_subtree(new Smarty_Internal_ParseTree_Tag($compiler->parser, $compiler->processNocacheCode("<?php echo '" . $output . "';?>", $compiler, true)));
+            $compiler->template->has_nocache_code = $save;
             return '';
         }
         if ($_attr['type'] != 'tag') {
-             if ($compiler->php_handling == Smarty::PHP_REMOVE) {
+            if ($compiler->php_handling == Smarty::PHP_REMOVE) {
                 return '';
             } elseif ($compiler->php_handling == Smarty::PHP_QUOTE) {
                 $output = preg_replace_callback('#(<\?(?:php|=)?)|(<%)|(<script\s+language\s*=\s*["\']?\s*php\s*["\']?\s*>)|(\?>)|(%>)|(<\/script>)#i', array($this,
@@ -59,9 +59,9 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
             } elseif ($compiler->php_handling == Smarty::PHP_PASSTHRU || $_attr['type'] == 'unmatched') {
                 $compiler->tag_nocache = true;
                 $save = $compiler->template->has_nocache_code;
-                $compiler->template->has_nocache_code = $save;
                 $output = addcslashes($_attr['code'], "'\\");
                 $compiler->parser->current_buffer->append_subtree(new Smarty_Internal_ParseTree_Tag($compiler->parser, $compiler->processNocacheCode("<?php echo '" . $output . "';?>", $compiler, true)));
+                $compiler->template->has_nocache_code = $save;
                 return '';
             } elseif ($compiler->php_handling == Smarty::PHP_ALLOW) {
                 if (!($compiler->smarty instanceof SmartyBC)) {
@@ -101,11 +101,14 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
      */
     public function parsePhp($lex)
     {
+        $lex->token = Smarty_Internal_Templateparser::TP_PHP;
         $close = 0;
         $lex->taglineno = $lex->line;
         $closeTag = '?>';
         if (strpos($lex->value, '<?xml') === 0) {
-            $lex->phpType = 'xml';
+            $lex->is_xml = true;
+            $lex->token = Smarty_Internal_Templateparser::TP_NOCACHE;
+            return;
         } elseif (strpos($lex->value, '<?') === 0) {
             $lex->phpType = 'php';
         } elseif (strpos($lex->value, '<%') === 0) {
@@ -114,6 +117,11 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
         } elseif (strpos($lex->value, '%>') === 0) {
             $lex->phpType = 'unmatched';
         } elseif (strpos($lex->value, '?>') === 0) {
+            if ($lex->is_xml) {
+                $lex->is_xml = false;
+                $lex->token = Smarty_Internal_Templateparser::TP_NOCACHE;
+                return;
+            }
             $lex->phpType = 'unmatched';
         } elseif (strpos($lex->value, '<s') === 0) {
             $lex->phpType = 'script';

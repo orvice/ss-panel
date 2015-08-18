@@ -36,6 +36,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
      * @var array
      */
     protected $contents = array();
+
     /**
      * cache for timestamps
      *
@@ -53,10 +54,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
      */
     public function populate(Smarty_Template_Cached $cached, Smarty_Internal_Template $_template)
     {
-        $cached->filepath = $_template->source->uid
-            . '#' . $this->sanitize($cached->source->resource)
-            . '#' . $this->sanitize($cached->cache_id)
-            . '#' . $this->sanitize($cached->compile_id);
+        $cached->filepath = $_template->source->uid . '#' . $this->sanitize($cached->source->resource) . '#' . $this->sanitize($cached->cache_id) . '#' . $this->sanitize($cached->compile_id);
 
         $this->populateTimestamp($cached);
     }
@@ -136,7 +134,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
     public function readCachedContent(Smarty_Internal_Template $_template)
     {
         $content = $_template->cached->content ? $_template->cached->content : null;
-        $timestamp =  null;
+        $timestamp = null;
         if ($content === null) {
             if (!$this->fetch($_template->cached->filepath, $_template->source->name, $_template->cache_id, $_template->compile_id, $content, $timestamp, $_template->source->uid)) {
                 return false;
@@ -147,7 +145,6 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
         }
         return false;
     }
-
 
     /**
      * Empty cache
@@ -298,11 +295,8 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
      */
     protected function getMetaTimestamp(&$content)
     {
-        $s = unpack("N", substr($content, 0, 4));
-        $m = unpack("N", substr($content, 4, 4));
-        $content = substr($content, 8);
-
-        return $s[1] + ($m[1] / 100000000);
+        extract(unpack('N1s/N1m/a*content', $content));
+        return $s + ($m / 100000000);
     }
 
     /**

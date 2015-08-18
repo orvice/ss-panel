@@ -33,7 +33,7 @@ if(!$rs){
     $rst = new \Ss\User\ResetPwd($uid);
     $u   = new \Ss\User\User($uid);
     if($rst->IsCharOK($code,$uid)){
-        $NewPwd = \Ss\User\Comm::SsPW($password);
+        $NewPwd = $password;
         $mg->sendMessage($domain, array('from'    => "no-reply@".$mailgun_domain,
             'to'      => $email,
             'subject' => $site_name." 提示：您的新密码重置成功！",
@@ -49,8 +49,3 @@ if(!$rs){
     }
 }
 echo json_encode($a);
-
-
-
-
-

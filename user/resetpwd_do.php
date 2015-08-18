@@ -31,13 +31,18 @@ $uid  = $_GET['uid'];
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">重置密码</p>
-        
-        <input type="hidden" id="code" name="code" class="form-control" value="<?php echo $code;?>" >
-        <input type="hidden" id="uid" name="uid" class="form-control" value="<?php echo $uid;?>" >
 
         <div class="form-group has-feedback">
             <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
             <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" id="password" class="form-control" placeholder="密码"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
@@ -81,9 +86,16 @@ $uid  = $_GET['uid'];
     $(document).ready(function(){
         function reset(){
             $.ajax({
-                type:"GET",
-                url:"_resetpwdtwo.php?code="+$("#code").val()+"&uid="+$("#uid").val()+"&email="+$("#email").val(),
-                dataType:"json",
+                        type:"POST",
+                        url:"_resetpwdtwo.php",
+                        dataType:"json",
+                        data:{
+                            uid: "<?php echo $uid ?>",
+                            code: "<?php echo $code ?>",
+                            email: $("#email").val(),
+                            password: $("#password").val(),
+                            repasswd: $("#repasswd").val(),
+                        },
                 success:function(data){
                     if(data.ok){
                         $("#msg-error").hide(100);

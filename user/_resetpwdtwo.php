@@ -74,7 +74,7 @@ if(!$rs){
         $rst->Del($code,$uid);
         $a['code'] = '1';
         $a['ok'] = '1';
-        $a['msg']  = $NewPwd."您的新密码重置成功！";
+        $a['msg']  = "您的新密码重置成功！";
     }else{
         $a['code'] = '0';
         $a['msg']  = "链接无效";

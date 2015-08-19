@@ -54,7 +54,7 @@
 <{include file='Public_javascript.tpl'}>
 <!-- 在下面添加功能引用的js -->
 
-<{include file='footer.tpl'}>
+<{include file='user/footer.tpl'}>
 
 <script>
     $(document).ready(function(){

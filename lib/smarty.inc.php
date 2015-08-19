@@ -38,7 +38,7 @@ $smarty->right_delimiter = "}>"; //设置右标示符
 $smarty->auto_literal = false; //是否可留空 false为可为空
 // $smarty->caching = true; //是否开启缓存,0、FALSE代表关闭，非0数字、TRUE代表开启。
 $smarty->cache_lifetime = -1; //单位为秒 3600 (如果填写-1为永不过期)
-$smarty->assign('ana',file_get_contents(__ROOT__."/ana.php")); //读取统计代码,不建议在全局使用，可以在要用的php使用。
+$smarty->assign('ana',file_get_contents(__ROOT__."/ana.php")); //读取统计代码
 // 打开调试控制器
 $smarty->debugging = false; // 默认
 // 地址：http://localhost/script.php?foo=bar&SMARTY_DEBUG

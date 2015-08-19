@@ -119,7 +119,7 @@
                         msg_id=1;
                         return false;
                     }
-                    var email_reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                    var email_reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
                     if(!email_reg.test($("#email").val())) {
                         id_name="#email";
                         msg_out("请输入有效的邮箱！","error");

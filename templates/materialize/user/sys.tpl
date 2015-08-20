@@ -12,7 +12,7 @@
         <div class="section">
           <div class="row card-panel color-panel light-blue lighten-5 z-depth-2">
             <div class="col s12">
-              <div class="card-panel red darken-1 hoverable">
+              <div class="card-panel orange darken-2 hoverable">
                       <span class="white-text">
                       <h5 class="header center white-text">注意！</h5>
                       <div class="center white-text">

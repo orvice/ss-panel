@@ -13,7 +13,6 @@
 				<li><a class="waves-effect waves-yellow" href="user.php">查看用户</a></li>
 				<li><a class="waves-effect waves-yellow" href="invite.php">邀请管理</a></li>
 			      <!-- 修改公告 Trigger -->
-			  <!--   <li><a class="dropdown-button" href="#!" data-activates="change_announcement">修改公告<span class="mdi-navigation-arrow-drop-down right"></span></a></li> -->
 			  	<li><a class="dropdown-button" href="#!" data-activates="change_announcement">修改公告<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 	                <ul id="change_announcement" class="dropdown-content">
 						  <li><a class="waves-effect waves-yellow" href="change_announcement.php?ca=index_Announcement">首页</a></li>

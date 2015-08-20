@@ -14,6 +14,8 @@ require_once '_check.php';
 				change($announcement_name,$index_Announcement);
 			}elseif ($announcement_name=='index_button') {
 				change($announcement_name,$index_button);
+			}elseif ($announcement_name=='index_Custom') {
+				change($announcement_name,$index_Custom);
 			}elseif ($announcement_name=='footer_Announcement') {
 				change($announcement_name,$footer_Announcement);
 			}elseif ($announcement_name=='tos_content') {

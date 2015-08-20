@@ -11,6 +11,8 @@ $announcement_name="";
 			out($smarty,$announcement_name,$index_Announcement,"首页公告内容");
 		}elseif ($announcement_name=='index_button') {
 			out($smarty,$announcement_name,$index_button,"首页公告按钮");
+		}elseif ($announcement_name=='index_Custom') {
+			out($smarty,$announcement_name,$index_Custom,"首页自定义内容");
 		}elseif ($announcement_name=='footer_Announcement') {
 			out($smarty,$announcement_name,$footer_Announcement,"用户建议内容");
 		}elseif ($announcement_name=='tos_content') {

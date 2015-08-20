@@ -139,6 +139,7 @@
                             $(id_name).focus();
                             // $("#msg-"+msgcss).openModal();
                             $("#msg-"+msgcss+"-p").html(msgout);
+                            error_close();
                 }
                 $("html").keydown(function(event){
                     if(event.keyCode==13){
@@ -159,7 +160,7 @@
                     error_close();
                 });
                 function error_close(){
-                    if($("#msg-error").css('display')=="block"){
+                    if($("#msg-error").css('display')=="none"){
                         $("#msg-error").closeModal();
                         $(id_name).focus();
                         if(id_name=="#email"){

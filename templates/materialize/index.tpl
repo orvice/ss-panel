@@ -18,6 +18,12 @@
 
 <div class="container">
     <div class="section">
+        <{$index_Custom}><{* 自定义内容 *}>
+  </div>
+</div>
+
+<div class="container">
+    <div class="section">
       <div class="row card-panel  light-blue lighten-5 z-depth-2">
         <div class="col s12 m3 hoverable">
           <div class="icon-block">

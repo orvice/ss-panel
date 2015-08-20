@@ -177,6 +177,22 @@ table {
   text-align: center;
   margin-top: 0;
 }
+/*当屏幕宽度分辨率小于 600px 使用*/
+@media only screen and (min-width : 600px){
+  /*登录  表单下的p标签（单选）*/
+  form>p.modal-trigger.waves-effect {
+    margin-right: 52%;
+  }
+}
+/*注册页的用户协议h3字大小*/
+div.modal-content>div>h3{
+  font-size: 1.92rem;
+}
+
+/*用户协议h3字大小*/
+div.container>div.row>div.col.s12>div.nav-wrapper>h3{
+  font-size: 1.92rem;
+}
 /*按钮高度和不使用默认的大写英文*/
 .btn, .btn-large, .btn-flat {
   margin-bottom: 30px;
@@ -309,4 +325,30 @@ span b { vertical-align: middle; font-weight: 500; }
     display: grid;
     padding: 0 0.2rem;
     margin-bottom: 2px;
+}
+.chip {
+  display: inline-block;
+  height: 32px;
+  /* font-size: 13px; */
+  /* font-weight: 500; */
+  /* color: rgba(0, 0, 0, 0.6); */
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #C2EEFD;
+}
+.chip img {
+  float: left;
+  margin: 0 8px 0 -12px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }

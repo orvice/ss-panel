@@ -1,15 +1,6 @@
 ss-panel
 ========
 
-A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser
-)  
-
-[Demo](https://cattt.com) [中文安装文档](https://github.com/orvice/ss-panel/wiki/Install-Guide-zh_cn)
-
-### Upgrade from 0.X
-
-[Read this](https://github.com/orvice/ss-panel/blob/master/upgrade_to_v2.md)
-
 ### Requirements
 * PHP >= 5.4
 * PDO Extension

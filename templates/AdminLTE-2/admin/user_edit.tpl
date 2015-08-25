@@ -58,6 +58,11 @@
                                 <label for="cate_title">邀请码数量</label>
                                 <input  class="form-control" id="invite_num" value="<{$rs['invite_num']}>" 
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="enable">是否启用</label>
+                                <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="form-control"> 
+                            </div>
 
                         </div><!-- /.box-body -->
 
@@ -100,7 +105,8 @@
                     user_passwd: $("#user_passwd").val(),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
-                    invite_num: $("#invite_num").val()
+                    invite_num: $("#invite_num").val(),
+                    enable: $("#enable").val()
                 },
                 success:function(data){
                     if(data.ok){

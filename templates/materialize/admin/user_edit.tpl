@@ -42,10 +42,6 @@
                                 <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
                                 <label for="invite_num">邀请码数量</label>
                               </div>
-                              <div class="input-field">
-                                <input type="text" name="invite_num" id="invite_num" value="<{$rs['enable']}>" class="validate">
-                                <label for="invite_num">是否启用</label>
-                              </div>
                                   <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
                           </form>
                       </div>

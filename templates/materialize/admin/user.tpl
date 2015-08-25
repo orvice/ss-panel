@@ -64,7 +64,6 @@
                     <th>注册时间</th>
                     <th>最后签到</th>
                     <th>最近使用</th>
-                    <th>启用状态</th>
                     <th>邀请人</th>
                     <th>邀请码</th>
                     <th>操作</th>
@@ -85,7 +84,6 @@
                         <td><{$rs['reg_date']}></td>
                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
                         <td><{date('Y-m-d H:i:s',$rs['t'])}></td>
-                        <td><{$rs['enable']}></td>
                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                         <td><{$rs['invite_num']}></td>
                         <td>

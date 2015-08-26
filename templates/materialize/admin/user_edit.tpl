@@ -45,7 +45,7 @@
                               <div class="input-field">
                                 <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="validate">
                                 <label for="enable">是否启用（1为启用，0为停用）</label>
-                              </div>                                
+                              </div>   
                                   <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
                           </form>
                       </div>
@@ -64,6 +64,14 @@
 <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
   _Prompt_msg();
+  // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
+  function removeHTMLTag(str) {
+      str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+      str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+      str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+      str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
+      return str;
+  }
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -97,8 +105,10 @@
                     }
                 },
                 error:function(jqXHR){
-                    $("#msg-error").openModal();
-                    $("#msg-error-p").html("发生错误："+jqXHR.status);
+                        $("#msg-error-p").html("发生错误："+jqXHR.status);
+                        $("#msg-error").openModal();
+                        // 在控制台输出错误信息
+                        console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
         })

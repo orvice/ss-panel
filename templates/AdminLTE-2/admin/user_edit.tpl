@@ -60,7 +60,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="enable">是否启用</label>
+                                <label for="enable">是否启用（1为启用，0为停用）</label>
                                 <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="form-control"> 
                             </div>
 

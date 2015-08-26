@@ -44,7 +44,7 @@
                               </div>
                               <div class="input-field">
                                 <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="validate">
-                                <label for="enable">是否启用</label>
+                                <label for="enable">是否启用（1为启用，0为停用）</label>
                               </div>                                
                                   <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
                           </form>

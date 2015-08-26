@@ -12,6 +12,16 @@ $index_button='<a href="user/register.php" class="btn-large waves-effect waves-l
 
 // 首页自定义内容
 $index_Custom='<div class="row card-panel center transparent z-depth-2" style="padding: 5px;"><!-- 这个请不要删 -->
+  <style>
+   @media only screen and (max-width : 880px){
+      div.slider>ul.slides>li>div>h3{
+      font-size: 25px;
+      }
+      div.slider>ul.slides>li>div>h5{
+      font-size: 22px;
+      }
+  } 
+  </style>
   <div class="slider">
     <ul class="slides" style="background-color: #00A8FF;">
       <li style="background-image: linear-gradient(-45deg, rgba(180, 145, 224, 0.560784), rgb(47, 185, 226));">

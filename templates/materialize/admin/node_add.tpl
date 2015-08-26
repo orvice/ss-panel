@@ -61,51 +61,8 @@
     </div>
 </div>
 
-<div id="ss-msg-success" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;">
-    <div class="modal-content" id="ok-close">
-        <h4><i class="mdi-image-tag-faces" style="font-size: 1em;"></i>成功了!</h4>
-        <p id="ss-msg-success-p" style=" COLOR: deepskyblue; FONT-SIZE: x-large;"></p>
-    </div>
-    <div class="modal-footer">
-         <a href="#!" onclick="$('#ss-msg-success').closeModal();" class="modal-action modal-close btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-    </div>
-</div>
-<div id="ss-msg-error" class="modal" style="z-index: 1003; opacity: 1; transform: scaleX(1); top: 5%;" title="点击关闭" onclick="$('#ss-msg-error').closeModal();">
-      <div class="modal-content" id="ss-error-close">
-            <h4><i class="mdi-alert-error" style="font-size: 1em;"></i>出错了!</h4>
-            <p id="ss-msg-error-p" style=" COLOR: RED; FONT-SIZE: x-large;"> </p>
-      </div>
-  <div class="modal-footer">
-     <a href="#!" onclick="$('#ss-msg-error').closeModal();" class="modal-action modal-close btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-red">关闭</a>
-  </div>
-</div>
-
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* 请在下面加入你的 javascript *}>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#ss-pwd-update").click(function(){
-            $.ajax({
-                type:"POST",
-                url:"_sspwd_update.php",
-                dataType:"json",
-                data:{
-                    sspwd: $("#sspwd").val()
-                },
-                success:function(data){
-                    if(data.ok){
-                        $("#ss-msg-success").openModal();
-                        $("#ss-msg-success-p").html(data.msg);
-                    }else{
-                        $("#ss-msg-error").openModal();
-                        $("#ss-msg-error-p").html(data.msg);
-                    }
-                },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
-                }
-            })
-        })
-    })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+
+<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

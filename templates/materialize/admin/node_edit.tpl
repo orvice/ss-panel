@@ -64,33 +64,5 @@
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* 请在下面加入你的 javascript *}>
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript">
-  _Prompt_ss_msg();
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#ss-pwd-update").click(function(){
-            $.ajax({
-                type:"POST",
-                url:"_sspwd_update.php",
-                dataType:"json",
-                data:{
-                    sspwd: $("#sspwd").val()
-                },
-                success:function(data){
-                    if(data.ok){
-                        $("#ss-msg-success").openModal();
-                        $("#ss-msg-success-p").html(data.msg);
-                    }else{
-                        $("#ss-msg-error").openModal();
-                        $("#ss-msg-error-p").html(data.msg);
-                    }
-                },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
-                }
-            })
-        })
-    })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+
+<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

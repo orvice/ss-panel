@@ -22,10 +22,11 @@ if(!empty($_POST)){
       $transfer_enable = $_POST['transfer_enable_hidden'];
     }
     $invite_num = $_POST['invite_num'];
+    $enable = $_POST['enable'];
 
     //更新
     $User = new Ss\User\User($uid);
-    $query = $User->updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num);
+    $query = $User->updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num,$enable);
     if($query){
                 $ue['code'] = '1';
                 $ue['ok'] = '1';

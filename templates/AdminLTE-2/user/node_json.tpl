@@ -7,14 +7,14 @@
     })
     </script>
     <div id="node">
-    <pre>{
-    "server":"<{$server}>",
-    "server_port":<{$port}>,
-    "local_port":1080,
-    "password":"<{$pass}>",
-    "timeout":600,
-    "method":"<{$method}>"
-    }</pre>
+<pre>{
+"server":"<{$server}>",
+"server_port":<{$port}>,
+"local_port":1080,
+"password":"<{$pass}>",
+"timeout":600,
+"method":"<{$method}>"
+}</pre>
     	<button id="node_json" class="btn btn-primary btn-block btn-flat" type="button">查看二维码</button>
     </div>
 <{else}>

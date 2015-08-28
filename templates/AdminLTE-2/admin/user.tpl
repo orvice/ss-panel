@@ -54,7 +54,7 @@
                                         <td><{$rs['reg_date']}></td>
                                         <td><{date('Y-m-d H:i:s',$rs['last_check_in_time'])}></td>
                                         <td><{date('Y-m-d H:i:s',$rs['t'])}></td>
-                                        <td><{$rs['enable']}></td>
+                                        <td><{if $rs['enable']}><span class="label label-success">正常</span><{else}><code>禁用</code><{/if}></td>
                                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                                         <td><{$rs['invite_num']}></td>
                                         <td>

@@ -1,12 +1,12 @@
 <{if $oo->get_enable()}>
-    <pre>{
-    "server":"<{$server}>",
-    "server_port":<{$port}>,
-    "local_port":1080,
-    "password":"<{$pass}>",
-    "timeout":600,
-    "method":"<{$method}>"
-    }</pre>
+<pre>{
+"server":"<{$server}>",
+"server_port":<{$port}>,
+"local_port":1080,
+"password":"<{$pass}>",
+"timeout":600,
+"method":"<{$method}>"
+}</pre>
     <script type="text/javascript">
     var node_btn=document.getElementById('node_btn');
     function _node_json(){

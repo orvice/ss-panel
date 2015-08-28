@@ -72,7 +72,11 @@
                                     <p id="ss-msg-success-p"></p>
                                 </div>
 
-
+                                <div id="ss-msg-error" class="alert alert-warning alert-dismissable" style="display:none">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                                    <p id="ss-msg-error-p"></p>
+                                </div>
 
                                 <div class="form-group">
                                     <input type="text" id="sspwd" placeholder="输入新密码" class="form-control"  >

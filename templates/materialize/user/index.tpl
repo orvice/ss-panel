@@ -66,8 +66,13 @@
                   <span class="blue-text">
                     <h5 class="header center black-text">连接信息</h5>
                       <div class="black-text">
+                      <{if $oo->get_enable()}>
+                        <p> 状态：正常</p>
                         <p> 端口：<code><{$oo->get_port()}></code> </p>
                         <p> 密码：<{$oo->get_pass()}> </p>
+                      <{else}>
+                        <p> 状态：你的SS服务已被停止，你不能连接和查看节点。</p>
+                      <{/if}>
                         <p> 套餐：<span class="new badge hoverable"> <{$oo->get_plan()}> </span> </p>
                         <p> 最后使用时间：<code><{date('Y-m-d H:i:s',$unix_time)}></code> </p>
                       </div>

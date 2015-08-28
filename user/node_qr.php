@@ -11,6 +11,7 @@ $pass = $oo->get_pass();
 $port = $oo->get_port();
 $ssurl =  $method.":".$pass."@".$server.":".$port;
 $ssqr = "ss://".base64_encode($ssurl);
+$smarty->assign('oo',$oo);
 $smarty->assign('id',$id);
 $smarty->assign('ssurl',$ssurl);
 $smarty->assign('ssqr',$ssqr);

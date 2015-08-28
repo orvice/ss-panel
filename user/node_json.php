@@ -9,6 +9,7 @@ $server =  $node->Server();
 $method = $node->Method();
 $pass = $oo->get_pass();
 $port = $oo->get_port();
+$smarty->assign('oo',$oo);
 $smarty->assign('id',$id);
 $smarty->assign('server',$server);
 $smarty->assign('method',$method);

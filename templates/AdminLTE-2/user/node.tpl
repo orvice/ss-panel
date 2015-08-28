@@ -25,6 +25,7 @@
                             <div class="callout callout-warning">
                                 <{$user_node_Announcement_node}><{* 普通节点公告内容 *}>
                             </div>
+                            <{if $oo->get_enable()}>
                             <{foreach $node0 as $row}>
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs pull-right">
@@ -50,6 +51,12 @@
                                     </div><!-- /.tab-content -->
                                 </div><!-- nav-tabs-custom -->
                             <{/foreach}>
+                            <{else}>
+                                <div class="callout callout-danger">
+                                  <h4>错误信息!</h4>
+                                  <p>你的SS服务已被停止，你不能连接和查看节点。</p>
+                                </div>
+                            <{/if}>
                         </div><!-- /.box-body -->
 
 
@@ -66,6 +73,7 @@
                             <div class="callout callout-warning">
                                 <{$user_node_Announcement_node_pro}><{* pro节点公告内容 *}>
                             </div>
+                            <{if $oo->get_enable()}>
                             <{foreach $node1 as $row}>
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs pull-right">
@@ -91,6 +99,12 @@
                                     </div><!-- /.tab-content -->
                                 </div><!-- nav-tabs-custom -->
                             <{/foreach}>
+                            <{else}>
+                                <div class="callout callout-danger">
+                                  <h4>错误信息!</h4>
+                                  <p>你的SS服务已被停止，你不能连接和查看节点。</p>
+                                </div>
+                            <{/if}>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->

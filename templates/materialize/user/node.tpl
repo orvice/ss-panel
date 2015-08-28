@@ -18,7 +18,13 @@
                     <h5 class="header black-text"><{$user_node_Announcement_node}><{* 普通节点公告内容 *}></h5>                  
                   </span>
                 </div>
-                <{if count($node0)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
+                <{if $oo->get_enable()==0}>
+                    <div class="col s12 card-panel hoverable light-blue lighten-5">
+                        <p class="center">                            
+                        你的SS服务已被停止，你不能连接和查看节点。
+                        </p>
+                    </div>
+                <{elseif count($node0)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
                   <{assign var="a" value="1"}>
                   <{foreach $node0 as $row}><!-- <{$a++}> -->
                       <div class="col s12 card-panel hoverable <{if $a%2==0}>light-blue lighten-5<{else}>yellow lighten-5<{/if}>">
@@ -56,7 +62,13 @@
                         <h5 class="header black-text"><{$user_node_Announcement_node_pro}><{* pro节点公告内容 *}></h5>
                       </span>
                     </div>
-                        <{if count($node1)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
+                         <{if $oo->get_enable()==0}>
+                            <div class="col s12 card-panel hoverable light-blue darken-1">
+                                <p class="white-text center">                           
+                                你的SS服务已被停止，你不能连接和查看节点。
+                                </p>
+                            </div>
+                        <{elseif count($node1)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
                         <{assign var="i" value="1"}>
                           <{foreach $node1 as $row}><!-- <{$i++}> -->
                                <div class="col s12 card-panel hoverable <{if $i%2==0}>light-blue darken-1 white-text<{else}>light-blue lighten-1 white-text<{/if}>">

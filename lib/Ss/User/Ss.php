@@ -54,6 +54,11 @@ class Ss {
     function  get_money(){
         return $this->get_user_info_array()['money'];
     }
+    
+    //get enable
+    function  get_enable(){
+        return $this->get_user_info_array()['enable'];
+    }
 
     //get unused traffic
     function unused_transfer(){

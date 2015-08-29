@@ -2,6 +2,7 @@
     <!-- 加载dataTables样式文件 dataTables.bootstrap.css -->
     <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/jquery.dataTables.min.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
     <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.bootstrap.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
+    <link href="<{$resources_dir}>/asset/plugins/datatables/media/css/dataTables.colVis.min.css?<{$version}><{date('Ym')}>" rel="stylesheet" type="text/css" />
     <style>
       .btn-sm {
           padding: 0 1rem;
@@ -107,6 +108,7 @@
 <!-- 下面加载 dataTables 要用的 js 文件 -->
 <script src="<{$resources_dir}>/asset/plugins/datatables/media/js/jquery.dataTables.min.js?<{$version}><{date('Ym')}>" type="text/javascript"></script>
 <script type="text/javascript" language="javascript" src="<{$resources_dir}>/asset/plugins/datatables/media/js/file-size.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" language="javascript" src="<{$resources_dir}>/asset/plugins/datatables/media/js/dataTables.colVis.min.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
   $(document).ready(function () {
         $('#user').dataTable({
@@ -120,7 +122,29 @@
            { type: 'file-size', targets: 6 },
            { type: 'file-size', targets: 7 },
            { type: 'file-size', targets: 8 }
-        ]
+        ],
+        "dom": 'C<"clear">lfrtip',
+        "colVis": {
+            "buttonText": "显示/隐藏列",
+            exclude: [ 0,1,15 ],
+            restore: "还原",
+            showAll: "显示所有",
+            showNone: "不显示",
+            groups: [
+                {
+                    title: "只看流量",
+                    columns: [ 9,10,11,12,13,14 ]
+                },
+                {
+                    title: "只看日期",
+                    columns: [ 4,5,6,7,8,12,13,14 ]
+                },
+                {
+                    title: "只看状态/邀请",
+                    columns: [ 4,5,6,7,8,9,10,11 ]
+                }
+            ]
+        }
         });
     });
 </script>

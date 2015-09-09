@@ -25,28 +25,28 @@ $index_Custom='<div class="row card-panel center transparent z-depth-2" style="p
   <div class="slider">
     <ul class="slides" style="background-color: #00A8FF;">
       <li style="background-image: linear-gradient(-45deg, rgba(180, 145, 224, 0.560784), rgb(47, 185, 226));">
-        <img src="javascript:void(0);"> <!-- random image -->
+        <img src="//javascript:void(0);"> <!-- random image -->
         <div class="caption center-align">
           <h3>更安全的连接</h3>
           <h5 class="light grey-text text-lighten-3">不用像VPN那样，每次连接就会断一次网，更不会把所有数据通信都通过代理服务器！</h5>
         </div>
       </li>
       <li style="background-image: linear-gradient(178deg, rgba(180, 145, 224, 0.560784),rgba(224, 223, 145, 0.56), rgb(47, 185, 226));">
-        <img src="javascript:void(0);"> <!-- random image -->
+        <img src="//javascript:void(0);"> <!-- random image -->
         <div class="caption left-align">
           <h3>隐私保护</h3>
           <h5 class="light grey-text text-lighten-3">我们的服务器只负责为用户转发每一个数据包到目标服务器，和从目标服务器返回数据包给用户，而这些数据包都是经过加密的，我们的服务器也不会记录任何数据包中的内容，请大家放心使用！</h5>
         </div>
       </li>
       <li style="background-image: linear-gradient(45deg, rgba(224, 223, 145, 0.56), rgb(47, 185, 226));">
-        <img src="javascript:void(0);"> <!-- random image -->
+        <img src="//javascript:void(0);"> <!-- random image -->
         <div class="caption right-align">
           <h3>可靠的服务器</h3>
           <h5 class="light grey-text text-lighten-3">我们的服务器选用的都是经过严格测试，在网络连接的稳定要求较高，高速宽带！服务器24小时人工管理！</h5>
         </div>
       </li>
       <li style="background-image: linear-gradient(-188deg, rgba(180, 145, 224, 0.560784),rgba(39, 165, 255, 0.97),rgba(98, 221, 221, 0.96));">
-        <img src="javascript:void(0);"> <!-- random image -->
+        <img src="//javascript:void(0);"> <!-- random image -->
         <div class="caption center-align">
           <h3>随时用，客户端全覆盖！</h3>
           <h5 class="light grey-text text-lighten-3">Shadowsocks是一个开源技术，目前已经支持各种客户端，如：Windows <br>Mac os x <br>linux <br>Android <br>iOS ...</h5>

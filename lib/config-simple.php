@@ -1,4 +1,14 @@
 <?php
+// DNSPod-D监控和百度云观测访问都不继续执行,直接输出空白页,让对方服务器了解现在是正常状态。
+if(preg_match('/DNSPod-Monitor|Baidu-YunGuanCe/i',$_SERVER['HTTP_USER_AGENT'])){exit();}
+//防蜘蛛爬虫处理,直接输出404。
+elseif(preg_match('/qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot/i',$_SERVER['HTTP_USER_AGENT'])){
+    header('HTTP/1.1 404 Not Found'); 
+    header("status: 404 Not Found"); 
+    include($_SERVER['DOCUMENT_ROOT'].'/404.html');
+    exit();
+}
+
 /*
  * ss-panel配置文件
  * https://github.com/orvice/ss-panel

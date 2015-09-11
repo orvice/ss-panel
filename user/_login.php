@@ -9,8 +9,8 @@ $c = new \Ss\User\UserCheck();
 $q = new \Ss\User\Query();
 //加入防签到系统平台，如果不是在登录页点的登录，返回非法访问。
 if($_SERVER['HTTP_REFERER']!=$site_url."user/login.php"){
-    $a['code'] = '0';
-    $a['msg'] = "非法访问";
+    $rs['code'] = '0';
+    $rs['msg'] = "非法访问";
 }
 elseif($c->EmailLogin($email,$passwd)){
     $rs['code'] = '1';

@@ -1,5 +1,6 @@
 <?php
 require_once '_main.php';
+require_once 'assp.php';
 
 //获得流量信息
 if($oo->get_transfer()<1000000)
@@ -28,4 +29,5 @@ $smarty->assign('all_transfer',$all_transfer);
 $smarty->assign('unused_transfer',$unused_transfer);
 $smarty->assign('unix_time',$unix_time);
 $smarty->display('user/index.tpl');
+echo  $js_ua_code;
 ?>

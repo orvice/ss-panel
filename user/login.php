@@ -1,5 +1,6 @@
 <?php
 require_once '../lib/config.php';
+require_once 'assp.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,5 +134,6 @@ require_once '../lib/config.php';
         });
     })
 </script>
+<?php echo  $js_ua_code; ?>
 </body>
 </html>

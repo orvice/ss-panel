@@ -18,6 +18,7 @@ elseif(!$oo->is_able_to_check_in()){
     }
     $oo->add_transfer($transfer_to_add*$tomb);
     $oo->update_last_check_in_time();
+    unset($_SESSION['ua']); //删除session的ua值
 }
 
 $a['msg'] = "获得了".$transfer_to_add."MB流量";

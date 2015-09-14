@@ -1,8 +1,9 @@
 <?php
 require_once '../lib/config.php';
 require_once '_check.php';
-//检查是否在用户中心点的签到，如果不是就返回非法访问
-if($_SERVER['HTTP_REFERER']!=$site_url."user/index.php"){
+session_start();
+//加入防签到系统平台，如果不是在用户中心点的签到都不会奖励流量。
+if($_SESSION['assp']==false){
     $a['code'] = '0';
     $a['msg'] = "非法访问";
 }

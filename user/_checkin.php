@@ -1,8 +1,15 @@
 <?php
 require_once '../lib/config.php';
 require_once '_check.php';
+session_start(); //开启session
+//加入防签到系统平台，如果不是在用户中心点的签到都不会奖励流量。
+if($_SESSION['assp']==false){
+    $a['code'] = '0';
+    $a['msg'] = "非法访问";
+    write_log("user/checkin_error","非法访问",true,true);
+}
 //权限检查
-if(!$oo->is_able_to_check_in()){
+elseif(!$oo->is_able_to_check_in()){
     $transfer_to_add = 0;
 }else {
     if ($oo->unused_transfer() < 2048 * $tomb) {
@@ -15,4 +22,4 @@ if(!$oo->is_able_to_check_in()){
 }
 
 $a['msg'] = "获得了".$transfer_to_add."MB流量";
-echo json_encode($a);
+echo json_encode($a,JSON_UNESCAPED_UNICODE);

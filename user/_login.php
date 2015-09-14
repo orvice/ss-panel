@@ -30,7 +30,7 @@ elseif($c->EmailLogin($email,$passwd)){
     setcookie("user_pwd",$pw,time()+$ext);
     setcookie("uid",$id,time()+$ext);
     setcookie("user_email",$email,time()+$ext);
-    unset($_SESSION['ua']); //删除session的ua值
+    unset($_SESSION['assp']); //删除session的assp值
 }else{
     $rs['code'] = '0';
     $rs['msg'] = "邮箱或者密码错误";

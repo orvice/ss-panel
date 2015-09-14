@@ -12,7 +12,6 @@ session_start();//开启session
 if($_SESSION['assp']==false){
     $rs['code'] = '0';
     $rs['msg'] = "非法访问";
-    write_log("user/login_error","非法访问",true,true);
 }
 elseif($c->EmailLogin($email,$passwd)){
     $rs['code'] = '1';

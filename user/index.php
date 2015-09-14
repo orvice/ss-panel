@@ -1,5 +1,6 @@
 <?php
 require_once '_main.php';
+require_once 'assp.php';
 
 //获得流量信息
 if($oo->get_transfer()<1000000)
@@ -106,6 +107,7 @@ $unix_time = $oo->get_last_unix_time();
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php
+echo  $js_ua_code;
 require_once '_footer.php'; ?>
 
 <script>

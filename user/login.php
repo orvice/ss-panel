@@ -134,6 +134,6 @@ require_once 'assp.php';
         });
     })
 </script>
-<?php echo  $js_ua_code; ?>
+<?php echo  $js_ua_code; //显示防签到系统平台 页面内容?>
 </body>
 </html>

@@ -6,7 +6,6 @@ session_start(); //开启session
 if($_SESSION['assp']==false){
     $a['code'] = '0';
     $a['msg'] = "非法访问";
-    write_log("user/checkin_error","非法访问",true,true);
 }
 //权限检查
 elseif(!$oo->is_able_to_check_in()){

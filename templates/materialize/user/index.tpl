@@ -27,14 +27,15 @@
                     <div class="card-panel hoverable">
                       <span class="white-text">
                         <h5 class="header center black-text">流量使用情况</h5>
-                          <div class="black-text">
+                           <div id="assp"></div>
+                           <div class="black-text">
                               <p> 已用流量：<{$transfers|default:0}> MB &nbsp; <span class="new badge hoverable">(<{$used_100|default:50}>%)</span></p>
                               <div class="progress z-depth-1">
                                   <div class="determinate" style="width: <{$used_100|default:50}>%"></div>
                               </div>
                               <p> 可用流量：<{$all_transfer|default:0}> GB</p>
                               <p> 剩余流量：<{$unused_transfer|default:0}> GB</p>
-                          </div>
+                           </div>
                       </span>
                     </div>
                   </div>

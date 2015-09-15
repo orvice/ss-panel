@@ -1,4 +1,5 @@
 <?php
+session_start();//开启session
 require_once '../lib/config.php';
 $email = $_POST['email'];
 $email = strtolower($email);
@@ -7,13 +8,13 @@ $passwd = \Ss\User\Comm::SsPW($passwd);
 $rem = $_POST['remember_me'];
 $c = new \Ss\User\UserCheck();
 $q = new \Ss\User\Query();
-session_start();//开启session
 //加入防签到系统平台，如果不是在登录页点的登录，返回非法访问。
 if($_SESSION['assp']==false){
     $rs['code'] = '0';
     $rs['msg'] = "非法访问";
 }
 elseif($c->EmailLogin($email,$passwd)){
+    session_destroy();  //清空当前用户所有的Session信息
     $rs['code'] = '1';
     $rs['ok'] = '1';
     $rs['msg'] = "欢迎回来";
@@ -30,7 +31,6 @@ elseif($c->EmailLogin($email,$passwd)){
     setcookie("user_pwd",$pw,time()+$ext);
     setcookie("uid",$id,time()+$ext);
     setcookie("user_email",$email,time()+$ext);
-    unset($_SESSION['assp']); //删除session的assp值
 }else{
     $rs['code'] = '0';
     $rs['msg'] = "邮箱或者密码错误";

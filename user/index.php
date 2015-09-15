@@ -107,7 +107,7 @@ $unix_time = $oo->get_last_unix_time();
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php
-echo  $js_ua_code; //显示防签到系统平台 页面内容
+echo  $js_ua_code."\n"; //显示防签到系统平台 页面内容
 require_once '_footer.php'; ?>
 
 <script>

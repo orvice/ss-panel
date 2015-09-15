@@ -56,6 +56,7 @@
                         <input id="password" type="password" name="password" class="validate" required>
                         <label for="password">密码 PassWord</label>
                       </div>
+                      <div id="assp"></div>
                         <p class="modal-trigger waves-effect">
                           <input type="checkbox" id="remember_me"/>
                           <label for="remember_me">记住我</label>

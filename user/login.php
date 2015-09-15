@@ -40,6 +40,7 @@ require_once 'assp.php';
                 <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div id="assp"></div>
             </form>
             <div class="row">
                 <div class="col-xs-8">

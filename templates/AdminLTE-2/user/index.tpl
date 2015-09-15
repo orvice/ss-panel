@@ -31,6 +31,7 @@
                         <div class="box-header">
                             <h3 class="box-title">流量使用情况</h3>
                         </div><!-- /.box-header -->
+                        <div id="assp"></div>
                         <div class="box-body">
                             <p> 已用流量：<{$transfers}> MB</p>
                             <div class="progress progress-striped">

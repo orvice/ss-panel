@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once '../lib/config.php';
 require_once '_check.php';
-session_start();
 //加入防签到系统平台，如果不是在用户中心点的签到都不会奖励流量。
 if($_SESSION['assp']==false){
     $a['code'] = '0';
@@ -16,9 +16,9 @@ elseif(!$oo->is_able_to_check_in()){
     } else {
         $transfer_to_add = rand($check_min, $check_max);
     }
+    session_destroy();  //清空当前用户所有的Session信息
     $oo->add_transfer($transfer_to_add*$tomb);
     $oo->update_last_check_in_time();
-    unset($_SESSION['assp']); //删除session的assp值
     $a['msg'] = "获得了".$transfer_to_add."MB流量";
 }
 

@@ -4,11 +4,9 @@
 session_start();
 //默认为false
 $_SESSION['assp']=false;
-//产生6位随机数
-$js_ua_rand=rand(9,999999);
-$js_ua_id=rand(0,0123456789);
+//产生随机数
+$js_ua_id=rand(9876543210,0123456789);
 //把随机数保存
-$_SESSION['js_ua_rand']=$js_ua_rand;
 $_SESSION['js_ua_id']=$js_ua_id;
 $js_ua_code = "\n".'
 <script type="text/javascript">
@@ -218,7 +216,7 @@ function AjaxClass()
     Ajax.Method = "POST";               // 设置请求方式为 POST/GET  
     Ajax.Url = "_assp.php"; // URL为default.asp，当为GET方式URL为default.asp?a=1&b=2
     Ajax.Async = true;                  // 是否异步  
-    Ajax.Arg = "ua="+navigator.userAgent+"'.$js_ua_rand.'"+"&uaid="+uaid; // POST的参数，当为GET方式 这个要注释。 
+    Ajax.Arg = "uaid="+uaid; // POST的参数，当为GET方式 这个要注释。 
     // Ajax.Loading = function(){          //等待函数  
     //     document.write("loading...");  
     // }  

@@ -73,6 +73,9 @@
 <script src="<{$resources_dir}>/asset/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- iCheck -->
 <script src="<{$resources_dir}>/asset/js/icheck.min.js" type="text/javascript"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -99,7 +102,7 @@
                 dataType:"json",
                 data:{
                     email: $("#email").val(),
-                    passwd: $("#passwd").val(),
+                    passwd: Aes.Ctr.encrypt($("#passwd").val(), "<{$randomChar}>", 256),
                     remember_me: $("#remember_me").val()
                 },
                 success:function(data){

@@ -87,6 +87,10 @@
 
 <{include file='Public_javascript.tpl'}>
 <!-- 在下面添加功能引用的js -->
+
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script>    
 // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
 function removeHTMLTag(str) {
@@ -109,9 +113,9 @@ function removeHTMLTag(str) {
                     user_name: $("#user_name").val(),
                     user_email: $("#user_email").val(),
                     user_email_hidden: "<{$rs['email']}>",
-                    user_pass: $("#user_pass").val(),
+                    user_pass: Aes.Ctr.encrypt($("#user_pass").val(), "<{$randomChar}>", 256),
                     user_pass_hidden: "<{$rs['pass']}>",
-                    user_passwd: $("#user_passwd").val(),
+                    user_passwd: Aes.Ctr.encrypt($("#user_passwd").val(), "<{$randomChar}>", 256),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val(),

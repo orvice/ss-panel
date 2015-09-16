@@ -1,12 +1,17 @@
 <?php
+//开启session
+session_start();
 require_once '../lib/config.php';
 require_once '_check.php';
-
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
+$newpwd = AesCtr::decrypt($_POST['sspwd'], $_SESSION['randomChar'], 256);
 if($oo->get_enable()){
-    if($_POST['sspwd'] == ''){
+    if($newpwd == ''){
         $pwd = \Ss\Etc\Comm::get_random_char(8);
     }else{
-        $pwd = $_POST['sspwd'];
+        $pwd = $newpwd;
         $pwd = htmlspecialchars($pwd, ENT_QUOTES, 'UTF-8');
         $pwd = \Ss\Etc\Comm::checkHtml($pwd);
     }

@@ -74,6 +74,9 @@
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{$version}><{date('Ym')}>s"></script>
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{$version}><{date('Ym')}>"></script>
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+        <!-- AES -->
+        <script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+        <script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
         <script type="text/javascript">
             _Prompt_msg();
             // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
@@ -96,8 +99,8 @@
                             uid: "<{$uid|default:""}>",
                             code: "<{$code|default:""}>",
                             email: $("#email").val(),
-                            password: $("#password").val(),
-                            repasswd: $("#repassword").val(),
+                            password: Aes.Ctr.encrypt($("#password").val(), "<{$randomChar}>", 256),
+                            repasswd: Aes.Ctr.encrypt($("#repassword").val(), "<{$randomChar}>", 256)
                         },
                         success:function(data){
                             if(data.ok){
@@ -175,7 +178,7 @@
                                 return false;
                             }
                             if(msg_id==0){ 
-                                    reset();
+                                reset();
                             }
                 }
                 function msg_out(msgout,msgcss){            

@@ -96,6 +96,9 @@
 <{include file='Public_javascript.tpl'}>
 <!-- 在下面添加功能引用的js -->
 
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <{include file='user/footer.tpl'}>
 <script>
     $("#msg-success").hide();
@@ -119,9 +122,9 @@
                 url:"_pwd_update.php",
                 dataType:"json",
                 data:{
-                    nowpwd: $("#nowpwd").val(),
-                    pwd: $("#pwd").val(),
-                    repwd: $("#repwd").val()
+                    nowpwd: Aes.Ctr.encrypt($("#nowpwd").val(), "<{$randomChar}>", 256),
+                    pwd: Aes.Ctr.encrypt($("#pwd").val(), "<{$randomChar}>", 256),
+                    repwd: Aes.Ctr.encrypt($("#repwd").val(), "<{$randomChar}>", 256)
                 },
                 success:function(data){
                     if(data.ok){
@@ -154,7 +157,7 @@
                 url:"_sspwd_update.php",
                 dataType:"json",
                 data:{
-                    sspwd: $("#sspwd").val()
+                    sspwd: Aes.Ctr.encrypt($("#sspwd").val(), "<{$randomChar}>", 256)
                 },
                 success:function(data){
                     if(data.ok){

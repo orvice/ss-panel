@@ -65,6 +65,9 @@
 <script src="<{$resources_dir}>/asset/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- iCheck -->
 <script src="<{$resources_dir}>/asset/js/icheck.min.js" type="text/javascript"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -95,8 +98,8 @@
                             uid: "<{$uid|default:""}>",
                             code: "<{$code|default:""}>",
                             email: $("#email").val(),
-                            password: $("#password").val(),
-                            repasswd: $("#repasswd").val(),
+                            password: Aes.Ctr.encrypt($("#password").val(), "<{$randomChar}>", 256),
+                            repasswd: Aes.Ctr.encrypt($("#repasswd").val(), "<{$randomChar}>", 256)
                         },
                 success:function(data){
                     if(data.ok){
@@ -174,7 +177,7 @@
                             return false;
                             }
                     }
-                    if(msg_id==0){ 
+                    if(msg_id==0){
                             reset();
                     }
         }

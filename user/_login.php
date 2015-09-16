@@ -1,9 +1,13 @@
 <?php
+//开启session
 session_start();
 require_once '../lib/config.php';
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
 $email = $_POST['email'];
 $email = strtolower($email);
-$passwd = $_POST['passwd'];
+$passwd = AesCtr::decrypt($_POST['passwd'], $_SESSION['randomChar'], 256);
 $passwd = \Ss\User\Comm::SsPW($passwd);
 $rem = $_POST['remember_me'];
 $c = new \Ss\User\UserCheck();

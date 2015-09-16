@@ -1,10 +1,15 @@
 <?php
+//开启session
+session_start();
 require_once '../lib/config.php';
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
 $email = $_POST['email'];
 $email = strtolower($email);
-$passwd = $_POST['passwd'];
+$passwd = AesCtr::decrypt($_POST['passwd'], $_SESSION['randomChar'], 256);
 $name = $_POST['name'];
-$repasswd = $_POST['repasswd'];
+$repasswd = AesCtr::decrypt($_POST['repasswd'], $_SESSION['randomChar'], 256);
 $agree = $_POST['agree'];
 $code = $_POST['code'];
 
@@ -38,4 +43,4 @@ if(!$code->IsCodeOk()){
     $a['ok'] = '1';
     $a['msg'] = "注册成功";
 }
-echo json_encode($a);
+echo json_encode($a,JSON_UNESCAPED_UNICODE);

@@ -1,10 +1,15 @@
 <?php
+//开启session
+session_start();
 require_once '../lib/config.php';
 require_once '_check.php';
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
 
-$nowpwd = $_POST['nowpwd'];
-$pwd = $_POST['pwd'];
-$repwd = $_POST['repwd'];
+$nowpwd = AesCtr::decrypt($_POST['nowpwd'], $_SESSION['randomChar'], 256);
+$pwd = AesCtr::decrypt($_POST['pwd'], $_SESSION['randomChar'], 256);
+$repwd = AesCtr::decrypt($_POST['repwd'], $_SESSION['randomChar'], 256);
 
 $nowpwd = \Ss\User\Comm::SsPW($nowpwd);
 if($U->GetPasswd() != $nowpwd) {
@@ -23,4 +28,4 @@ if($U->GetPasswd() != $nowpwd) {
     $U->UpdatePwd($pwd);
 }
 
-echo json_encode($a);
+echo json_encode($a,JSON_UNESCAPED_UNICODE);

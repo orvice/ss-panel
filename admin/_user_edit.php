@@ -1,12 +1,18 @@
 <?php
+//开启session
+session_start();
 require_once '../lib/config.php';
 require_once '_check.php';
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
 
 if(!empty($_POST)){
     $uid = $_POST['user_uid'];
     $name = $_POST['user_name'];
-    if(!empty($_POST['user_pass'])) {
-      $pass = \Ss\User\Comm::SsPW($_POST['user_pass']);
+    $post_user_pass = AesCtr::decrypt($_POST['user_pass'], $_SESSION['randomChar'], 256);
+    if(!empty($post_user_pass)) {
+      $pass = \Ss\User\Comm::SsPW($post_user_pass);
     }else{
       $pass = $_POST['user_pass_hidden'];
     }
@@ -15,7 +21,7 @@ if(!empty($_POST)){
     }else{
       $email = $_POST['user_email_hidden'];
     }
-    $passwd = $_POST['user_passwd'];
+    $passwd =  AesCtr::decrypt($_POST['user_passwd'], $_SESSION['randomChar'], 256);
     if(!empty($_POST['transfer_enable'])) {
       $transfer_enable = $togb*$_POST['transfer_enable'];
     }else{

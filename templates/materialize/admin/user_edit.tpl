@@ -61,6 +61,10 @@
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* 请在下面加入你的 javascript *}>
+
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
   _Prompt_msg();
@@ -85,9 +89,9 @@
                     user_name: $("#user_name").val(),
                     user_email: $("#user_email").val(),
                     user_email_hidden: "<{$rs['email']}>",
-                    user_pass: $("#user_pass").val(),
+                    user_pass: Aes.Ctr.encrypt($("#user_pass").val(), "<{$randomChar}>", 256),
                     user_pass_hidden: "<{$rs['pass']}>",
-                    user_passwd: $("#user_passwd").val(),
+                    user_passwd: Aes.Ctr.encrypt($("#user_passwd").val(), "<{$randomChar}>", 256),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val(),

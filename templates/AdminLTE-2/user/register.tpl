@@ -80,6 +80,9 @@
 <script src="<{$resources_dir}>/asset/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- iCheck -->
 <script src="<{$resources_dir}>/asset/js/icheck.min.js" type="text/javascript"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -107,8 +110,8 @@
                 data:{
                     email: $("#email").val(),
                     name: $("#name").val(),
-                    passwd: $("#passwd").val(),
-                    repasswd: $("#repasswd").val(),
+                    passwd: Aes.Ctr.encrypt($("#passwd").val(), "<{$randomChar}>", 256),
+                    repasswd: Aes.Ctr.encrypt($("#repasswd").val(), "<{$randomChar}>", 256),
                     code: $("#code").val(),
                     agree: $("#agree").val()
                 },

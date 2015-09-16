@@ -1,14 +1,19 @@
 <?php
 //设置编码
 header("content-type:text/html;charset=utf-8");
+//开启session
+session_start();
 require_once '../lib/config.php';
+//引入AES
+require_once '../lib/Ss/AES/aes.class.php';
+require_once '../lib/Ss/AES/aesctr.class.php';
 use Mailgun\Mailgun;
 //
 $code     = $_POST['code'];
 $email    = $_POST['email'];
 $uid      = $_POST['uid'];
-$password = $_POST['password'];
-$repasswd = $_POST['repasswd'];
+$password = AesCtr::decrypt($_POST['password'], $_SESSION['randomChar'], 256);
+$repasswd = AesCtr::decrypt($_POST['repasswd'], $_SESSION['randomChar'], 256);
 //
 $ur = new \Ss\User\UserInfo($uid);
 if($ur->GetEmail() == $email){
@@ -80,5 +85,5 @@ if(!$rs){
         $a['msg']  = "链接无效";
     }
 }
-echo json_encode($a);
+echo json_encode($a,JSON_UNESCAPED_UNICODE);
 ?>

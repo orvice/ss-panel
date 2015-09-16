@@ -61,6 +61,10 @@
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* 请在下面加入你的 javascript *}>
+
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
 	_Prompt_ss_msg();
@@ -82,9 +86,9 @@ function removeHTMLTag(str) {
                 url:"_pwd_update.php",
                 dataType:"json",
                 data:{
-                    nowpwd: $("#nowpwd").val(),
-                    pwd: $("#pwd").val(),
-                    repwd: $("#repwd").val()
+                    nowpwd: Aes.Ctr.encrypt($("#nowpwd").val(), "<{$randomChar}>", 256),
+                    pwd: Aes.Ctr.encrypt($("#pwd").val(), "<{$randomChar}>", 256),
+                    repwd: Aes.Ctr.encrypt($("#repwd").val(), "<{$randomChar}>", 256)
                 },
                 success:function(data){
                     if(data.ok){
@@ -115,7 +119,7 @@ function removeHTMLTag(str) {
                 url:"_sspwd_update.php",
                 dataType:"json",
                 data:{
-                    sspwd: $("#sspwd").val()
+                    sspwd: Aes.Ctr.encrypt($("#sspwd").val(), "<{$randomChar}>", 256)
                 },
                 success:function(data){
                     if(data.ok){

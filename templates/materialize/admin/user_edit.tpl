@@ -42,11 +42,15 @@
                                 <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
                                 <label for="invite_num">邀请码数量</label>
                               </div>
-                              <div class="input-field">
-                                <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="validate">
-                                <label for="enable">是否启用（1为启用，0为停用）</label>
-                              </div>   
-                                  <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
+                              <div class="switch">状态：<br/>
+                                <label>
+                                  停用
+                                  <input type="checkbox"  id="enable" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  >
+                                  <span class="lever"></span>
+                                  启用
+                                </label>
+                              </div><br/>
+                              <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
                           </form>
                       </div>
                  </span> 
@@ -95,7 +99,7 @@
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val(),
-                    enable: $("#enable").val()
+                    enable: document.getElementById("enable").checked ? "1" : "0"
                 },
                 success:function(data){
                     if(data.ok){

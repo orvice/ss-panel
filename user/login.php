@@ -98,7 +98,7 @@ require_once 'assp.php';
                 data:{
                     email: $("#email").val(),
                     passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
+                    remember_me: document.getElementById("remember_me").checked ? "week" : "no"
                 },
                 success:function(data){
                     if(data.ok){

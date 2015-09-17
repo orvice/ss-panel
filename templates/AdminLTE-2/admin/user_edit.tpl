@@ -2,6 +2,72 @@
 
 <!-- =============================================== -->
 
+<style type="text/css">
+.new_chk {
+    display: none;
+}
+.new_chk + label {
+	background-color: #FFF;
+	padding: 11px 9px;
+	border-radius: 7px;
+	display: inline-block;
+	position: relative;
+	margin-right: 30px;
+	background: #F7836D;
+	width: 58px;
+	height: 10px;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(245, 146, 146, 0.4);
+	width: 76px;
+    height: 32px;
+    top: 16px;
+}
+.new_chk + label:before {
+	content: ' ';
+	position: absolute;
+	background: #FFF;
+	top: 0px;
+	z-index: 99999;
+	left: 0px;
+	width: 24px;
+	color: #FFF;
+	height: 32px;
+	border-radius: 7px;
+	box-shadow: 0 0 1px rgba(0,0,0,0.6);
+}
+.new_chk + label:after {
+	content: '停止';	
+	position: absolute;
+	font-size: 1.2em;
+	color: white;
+	font-weight: bold;
+	left: 8px;
+	padding: 1px;
+	top: 4px;
+	border-radius: 100px;
+}
+.new_chk:checked + label {
+	background: #67A5DF;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(146, 196, 245, 0.4);
+}
+.new_chk:checked + label:after {
+	content: '正常';
+	left: 5px;
+}
+.new_chk:checked + label:before {
+	content: '';
+	position: absolute;
+	z-index: 99999;
+	left: 52px;
+}
+.new_chk + label:after {
+	left: 30px;	
+}	
+#enable + label:after, #enable + label:before, #checkbox label {	
+	-webkit-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+}
+</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -60,8 +126,9 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="enable">是否启用（1为启用，0为停用）</label>
-                                <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="form-control"> 
+                                <label for="cate_title">状态：</label>
+                                <input type="checkbox" id="enable" class="new_chk" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  />
+			                    <label for="enable"></label>
                             </div>
 
                         </div><!-- /.box-body -->
@@ -119,7 +186,7 @@ function removeHTMLTag(str) {
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val(),
-                    enable: $("#enable").val()
+                    enable: document.getElementById("enable").checked ? "1" : "0"
                 },
                 success:function(data){
                     if(data.ok){

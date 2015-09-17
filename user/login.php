@@ -1,6 +1,6 @@
 <?php
 //开启session
-session_start();
+//session_start(); //由于assp.php已经开启了，这里就不用再打开了。
 require_once '../lib/config.php';
 //引入随机数类
 require_once 'assp.php';

@@ -30,7 +30,7 @@ $smarty->setcachedir(__ROOT__."cache/".$templates_dir); //设置缓存文件存�
 // 设置模板资源(css/js/font/png/gif...)目录
 // $smarty->assign('resources_dir',"../templates/".$templates_dir); //程序放在根目录时请选用这个
 $smarty->assign('resources_dir',$site_url."templates/".$templates_dir); //程序放在二级以上目录请选用这个，根目录也可以使用。
-$public=$site_url."public/";
+$public = $site_url."public";
 $smarty->assign('public',$public); //公共资源目录，用于存放公共使用的js css images fonts
 $smarty->addPluginsDir(__ROOT__."myPlugins/"); //自定义插件目录
 $smarty->left_delimiter = "<{"; //设置左标示符

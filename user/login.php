@@ -1,5 +1,6 @@
 <?php
 require_once '../lib/config.php';
+require_once 'assp.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +40,7 @@ require_once '../lib/config.php';
                 <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div id="assp"></div>
             </form>
             <div class="row">
                 <div class="col-xs-8">
@@ -96,7 +98,7 @@ require_once '../lib/config.php';
                 data:{
                     email: $("#email").val(),
                     passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
+                    remember_me: document.getElementById("remember_me").checked ? "week" : "no"
                 },
                 success:function(data){
                     if(data.ok){
@@ -133,5 +135,6 @@ require_once '../lib/config.php';
         });
     })
 </script>
+<?php echo  $js_ua_code; //显示防签到系统平台 页面内容?>
 </body>
 </html>

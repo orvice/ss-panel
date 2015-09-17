@@ -1,5 +1,6 @@
 <?php
 require_once '_main.php';
+require_once 'assp.php';
 
 //获得流量信息
 if($oo->get_transfer()<1000000)
@@ -75,6 +76,7 @@ $unix_time = $oo->get_last_unix_time();
                         <div class="box-header">
                             <h3 class="box-title">签到获取流量</h3>
                         </div><!-- /.box-header -->
+                        <div id="assp"></div>
                         <div class="box-body">
                             <p> 22小时内可以签到一次。</p>
                             <?php  if($oo->is_able_to_check_in())  { ?>
@@ -106,6 +108,7 @@ $unix_time = $oo->get_last_unix_time();
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php
+echo  $js_ua_code."\n"; //显示防签到系统平台 页面内容
 require_once '_footer.php'; ?>
 
 <script>

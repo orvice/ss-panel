@@ -102,7 +102,7 @@
                         data:{
                             email: $("#email").val(),
                             passwd: Aes.Ctr.encrypt($("#password").val(), "<{$randomChar}>", 256),
-                            remember_me: $("#remember_me").val()
+                            remember_me: remember_me: document.getElementById("remember_me").checked ? "week" : "no"
                         },
                         success:function(data){
                             if(data.ok){

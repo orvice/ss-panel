@@ -42,7 +42,7 @@
                                 <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
                                 <label for="invite_num">邀请码数量</label>
                               </div>
-                              <div class="switch">状态：<br/>
+                              <div class="switch">状态：
                                 <label>
                                   停止
                                   <input type="checkbox"  id="enable" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  >

@@ -44,10 +44,10 @@
                               </div>
                               <div class="switch">状态：<br/>
                                 <label>
-                                  停用
+                                  停止
                                   <input type="checkbox"  id="enable" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  >
                                   <span class="lever"></span>
-                                  启用
+                                  正常          
                                 </label>
                               </div><br/>
                               <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>

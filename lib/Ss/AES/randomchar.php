@@ -2,7 +2,7 @@
 class RandomChar
 {
     // 生成随机字符串
-    function getRandomChar($length){
+    static function getRandomChar($length){
         $str = null;
         $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
         $max = strlen($strPol)-1;

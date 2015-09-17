@@ -12,21 +12,21 @@ if (!$repeat) {
     $args['class'] = empty($args['class']) ? '': ' class="'.$args['class'].'"';
     $args['style'] = empty($args['style']) ? '': ' style="'.$args['style'].'"';
     $editor = '
-    <link rel="stylesheet" href="'.$public.'Codemirror/css/codemirror.css">
-    <link rel="stylesheet" href="'.$public.'Codemirror/css/fullscreen.css">
-    <link rel="stylesheet" href="'.$public.'Codemirror/css/seti.css">
-    <script type="text/javascript" src="'.$public.'Codemirror/js/codemirror-min.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/xml-fold.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/selection-pointer.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/xml.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/javascript.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/css.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/vbscript.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/htmlmixed.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/fullscreen.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/closetag.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/matchtags.js"></script>
-    <script type="text/javascript" src="'.$public.'Codemirror/js/matchbrackets.js"></script>
+    <link rel="stylesheet" href="'.$public.'/Codemirror/css/codemirror.css">
+    <link rel="stylesheet" href="'.$public.'/Codemirror/css/fullscreen.css">
+    <link rel="stylesheet" href="'.$public.'/Codemirror/css/seti.css">
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/codemirror-min.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/xml-fold.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/selection-pointer.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/xml.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/javascript.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/css.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/vbscript.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/htmlmixed.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/fullscreen.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/closetag.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/matchtags.js"></script>
+    <script type="text/javascript" src="'.$public.'/Codemirror/js/matchbrackets.js"></script>
     <style type="text/css">
       .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
     </style>

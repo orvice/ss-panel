@@ -1,25 +1,37 @@
 <?php
-/*
- 使 用 说 明 
- 如果在内容中要使用单引号，必须在单引号前面加“\”,才不会报错。
- */
+// print_r($_SERVER);
+// echo str_replace('\\' , $_SERVER['DOCUMENT_URI'] , '/lib').'/config.php';
+include_once str_replace('\\' , $_SERVER['DOCUMENT_URI'] , '/lib').'/config.php';
 
-// 首页公告内容
-$index_Announcement='<p>每个月5G流量，美国节点。</p>';
+if (!file_exists(str_replace('\\' , '/' , SS_PATH.'/lib/Ss/Sqlitedb/').SQLITEDIR."/".SQLITEDB)){
+ class MyDB extends SQLite3
+   {
+      function __construct()
+      {
+      	mkdir(str_replace('\\' , '/' , SS_PATH.'/lib/Ss/Sqlitedb/'));
+        mkdir(str_replace('\\' , '/' , SS_PATH.'/lib/Ss/Sqlitedb/').SQLITEDIR);
+        $this->open(str_replace('\\' , '/' , SS_PATH.'/lib/Ss/Sqlitedb/').SQLITEDIR."/".SQLITEDB);
+      }
+   }
 
-// 首页公告按钮
-$index_button='<a href="user/register.php" class="btn-large waves-effect waves-light light-blue lighten-1 btn btn-lg btn-success">立即注册</a>';
-
-// 首页自定义内容
-$index_Custom='<div class="row card-panel center transparent z-depth-2" style="padding: 5px;"><!-- 这个请不要删 -->
+$CREATETABLE =<<<EOF
+CREATE TABLE announcement ( 
+    ID      INT      PRIMARY KEY,
+    NAME    TEXT,
+    CONTENT TEXT,
+    TIME    DATETIME 
+);
+EOF;
+$INSERTSQL =<<<EOF
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (1, 'index_Announcement', '<p>每个月5G流量，美国节点。</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (2, 'index_button', '<a href="user/register.php" class="btn-large waves-effect waves-light light-blue lighten-1 btn btn-lg btn-success">立即注册</a>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (3, 'index_Custom', '<div class="row card-panel center transparent z-depth-2" style="padding: 5px;"><!-- 这个请不要删 -->
   <style>
    @media only screen and (max-width : 880px){
       div.slider>ul.slides>li>div>h3{
-      font-size: 25px;
-      }
+      font-size: 25px;       }
       div.slider>ul.slides>li>div>h5{
-      font-size: 22px;
-      }
+      font-size: 22px;       }
   } 
   </style>
   <div class="slider">
@@ -91,7 +103,7 @@ http://materializecss.com/media.html
   <blockquote>
         This is an example quotation that uses the blockquote tag.
   </blockquote>
-     <div class="chip center">				
+     <div class="chip center">        
         <img src="https://secure.gravatar.com/avatar/?s=80&d=mm&r=g" alt="Gravatar_Email_img" class="circle user-image">Gravatar_Email_img
       </div>
   
@@ -137,7 +149,7 @@ http://materializecss.com/media.html
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>
-          <a href=\'#\'>This is a link</a>
+          <a href="#">This is a link</a>
         </div>
       </div>
     </div>
@@ -169,40 +181,27 @@ http://materializecss.com/media.html
       </div>
     </div>
 </div>
--->';
-
-// 用户建议内容
-$footer_Announcement='当前网页要在支持Html5较新版本的浏览器才能正常使用，如果你的当前浏览显示不正常，请更新浏览器，推荐使用谷歌浏览器（Chrome）、OPERA、Firefox ...<br/>
-	          安卓版本4.4.4以下手机用户不推荐使用系统浏览器来访问。<br/>
-	          如果你正在使用XXX公司的任何与网络相关的硬件和软件，请不要使用本站服务，根据网上反映的情况，该公司的产品会后台上报VPN，SS(shadowsocks)，SSH等等的ip信息，导致很多的VPN，SS(shadowsocks)，SSH服务不能正常使用。<br/><b style="color:red;">站长可以在后台任意修改这里的内容！</b>';
-
-// 邀请码公告内容
-$code_Announcement='<p> 邀请码不定时发放！</p>
-            	<p>如遇到无邀请码请找已经注册的用户获取。</p>';
-
-// 用户中心公告内容
-$user_index_Announcement='<p>流量不会重置，可以通过签到获取流量。</p> 
-                            <p>流量可以通过签到获取，基本每天最多可以领取1G流量。</p>
-                            <p>请勿在任何地方公开本站任何节点信息！</p>';
-
-// 普通节点公告内容
-$user_node_Announcement_node='<h4>注意!</h4>
-                       <p>请勿在任何地方公开节点任何信息！</p>';
-// pro节点公告内容
-$user_node_Announcement_node_pro='<h4>注意!</h4>
-                       <p>请勿公开节点任何信息！</p>';
-
-// 橙色公告内容
-$user_invite_Announcement_color_orange='<h4>注意！</h4>
+-->', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (4, 'footer_Announcement', '当前网页要在支持Html5较新版本的浏览器才能正常使用，如果你的当前浏览显示不正常，请更新浏览器，推荐使用谷歌浏览器（Chrome）、OPERA、Firefox ...<br/>
+            安卓版本4.4.4以下手机用户不推荐使用系统浏览器来访问。<br/>
+            如果你正在使用XXX公司的任何与网络相关的硬件和软件，请不要使用本站服务，根据网上反映的情况，该公司的产品会后台上报VPN，SS(shadowsocks)，SSH等等的ip信息，导致很多的VPN，SS(shadowsocks)，SSH服务不能正常使用。<br/><b style="color:red;">站长可以在后台任意修改这里的内容！</b>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (5, 'code_Announcement', '<p> 邀请码不定时发放！</p>
+              <p>如遇到无邀请码请找已经注册的用户获取。</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (6, 'user_index_Announcement', '<p>流量不会重置，可以通过签到获取流量。</p> 
+                            <p>签到可领取最低{\$check_min}MB，最高{\$check_max}MB流量。</p>
+                            <p>请勿在任何地方公开本站任何节点信息！</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (7, 'user_node_Announcement_node', '<h4>注意!</h4>
+                       <p>请勿在任何地方公开节点任何信息！</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (8, 'user_node_Announcement_node_pro', '<h4>注意!</h4>
+                       <p>请勿公开节点任何信息！</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (9, 'user_invite_Announcement_color_orange', '<h4>注意！</h4>
                               <p>邀请码请给认识的需要的人。</p>
-                              <p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>';
-// 蓝色公告内容
-$user_invite_Announcement_color_blue='<h4>说明</h4>
+                              <p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (10, 'user_invite_Announcement_color_blue', '<h4>说明</h4>
                               <p>用户注册48小时后，才可以生成邀请码。</p>
                               <p>邀请码暂时无法购买，请珍惜。</p>
-                              <p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>';
-// 用户协议
-$tos_content='以下简称本站。
+                              <p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>', '2015-09-18 00:00:00');
+INSERT INTO announcement (ID, NAME, CONTENT, TIME) VALUES (11, 'tos_content', '{\$site_name}，以下简称本站。
     <h3>隐私</h3>
     <p>
         <ul>
@@ -227,17 +226,28 @@ $tos_content='以下简称本站。
     <ul>
         <li>本站仅限人类及猫注册使用。</li>
         <li>TOS更新时用户需要遵守最新TOS。</li>
-    </ul>';
+    </ul>', '2015-09-18 00:00:00');
+EOF;
+   $db = new MyDB();
+   if(!$db){
+      echo $db->lastErrorMsg();
+   } else {
+      echo "打开数据库成功\n";
+   }
+   $ret = $db->exec($CREATETABLE);
+   if(!$ret){
+      echo $db->lastErrorMsg();
+   } else {
+      echo "创建表成功\n";
+   }
+   $ret = $db->exec($INSERTSQL);
+   if(!$ret){
+      echo $db->lastErrorMsg();
+   } else {
+      echo "创建记录成功\n";
+   }
+   $db->close();
+   }
+   header("Location: ".$_SERVER['HTTP_REFERER']); 
 
-//传递变量到smarty数组
-$smarty->assign("index_Announcement",$index_Announcement);// 首页公告内容
-$smarty->assign("index_button",$index_button);// 首页公告按钮
-$smarty->assign("index_Custom",$index_Custom);// 首页自定义内容
-$smarty->assign("footer_Announcement",$footer_Announcement);
-$smarty->assign("code_Announcement",$code_Announcement);// 邀请码公告内容
-$smarty->assign("user_index_Announcement",$user_index_Announcement);// 用户中心公告内容
-$smarty->assign("user_node_Announcement_node",$user_node_Announcement_node);// 普通节点公告内容
-$smarty->assign("user_node_Announcement_node_pro",$user_node_Announcement_node_pro);// pro节点公告内容
-$smarty->assign("user_invite_Announcement_color_orange",$user_invite_Announcement_color_orange);// 橙色公告内容
-$smarty->assign("user_invite_Announcement_color_blue",$user_invite_Announcement_color_blue);// 蓝色公告内容
-$smarty->assign("tos_content",$tos_content);// 用户协议 
+?>

@@ -40,7 +40,7 @@
     <div class="page-header">
         <h1>用户协议 Terms of Service </h1>
     </div>
-    <p><{$site_name}>，<{$tos_content}></p>
+    <p><{$tos_content}></p>
 </div>
 
 <footer class="footer">

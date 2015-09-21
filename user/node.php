@@ -7,5 +7,8 @@ $smarty->assign('oo',$oo);
 $smarty->assign('node',$node);
 $smarty->assign('node0',$node0);
 $smarty->assign('node1',$node1);
+$varsarray = get_defined_vars();
+$smarty->assign("user_node_Announcement_node",Ss\ac::get('user_node_Announcement_node',$varsarray));// 普通节点公告内容
+$smarty->assign("user_node_Announcement_node_pro",Ss\ac::get('user_node_Announcement_node_pro',$varsarray));// pro节点公告内容
 $smarty->display('user/node.tpl');
 ?>

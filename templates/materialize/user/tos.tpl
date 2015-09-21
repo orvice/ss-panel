@@ -6,7 +6,7 @@
 	        <div class="col 18 s12">
 	          <h5 class="white-text">用户协议 Terms of Service</h5>
 	          <div class="nav-wrapper col 0 s12 card-panel waves-effect">
-              <{$site_name}>，<{$tos_content}>
+              <{$tos_content}>
               </div>
 	        </div>
 	      </div>

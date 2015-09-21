@@ -4,7 +4,7 @@
 	      <div class="row">
 	        <div class="col 0 s12">
 	          <h5 class="white-text">用户建议</h5>
-	          <p class="nav-wrapper card-panel waves-effect hoverable"><{$footer_Announcement}><{* 用户建议的内容 *}></p>
+	          <p class="nav-wrapper card-panel waves-effect hoverable"><{Ss\ac::get('footer_Announcement',get_defined_vars())}><{* 用户建议的内容 *}></p>
 	        </div>
 	        <div class="col l3 s6 m6">
 	          <h5 class="white-text">Terms of Service</h5>

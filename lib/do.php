@@ -39,6 +39,7 @@ function autoload($class){
     require_once SS_PATH.'/lib/'.str_replace('\\','/',$class).'.php';
 }
 require_once 'Ss/Ext/Medoo.php';
+//MySQL
 $db = new medoo([
     // required
     'database_type' => DB_TYPE,
@@ -55,5 +56,16 @@ $db = new medoo([
         PDO::ATTR_CASE => PDO::CASE_NATURAL
     ]
 ]);
+
+//SQLite
+if (file_exists(str_replace('\\' , '/' , SS_PATH.'/lib/Ss/Sqlitedb/').SQLITEDIR."/".SQLITEDB)){
+    $sqlitedb = new medoo([
+        'database_type' => 'sqlite',
+        'database_file' => str_replace('\\','/',SS_PATH.'/lib/Ss/Sqlitedb/').SQLITEDIR."/".SQLITEDB
+    ]);
+    $sqlitedates = new \Ss\Etc\sqlitedb();
+}else{
+    include_once 'Ss/Etc/createtableannouncement.php';
+}
 $Runtime= new \Ss\Etc\Runtime();
 $Runtime->Start();

@@ -14,10 +14,13 @@ if(!empty($_POST)){
     $node = new \Ss\Node\NodeInfo($node_id);
     $query = $node->Update($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order);
     if($query){
-        echo ' <script>alert("更新成功!")</script> ';
-        echo " <script>window.location='node.php';</script> " ;
+        $ue['code'] = '1';
+        $ue['ok'] = '1';
+        $ue['msg'] = "更新成功!";
+        $ue['msg'] .= " <script>window.setTimeout(\"location.href='node.php'\", 2000);</script> ";
     }
-}
+    echo json_encode($ue,JSON_UNESCAPED_UNICODE);
+}else{
 
 if(!empty($_GET)){
     //获取id
@@ -28,4 +31,5 @@ if(!empty($_GET)){
 $smarty->assign('id',$id);
 $smarty->assign('rs',$rs);
 $smarty->display('admin/node_edit.tpl');
+}
 ?>

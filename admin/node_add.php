@@ -13,9 +13,13 @@ if(!empty($_POST)){
     $node = new Ss\Node\Node();
     $query = $node->Add($node_name,$node_type,$node_server,$node_method,$node_info,$node_status,$node_order);
     if($query){
-        echo ' <script>alert("添加成功!")</script> ';
-        echo " <script>window.location='node.php';</script> " ;
+        $ue['code'] = '1';
+        $ue['ok'] = '1';
+        $ue['msg'] = "添加成功!";
+        $ue['msg'] .= "<script>window.setTimeout(\"location.href='node.php'\", 2000);</script>";
     }
+    echo json_encode($ue,JSON_UNESCAPED_UNICODE);
+}else{
+    $smarty->display('admin/node_add.tpl');
 }
-$smarty->display('admin/node_add.tpl');
 ?>

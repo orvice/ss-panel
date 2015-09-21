@@ -80,7 +80,39 @@ function removeHTMLTag(str) {
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
+        $("#msg-error").click(function(){
+           $(id_name).focus();
+        });
         $("#pwd-update").click(function(){
+            function msg_out(msgout,msgcss){
+                $("#msg-"+msgcss).openModal();
+                $("#msg-"+msgcss+"-p").html(msgout);
+                $(id_name).focus();
+            }
+            if($("#nowpwd").val().length==0){
+                id_name="#nowpwd";
+                msg_out("请输入密码","error");
+                msg_id=1;
+                return false;
+            }
+            if($("#pwd").val().length==0){
+                id_name="#pwd";
+                msg_out("请输入新密码","error");
+                msg_id=1;
+                return false;
+            }
+            if($("#repwd").val().length==0){
+                id_name="#repwd";
+                msg_out("请输入确认密码","error");
+                msg_id=1;
+                return false;
+            }
+            if($("#repwd").val()!=$("#pwd").val()){
+                id_name="#repwd";
+                msg_out("新密码与确认密码不一样，请重新输入。","error");
+                msg_id=1;
+                return false;
+            }
             $.ajax({
                 type:"POST",
                 url:"_pwd_update.php",

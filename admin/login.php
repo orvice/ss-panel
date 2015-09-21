@@ -7,4 +7,4 @@ $randomChar = Ss\Etc\Comm::get_random_char(32)."==";
 //把随机字符串保存到session
 $_SESSION['randomChar']=$randomChar;
 $smarty->assign('randomChar',$randomChar);
-$smarty->display('admin/login.tpl')
+$smarty->display('admin/login.tpl');

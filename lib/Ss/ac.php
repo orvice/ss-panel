@@ -11,7 +11,7 @@ class ac
 		$datas = $sqlitedates->get_content("announcement",$fieldname);
 
         $datas = preg_replace_callback('/{\$([\w\W]*?)}/im',
-            function ($matches) use($vars) {
+            function ($matches) use ($vars) {
             	try{
             		return isset ($vars[$matches[1]]) ? $vars[$matches[1]] : '<没找到$'.$matches[1].'变量>'; 
             	}catch (Exception $e) {

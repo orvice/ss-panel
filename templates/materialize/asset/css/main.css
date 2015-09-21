@@ -352,3 +352,10 @@ span b { vertical-align: middle; font-weight: 500; }
   bottom: 0;
   z-index: -1;
 }
+/* 顶部导航下拉菜单 */
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 1.2rem;
+  color: #2298E0;
+  display: block;
+  padding: 0.6rem 1rem;
+}

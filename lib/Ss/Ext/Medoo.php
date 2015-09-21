@@ -2,7 +2,7 @@
 /*!
  * Medoo database framework
  * http://medoo.in
- * Version 0.9.8.2
+ * Version 0.9.8.3
  *
  * Copyright 2015, Angel Lai
  * Released under the MIT license
@@ -265,7 +265,7 @@ class medoo
 			$type = gettype($value);
 
 			if (
-				preg_match("/^(AND|OR)\s*#?/i", $key, $relation_match) &&
+				preg_match("/^(AND|OR)(\s+#.*)?$/i", $key, $relation_match) &&
 				$type == 'array'
 			)
 			{

@@ -1,4 +1,6 @@
 ss-panel + smarty
+
+[ss pane_2.2.9_ _smarty_3.1.24_=_dev_0.2界面截图](https://github.com/xuanhuan/ss-panel/wiki/ss-pane_2.2.9_-_smarty_3.1.24_=_dev_0.2%E7%95%8C%E9%9D%A2)
 ========
 
 重要提醒
@@ -10,9 +12,12 @@ ss-panel + smarty
 
 请一定要配置config.php中的$site_url为你的网址，后面一定要有一个“/”。
 
+还要修改Sqlite数据库配置。
+
+请确保 lib/Ss 目录有创建文件、文件夹、读写权限，如果没有，请分配权限，因为这是用来创建文件夹放Sqlite数据库的。
+
 A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser
 )  
-[ss pane_2.2.9_ _smarty_3.1.24_=_dev_0.2界面截图](https://github.com/xuanhuan/ss-panel/wiki/ss-pane_2.2.9_-_smarty_3.1.24_=_dev_0.2%E7%95%8C%E9%9D%A2)
 
 ### 管理后台 /admin    建议修改目录名称
 默认管理帐号: first@blood.com 密码 1993

@@ -42,5 +42,5 @@ if(!empty($_POST)){
                 $ue['msg'] = "可能是你没修改任何内容，而提交了，<br>请修改再重试。";
     }
 }
-echo json_encode($ue);
+echo json_encode($ue,JSON_UNESCAPED_UNICODE);
 ?>

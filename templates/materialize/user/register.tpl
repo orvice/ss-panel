@@ -91,7 +91,7 @@
                <div class="col 0 s12">
                  <h4>用户协议<small>Terms of Service</small></h4>
                       <p style="font-size: x-large;">
-                      <{$site_name}>，<{$tos_content}>
+                      <{$tos_content}>
                       </p>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                                 passwd: Aes.Ctr.encrypt($("#password").val(), "<{$randomChar}>", 256),
                                 repasswd: Aes.Ctr.encrypt($("#repassword").val(), "<{$randomChar}>", 256),
                                 code: $("#code").val(),
-                                agree: $("#agree").val()
+                                agree: document.getElementById("agree").checked ? "week" : "no"
                             },
                             success:function(data){
                                 if(data.ok){

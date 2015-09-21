@@ -8,3 +8,4 @@ $u->UpdatePwd(\Ss\Etc\Comm::get_random_char(8));
 $u->DelMe();
 echo ' <script>alert("删除成功!")</script> ';
 echo " <script>window.location='user.php';</script> " ;
+?>

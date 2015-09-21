@@ -20,6 +20,17 @@
                     <div class="box-header">
                         <h3 class="box-title">修改<{$announcement_title}></h3>
                     </div><!-- /.box-header -->
+                    <!-- msg -->
+                    <div id="msg-success" class="alert alert-info alert-dismissable" style="border: 1px solid rgb(50, 163, 213); text-align: center; z-index: 9999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+                        <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-info"></i> 成功!</h4>
+                        <p id="msg-success-p"></p>
+                    </div>
+                    <div id="msg-error" class="alert alert-warning alert-dismissable"  style="border: 1px solid rgb(255, 0, 0); text-align: center; z-index: 999; width: 300px; left: 50%; margin-left: -150px !important; margin-top: -60px !important; position: fixed !important; display: none;">
+                        <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                        <p id="msg-error-p"></p>
+                    </div>
                     <{if $announcement_name!=null}>
                         <div class="box-body">
                             <form role="form" method="post" action="javascript:submit();">
@@ -36,16 +47,6 @@
                             没有这个公告名称
                         </div><!-- /.box-body -->
                     <{/if}>
-                        <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
-                            <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-info"></i> 成功!</h4>
-                            <p id="msg-success-p"></p>
-                        </div>
-                        <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
-                            <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-                            <p id="msg-error-p"></p>
-                        </div>
                 </div>
             </div><!-- /.box -->
         </div>   <!-- /.row -->

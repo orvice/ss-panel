@@ -29,11 +29,14 @@ if (!$repeat) {
     <script type="text/javascript" src="'.$public.'/Codemirror/js/matchbrackets.js"></script>
     <style type="text/css">
       .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+      .main-header { z-index: 1000;}
     </style>
     
     <p>光标在编辑器时，按F11键切换全屏幕编辑，按F11/ESC键可退出全屏编辑。</p>
     
     <p>将光标放在编辑器内部的一个标签就会高亮显示，按 Ctrl + J 跳转到光标下一个匹配的标签。</p>
+
+    <p>可以用“{}”来使用变量当前作用域的变量，如：{$site_name}，只能用来显示内容，不支持数组和其它操作。</p>
     
     <textarea name="'.$args["name"].'" id="'.$args['id'].'"'.$args['class'].'>'.$content.'</textarea>
     

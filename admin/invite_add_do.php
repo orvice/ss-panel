@@ -9,3 +9,4 @@ $c = new \Ss\User\InviteCode();
 $c->AddCode($sub,$type,$num);
 echo ' <script>alert("添加成功!")</script> ';
 echo " <script>window.location='invite.php';</script> " ;
+?>

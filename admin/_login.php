@@ -34,3 +34,4 @@ if($c->EmailLogin($email,$passwd)){
     $rs['msg'] = "邮箱或者密码错误";
 }
 echo json_encode($rs,JSON_UNESCAPED_UNICODE);
+?>

@@ -359,3 +359,6 @@ span b { vertical-align: middle; font-weight: 500; }
   display: block;
   padding: 0.6rem 1rem;
 }
+nav ul a{
+  display: inline-block;
+}

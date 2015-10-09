@@ -67,7 +67,7 @@
         function login(){
             $.ajax({
                 type:"POST",
-                url:"/auth/auth",
+                url:"/auth/login",
                 dataType:"json",
                 data:{
                     email: $("#email").val(),

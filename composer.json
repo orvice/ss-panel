@@ -1,5 +1,17 @@
 {
-    "require": {
-        "mailgun/mailgun-php": "~1.7.2"
+  "require": {
+    "slim/slim": "^3.0@RC",
+    "illuminate/database": "*",
+    "slim/twig-view": "~2.0",
+    "slim/csrf": "0.4.*",
+    "smarty/smarty": "~3.1"
+  },
+  "autoload": {
+    "classmap": [
+
+    ],
+    "psr-4": {
+      "App\\": "app/"
     }
+  }
 }

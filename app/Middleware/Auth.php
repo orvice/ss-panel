@@ -2,9 +2,12 @@
 
 namespace App\Middleware;
 
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
 class Auth{
 
-    public function __invoke($request, $response, $next)
+    public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
         $response->getBody()->write('BEFORE');
         $response = $next($request, $response);

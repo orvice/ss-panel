@@ -8,5 +8,6 @@ return [
     'appName'    => 'ss-panel3',
     'baseUrl' => '/',
     'timeZone' => 'PRC',  // UTC
-    'theme'    => 'default',
+    'version'  => '3.0.0 Beta',
+    'theme'    => 'materialize',
 ];

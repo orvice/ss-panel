@@ -10,7 +10,11 @@ use App\Middleware\Guest;
  */
 
 $app = new App();
+
+// Home
 $app->get('/', 'App\Controllers\HomeController:home');
+$app->get('/code', 'App\Controllers\HomeController:code');
+
 // User Center
 $app->group('/user', function () {
     $this->get('/', 'App\Controllers\UserController:home');

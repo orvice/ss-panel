@@ -15,7 +15,7 @@ class AuthController extends BaseController
     }
 
     public function register(){
-
+        return $this->view()->display('auth/register.tpl');
     }
 
 }

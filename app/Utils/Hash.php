@@ -10,6 +10,6 @@ class Hash
      }
 
      public static function cookieHash(){
-         
+
      }
 }

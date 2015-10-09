@@ -14,8 +14,19 @@ class AuthController extends BaseController
         return $this->view()->display('auth/login.tpl');
     }
 
-    public function register(){
+    public function loginHandle()
+    {
+
+    }
+
+    public function register()
+    {
         return $this->view()->display('auth/register.tpl');
+    }
+
+    public function registerHandle()
+    {
+
     }
 
 }

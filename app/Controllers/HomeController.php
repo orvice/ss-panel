@@ -14,4 +14,9 @@ class HomeController extends BaseController
         return $this->view()->display('index.tpl');
     }
 
+    public function code()
+    {
+
+    }
+
 }

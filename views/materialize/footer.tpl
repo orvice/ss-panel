@@ -10,16 +10,16 @@
 			<div class="col l3 s12">
 				<h5 class="white-text">用户</h5>
 				<ul>
-					<li><a class="white-text" href="user">用户中心</a></li>
-					<li><a class="white-text" href="user/login.php">登录</a></li>
-					<li><a class="white-text" href="user/register.php">注册</a></li>
+					<li><a class="white-text" href="/user">用户中心</a></li>
+					<li><a class="white-text" href="/auth/login">登录</a></li>
+					<li><a class="white-text" href="/auth/register">注册</a></li>
 				</ul>
 			</div>
 			<div class="col l3 s12">
 				<h5 class="white-text">页面</h5>
 				<ul>
-					<li><a class="white-text" href="code.php">邀请码</a></li>
-					<li><a class="white-text" href="user/tos.php">TOS</a></li>
+					<li><a class="white-text" href="/code">邀请码</a></li>
+					<li><a class="white-text" href="/tos">TOS</a></li>
 				</ul>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 
 
 <!--  Scripts-->
-<script src="/assets/materialize/js/jQuery.min.js"></script>
+<script src="/assets/public/js/jquery.min.js"></script>
 <script src="/assets/materialize/js/materialize.min.js"></script>
 <script src="/assets/materialize/js/init.js"></script>
 

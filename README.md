@@ -35,6 +35,18 @@ cp config-sample config
 
 Then edit config file under config dir.
 
-* Step 3
+### Step 3
 
-Nginx Config
+Nginx Config example:
+
+if you download ss-panel on path /home/www/ss-panel
+
+
+```
+    root /home/www/ss-panel/public;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+    
+```    

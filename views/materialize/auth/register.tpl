@@ -77,7 +77,7 @@
         function register(){
             $.ajax({
                 type:"POST",
-                url:"_reg.php",
+                url:"/auth/register",
                 dataType:"json",
                 data:{
                     email: $("#email").val(),

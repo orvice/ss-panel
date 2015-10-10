@@ -4,7 +4,8 @@
     "illuminate/database": "*",
     "slim/twig-view": "~2.0",
     "slim/csrf": "0.4.*",
-    "smarty/smarty": "~3.1"
+    "smarty/smarty": "~3.1",
+    "mailgun/mailgun-php": "~1.7.2"
   },
   "autoload": {
     "classmap": [

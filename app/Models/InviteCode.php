@@ -3,7 +3,7 @@
 namespace App\Models;
 
 /**
- * Base Model
+ * InviteCode Model
  */
 
 class InviteCode extends Model

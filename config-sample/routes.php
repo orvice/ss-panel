@@ -23,7 +23,9 @@ $app->group('/user', function () {
 // Auth
 $app->group('/auth', function () {
     $this->get('/login', 'App\Controllers\AuthController:login');
+    $this->post('/login', 'App\Controllers\AuthController:loginHandle');
     $this->get('/register', 'App\Controllers\AuthController:register');
+    $this->post('/register', 'App\Controllers\AuthController:registerHandle');
 })->add(new Guest());
 
 // Run Slim Routes for App

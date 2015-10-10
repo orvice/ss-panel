@@ -3,7 +3,7 @@
 namespace App\Models;
 
 /**
- * Base Model
+ * User Model
  */
 
 class User extends Model

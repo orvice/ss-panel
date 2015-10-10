@@ -10,4 +10,5 @@ return [
     'timeZone' => 'PRC',  // UTC
     'version'  => '3.0.0 Beta',
     'theme'    => 'materialize',
+    'maildriver' => 'mailgun' // mailgun or smtp
 ];

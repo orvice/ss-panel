@@ -10,6 +10,7 @@ require BASE_PATH.'/vendor/autoload.php';
 
 // Init App Config
 $config = require BASE_PATH.'/config/app.php';
+$config['mail'] =  require BASE_PATH.'/config/mail.php';
 // config time zone
 date_default_timezone_set($config['timeZone']);
 

@@ -14,6 +14,8 @@ class Auth{
         $user = AuthService::getUser();
         if(!$user->isLogin){
             // @TODO no login action
+            $response->getBody()->write('Access Denied');
+            return $response;
         }
         $response = $next($request, $response);
         //$response->getBody()->write('AFTER');

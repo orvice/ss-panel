@@ -2,6 +2,10 @@
 
 namespace App\Services;
 
+use App\Services\Auth\Cookie;
+use App\Services\Auth\Redis;
+use App\Services\Auth\File;
+
 class Auth
 {
    protected static $driver;
@@ -14,15 +18,24 @@ class Auth
        return Config::get('authDriver');
    }
 
-   public static function login($uid){
-
+   public static function login($uid,$time){
+        switch(self::getDriver()){
+            case 'cookie':
+                Cookie::login($uid,$time);
+        }
    }
 
-   public static function isLogin(){
-
+   public static function getUser(){
+       switch(self::getDriver()){
+           case 'cookie':
+              return Cookie::getUser();
+       }
    }
 
    public static function logout(){
-
+       switch(self::getDriver()){
+           case 'cookie':
+               Cookie::logout();
+       }
    }
 }

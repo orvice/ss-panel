@@ -9,7 +9,7 @@ use App\Utils\Hash;
 
 class Cookie
 {
-    public function authUser($uid,$time){
+    public static function login($uid,$time){
         $user = User::find($uid);
         $key = Hash::cookieHash($user->pass);
         Utils\Cookie::set("uid",$uid,$time);
@@ -17,7 +17,7 @@ class Cookie
         Utils\Cookie::set("key",$key,$time);
     }
 
-    public function getUser($req){
+    public static function getUser(){
         $uid = Utils\Cookie::get('uid');
         $key = Utils\Cookie::get('key');
         if ($uid == null){
@@ -40,7 +40,7 @@ class Cookie
         return $user;
     }
 
-    public function logout(){
+    public static function logout(){
         $time = tiem() - 1000;
         Utils\Cookie::set("uid","",$time);
         Utils\Cookie::set("email","",$time);

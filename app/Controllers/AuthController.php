@@ -30,19 +30,21 @@ class AuthController extends BaseController
         $rememberMe = $request->getParam('remember_me');
 
         // Handle Login
-        $user = User::where('email','=',$email)->get();
+        $user = User::where('email','=',$email)->first();
+
         if ($user == null){
             $rs['code'] = '0';
-            $rs['msg'] = "邮箱或者密码错误";
+            $rs['msg'] = "401 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
         }
 
         if ($user->pass != Hash::passwordHash($passwd)){
             $rs['code'] = '0';
-            $rs['msg'] = "邮箱或者密码错误";
+            $rs['msg'] = "402 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
         }
-        Auth::login($user->id);
+        $time = time() + 3600;
+        Auth::login($user->id,$time);
         $rs['code'] = '1';
         $rs['ok'] = '1';
         $rs['msg'] = "欢迎回来";

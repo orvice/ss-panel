@@ -59,7 +59,7 @@
                         <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a> </p>
 
                         <p id="checkin-msg" ></p>
-                        <p>上次签到时间：<code></code></p>
+                        <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->
@@ -73,7 +73,7 @@
                         <p> 端口：<code>{$user->port}</code> </p>
                         <p> 密码：{$user->passwd} </p>
                         <p> 套餐：<span class="label label-info"> {$user->plan} </span> </p>
-                        <p> 最后使用时间：<code>{$user->t}</code> </p>
+                        <p> 最后使用时间：<code>{$user->lastSsTime()}</code> </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->

@@ -97,32 +97,32 @@
                 </li>
 
                 <li>
-                    <a href="/node">
+                    <a href="/user/node">
                         <i class="fa fa-sitemap"></i> <span>节点列表</span>
                     </a>
                 </li>
 
                 <li >
-                    <a href="/profile">
+                    <a href="/user/profile">
                         <i class="fa fa-user"></i> <span>我的信息</span>
                     </a>
                 </li>
 
 
                 <li >
-                    <a href="/update">
+                    <a href="/user/update">
                         <i class="fa  fa-pencil"></i> <span>修改资料</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/invite">
+                    <a href="/user/invite">
                         <i class="fa fa-users"></i> <span>邀请好友</span>
                     </a>
                 </li>
 
                 <li  >
-                    <a href="/sys">
+                    <a href="/user/sys">
                         <i class="fa fa-align-left"></i> <span>系统信息</span>
                     </a>
                 </li>

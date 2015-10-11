@@ -5,6 +5,10 @@ namespace App\Controllers;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
+use App\Utils\Hash;
+use App\Services\Auth;
+use App\Models\User;
+
 /**
  *  AuthController
  */
@@ -21,9 +25,28 @@ class AuthController extends BaseController
     {
         // $data = $request->post('sdf');
         $email =  $request->getParam('email');
+        $email = strtolower($email);
         $passwd = $request->getParam('passwd');
         $rememberMe = $request->getParam('remember_me');
 
+        // Handle Login
+        $user = User::where('email','=',$email)->get();
+        if ($user == null){
+            $rs['code'] = '0';
+            $rs['msg'] = "邮箱或者密码错误";
+            return $response->getBody()->write(json_encode($rs));
+        }
+
+        if ($user->pass != Hash::passwordHash($passwd)){
+            $rs['code'] = '0';
+            $rs['msg'] = "邮箱或者密码错误";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        Auth::login($user->id);
+        $rs['code'] = '1';
+        $rs['ok'] = '1';
+        $rs['msg'] = "欢迎回来";
+        return $response->getBody()->write(json_encode($rs));
     }
 
     public function register($request, $response, $next)

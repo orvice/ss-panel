@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Services\Auth;
+
 /**
  *  HomeController
  */

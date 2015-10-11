@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Mail;
 
 use App\Services\Config;
 use Mailgun\Mailgun as MailgunService;

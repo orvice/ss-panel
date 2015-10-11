@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use Smarty;
 
+use App\Services\Auth;
+
 /**
  * BaseController
  */
@@ -27,6 +29,7 @@ class BaseController
         $smarty->setcachedir(BASE_PATH.'/storage/framework/smarty/cache/'); //设置缓存文件存放目录
         // add config
         $smarty->assign('config',$config);
+        $smarty->assign('user',Auth::getUser());
         $this->smarty = $smarty;
         return $smarty;
     }

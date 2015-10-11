@@ -2,6 +2,13 @@
 
 namespace App\Controllers;
 
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
+use App\Utils\Hash;
+use App\Services\Auth;
+use App\Models\User;
+
 /**
  *  AuthController
  */
@@ -14,17 +21,43 @@ class AuthController extends BaseController
         return $this->view()->display('auth/login.tpl');
     }
 
-    public function loginHandle()
+    public function loginHandle($request, $response, $next)
     {
+        // $data = $request->post('sdf');
+        $email =  $request->getParam('email');
+        $email = strtolower($email);
+        $passwd = $request->getParam('passwd');
+        $rememberMe = $request->getParam('remember_me');
 
+        // Handle Login
+        $user = User::where('email','=',$email)->first();
+
+        if ($user == null){
+            $rs['code'] = '0';
+            $rs['msg'] = "401 邮箱或者密码错误";
+            return $response->getBody()->write(json_encode($rs));
+        }
+
+        if ($user->pass != Hash::passwordHash($passwd)){
+            $rs['code'] = '0';
+            $rs['msg'] = "402 邮箱或者密码错误";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $time = time() + 3600;
+        Auth::login($user->id,$time);
+        $rs['code'] = '1';
+        $rs['ok'] = '1';
+        $rs['msg'] = "欢迎回来";
+        return $response->getBody()->write(json_encode($rs));
     }
 
-    public function register()
+    public function register($request, $response, $next)
     {
-        return $this->view()->display('auth/register.tpl');
+        $code = $request->getQueryParams('code');
+        return $this->view()->assign('code',$code)->display('auth/register.tpl');
     }
 
-    public function registerHandle()
+    public function registerHandle($request, $response, $next)
     {
 
     }

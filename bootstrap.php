@@ -18,3 +18,6 @@ date_default_timezone_set($config['timeZone']);
 $capsule = new Capsule;
 $capsule->addConnection(require BASE_PATH.'/config/db.php');
 $capsule->bootEloquent();
+
+// Init slim routes
+require BASE_PATH.'/config/routes.php';

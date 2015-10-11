@@ -8,7 +8,8 @@ v3未完成，请查看[v2](https://github.com/orvice/ss-panel/tree/v2)
 
 ## Requirements
 
-* PHP >= 5.4
+* PHP 5.5 or newer
+* Web server with URL rewriting
 * MySQL
 
 

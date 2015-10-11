@@ -28,7 +28,7 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <a href="index.php" class="logo"><?php echo $site_name;  ?></a>
+        <a href="/user" class="logo">{$config["appName"]}</a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
@@ -43,7 +43,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo \Ss\User\Comm::Gravatar($U->GetEmail());  ?>" class="user-image" alt="User Image"/>
+                            <img src="{$user->gravatar}" class="user-image" alt="User Image"/>
                             <span class="hidden-xs">{$user->name}</span>
                         </a>
                         <ul class="dropdown-menu">
@@ -79,10 +79,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo \Ss\User\Comm::Gravatar($U->GetEmail());  ?>" class="img-circle" alt="User Image" />
+                    <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p><?php echo $U->GetUserName(); ?></p>
+                    <p>{$user->name}</p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
@@ -91,38 +91,38 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li>
-                    <a href="index.php">
+                    <a href="/user">
                         <i class="fa fa-dashboard"></i> <span>用户中心</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="node.php">
+                    <a href="/node">
                         <i class="fa fa-sitemap"></i> <span>节点列表</span>
                     </a>
                 </li>
 
                 <li >
-                    <a href="my.php">
+                    <a href="/profile">
                         <i class="fa fa-user"></i> <span>我的信息</span>
                     </a>
                 </li>
 
 
                 <li >
-                    <a href="update.php">
+                    <a href="/update">
                         <i class="fa  fa-pencil"></i> <span>修改资料</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="invite.php">
+                    <a href="/invite">
                         <i class="fa fa-users"></i> <span>邀请好友</span>
                     </a>
                 </li>
 
                 <li  >
-                    <a href="sys.php">
+                    <a href="/sys">
                         <i class="fa fa-align-left"></i> <span>系统信息</span>
                     </a>
                 </li>

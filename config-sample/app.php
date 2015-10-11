@@ -5,11 +5,12 @@
  */
 
 return [
+    'key' => "key",  // Key 请修改此值确保安全
     'appName'    => 'ss-panel3',
     'baseUrl' => '/',
     'timeZone' => 'PRC',  // UTC
     'version'  => '3.0.0 Beta',
     'theme'    => 'materialize',
-    'authDriver' => '', // support cookie,file,redis
+    'authDriver' => 'cookie', // support cookie,file,redis
     'mailDriver' => 'mailgun' // mailgun or smtp
 ];

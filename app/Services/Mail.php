@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\Config;
+use App\Services\Mail\Mailgun;
 
 class Mail
 {

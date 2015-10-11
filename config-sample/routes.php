@@ -18,6 +18,10 @@ $app->get('/code', 'App\Controllers\HomeController:code');
 // User Center
 $app->group('/user', function () {
     $this->get('/', 'App\Controllers\UserController:home');
+    $this->get('/node', 'App\Controllers\UserController:node');
+    $this->get('/profile', 'App\Controllers\UserController:profile');
+    $this->get('/invite', 'App\Controllers\UserController:invite');
+    $this->get('/sys', 'App\Controllers\UserController:sys');
 })->add(new Auth());
 
 // Auth

@@ -7,6 +7,8 @@ namespace App\Models;
  */
 
 use App\Utils\Tools;
+use App\Utils\Hash;
+use App\Models\InviteCode;
 
 class User extends Model
 
@@ -34,4 +36,29 @@ class User extends Model
     public function lastCheckInTime(){
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
+
+    public function updatePassword($pwd){
+        $this->pass = Hash::passwordHash($pwd);
+        $this->save();
+    }
+
+    public function updateSsPwd($pwd){
+        $this->passwd = $pwd;
+        $this->save();
+    }
+
+    public function addInviteCode(){
+        $uid = $this->attributes['id'];
+        $code = new InviteCode();
+        $code->code = Tools::genRandomChar(32);
+        $code->user = $uid;
+        $code->save();
+    }
+
+    public function addManyInviteCode($num){
+        for($i = 0; $i < $num; $i++){
+            $this->addInviteCode();
+        }
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Utils;
 
 class Tools
 {
+
     /**
      * 根据流量值自动转换单位输出
      */
@@ -14,11 +15,11 @@ class Tools
         $mb = 1048576;
         $gb = 1073741824;
         if ($value > $gb) {
-            return round($value / $togb, 2) . "GB";
+            return round($value / $gb, 2) . "GB";
         } else if ($value > $mb) {
-            return round($value / $tomb, 2) . "MB";
+            return round($value / $mb, 2) . "MB";
         } else if ($value > $kb) {
-            return round($value / $tokb, 2) . "KB";
+            return round($value / $kb, 2) . "KB";
         } else {
             return round($value, 2);
         }

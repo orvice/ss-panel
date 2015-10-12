@@ -2,7 +2,9 @@
 
 /***
  * ss-panel v3 Bootstrap
- *
+ * @author orvice
+ * @email sspanel@orx.me
+ * @url https://github.com/orvice/ss-panel
  */
 
 use Illuminate\Database\Capsule\Manager as Capsule;

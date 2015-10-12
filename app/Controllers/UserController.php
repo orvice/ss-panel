@@ -32,6 +32,12 @@ class UserController extends BaseController
 
     }
 
+    public function updateSsPwd($request, $response, $next){
+        $user = Auth::getUser();
+        $pwd =  $request->getParam('sspwd');
+        $user->updateSsPwd($pwd);
+    }
+
     public function logout(){
         Auth::logout();
     }

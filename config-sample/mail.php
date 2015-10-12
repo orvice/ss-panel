@@ -13,8 +13,14 @@ return [
         "sender" => "",
     ],
 
+
     //SMTP setting
     "smtp" => [
-
+        'host' => '',
+        'username' => '',
+        'password' => '',
+        'port' => '',
+        'sender' => '',
+        'name' => ''
     ],
 ];

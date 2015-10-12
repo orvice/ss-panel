@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Utils\Tools;
 
 class Analytic
 {
@@ -22,6 +23,7 @@ class Analytic
     public function totalTraffic(){
         $u = User::all()->sum('u');
         $d = User::all()->sum('d');
-        return $u + $d;
+        return Tools::flowAutoShow($u + $d);
     }
+
 }

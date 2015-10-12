@@ -30,6 +30,7 @@ class Auth
            case 'cookie':
               return Cookie::getUser();
        }
+       return null;
    }
 
    public static function logout(){

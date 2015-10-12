@@ -15,10 +15,16 @@ class User extends Model
 
     public $isLogin;
 
+    public $isAdmin;
+
     public function getGravatarAttribute()
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "https://secure.gravatar.com/avatar/$hash";
+    }
+
+    public function isAdmin(){
+        // @TODO
     }
 
     public function lastSsTime(){

@@ -34,5 +34,15 @@ $app->group('/auth', function () {
     $this->get('/logout', 'App\Controllers\AuthController:logout');
 })->add(new Guest());
 
+// Admin
+$app->group('/admin', function () {
+    $this->get('/', 'App\Controllers\AdminController:home');
+    $this->get('/node', 'App\Controllers\AdminController:node');
+    $this->get('/profile', 'App\Controllers\AdminController:profile');
+    $this->get('/invite', 'App\Controllers\AdminController:invite');
+    $this->get('/sys', 'App\Controllers\AdminController:sys');
+    $this->get('/logout', 'App\Controllers\AdminController:logout');
+})->add(new Admin());
+
 // Run Slim Routes for App
 $app->run();

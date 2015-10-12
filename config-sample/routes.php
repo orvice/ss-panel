@@ -22,6 +22,7 @@ $app->group('/user', function () {
     $this->get('/profile', 'App\Controllers\UserController:profile');
     $this->get('/invite', 'App\Controllers\UserController:invite');
     $this->get('/sys', 'App\Controllers\UserController:sys');
+    $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 
 // Auth
@@ -30,6 +31,7 @@ $app->group('/auth', function () {
     $this->post('/login', 'App\Controllers\AuthController:loginHandle');
     $this->get('/register', 'App\Controllers\AuthController:register');
     $this->post('/register', 'App\Controllers\AuthController:registerHandle');
+    $this->get('/logout', 'App\Controllers\AuthController:logout');
 })->add(new Guest());
 
 // Run Slim Routes for App

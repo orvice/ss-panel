@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Services\Auth;
+
 /**
  *  HomeController
  */
@@ -30,6 +32,8 @@ class UserController extends BaseController
 
     }
 
-
+    public function logout(){
+        Auth::logout();
+    }
 
 }

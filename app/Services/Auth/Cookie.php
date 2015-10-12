@@ -41,7 +41,7 @@ class Cookie
     }
 
     public static function logout(){
-        $time = tiem() - 1000;
+        $time = time() - 1000;
         Utils\Cookie::set("uid","",$time);
         Utils\Cookie::set("email","",$time);
         Utils\Cookie::set("key","",$time);

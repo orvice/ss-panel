@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Services\Config;
 use App\Services\Mail\Mailgun;
+use App\Services\Mail\Smtp;
 
 class Mail
 {
@@ -14,8 +15,11 @@ class Mail
             case "mailgun":
                 $mail = new Mailgun();
                 $mail->send($to,$subject,$text);
+                break;
             case "smtp":
-                // @TODO smtp
+                $mail = new Smtp();
+                $mail->send($to,$subject,$text);
+                break;
             default:
                 // @TODO default action
         }

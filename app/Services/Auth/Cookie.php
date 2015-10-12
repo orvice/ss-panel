@@ -12,9 +12,11 @@ class Cookie
     public static function login($uid,$time){
         $user = User::find($uid);
         $key = Hash::cookieHash($user->pass);
-        Utils\Cookie::set("uid",$uid,$time);
-        Utils\Cookie::set("email",$user->email,$time);
-        Utils\Cookie::set("key",$key,$time);
+        Utils\Cookie::set([
+            "uid" => $uid,
+            "email" => $user->email,
+            "key" => $key
+        ],$time);
     }
 
     public static function getUser(){
@@ -42,8 +44,10 @@ class Cookie
 
     public static function logout(){
         $time = time() - 1000;
-        Utils\Cookie::set("uid","",$time);
-        Utils\Cookie::set("email","",$time);
-        Utils\Cookie::set("key","",$time);
+        Utils\Cookie::set([
+            "uid" => null,
+            "email" => null,
+            "key" => null
+        ],$time);
     }
 }

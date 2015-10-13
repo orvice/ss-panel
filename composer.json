@@ -7,7 +7,8 @@
     "smarty/smarty": "~3.1",
     "mailgun/mailgun-php": "~1.7.2",
     "predis/predis": "~1.0",
-    "phpmailer/phpmailer": "~5.2"
+    "phpmailer/phpmailer": "~5.2",
+    "illuminate/pagination": "~5.1"
   },
   "autoload": {
     "classmap": [

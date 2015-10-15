@@ -4,6 +4,7 @@ use Slim\App;
 use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
+use App\Middleware\Admin;
 
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html

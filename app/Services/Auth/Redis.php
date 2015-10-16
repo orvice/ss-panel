@@ -14,4 +14,12 @@ class Redis
     public static function login($uid,$time){
 
     }
+
+    public static function logout(){
+
+    }
+
+    public static function getUser(){
+
+    }
 }

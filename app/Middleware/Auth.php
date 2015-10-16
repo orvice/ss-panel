@@ -15,7 +15,8 @@ class Auth{
         if(!$user->isLogin){
             // @TODO no login action
             $response->getBody()->write('Access Denied');
-            return $response;
+            $next = 'App\Controllers\HomeController:home';
+           // return $response;
         }
         $response = $next($request, $response);
         //$response->getBody()->write('AFTER');

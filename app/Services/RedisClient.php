@@ -28,4 +28,12 @@ class RedisClient
         $this->client->set($key,$value);
 
     }
+
+    public function setex($key,$value,$time){
+        $this->client->setex($key,$time,$value);
+    }
+
+    public function del($key){
+
+    }
 }

@@ -8,35 +8,36 @@ use App\Services\Auth\File;
 
 class Auth
 {
-   protected static $driver;
+   protected  $driver;
 
    public function __construct(){
-       self::$driver = Config::get('authDriver');
+
    }
 
-   public static function getDriver(){
-       return Config::get('authDriver');
-   }
+   public static  function getDriver(){
 
-   public static function login($uid,$time){
-        switch(self::getDriver()){
-            case 'cookie':
-                Cookie::login($uid,$time);
-        }
-   }
+       $method = Config::get('authDriver');
 
-   public static function getUser(){
-       switch(self::getDriver()){
+       switch($method){
            case 'cookie':
-              return Cookie::getUser();
+               return new Cookie();
+               break;
+           case 'redis':
+               return new Redis();
+               break;
        }
        return null;
    }
 
+   public static function login($uid,$time){
+       self::getDriver()->login($uid,$time);
+   }
+
+   public static function getUser(){
+       return self::getDriver()->getUser();
+   }
+
    public static function logout(){
-       switch(self::getDriver()){
-           case 'cookie':
-               Cookie::logout();
-       }
+       self::getDriver()->logout();
    }
 }

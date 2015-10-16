@@ -4,6 +4,8 @@ use Slim\App;
 use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
+use App\Middleware\Api;
+use App\Middleware\Admin;
 
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
@@ -38,11 +40,21 @@ $app->group('/auth', function () {
 $app->group('/admin', function () {
     $this->get('/', 'App\Controllers\AdminController:home');
     $this->get('/node', 'App\Controllers\AdminController:node');
+    $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
+
+
+// Admin
+$app->group('/api', function () {
+    $this->get('/', 'App\Controllers\AdminController:home');
+    $this->get('/node', 'App\Controllers\ApiController:node');
+    $this->get('/status', 'App\Controllers\ApiController:profile');
+})->add(new Api());
+
 
 // Run Slim Routes for App
 $app->run();

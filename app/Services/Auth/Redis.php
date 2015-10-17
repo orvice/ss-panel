@@ -37,10 +37,17 @@ class Redis
     public  function getUser(){
         $sid = Cookie::get('sid');
         $value = $this->client->get($sid);
-
+        if($value == null ){
+            $user = new User();
+            $user->isLogin = false;
+            return $user;
+        }
         $uid = $value;
-
         $user =  User::find($uid);
+        if($user == null ){
+            $user->isLogin = false;
+            return $user;
+        }
         $user->isLogin = true;
         return $user;
     }

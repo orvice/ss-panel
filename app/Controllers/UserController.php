@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Services\Auth;
 use App\Models\User;
 use App\Models\Node;
+use App\Utils\Tools;
+
 
 /**
  *  HomeController
@@ -25,7 +27,7 @@ class UserController extends BaseController
     }
 
     public function node(){
-
+        return $this->view()->display('user/index.tpl');
     }
 
     public function nodeInfo($request, $response, $args){
@@ -34,11 +36,11 @@ class UserController extends BaseController
     }
 
     public function profile(){
-
+        return $this->view()->display('user/profile.tpl');
     }
 
     public function invite(){
-
+        return $this->view()->display('user/invite.tpl');
     }
 
     public function sys(){
@@ -54,6 +56,8 @@ class UserController extends BaseController
     public function logout(){
         Auth::logout();
     }
+
+
 
     public function doCheckIn(){
 

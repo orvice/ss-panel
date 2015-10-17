@@ -53,11 +53,11 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p> 22小时内可以签到一次。</p>
-
+                        {if $user->isAbleToCheckin() }
                         <p id="checkin-btn"> <button id="checkin" class="btn btn-success  btn-flat">签到</button></p>
-
+                        {else}
                         <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a> </p>
-
+                        {/if}
                         <p id="checkin-msg" ></p>
                         <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
                     </div><!-- /.box-body -->

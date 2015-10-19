@@ -52,7 +52,7 @@ include_once 'header.php';
                     <h5 class="center">Easy to work with</h5>
 
                     <p class="light">
-                        Avaliable on multiple platforms, including PC, MAC, Mobile (Android and iOS) and Routers (OpenWRT).
+                        Available on multiple platforms, including PC, MAC, Mobile (Android and iOS) and Routers (OpenWRT).
                     </p>
                 </div>
             </div>

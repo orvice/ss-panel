@@ -26,6 +26,11 @@ class Tools
         }
     }
 
+    static function toMB($traffic){
+        $mb = 1048576;
+        return $traffic*$mb;
+    }
+
     //获取随机字符串
     static function genRandomChar( $length = 8 ) {
         // 密码字符集，可任意添加你需要的字符

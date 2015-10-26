@@ -101,9 +101,12 @@ class User extends Model
         }
         return false;
     }
-
-    public function doCheckin(){
-
+    /*
+     * @param traffic 单位 MB
+     */
+    public function addTraffic($traffic){
+        $this->last_check_in_time = $this->last_check_in_time + Tools::toMB($traffic);
+        $this->save();
     }
 
 }

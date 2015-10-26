@@ -82,4 +82,25 @@
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<script>
+    $(document).ready(function(){
+        $("#checkin").click(function(){
+            $.ajax({
+                type:"GET",
+                url:"/user/checkin",
+                dataType:"json",
+                success:function(data){
+                    $("#checkin-msg").html(data.msg);
+                    $("#checkin-btn").hide();
+                },
+                error:function(jqXHR){
+                    alert("发生错误："+jqXHR.status);
+                }
+            })
+        })
+    })
+</script>
+
+
 {include file='user/footer.tpl'}

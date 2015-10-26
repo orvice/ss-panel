@@ -22,6 +22,10 @@ class HomeController extends BaseController
         return $this->view()->assign('codes',$codes)->display('code.tpl');
     }
 
+    public function down(){
+        
+    }
+
     public function tos(){
         return $this->view()->display('tos.tpl');
     }

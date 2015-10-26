@@ -34,12 +34,13 @@
                     <div class="box-body">
                         <p> 已用流量：<?php echo $transfers."MB";?> </p>
                         <div class="progress progress-striped">
-                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $used_100; ?>%">
+                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$user->trafficUsagePercent()}%">
                                 <span class="sr-only">Transfer</span>
                             </div>
                         </div>
-                        <p> 可用流量：  </p>
-                        <p> 剩余流量：  </p>
+                        <p> 总流量:{$user->enableTraffic()}</p>
+                        <p> 已用流量：{$user->usedTraffic()}  </p>
+                        <p> 剩余流量： {$user->unusedTraffic()} </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (left) -->

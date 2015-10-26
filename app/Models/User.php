@@ -77,6 +77,22 @@ class User extends Model
         return $percent;
     }
 
+    public function enableTraffic(){
+        $enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($enable);
+    }
+
+    public function usedTraffic(){
+        $total = $this->attributes['u'] + $this->attributes['d'];
+        return Tools::flowAutoShow($total);
+    }
+
+    public function unusedTraffic(){
+        $total = $this->attributes['u'] + $this->attributes['d'];
+        $enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($enable-$total);
+    }
+
     public function isAbleToCheckin(){
         $last = $this->attributes['last_check_in_time'];
         $hour = Config::get('checkinTime');

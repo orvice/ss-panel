@@ -46,10 +46,10 @@ if you download ss-panel on path /home/www/ss-panel
 
 
 ```
-    root /home/www/ss-panel/public;
+root /home/www/ss-panel/public;
 
-    location / {
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
+location / {
+    try_files $uri $uri/ /index.php$is_args$args;
+}
     
 ```    

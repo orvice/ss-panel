@@ -28,7 +28,7 @@ class UserController extends BaseController
 
     public function node(){
         $nodes = Node::all();
-        return $this->view()->display('user/node.tpl');
+        return $this->view()->assign('nodes',$nodes)->display('user/node.tpl');
     }
 
     public function nodeInfo($request, $response, $args){

@@ -32,7 +32,6 @@
                         <h3 class="box-title">流量使用情况</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p> 已用流量：<?php echo $transfers."MB";?> </p>
                         <div class="progress progress-striped">
                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$user->trafficUsagePercent()}%">
                                 <span class="sr-only">Transfer</span>
@@ -73,7 +72,6 @@
                     <div class="box-body">
                         <p> 端口：<code>{$user->port}</code> </p>
                         <p> 密码：{$user->passwd} </p>
-                        <p> 套餐：<span class="label label-info"> {$user->plan} </span> </p>
                         <p> 最后使用时间：<code>{$user->lastSsTime()}</code> </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

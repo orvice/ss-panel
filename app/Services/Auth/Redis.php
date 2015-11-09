@@ -27,11 +27,12 @@ class Redis
             'sid' => $sid
         ],$time);
         $value = $uid;
-        $this->client->set($sid,$value);
+        $this->client->setex($sid,$time,$value);
     }
 
     public  function logout(){
-
+        $sid = Cookie::get('sid');
+        $this->client->del($sid);
     }
 
     public  function getUser(){

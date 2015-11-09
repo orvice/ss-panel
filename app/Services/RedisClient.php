@@ -34,6 +34,6 @@ class RedisClient
     }
 
     public function del($key){
-
+        $this->client->del($key);
     }
 }

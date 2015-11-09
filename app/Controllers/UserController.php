@@ -27,12 +27,16 @@ class UserController extends BaseController
     }
 
     public function node(){
-        return $this->view()->display('user/index.tpl');
+        $nodes = Node::all();
+        return $this->view()->display('user/node.tpl');
     }
 
     public function nodeInfo($request, $response, $args){
         $id = $args['id'];
         $node = Node::find($id);
+        if ($node == null){
+
+        }
     }
 
     public function profile(){

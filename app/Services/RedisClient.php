@@ -29,7 +29,7 @@ class RedisClient
 
     }
 
-    public function setex($key,$value,$time){
+    public function setex($key,$time,$value){
         $this->client->setex($key,$time,$value);
     }
 

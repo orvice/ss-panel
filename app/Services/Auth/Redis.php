@@ -25,7 +25,7 @@ class Redis
         $sid = Tools::genSID();
         Cookie::set([
             'sid' => $sid
-        ],$time);
+        ],$time+time());
         $value = $uid;
         $this->client->setex($sid,$time,$value);
     }

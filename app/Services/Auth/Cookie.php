@@ -16,7 +16,7 @@ class Cookie
             "uid" => $uid,
             "email" => $user->email,
             "key" => $key
-        ],$time);
+        ],$time+time());
     }
 
     public  function getUser(){

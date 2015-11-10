@@ -43,7 +43,8 @@ class AuthController extends BaseController
             $rs['msg'] = "402 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
         }
-        $time = time() + 3600;
+        // @todo
+        $time =  3600*24;
         Auth::login($user->id,$time);
         $rs['code'] = '1';
         $rs['ok'] = '1';
@@ -59,6 +60,13 @@ class AuthController extends BaseController
 
     public function registerHandle($request, $response, $next)
     {
+        $email =  $request->getParam('email');
+        $email = strtolower($email);
+        $passwd = $request->getParam('passwd');
+        $code = $request->getParam('code');
+
+        $user = User::where('email',$email)->first();
+
 
     }
 

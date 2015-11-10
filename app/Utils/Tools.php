@@ -2,6 +2,7 @@
 
 namespace App\Utils;
 
+use App\Services\Config;
 
 class Tools
 {
@@ -23,6 +24,11 @@ class Tools
         } else {
             return round($value, 2);
         }
+    }
+
+    static function toMB($traffic){
+        $mb = 1048576;
+        return $traffic*$mb;
     }
 
     //获取随机字符串
@@ -98,5 +104,10 @@ class Tools
         $html = str_replace($searchs, $replaces, $html);
         $html = addslashes($html);
         return $html;
+    }
+
+    public static function genSID(){
+        $unid =  uniqid(Config::get('key'));
+        return Hash::sha256WithSalt($unid);
     }
 }

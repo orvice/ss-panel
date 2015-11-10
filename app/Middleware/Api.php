@@ -6,7 +6,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use App\Services\Auth as AuthService;
 
-class Auth{
+class Api{
 
     public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
@@ -15,7 +15,6 @@ class Auth{
         if(!$user->isLogin){
             // @TODO no login action
             $response->getBody()->write('Access Denied');
-            // $next = 'App\Controllers\HomeController:home';
             return $response;
         }
         $response = $next($request, $response);

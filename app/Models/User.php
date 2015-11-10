@@ -9,6 +9,7 @@ namespace App\Models;
 use App\Utils\Tools;
 use App\Utils\Hash;
 use App\Models\InviteCode;
+use App\Services\Config;
 
 class User extends Model
 
@@ -55,10 +56,56 @@ class User extends Model
         $code->save();
     }
 
-    public function addManyInviteCode($num){
+    public function addManyInviteCodes($num){
         for($i = 0; $i < $num; $i++){
             $this->addInviteCode();
         }
+    }
+
+
+
+    public function trafficUsagePercent(){
+        $total = $this->attributes['u'] + $this->attributes['d'];
+        $enable = $this->attributes['transfer_enable'];
+        $percent = $total/$enable;
+        $percent = round($percent,2);
+        $percent = $percent*100;
+        return $percent;
+    }
+
+    public function enableTraffic(){
+        $enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($enable);
+    }
+
+    public function usedTraffic(){
+        $total = $this->attributes['u'] + $this->attributes['d'];
+        return Tools::flowAutoShow($total);
+    }
+
+    public function unusedTraffic(){
+        $total = $this->attributes['u'] + $this->attributes['d'];
+        $enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($enable-$total);
+    }
+
+    public function isAbleToCheckin(){
+        $last = $this->attributes['last_check_in_time'];
+        $hour = Config::get('checkinTime');
+        if($last + $hour*3600 < time() ){
+            return true;
+        }
+        return false;
+    }
+    /*
+     * @param traffic 单位 MB
+     */
+    public function addTraffic($traffic){
+    }
+
+    public function inviteCodes(){
+        $uid = $this->attributes['id'];
+        return InviteCode::where('user_id',$uid)->get();
     }
 
 }

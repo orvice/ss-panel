@@ -32,14 +32,14 @@
                         <h3 class="box-title">流量使用情况</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p> 已用流量：<?php echo $transfers."MB";?> </p>
                         <div class="progress progress-striped">
-                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $used_100; ?>%">
+                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$user->trafficUsagePercent()}%">
                                 <span class="sr-only">Transfer</span>
                             </div>
                         </div>
-                        <p> 可用流量：  </p>
-                        <p> 剩余流量：  </p>
+                        <p> 总流量:{$user->enableTraffic()}</p>
+                        <p> 已用流量：{$user->usedTraffic()}  </p>
+                        <p> 剩余流量： {$user->unusedTraffic()} </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (left) -->
@@ -53,11 +53,11 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p> 22小时内可以签到一次。</p>
-
+                        {if $user->isAbleToCheckin() }
                         <p id="checkin-btn"> <button id="checkin" class="btn btn-success  btn-flat">签到</button></p>
-
+                        {else}
                         <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a> </p>
-
+                        {/if}
                         <p id="checkin-msg" ></p>
                         <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
                     </div><!-- /.box-body -->
@@ -72,7 +72,6 @@
                     <div class="box-body">
                         <p> 端口：<code>{$user->port}</code> </p>
                         <p> 密码：{$user->passwd} </p>
-                        <p> 套餐：<span class="label label-info"> {$user->plan} </span> </p>
                         <p> 最后使用时间：<code>{$user->lastSsTime()}</code> </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
@@ -81,4 +80,25 @@
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<script>
+    $(document).ready(function(){
+        $("#checkin").click(function(){
+            $.ajax({
+                type:"POST",
+                url:"/user/checkin",
+                dataType:"json",
+                success:function(data){
+                    $("#checkin-msg").html(data.msg);
+                    $("#checkin-btn").hide();
+                },
+                error:function(jqXHR){
+                    alert("发生错误："+jqXHR.status);
+                }
+            })
+        })
+    })
+</script>
+
+
 {include file='user/footer.tpl'}

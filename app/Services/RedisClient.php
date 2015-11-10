@@ -4,7 +4,6 @@
 namespace App\Services;
 
 use Predis\Client;
-use App\Services\Config;
 
 
 class RedisClient
@@ -13,11 +12,7 @@ class RedisClient
 
     public function __construct(){
         $config = Config::get('redis');
-        $this->client = new Client([
-            'scheme' => 'tcp',
-            'host'   => $config['host'],
-            'port'   => $config['port'],
-        ]);
+        $this->client = new Client($config);
 
     }
 
@@ -32,5 +27,13 @@ class RedisClient
     public function set($key,$value){
         $this->client->set($key,$value);
 
+    }
+
+    public function setex($key,$time,$value){
+        $this->client->setex($key,$time,$value);
+    }
+
+    public function del($key){
+        $this->client->del($key);
     }
 }

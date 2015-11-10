@@ -10,16 +10,12 @@ class Auth{
 
     public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
-        //$response->getBody()->write('BEFORE');
         $user = AuthService::getUser();
         if(!$user->isLogin){
-            // @TODO no login action
-            $response->getBody()->write('Access Denied');
-            // $next = 'App\Controllers\HomeController:home';
-            return $response;
+            $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');;
+            return $newResponse;
         }
         $response = $next($request, $response);
-        //$response->getBody()->write('AFTER');
         return $response;
     }
 }

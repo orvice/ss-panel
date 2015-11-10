@@ -109,4 +109,9 @@ class User extends Model
         $this->save();
     }
 
+    public function inviteCodes(){
+        $uid = $this->attributes['id'];
+        return InviteCode::where('user_id',$uid)->get();
+    }
+
 }

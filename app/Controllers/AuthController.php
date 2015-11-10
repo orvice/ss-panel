@@ -44,7 +44,7 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($rs));
         }
         // @todo
-        $time =  3600;
+        $time =  3600*24;
         Auth::login($user->id,$time);
         $rs['code'] = '1';
         $rs['ok'] = '1';
@@ -64,6 +64,9 @@ class AuthController extends BaseController
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
         $code = $request->getParam('code');
+
+        $user = User::where('email',$email)->first();
+
 
     }
 

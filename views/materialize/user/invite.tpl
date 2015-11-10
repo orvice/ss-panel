@@ -23,7 +23,7 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码。  </p>
-                        {if $user->invite_num} != 0}
+                        {if $user->invite_num }
                         <button id="invite" class="btn btn-sm btn-info">生成我的邀请码</button>
                         {/if}
                         <div id="msg-error" class="alert alert-warning alert-dismissable" style="display:none">
@@ -86,5 +86,22 @@
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
+<script>
+    $(document).ready(function(){
+        $("#invite").click(function(){
+            $.ajax({
+                type:"POST",
+                url:"/user/invite",
+                dataType:"json",
+                success:function(data){
+                    window.location.reload();
+                },
+                error:function(jqXHR){
+                    alert("发生错误："+jqXHR.status);
+                }
+            })
+        })
+    })
+</script>
 
 {include file='user/footer.tpl'}

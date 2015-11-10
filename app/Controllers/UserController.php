@@ -62,6 +62,8 @@ class UserController extends BaseController
             $code->user_id = $this->user->id;
             $code->save();
         }
+        $this->user->invite_num = 0;
+        $this->user->save();
         $res['ret'] = 1;
         return $response->getBody()->write(json_encode($res));
     }
@@ -75,6 +77,8 @@ class UserController extends BaseController
         $user = Auth::getUser();
         $pwd =  $request->getParam('sspwd');
         $user->updateSsPwd($pwd);
+        $res['ret'] = 1;
+        return $response->getBody()->write(json_encode($res));
     }
 
     public function logout(){

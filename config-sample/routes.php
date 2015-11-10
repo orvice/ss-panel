@@ -4,7 +4,6 @@ use Slim\App;
 use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
-use App\Middleware\Api;
 use App\Middleware\Admin;
 
 /***
@@ -20,9 +19,12 @@ $app->get('/code', 'App\Controllers\HomeController:code');
 // User Center
 $app->group('/user', function () {
     $this->get('/', 'App\Controllers\UserController:home');
+    $this->post('/checkin', 'App\Controllers\UserController:doCheckin');
     $this->get('/node', 'App\Controllers\UserController:node');
+    $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
     $this->get('/profile', 'App\Controllers\UserController:profile');
     $this->get('/invite', 'App\Controllers\UserController:invite');
+    $this->post('/invite', 'App\Controllers\UserController:doInvite');
     $this->get('/sys', 'App\Controllers\UserController:sys');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
@@ -40,21 +42,12 @@ $app->group('/auth', function () {
 $app->group('/admin', function () {
     $this->get('/', 'App\Controllers\AdminController:home');
     $this->get('/node', 'App\Controllers\AdminController:node');
-    $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
 
-
-// Admin
-$app->group('/api', function () {
-    $this->get('/', 'App\Controllers\AdminController:home');
-    $this->get('/node', 'App\Controllers\ApiController:node');
-    $this->get('/status', 'App\Controllers\ApiController:profile');
-})->add(new Api());
-
-
 // Run Slim Routes for App
 $app->run();
+

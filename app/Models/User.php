@@ -62,11 +62,7 @@ class User extends Model
         }
     }
 
-    public function getInviteCodes(){
-        $uid = $this->attributes['id'];
-        $codes = InviteCode::where('user',$uid)->get();
-        return $codes;
-    }
+
 
     public function trafficUsagePercent(){
         $total = $this->attributes['u'] + $this->attributes['d'];
@@ -105,8 +101,6 @@ class User extends Model
      * @param traffic 单位 MB
      */
     public function addTraffic($traffic){
-        $this->last_check_in_time = $this->last_check_in_time + Tools::toMB($traffic);
-        $this->save();
     }
 
     public function inviteCodes(){

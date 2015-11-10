@@ -85,7 +85,7 @@
     $(document).ready(function(){
         $("#checkin").click(function(){
             $.ajax({
-                type:"GET",
+                type:"POST",
                 url:"/user/checkin",
                 dataType:"json",
                 success:function(data){

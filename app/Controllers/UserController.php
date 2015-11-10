@@ -6,6 +6,7 @@ use App\Models\InviteCode;
 use App\Services\Auth;
 use App\Models\User;
 use App\Models\Node;
+use App\Services\Config;
 use App\Utils\Tools;
 
 
@@ -87,8 +88,19 @@ class UserController extends BaseController
 
 
 
-    public function doCheckIn(){
-
+    public function doCheckIn($request, $response, $args){
+        if(!$this->user->isAbleToCheckin()){
+            $res['msg'] = "您似乎已经签到过了...";
+            $res['ret'] = 1;
+            return $response->getBody()->write(json_encode($res));
+        }
+        $traffic = rand(Config::get('checkinMin'),Config::get('checkinMax'));
+        $this->user->transfer_enable = $this->user->transfer_enable+ Tools::toMB($traffic);
+        $this->user->last_check_in_time = time();
+        $this->user->save();
+        $res['msg'] = sprintf("获得了 %u MB流量.",$traffic);
+        $res['ret'] = 1;
+        return $response->getBody()->write(json_encode($res));
     }
 
 }

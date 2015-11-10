@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\InviteCode;
 use App\Services\Auth;
 use App\Models\User;
 use App\Models\Node;
@@ -48,7 +49,25 @@ class UserController extends BaseController
         return $this->view()->assign('codes',$codes)->display('user/invite.tpl');
     }
 
+    public function doInvite($request, $response, $args){
+        $n = $this->user->invite_num;
+        if ($n < 1){
+            $res['ret'] = 0;
+            return $response->getBody()->write(json_encode($res));
+        }
+        for ($i = 0; $i < $n; $i++ ){
+            $char = Tools::genRandomChar(32);
+            $code = new InviteCode();
+            $code->code = $char;
+            $code->user_id = $this->user->id;
+            $code->save();
+        }
+        $res['ret'] = 1;
+        return $response->getBody()->write(json_encode($res));
+    }
+
     public function sys(){
+        return $this->view()->assign('ana',"")->display('user/sys.tpl');
 
     }
 

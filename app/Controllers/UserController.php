@@ -55,6 +55,12 @@ class UserController extends BaseController
         return $this->view()->display('user/profile.tpl');
     }
 
+    public function edit(){
+        return $this->view()->display('user/edit.tpl');
+    }
+
+
+
     public function invite(){
         $codes = $this->user->inviteCodes();
         return $this->view()->assign('codes',$codes)->display('user/invite.tpl');

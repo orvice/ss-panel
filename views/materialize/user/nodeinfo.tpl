@@ -8,12 +8,9 @@
         </h1>
     </section>
     <!-- Main content -->
-    <!-- Main content -->
     <section class="content">
         <!-- START PROGRESS BARS -->
         <div class="row">
-
-
             <div class="col-md-6">
                 <div class="box box-solid">
                     <div class="box-header">

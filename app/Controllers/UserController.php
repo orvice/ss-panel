@@ -33,12 +33,22 @@ class UserController extends BaseController
         return $this->view()->assign('nodes',$nodes)->display('user/node.tpl');
     }
 
+
     public function nodeInfo($request, $response, $args){
         $id = $args['id'];
         $node = Node::find($id);
+
         if ($node == null){
 
         }
+        $ary['server'] = $node->server;
+        $ary['server_port'] = $this->user->port;
+        $ary['password'] = $this->user->passwd;
+        $ary['method'] = $node->method;
+        $json = json_encode($ary);
+        $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
+        $ssqr = "ss://".base64_encode($ssurl);
+        return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');
     }
 
     public function profile(){

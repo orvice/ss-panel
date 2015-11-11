@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="当前密码(必填)" id="nowpwd">
+                                <input type="password" class="form-control" placeholder="当前密码(必填)" id="oldpwd">
                             </div>
 
                             <div class="form-group">
@@ -99,19 +99,19 @@
             $("#pwd-update").click(function(){
                 $.ajax({
                     type:"POST",
-                    url:"_pwd_update.php",
+                    url:"password",
                     dataType:"json",
                     data:{
-                        nowpwd: $("#nowpwd").val(),
+                        oldpwd: $("#oldpwd").val(),
                         pwd: $("#pwd").val(),
                         repwd: $("#repwd").val()
                     },
                     success:function(data){
-                        if(data.ok){
+                        if(data.ret){
                             $("#msg-error").hide();
                             $("#msg-success").show();
                             $("#msg-success-p").html(data.msg);
-                            window.setTimeout("location.href='login.php'", 2000);
+                            window.setTimeout("location.href='/auth/login'", 2000);
                         }else{
                             $("#msg-error").show();
                             $("#msg-error-p").html(data.msg);

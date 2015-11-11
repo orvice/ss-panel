@@ -36,7 +36,7 @@ class Hash
     // @TODO
     public static function checkPassword($hashedPassword,$password){
         $method = Config::get('pwdMethod');
-        if($hashedPassword === self::passwordHash($password)){
+        if($hashedPassword == self::passwordHash($password)){
             return true;
         }
         return false;

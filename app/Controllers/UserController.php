@@ -7,6 +7,7 @@ use App\Services\Auth;
 use App\Models\User;
 use App\Models\Node;
 use App\Services\Config;
+use App\Utils\Hash;
 use App\Utils\Tools;
 
 
@@ -33,17 +34,33 @@ class UserController extends BaseController
         return $this->view()->assign('nodes',$nodes)->display('user/node.tpl');
     }
 
+
     public function nodeInfo($request, $response, $args){
         $id = $args['id'];
         $node = Node::find($id);
+
         if ($node == null){
 
         }
+        $ary['server'] = $node->server;
+        $ary['server_port'] = $this->user->port;
+        $ary['password'] = $this->user->passwd;
+        $ary['method'] = $node->method;
+        $json = json_encode($ary);
+        $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
+        $ssqr = "ss://".base64_encode($ssurl);
+        return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');
     }
 
     public function profile(){
         return $this->view()->display('user/profile.tpl');
     }
+
+    public function edit(){
+        return $this->view()->display('user/edit.tpl');
+    }
+
+
 
     public function invite(){
         $codes = $this->user->inviteCodes();
@@ -74,6 +91,36 @@ class UserController extends BaseController
 
     }
 
+    public function updatePassword($request, $response, $args){
+        $oldpwd =  $request->getParam('oldpwd');
+        $pwd =  $request->getParam('pwd"');
+        $repwd =  $request->getParam('repwd"');
+        $user = $this->user;
+        if (!Hash::checkPassword($user->pass,$oldpwd)){
+            $res['ret'] = 0;
+            $res['msg'] = "旧密码错误";
+            return $response->getBody()->write(json_encode($res));
+        }
+        if($pwd != $repwd){
+            $res['ret'] = 0;
+            $res['msg'] = "两次输入不符合";
+            return $response->getBody()->write(json_encode($res));
+        }
+
+        if(strlen($pwd) < 8){
+            $res['ret'] = 0;
+            $res['msg'] = "密码太短啦";
+            return $response->getBody()->write(json_encode($res));
+        }
+        $hashPwd = Hash::passwordHash($pwd);
+        $user->pass = $hashPwd;
+        $user->save();
+
+        $res['ret'] = 1;
+        $res['msg'] = "ok";
+        return $response->getBody()->write(json_encode($res));
+    }
+
     public function updateSsPwd($request, $response, $args){
         $user = Auth::getUser();
         $pwd =  $request->getParam('sspwd');
@@ -85,8 +132,6 @@ class UserController extends BaseController
     public function logout(){
         Auth::logout();
     }
-
-
 
     public function doCheckIn($request, $response, $args){
         if(!$this->user->isAbleToCheckin()){

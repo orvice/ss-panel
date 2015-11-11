@@ -13,16 +13,15 @@ class Admin{
         //$response->getBody()->write('BEFORE');
         $user = AuthService::getUser();
         if(!$user->isLogin){
-            // @TODO no login action
-            $response->getBody()->write('Access Denied');
-            return $response;
+            $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+            return $newResponse;
         }
 
         if(!$user->isAdmin()){
-            // @TODO
+            $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+            return $newResponse;
         }
         $response = $next($request, $response);
-        //$response->getBody()->write('AFTER');
         return $response;
     }
 }

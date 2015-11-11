@@ -10,13 +10,12 @@ class Guest{
 
     public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
-        //$response->getBody()->write('BEFORE');
         $user = AuthService::getUser();
         if($user->isLogin){
-            // @TODO  login action
+            $newResponse = $response->withStatus(302)->withHeader('Location', '/user');
+            return $newResponse;
         }
         $response = $next($request, $response);
-        //$response->getBody()->write('AFTER');
         return $response;
     }
 }

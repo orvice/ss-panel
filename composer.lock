@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b2a76005987009ec73491a2140de125",
+    "hash": "f100f86972abf667ca275f2c3fe20936",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -829,16 +829,16 @@
         },
         {
             "name": "slim/csrf",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim-Csrf.git",
-                "reference": "00cee3da49d0cf1b78a4c7cb286254e4662f053e"
+                "reference": "fd713fe28c73c70edcdda95afcf5ad30b21d2d9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim-Csrf/zipball/00cee3da49d0cf1b78a4c7cb286254e4662f053e",
-                "reference": "00cee3da49d0cf1b78a4c7cb286254e4662f053e",
+                "url": "https://api.github.com/repos/slimphp/Slim-Csrf/zipball/fd713fe28c73c70edcdda95afcf5ad30b21d2d9b",
+                "reference": "fd713fe28c73c70edcdda95afcf5ad30b21d2d9b",
                 "shasum": ""
             },
             "require": {
@@ -874,7 +874,7 @@
                 "middleware",
                 "slim"
             ],
-            "time": "2015-09-04 20:03:49"
+            "time": "2015-11-09 10:34:12"
         },
         {
             "name": "slim/slim",

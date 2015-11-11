@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\InviteCode;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -64,10 +65,36 @@ class AuthController extends BaseController
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
         $code = $request->getParam('code');
+        // check code
+        $c = InviteCode::where('code',$code)->first();
+        if ( $c == null) {
+            $res['ret'] = 0;
+            $res['msg'] = "邀请码无效";
+            return $response->getBody()->write(json_encode($res));
+        }
 
+        // check email format
+
+        // check pwd length
+
+        // check email
         $user = User::where('email',$email)->first();
+        if ( $user == null) {
+            $res['ret'] = 0;
+            $res['msg'] = "邮箱已经被注册了";
+            return $response->getBody()->write(json_encode($res));
+        }
+
+        // do reg user
+
+        // get port
+
+        
 
 
+        $res['ret'] = 1;
+        $res['msg'] = "注册成功";
+        return $response->getBody()->write(json_encode($res));
     }
 
     public function logout(){

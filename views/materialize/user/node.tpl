@@ -28,14 +28,10 @@
                         {foreach $nodes as $node}
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs pull-right">
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        操作 <span class="caret"></span>
+                                <li>
+                                    <a   href="./node/{$node->id}">
+                                        查看配置文件/二维码
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="./{$node->id}">配置文件</a></li>
-                                        <li role="presentation"><a role="menuitem" target="_blank" tabindex="-1" href="./{$node->id}"">二维码</a></li>
-                                    </ul>
                                 </li>
                                 <li class="pull-left header"><i class="fa fa-angle-right"></i> {$node->name}</li>
                             </ul>

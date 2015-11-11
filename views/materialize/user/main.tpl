@@ -113,7 +113,7 @@
 
 
                 <li >
-                    <a href="/user/update">
+                    <a href="/user/edit">
                         <i class="fa  fa-pencil"></i> <span>修改资料</span>
                     </a>
                 </li>

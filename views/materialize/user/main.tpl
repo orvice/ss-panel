@@ -63,7 +63,7 @@
                                     <a href="/user/profile" class="btn btn-default btn-flat">个人信息</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="/auth/logout" class="btn btn-default btn-flat">退出</a>
+                                    <a href="/user/logout" class="btn btn-default btn-flat">退出</a>
                                 </div>
                             </li>
                         </ul>

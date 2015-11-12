@@ -103,7 +103,7 @@ class AuthController extends BaseController
 
         // check email
         $user = User::where('email',$email)->first();
-        if ( $user == null) {
+        if ( $user != null) {
             $res['ret'] = 0;
             $res['msg'] = "邮箱已经被注册了";
             return $response->getBody()->write(json_encode($res));
@@ -119,13 +119,14 @@ class AuthController extends BaseController
         $user->t = 0;
         $user->u = 0;
         $user->d = 0;
-        $user->traffer_enable = Tools::toGB(Config::get('defaultTraffic'));
+        $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
         $user->invite_num = Config::get('inviteNum');
-        $user->ref_by = $code->user_id;
+        $user->ref_by = $c->user_id;
 
         if($user->save()){
             $res['ret'] = 1;
             $res['msg'] = "注册成功";
+            $c->delete();
             return $response->getBody()->write(json_encode($res));
         }
         $res['ret'] = 0;
@@ -133,8 +134,10 @@ class AuthController extends BaseController
         return $response->getBody()->write(json_encode($res));
     }
 
-    public function logout(){
+    public function logout($request, $response, $next){
         Auth::logout();
+        $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+        return $newResponse;
     }
 
 }

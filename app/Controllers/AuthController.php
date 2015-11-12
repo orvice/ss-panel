@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\InviteCode;
+use App\Services\Config;
+use App\Utils\Check;
+use App\Utils\Tools;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -46,6 +49,9 @@ class AuthController extends BaseController
         }
         // @todo
         $time =  3600*24;
+        if($rememberMe){
+            $time = 3600*24*7;
+        }
         Auth::login($user->id,$time);
         $rs['code'] = '1';
         $rs['ok'] = '1';
@@ -61,9 +67,11 @@ class AuthController extends BaseController
 
     public function registerHandle($request, $response, $next)
     {
+        $name =  $request->getParam('name');
         $email =  $request->getParam('email');
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
+        $repasswd = $request->getParam('repasswd');
         $code = $request->getParam('code');
         // check code
         $c = InviteCode::where('code',$code)->first();
@@ -74,8 +82,24 @@ class AuthController extends BaseController
         }
 
         // check email format
-
+        if(!Check::isEmailLegal($email)){
+            $res['ret'] = 0;
+            $res['msg'] = "邮箱无效";
+            return $response->getBody()->write(json_encode($res));
+        }
         // check pwd length
+        if(strlen($passwd)<8){
+            $res['ret'] = 0;
+            $res['msg'] = "密码太短";
+            return $response->getBody()->write(json_encode($res));
+        }
+
+        // check pwd re
+        if($passwd != $repasswd){
+            $res['ret'] = 0;
+            $res['msg'] = "两次密码输入不符";
+            return $response->getBody()->write(json_encode($res));
+        }
 
         // check email
         $user = User::where('email',$email)->first();
@@ -86,14 +110,26 @@ class AuthController extends BaseController
         }
 
         // do reg user
+        $user = new User();
+        $user->user_name = $name;
+        $user->email = $email;
+        $user->pass = Hash::passwordHash($passwd);
+        $user->passwd = Tools::genRandomChar(6);
+        $user->port = Tools::getLastPort();
+        $user->t = 0;
+        $user->u = 0;
+        $user->d = 0;
+        $user->traffer_enable = Tools::toGB(Config::get('defaultTraffic'));
+        $user->invite_num = Config::get('inviteNum');
+        $user->ref_by = $code->user_id;
 
-        // get port
-
-        
-
-
-        $res['ret'] = 1;
-        $res['msg'] = "注册成功";
+        if($user->save()){
+            $res['ret'] = 1;
+            $res['msg'] = "注册成功";
+            return $response->getBody()->write(json_encode($res));
+        }
+        $res['ret'] = 0;
+        $res['msg'] = "未知错误";
         return $response->getBody()->write(json_encode($res));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Utils;
 
+use App\Models\User;
 use App\Services\Config;
 
 class Tools
@@ -29,6 +30,11 @@ class Tools
     static function toMB($traffic){
         $mb = 1048576;
         return $traffic*$mb;
+    }
+
+    static function toGB($traffic){
+        $gb = 1048576*1024;
+        return $traffic*$gb;
     }
 
     //获取随机字符串
@@ -109,5 +115,10 @@ class Tools
     public static function genSID(){
         $unid =  uniqid(Config::get('key'));
         return Hash::sha256WithSalt($unid);
+    }
+
+    public static function getLastPort(){
+        $user = User::orderBy('id', 'desc')->first();
+        return $user->port;
     }
 }

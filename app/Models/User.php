@@ -27,7 +27,7 @@ class User extends Model
     }
 
     public function isAdmin(){
-        // @TODO
+        return $this->attributes['admin'];
     }
 
     public function lastSsTime(){

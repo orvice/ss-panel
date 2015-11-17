@@ -20,7 +20,7 @@ class HomeController extends BaseController
 
     public function code()
     {
-        $codes = InviteCode::where('user_id','=','0')->get();
+        $codes = InviteCode::where('user_id','=','0')->take(10)->get();
         return $this->view()->assign('codes',$codes)->display('code.tpl');
     }
 

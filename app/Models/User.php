@@ -14,7 +14,7 @@ use App\Services\Config;
 class User extends Model
 
 {
-    public $table = "user";
+    protected $table = "user";
 
     public $isLogin;
 

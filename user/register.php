@@ -148,7 +148,6 @@ require_once '../lib/config.php';
     })
 </script>
 <script type="text/javascript">
-            _Prompt_msg();
             // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
             function removeHTMLTag(str) {
                     str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag

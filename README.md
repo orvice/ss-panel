@@ -20,6 +20,11 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 * Web server with URL rewriting
 * MySQL
 
+## Supported Server
+
+* [shadowsocks manuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
+* [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go/tree/mu)
+
 
 ## Install
 
@@ -39,10 +44,12 @@ $ php composer.phar  install
 ### Step 2
 
 ```
-cp config-sample config
+cp .env.example .env
 ```
 
-Then edit config file under config dir.
+then edit .env
+
+ 
 
 ### Step 3
 
@@ -62,4 +69,9 @@ location / {
     try_files $uri $uri/ /index.php$is_args$args;
 }
     
-```    
+```
+
+## TO-DO
+
+* /admin
+* password reset

@@ -8,7 +8,8 @@
  */
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Dotenv;
+use Dotenv\Dotenv;
+use App\Services\Config;
 
 //  BASE_PATH
 define('BASE_PATH', __DIR__);
@@ -17,17 +18,26 @@ define('BASE_PATH', __DIR__);
 require BASE_PATH.'/vendor/autoload.php';
 
 // Env
-$env = new Dotenv\Dotenv(__DIR__);
+$env = new Dotenv(__DIR__);
 $env->load();
 
-// Init App Config
-$config = require BASE_PATH.'/config/app.php';
-$config['mail'] =  require BASE_PATH.'/config/mail.php';
-$config['redis'] =  require BASE_PATH.'/config/redis.php';
 // config time zone
-date_default_timezone_set($config['timeZone']);
+date_default_timezone_set($_ENV['timeZone']);
+
+// db config
+
+$dbConfig = [
+    'driver'    => Config::get('db_driver'),
+    'host'      => Config::get('db_host'),
+    'database'  => Config::get('db_database'),
+    'username'  => Config::get('db_username'),
+    'password'  => Config::get('db_password'),
+    'charset'   => Config::get('db_charset'),
+    'collation' => Config::get('db_collation'),
+    'prefix'    => Config::get('db_prefix')
+];
 
 // Init Eloquent ORM Connection
 $capsule = new Capsule;
-$capsule->addConnection(require BASE_PATH.'/config/db.php');
+$capsule->addConnection($dbConfig);
 $capsule->bootEloquent();

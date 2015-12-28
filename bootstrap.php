@@ -8,7 +8,7 @@
  */
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Dotenv;
+use Dotenv\Dotenv;
 
 //  BASE_PATH
 define('BASE_PATH', __DIR__);
@@ -17,7 +17,7 @@ define('BASE_PATH', __DIR__);
 require BASE_PATH.'/vendor/autoload.php';
 
 // Env
-$env = new Dotenv\Dotenv(__DIR__);
+$env = new Dotenv(__DIR__);
 $env->load();
 
 // Init App Config

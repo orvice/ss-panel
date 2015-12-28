@@ -67,4 +67,9 @@ location / {
     try_files $uri $uri/ /index.php$is_args$args;
 }
     
-```    
+```
+
+## TO-DO
+
+* /admin
+* password reset

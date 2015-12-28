@@ -20,12 +20,8 @@ require BASE_PATH.'/vendor/autoload.php';
 $env = new Dotenv(__DIR__);
 $env->load();
 
-// Init App Config
-$config = require BASE_PATH.'/config/app.php';
-$config['mail'] =  require BASE_PATH.'/config/mail.php';
-$config['redis'] =  require BASE_PATH.'/config/redis.php';
 // config time zone
-date_default_timezone_set($config['timeZone']);
+date_default_timezone_set($_ENV['timeZone']);
 
 // Init Eloquent ORM Connection
 $capsule = new Capsule;

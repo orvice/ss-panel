@@ -9,6 +9,6 @@ namespace App\Models;
 class InviteCode extends Model
 
 {
-    public $table = "invite_code";
+    protected $table = "invite_code";
 
 }

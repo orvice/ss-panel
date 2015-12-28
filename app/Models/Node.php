@@ -9,6 +9,6 @@ namespace App\Models;
 class Node extends Model
 
 {
-    public $table = "ss_node";
+    protected $table = "ss_node";
 
 }

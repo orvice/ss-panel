@@ -1,6 +1,6 @@
 {
   "require": {
-    "slim/slim": "^3.0@RC",
+    "slim/slim": "^3.0",
     "illuminate/database": "*",
     "slim/twig-view": "~2.0",
     "slim/csrf": "0.5.*",
@@ -8,7 +8,8 @@
     "mailgun/mailgun-php": "~1.7.2",
     "predis/predis": "~1.0",
     "phpmailer/phpmailer": "~5.2",
-    "illuminate/pagination": "~5.1"
+    "illuminate/pagination": "~5.1",
+    "vlucas/phpdotenv": "~2.1"
   },
   "autoload": {
     "classmap": [

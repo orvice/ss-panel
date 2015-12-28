@@ -14,7 +14,7 @@ use App\Services\Config;
 class User extends Model
 
 {
-    public $table = "user";
+    protected $table = "user";
 
     public $isLogin;
 
@@ -27,7 +27,7 @@ class User extends Model
     }
 
     public function isAdmin(){
-        // @TODO
+        return $this->attributes['admin'];
     }
 
     public function lastSsTime(){

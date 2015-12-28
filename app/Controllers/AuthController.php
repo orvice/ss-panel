@@ -61,7 +61,11 @@ class AuthController extends BaseController
 
     public function register($request, $response, $next)
     {
-        $code = $request->getQueryParams('code');
+         $ary = $request->getQueryParams();
+        $code = "";
+        if(isset($ary['code'])){
+            $code = $ary['code'];
+        }
         return $this->view()->assign('code',$code)->display('auth/register.tpl');
     }
 

@@ -1,4 +1,5 @@
 .idea
+.env
 vendor/
 config/
 composer.phar

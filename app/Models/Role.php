@@ -9,6 +9,6 @@ namespace App\Models;
 class Role extends Model
 
 {
-    public $table = "user_role";
+    protected $table = "user_role";
 
 }

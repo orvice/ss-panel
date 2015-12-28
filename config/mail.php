@@ -13,7 +13,6 @@ return [
         "sender" => "",
     ],
 
-
     //SMTP setting
     "smtp" => [
         'host' => '',

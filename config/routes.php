@@ -18,6 +18,7 @@ $app->get('/code', 'App\Controllers\HomeController:code');
 
 // User Center
 $app->group('/user', function () {
+    $this->get('', 'App\Controllers\UserController:home');
     $this->get('/', 'App\Controllers\UserController:home');
     $this->post('/checkin', 'App\Controllers\UserController:doCheckin');
     $this->get('/node', 'App\Controllers\UserController:node');
@@ -29,7 +30,6 @@ $app->group('/user', function () {
     $this->post('/password', 'App\Controllers\UserController:updatePassword');
     $this->post('/sspwd', 'App\Controllers\UserController:updateSsPwd');
     $this->get('/sys', 'App\Controllers\UserController:sys');
-    $this->get('/test', 'App\Controllers\UserController:test');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 

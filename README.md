@@ -44,10 +44,12 @@ $ php composer.phar  install
 ### Step 2
 
 ```
-cp config-sample config
+cp .env.example .env
 ```
 
-Then edit config file under config dir.
+then edit .env
+
+ 
 
 ### Step 3
 

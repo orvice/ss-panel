@@ -23,7 +23,7 @@ $env->load();
 
 // config time zone
 date_default_timezone_set($_ENV['timeZone']);
-
+$_ENV['version'] = '3.0.0 Beta';
 // db config
 
 $dbConfig = [

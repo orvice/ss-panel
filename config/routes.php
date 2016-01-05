@@ -61,7 +61,8 @@ $app->group('/auth', function () {
 $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
-    $this->get('/node', 'App\Controllers\AdminController:node');
+    $this->get('/node', 'App\Controllers\Admin\NodeController:index');
+    $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');

@@ -24,7 +24,7 @@ class UserController extends BaseController
         $this->user = Auth::getUser();
     }
 
-    public function home()
+    public function index()
     {
         return $this->view()->display('user/index.tpl');
     }

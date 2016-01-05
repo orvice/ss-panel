@@ -24,8 +24,14 @@ $env->load();
 // config time zone
 date_default_timezone_set($_ENV['timeZone']);
 
-// db config
+// debug
+if ($_ENV['debug'] == "true" ){
+    define("DEBUG",true);
+}
 
+$_ENV['version'] = '3.0.0 Beta';
+
+// db config
 $dbConfig = [
     'driver'    => Config::get('db_driver'),
     'host'      => Config::get('db_host'),

@@ -15,6 +15,8 @@ class Hash
             case 'sha256':
                 return self::sha256WithSalt($str);
                 break;
+            default:
+                return self::md5WithSalt($str);
         }
         return $str;
     }

@@ -1,25 +1,40 @@
 <?php
 
 use Slim\App;
+use Slim\Container;
 use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
 
+
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
  */
 
-$app = new App();
+// config
+$debug = false;
+if (defined("DEBUG")){
+    $debug = true;
+}
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => $debug,
+    ],
+];
+$c = new Container($configuration);
+
+// Make a Slim App
+$app = new App($c);
 
 // Home
-$app->get('/', 'App\Controllers\HomeController:home');
+$app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
 
 // User Center
 $app->group('/user', function () {
-    $this->get('', 'App\Controllers\UserController:home');
-    $this->get('/', 'App\Controllers\UserController:home');
+    $this->get('', 'App\Controllers\UserController:index');
+    $this->get('/', 'App\Controllers\UserController:index');
     $this->post('/checkin', 'App\Controllers\UserController:doCheckin');
     $this->get('/node', 'App\Controllers\UserController:node');
     $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
@@ -44,10 +59,12 @@ $app->group('/auth', function () {
 
 // Admin
 $app->group('/admin', function () {
-    $this->get('/', 'App\Controllers\AdminController:home');
+    $this->get('', 'App\Controllers\AdminController:index');
+    $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/node', 'App\Controllers\AdminController:node');
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
+    $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());

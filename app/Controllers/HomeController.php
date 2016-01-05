@@ -13,7 +13,7 @@ use App\Services\Config;
 class HomeController extends BaseController
 {
 
-    public function home()
+    public function index()
     {
         return $this->view()->display('index.tpl');
     }

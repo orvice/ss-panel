@@ -13,13 +13,13 @@ use App\Middleware\Admin;
 $app = new App();
 
 // Home
-$app->get('/', 'App\Controllers\HomeController:home');
+$app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
 
 // User Center
 $app->group('/user', function () {
-    $this->get('', 'App\Controllers\UserController:home');
-    $this->get('/', 'App\Controllers\UserController:home');
+    $this->get('', 'App\Controllers\UserController:index');
+    $this->get('/', 'App\Controllers\UserController:index');
     $this->post('/checkin', 'App\Controllers\UserController:doCheckin');
     $this->get('/node', 'App\Controllers\UserController:node');
     $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
@@ -44,7 +44,8 @@ $app->group('/auth', function () {
 
 // Admin
 $app->group('/admin', function () {
-    $this->get('/', 'App\Controllers\AdminController:home');
+    $this->get('', 'App\Controllers\AdminController:index');
+    $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/node', 'App\Controllers\AdminController:node');
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');

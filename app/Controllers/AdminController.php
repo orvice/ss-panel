@@ -6,13 +6,13 @@ use App\Models\InviteCode;
 use App\Models\Node;
 
 /**
- *  AdminController
+ *  Admin Controller
  */
 
 class AdminController extends BaseController
 {
 
-    public function home()
+    public function index()
     {
         return $this->view()->display('admin/index.tpl');
     }

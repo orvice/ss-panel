@@ -1,4 +1,4 @@
-{include file='user/main.tpl'}
+{include file='admin/main.tpl'}
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,7 +11,6 @@
     </section>
 
     <!-- Main content -->
-    <!-- Main content -->
     <section class="content">
         <div class="row">
             <!-- left column -->
@@ -19,70 +18,41 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">邀请</h3>
+                        <h3 class="box-title">添加邀请码</h3>
                     </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码。  </p>
-                        {if $user->invite_num }
-                        <button id="invite" class="btn btn-sm btn-info">生成我的邀请码</button>
-                        {/if}
-                        <div id="msg-error" class="alert alert-warning alert-dismissable" style="display:none">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-                            <p id="msg-error-p"></p>
+                    <!-- form start -->
+                    <form role="form" method="post" action="/admin/invite" target="_blank">
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="cate_title">邀请码前缀</label>
+                                <input  class="form-control" name="code_sub" placeholder="小于8个字符"  >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title">邀请码类别</label>
+                                <input  class="form-control" name="code_type"  placeholder="0为公开，其他数字为对应用户的UID" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title">邀请码数量</label>
+                                <input  class="form-control" name="code_num" placeholder="要生成的邀请码数量"  >
+                            </div>
+
+
+                        </div><!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <button type="submit" name="action" value="add" class="btn btn-primary">添加</button>
                         </div>
 
-                    </div><!-- /.box -->
-
-                    <div class="box-header">
-                        <h3 class="box-title">我的邀请码</h3>
-                    </div><!-- /.box-header -->
-
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th>###</th>
-                                <th>邀请码</th>
-                                <th>状态</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            {foreach $codes as $code}
-                            <tr>
-                                <td>{$code->id}</td>
-                                <td>{$code->code}</td>
-                                <td>可用</td>
-                            </tr>
-                            {/foreach}
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="box-footer">
+                            <p>邀请码类别0的<a href="../code.php">在这里查看</a> </p>
+                        </div>
+                    </form>
                 </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box box-solid">
-                    <div class="box-body">
-
-                        <div class="callout callout-warning">
-                            <h4>注意！</h4>
-                            <p>邀请码请给认识的需要的人。</p>
-                            <p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>
-                        </div>
-
-                        <div class="callout callout-info">
-                            <h4>说明</h4>
-                            <p>用户注册48小时后，才可以生成邀请码。</p>
-                            <p>邀请码暂时无法购买，请珍惜。</p>
-                            <p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>
-                        </div>
-
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
-        </div>
+            </div><!-- /.box -->
+        </div>   <!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
@@ -104,4 +74,4 @@
     })
 </script>
 
-{include file='user/footer.tpl'}
+{include file='admin/footer.tpl'}

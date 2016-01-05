@@ -24,10 +24,19 @@ class AdminController extends BaseController
 
     public function code()
     {
-        $codes = InviteCode::where('user','=','0')->get();
-        return $this->view()->assign('codes',$codes)->display('admin/code.tpl');
+
     }
 
+    public function invite()
+    {
+        $codes = InviteCode::where('user_id','=','0')->get();
+        return $this->view()->assign('codes',$codes)->display('admin/invite.tpl');
+    }
 
+    public function addInvite()
+    {
+        $codes = InviteCode::where('user_id','=','0')->get();
+        return $this->view()->assign('codes',$codes)->display('admin/invite.tpl');
+    }
 
 }

@@ -1,16 +1,31 @@
 <?php
 
 use Slim\App;
+use Slim\Container;
 use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
 
+
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
  */
 
-$app = new App();
+// config
+$debug = false;
+if (defined("DEBUG")){
+    $debug = true;
+}
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => $debug,
+    ],
+];
+$c = new Container($configuration);
+
+// Make a Slim App
+$app = new App($c);
 
 // Home
 $app->get('/', 'App\Controllers\HomeController:index');

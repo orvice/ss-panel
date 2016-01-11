@@ -13,6 +13,7 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
         if($pw != $user_pwd || $pw == null || $user_pwd == null  ){
             header("Location:login.php");
         }
+        exit();
 }else{
     header("Location:login.php");
     exit();

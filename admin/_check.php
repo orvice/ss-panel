@@ -15,8 +15,8 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
         }
         if(!$U->isAdmin()){
             header("Location:../user/index.php");
+            exit();
         }
-        exit();
 }else{
     header("Location:login.php");
     exit();

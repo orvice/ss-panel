@@ -3,7 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Models\PasswordReset;
 use App\Services\Password;
+use App\Utils\Hash;
+
 /***
  * Class Password
  * @package App\Controllers
@@ -16,7 +19,7 @@ class PasswordController extends BaseController
         return $this->view()->display('password/reset.tpl');
     }
 
-    public function handleReset($request, $response, $next){
+    public function handleReset($request, $response, $args){
         $email =  $request->getParam('email');
         // check limit
 
@@ -33,7 +36,39 @@ class PasswordController extends BaseController
         return $response->getBody()->write(json_encode($rs));
     }
 
-    public function handleToken($request, $response, $next){
-        
+    public function token($request, $response, $args){
+        $token = $args['token'];
+        return $this->view()->assign('token',$token)->display('password/token.tpl');
+    }
+
+    public function handleToken($request, $response, $args){
+        $tokenStr = $args['token'];
+        $password =  $request->getParam('password');
+        // check token
+        $token = PasswordReset::where('token',$tokenStr)->first();
+        if ($token == null || $token->expire_time < time() ){
+            $rs['ret'] = 0;
+            $rs['msg'] = '链接已经失效,请重新获取';
+            return $response->getBody()->write(json_encode($rs));
+        }
+
+        $user = User::where('email',$token->email)->first();
+        if ($user == null){
+            $rs['ret'] = 0;
+            $rs['msg'] = '链接已经失效,请重新获取';
+            return $response->getBody()->write(json_encode($rs));
+        }
+
+        // reset password
+        $hashPassword = Hash::passwordHash($password);
+        $user->pass = $hashPassword;
+        if(!$user->save()){
+            $rs['ret'] = 0;
+            $rs['msg'] = '重置失败,请重试';
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = '重置成功';
+        return $response->getBody()->write(json_encode($rs));
     }
 }

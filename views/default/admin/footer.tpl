@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         Made with Love
     </div>
-    <strong>Copyright &copy; 2015 <a href="#">{$config['appName']}</a> </strong>
+    <strong>Copyright &copy; 2016 <a href="#">{$config['appName']}</a> </strong>
     All rights reserved.  Powered by  <b>ss-panel</b>{$config['version']} | <a href="/tos">服务条款  </a>
 </footer>
 </div><!-- ./wrapper -->

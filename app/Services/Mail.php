@@ -2,7 +2,10 @@
 
 namespace App\Services;
 
-use App\Services\Config;
+/***
+ * Mail Service
+ */
+
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Smtp;
 

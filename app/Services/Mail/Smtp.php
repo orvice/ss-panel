@@ -12,7 +12,7 @@ class Smtp
     private $mail,$config;
 
     public function __construct(){
-        $this->config = Config::get("mail")["smtp"];
+        $this->config = $this->getConfig();
         $mail = new PHPMailer;
         //$mail->SMTPDebug = 3;                               // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -24,6 +24,16 @@ class Smtp
         $mail->Port = $this->config['port'];                                    // TCP port to connect to
         $mail->setFrom($this->config['sender'], $this->config['name']);
         $this->mail = $mail;
+    }
+
+    public function getConfig(){
+        return [
+            "host" => Config::get('smtp_host'),
+            "username" => Config::get('smtp_username'),
+            "port" => Config::get('smtp_port'),
+            "sender" => Config::get('smtp_sender'),
+            "name" => Config::get('smtp_name')
+        ];
     }
 
     public function send($to,$subject,$text){

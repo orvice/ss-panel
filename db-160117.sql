@@ -1,12 +1,10 @@
--- Adminer 4.1.0 MySQL dump
-
 SET NAMES utf8;
-SET time_zone = '+00:00';
+SET time_zone = '+8:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `invite_code`;
-CREATE TABLE `invite_code` (
+DROP TABLE IF EXISTS `ss_invite_code`;
+CREATE TABLE `ss_invite_code` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(128) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -24,6 +22,7 @@ CREATE TABLE `ss_node` (
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
   `method` varchar(64) NOT NULL,
+  `custom_method` tinyint(1) NOT NULL DEFAULT '0',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
   `order` int(3) NOT NULL,
@@ -31,13 +30,13 @@ CREATE TABLE `ss_node` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-DROP TABLE IF EXISTS `ss_reset_pwd`;
-CREATE TABLE `ss_reset_pwd` (
+DROP TABLE IF EXISTS `ss_password_reset`;
+CREATE TABLE `ss_password_reset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(32) NOT NULL,
+  `token` varchar(128) NOT NULL,
   `init_time` int(11) NOT NULL,
   `expire_time` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `uni_char` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,8 +63,9 @@ CREATE TABLE `user` (
   `invite_num` int(8) NOT NULL DEFAULT '0',
   `admin` int(2) NOT NULL DEFAULT '0',
   `ref_by` int(11) NOT NULL DEFAULT '0',
+  `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2015-12-07 14:19:40
+-- 2016-01-17 08:03:52

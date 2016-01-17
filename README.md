@@ -71,7 +71,3 @@ location / {
     
 ```
 
-## TO-DO
-
-* /admin
-* password reset

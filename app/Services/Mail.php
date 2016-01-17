@@ -11,7 +11,12 @@ use App\Services\Mail\Smtp;
 
 class Mail
 {
-
+    /***
+     * @param $to
+     * @param $subject
+     * @param $text
+     * @return bool
+     */
     public static function send($to,$subject,$text){
         $driver = Config::get("maildriver");
         switch ($driver){
@@ -26,5 +31,11 @@ class Mail
             default:
                 // @TODO default action
         }
+        try{
+            $driver->send($to,$subject,$text);
+        }catch (Exception $e){
+            return false;
+        }
+        return true;
     }
 }

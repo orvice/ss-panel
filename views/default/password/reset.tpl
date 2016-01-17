@@ -17,12 +17,12 @@
         <div class="row">
 
             <div class="col-xs-4">
-                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat">重置密码</button>
+                <button id="reset" type="submit" class="btn btn-primary btn-block btn-flat">重置密码</button>
             </div><!-- /.col -->
         </div>
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 登录成功!</h4>
+            <h4><i class="icon fa fa-info"></i> 成功!</h4>
             <p id="msg-success-p"></p>
         </div>
         <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
@@ -55,22 +55,20 @@
 </script>
 <script>
     $(document).ready(function(){
-        function login(){
+        function reset(){
             $.ajax({
                 type:"POST",
-                url:"/auth/login",
+                url:"/password/reset",
                 dataType:"json",
                 data:{
                     email: $("#email").val(),
-                    passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
                 },
                 success:function(data){
-                    if(data.ok){
+                    if(data.ret == 1){
                         $("#msg-error").hide(100);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
-                        window.setTimeout("location.href='/user'", 2000);
+                       // window.setTimeout("location.href='/auth/login'", 2000);
                     }else{
                         $("#msg-error").hide(10);
                         $("#msg-error").show(100);
@@ -89,8 +87,8 @@
                 login();
             }
         });
-        $("#login").click(function(){
-            login();
+        $("#reset").click(function(){
+            reset();
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

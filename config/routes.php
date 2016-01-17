@@ -60,9 +60,9 @@ $app->group('/auth', function () {
 // Password
 $app->group('/password', function () {
     $this->get('/reset', 'App\Controllers\PasswordController:reset');
-    $this->post('/reset', 'App\Controllers\AuthController:handleReset');
-    $this->get('/token', 'App\Controllers\AuthController:token');
-    $this->post('/token', 'App\Controllers\AuthController:handleToken');
+    $this->post('/reset', 'App\Controllers\PasswordController:handleReset');
+    $this->get('/token', 'App\Controllers\PasswordController:token');
+    $this->post('/token', 'App\Controllers\PasswordController:handleToken');
 })->add(new Guest());
 
 // Admin

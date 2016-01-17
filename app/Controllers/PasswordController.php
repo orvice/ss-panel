@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+use App\Services\Password;
 /***
  * Class Password
  * @package App\Controllers
@@ -19,9 +21,15 @@ class PasswordController extends BaseController
         // check limit
 
         // send email
-
+        $user = User::where('email',$email)->first();
+        if ($user == null){
+            $rs['ret'] = 0;
+            $rs['msg'] = '此邮箱不存在.';
+            return $response->getBody()->write(json_encode($rs));
+        }
+        Password::sendResetEmail($email);
         $rs['ret'] = 1;
-        $rs['msg'] = 'ok';
+        $rs['msg'] = '重置邮件已经发送,请检查邮箱.';
         return $response->getBody()->write(json_encode($rs));
     }
 

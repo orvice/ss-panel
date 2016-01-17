@@ -1,4 +1,4 @@
-{include file='user/main.tpl'}
+{include file='admin/main.tpl'}
 
 <div class="content-wrapper">
     <section class="content-header">
@@ -23,4 +23,4 @@
         </div>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-{include file='user/footer.tpl'}
+{include file='admin/footer.tpl'}

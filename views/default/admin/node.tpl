@@ -1,4 +1,4 @@
-{include file='user/main.tpl'}
+{include file='admin/main.tpl'}
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -12,53 +12,41 @@
 
     <!-- Main content -->
     <section class="content">
-        <!-- START PROGRESS BARS -->
         <div class="row">
-            <div class="col-md-8">
-                <div class="box box-solid">
-                    <div class="box-header">
-                        <i class="fa fa-th-list"></i>
-                        <h3 class="box-title">节点</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="callout callout-warning">
-                            <h4>注意!</h4>
-                            <p>请勿在任何地方公开节点地址！</p>
-                        </div>
-                        {foreach $nodes as $node}
-                        <div class="nav-tabs-custom">
-                            <ul class="nav nav-tabs pull-right">
-                                <li>
-                                    <a   href="./node/{$node->id}">
-                                        查看配置文件/二维码
-                                    </a>
-                                </li>
-                                <li class="pull-left header"><i class="fa fa-angle-right"></i> {$node->name}</li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1-1">
-                                    <p> <a class="btn btn-xs bg-purple btn-flat margin" href="#">地址:</a> <code>{$node->server}</code>
-                                        <a class="btn btn-xs bg-orange btn-flat margin" href="#">{$node->status}</a>
-                                        <a class="btn btn-xs bg-green btn-flat margin" href="#">{$node->method}</a>
-                                    </p>
-                                    <p> {$node->info}</p>
-                                </div><!-- /.tab-pane -->
-                            </div><!-- /.tab-content -->
-                        </div><!-- nav-tabs-custom -->
-                        {/foreach}
+            <div class="col-xs-12">
+                <p> <a class="btn btn-success btn-sm" href="/admin/node/create">添加</a> </p>
+                <div class="box">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>ID</th>
+                                <th>节点</th>
+                                <th>加密</th>
+                                <th>描述</th>
+                                <th>排序</th>
+                                <th>操作</th>
+                            </tr>
+                            {foreach $nodes as $node}
+                            <tr>
+                                <td>#{$node->id}</td>
+                                <td> {$node->name}</td>
+                                <td>{$node->method}</td>
+                                <td>{$node->info}</td>
+                                <td>{$node->order}</td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="/admin/node/{$node->id}">编辑</a>
+                                    <a class="btn btn-danger btn-sm" href="/admin/node/{$node->id}/delete">删除</a>
+                                </td>
+                            </tr>
+                            {/foreach}
+                        </table>
                     </div><!-- /.box-body -->
-
-
                 </div><!-- /.box -->
-            </div><!-- /.col (left) -->
+            </div>
+        </div>
 
-            <div class="col-md-4">
-            </div><!-- /.col (right) -->
-
-        </div><!-- /.row -->
-        <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
 
-{include file='user/footer.tpl'}
+{include file='admin/footer.tpl'}

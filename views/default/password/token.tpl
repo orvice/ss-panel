@@ -9,9 +9,10 @@
 
         <form>
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
-                <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <input type="password" id="password" class="form-control" placeholder="在这里输入新密码"/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+
 
         </form>
         <div class="row">
@@ -58,17 +59,18 @@
         function reset(){
             $.ajax({
                 type:"POST",
-                url:"/password/reset",
+                url:"/password/token/{$token}",
                 dataType:"json",
                 data:{
-                    email: $("#email").val(),
+                    password: $("#password").val(),
+                    repasswd: $("#repasswd").val(),
                 },
                 success:function(data){
-                    if(data.ret == 1){
+                    if(data.ret){
                         $("#msg-error").hide(100);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
-                       // window.setTimeout("location.href='/auth/login'", 2000);
+                        window.setTimeout("location.href='/auth/login'", 2000);
                     }else{
                         $("#msg-error").hide(10);
                         $("#msg-error").show(100);
@@ -79,12 +81,14 @@
                     $("#msg-error").hide(10);
                     $("#msg-error").show(100);
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
+                    // 在控制台输出错误信息
+                    console.log(removeHTMLTag(jqXHR.responseText));
                 }
             });
         }
         $("html").keydown(function(event){
             if(event.keyCode==13){
-                login();
+                reset();
             }
         });
         $("#reset").click(function(){

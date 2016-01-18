@@ -10,8 +10,10 @@ $cat = new XCat();
 switch($argv[1]){
     case("install"):
         return $cat->install();
-    case("addadmin"):
-        return $cat->addAdmin();
+    case("createAdmin"):
+        return $cat->createAdmin();
+    case("resetTraffic"):
+        return $cat->resetTraffic();
     default:
         return $cat->defaultAction();
 }

@@ -129,6 +129,15 @@ class UserController extends BaseController
         return $response->getBody()->write(json_encode($res));
     }
 
+    public function updateMethod($request, $response, $args){
+        $user = Auth::getUser();
+        $method =  $request->getParam('method');
+        $method = strtolower($method);
+        $user->updateMethod($method);
+        $res['ret'] = 1;
+        return $response->getBody()->write(json_encode($res));
+    }
+
     public function logout(){
         Auth::logout();
     }

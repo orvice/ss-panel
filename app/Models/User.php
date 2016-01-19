@@ -48,6 +48,11 @@ class User extends Model
         $this->save();
     }
 
+    public function updateMethod($method){
+        $this->method = $method;
+        $this->save();
+    }
+
     public function addInviteCode(){
         $uid = $this->attributes['id'];
         $code = new InviteCode();

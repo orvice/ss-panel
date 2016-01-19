@@ -22,19 +22,12 @@ class Mail
         switch ($driver){
             case "mailgun":
                 $mail = new Mailgun();
-                $mail->send($to,$subject,$text);
-                break;
+                return $mail->send($to,$subject,$text);
             case "smtp":
                 $mail = new Smtp();
-                $mail->send($to,$subject,$text);
-                break;
+                return $mail->send($to,$subject,$text);
             default:
                 // @TODO default action
-        }
-        try{
-            $driver->send($to,$subject,$text);
-        }catch (Exception $e){
-            return false;
         }
         return true;
     }

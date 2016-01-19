@@ -18,7 +18,7 @@ class Mail
      * @return bool
      */
     public static function send($to,$subject,$text){
-        $driver = Config::get("maildriver");
+        $driver = Config::get("authDriver");
         switch ($driver){
             case "mailgun":
                 $mail = new Mailgun();

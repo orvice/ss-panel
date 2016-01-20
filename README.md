@@ -8,8 +8,6 @@ Let's talk about cat.  Base on [LightFish](https://github.com/OzCat/LightFish)
 
 ## About
 
-v3未完成，请查看[v2](https://github.com/orvice/ss-panel/tree/v2)
-
 Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to download ss-panel.
 
 [中文安装教程](https://github.com/orvice/ss-panel/wiki/v3-Install)

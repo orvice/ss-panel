@@ -25,7 +25,7 @@ CREATE TABLE `ss_node` (
   `custom_method` tinyint(1) NOT NULL DEFAULT '0',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
-  `order` int(3) NOT NULL,
+  `sort` int(3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

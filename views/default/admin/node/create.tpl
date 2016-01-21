@@ -57,8 +57,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="order">排序</label>
-                                <input   class="form-control" id="order"  value="" >
+                                <label for="sort">排序</label>
+                                <input   class="form-control" id="sort"  value="" >
                             </div>
                         </div><!-- /.box-body -->
 
@@ -80,9 +80,14 @@
                 url:"/admin/node",
                 dataType:"json",
                 data:{
-                    email: $("#email").val(),
-                    passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
+                    name: $("#name").val(),
+                    server: $("#server").val(),
+                    method: $("#method").val(),
+                    custom_method: $("#custom_method").val(),
+                    info: $("#info").val(),
+                    type: $("#type").val(),
+                    status: $("#status").val(),
+                    sort: $("#sort").val()
                 },
                 success:function(data){
                     if(data.ret){

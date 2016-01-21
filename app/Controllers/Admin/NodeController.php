@@ -25,7 +25,7 @@ class NodeController extends BaseController
         $node->info = $request->getParam('info');
         $node->type = $request->getParam('type');
         $node->status = $request->getParam('status');
-        $node->status = $request->getParam('order');
+        $node->sort = $request->getParam('sort');
         if(!$node->save()){
             $rs['ret'] = 0;
             $rs['msg'] = "添加失败";

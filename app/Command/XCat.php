@@ -48,7 +48,7 @@ class XCat
             $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
             $user->invite_num = Config::get('inviteNum');
             $user->ref_by = 0;
-            $user->admin = 1;
+            $user->is_admin = 1;
             if ($user->save()){
                 echo "Successful/添加成功!";
                 return true;

@@ -61,7 +61,7 @@ CREATE TABLE `user` (
   `last_rest_pass_time` int(11) NOT NULL DEFAULT '0',
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `invite_num` int(8) NOT NULL DEFAULT '0',
-  `admin` int(2) NOT NULL DEFAULT '0',
+  `is_admin` int(2) NOT NULL DEFAULT '0',
   `ref_by` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   PRIMARY KEY (`id`)

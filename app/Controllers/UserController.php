@@ -30,7 +30,7 @@ class UserController extends BaseController
     }
 
     public function node(){
-        $nodes = Node::all();
+        $nodes = Node::where('type',1)->orderBy('sort')->get();
         return $this->view()->assign('nodes',$nodes)->display('user/node.tpl');
     }
 

@@ -77,6 +77,7 @@ $app->group('/admin', function () {
     $this->get('/node/{id}/edit', 'App\Controllers\Admin\NodeController:edit');
     $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update');
     $this->delete('/node/{id}','App\Controllers\Admin\NodeController:delete');
+    $this->get('/node/{id}/delete', 'App\Controllers\Admin\NodeController:deleteGet');
 
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');

@@ -38,7 +38,7 @@ class NodeController extends BaseController
 
     public function edit($request, $response, $args){
         $id = $args['id'];
-        $node = Node::find($id)->first();
+        $node = Node::find($id);
         if ($node == null){
 
         }
@@ -47,7 +47,7 @@ class NodeController extends BaseController
 
     public function update($request, $response, $args){
         $id = $args['id'];
-        $node = Node::find($id)->first();
+        $node = Node::find($id);
 
         $node->name =  $request->getParam('name');
         $node->server =  $request->getParam('server');
@@ -68,9 +68,9 @@ class NodeController extends BaseController
     }
 
 
-    public function del($request, $response, $args){
+    public function delete($request, $response, $args){
         $id = $args['id'];
-        $node = Node::find($id)->first();
+        $node = Node::find($id);
         if(!$node->delete()){
             $rs['ret'] = 0;
             $rs['msg'] = "删除失败";
@@ -79,5 +79,13 @@ class NodeController extends BaseController
         $rs['ret'] = 1;
         $rs['msg'] = "删除成功";
         return $response->getBody()->write(json_encode($rs));
+    }
+
+    public function deleteGet($request, $response, $args){
+        $id = $args['id'];
+        $node = Node::find($id);
+        $node->delete();
+        $newResponse = $response->withStatus(302)->withHeader('Location', '/admin/node');
+        return $newResponse;
     }
 }

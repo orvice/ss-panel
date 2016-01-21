@@ -70,8 +70,14 @@ $app->group('/password', function () {
 $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
+    // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');
+    $this->post('/node', 'App\Controllers\Admin\NodeController:add');
+    $this->get('/node/{id}/edit', 'App\Controllers\Admin\NodeController:edit');
+    $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update');
+    $this->delete('/node/{id}','App\Controllers\Admin\NodeController:delete');
+
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');

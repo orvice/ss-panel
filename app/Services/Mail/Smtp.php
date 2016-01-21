@@ -19,7 +19,7 @@ class Smtp
         $mail->Host = $this->config['host'];  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = $this->config['username'];                 // SMTP username
-        $mail->Password = 'secret';                           // SMTP password
+        $mail->Password = $this->config['passsword'];                    // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = $this->config['port'];                                    // TCP port to connect to
         $mail->setFrom($this->config['sender'], $this->config['name']);
@@ -32,7 +32,8 @@ class Smtp
             "username" => Config::get('smtp_username'),
             "port" => Config::get('smtp_port'),
             "sender" => Config::get('smtp_sender'),
-            "name" => Config::get('smtp_name')
+            "name" => Config::get('smtp_name'),
+            "passsword" => Config::get('smtp_passsword')
         ];
     }
 
@@ -44,10 +45,9 @@ class Smtp
         $mail->Body    = $text;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         if(!$mail->send()) {
-            // @TODO
-        } else {
-            // @TODO
+            return true;
         }
+        return false;
     }
 
 }

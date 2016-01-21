@@ -39,4 +39,8 @@ class BaseController
     public function view(){
         return $this->smarty();
     }
+
+    public function echoJson(){
+
+    }
 }

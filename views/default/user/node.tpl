@@ -39,7 +39,11 @@
                                 <div class="tab-pane active" id="tab_1-1">
                                     <p> <a class="btn btn-xs bg-purple btn-flat margin" href="#">地址:</a> <code>{$node->server}</code>
                                         <a class="btn btn-xs bg-orange btn-flat margin" href="#">{$node->status}</a>
-                                        <a class="btn btn-xs bg-green btn-flat margin" href="#">{$node->method}</a>
+                                        {if $node->custom_method == 1}
+                                            <a class="btn btn-xs bg-green btn-flat margin" href="#">{$user->method}</a>
+                                        {else}
+                                            <a class="btn btn-xs bg-green btn-flat margin" href="#">{$node->method}</a>
+                                        {/if}
                                     </p>
                                     <p> {$node->info}</p>
                                 </div><!-- /.tab-pane -->

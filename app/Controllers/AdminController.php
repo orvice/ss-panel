@@ -23,9 +23,9 @@ class AdminController extends BaseController
         return $this->view()->assign('nodes',$nodes)->display('admin/node.tpl');
     }
 
-    public function code()
+    public function sys()
     {
-
+        return $this->view()->display('admin/index.tpl');
     }
 
     public function invite()

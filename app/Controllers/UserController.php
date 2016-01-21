@@ -46,6 +46,9 @@ class UserController extends BaseController
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
         $ary['method'] = $node->method;
+        if($node->custom_method){
+            $ary['method'] = $this->user->method;
+        }
         $json = json_encode($ary);
         $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
         $ssqr = "ss://".base64_encode($ssurl);

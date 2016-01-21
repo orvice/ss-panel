@@ -72,6 +72,7 @@
                     <div class="box-body">
                         <p> 端口：<code>{$user->port}</code> </p>
                         <p> 密码：{$user->passwd} </p>
+                        <p> 自定义加密：<code>{$user->method}</code> </p>
                         <p> 最后使用时间：<code>{$user->lastSsTime()}</code> </p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

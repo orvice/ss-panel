@@ -32,7 +32,7 @@
                                 <td> {$node->name}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
-                                <td>{$node->order}</td>
+                                <td>{$node->sort}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="/admin/node/{$node->id}/edit">编辑</a>
                                     <a class="btn btn-danger btn-sm" href="/admin/node/{$node->id}/delete">删除</a>

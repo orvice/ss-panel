@@ -48,6 +48,23 @@ class NodeController extends BaseController
     public function update($request, $response, $args){
         $id = $args['id'];
         $node = Node::find($id)->first();
+
+        $node->name =  $request->getParam('name');
+        $node->server =  $request->getParam('server');
+        $node->method =  $request->getParam('method');
+        $node->custom_method =  $request->getParam('custom_method');
+        $node->info = $request->getParam('info');
+        $node->type = $request->getParam('type');
+        $node->status = $request->getParam('status');
+        $node->sort = $request->getParam('sort');
+        if(!$node->save()){
+            $rs['ret'] = 0;
+            $rs['msg'] = "修改失败";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = "修改成功";
+        return $response->getBody()->write(json_encode($rs));
     }
 
 

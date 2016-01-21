@@ -47,7 +47,9 @@ cp .env.example .env
 
 then edit .env
 
- 
+```
+chmod -R 777 storage
+```
 
 ### Step 3
 

@@ -5,8 +5,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            节点添加
-            <small>Add Node</small>
+            节点编辑  #{$node->id}
+            <small>Edit Node</small>
         </h1>
     </section>
 
@@ -21,44 +21,44 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="title">节点名字</label>
-                                <input  class="form-control" id="name" value="" >
+                                <input  class="form-control" id="name" value="{$node->name}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="server">节点地址</label>
-                                <input  class="form-control" id="server" value="" >
+                                <input  class="form-control" id="server" value="{$node->server}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="method">加密方式</label>
-                                <input  class="form-control" id="method" value="" >
+                                <input  class="form-control" id="method" value="{$node->method}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="method">是否支持用户自定义加密</label>
                                 <p><a href="https://github.com/orvice/ss-panel/wiki/v3-custom-method">如何使用自定义加密?</a></p>
-                                <input  class="form-control" id="custom_method" value=""  placeholder="1 支持 0不支持 ">
+                                <input  class="form-control" id="custom_method" value="{$node->custom_method}"  placeholder="1 支持 0不支持 ">
                             </div>
 
 
                             <div class="form-group">
                                 <label for="info">节点描述</label>
-                                <input  class="form-control" id="info" value="" >
+                                <input  class="form-control" id="info" value="{$node->info}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="type">是否显示</label>
-                                <input   class="form-control" id="type"  value="" placeholder="0隐藏/1显示" >
+                                <input   class="form-control" id="type"  value="{$node->type}" placeholder="0隐藏/1显示" >
                             </div>
 
                             <div class="form-group">
                                 <label for="status">状态</label>
-                                <input   class="form-control" id="status"  value="" >
+                                <input   class="form-control" id="status"  value="{$node->status}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="sort">排序</label>
-                                <input   class="form-control" id="sort"  value="" >
+                                <input   class="form-control" id="sort"  value="{$node->sort}" >
                             </div>
                         </div><!-- /.box-body -->
 
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" id="submit" name="action" value="add" class="btn btn-primary">添加</button>
+                            <button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
                         </div>
 
                 </div>
@@ -87,8 +87,8 @@
     $(document).ready(function(){
         function submit(){
             $.ajax({
-                type:"POST",
-                url:"/admin/node",
+                type:"PUT",
+                url:"/admin/node/{$node->id}",
                 dataType:"json",
                 data:{
                     name: $("#name").val(),

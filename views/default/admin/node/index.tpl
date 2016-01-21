@@ -32,10 +32,10 @@
                                 <td> {$node->name}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
-                                <td>{$node->order}</td>
+                                <td>{$node->sort}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="/admin/node/{$node->id}/edit">编辑</a>
-                                    <a class="btn btn-danger btn-sm" href="/admin/node/{$node->id}/delete">删除</a>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="{$node->id}" href="/admin/node/{$node->id}/delete">删除</a>
                                 </td>
                             </tr>
                             {/foreach}
@@ -48,5 +48,51 @@
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
+
+<script>
+    $(document).ready(function(){
+        function delete(){
+            $.ajax({
+                type:"DELETE",
+                url:"/admin/node/",
+                dataType:"json",
+                data:{
+                    name: $("#name").val()
+                },
+                success:function(data){
+                    if(data.ret){
+                        $("#msg-error").hide(100);
+                        $("#msg-success").show(100);
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("location.href='/admin/node'", 2000);
+                    }else{
+                        $("#msg-error").hide(10);
+                        $("#msg-error").show(100);
+                        $("#msg-error-p").html(data.msg);
+                    }
+                },
+                error:function(jqXHR){
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误："+jqXHR.status);
+                }
+            });
+        }
+        $("html").keydown(function(event){
+            if(event.keyCode==13){
+                login();
+            }
+        });
+        $("#delete").click(function(){
+            delete();
+        });
+        $("#ok-close").click(function(){
+            $("#msg-success").hide(100);
+        });
+        $("#error-close").click(function(){
+            $("#msg-error").hide(100);
+        });
+    })
+</script>
 
 {include file='admin/footer.tpl'}

@@ -45,8 +45,6 @@
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->
 
-
-            <script src=" /assets/public/js/jQuery.min.js') "></script>
             <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
             <script>
                 jQuery('#qrcode').qrcode("{$ssqr}");

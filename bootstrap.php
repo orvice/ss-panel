@@ -29,7 +29,7 @@ if ($_ENV['debug'] == "true" ){
     define("DEBUG",true);
 }
 
-$_ENV['version'] = '3.0.0 Beta';
+$_ENV['version'] = '3.0.0';
 
 // db config
 $dbConfig = [

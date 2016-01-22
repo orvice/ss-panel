@@ -9,7 +9,8 @@
     "predis/predis": "~1.0",
     "phpmailer/phpmailer": "~5.2",
     "illuminate/pagination": "~5.1",
-    "vlucas/phpdotenv": "~2.1"
+    "vlucas/phpdotenv": "~2.1",
+    "zeuxisoo/slim-whoops": "0.4.*"
   },
   "autoload": {
     "classmap": [

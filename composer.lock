@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d512104cb7fd4d2887cda9de02c9ead2",
+    "hash": "097f9213a05f62f7928d7ec26cb9392f",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "url": "http://packagist.phpcomposer.com/files/container-interop/container-interop/fc08354828f8fd3245f77a66b9e23a6bca48297e.zip",
                 "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e",
                 "shasum": ""
             },
@@ -43,7 +43,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
                 "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
@@ -101,6 +101,64 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "filp/whoops",
+            "version": "1.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/filp/whoops/72538eeb70bbfb11964412a3d098d109efd012f7.zip",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Whoops": "src/"
+                },
+                "classmap": [
+                    "src/deprecated"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "silex-provider",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2015-06-29 05:42:04"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "v3.9.3",
             "source": {
@@ -110,7 +168,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "url": "http://packagist.phpcomposer.com/files/guzzle/guzzle3/0645b70d953bc1c067bbc8d5bc53194706b628d9.zip",
                 "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
                 "shasum": ""
             },
@@ -205,7 +263,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/afd2e874e034707c6bb9436f5a897ce29dce501a",
+                "url": "http://packagist.phpcomposer.com/files/illuminate/container/afd2e874e034707c6bb9436f5a897ce29dce501a.zip",
                 "reference": "afd2e874e034707c6bb9436f5a897ce29dce501a",
                 "shasum": ""
             },
@@ -248,7 +306,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/51b3acf96a12f5a10d767d5f2a534fed6f304235",
+                "url": "http://packagist.phpcomposer.com/files/illuminate/contracts/51b3acf96a12f5a10d767d5f2a534fed6f304235.zip",
                 "reference": "51b3acf96a12f5a10d767d5f2a534fed6f304235",
                 "shasum": ""
             },
@@ -290,7 +348,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/7072548f8a2933230e7f3e7199b78496fda964b5",
+                "url": "http://packagist.phpcomposer.com/files/illuminate/database/7072548f8a2933230e7f3e7199b78496fda964b5.zip",
                 "reference": "7072548f8a2933230e7f3e7199b78496fda964b5",
                 "shasum": ""
             },
@@ -350,7 +408,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pagination/zipball/48c134ac90d1a4b7e52f747fba0dd2a6a844ab43",
+                "url": "http://packagist.phpcomposer.com/files/illuminate/pagination/48c134ac90d1a4b7e52f747fba0dd2a6a844ab43.zip",
                 "reference": "48c134ac90d1a4b7e52f747fba0dd2a6a844ab43",
                 "shasum": ""
             },
@@ -394,7 +452,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/6d8dec02825299b0ad47712564e9d33104e148c4",
+                "url": "http://packagist.phpcomposer.com/files/illuminate/support/6d8dec02825299b0ad47712564e9d33104e148c4.zip",
                 "reference": "6d8dec02825299b0ad47712564e9d33104e148c4",
                 "shasum": ""
             },
@@ -450,7 +508,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/45ec0c8f3a2a6554b4987e97889f44991e4f75b4",
+                "url": "http://packagist.phpcomposer.com/files/mailgun/mailgun-php/45ec0c8f3a2a6554b4987e97889f44991e4f75b4.zip",
                 "reference": "45ec0c8f3a2a6554b4987e97889f44991e4f75b4",
                 "shasum": ""
             },
@@ -490,7 +548,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+                "url": "http://packagist.phpcomposer.com/files/briannesbitt/Carbon/7b08ec6f75791e130012f206e3f7b0e76e18e3d7.zip",
                 "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
                 "shasum": ""
             },
@@ -537,7 +595,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/31fa86924556b80735f98b294a7ffdfb26789f22",
+                "url": "http://packagist.phpcomposer.com/files/nikic/FastRoute/31fa86924556b80735f98b294a7ffdfb26789f22.zip",
                 "reference": "31fa86924556b80735f98b294a7ffdfb26789f22",
                 "shasum": ""
             },
@@ -580,7 +638,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/e774bc9152de85547336e22b8926189e582ece95",
+                "url": "http://packagist.phpcomposer.com/files/PHPMailer/PHPMailer/e774bc9152de85547336e22b8926189e582ece95.zip",
                 "reference": "e774bc9152de85547336e22b8926189e582ece95",
                 "shasum": ""
             },
@@ -641,7 +699,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a30f7d6e57565a2e1a316e1baf2a483f788b258a",
+                "url": "http://packagist.phpcomposer.com/files/silexphp/Pimple/a30f7d6e57565a2e1a316e1baf2a483f788b258a.zip",
                 "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a",
                 "shasum": ""
             },
@@ -687,7 +745,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/84060b9034d756b4d79641667d7f9efe1aeb8e04",
+                "url": "http://packagist.phpcomposer.com/files/nrk/predis/84060b9034d756b4d79641667d7f9efe1aeb8e04.zip",
                 "reference": "84060b9034d756b4d79641667d7f9efe1aeb8e04",
                 "shasum": ""
             },
@@ -737,7 +795,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "http://packagist.phpcomposer.com/files/php-fig/http-message/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298.zip",
                 "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
                 "shasum": ""
             },
@@ -786,7 +844,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim-Csrf/zipball/fd713fe28c73c70edcdda95afcf5ad30b21d2d9b",
+                "url": "http://packagist.phpcomposer.com/files/slimphp/Slim-Csrf/fd713fe28c73c70edcdda95afcf5ad30b21d2d9b.zip",
                 "reference": "fd713fe28c73c70edcdda95afcf5ad30b21d2d9b",
                 "shasum": ""
             },
@@ -835,7 +893,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/03b44a4b41896ba42c78bbd5fa172cd79e650496",
+                "url": "http://packagist.phpcomposer.com/files/slimphp/Slim/03b44a4b41896ba42c78bbd5fa172cd79e650496.zip",
                 "reference": "03b44a4b41896ba42c78bbd5fa172cd79e650496",
                 "shasum": ""
             },
@@ -902,7 +960,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/fe98eab8daee498cc2821f1ad2ff7123bc327844",
+                "url": "http://packagist.phpcomposer.com/files/slimphp/Twig-View/fe98eab8daee498cc2821f1ad2ff7123bc327844.zip",
                 "reference": "fe98eab8daee498cc2821f1ad2ff7123bc327844",
                 "shasum": ""
             },
@@ -952,7 +1010,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/35480f10e7ce9b0fdaf23d3799d7b79463919b1e",
+                "url": "http://packagist.phpcomposer.com/files/smarty-php/smarty/35480f10e7ce9b0fdaf23d3799d7b79463919b1e.zip",
                 "reference": "35480f10e7ce9b0fdaf23d3799d7b79463919b1e",
                 "shasum": ""
             },
@@ -1007,7 +1065,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ee278f7c851533e58ca307f66305ccb9188aceda",
+                "url": "http://packagist.phpcomposer.com/files/symfony/event-dispatcher/ee278f7c851533e58ca307f66305ccb9188aceda.zip",
                 "reference": "ee278f7c851533e58ca307f66305ccb9188aceda",
                 "shasum": ""
             },
@@ -1067,7 +1125,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/49ff736bd5d41f45240cec77b44967d76e0c3d25",
+                "url": "http://packagist.phpcomposer.com/files/symfony/polyfill-mbstring/49ff736bd5d41f45240cec77b44967d76e0c3d25.zip",
                 "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25",
                 "shasum": ""
             },
@@ -1126,7 +1184,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/dff0867826a7068d673801b7522f8e2634016ef9",
+                "url": "http://packagist.phpcomposer.com/files/symfony/translation/dff0867826a7068d673801b7522f8e2634016ef9.zip",
                 "reference": "dff0867826a7068d673801b7522f8e2634016ef9",
                 "shasum": ""
             },
@@ -1190,7 +1248,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae53fc2c312fdee63773b75cb570304f85388b08",
+                "url": "http://packagist.phpcomposer.com/files/twigphp/Twig/ae53fc2c312fdee63773b75cb570304f85388b08.zip",
                 "reference": "ae53fc2c312fdee63773b75cb570304f85388b08",
                 "shasum": ""
             },
@@ -1251,7 +1309,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9caf304153dc2288e4970caec6f1f3b3bc205412",
+                "url": "http://packagist.phpcomposer.com/files/vlucas/phpdotenv/9caf304153dc2288e4970caec6f1f3b3bc205412.zip",
                 "reference": "9caf304153dc2288e4970caec6f1f3b3bc205412",
                 "shasum": ""
             },
@@ -1291,6 +1349,58 @@
                 "environment"
             ],
             "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "zeuxisoo/slim-whoops",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zeuxisoo/php-slim-whoops.git",
+                "reference": "1b0861020c9ea81a697845663b7907da4b06de1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/zeuxisoo/php-slim-whoops/1b0861020c9ea81a697845663b7907da4b06de1e.zip",
+                "reference": "1b0861020c9ea81a697845663b7907da4b06de1e",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "1.*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "filp/whoops": "1.*",
+                "phpunit/phpunit": "4.8.*",
+                "slim/slim": "3.0.*",
+                "slim/twig-view": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zeuxisoo\\Whoops\\Provider\\Slim": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Zeuxis Lo",
+                    "email": "seekstudio@gmail.com",
+                    "homepage": "http://www.not.im/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP whoops error on slim framework",
+            "homepage": "https://github.com/zeuxisoo/php-slim-whoops/",
+            "keywords": [
+                "error",
+                "exception",
+                "slim",
+                "whoops"
+            ],
+            "time": "2015-12-08 07:42:29"
         }
     ],
     "packages-dev": [],

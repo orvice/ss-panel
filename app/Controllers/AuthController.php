@@ -37,13 +37,13 @@ class AuthController extends BaseController
         $user = User::where('email','=',$email)->first();
 
         if ($user == null){
-            $rs['code'] = '0';
+            $rs['ret'] = 0;
             $rs['msg'] = "401 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
         }
 
         if ($user->pass != Hash::passwordHash($passwd)){
-            $rs['ret'] = '0';
+            $rs['ret'] = 0;
             $rs['msg'] = "402 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
         }
@@ -53,8 +53,7 @@ class AuthController extends BaseController
             $time = 3600*24*7;
         }
         Auth::login($user->id,$time);
-        $rs['code'] = '1';
-        $rs['ret'] = '1';
+        $rs['ret'] = 1;
         $rs['msg'] = "欢迎回来";
         return $response->getBody()->write(json_encode($rs));
     }

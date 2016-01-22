@@ -88,13 +88,13 @@
                     agree: $("#agree").val()
                 },
                 success:function(data){
-                    if(data.ret){
+                    if(data.ret == 1){
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         window.setTimeout("location.href='/auth/login'", 2000);
                     }else{
-                        $("#msg-error").hide(10);
+                        $("#msg-success").hide(10);
                         $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }

@@ -88,11 +88,11 @@
                     agree: $("#agree").val()
                 },
                 success:function(data){
-                    if(data.ok){
+                    if(data.ret){
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
-                        window.setTimeout("location.href='login.php'", 2000);
+                        window.setTimeout("location.href='/auth/login'", 2000);
                     }else{
                         $("#msg-error").hide(10);
                         $("#msg-error").show(100);

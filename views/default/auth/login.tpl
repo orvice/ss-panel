@@ -75,7 +75,7 @@
                     remember_me: $("#remember_me").val()
                 },
                 success:function(data){
-                    if(data.ok){
+                    if(data.ret){
                         $("#msg-error").hide(100);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);

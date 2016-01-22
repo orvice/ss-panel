@@ -141,8 +141,10 @@ class UserController extends BaseController
         return $response->getBody()->write(json_encode($res));
     }
 
-    public function logout(){
+    public function logout($request, $response, $args){
         Auth::logout();
+        $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+        return $newResponse;
     }
 
     public function doCheckIn($request, $response, $args){

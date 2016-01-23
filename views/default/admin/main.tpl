@@ -55,7 +55,7 @@
                                 <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
                                 <p>
                                     {$user->email}
-                                    <small>加入时间：{$user->t}</small>
+                                    <small>加入时间：{$user->regDate()}</small>
                                 </p>
                             </li>
                             <li class="user-footer">
@@ -111,7 +111,7 @@
                     </a>
                 </li>
 
-                
+
 
             </ul>
         </section>

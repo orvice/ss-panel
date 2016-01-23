@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
-
+use App\Utils\Tools;
 class Analytics
 {
     public function getTotalUser(){
@@ -12,5 +12,15 @@ class Analytics
 
     public function getCheckinUser(){
         return User::where('last_check_in_time','>',0)->count();
+    }
+
+    public function getTrafficUsage(){
+        $total = User::sum('u') + USer::sum('d');
+        return Tools::flowAutoShow($total);
+    }
+
+    public function getOnlineUser($time){
+        $time = time() - $time;
+        return User::where('t','>',$time)->count();
     }
 }

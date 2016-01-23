@@ -17,10 +17,13 @@
             <div class="col-md-6">
                 <div class="box box-solid">
                     <div class="box-header">
-                        <h3 class="box-title">Index</h3>
+                        <h3 class="box-title">站点统计</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p> 总用户: {$sts->getTotalUser()}</p>
+                        <p> 签到用户: {$sts->getCheckinUser()} </p>
+                        <p> 产生流量: {$sts->getTrafficUsage()}</p>
+                        <p> 1小时在线用户: {$sts->getOnlineUser(3600)}</p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->

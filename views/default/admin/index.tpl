@@ -20,7 +20,7 @@
                         <h3 class="box-title">Index</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-
+                        <p> 总用户: {$sts->getTotalUser()}</p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->

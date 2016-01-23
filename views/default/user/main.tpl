@@ -124,15 +124,10 @@
                     </a>
                 </li>
 
-                <li  >
-                    <a href="/user/sys">
-                        <i class="fa fa-align-left"></i> <span>系统信息</span>
-                    </a>
-                </li>
                 {if $user->isAdmin()}
 
                 <li  >
-                    <a href="/user/sys">
+                    <a href="/admin">
                         <i class="fa fa-cog"></i> <span>管理面板</span>
                     </a>
                 </li>

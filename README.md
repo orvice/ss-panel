@@ -71,3 +71,7 @@ location / {
     
 ```
 
+### Step 5 Config
+
+view config guide on [wiki](https://github.com/orvice/ss-panel/wiki/v3-Config)
+

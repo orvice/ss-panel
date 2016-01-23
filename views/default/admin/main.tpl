@@ -111,11 +111,7 @@
                     </a>
                 </li>
 
-                <li  >
-                    <a href="/admin/sys">
-                        <i class="fa fa-align-left"></i> <span>系统信息</span>
-                    </a>
-                </li>
+                
 
             </ul>
         </section>

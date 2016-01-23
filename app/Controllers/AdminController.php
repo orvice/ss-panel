@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\InviteCode;
 use App\Models\Node;
 use App\Utils\Tools;
+use App\Services\Analytics;
 
 /**
  *  Admin Controller
@@ -15,7 +16,8 @@ class AdminController extends BaseController
 
     public function index()
     {
-        return $this->view()->display('admin/index.tpl');
+        $sts = new Analytics();
+        return $this->view()->assign('sts',$sts)->display('admin/index.tpl');
     }
 
     public function node(){

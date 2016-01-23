@@ -38,6 +38,10 @@ class User extends Model
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
 
+    public function regDate(){
+        return $this->attributes['reg_date'];
+    }
+
     public function updatePassword($pwd){
         $this->pass = Hash::passwordHash($pwd);
         $this->save();

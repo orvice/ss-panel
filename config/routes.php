@@ -6,7 +6,7 @@ use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
-
+use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
@@ -34,7 +34,7 @@ $app = new App([
         'whoops.editor' => 'sublime'
     ]
 ]);
-$app->add(new \Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware);
+$app->add(new WhoopsMiddleware);
 
 
 // Home

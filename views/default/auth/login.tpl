@@ -76,17 +76,18 @@
                 },
                 success:function(data){
                     if(data.ret == 1){
-                        $("#msg-error").hide(100);
+                        $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
-                        // window.setTimeout("location.href='/user'", 2000);
+                        window.setTimeout("location.href='/user'", 2000);
                     }else{
                         $("#msg-success").hide(10);
                         $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }
                 },
-                error:function(jqXHR)
+                error:function(jqXHR){
+                    $("#msg-error").hide(10);
                     $("#msg-error").show(100);
                     $("#msg-error-p").html("发生错误："+jqXHR.status);
                 }

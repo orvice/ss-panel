@@ -55,7 +55,7 @@
                                 <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
                                 <p>
                                     {$user->email}
-                                    <small>加入时间：{$user->t}</small>
+                                    <small>加入时间：{$user->regDate()}</small>
                                 </p>
                             </li>
                             <li class="user-footer">
@@ -129,6 +129,15 @@
                         <i class="fa fa-align-left"></i> <span>系统信息</span>
                     </a>
                 </li>
+                {if $user->isAdmin()}
+
+                <li  >
+                    <a href="/user/sys">
+                        <i class="fa fa-cog"></i> <span>管理面板</span>
+                    </a>
+                </li>
+
+                {/if}
 
             </ul>
         </section>

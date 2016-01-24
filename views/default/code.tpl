@@ -28,7 +28,7 @@
                         {foreach $codes as $code}
                         <tr>
                             <td>{$code->id}</td>
-                            <td>{$code->code}</td>
+                            <td><a href="/auth/register?code={$code->code}">{$code->code}</a></td>
                             <td>可用</td>
                         </tr>
                         {/foreach}

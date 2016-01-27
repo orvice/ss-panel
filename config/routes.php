@@ -40,6 +40,7 @@ $app->add(new WhoopsMiddleware);
 // Home
 $app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
+$app->get('/tos', 'App\Controllers\HomeController:tos');
 
 // User Center
 $app->group('/user', function () {

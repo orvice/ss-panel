@@ -6,8 +6,6 @@ namespace App\Services;
 class Config
 {
     public static function get($key){
-       // global $config;
-       // return $config[$key];
        return $_ENV[$key];
     }
 
@@ -17,5 +15,18 @@ class Config
             "version" => self::get("version"),
             "baseUrl" => self::get("baseUrl")
          ];
+    }
+
+    public static function getDbConfig(){
+        return [
+            'driver'    => self::get('db_driver'),
+            'host'      => self::get('db_host'),
+            'database'  => self::get('db_database'),
+            'username'  => self::get('db_username'),
+            'password'  => self::get('db_password'),
+            'charset'   => self::get('db_charset'),
+            'collation' => self::get('db_collation'),
+            'prefix'    => self::get('db_prefix')
+        ];
     }
 }

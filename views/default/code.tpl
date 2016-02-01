@@ -20,7 +20,7 @@
                         <thead>
                         <tr>
                             <th>###</th>
-                            <th>邀请码</th>
+                            <th>邀请码 (点击邀请码进入注册页面)</th>
                             <th>状态</th>
                         </tr>
                         </thead>
@@ -28,7 +28,7 @@
                         {foreach $codes as $code}
                         <tr>
                             <td>{$code->id}</td>
-                            <td>{$code->code}</td>
+                            <td><a href="/auth/register?code={$code->code}">{$code->code}</a></td>
                             <td>可用</td>
                         </tr>
                         {/foreach}

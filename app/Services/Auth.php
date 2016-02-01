@@ -26,7 +26,7 @@ class Auth
                return new Redis();
                break;
        }
-       return null;
+       return new Redis();
    }
 
    public static function login($uid,$time){

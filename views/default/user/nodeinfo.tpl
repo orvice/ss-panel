@@ -1,7 +1,7 @@
 <div id="node" class="row">
     <div class="col-md-6">
         <pre>{$json}</pre>
-        <div style="text-align:center white-space:normal word-break:break-all word-wrap:break-word;">
+        <div style="white-space:normal word-break:break-all word-wrap:break-word">
             <b>{$ssqr}</b>
         </div>
     </div>

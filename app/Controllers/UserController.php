@@ -42,14 +42,18 @@ class UserController extends BaseController
         if ($node == null){
 
         }
-        $ary['server'] = $node->server;
+        /*$ary['server'] = $node->server;
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
-        $ary['method'] = $node->method;
+        $ary['method'] = $node->method;*/
         if($node->custom_method){
-            $ary['method'] = $this->user->method;
+        	$json ="{\n\"server\":".$node->server.",\n\"server_port\":".$this->user->port.",\n\"local_port\":1080,\n\"password\":".$this->user->passwd.",\n\"timeout\":600,\n\"method\":".$this->user->method."\n}";
+            /*$ary['method'] = $this->user->method;*/
         }
-        $json = json_encode($ary);
+        else {
+        	$json ="{\n\"server\":".$node->server.",\n\"server_port\":".$this->user->port.",\n\"local_port\":1080,\n\"password\":".$this->user->passwd.",\n\"timeout\":600,\n\"method\":".$node->method."\n}";
+        }
+        /*$json = json_encode($ary);*/
         $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
         $ssqr = "ss://".base64_encode($ssurl);
         return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');

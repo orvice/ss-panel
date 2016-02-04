@@ -29,9 +29,10 @@
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs pull-right">
                                 <li>
-                                    <a   href="./node/{$node->id}">
+                                    <!--<a   href="./node/{$node->id}">
                                         查看配置文件/二维码
-                                    </a>
+                                    </a>-->
+                                    <a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal" href="javascript:void(0)" data-url="./node/{$node->id}" title="配置文件/二维码" >查看配置文件/二维码</a>
                                 </li>
                                 <li class="pull-left header"><i class="fa fa-angle-right"></i> {$node->name}</li>
                             </ul>
@@ -63,6 +64,7 @@
         <!-- END PROGRESS BARS -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-
+<script src="/assets/public/js/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/public/js/modal.js" type="text/javascript"></script>
 
 {include file='user/footer.tpl'}

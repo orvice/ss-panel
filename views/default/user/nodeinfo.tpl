@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div style="text-align:center ">
+    <div style="text-align:center">
         <b>{$ssqr}</b>
     </div>
     <script src=" /assets/public/js/jquery.qrcode.min.js "></script>

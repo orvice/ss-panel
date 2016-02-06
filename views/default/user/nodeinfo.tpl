@@ -47,7 +47,7 @@
 
             <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
             <script>
-                jQuery('#qrcode').qrcode("{$ssqr}");
+                jQuery('#qrcode').qrcode({ldelim}text:"{$ssqr}",render:"table"{rdelim});
             </script>
 
         </div><!-- /.row -->

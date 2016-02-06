@@ -71,20 +71,18 @@ class User extends Model
         }
     }
 
-
-
     public function trafficUsagePercent(){
         $total = $this->attributes['u'] + $this->attributes['d'];
-        $enable = $this->attributes['transfer_enable'];
-        $percent = $total/$enable;
+        $transfer_enable = $this->attributes['transfer_enable'];
+        $percent = $total/$transfer_enable;
         $percent = round($percent,2);
         $percent = $percent*100;
         return $percent;
     }
 
     public function enableTraffic(){
-        $enable = $this->attributes['transfer_enable'];
-        return Tools::flowAutoShow($enable);
+        $transfer_enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($transfer_enable);
     }
 
     public function usedTraffic(){

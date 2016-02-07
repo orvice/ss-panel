@@ -94,6 +94,8 @@ $app->group('/admin', function () {
     $this->get('/user', 'App\Controllers\Admin\UserController:index');
     $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
     $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
+    $this->delete('/user/{id}','App\Controllers\Admin\UserController:delete');
+    $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
 
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');

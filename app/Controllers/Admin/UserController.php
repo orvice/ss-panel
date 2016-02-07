@@ -32,6 +32,7 @@ class UserController extends BaseController
         }
         $user->port =  $request->getParam('port');
         $user->passwd = $request->getParam('passwd');
+        $user->transfer_enable = $request->getParam('transfer_enable');
         $user->invite_num = $request->getParam('invite_num');
         $user->method = $request->getParam('method');
         $user->enable = $request->getParam('enable');
@@ -45,5 +46,26 @@ class UserController extends BaseController
         $rs['ret'] = 1;
         $rs['msg'] = "修改成功";
         return $response->getBody()->write(json_encode($rs));
+    }
+
+    public function delete($request, $response, $args){
+        $id = $args['id'];
+        $user = User::find($id);
+        if(!$user->delete()){
+            $rs['ret'] = 0;
+            $rs['msg'] = "删除失败";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = "删除成功";
+        return $response->getBody()->write(json_encode($rs));
+    }
+
+    public function deleteGet($request, $response, $args){
+        $id = $args['id'];
+        $user = User::find($id);
+        $user->delete();
+        $newResponse = $response->withStatus(302)->withHeader('Location', '/admin/user');
+        return $newResponse;
     }
 }

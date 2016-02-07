@@ -36,7 +36,7 @@
                                 <td>{$user->lastSsTime()}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="/admin/user/{$user->id}/edit">编辑</a>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="{$user->id}" href="/admin/node/{$user->id}/delete">删除</a>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="{$user->id}" href="/admin/user/{$user->id}/delete">删除</a>
                                 </td>
                             </tr>
                             {/foreach}

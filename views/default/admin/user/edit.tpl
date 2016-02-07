@@ -21,34 +21,34 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="email">邮箱</label>
-                                <input  class="form-control" id="email" value="{$user->email}" >
+                                <input class="form-control" id="email" value="{$user->email}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="pass">用户密码</label>
-                                <input  class="form-control" id="pass" value="" >
+                                <input class="form-control" id="pass" value="" placeholder="不修改时留空">
                             </div>
 
                             <div class="form-group">
                                 <label for="port">连接端口</label>
-                                <input  class="form-control" id="port" value="{$user->port}" >
+                                <input class="form-control" id="port" value="{$user->port}" >
                             </div>
 
                             <div class="form-group">
                                 <label for="passwd">连接密码</label>
-                                <input  class="form-control" id="passwd" value="{$user->passwd}" >
+                                <input class="form-control" id="passwd" value="{$user->passwd}" >
                             </div>
 <!--
                             <div class="form-group">
                                 <label for="usedTraffic">已用流量</label>
                                 <input  class="form-control" id="usedTraffic" value="{$user->usedTraffic()}" >
                             </div>
-
-                            <div class="form-group">
-                                <label for="enableTraffic">总流量</label>
-                                <input  class="form-control" id="enableTraffic" value="{$user->enableTraffic()}" >
-                            </div>
 -->
+                            <div class="form-group">
+                                <label for="transfer_enable">总流量</label>
+                                <input  class="form-control" id="transfer_enable" value="{$user->transfer_enable}" >
+                            </div>
+
                             <div class="form-group">
                                 <label for="invite_num">可用邀请数</label>
                                 <input  class="form-control" id="info" value="{$user->invite_num}" >
@@ -108,6 +108,7 @@
                     pass: $("#pass").val(),
                     port: $("#port").val(),
                     passwd: $("#passwd").val(),
+                    transfer_enable: $("#transfer_enable").val(),
                     invite_num: $("#invite_num").val(),
                     method: $("#method").val(),
                     enable: $("#enable").val(),

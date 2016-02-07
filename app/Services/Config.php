@@ -13,7 +13,10 @@ class Config
         return [
             "appName" => self::get("appName"),
             "version" => self::get("version"),
-            "baseUrl" => self::get("baseUrl")
+            "baseUrl" => self::get("baseUrl"),
+            "checkinTime" => self::get("checkinTime"),
+            "checkinMin" => self::get("checkinMin"),
+            "checkinMax" => self::get("checkinMax"),
          ];
     }
 

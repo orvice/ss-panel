@@ -92,8 +92,8 @@ class User extends Model
 
     public function unusedTraffic(){
         $total = $this->attributes['u'] + $this->attributes['d'];
-        $enable = $this->attributes['transfer_enable'];
-        return Tools::flowAutoShow($enable-$total);
+        $transfer_enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($transfer_enable-$total);
     }
 
     public function isAbleToCheckin(){

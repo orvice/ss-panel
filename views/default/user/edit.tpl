@@ -120,7 +120,6 @@
                             $("#msg-error").hide();
                             $("#msg-success").show();
                             $("#msg-success-p").html(data.msg);
-                            window.setTimeout("location.href='/auth/login'", 2000);
                         }else{
                             $("#msg-error").show();
                             $("#msg-error-p").html(data.msg);

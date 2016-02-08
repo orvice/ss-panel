@@ -8,8 +8,13 @@ use App\Utils\Hash;
 
 class UserController extends BaseController
 {
-    public function index(){
-        $users = User::all();
+    public function index($request, $response, $args){
+        $pageNum = 1;
+        if(isset($request->getQueryParams()["page"])){
+            $pageNum = $request->getQueryParams()["page"];
+        }
+        $users = User::paginate(15,['*'],'page',$pageNum);
+        $users->setPath('/admin/user');
         return $this->view()->assign('users',$users)->display('admin/user/index.tpl');
     }
 

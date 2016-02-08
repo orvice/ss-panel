@@ -16,6 +16,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body table-responsive no-padding">
+                        {$users->render()}
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
@@ -41,6 +42,7 @@
                             </tr>
                             {/foreach}
                         </table>
+                        {$users->render()}
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>

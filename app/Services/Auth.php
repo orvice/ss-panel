@@ -6,6 +6,7 @@ use App\Services\Auth\Cookie;
 use App\Services\Auth\Redis;
 use App\Services\Auth\File;
 
+
 class Auth
 {
    protected  $driver;
@@ -14,17 +15,16 @@ class Auth
 
    }
 
-   public static  function getDriver(){
-
+    /**
+     * @return Cookie|Redis
+     */
+   private static  function getDriver(){
        $method = Config::get('authDriver');
-
        switch($method){
            case 'cookie':
                return new Cookie();
-               break;
            case 'redis':
                return new Redis();
-               break;
        }
        return new Redis();
    }

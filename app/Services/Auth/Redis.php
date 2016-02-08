@@ -7,7 +7,7 @@ use App\Services\RedisClient;
 use App\Utils\Tools;
 use App\Utils\Cookie;
 
-class Redis
+class Redis extends Base
 {
     private $client;
 

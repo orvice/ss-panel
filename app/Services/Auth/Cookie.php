@@ -7,7 +7,7 @@ use App\Utils;
 use App\Utils\Hash;
 
 
-class Cookie
+class Cookie extends Base
 {
     public  function login($uid,$time){
         $user = User::find($uid);

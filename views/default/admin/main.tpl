@@ -106,6 +106,12 @@
                 </li>
 
                 <li>
+                    <a href="/admin/user">
+                        <i class="fa fa-user"></i> <span>用户管理</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/admin/invite">
                         <i class="fa fa-users"></i> <span>邀请管理</span>
                     </a>

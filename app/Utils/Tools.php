@@ -16,11 +16,11 @@ class Tools
         $kb = 1024;
         $mb = 1048576;
         $gb = 1073741824;
-        if ($value > $gb) {
+        if (abs($value) > $gb) {
             return round($value / $gb, 2) . "GB";
-        } else if ($value > $mb) {
+        } else if (abs($value) > $mb) {
             return round($value / $mb, 2) . "MB";
-        } else if ($value > $kb) {
+        } else if (abs($value) > $kb) {
             return round($value / $kb, 2) . "KB";
         } else {
             return round($value, 2);

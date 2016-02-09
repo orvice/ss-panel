@@ -11,7 +11,7 @@ class Jwt
     }
 
     public static function encode($input){
-        JwtClient::encode($input, self::getKey());
+        return JwtClient::encode($input, self::getKey());
     }
 
     public static function decodeArray($input){

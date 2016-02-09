@@ -2,8 +2,7 @@
 
 namespace App\Services;
 
-use App\Services\Auth\Cookie;
-use App\Services\Auth\Redis;
+use App\Services\Auth\Cookie,App\Services\Auth\Redis,App\Services\Auth\JwtToken;
 use App\Services\Auth\File;
 
 
@@ -25,6 +24,8 @@ class Auth
                return new Cookie();
            case 'redis':
                return new Redis();
+           case 'jwt':
+               return new JwtToken();
        }
        return new Redis();
    }

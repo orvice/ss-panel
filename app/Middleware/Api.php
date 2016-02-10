@@ -5,30 +5,33 @@ namespace App\Middleware;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use App\Services\Factory;
+use App\Utils\Helper;
 
-class Api extends Base
+class Api
 {
 
     public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
-        $params = $request->getQueryParams();
-        if(!isset($params['access_token'])){
+        $accessToken = Helper::getTokenFromReq($request);
+        if ($accessToken==null){
             $res['ret'] = 0;
-            $res['msg'] = "token is blank";
-            return $this->echoJson($response,$res);
+            $res['msg'] = "token is null";
+            $response->getBody()->write(json_encode($res));
+            return $response;
         }
-        $accessToken = $params['access_token'];
         $storage = Factory::createTokenStorage();
         $token = $storage->get($accessToken);
         if ($token==null){
             $res['ret'] = 0;
             $res['msg'] = "token is null";
-            return $this->echoJson($response,$res);
+            $response->getBody()->write(json_encode($res));
+            return $response;
         }
         if ($token->expireTime < time()){
             $res['ret'] = 0;
             $res['msg'] = "token is expire";
-            return $this->echoJson($response,$res);
+            $response->getBody()->write(json_encode($res));
+            return $response;
         }
         $response = $next($request, $response);
         return $response;

@@ -4,21 +4,45 @@
 namespace App\Services\Token;
 
 use App\Models\User,App\Models\Token as TokenModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DB extends Base
 {
-    function store($token, User $user)
+    function store($token, User $user,$expireTime)
     {
-        $model = new TokenModel();
+        $token = new TokenModel();
+        $token->token = $token;
+        $token->user_id = $user->id;
+        $token->create_time = time();
+        $token->expire_time = $expireTime;
+        if($token->save()){
+            return true;
+        }
+        return false;
     }
 
     function delete($token)
     {
-        // TODO: Implement remove() method.
+        $token = TokenModel::where('token',$token)->first();
+        if ($token == null){
+            return false;
+        }
+        $token->delete();
+        return true;
     }
 
     function get($token)
     {
-        // TODO: Implement get() method.
+        try{
+            $tokenModel = TokenModel::where('token',$token)->firstOrFail();
+        } catch(ModelNotFoundException $e){
+            return null;
+        }
+        $token = new Token();
+        $token->token = $tokenModel->token;
+        $token->userId = $tokenModel->user_id;
+        $token->createTime = $tokenModel->create_time;
+        $token->expireTime = $tokenModel->expire_time;
+        return $token;
     }
 }

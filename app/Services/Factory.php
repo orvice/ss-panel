@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\Auth\Cookie,App\Services\Auth\Redis,App\Services\Auth\JwtToken;
+use App\Services\Token\DB;
 
 class Factory
 {
@@ -25,5 +26,9 @@ class Factory
 
     public static function createMail(){
 
+    }
+
+    public static function createTokenStorage(){
+        return new DB();
     }
 }

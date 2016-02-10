@@ -4,21 +4,28 @@ namespace App\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use App\Services\Auth as AuthService;
+use App\Services\Factory;
 
-class Api{
+class Api extends Base
+{
 
     public function __invoke(ServerRequestInterface $request,ResponseInterface $response, $next)
     {
-        //$response->getBody()->write('BEFORE');
-        $user = AuthService::getUser();
-        if(!$user->isLogin){
-            // @TODO no login action
-            $response->getBody()->write('Access Denied');
-            return $response;
+        $params = $request->getQueryParams();
+        if(!isset($params['access_token'])){
+            $res['ret'] = 0;
+            $res['msg'] = "token is blank";
+            return $this->echoJson($response,$res);
+        }
+        $accessToken = $params['access_token'];
+        $storage = Factory::createTokenStorage();
+        $token = $storage->get($accessToken);
+        if ($token==null){
+            $res['ret'] = 0;
+            $res['msg'] = "token is null";
+            return $this->echoJson($response,$res);
         }
         $response = $next($request, $response);
-        //$response->getBody()->write('AFTER');
         return $response;
     }
 }

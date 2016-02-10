@@ -6,6 +6,7 @@ use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
+use App\Middleware\Api;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
 /***
@@ -105,6 +106,14 @@ $app->group('/admin', function () {
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
+
+// API
+$app->group('/api', function () {
+    $this->get('/token/{token}', 'App\Controllers\ApiController:token');
+    $this->post('/token', 'App\Controllers\ApiController:newToken');
+    $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());
+    $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
+});
 
 // Run Slim Routes for App
 $app->run();

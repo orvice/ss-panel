@@ -7,7 +7,7 @@ use App\Utils;
 use App\Utils\Hash;
 
 
-class Cookie
+class Cookie extends Base
 {
     public  function login($uid,$time){
         $user = User::find($uid);
@@ -30,6 +30,7 @@ class Cookie
 
         $user = User::find($uid);
         if ($user == null){
+            $user = new User();
             $user->isLogin = false;
             return $user;
         }

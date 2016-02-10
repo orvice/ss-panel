@@ -38,7 +38,7 @@ class Tools
     }
 
     //获取随机字符串
-    static function genRandomChar( $length = 8 ) {
+    public static function genRandomChar( $length = 8 ) {
         // 密码字符集，可任意添加你需要的字符
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $char = '';
@@ -49,8 +49,13 @@ class Tools
         return $char;
     }
 
+    public static function genToken(){
+        return self::genRandomChar(64);
+    }
+
+
     // Unix time to Date Time
-    static function toDateTime($time){
+    public static function toDateTime($time){
         return date('Y-m-d H:i:s',$time);
     }
 

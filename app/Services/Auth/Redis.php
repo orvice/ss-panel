@@ -7,7 +7,7 @@ use App\Services\RedisClient;
 use App\Utils\Tools;
 use App\Utils\Cookie;
 
-class Redis
+class Redis extends Base
 {
     private $client;
 
@@ -46,6 +46,7 @@ class Redis
         $uid = $value;
         $user =  User::find($uid);
         if($user == null ){
+            $user = new User();
             $user->isLogin = false;
             return $user;
         }

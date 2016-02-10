@@ -117,6 +117,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="/user">
+                        <i class="fa fa-reply-all"></i> <span>用户中心</span>
+                    </a>
+                </li>
+
 
 
             </ul>

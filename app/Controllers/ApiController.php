@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\InviteCode;
 use App\Models\Node,App\Models\User;
 use App\Services\Factory;
-use App\Utils\Tools,App\Utils\Hash;
+use App\Utils\Tools,App\Utils\Hash,App\Utils\Helper;
 /**
  *  ApiController
  */
@@ -67,11 +67,31 @@ class ApiController extends BaseController
         return $this->echoJson($response,$res);
     }
 
-    public function node(){
-
+    public function node($request, $response, $args){
+        $nodes = Node::where('type',1)->orderBy('sort')->get();
+        $res['ret'] = 1;
+        $res['msg'] = "ok";
+        $res['data'] = $nodes;
+        return $this->echoJson($response,$res);
     }
 
-    public function userInfo(){
+    public function userInfo($request, $response, $args){
+        $id = $args['id'];
+        $accessToken = Helper::getTokenFromReq($request);
+        $storage = Factory::createTokenStorage();
+        $token = $storage->get($accessToken);
+        if($id != $token->userId){
+            $res['ret'] = 0;
+            $res['msg'] = "access denied";
+            return $this->echoJson($response,$res);
+        }
+        $user = User::find($token->userId);
+        $user->pass = null;
+        $data = $user;
+        $res['ret'] = 1;
+        $res['msg'] = "ok";
+        $res['data'] = $data;
+        return $this->echoJson($response,$res);
 
     }
 

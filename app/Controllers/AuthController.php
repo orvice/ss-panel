@@ -42,7 +42,7 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($rs));
         }
 
-        if ($user->pass != Hash::passwordHash($passwd)){
+        if (!Hash::checkPassword($user->pass,$passwd)){
             $rs['ret'] = 0;
             $rs['msg'] = "402 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));

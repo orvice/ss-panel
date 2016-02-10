@@ -46,6 +46,7 @@ class Redis extends Base
         $uid = $value;
         $user =  User::find($uid);
         if($user == null ){
+            $user = new User();
             $user->isLogin = false;
             return $user;
         }

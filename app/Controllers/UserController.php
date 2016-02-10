@@ -169,12 +169,15 @@ class UserController extends BaseController
         $passwd =  $request->getParam('passwd');
         // check passwd
         $res = array();
-        if ($user->pass != Hash::passwordHash($passwd)){
-            $rs['ret'] = 0;
-            $rs['msg'] = "402 密码错误";
-            return $response->getBody()->write(json_encode($rs));
+        if (!Hash::checkPassword($user->pass,$passwd)){
+            $res['ret'] = 0;
+            $res['msg'] = " 密码错误";
+            return $this->echoJson($response,$res);
         }
+        Auth::logout();
+        $user->delete();
         $res['ret'] = 1;
+        $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
         return $this->echoJson($response,$res);
     }
 }

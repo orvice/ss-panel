@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DB extends Base
 {
-    function store($token, User $user,$expireTime)
+    function store($tokenStr, User $user,$expireTime)
     {
         $token = new TokenModel();
-        $token->token = $token;
+        $token->token = $tokenStr;
         $token->user_id = $user->id;
         $token->create_time = time();
         $token->expire_time = $expireTime;

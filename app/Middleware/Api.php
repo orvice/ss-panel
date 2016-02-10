@@ -25,6 +25,11 @@ class Api extends Base
             $res['msg'] = "token is null";
             return $this->echoJson($response,$res);
         }
+        if ($token->expireTime < time()){
+            $res['ret'] = 0;
+            $res['msg'] = "token is expire";
+            return $this->echoJson($response,$res);
+        }
         $response = $next($request, $response);
         return $response;
     }

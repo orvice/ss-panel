@@ -3,13 +3,13 @@
 
 namespace App\Services\Token;
 
-use App\Models\User;
+use App\Models\User,App\Models\Token as TokenModel;
 
 class DB extends Base
 {
     function store($token, User $user)
     {
-        // TODO: Implement store() method.
+        $model = new TokenModel();
     }
 
     function delete($token)

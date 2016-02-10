@@ -2,9 +2,6 @@
 
 namespace App\Services;
 
-use App\Services\Auth\Cookie,App\Services\Auth\Redis,App\Services\Auth\JwtToken;
-use App\Services\Auth\File;
-
 
 class Auth
 {
@@ -14,20 +11,8 @@ class Auth
 
    }
 
-    /**
-     * @return Cookie|Redis
-     */
    private static  function getDriver(){
-       $method = Config::get('authDriver');
-       switch($method){
-           case 'cookie':
-               return new Cookie();
-           case 'redis':
-               return new Redis();
-           case 'jwt':
-               return new JwtToken();
-       }
-       return new Redis();
+       return Factory::createAuth();
    }
 
    public static function login($uid,$time){

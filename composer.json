@@ -11,7 +11,8 @@
     "illuminate/pagination": "~5.1",
     "vlucas/phpdotenv": "~2.1",
     "zeuxisoo/slim-whoops": "0.4.*",
-    "firebase/php-jwt": "~3.0"
+    "firebase/php-jwt": "~3.0",
+    "aws/aws-sdk-php": "3.*"
   },
   "autoload": {
     "classmap": [

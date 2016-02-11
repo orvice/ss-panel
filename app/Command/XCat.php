@@ -12,6 +12,26 @@ use App\Utils\Hash,App\Utils\Tools,App\Services\Config;
 class XCat
 {
 
+    public $argv;
+
+    public function __construct($argv)
+    {
+        $this->argv = $argv;
+    }
+
+    public function boot(){
+        switch($this->argv[1]){
+            case("install"):
+                return $this->install();
+            case("createAdmin"):
+                return $this->createAdmin();
+            case("resetTraffic"):
+                return $this->resetTraffic();
+            default:
+                return $this->defaultAction();
+        }
+    }
+
     public function defaultAction(){
         echo "Memo";
     }

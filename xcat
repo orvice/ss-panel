@@ -1,19 +1,9 @@
 #!/usr/bin/env php
 <?php
 require __DIR__.'/bootstrap.php';
-//var_dump($argv);
 /***
  * ss-panel xcat script
  */
 use App\Command\XCat;
-$cat = new XCat();
-switch($argv[1]){
-    case("install"):
-        return $cat->install();
-    case("createAdmin"):
-        return $cat->createAdmin();
-    case("resetTraffic"):
-        return $cat->resetTraffic();
-    default:
-        return $cat->defaultAction();
-}
+$cat = new XCat($argv);
+$cat->boot();

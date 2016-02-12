@@ -49,7 +49,7 @@ class UserController extends BaseController
             $ary['method'] = $this->user->method;
         }
         $json = json_encode($ary);
-        $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
+        $ssurl =  $ary['method'].":".$this->user->passwd."@".$node->server.":".$this->user->port;
         $ssqr = "ss://".base64_encode($ssurl);
         return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');
     }
@@ -94,8 +94,8 @@ class UserController extends BaseController
 
     public function updatePassword($request, $response, $args){
         $oldpwd =  $request->getParam('oldpwd');
-        $pwd =  $request->getParam('pwd"');
-        $repwd =  $request->getParam('repwd"');
+        $pwd =  $request->getParam('pwd');
+        $repwd =  $request->getParam('repwd');
         $user = $this->user;
         if (!Hash::checkPassword($user->pass,$oldpwd)){
             $res['ret'] = 0;

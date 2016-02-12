@@ -22,9 +22,9 @@ class Dynamodb extends Base
             'TableName' => $this->tableName,
             'Item' => array(
                 'token'      => array('S' => $token),
-                //'user_id'    => array('S' => $user->id),
-                //'create_time'   => array('N' => time()),
-                //'expire_time' => array('N' => (int)$expireTime)
+                'user_id'    => array('N' => (string)$user->id),
+                'create_time'   => array('N' => (string)time()),
+                'expire_time' => array('N' => (string)$expireTime)
             )
         ));
         return true;
@@ -42,6 +42,18 @@ class Dynamodb extends Base
 
     public function get($token)
     {
-        // TODO: Implement get() method.
+        $result = $this->client->getItem(array(
+            'ConsistentRead' => true,
+            'TableName' => $this->tableName,
+            'Key'       => array(
+                'token'   => array('S' => $token),
+            )
+        ));
+        $token = new Token();
+        $token->token = $result['Item']['token']['S'];
+        $token->userId = $result['Item']['user_id']['N'];
+        $token->createTime = $result['Item']['create_time']['N'];
+        $token->expireTime = $result['Item']['expire_time']['N'];
+        return $token;
     }
 }

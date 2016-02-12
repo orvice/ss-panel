@@ -94,8 +94,8 @@ class UserController extends BaseController
 
     public function updatePassword($request, $response, $args){
         $oldpwd =  $request->getParam('oldpwd');
-        $pwd =  $request->getParam('pwd"');
-        $repwd =  $request->getParam('repwd"');
+        $pwd =  $request->getParam('pwd');
+        $repwd =  $request->getParam('repwd');
         $user = $this->user;
         if (!Hash::checkPassword($user->pass,$oldpwd)){
             $res['ret'] = 0;

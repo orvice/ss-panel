@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Services\Auth\Cookie,App\Services\Auth\Redis,App\Services\Auth\JwtToken;
-use App\Services\Token\DB;
+use App\Services\Token\DB,App\Services\Token\Dynamodb;
 
 class Factory
 {
@@ -29,6 +29,13 @@ class Factory
     }
 
     public static function createTokenStorage(){
-        return new DB();
+        switch(Config::get('tokenDriver')){
+            case 'db':
+                return new DB();
+            case 'dynamodb':
+                return new Dynamodb();
+            default:
+                return new DB();
+        }
     }
 }

@@ -1,7 +1,24 @@
+-- Adminer 4.1.0 MySQL dump
+
 SET NAMES utf8;
-SET time_zone = '+8:00';
+SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `ss_chg_code`;
+CREATE TABLE `ss_chg_code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(128) NOT NULL,
+  `time` int(11) NOT NULL,
+  `traffic` bigint(20) NOT NULL,
+  `tag` varchar(64) NOT NULL,
+  `add_time` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `use_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `ss_invite_code`;
 CREATE TABLE `ss_invite_code` (
@@ -63,9 +80,22 @@ CREATE TABLE `user` (
   `invite_num` int(8) NOT NULL DEFAULT '0',
   `is_admin` int(2) NOT NULL DEFAULT '0',
   `ref_by` int(11) NOT NULL DEFAULT '0',
+  `expire_time` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
+  `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2016-01-17 08:03:52
+DROP TABLE IF EXISTS `user_token`;
+CREATE TABLE `user_token` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` varchar(256) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `expire_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 2016-02-12 11:40:01

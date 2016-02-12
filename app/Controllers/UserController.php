@@ -49,7 +49,7 @@ class UserController extends BaseController
             $ary['method'] = $this->user->method;
         }
         $json = json_encode($ary);
-        $ssurl =  $node->method.":".$this->user->passwd."@".$node->server.":".$this->user->port;
+        $ssurl =  $ary['method'].":".$this->user->passwd."@".$node->server.":".$this->user->port;
         $ssqr = "ss://".base64_encode($ssurl);
         return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');
     }

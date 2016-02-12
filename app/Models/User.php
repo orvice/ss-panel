@@ -35,6 +35,9 @@ class User extends Model
     }
 
     public function lastCheckInTime(){
+        if($this->attributes['last_check_in_time'] == 0){
+            return "从未签到";
+        }
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
 

@@ -2,9 +2,6 @@
 
 namespace App\Services;
 
-use App\Services\Auth\Cookie;
-use App\Services\Auth\Redis;
-use App\Services\Auth\File;
 
 class Auth
 {
@@ -14,19 +11,8 @@ class Auth
 
    }
 
-   public static  function getDriver(){
-
-       $method = Config::get('authDriver');
-
-       switch($method){
-           case 'cookie':
-               return new Cookie();
-               break;
-           case 'redis':
-               return new Redis();
-               break;
-       }
-       return new Redis();
+   private static  function getDriver(){
+       return Factory::createAuth();
    }
 
    public static function login($uid,$time){

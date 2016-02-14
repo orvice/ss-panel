@@ -6,6 +6,7 @@ use App\Controllers;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
+use App\Middleware\Api;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
 /***
@@ -57,6 +58,8 @@ $app->group('/user', function () {
     $this->post('/sspwd', 'App\Controllers\UserController:updateSsPwd');
     $this->post('/method', 'App\Controllers\UserController:updateMethod');
     $this->get('/sys', 'App\Controllers\UserController:sys');
+    $this->get('/kill', 'App\Controllers\UserController:kill');
+    $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 
@@ -90,12 +93,27 @@ $app->group('/admin', function () {
     $this->delete('/node/{id}','App\Controllers\Admin\NodeController:delete');
     $this->get('/node/{id}/delete', 'App\Controllers\Admin\NodeController:deleteGet');
 
+    // User Mange
+    $this->get('/user', 'App\Controllers\Admin\UserController:index');
+    $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
+    $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
+    $this->delete('/user/{id}','App\Controllers\Admin\UserController:delete');
+    $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
+
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
+
+// API
+$app->group('/api', function () {
+    $this->get('/token/{token}', 'App\Controllers\ApiController:token');
+    $this->post('/token', 'App\Controllers\ApiController:newToken');
+    $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());
+    $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
+});
 
 // Run Slim Routes for App
 $app->run();

@@ -25,7 +25,7 @@ class AuthController extends BaseController
         return $this->view()->display('auth/login.tpl');
     }
 
-    public function loginHandle($request, $response, $next)
+    public function loginHandle($request, $response, $args)
     {
         // $data = $request->post('sdf');
         $email =  $request->getParam('email');
@@ -42,7 +42,7 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($rs));
         }
 
-        if ($user->pass != Hash::passwordHash($passwd)){
+        if (!Hash::checkPassword($user->pass,$passwd)){
             $rs['ret'] = 0;
             $rs['msg'] = "402 邮箱或者密码错误";
             return $response->getBody()->write(json_encode($rs));
@@ -60,7 +60,7 @@ class AuthController extends BaseController
 
     public function register($request, $response, $next)
     {
-         $ary = $request->getQueryParams();
+        $ary = $request->getQueryParams();
         $code = "";
         if(isset($ary['code'])){
             $code = $ary['code'];

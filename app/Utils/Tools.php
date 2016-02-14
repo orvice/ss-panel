@@ -16,11 +16,11 @@ class Tools
         $kb = 1024;
         $mb = 1048576;
         $gb = 1073741824;
-        if ($value > $gb) {
+        if (abs($value) > $gb) {
             return round($value / $gb, 2) . "GB";
-        } else if ($value > $mb) {
+        } else if (abs($value) > $mb) {
             return round($value / $mb, 2) . "MB";
-        } else if ($value > $kb) {
+        } else if (abs($value) > $kb) {
             return round($value / $kb, 2) . "KB";
         } else {
             return round($value, 2);
@@ -38,7 +38,7 @@ class Tools
     }
 
     //获取随机字符串
-    static function genRandomChar( $length = 8 ) {
+    public static function genRandomChar( $length = 8 ) {
         // 密码字符集，可任意添加你需要的字符
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $char = '';
@@ -49,8 +49,13 @@ class Tools
         return $char;
     }
 
+    public static function genToken(){
+        return self::genRandomChar(64);
+    }
+
+
     // Unix time to Date Time
-    static function toDateTime($time){
+    public static function toDateTime($time){
         return date('Y-m-d H:i:s',$time);
     }
 

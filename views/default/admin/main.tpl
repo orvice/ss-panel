@@ -47,7 +47,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{$user->gravatar}" class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">{$user->name}</span>
+                            <span class="hidden-xs">{$user->user_name}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -106,8 +106,20 @@
                 </li>
 
                 <li>
+                    <a href="/admin/user">
+                        <i class="fa fa-user"></i> <span>用户管理</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/admin/invite">
                         <i class="fa fa-users"></i> <span>邀请管理</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/user">
+                        <i class="fa fa-reply-all"></i> <span>用户中心</span>
                     </a>
                 </li>
 

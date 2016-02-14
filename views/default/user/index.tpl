@@ -52,7 +52,7 @@
                         <h3 class="box-title">签到获取流量</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p> 22小时内可以签到一次。</p>
+                        <p> {$config["checkinTime"]}小时内可以签到一次。</p>
                         {if $user->isAbleToCheckin() }
                         <p id="checkin-btn"> <button id="checkin" class="btn btn-success  btn-flat">签到</button></p>
                         {else}

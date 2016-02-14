@@ -35,6 +35,9 @@ class User extends Model
     }
 
     public function lastCheckInTime(){
+        if($this->attributes['last_check_in_time'] == 0){
+            return "从未签到";
+        }
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
 
@@ -71,20 +74,18 @@ class User extends Model
         }
     }
 
-
-
     public function trafficUsagePercent(){
         $total = $this->attributes['u'] + $this->attributes['d'];
-        $enable = $this->attributes['transfer_enable'];
-        $percent = $total/$enable;
+        $transfer_enable = $this->attributes['transfer_enable'];
+        $percent = $total/$transfer_enable;
         $percent = round($percent,2);
         $percent = $percent*100;
         return $percent;
     }
 
     public function enableTraffic(){
-        $enable = $this->attributes['transfer_enable'];
-        return Tools::flowAutoShow($enable);
+        $transfer_enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($transfer_enable);
     }
 
     public function usedTraffic(){
@@ -94,8 +95,8 @@ class User extends Model
 
     public function unusedTraffic(){
         $total = $this->attributes['u'] + $this->attributes['d'];
-        $enable = $this->attributes['transfer_enable'];
-        return Tools::flowAutoShow($enable-$total);
+        $transfer_enable = $this->attributes['transfer_enable'];
+        return Tools::flowAutoShow($transfer_enable-$total);
     }
 
     public function isAbleToCheckin(){

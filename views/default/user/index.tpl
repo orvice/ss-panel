@@ -21,7 +21,7 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p>流量不会重置，可以通过签到获取流量。</p>
-                        <p>每次签到至少可以获取{$config['checkinMin']}MB流量。</p>
+                        <p>每次签到可以获取{$config['checkinMin']}~{$config['checkinMax']}MB流量。</p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->

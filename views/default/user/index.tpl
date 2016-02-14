@@ -21,7 +21,7 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <p>流量不会重置，可以通过签到获取流量。</p>
-                        <p>流量可以通过签到获取，基本每天可以用1G流量。</p>
+                        <p>每次签到可以获取{$config['checkinMin']}~{$config['checkinMax']}MB流量。</p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (right) -->
@@ -37,14 +37,12 @@
                                 <span class="sr-only">Transfer</span>
                             </div>
                         </div>
-                        <p> 总流量:{$user->enableTraffic()}</p>
-                        <p> 已用流量：{$user->usedTraffic()}  </p>
-                        <p> 剩余流量： {$user->unusedTraffic()} </p>
+                        <p>总流量：{$user->enableTraffic()}</p>
+                        <p>已用流量：{$user->usedTraffic()}</p>
+                        <p>剩余流量：{$user->unusedTraffic()}</p>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col (left) -->
-
-
 
             <div class="col-md-6">
                 <div class="box box-solid">
@@ -52,7 +50,7 @@
                         <h3 class="box-title">签到获取流量</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p> {$config["checkinTime"]}小时内可以签到一次。</p>
+                        <p> 每{$config['checkinTime']}小时可以签到一次。</p>
                         {if $user->isAbleToCheckin() }
                         <p id="checkin-btn"> <button id="checkin" class="btn btn-success  btn-flat">签到</button></p>
                         {else}

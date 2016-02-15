@@ -51,7 +51,7 @@
 
                             <div class="form-group">
                                 <label for="invite_num">可用邀请数</label>
-                                <input  class="form-control" id="info" value="{$user->invite_num}" >
+                                <input  class="form-control" id="invite_num" value="{$user->invite_num}" >
                             </div>
 
                             <div class="form-group">

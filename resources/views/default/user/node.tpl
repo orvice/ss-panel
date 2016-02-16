@@ -14,17 +14,21 @@
     <section class="content">
         <!-- START PROGRESS BARS -->
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
+                <div class="callout callout-warning">
+                    <h4>注意!</h4>
+                    <p>请勿在任何地方公开节点地址！</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="box box-solid">
                     <div class="box-header">
                         <i class="fa fa-th-list"></i>
                         <h3 class="box-title">节点</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <div class="callout callout-warning">
-                            <h4>注意!</h4>
-                            <p>请勿在任何地方公开节点地址！</p>
-                        </div>
                         {foreach $nodes as $node}
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs pull-right">

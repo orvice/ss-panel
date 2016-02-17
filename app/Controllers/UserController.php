@@ -13,9 +13,7 @@ use App\Utils\Tools;
 /**
  *  HomeController
  */
-
-class UserController extends BaseController
-{
+class UserController extends BaseController{
 
     private $user;
 
@@ -23,14 +21,13 @@ class UserController extends BaseController
         $this->user = Auth::getUser();
     }
 
-    public function index()
-    {
+    public function index(){
         return $this->view()->display('user/index.tpl');
     }
 
     public function node(){
-        $nodes = Node::where('type',1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes',$nodes)->display('user/node.tpl');
+        $nodes = Node::where('type', 1)->orderBy('sort')->get();
+        return $this->view()->assign('nodes', $nodes)->display('user/node.tpl');
     }
 
 
@@ -45,13 +42,14 @@ class UserController extends BaseController
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
         $ary['method'] = $node->method;
-        if($node->custom_method){
+        if ($node->custom_method){
             $ary['method'] = $this->user->method;
         }
         $json = json_encode($ary);
-        $ssurl =  $ary['method'].":".$this->user->passwd."@".$node->server.":".$this->user->port;
-        $ssqr = "ss://".base64_encode($ssurl);
-        return $this->view()->assign('json',$json)->assign('ssqr',$ssqr)->display('user/nodeinfo.tpl');
+        $json_show = json_encode($ary, JSON_PRETTY_PRINT);
+        $ssurl = $ary['method'] . ":" . $this->user->passwd . "@" . $node->server . ":" . $this->user->port;
+        $ssqr = "ss://" . base64_encode($ssurl);
+        return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->display('user/nodeinfo.tpl');
     }
 
     public function profile(){
@@ -63,10 +61,9 @@ class UserController extends BaseController
     }
 
 
-
     public function invite(){
         $codes = $this->user->inviteCodes();
-        return $this->view()->assign('codes',$codes)->display('user/invite.tpl');
+        return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
     }
 
     public function doInvite($request, $response, $args){
@@ -75,7 +72,7 @@ class UserController extends BaseController
             $res['ret'] = 0;
             return $response->getBody()->write(json_encode($res));
         }
-        for ($i = 0; $i < $n; $i++ ){
+        for ($i = 0; $i < $n; $i++){
             $char = Tools::genRandomChar(32);
             $code = new InviteCode();
             $code->code = $char;
@@ -85,30 +82,30 @@ class UserController extends BaseController
         $this->user->invite_num = 0;
         $this->user->save();
         $res['ret'] = 1;
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 
     public function sys(){
-        return $this->view()->assign('ana',"")->display('user/sys.tpl');
+        return $this->view()->assign('ana', "")->display('user/sys.tpl');
     }
 
     public function updatePassword($request, $response, $args){
-        $oldpwd =  $request->getParam('oldpwd');
-        $pwd =  $request->getParam('pwd');
-        $repwd =  $request->getParam('repwd');
+        $oldpwd = $request->getParam('oldpwd');
+        $pwd = $request->getParam('pwd');
+        $repwd = $request->getParam('repwd');
         $user = $this->user;
-        if (!Hash::checkPassword($user->pass,$oldpwd)){
+        if (!Hash::checkPassword($user->pass, $oldpwd)){
             $res['ret'] = 0;
             $res['msg'] = "旧密码错误";
             return $response->getBody()->write(json_encode($res));
         }
-        if($pwd != $repwd){
+        if ($pwd != $repwd){
             $res['ret'] = 0;
             $res['msg'] = "两次输入不符合";
             return $response->getBody()->write(json_encode($res));
         }
 
-        if(strlen($pwd) < 8){
+        if (strlen($pwd) < 8){
             $res['ret'] = 0;
             $res['msg'] = "密码太短啦";
             return $response->getBody()->write(json_encode($res));
@@ -119,24 +116,24 @@ class UserController extends BaseController
 
         $res['ret'] = 1;
         $res['msg'] = "ok";
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 
     public function updateSsPwd($request, $response, $args){
         $user = Auth::getUser();
-        $pwd =  $request->getParam('sspwd');
+        $pwd = $request->getParam('sspwd');
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 
     public function updateMethod($request, $response, $args){
         $user = Auth::getUser();
-        $method =  $request->getParam('method');
+        $method = $request->getParam('method');
         $method = strtolower($method);
         $user->updateMethod($method);
         $res['ret'] = 1;
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 
     public function logout($request, $response, $args){
@@ -146,18 +143,18 @@ class UserController extends BaseController
     }
 
     public function doCheckIn($request, $response, $args){
-        if(!$this->user->isAbleToCheckin()){
+        if (!$this->user->isAbleToCheckin()){
             $res['msg'] = "您似乎已经签到过了...";
             $res['ret'] = 1;
             return $response->getBody()->write(json_encode($res));
         }
-        $traffic = rand(Config::get('checkinMin'),Config::get('checkinMax'));
-        $this->user->transfer_enable = $this->user->transfer_enable+ Tools::toMB($traffic);
+        $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
+        $this->user->transfer_enable = $this->user->transfer_enable + Tools::toMB($traffic);
         $this->user->last_check_in_time = time();
         $this->user->save();
-        $res['msg'] = sprintf("获得了 %u MB流量.",$traffic);
+        $res['msg'] = sprintf("获得了 %u MB流量.", $traffic);
         $res['ret'] = 1;
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 
     public function kill($request, $response, $args){
@@ -166,18 +163,18 @@ class UserController extends BaseController
 
     public function handleKill($request, $response, $args){
         $user = Auth::getUser();
-        $passwd =  $request->getParam('passwd');
+        $passwd = $request->getParam('passwd');
         // check passwd
         $res = array();
-        if (!Hash::checkPassword($user->pass,$passwd)){
+        if (!Hash::checkPassword($user->pass, $passwd)){
             $res['ret'] = 0;
             $res['msg'] = " 密码错误";
-            return $this->echoJson($response,$res);
+            return $this->echoJson($response, $res);
         }
         Auth::logout();
         $user->delete();
         $res['ret'] = 1;
         $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
-        return $this->echoJson($response,$res);
+        return $this->echoJson($response, $res);
     }
 }

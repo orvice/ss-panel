@@ -17,4 +17,13 @@ class Helper
         $accessToken = $params['access_token'];
         return $accessToken;
     }
+
+    public static function getMuKeyFromReq($request){
+        $params = $request->getQueryParams();
+        if(!isset($params['key'])){
+            return null;
+        }
+        $accessToken = $params['key'];
+        return $accessToken;
+    }
 }

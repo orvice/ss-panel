@@ -7,6 +7,7 @@ use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Admin;
 use App\Middleware\Api;
+use App\Middleware\Mu;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
 /***
@@ -15,23 +16,23 @@ use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
 // config
 $debug = false;
-if (defined("DEBUG")){
+if (defined("DEBUG")) {
     $debug = true;
 }
 /***
-$configuration = [
-    'settings' => [
-        'displayErrorDetails' => $debug,
-    ]
-];
-$c = new Container($configuration);
-***/
+ * $configuration = [
+ * 'settings' => [
+ * 'displayErrorDetails' => $debug,
+ * ]
+ * ];
+ * $c = new Container($configuration);
+ ***/
 
 // Make a Slim App
 // $app = new App($c);
 $app = new App([
     'settings' => [
-        'debug'         => $debug,
+        'debug' => $debug,
         'whoops.editor' => 'sublime'
     ]
 ]);
@@ -90,14 +91,14 @@ $app->group('/admin', function () {
     $this->post('/node', 'App\Controllers\Admin\NodeController:add');
     $this->get('/node/{id}/edit', 'App\Controllers\Admin\NodeController:edit');
     $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update');
-    $this->delete('/node/{id}','App\Controllers\Admin\NodeController:delete');
+    $this->delete('/node/{id}', 'App\Controllers\Admin\NodeController:delete');
     $this->get('/node/{id}/delete', 'App\Controllers\Admin\NodeController:deleteGet');
 
     // User Mange
     $this->get('/user', 'App\Controllers\Admin\UserController:index');
     $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
     $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
-    $this->delete('/user/{id}','App\Controllers\Admin\UserController:delete');
+    $this->delete('/user/{id}', 'App\Controllers\Admin\UserController:delete');
     $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
 
     $this->get('/profile', 'App\Controllers\AdminController:profile');
@@ -114,6 +115,12 @@ $app->group('/api', function () {
     $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());
     $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
 });
+
+// mu
+$app->group('/mu', function () {
+    $this->get('/user', 'App\Controllers\Mu\UserController:index');
+    $this->post('/user/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
+})->add(new Mu());
 
 // Run Slim Routes for App
 $app->run();

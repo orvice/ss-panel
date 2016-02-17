@@ -4,7 +4,7 @@
 
 # auto build from my github project: https://github.com/maxidea-com/ss-panel
 
-FROM daocloud.io/ubuntu:trusty
+FROM ubuntu:14.04
 
 # make sure the package repository is up to date
 RUN apt-get -y update && apt-get install -y redis-server

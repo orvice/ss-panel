@@ -31,21 +31,15 @@ ADD 3line.sh /opt/3line.sh
 ADD mysql-init.sh /opt/mysql-init.sh
 ADD .env /opt/ss-panel/.env
 ADD default /etc/nginx/sites-available/default
+ADD start.sh /opt/start.sh
 
 RUN /bin/bash /opt/3line.sh
-
-RUN service redis-server start
 RUN service mysql start
-
-RUN service php5-fpm start
-RUN service nginx start
-
 RUN /bin/bash /opt/mysql-init.sh
 
-RUN service supervisor start 
-RUN supervisorctl start shadowsocks
+RUN apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#CMD cd /opt/ss-panel; php xcat createAdmin
+CMD ["/bin/bash /opt/start.sh"]
 
 
 

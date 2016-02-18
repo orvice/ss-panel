@@ -39,7 +39,7 @@ RUN /bin/bash /opt/mysql-init.sh
 
 RUN apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["/bin/bash /opt/start.sh"]
+CMD /bin/bash /opt/start.sh
 
 
 

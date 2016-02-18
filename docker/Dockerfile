@@ -17,7 +17,7 @@ RUN pip install cymysql
 RUN cd /opt; git clone -b manyuser https://github.com/mengskysama/shadowsocks.git
 RUN rm -f /opt/shadowsocks/shadowsocks/Config.py
 RUN rm -f /opt/shadowsocks/shadowsocks/config.json
-RUN apt-get install supervisor
+RUN apt-get -y install supervisor
 RUN cd /opt; git clone https://github.com/maxidea-com/ss-panel.git
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer
 RUN cd /opt/ss-panel/; composer install
@@ -33,7 +33,6 @@ ADD .env /opt/ss-panel/.env
 ADD default /etc/nginx/sites-available/default
 
 RUN /bin/bash /opt/3line.sh
-RUN /bin/bash /opt/mysql-init.sh
 
 RUN service redis-server start
 RUN service mysql start
@@ -43,6 +42,7 @@ RUN supervisorctl start shadowsocks
 RUN service php5-fpm start
 RUN service nginx start
 
+RUN /bin/bash /opt/mysql-init.sh
 
 #CMD cd /opt/ss-panel; php xcat createAdmin
 

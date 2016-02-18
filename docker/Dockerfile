@@ -37,7 +37,6 @@ RUN /bin/bash /opt/3line.sh
 RUN service redis-server start
 RUN service mysql start
 RUN service supervisor start 
-RUN supervisorctl reload
 RUN supervisorctl start shadowsocks
 RUN service php5-fpm start
 RUN service nginx start

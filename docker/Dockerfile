@@ -36,12 +36,14 @@ RUN /bin/bash /opt/3line.sh
 
 RUN service redis-server start
 RUN service mysql start
-RUN service supervisor start 
-RUN supervisorctl start shadowsocks
+
 RUN service php5-fpm start
 RUN service nginx start
 
 RUN /bin/bash /opt/mysql-init.sh
+
+RUN service supervisor start 
+RUN supervisorctl start shadowsocks
 
 #CMD cd /opt/ss-panel; php xcat createAdmin
 

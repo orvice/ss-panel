@@ -69,7 +69,9 @@
 
             <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
             <script>
-                jQuery('#qrcode').qrcode({"text": "{$ssqr}"});
+                jQuery('#qrcode').qrcode({
+                    "text": "{$ssqr}"
+                });
             </script>
 
         </div>

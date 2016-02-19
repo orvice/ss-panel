@@ -27,6 +27,7 @@ RUN rm -f /etc/nginx/sites-available/default
 ADD Config.py /opt/shadowsocks/shadowsocks/Config.py
 ADD config.json /opt/shadowsocks/shadowsocks/config.json
 ADD shadowsocks.conf /etc/supervisor/conf.d/shadowsocks.conf
+ADD supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 ADD 3line.sh /opt/3line.sh
 ADD mysql-init.sh /opt/mysql-init.sh
 ADD .env /opt/ss-panel/.env
@@ -39,11 +40,14 @@ RUN /bin/bash /opt/mysql-init.sh
 
 RUN apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD /bin/bash /opt/start.sh
-
-
-
 EXPOSE 80 1025 1026 1027 1028
+
+
+CMD ["/usr/bin/supervisord"] 
+
+#for other service start/restart/stop for docker run
+ENTRYPOINT ["service"]
+
 
 # contact
 MAINTAINER SimonXu, maxidea@gmail.com

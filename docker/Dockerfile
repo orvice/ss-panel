@@ -45,9 +45,6 @@ EXPOSE 80 1025 1026 1027 1028
 
 CMD ["/usr/bin/supervisord"] 
 
-#for other service start/restart/stop for docker run
-ENTRYPOINT ["service"]
-
 
 # contact
 MAINTAINER SimonXu, maxidea@gmail.com

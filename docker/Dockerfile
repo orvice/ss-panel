@@ -32,7 +32,6 @@ ADD 3line.sh /opt/3line.sh
 ADD mysql-init.sh /opt/mysql-init.sh
 ADD .env /opt/ss-panel/.env
 ADD default /etc/nginx/sites-available/default
-ADD start.sh /opt/start.sh
 
 RUN /bin/bash /opt/3line.sh
 RUN service mysql start

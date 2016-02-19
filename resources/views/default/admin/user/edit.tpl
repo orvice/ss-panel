@@ -122,7 +122,7 @@
                                                 <input class="form-control" id="transfer_enable" type="number"
                                                        value="{$user->transfer_enable}">
 
-                                                <div class="input-group-addon">KB</div>
+                                                <div class="input-group-addon">字节</div>
                                             </div>
                                         </div>
                                     </div>
@@ -133,9 +133,9 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <input class="form-control" id="usedTraffic" type="number"
-                                                       value="{$user->usedTraffic()}" readonly>
+                                                       value="{$user->u}" readonly>
 
-                                                <div class="input-group-addon">KB</div>
+                                                <div class="input-group-addon">字节</div>
                                             </div>
                                         </div>
                                     </div>

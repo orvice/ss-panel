@@ -12,7 +12,8 @@
     "vlucas/phpdotenv": "~2.1",
     "zeuxisoo/slim-whoops": "0.4.*",
     "firebase/php-jwt": "~3.0",
-    "aws/aws-sdk-php": "3.*"
+    "aws/aws-sdk-php": "3.*",
+    "gregwar/captcha": "1.*"
   },
   "autoload": {
     "classmap": [

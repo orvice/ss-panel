@@ -85,7 +85,7 @@
                     <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>{$user->name}</p>
+                    <p>{$user->user_name}</p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>

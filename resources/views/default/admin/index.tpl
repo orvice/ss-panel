@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            管理面板
+            管理中心
             <small>Admin Control</small>
         </h1>
     </section>
@@ -14,28 +14,80 @@
     <section class="content">
         <!-- START PROGRESS BARS -->
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-solid">
-                    <div class="box-header">
-                        <h3 class="box-title">站点统计</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <p> 总用户: {$sts->getTotalUser()}</p>
-                        <p> 签到用户: {$sts->getCheckinUser()} </p>
-                        <p> 产生流量: {$sts->getTrafficUsage()}</p>
-                        <p> 1小时在线用户: {$sts->getOnlineUser(3600)}</p>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
 
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{$sts->getTotalUser()}</h3>
 
+                        <p>总用户</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i> </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{$sts->getCheckinUser()}</h3>
 
-        </div><!-- /.row -->
-        <!-- END PROGRESS BARS -->
-    </section><!-- /.content -->
+                        <p>签到用户</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i> </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{$sts->getOnlineUser(3600)}</h3>
+
+                        <p>前一小时在线用户</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i> </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{$sts->getTotalNode()}</h3>
+
+                        <p>节点数</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i> </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{$sts->getTrafficUsage()}</h3>
+
+                        <p>产生流量</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i> </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.row --><!-- END PROGRESS BARS -->
+    </section>
+    <!-- /.content -->
 </div><!-- /.content-wrapper -->
-
-
 
 
 {include file='admin/footer.tpl'}

@@ -26,8 +26,9 @@ class UserController extends BaseController{
     }
 
     public function node(){
+        $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->display('user/node.tpl');
+        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->display('user/node.tpl');
     }
 
 

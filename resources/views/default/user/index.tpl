@@ -15,84 +15,132 @@
         <!-- START PROGRESS BARS -->
         <div class="row">
             <div class="col-md-6">
-                <div class="box box-solid">
+                <div class="box box-primary">
                     <div class="box-header">
+                        <i class="fa fa-bullhorn"></i>
+
                         <h3 class="box-title">公告&FAQ</h3>
-                    </div><!-- /.box-header -->
+                    </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
                         <p>流量不会重置，可以通过签到获取流量。</p>
+
                         <p>每次签到可以获取{$config['checkinMin']}~{$config['checkinMax']}MB流量。</p>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col (right) -->
 
             <div class="col-md-6">
-                <div class="box box-solid">
+                <div class="box box-primary">
                     <div class="box-header">
+                        <i class="fa fa-exchange"></i>
+
                         <h3 class="box-title">流量使用情况</h3>
-                    </div><!-- /.box-header -->
+                    </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="progress progress-striped">
-                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$user->trafficUsagePercent()}%">
-                                <span class="sr-only">Transfer</span>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: {$user->trafficUsagePercent()}%">
+                                        <span class="sr-only">Transfer</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <p>总流量：{$user->enableTraffic()}</p>
-                        <p>已用流量：{$user->usedTraffic()}</p>
-                        <p>剩余流量：{$user->unusedTraffic()}</p>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (left) -->
+                        <dl class="dl-horizontal">
+                            <dt>总流量</dt>
+                            <dd>{$user->enableTraffic()}</dd>
+                            <dt>已用流量</dt>
+                            <dd>{$user->usedTraffic()}</dd>
+                            <dt>剩余流量</dt>
+                            <dd>{$user->unusedTraffic()}</dd>
+                        </dl>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col (left) -->
 
             <div class="col-md-6">
-                <div class="box box-solid">
+                <div class="box box-primary">
                     <div class="box-header">
+                        <i class="fa fa-pencil"></i>
+
                         <h3 class="box-title">签到获取流量</h3>
-                    </div><!-- /.box-header -->
+                    </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
                         <p> 每{$config['checkinTime']}小时可以签到一次。</p>
-                        {if $user->isAbleToCheckin() }
-                        <p id="checkin-btn"> <button id="checkin" class="btn btn-success  btn-flat">签到</button></p>
-                        {else}
-                        <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a> </p>
-                        {/if}
-                        <p id="checkin-msg" ></p>
+
                         <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
+                        {if $user->isAbleToCheckin() }
+                            <p id="checkin-btn">
+                                <button id="checkin" class="btn btn-success  btn-flat">签到</button>
+                            </p>
+                        {else}
+                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a></p>
+                        {/if}
+                        <p id="checkin-msg"></p>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col (right) -->
 
             <div class="col-md-6">
-                <div class="box box-solid">
+                <div class="box box-primary">
                     <div class="box-header">
+                        <i class="fa  fa-paper-plane"></i>
+
                         <h3 class="box-title">连接信息</h3>
-                    </div><!-- /.box-header -->
+                    </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
-                        <p> 端口：<code>{$user->port}</code> </p>
-                        <p> 密码：{$user->passwd} </p>
-                        <p> 自定义加密：<code>{$user->method}</code> </p>
-                        <p> 最后使用时间：<code>{$user->lastSsTime()}</code> </p>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col (right) -->
-        </div><!-- /.row -->
-        <!-- END PROGRESS BARS -->
-    </section><!-- /.content -->
+                        <dl class="dl-horizontal">
+                            <dt>端口</dt>
+                            <dd>{$user->port}</dd>
+                            <dt>密码</dt>
+                            <dd>{$user->passwd}</dd>
+                            <!--
+                            <dt>加密方式</dt>
+                            <dd>{$user->method}</dd>
+                            -->
+                            <dt>上次使用</dt>
+                            <dd>{$user->lastSsTime()}</dd>
+                        </dl>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col (right) -->
+        </div>
+        <!-- /.row --><!-- END PROGRESS BARS -->
+    </section>
+    <!-- /.content -->
 </div><!-- /.content-wrapper -->
 
 <script>
-    $(document).ready(function(){
-        $("#checkin").click(function(){
+    $(document).ready(function () {
+        $("#checkin").click(function () {
             $.ajax({
-                type:"POST",
-                url:"/user/checkin",
-                dataType:"json",
-                success:function(data){
+                type: "POST",
+                url: "/user/checkin",
+                dataType: "json",
+                success: function (data) {
                     $("#checkin-msg").html(data.msg);
                     $("#checkin-btn").hide();
                 },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
+                error: function (jqXHR) {
+                    alert("发生错误：" + jqXHR.status);
                 }
             })
         })

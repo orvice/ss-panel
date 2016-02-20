@@ -103,7 +103,7 @@
                                 <div class="text-center">
                                     <div id="surge-base-qr"></div>
                                 </div>
-                                <textarea id="surge-base-text" class="form-control" rows="6">https://github.com/jinyu121/surge_rules/raw/develop/ProxyBase.conf</textarea>
+                                <textarea id="surge-base-text" class="form-control" rows="6">{$surge_base}</textarea>
                             </div>
                             <div class="col-md-4">
                                 <h4>代理配置</h4>
@@ -111,7 +111,7 @@
                                 <div class="text-center">
                                     <div id="surge-proxy-qr"></div>
                                 </div>
-                                <textarea id="surge-proxy-text" class="form-control" rows="6">{$sssurge}</textarea>
+                                <textarea id="surge-proxy-text" class="form-control" rows="6">{$surge_proxy}</textarea>
                             </div>
                         </div>
                     </div>

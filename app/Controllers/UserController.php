@@ -56,10 +56,11 @@ class UserController extends BaseController
         $ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
         $ssqr = "ss://" . base64_encode($ssurl);
 
-        $sssurge = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
-        $sssurge .= "[Proxy]\n";
-        $sssurge .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . ",https://github.com/jinyu121/surge_rules/raw/develop/module/SSEncrypt.module";
-        return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('sssurge', $sssurge)->display('user/nodeinfo.tpl');
+        $surge_base = Config::get('baseUrl') . "/downloads/ProxyBase.conf";
+        $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
+        $surge_proxy .= "[Proxy]\n";
+        $surge_proxy .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . "," . Config::get('baseUrl') . "/downloads/SSEncrypt.module";
+        return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
     }
 
     public function profile()

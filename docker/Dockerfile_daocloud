@@ -16,7 +16,7 @@ RUN apt-get -y install git curl php5 php-guzzle php5-mysql nginx php5-fpm
 RUN apt-get install -y python-pip python-m2crypto
 RUN pip install cymysql
 #RUN cd /opt; git clone -b manyuser https://github.com/mengskysama/shadowsocks.git
-RUN cd /opt; git clone -b manyuser https://github.com/maxidea-com/shadowsocks
+RUN cd /opt; git clone -b manyuser https://git.oschina.net/maxidea/shadowsocks.git
 RUN rm -f /opt/shadowsocks/shadowsocks/Config.py
 RUN rm -f /opt/shadowsocks/shadowsocks/config.json
 RUN apt-get -y install supervisor

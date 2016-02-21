@@ -16,6 +16,11 @@ Thanks:
 
 [完整版中文安装教程](https://github.com/maxidea-com/ss-panel/wiki/v3-Guide)
 
+## Quick Start
+
+[专为懒人准备的Docker版本](https://github.com/maxidea-com/ss-panel/wiki/Docker)
+
+
 ## Requirements
 
 * PHP 5.5 or newer

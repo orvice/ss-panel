@@ -10,8 +10,6 @@ Let's talk about cat.  Base on [LightFish](https://github.com/OzCat/LightFish)
 
 Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to download ss-panel.
 
-[中文安装教程](https://github.com/orvice/ss-panel/wiki/v3-Install)
-
 ## Requirements
 
 * PHP 5.5 or newer

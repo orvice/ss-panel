@@ -59,6 +59,7 @@ $app->group('/user', function () {
     $this->post('/sspwd', 'App\Controllers\UserController:updateSsPwd');
     $this->post('/method', 'App\Controllers\UserController:updateMethod');
     $this->get('/sys', 'App\Controllers\UserController:sys');
+    $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->get('/logout', 'App\Controllers\UserController:logout');
@@ -121,6 +122,11 @@ $app->group('/mu', function () {
     $this->get('/user', 'App\Controllers\Mu\UserController:index');
     $this->post('/user/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
 })->add(new Mu());
+
+// res
+$app->group('/res', function () {
+    $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
+});
 
 // Run Slim Routes for App
 $app->run();

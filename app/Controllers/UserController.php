@@ -4,10 +4,9 @@ namespace App\Controllers;
 
 use App\Models\InviteCode;
 use App\Services\Auth;
-use App\Models\Node;
+use App\Models\Node,App\Models\TrafficLog,App\Models\CheckInLog;
 use App\Services\Config;
-use App\Utils\Hash;
-use App\Utils\Tools;
+use App\Utils\Hash,App\Utils\Tools;
 
 
 /**
@@ -199,5 +198,9 @@ class UserController extends BaseController
         $res['ret'] = 1;
         $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
         return $this->echoJson($response, $res);
+    }
+
+    public function trafficLog($request, $response, $args){
+
     }
 }

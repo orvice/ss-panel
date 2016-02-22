@@ -4,7 +4,7 @@
 namespace App\Models;
 
 
-class TrafficLog
+class TrafficLog extends Model
 {
     protected $table = "user_traffic_log";
 }

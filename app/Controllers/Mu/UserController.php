@@ -2,8 +2,11 @@
 
 namespace App\Controllers\Mu;
 
+use App\Models\Node;
+use App\Models\TrafficLog;
 use App\Models\User;
 use App\Controllers\BaseController;
+use App\Utils\Tools;
 
 class UserController extends BaseController
 {
@@ -25,11 +28,14 @@ class UserController extends BaseController
         $id = $args['id'];
         $u = $request->getParam('u');
         $d = $request->getParam('d');
+        $nodeId = $request->getParam('node_id');
+        $node = Node::find($nodeId);
+        $rate = $node->traffic_rate;
         $user = User::find($id);
 
         $user->t = time();
-        $user->u = $user->u + $u;
-        $user->d = $user->d + $d;
+        $user->u = $user->u + ($u * $rate);
+        $user->d = $user->d + ($d * $rate);
         if (!$user->save()) {
             $res = [
                 "ret" => 0,
@@ -37,6 +43,17 @@ class UserController extends BaseController
             ];
             return $this->echoJson($response, $res);
         }
+        // log
+        $traffic = new TrafficLog();
+        $traffic->user_id = $id;
+        $traffic->u = $u;
+        $traffic->d = $d;
+        $traffic->node_id = $nodeId;
+        $traffic->rate = $rate;
+        $traffic->traffic = Tools::flowAutoShow(($u + $d) * $rate);
+        $traffic->log_time = time();
+        $traffic->save();
+
         $res = [
             "ret" => 1,
             "msg" => "ok",

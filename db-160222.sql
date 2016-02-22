@@ -5,20 +5,6 @@ SET time_zone = '+08:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `ss_chg_code`;
-CREATE TABLE `ss_chg_code` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(128) NOT NULL,
-  `time` int(11) NOT NULL,
-  `traffic` bigint(20) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `add_time` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `use_time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 DROP TABLE IF EXISTS `ss_invite_code`;
 CREATE TABLE `ss_invite_code` (

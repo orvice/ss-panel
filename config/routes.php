@@ -119,8 +119,8 @@ $app->group('/api', function () {
 
 // mu
 $app->group('/mu', function () {
-    $this->get('/user', 'App\Controllers\Mu\UserController:index');
-    $this->post('/user/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
+    $this->get('/users', 'App\Controllers\Mu\UserController:index');
+    $this->post('/users/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
 })->add(new Mu());
 
 // res

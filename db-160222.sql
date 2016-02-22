@@ -1,7 +1,7 @@
--- Adminer 4.1.0 MySQL dump
+-- ss-panel v3.2
 
 SET NAMES utf8;
-SET time_zone = '+00:00';
+SET time_zone = '+08:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
@@ -40,6 +40,7 @@ CREATE TABLE `ss_node` (
   `server` varchar(128) NOT NULL,
   `method` varchar(64) NOT NULL,
   `custom_method` tinyint(1) NOT NULL DEFAULT '0',
+  `traffic_rate` float NOT NULL DEFAULT '1',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
   `sort` int(3) NOT NULL,
@@ -98,4 +99,18 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2016-02-12 11:40:01
+DROP TABLE IF EXISTS `user_traffic_log`;
+CREATE TABLE `user_traffic_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `u` int(11) NOT NULL,
+  `d` int(11) NOT NULL,
+  `node_id` int(11) NOT NULL,
+  `rate` float NOT NULL,
+  `traffic` varchar(32) NOT NULL,
+  `log_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 2016-02-22 15:55:25

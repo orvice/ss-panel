@@ -4,7 +4,7 @@ Thanks:
 
 [LightFish](https://github.com/OzCat/LightFish)
 
-[shadowsocks manuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
+[shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
 
 [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go/tree/mu)
 

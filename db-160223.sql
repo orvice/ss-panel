@@ -1,10 +1,9 @@
--- ss-panel v3.2
+-- Adminer 4.1.0 MySQL dump
 
 SET NAMES utf8;
-SET time_zone = '+08:00';
+SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
-
 
 DROP TABLE IF EXISTS `ss_invite_code`;
 CREATE TABLE `ss_invite_code` (
@@ -29,6 +28,7 @@ CREATE TABLE `ss_node` (
   `traffic_rate` float NOT NULL DEFAULT '1',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
+  `offset` int(11) NOT NULL DEFAULT '0',
   `sort` int(3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -70,6 +70,7 @@ CREATE TABLE `user` (
   `expire_time` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
+  `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -99,4 +100,4 @@ CREATE TABLE `user_traffic_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2016-02-22 15:55:25
+-- 2016-02-23 13:47:11

@@ -63,6 +63,15 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="rate" class="col-sm-3 control-label">流量比例</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="rate" value="{$node->traffic_rate}">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">自定义加密</label>
 
                                         <div class="col-sm-9">
@@ -149,6 +158,7 @@
                     server: $("#server").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
+                    rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: $("#type").val(),
                     status: $("#status").val(),

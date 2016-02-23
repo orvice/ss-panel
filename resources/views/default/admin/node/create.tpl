@@ -63,6 +63,15 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="rate" class="col-sm-3 control-label">流量比例</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="rate" value="1">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">自定义加密</label>
 
                                         <div class="col-sm-9">
@@ -76,10 +85,12 @@
                                             </select>
 
                                             <p class="help-block">
-                                                <a href="https://github.com/orvice/ss-panel/wiki/v3-custom-method">如何使用自定义加密?</a>
+                                                <a href="https://github.com/orvice/ss-panel/wiki/v3-custom-method">如何使用自定义加密?</a>|
+                                                <a href="https://github.com/orvice/ss-panel/wiki/v3-traffic-rate">如何设置流量比例?</a>
                                             </p>
                                         </div>
                                     </div>
+
                                 </fieldset>
                                 <fieldset class="col-sm-6">
                                     <legend>描述信息</legend>
@@ -146,6 +157,7 @@
                     server: $("#server").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
+                    rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: $("#type").val(),
                     status: $("#status").val(),

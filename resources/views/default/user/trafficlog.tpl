@@ -13,6 +13,14 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
+            <div class="col-md-12">
+                <div class="callout callout-warning">
+                    <h4>注意!</h4>
+                    <p>部分节点不支持流量记录.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body table-responsive no-padding">

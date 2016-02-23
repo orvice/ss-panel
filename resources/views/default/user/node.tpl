@@ -17,8 +17,8 @@
             <div class="col-md-12">
                 <div class="callout callout-warning">
                     <h4>注意!</h4>
-
                     <p>请勿在任何地方公开节点地址！</p>
+                    <p>流量比例为0.5及使用1000MB按照500MB流量记录记录结算.</p>
                 </div>
             </div>
         </div>
@@ -68,6 +68,11 @@
                                                                 {$node->method}
                                                             {/if}
                                                         </span>
+
+                                                        </div>
+                                                        <div class="col-xs-4 col-sm-2">流量比例：</div>
+                                                        <div class="col-xs-8 col-sm-4"><span
+                                                                    class="label label-danger">{$node->traffic_rate}</span>
                                                         </div>
                                                     </div>
                                                 </div>

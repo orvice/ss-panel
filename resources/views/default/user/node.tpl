@@ -18,7 +18,7 @@
                 <div class="callout callout-warning">
                     <h4>注意!</h4>
                     <p>请勿在任何地方公开节点地址！</p>
-                    <p>流量比例为0.5及使用1000MB按照500MB流量记录记录结算.</p>
+                    <p>流量比例为0.5即使用1000MB按照500MB流量记录记录结算.</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <div class="box-body">
                         {foreach $nodes as $node}
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-8">
                                     <div class="info-box">
                                         <span class="info-box-icon bg-aqua"><i class="fa fa-server"></i></span>
 
@@ -55,10 +55,7 @@
                                                         <div class="col-xs-8 col-sm-4"><span
                                                                     class="label label-danger">{$user->port}</span>
                                                         </div>
-                                                        <div class="col-xs-4 col-sm-2">密码：</div>
-                                                        <div class="col-xs-8 col-sm-4"><span
-                                                                    class="label label-danger">{$user->passwd}</span>
-                                                        </div>
+
                                                         <div class="col-xs-4 col-sm-2">加密：</div>
                                                         <div class="col-xs-8 col-sm-4">
                                                         <span class="label label-danger">

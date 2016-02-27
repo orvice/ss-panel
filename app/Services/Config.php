@@ -6,7 +6,7 @@ namespace App\Services;
 class Config
 {
     public static function get($key){
-       return $_ENV[$key];
+       return getenv($key);
     }
 
     public static function getPublicConfig(){

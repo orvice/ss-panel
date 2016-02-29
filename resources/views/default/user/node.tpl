@@ -46,7 +46,7 @@
                                                                     class="label label-success">{$node->status}</span></sub>
                                                     </div>
 
-                                                    <div class="info-box-text row">
+                                                    <div class="info-box-text row" style="text-transform:none">
                                                         <div class="col-xs-4 col-sm-2">地址：</div>
                                                         <div class="col-xs-8 col-sm-4"><span
                                                                     class="label label-danger">{$node->server}</span>

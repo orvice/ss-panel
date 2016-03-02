@@ -1,6 +1,6 @@
 # ss-panel
 
-Let's talk about cat.  Base on [LightFish](https://github.com/OzCat/LightFish)
+Let's talk about cat.  Based on [LightFish](https://github.com/OzCat/LightFish).
 
 [![Join the chat at https://gitter.im/orvice/ss-panel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/orvice/ss-panel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 

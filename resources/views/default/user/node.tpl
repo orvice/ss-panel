@@ -71,6 +71,11 @@
                                                         <div class="col-xs-8 col-sm-4"><span
                                                                     class="label label-danger">{$node->traffic_rate}</span>
                                                         </div>
+
+                                                        <div class="col-xs-4 col-sm-2">在线人数：</div>
+                                                        <div class="col-xs-8 col-sm-4"><span
+                                                                    class="label label-danger">{$node->getOnlineUserCount()}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">

@@ -34,6 +34,16 @@ CREATE TABLE `ss_node` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+DROP TABLE IF EXISTS `ss_node_online_log`;
+CREATE TABLE `ss_node_online_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `node_id` int(11) NOT NULL,
+  `online_user` int(11) NOT NULL,
+  `log_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `ss_password_reset`;
 CREATE TABLE `ss_password_reset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -100,4 +110,4 @@ CREATE TABLE `user_traffic_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2016-02-23 13:47:11
+-- 2016-03-05 15:11:18

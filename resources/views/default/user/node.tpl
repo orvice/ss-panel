@@ -77,7 +77,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
-                                                    <div class="progress-description">{$node->info}</div>
+                                                    <p>{$node->info}</p>
                                                 </div>
                                             </div>
 

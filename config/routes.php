@@ -121,6 +121,7 @@ $app->group('/api', function () {
 $app->group('/mu', function () {
     $this->get('/users', 'App\Controllers\Mu\UserController:index');
     $this->post('/users/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
+    $this->post('/nodes/{id}/online_count', 'App\Controllers\Mu\NodeController:onlineUserLog');
 })->add(new Mu());
 
 // res

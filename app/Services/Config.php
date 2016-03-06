@@ -21,6 +21,7 @@ class Config extends OzConfig
         return [
             'driver'    => self::get('db_driver'),
             'host'      => self::get('db_host'),
+            'port'      => self::get('db_port'),
             'database'  => self::get('db_database'),
             'username'  => self::get('db_username'),
             'password'  => self::get('db_password'),

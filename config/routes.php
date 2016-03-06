@@ -86,6 +86,7 @@ $app->group('/password', function () {
 $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
+    $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
     // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');

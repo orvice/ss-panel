@@ -19,7 +19,7 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 ## Supported Server
 
 * [shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
-* [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go/tree/mu)
+* [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go)
 
 
 ## Install

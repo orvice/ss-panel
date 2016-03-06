@@ -76,6 +76,11 @@
                                                         <div class="col-xs-8 col-sm-4"><span
                                                                     class="label label-danger">{$node->getOnlineUserCount()}</span>
                                                         </div>
+
+                                                        <div class="col-xs-4 col-sm-2">产生流量：</div>
+                                                        <div class="col-xs-8 col-sm-4"><span
+                                                                    class="label label-danger">{$node->getTrafficFromLogs()}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">

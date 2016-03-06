@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\InviteCode;
 use App\Services\Auth;
 use App\Services\Config;
+use App\Utils\Http;
 
 /**
  *  HomeController
@@ -23,9 +24,10 @@ class HomeController extends BaseController
         return $this->view()->assign('codes', $codes)->display('code.tpl');
     }
 
-    public function down()
+    public function debug($request, $response, $args)
     {
-
+        $res['ip'] = Http::getClientIP();
+        return $this->echoJson($response,$res);
     }
 
     public function tos()

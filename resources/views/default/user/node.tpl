@@ -34,7 +34,7 @@
                     <div class="box-body">
                         {foreach $nodes as $node}
                             <div class="row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-12">
                                     <div class="info-box">
                                         <span class="info-box-icon bg-aqua"><i class="fa fa-server"></i></span>
 
@@ -83,7 +83,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-6">
                                                     <p>{$node->info}</p>
                                                 </div>
                                             </div>

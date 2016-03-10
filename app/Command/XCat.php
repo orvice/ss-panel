@@ -27,6 +27,8 @@ class XCat
                 return $this->createAdmin();
             case("resetTraffic"):
                 return $this->resetTraffic();
+            case("sendDiaryMail"):
+                return DailyMail::sendDailyMail();
             default:
                 return $this->defaultAction();
         }

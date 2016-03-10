@@ -2,11 +2,12 @@
 
 namespace App\Controllers\Mu;
 
-use App\Models\Node;
-use App\Models\TrafficLog;
-use App\Models\User;
 use App\Controllers\BaseController;
+use App\Models\Node, App\Models\TrafficLog, App\Models\User;
+use App\Storage\Dynamodb\TrafficLog as DynamoTrafficLog;
+use App\Services\Config;
 use App\Utils\Tools;
+use Aws\DynamoDb\DynamoDbClient;
 
 class UserController extends BaseController
 {
@@ -44,19 +45,30 @@ class UserController extends BaseController
             return $this->echoJson($response, $res);
         }
         // log
+        $totalTraffic = Tools::flowAutoShow(($u + $d) * $rate);
         $traffic = new TrafficLog();
         $traffic->user_id = $id;
         $traffic->u = $u;
         $traffic->d = $d;
         $traffic->node_id = $nodeId;
         $traffic->rate = $rate;
-        $traffic->traffic = Tools::flowAutoShow(($u + $d) * $rate);
+        $traffic->traffic = $totalTraffic;
         $traffic->log_time = time();
         $traffic->save();
 
+        $msg = "ok";
+        if (Config::get('log_traffic_dynamodb')) {
+            $client = new DynamoTrafficLog();
+            try{
+                $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
+            }catch(\Exception $e){
+                $msg = $e->getMessage();
+            }
+        }
+
         $res = [
             "ret" => 1,
-            "msg" => "ok",
+            "msg" => $msg,
         ];
         return $this->echoJson($response, $res);
     }

@@ -22,69 +22,52 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-info">
-                    <div class="box-header">
-                        <i class="fa fa-th-list"></i>
-
-                        <h3 class="box-title">节点</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        {foreach $nodes as $node}
-						
-						  <div class="row">
-							<div class="col-md-12">
-							  <div class="box box-widget">
-								<div class="box-body">
-								  <ul class="products-list product-list-in-box">
-									<li class="item">
-									  <div class="product-img">
-										<img src="../assets/public/img/iconfont-server.png" alt="Server Node">
-									  </div>
-									  <div class="product-info">
-										<a href="./node/{$node->id}" class="product-title">{$node->name} <span class="label label-info pull-right">{$node->status}</span></a>
-										<span class="product-description">
-										  {$node->info}
-										</span>
-									  </div>
-									</li><!-- /.item -->
-								  </ul>
-								</div>
-								<div class="box-footer no-padding">
-								<div class="row">
-									<div class="col-md-6">
-									  <ul class="nav nav-stacked">
-										<li><a href="./node/{$node->id}">节点地址 <span class="pull-right badge bg-blue">{$node->server}</span></a></li>
-										<li><a href="./node/{$node->id}">连接端口 <span class="pull-right badge bg-aqua">{$user->port}</span></a></li>
-										<li><a href="./node/{$node->id}">加密方式 <span class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a></li>
-									  </ul>
-									</div>
-									<div class="col-md-6">
-									  <ul class="nav nav-stacked">
-										<li><a href="./node/{$node->id}">流量比例 <span class="pull-right badge bg-blue">{$node->traffic_rate}</span></a></li>
-										<li><a href="./node/{$node->id}">在线人数 <span class="pull-right badge bg-aqua">{$node->getOnlineUserCount()}</span></a></li>
-										<li><a href="./node/{$node->id}">产生流量 <span class="pull-right badge bg-green">{$node->getTrafficFromLogs()}</span></a></li>
-									  </ul>
-									</div>
-								</div>
-								  
-								</div>
-							  </div><!-- /.widget-user -->
-							</div><!-- /.col -->
-						  </div><!-- /.row -->
-							
-							
-                        {/foreach}
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.col (left) -->
-        </div>
-        <!-- /.row --><!-- END PROGRESS BARS -->
+        
+		{foreach $nodes as $node}
+		
+		  <div class="row">
+			<div class="col-md-12">
+			  <div class="box box-widget">
+				<div class="box-body">
+				  <ul class="products-list product-list-in-box">
+					<li class="item">
+					  <div class="product-img">
+						<img src="../assets/public/img/iconfont-server.png" alt="Server Node">
+					  </div>
+					  <div class="product-info">
+						<a href="./node/{$node->id}" class="product-title">{$node->name} <span class="label label-info pull-right">{$node->status}</span></a>
+						<span class="product-description">
+						  {$node->info}
+						</span>
+					  </div>
+					</li><!-- /.item -->
+				  </ul>
+				</div>
+				<div class="box-footer no-padding">
+				<div class="row">
+					<div class="col-md-6">
+					  <ul class="nav nav-stacked">
+						<li><a href="./node/{$node->id}">节点地址 <span class="pull-right badge bg-blue">{$node->server}</span></a></li>
+						<li><a href="./node/{$node->id}">连接端口 <span class="pull-right badge bg-aqua">{$user->port}</span></a></li>
+						<li><a href="./node/{$node->id}">加密方式 <span class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a></li>
+					  </ul>
+					</div>
+					<div class="col-md-6">
+					  <ul class="nav nav-stacked">
+						<li><a href="./node/{$node->id}">流量比例 <span class="pull-right badge bg-blue">{$node->traffic_rate}</span></a></li>
+						<li><a href="./node/{$node->id}">在线人数 <span class="pull-right badge bg-aqua">{$node->getOnlineUserCount()}</span></a></li>
+						<li><a href="./node/{$node->id}">产生流量 <span class="pull-right badge bg-green">{$node->getTrafficFromLogs()}</span></a></li>
+					  </ul>
+					</div>
+				</div>
+				  
+				</div>
+			  </div><!-- /.widget-user -->
+			</div><!-- /.col -->
+		  </div><!-- /.row -->
+			
+			
+		{/foreach}
     </section>
     <!-- /.content -->
 </div><!-- /.content-wrapper -->

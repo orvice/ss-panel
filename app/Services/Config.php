@@ -2,13 +2,10 @@
 
 namespace App\Services;
 
+use OzCat\Services\Config as OzConfig;
 
-class Config
+class Config extends OzConfig
 {
-    public static function get($key){
-       return $_ENV[$key];
-    }
-
     public static function getPublicConfig(){
         return [
             "appName" => self::get("appName"),

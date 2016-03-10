@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "73c9dc7cb3040c83dceb5e5c6b54e2ec",
+    "hash": "9ab4220dc0600ee45953f495935a8924",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.15.1",
+            "version": "3.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5e6078913293576de969703481994b77c380ca30"
+                "reference": "e6d8b291b45009b310a174bcabad3de1c864e176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5e6078913293576de969703481994b77c380ca30",
-                "reference": "5e6078913293576de969703481994b77c380ca30",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e6d8b291b45009b310a174bcabad3de1c864e176",
+                "reference": "e6d8b291b45009b310a174bcabad3de1c864e176",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-02-11 23:23:31"
+            "time": "2016-02-25 22:52:38"
         },
         {
             "name": "container-interop/container-interop",
@@ -539,16 +539,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb"
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5d04bdd2881ac89abde1fb78cc234bce24327bb",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
                 "shasum": ""
             },
             "require": {
@@ -593,20 +593,20 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-01-23 01:23:02"
+            "time": "2016-02-18 21:54:00"
         },
         {
             "name": "illuminate/container",
-            "version": "v5.2.7",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "afd2e874e034707c6bb9436f5a897ce29dce501a"
+                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/container/afd2e874e034707c6bb9436f5a897ce29dce501a.zip",
-                "reference": "afd2e874e034707c6bb9436f5a897ce29dce501a",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/ba7a8b3c24535ab102ebe9738a0003846c372b95",
+                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95",
                 "shasum": ""
             },
             "require": {
@@ -636,20 +636,20 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-06 14:42:17"
+            "time": "2016-02-22 06:42:06"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.2.7",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "51b3acf96a12f5a10d767d5f2a534fed6f304235"
+                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/contracts/51b3acf96a12f5a10d767d5f2a534fed6f304235.zip",
-                "reference": "51b3acf96a12f5a10d767d5f2a534fed6f304235",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/eea3cf7ce90651e067a914d16383b019da45fcb5",
+                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5",
                 "shasum": ""
             },
             "require": {
@@ -678,20 +678,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2015-12-19 14:25:38"
+            "time": "2016-02-22 09:18:57"
         },
         {
             "name": "illuminate/database",
-            "version": "v5.2.7",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "7072548f8a2933230e7f3e7199b78496fda964b5"
+                "reference": "8b0068c326652332fd364399f4d8cce894953172"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/database/7072548f8a2933230e7f3e7199b78496fda964b5.zip",
-                "reference": "7072548f8a2933230e7f3e7199b78496fda964b5",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/8b0068c326652332fd364399f4d8cce894953172",
+                "reference": "8b0068c326652332fd364399f4d8cce894953172",
                 "shasum": ""
             },
             "require": {
@@ -738,20 +738,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2016-01-06 16:20:30"
+            "time": "2016-02-24 15:02:47"
         },
         {
             "name": "illuminate/pagination",
-            "version": "v5.2.7",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
-                "reference": "48c134ac90d1a4b7e52f747fba0dd2a6a844ab43"
+                "reference": "dcaeed59eb190b03c5498b7fc16e9ea47ce1c0d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/pagination/48c134ac90d1a4b7e52f747fba0dd2a6a844ab43.zip",
-                "reference": "48c134ac90d1a4b7e52f747fba0dd2a6a844ab43",
+                "url": "https://api.github.com/repos/illuminate/pagination/zipball/dcaeed59eb190b03c5498b7fc16e9ea47ce1c0d7",
+                "reference": "dcaeed59eb190b03c5498b7fc16e9ea47ce1c0d7",
                 "shasum": ""
             },
             "require": {
@@ -782,20 +782,20 @@
             ],
             "description": "The Illuminate Pagination package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-04 22:33:02"
+            "time": "2016-02-18 16:19:20"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.2.7",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "6d8dec02825299b0ad47712564e9d33104e148c4"
+                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/support/6d8dec02825299b0ad47712564e9d33104e148c4.zip",
-                "reference": "6d8dec02825299b0ad47712564e9d33104e148c4",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/6749fab3f3d38d8b15427536a8e7bbdc57497c9e",
+                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e",
                 "shasum": ""
             },
             "require": {
@@ -838,7 +838,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-07 11:02:28"
+            "time": "2016-02-22 20:29:02"
         },
         {
             "name": "mailgun/mailgun-php",
@@ -1024,6 +1024,53 @@
                 "routing"
             ],
             "time": "2015-06-18 19:15:47"
+        },
+        {
+            "name": "ozcat/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OzCat/framework.git",
+                "reference": "61ecbf89a8972216178d3d5238996e322f0585ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OzCat/framework/zipball/61ecbf89a8972216178d3d5238996e322f0585ff",
+                "reference": "61ecbf89a8972216178d3d5238996e322f0585ff",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "3.*",
+                "firebase/php-jwt": "~3.0",
+                "gregwar/captcha": "1.*",
+                "illuminate/database": "*",
+                "illuminate/pagination": "~5.1",
+                "mailgun/mailgun-php": "~1.7.2",
+                "phpmailer/phpmailer": "~5.2",
+                "predis/predis": "~1.0",
+                "slim/csrf": "0.5.*",
+                "slim/slim": "^3.0",
+                "slim/twig-view": "~2.0",
+                "smarty/smarty": "~3.1",
+                "vlucas/phpdotenv": "~2.1",
+                "zeuxisoo/slim-whoops": "0.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-4": {
+                    "OzCat\\": "src/OzCat"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Orvice",
+                    "email": "ozcat@orx.me"
+                }
+            ],
+            "description": "The OzCat Framework.",
+            "time": "2016-02-27 16:21:07"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1282,16 +1329,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "03b44a4b41896ba42c78bbd5fa172cd79e650496"
+                "reference": "835425f5945a25509eeab885e80617948e68371d"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/slimphp/Slim/03b44a4b41896ba42c78bbd5fa172cd79e650496.zip",
-                "reference": "03b44a4b41896ba42c78bbd5fa172cd79e650496",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/835425f5945a25509eeab885e80617948e68371d",
+                "reference": "835425f5945a25509eeab885e80617948e68371d",
                 "shasum": ""
             },
             "require": {
@@ -1345,7 +1392,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2016-01-08 15:37:50"
+            "time": "2016-02-25 08:15:17"
         },
         {
             "name": "slim/twig-view",
@@ -1803,7 +1850,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ozcat/framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

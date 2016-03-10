@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Models\InviteCode;
 use App\Services\Auth;
-use App\Models\Node,App\Models\TrafficLog,App\Models\CheckInLog;
+use App\Models\Node, App\Models\TrafficLog, App\Models\CheckInLog;
 use App\Services\Config;
-use App\Utils\Hash,App\Utils\Tools;
+use App\Utils\Hash, App\Utils\Tools;
 
 
 /**
@@ -200,12 +200,13 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function trafficLog($request, $response, $args){
+    public function trafficLog($request, $response, $args)
+    {
         $pageNum = 1;
-        if(isset($request->getQueryParams()["page"])){
+        if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $traffic = TrafficLog::where('user_id',$this->user->id)->orderBy('id', 'desc')->paginate(15,['*'],'page',$pageNum);
+        $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
         return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
     }

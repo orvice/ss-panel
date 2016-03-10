@@ -26,8 +26,11 @@ class HomeController extends BaseController
 
     public function debug($request, $response, $args)
     {
-        $res['ip'] = Http::getClientIP();
-        return $this->echoJson($response,$res);
+        $res = [
+            "ip" => Http::getClientIP(),
+            "version" => Config::get('version'),
+        ];
+        return $this->echoJson($response, $res);
     }
 
     public function tos()

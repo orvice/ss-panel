@@ -109,10 +109,8 @@
                             <dd>{$user->port}</dd>
                             <dt>密码</dt>
                             <dd>{$user->passwd}</dd>
-                            <!--
-                            <dt>加密方式</dt>
+                            <dt>自定义加密方式</dt>
                             <dd>{$user->method}</dd>
-                            -->
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>
                         </dl>

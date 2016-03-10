@@ -36,9 +36,9 @@
 					  </div>
 					  <div class="product-info">
 						<a href="./node/{$node->id}" class="product-title">{$node->name} <span class="label label-info pull-right">{$node->status}</span></a>
-						<span class="product-description">
+						<p>
 						  {$node->info}
-						</span>
+						</p>
 					  </div>
 					</li><!-- /.item -->
 				  </ul>

@@ -33,6 +33,9 @@
 			&copy; {$config["appName"]}  Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
 		 Theme by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 		</div>
+		<div style="display:none;">
+			{$analyticsCode}
+		</div>
 	</div>
 </footer>
 

@@ -4,7 +4,7 @@
 namespace App\Services;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Models\Config as ConfigModel;
+use App\Models\ConfigModel;
 
 class DbConfig
 {

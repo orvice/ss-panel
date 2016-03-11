@@ -4,7 +4,7 @@
 namespace App\Models;
 
 
-class Config extends Model
+class ConfigModel extends Model
 {
     protected $table = "sp_config";
 }

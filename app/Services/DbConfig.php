@@ -19,6 +19,8 @@ class DbConfig
             return $c->value;
         } catch (ModelNotFoundException $e) {
             return null;
+        } catch(\Exception $e){
+            return null;
         }
     }
 

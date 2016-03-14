@@ -25,7 +25,7 @@ class User extends Model
         "u" => 'int',
         "d" => 'int',
         "port" => 'int',
-        "transfer_enable" => 'int',
+        "transfer_enable" => 'bigint',
         "enable" => 'int',
         'is_admin' => 'boolean',
     ];

@@ -99,8 +99,11 @@ class User extends Model
     public function trafficUsagePercent()
     {
         $total = $this->attributes['u'] + $this->attributes['d'];
-        $transfer_enable = $this->attributes['transfer_enable'];
-        $percent = $total / $transfer_enable;
+        $transferEnable = $this->attributes['transfer_enable'];
+        if ($transferEnable == 0) {
+            return 0;
+        }
+        $percent = $total / $transferEnable;
         $percent = round($percent, 2);
         $percent = $percent * 100;
         return $percent;

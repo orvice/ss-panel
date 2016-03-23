@@ -19,13 +19,16 @@ class DbConfig
             return $c->value;
         } catch (ModelNotFoundException $e) {
             return null;
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             return null;
         }
     }
 
     public static function set($key, $value)
     {
+        if($value == null){
+            $value = "";
+        }
         try {
             $c = ConfigModel::where('key', $key)->firstOrFail();
             $c->value = $value;

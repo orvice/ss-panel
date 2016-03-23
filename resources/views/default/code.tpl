@@ -5,7 +5,7 @@
         <div class="row center">
             <h5>邀请码实时刷新</h5>
             <h5>如遇到无邀请码请找已经注册的用户获取。</h5>
-            <p>{$msg}</p>
+            {$msg}
         </div>
     </div>
 </div>
@@ -27,11 +27,11 @@
                         </thead>
                         <tbody>
                         {foreach $codes as $code}
-                        <tr>
-                            <td>{$code->id}</td>
-                            <td><a href="/auth/register?code={$code->code}">{$code->code}</a></td>
-                            <td>可用</td>
-                        </tr>
+                            <tr>
+                                <td>{$code->id}</td>
+                                <td><a href="/auth/register?code={$code->code}">{$code->code}</a></td>
+                                <td>可用</td>
+                            </tr>
                         {/foreach}
                         </tbody>
                     </table>

@@ -7,7 +7,6 @@ use App\Models\Node, App\Models\TrafficLog, App\Models\User;
 use App\Storage\Dynamodb\TrafficLog as DynamoTrafficLog;
 use App\Services\Config;
 use App\Utils\Tools;
-use Aws\DynamoDb\DynamoDbClient;
 
 class UserController extends BaseController
 {
@@ -58,8 +57,8 @@ class UserController extends BaseController
 
         $msg = "ok";
         if (Config::get('log_traffic_dynamodb')) {
-            $client = new DynamoTrafficLog();
             try{
+                $client = new DynamoTrafficLog();
                 $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
             }catch(\Exception $e){
                 $msg = $e->getMessage();

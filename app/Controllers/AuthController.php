@@ -10,6 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 
 use App\Utils\Hash;
 use App\Services\Auth;
+use App\Services\Mail;
 use App\Models\User;
 
 /**
@@ -74,6 +75,8 @@ class AuthController extends BaseController
         $passwd = $request->getParam('passwd');
         $repasswd = $request->getParam('repasswd');
         $code = $request->getParam('code');
+        $verifycode = $request->getParam('verifycode');
+
         // check code
         $c = InviteCode::where('code', $code)->first();
         if ($c == null) {
@@ -110,6 +113,13 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($res));
         }
 
+        // verify email
+        if(!Mail::checkVerifyCode($email, $verifycode)) {
+            $res['ret'] = 0;
+            $res['msg'] = '邮箱验证代码不正确';
+            return $response->getBody()->write(json_encode($res));
+        }
+
         // do reg user
         $user = new User();
         $user->user_name = $name;
@@ -133,6 +143,26 @@ class AuthController extends BaseController
         }
         $res['ret'] = 0;
         $res['msg'] = "未知错误";
+        return $response->getBody()->write(json_encode($res));
+    }
+
+    public function sendVerifyEmail($request, $response, $next)
+    {
+        $res = array();
+        $email = $request->getParam('email');
+
+        if (!Check::isEmailLegal($email)) {
+            $res['ret'] = 0;
+            $res['msg'] = '邮箱无效';
+            return $response->getBody()->write(json_encode($res));
+        }
+        if (Mail::sendVerification($email)) {
+            $res['ret'] = 1;
+            $res['msg'] = '验证代码已发送至您的邮箱，请在登录邮箱后将验证码填到相应位置.';
+        } else {
+            $res['ret'] = 0;
+            $res['msg'] = '邮件发送失败，请联系管理员';
+        }
         return $response->getBody()->write(json_encode($res));
     }
 

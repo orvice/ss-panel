@@ -10,13 +10,22 @@ class Config extends OzConfig
     public static function getPublicConfig()
     {
         return [
-            "appName" => self::get("appName"),
+            "appName" => self::getAppName(),
             "version" => self::get("version"),
             "baseUrl" => self::get("baseUrl"),
             "checkinTime" => self::get("checkinTime"),
             "checkinMin" => self::get("checkinMin"),
             "checkinMax" => self::get("checkinMax"),
         ];
+    }
+
+    public static function getAppName()
+    {
+        $appName = DbConfig::get('app-name');
+        if ($appName == null || $appName == "") {
+            return self::get("appName");
+        }
+        return $appName;
     }
 
     public static function getDbConfig()

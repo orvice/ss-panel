@@ -132,10 +132,12 @@ class Tools
 
     public static function genUUID()
     {
-        try{
+        try {
             $uuid4 = Uuid::uuid4();
             return $uuid4->toString();
-        }catch (UnsatisfiedDependencyException $e){
+        } catch (UnsatisfiedDependencyException $e) {
+            return self::genSID();
+        } catch (\Exception $e) {
             return self::genSID();
         }
     }

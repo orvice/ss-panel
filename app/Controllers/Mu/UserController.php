@@ -5,7 +5,7 @@ namespace App\Controllers\Mu;
 use App\Controllers\BaseController;
 use App\Models\Node, App\Models\TrafficLog, App\Models\User;
 use App\Storage\Dynamodb\TrafficLog as DynamoTrafficLog;
-use App\Services\Config;
+use App\Services\Config, App\Services\Logger;
 use App\Utils\Tools;
 
 class UserController extends BaseController
@@ -66,6 +66,7 @@ class UserController extends BaseController
                 $res["id"] = $id;
             } catch (\Exception $e) {
                 $res["msg"] = $e->getMessage();
+                Logger::error($e->getMessage());
             }
         }
         return $this->echoJson($response, $res);

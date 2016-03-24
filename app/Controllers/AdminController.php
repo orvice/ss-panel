@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\InviteCode, App\Models\Node, App\Models\TrafficLog;
 use App\Utils\Tools;
-use App\Services\Analytics;
+use App\Services\Analytics, App\Services\DbConfig;
 
 /**
  *  Admin Controller
@@ -16,17 +16,6 @@ class AdminController extends BaseController
     {
         $sts = new Analytics();
         return $this->view()->assign('sts', $sts)->display('admin/index.tpl');
-    }
-
-    public function node()
-    {
-        $nodes = Node::all();
-        return $this->view()->assign('nodes', $nodes)->display('admin/node.tpl');
-    }
-
-    public function sys()
-    {
-        return $this->view()->display('admin/index.tpl');
     }
 
     public function invite()
@@ -65,6 +54,33 @@ class AdminController extends BaseController
         $traffic = TrafficLog::orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/admin/trafficlog');
         return $this->view()->assign('logs', $traffic)->display('admin/trafficlog.tpl');
+    }
+
+    public function config($request, $response, $args)
+    {
+        $conf = [
+            "app-name" => DbConfig::get('app-name'),
+            "home-code" => DbConfig::get('home-code'),
+            "analytics-code" => DbConfig::get('analytics-code'),
+            "user-index" => DbConfig::get('user-index'),
+        ];
+        return $this->view()->assign('conf', $conf)->display('admin/config.tpl');
+    }
+
+    public function updateConfig($request, $response, $args)
+    {
+        $config = [
+            "analytics-code" => $request->getParam('analyticsCode'),
+            "home-code" => $request->getParam('homeCode'),
+            "app-name" => $request->getParam('appName'),
+            "user-index" => $request->getParam('userIndex'),
+        ];
+        foreach ($config as $key => $value) {
+            DbConfig::set($key, $value);
+        }
+        $res['ret'] = 1;
+        $res['msg'] = "更新成功";
+        return $response->getBody()->write(json_encode($res));
     }
 
 }

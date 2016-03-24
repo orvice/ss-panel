@@ -4,7 +4,7 @@
 namespace App\Services;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Models\Config as ConfigModel;
+use App\Models\ConfigModel;
 
 class DbConfig
 {
@@ -19,11 +19,16 @@ class DbConfig
             return $c->value;
         } catch (ModelNotFoundException $e) {
             return null;
+        } catch (\Exception $e) {
+            return null;
         }
     }
 
     public static function set($key, $value)
     {
+        if($value == null){
+            $value = "";
+        }
         try {
             $c = ConfigModel::where('key', $key)->firstOrFail();
             $c->value = $value;

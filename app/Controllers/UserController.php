@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\InviteCode;
 use App\Services\Auth;
 use App\Models\Node, App\Models\TrafficLog, App\Models\CheckInLog;
-use App\Services\Config;
+use App\Services\Config,App\Services\DbConfig;
 use App\Utils\Hash, App\Utils\Tools;
 
 
@@ -24,14 +24,19 @@ class UserController extends BaseController
 
     public function index()
     {
-        return $this->view()->display('user/index.tpl');
+        $msg = DbConfig::get('user-index');
+        if($msg == null ){
+            $msg = "在后台修改用户中心公告...";
+        }
+        return $this->view()->assign('msg',$msg)->display('user/index.tpl');
     }
 
     public function node()
     {
+        $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->display('user/node.tpl');
+        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg',$msg)->display('user/node.tpl');
     }
 
 

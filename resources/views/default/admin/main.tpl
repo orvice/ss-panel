@@ -5,16 +5,16 @@
     <title>{$config["appName"]}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="/assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!-- Font Awesome Icons -->
     <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Ionicons -->
     <link href="//cdn.bootcss.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <!-- Theme style -->
-    <link href="/assets/public/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="/assets/public/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/public/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- jQuery 2.1.3 -->
     <script src="/assets/public/js/jquery.min.js"></script>
@@ -52,7 +52,7 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
+                                <img src="{$user->gravatar}" class="img-circle" alt="User Image"/>
                                 <p>
                                     {$user->email}
                                     <small>加入时间：{$user->regDate()}</small>
@@ -82,7 +82,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{$user->gravatar}" class="img-circle" alt="User Image" />
+                    <img src="{$user->gravatar}" class="img-circle" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
                     <p>{$user->user_name}</p>
@@ -96,6 +96,12 @@
                 <li>
                     <a href="/admin">
                         <i class="fa fa-dashboard"></i> <span>管理中心</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin/config">
+                        <i class="fa fa-cubes"></i> <span>站点配置</span>
                     </a>
                 </li>
 
@@ -128,7 +134,6 @@
                         <i class="fa fa-reply-all"></i> <span>用户中心</span>
                     </a>
                 </li>
-
 
 
             </ul>

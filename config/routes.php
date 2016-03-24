@@ -89,6 +89,9 @@ $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
+    // app config
+    $this->get('/config', 'App\Controllers\AdminController:config');
+    $this->post('/config', 'App\Controllers\AdminController:updateConfig');
     // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');

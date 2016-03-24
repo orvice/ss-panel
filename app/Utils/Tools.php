@@ -132,8 +132,12 @@ class Tools
 
     public static function genUUID()
     {
-        $uuid4 = Uuid::uuid4();
-        return $uuid4->toString();
+        try{
+            $uuid4 = Uuid::uuid4();
+            return $uuid4->toString();
+        }catch (UnsatisfiedDependencyException $e){
+            return self::genSID();
+        }
     }
 
     public static function getLastPort()

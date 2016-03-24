@@ -16,5 +16,8 @@
 <script src='/assets/public/plugins/fastclick/fastclick.min.js'></script>
 <!-- AdminLTE App -->
 <script src="/assets/public/js/app.min.js" type="text/javascript"></script>
+<div style="display:none;">
+    {$analyticsCode}
+</div>
 </body>
 </html>

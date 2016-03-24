@@ -23,9 +23,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <p>流量不会重置，可以通过签到获取流量。</p>
-
-                        <p>每次签到可以获取{$config['checkinMin']}~{$config['checkinMax']}MB流量。</p>
+                        {$msg}
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -109,10 +107,8 @@
                             <dd>{$user->port}</dd>
                             <dt>密码</dt>
                             <dd>{$user->passwd}</dd>
-                            <!--
-                            <dt>加密方式</dt>
+                            <dt>自定义加密方式</dt>
                             <dd>{$user->method}</dd>
-                            -->
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>
                         </dl>

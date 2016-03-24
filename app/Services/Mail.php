@@ -8,9 +8,28 @@ namespace App\Services;
 
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Smtp;
+use App\Services\Mail\Ses;
 
 class Mail
 {
+    /**
+     * @return Mailgun|Ses|Smtp|null
+     */
+    public static function getClient(){
+        $driver = Config::get("mailDriver");
+        switch ($driver){
+            case "mailgun":
+                return new Mailgun();
+            case "ses":
+                return new Ses();
+            case "smtp":
+                return new Smtp();
+            default:
+                // @TODO default action
+        }
+        return null;
+    }
+
     /***
      * @param $to
      * @param $subject
@@ -18,17 +37,6 @@ class Mail
      * @return bool
      */
     public static function send($to,$subject,$text){
-        $driver = Config::get("mailDriver");
-        switch ($driver){
-            case "mailgun":
-                $mail = new Mailgun();
-                return $mail->send($to,$subject,$text);
-            case "smtp":
-                $mail = new Smtp();
-                return $mail->send($to,$subject,$text);
-            default:
-                // @TODO default action
-        }
-        return true;
+        return self::getClient()->send($to,$subject,$text);
     }
 }

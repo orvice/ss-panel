@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Models\InviteCode;
 use App\Services\Auth;
-use App\Models\Node,App\Models\TrafficLog,App\Models\CheckInLog;
-use App\Services\Config;
-use App\Utils\Hash,App\Utils\Tools;
+use App\Models\Node, App\Models\TrafficLog, App\Models\CheckInLog;
+use App\Services\Config,App\Services\DbConfig;
+use App\Utils\Hash, App\Utils\Tools;
 
 
 /**
@@ -24,14 +24,19 @@ class UserController extends BaseController
 
     public function index()
     {
-        return $this->view()->display('user/index.tpl');
+        $msg = DbConfig::get('user-index');
+        if($msg == null ){
+            $msg = "在后台修改用户中心公告...";
+        }
+        return $this->view()->assign('msg',$msg)->display('user/index.tpl');
     }
 
     public function node()
     {
+        $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->display('user/node.tpl');
+        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg',$msg)->display('user/node.tpl');
     }
 
 
@@ -200,12 +205,13 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function trafficLog($request, $response, $args){
+    public function trafficLog($request, $response, $args)
+    {
         $pageNum = 1;
-        if(isset($request->getQueryParams()["page"])){
+        if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $traffic = TrafficLog::where('user_id',$this->user->id)->orderBy('id', 'desc')->paginate(15,['*'],'page',$pageNum);
+        $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
         return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
     }

@@ -1,6 +1,7 @@
 {
   "require": {
-    "ozcat/framework": "dev-master"
+    "ozcat/framework": "dev-master",
+    "ramsey/uuid": "^3.3"
   },
   "autoload": {
     "classmap": [

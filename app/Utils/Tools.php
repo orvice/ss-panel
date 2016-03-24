@@ -4,6 +4,8 @@ namespace App\Utils;
 
 use App\Models\User;
 use App\Services\Config;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 
 class Tools
 {
@@ -130,8 +132,8 @@ class Tools
 
     public static function genUUID()
     {
-        // @TODO
-        return self::genSID();
+        $uuid4 = Uuid::uuid4();
+        return $uuid4->toString();
     }
 
     public static function getLastPort()

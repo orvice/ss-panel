@@ -28,6 +28,14 @@
             <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
+        <div class="form-group{if !$email_verify_enabled} hidden{/if}">
+            <div class="input-group">
+                <input type="text" id="verifycode" class="form-control" placeholder="验证码"/>
+                <span class="input-group-btn">
+                    <button type="button" id="sendcode" class="btn btn-default btn-flat">发送验证码</button>
+                </span>
+            </div>
+        </div>
 
 
         <div class="form-group has-feedback">
@@ -85,6 +93,7 @@
                     passwd: $("#passwd").val(),
                     repasswd: $("#repasswd").val(),
                     code: $("#code").val(),
+                    verifycode: $("#verifycode").val(),
                     agree: $("#agree").val()
                 },
                 success:function(data){
@@ -113,6 +122,65 @@
         });
         $("#reg").click(function(){
             register();
+        });
+        $("#sendcode").on("click", function() {
+            var count = sessionStorage.getItem('email-code-count') || 0;
+            var email = $("#email").val();
+            var timer, countdown = 60, $btn = $(this);
+            if(count > 3 || timer) return false;
+            
+            if(!email) {
+                $("#msg-error").hide(10);
+                $("#msg-error").show(100);
+                $("#msg-error-p").html("请先填写邮箱!");
+                return $("#email").focus();
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "/auth/sendcode",
+                dataType: "json",
+                data: {
+                    email: email
+                },
+                success: function(data) {
+                    if(data.ret == 1) {
+                        $("#msg-error").hide(10);
+                        $("#msg-success").show(100);
+                        $("#msg-success-p").html(data.msg);
+                        sessionStorage.setItem('email-code-count', ++count);
+                        if(count >= 3) {
+                            return $btn.text('今日机会已用完');
+                        }
+                        timer = setInterval(function() {
+                            --countdown;
+                            if(countdown) {
+                                $btn.text('重新发送 (' + countdown + '秒)');
+                            } else {
+                                clearTimer();
+                            }
+                        }, 1000);
+                    } else {
+                        $("#msg-success").hide(10);
+                        $("#msg-error").show(100);
+                        $("#msg-error-p").html(data.msg);
+                        clearTimer();
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
+                    clearTimer();
+                }
+            });
+            $btn.addClass("disabled").prop("disabled", true).text('发送中...');
+            $("#verifycode").select();
+            function clearTimer() {
+                $btn.text('重新发送').removeClass("disabled").prop("disabled", false);
+                clearInterval(timer);
+                timer = null;
+            }
         });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);

@@ -64,7 +64,8 @@ class AuthController extends BaseController
         if (isset($ary['code'])) {
             $code = $ary['code'];
         }
-        return $this->view()->assign('code', $code)->display('auth/register.tpl');
+        $email_verify_enabled = Config::get('emailVerifyEnabled') == 'true';
+        return $this->view()->assign('code', $code)->assign('email_verify_enabled', $email_verify_enabled)->display('auth/register.tpl');
     }
 
     public function registerHandle($request, $response, $next)
@@ -114,7 +115,7 @@ class AuthController extends BaseController
         }
 
         // verify email
-        if(!Mail::checkVerifyCode($email, $verifycode)) {
+        if(Config::get('emailVerifyEnabled') == 'true' && !Mail::checkVerifyCode($email, $verifycode)) {
             $res['ret'] = 0;
             $res['msg'] = '邮箱验证代码不正确';
             return $response->getBody()->write(json_encode($res));

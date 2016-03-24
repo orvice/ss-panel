@@ -28,7 +28,7 @@
             <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group{if !$email_verify_enabled} hidden{/if}">
             <div class="input-group">
                 <input type="text" id="verifycode" class="form-control" placeholder="验证码"/>
                 <span class="input-group-btn">

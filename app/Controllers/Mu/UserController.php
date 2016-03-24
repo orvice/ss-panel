@@ -55,20 +55,19 @@ class UserController extends BaseController
         $traffic->log_time = time();
         $traffic->save();
 
-        $msg = "ok";
-        if (Config::get('log_traffic_dynamodb')) {
-            try{
-                $client = new DynamoTrafficLog();
-                $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
-            }catch(\Exception $e){
-                $msg = $e->getMessage();
-            }
-        }
-
         $res = [
             "ret" => 1,
-            "msg" => $msg,
+            "msg" => "ok",
         ];
+        if (Config::get('log_traffic_dynamodb')) {
+            try {
+                $client = new DynamoTrafficLog();
+                $id = $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
+                $res["id"] = $id;
+            } catch (\Exception $e) {
+                $res["msg"] = $e->getMessage();
+            }
+        }
         return $this->echoJson($response, $res);
     }
 }

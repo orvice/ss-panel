@@ -109,5 +109,8 @@
         });
     })
 </script>
+<div style="display:none;">
+    {$analyticsCode}
+</div>
 </body>
 </html>

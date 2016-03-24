@@ -17,7 +17,10 @@ class Factory
             'version'  => 'latest',
             'DynamoDb' => [
                 'region' => Config::get('aws_region')
-            ]
+            ],
+            'Ses' => [
+                'region' => Config::get('aws_ses_region')
+            ],
         ]);
         return $sdk;
     }
@@ -27,6 +30,6 @@ class Factory
     }
 
     public static function createSes(){
-
+        return self::createAwsClient()->createSes();
     }
 }

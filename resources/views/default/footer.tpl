@@ -10,9 +10,13 @@
 			<div class="col l3 s12">
 				<h5 class="white-text">用户</h5>
 				<ul>
+				{if $user->isLogin}
 					<li><a class="white-text" href="/user">用户中心</a></li>
+					<li><a class="white-text" href="/user/logout">退出</a></li>
+				{else}
 					<li><a class="white-text" href="/auth/login">登录</a></li>
 					<li><a class="white-text" href="/auth/register">注册</a></li>
+				{/if}
 				</ul>
 			</div>
 			<div class="col l3 s12">
@@ -28,6 +32,9 @@
 		<div class="container">
 			&copy; {$config["appName"]}  Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
 		 Theme by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+		</div>
+		<div style="display:none;">
+			{$analyticsCode}
 		</div>
 	</div>
 </footer>

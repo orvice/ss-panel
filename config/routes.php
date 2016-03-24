@@ -43,6 +43,7 @@ $app->add(new WhoopsMiddleware);
 $app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
 $app->get('/tos', 'App\Controllers\HomeController:tos');
+$app->get('/debug', 'App\Controllers\HomeController:debug');
 
 // User Center
 $app->group('/user', function () {
@@ -86,6 +87,10 @@ $app->group('/password', function () {
 $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
+    $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
+    // app config
+    $this->get('/config', 'App\Controllers\AdminController:config');
+    $this->post('/config', 'App\Controllers\AdminController:updateConfig');
     // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');
@@ -121,6 +126,7 @@ $app->group('/api', function () {
 $app->group('/mu', function () {
     $this->get('/users', 'App\Controllers\Mu\UserController:index');
     $this->post('/users/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
+    $this->post('/nodes/{id}/online_count', 'App\Controllers\Mu\NodeController:onlineUserLog');
 })->add(new Mu());
 
 // res

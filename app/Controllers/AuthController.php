@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\InviteCode;
-use App\Services\Config;
+use App\Services\Config, App\Services\Auth\EmailVerify;
 use App\Utils\Check, App\Utils\Tools, App\Utils\Http;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -115,7 +115,7 @@ class AuthController extends BaseController
         }
 
         // verify email
-        if (Config::get('emailVerifyEnabled') == 'true' && !Mail::checkVerifyCode($email, $verifycode)) {
+        if (Config::get('emailVerifyEnabled') && !EmailVerify::checkVerifyCode($email, $verifycode)) {
             $res['ret'] = 0;
             $res['msg'] = '邮箱验证代码不正确';
             return $response->getBody()->write(json_encode($res));
@@ -157,7 +157,7 @@ class AuthController extends BaseController
             $res['msg'] = '邮箱无效';
             return $response->getBody()->write(json_encode($res));
         }
-        if (Mail::sendVerification($email)) {
+        if (EmailVerify::sendVerification($email)) {
             $res['ret'] = 1;
             $res['msg'] = '验证代码已发送至您的邮箱，请在登录邮箱后将验证码填到相应位置.';
         } else {

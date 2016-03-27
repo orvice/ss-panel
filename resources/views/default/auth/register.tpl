@@ -155,10 +155,6 @@
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
-                        sessionStorage.setItem('email-code-count', ++count);
-                        if (count >= 3) {
-                            return $btn.text('今日机会已用完');
-                        }
                         timer = setInterval(function () {
                             --countdown;
                             if (countdown) {

@@ -31,6 +31,6 @@ class Mailgun extends Base
         $this->mg->sendMessage($this->domain, array('from' => $this->sender,
             'to' => $to,
             'subject' => $subject,
-            'text' => $text));
+            'html' => $text));
     }
 }

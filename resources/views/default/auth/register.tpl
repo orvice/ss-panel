@@ -12,26 +12,16 @@
             <input type="text" id="name" class="form-control" placeholder="昵称"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
+
         <div class="form-group has-feedback">
             <input type="text" id="email" class="form-control" placeholder="邮箱"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
-        <div class="form-group has-feedback">
-            <input type="password" id="passwd" class="form-control" placeholder="密码"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
-            <span class="glyphicon glyphicon-send form-control-feedback"></span>
-        </div>
+
         {if $requireEmailVerification}
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" id="verifycode" class="form-control" placeholder="验证码"/>
+                    <input type="text" id="verifycode" class="form-control" placeholder="邮箱验证码"/>
                 <span class="input-group-btn">
                     <button type="button" id="sendcode" class="btn btn-default btn-flat">发送验证码</button>
                 </span>
@@ -39,6 +29,20 @@
             </div>
         {/if}
 
+        <div class="form-group has-feedback">
+            <input type="password" id="passwd" class="form-control" placeholder="密码"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
+            <span class="glyphicon glyphicon-send form-control-feedback"></span>
+        </div>
 
         <div class="form-group has-feedback">
             <p>注册即代表同意<a href="/tos">服务条款</a></p>

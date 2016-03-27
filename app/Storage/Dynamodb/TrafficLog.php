@@ -20,10 +20,11 @@ class TrafficLog
 
     public function store($u, $d, $nodeId, $userId, $traffic, $rate)
     {
+        $id = Tools::genUUID();
         $result = $this->client->putItem(array(
             'TableName' => $this->tableName,
             'Item' => array(
-                'id' => array('S' => Tools::genUUID()),
+                'id' => array('S' => $id),
                 'u' => array('S' => (string)$u),
                 'd' => array('N' => (string)$d),
                 'node_id' => array('N' => (string)$nodeId),
@@ -34,6 +35,6 @@ class TrafficLog
                 'create_time' => array('S' => Tools::toDateTime(time())),
             )
         ));
-        return true;
+        return $id;
     }
 }

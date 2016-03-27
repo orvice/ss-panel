@@ -12,7 +12,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <div cass="row">
+        <div class="row">
             <div class="col-md-12">
                 <div id="msg-success" class="alert alert-success alert-dismissable" style="display: none;">
                     <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>

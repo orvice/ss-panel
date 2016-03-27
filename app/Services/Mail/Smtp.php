@@ -24,6 +24,7 @@ class Smtp extends Base
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = $this->config['port'];                                    // TCP port to connect to
         $mail->setFrom($this->config['sender'], $this->config['name']);
+        $mail->CharSet = 'UTF-8';
         $this->mail = $mail;
     }
 
@@ -39,11 +40,11 @@ class Smtp extends Base
         ];
     }
 
-    public function send($to, $subject, $text)
+    public function send($to, $subject, $text, $file)
     {
         $mail = $this->mail;
         $mail->addAddress($to);     // Add a recipient
-        // $mail->isHTML(true);
+        $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body = $text;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

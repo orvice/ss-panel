@@ -12,23 +12,37 @@
             <input type="text" id="name" class="form-control" placeholder="昵称"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
+
         <div class="form-group has-feedback">
             <input type="text" id="email" class="form-control" placeholder="邮箱"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
+
+        {if $requireEmailVerification}
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="verifycode" class="form-control" placeholder="邮箱验证码"/>
+                <span class="input-group-btn">
+                    <button type="button" id="sendcode" class="btn btn-default btn-flat">发送验证码</button>
+                </span>
+                </div>
+            </div>
+        {/if}
+
         <div class="form-group has-feedback">
             <input type="password" id="passwd" class="form-control" placeholder="密码"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
+
         <div class="form-group has-feedback">
             <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
+
         <div class="form-group has-feedback">
             <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
-
 
         <div class="form-group has-feedback">
             <p>注册即代表同意<a href="/tos">服务条款</a></p>
@@ -73,51 +87,108 @@
     });
 </script>
 <script>
-    $(document).ready(function(){
-        function register(){
+    $(document).ready(function () {
+        function register() {
             $.ajax({
-                type:"POST",
-                url:"/auth/register",
-                dataType:"json",
-                data:{
+                type: "POST",
+                url: "/auth/register",
+                dataType: "json",
+                data: {
                     email: $("#email").val(),
                     name: $("#name").val(),
                     passwd: $("#passwd").val(),
                     repasswd: $("#repasswd").val(),
                     code: $("#code").val(),
+                    verifycode: $("#verifycode").val(),
                     agree: $("#agree").val()
                 },
-                success:function(data){
-                    if(data.ret == 1){
+                success: function (data) {
+                    if (data.ret == 1) {
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         window.setTimeout("location.href='/auth/login'", 2000);
-                    }else{
+                    } else {
                         $("#msg-success").hide(10);
                         $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }
                 },
-                error:function(jqXHR){
+                error: function (jqXHR) {
                     $("#msg-error").hide(10);
                     $("#msg-error").show(100);
-                    $("#msg-error-p").html("发生错误："+jqXHR.status);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
                 }
             });
         }
-        $("html").keydown(function(event){
-            if(event.keyCode==13){
+
+        $("html").keydown(function (event) {
+            if (event.keyCode == 13) {
                 register();
             }
         });
-        $("#reg").click(function(){
+        $("#reg").click(function () {
             register();
         });
-        $("#ok-close").click(function(){
+        $("#sendcode").on("click", function () {
+            var count = sessionStorage.getItem('email-code-count') || 0;
+            var email = $("#email").val();
+            var timer, countdown = 60, $btn = $(this);
+            if (count > 3 || timer) return false;
+
+            if (!email) {
+                $("#msg-error").hide(10);
+                $("#msg-error").show(100);
+                $("#msg-error-p").html("请先填写邮箱!");
+                return $("#email").focus();
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/auth/sendcode",
+                dataType: "json",
+                data: {
+                    email: email
+                },
+                success: function (data) {
+                    if (data.ret == 1) {
+                        $("#msg-error").hide(10);
+                        $("#msg-success").show(100);
+                        $("#msg-success-p").html(data.msg);
+                        timer = setInterval(function () {
+                            --countdown;
+                            if (countdown) {
+                                $btn.text('重新发送 (' + countdown + '秒)');
+                            } else {
+                                clearTimer();
+                            }
+                        }, 1000);
+                    } else {
+                        $("#msg-success").hide(10);
+                        $("#msg-error").show(100);
+                        $("#msg-error-p").html(data.msg);
+                        clearTimer();
+                    }
+                },
+                error: function (jqXHR) {
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
+                    clearTimer();
+                }
+            });
+            $btn.addClass("disabled").prop("disabled", true).text('发送中...');
+            $("#verifycode").select();
+            function clearTimer() {
+                $btn.text('重新发送').removeClass("disabled").prop("disabled", false);
+                clearInterval(timer);
+                timer = null;
+            }
+        });
+        $("#ok-close").click(function () {
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
+        $("#error-close").click(function () {
             $("#msg-error").hide(100);
         });
     })

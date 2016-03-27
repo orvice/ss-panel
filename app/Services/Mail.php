@@ -6,18 +6,22 @@ namespace App\Services;
  * Mail Service
  */
 
+use Smarty;
+use App\Services\Logger;
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Smtp;
 use App\Services\Mail\Ses;
+
 
 class Mail
 {
     /**
      * @return Mailgun|Ses|Smtp|null
      */
-    public static function getClient(){
+    public static function getClient()
+    {
         $driver = Config::get("mailDriver");
-        switch ($driver){
+        switch ($driver) {
             case "mailgun":
                 return new Mailgun();
             case "ses":
@@ -30,13 +34,38 @@ class Mail
         return null;
     }
 
-    /***
+    /**
+     * @param $template
+     * @param $ary
+     * @return mixed
+     */
+    public static function genHtml($template, $ary)
+    {
+        $smarty = new smarty();
+        $smarty->settemplatedir(BASE_PATH . '/resources/email/');
+        $smarty->setcompiledir(BASE_PATH . '/storage/framework/smarty/compile/');
+        $smarty->setcachedir(BASE_PATH . '/storage/framework/smarty/cache/');
+        // add config
+        $smarty->assign('config', Config::getPublicConfig());
+        $smarty->assign('analyticsCode', DbConfig::get('analytics-code'));
+        foreach ($ary as $key => $value) {
+            $smarty->assign($key, $value);
+        }
+        return $smarty->fetch($template);
+    }
+
+    /**
      * @param $to
      * @param $subject
-     * @param $text
-     * @return bool
+     * @param $template
+     * @param $ary
+     * @param $file
+     * @return bool|void
      */
-    public static function send($to,$subject,$text){
-        return self::getClient()->send($to,$subject,$text);
+    public static function send($to, $subject, $template, $ary, $file)
+    {
+        $text = self::genHtml($template, $ary);
+        Logger::debug($text);
+        return self::getClient()->send($to, $subject, $text, $file);
     }
 }

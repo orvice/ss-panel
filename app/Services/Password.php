@@ -26,9 +26,13 @@ class Password
             return false;
         }
         $subject = Config::get('appName')."重置密码";
-        $text    = '请访问此链接申请重置密码'.Config::get('baseUrl')."/password/token/".$pwdRst->token;
+        $resetUrl    = Config::get('baseUrl')."/password/token/".$pwdRst->token;
         try{
-            Mail::send($email,$subject,$text);
+            Mail::send($email,$subject,'password/reset.tpl',[
+                "resetUrl" => $resetUrl
+            ],[
+                //BASE_PATH.'/public/assets/email/styles.css'
+            ]);
         }catch (Exception $e){
             return false;
         }

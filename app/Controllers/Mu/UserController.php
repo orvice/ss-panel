@@ -5,7 +5,7 @@ namespace App\Controllers\Mu;
 use App\Controllers\BaseController;
 use App\Models\Node, App\Models\TrafficLog, App\Models\User;
 use App\Storage\Dynamodb\TrafficLog as DynamoTrafficLog;
-use App\Services\Config;
+use App\Services\Config, App\Services\Logger;
 use App\Utils\Tools;
 
 class UserController extends BaseController
@@ -55,20 +55,20 @@ class UserController extends BaseController
         $traffic->log_time = time();
         $traffic->save();
 
-        $msg = "ok";
-        if (Config::get('log_traffic_dynamodb')) {
-            try{
-                $client = new DynamoTrafficLog();
-                $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
-            }catch(\Exception $e){
-                $msg = $e->getMessage();
-            }
-        }
-
         $res = [
             "ret" => 1,
-            "msg" => $msg,
+            "msg" => "ok",
         ];
+        if (Config::get('log_traffic_dynamodb')) {
+            try {
+                $client = new DynamoTrafficLog();
+                $id = $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
+                $res["id"] = $id;
+            } catch (\Exception $e) {
+                $res["msg"] = $e->getMessage();
+                Logger::error($e->getMessage());
+            }
+        }
         return $this->echoJson($response, $res);
     }
 }

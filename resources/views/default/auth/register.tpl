@@ -28,14 +28,16 @@
             <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
-        <div class="form-group{if !$email_verify_enabled} hidden{/if}">
-            <div class="input-group">
-                <input type="text" id="verifycode" class="form-control" placeholder="验证码"/>
+        {if $requireEmailVerification}
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="verifycode" class="form-control" placeholder="验证码"/>
                 <span class="input-group-btn">
                     <button type="button" id="sendcode" class="btn btn-default btn-flat">发送验证码</button>
                 </span>
+                </div>
             </div>
-        </div>
+        {/if}
 
 
         <div class="form-group has-feedback">
@@ -81,13 +83,13 @@
     });
 </script>
 <script>
-    $(document).ready(function(){
-        function register(){
+    $(document).ready(function () {
+        function register() {
             $.ajax({
-                type:"POST",
-                url:"/auth/register",
-                dataType:"json",
-                data:{
+                type: "POST",
+                url: "/auth/register",
+                dataType: "json",
+                data: {
                     email: $("#email").val(),
                     name: $("#name").val(),
                     passwd: $("#passwd").val(),
@@ -96,46 +98,47 @@
                     verifycode: $("#verifycode").val(),
                     agree: $("#agree").val()
                 },
-                success:function(data){
-                    if(data.ret == 1){
+                success: function (data) {
+                    if (data.ret == 1) {
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         window.setTimeout("location.href='/auth/login'", 2000);
-                    }else{
+                    } else {
                         $("#msg-success").hide(10);
                         $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
                     }
                 },
-                error:function(jqXHR){
+                error: function (jqXHR) {
                     $("#msg-error").hide(10);
                     $("#msg-error").show(100);
-                    $("#msg-error-p").html("发生错误："+jqXHR.status);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
                 }
             });
         }
-        $("html").keydown(function(event){
-            if(event.keyCode==13){
+
+        $("html").keydown(function (event) {
+            if (event.keyCode == 13) {
                 register();
             }
         });
-        $("#reg").click(function(){
+        $("#reg").click(function () {
             register();
         });
-        $("#sendcode").on("click", function() {
+        $("#sendcode").on("click", function () {
             var count = sessionStorage.getItem('email-code-count') || 0;
             var email = $("#email").val();
             var timer, countdown = 60, $btn = $(this);
-            if(count > 3 || timer) return false;
-            
-            if(!email) {
+            if (count > 3 || timer) return false;
+
+            if (!email) {
                 $("#msg-error").hide(10);
                 $("#msg-error").show(100);
                 $("#msg-error-p").html("请先填写邮箱!");
                 return $("#email").focus();
             }
-            
+
             $.ajax({
                 type: "POST",
                 url: "/auth/sendcode",
@@ -143,18 +146,18 @@
                 data: {
                     email: email
                 },
-                success: function(data) {
-                    if(data.ret == 1) {
+                success: function (data) {
+                    if (data.ret == 1) {
                         $("#msg-error").hide(10);
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
                         sessionStorage.setItem('email-code-count', ++count);
-                        if(count >= 3) {
+                        if (count >= 3) {
                             return $btn.text('今日机会已用完');
                         }
-                        timer = setInterval(function() {
+                        timer = setInterval(function () {
                             --countdown;
-                            if(countdown) {
+                            if (countdown) {
                                 $btn.text('重新发送 (' + countdown + '秒)');
                             } else {
                                 clearTimer();
@@ -167,7 +170,7 @@
                         clearTimer();
                     }
                 },
-                error: function(jqXHR) {
+                error: function (jqXHR) {
                     $("#msg-error").hide(10);
                     $("#msg-error").show(100);
                     $("#msg-error-p").html("发生错误：" + jqXHR.status);
@@ -182,10 +185,10 @@
                 timer = null;
             }
         });
-        $("#ok-close").click(function(){
+        $("#ok-close").click(function () {
             $("#msg-success").hide(100);
         });
-        $("#error-close").click(function(){
+        $("#error-close").click(function () {
             $("#msg-error").hide(100);
         });
     })

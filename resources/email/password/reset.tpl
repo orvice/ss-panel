@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Actionable emails e.g. reset password</title>
-    <link href="cid:styles.css" media="all" rel="stylesheet" type="text/css"/>
+    <title>{$config["appName"]}</title>
+    <link href="styles.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 
 <body itemscope itemtype="http://schema.org/EmailMessage">

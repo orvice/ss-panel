@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Actionable emails e.g. reset password</title>
-    <link href="{$config["baseUrl"]}/assets/email/style.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{$config["baseUrl"]}/assets/email/styles.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 
 <body itemscope itemtype="http://schema.org/EmailMessage">

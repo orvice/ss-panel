@@ -59,6 +59,12 @@
                                           placeholder="Enter ...">{$conf['user-index']}</textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label>用户节点公告</label>
+                                <textarea class="form-control" id="user-node" rows="3"
+                                          placeholder="Enter ...">{$conf['user-node']}</textarea>
+                            </div>
+
                         </form>
                     </div>
                     <!-- /.box-body -->
@@ -97,7 +103,8 @@
                     analyticsCode: $("#analytics-code").val(),
                     homeCode: $("#home-code").val(),
                     appName: $("#app-name").val(),
-                    userIndex: $("#user-index").val()
+                    userIndex: $("#user-index").val(),
+                    userNode: $("#user-node").val()
                 },
                 success: function (data) {
                     if (data.ret) {

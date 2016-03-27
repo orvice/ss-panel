@@ -2,3 +2,4 @@
 .env
 vendor/
 composer.phar
+tags

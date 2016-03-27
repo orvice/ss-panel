@@ -33,7 +33,7 @@ class EmailVerify
             Mail::send($email, $subject,'auth/verify.tpl',[
                 'verification' => $verification,
                 'ttl' => $ttl
-            ]);
+            ],[]);
         } catch (Exception $e) {
             return false;
         }

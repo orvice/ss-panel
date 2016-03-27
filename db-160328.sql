@@ -1,7 +1,5 @@
--- Adminer 4.1.0 MySQL dump
-
 SET NAMES utf8;
-SET time_zone = '+00:00';
+SET time_zone = '+08:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
@@ -11,7 +9,17 @@ CREATE TABLE `sp_config` (
   `key` varchar(128) NOT NULL,
   `value` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '1993-01-01 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `sp_log`;
+CREATE TABLE `sp_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(16) NOT NULL,
+  `msg` text NOT NULL,
+  `created_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -22,7 +30,7 @@ CREATE TABLE `ss_invite_code` (
   `code` varchar(128) NOT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '1993-01-01 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -64,16 +72,6 @@ CREATE TABLE `ss_password_reset` (
   `expire_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-DROP TABLE IF EXISTS `email_verify`;
-CREATE TABLE `email_verify` (
-  `email` varchar(32) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `expire_at` int(11) NOT NULL,
-  PRIMARY KEY (`email`),
-  KEY `expire_at` (`expire_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `user`;
@@ -129,6 +127,3 @@ CREATE TABLE `user_traffic_log` (
   `log_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
--- 2016-03-11 13:21:01

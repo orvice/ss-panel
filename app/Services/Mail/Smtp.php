@@ -40,11 +40,11 @@ class Smtp extends Base
         ];
     }
 
-    public function send($to, $subject, $text, $ishtml = false)
+    public function send($to, $subject, $text, $file)
     {
         $mail = $this->mail;
         $mail->addAddress($to);     // Add a recipient
-        $mail->isHTML($ishtml);
+        $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body = $text;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

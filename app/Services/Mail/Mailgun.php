@@ -26,11 +26,18 @@ class Mailgun extends Base
         ];
     }
 
-    public function send($to, $subject, $text)
+    public function send($to, $subject, $text, $file)
     {
-        $this->mg->sendMessage($this->domain, array('from' => $this->sender,
-            'to' => $to,
-            'subject' => $subject,
-            'html' => $text));
+        $this->mg->sendMessage($this->domain,
+            [
+                'from' => $this->sender,
+                'to' => $to,
+                'subject' => $subject,
+                'html' => $text
+            ],
+            [
+                'inline' => $file
+            ]
+        );
     }
 }

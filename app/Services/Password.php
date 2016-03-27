@@ -30,6 +30,8 @@ class Password
         try{
             Mail::send($email,$subject,'password/reset.tpl',[
                 "resetUrl" => $resetUrl
+            ],[
+                BASE_PATH.'/public/assets/email/styles.css'
             ]);
         }catch (Exception $e){
             return false;

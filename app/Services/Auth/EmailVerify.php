@@ -26,23 +26,14 @@ class EmailVerify
         if (!$verification->save()) {
             return false;
         }
-        $appname = Config::get('appName');
-        $subject = $appname . ' 邮箱验证';
-        $text = <<<EOT
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-</head>
-<body>
-  <p>尊敬的用户：</p>
-  <p>您的邮箱验证代码为: <b>{$verification->token}</b>，请在网页中填写，完成验证。<br>(本验证代码有效期 $ttl 分钟)</p><br>
-  <p>$appname</p>
-</body>
-</html>
-EOT;
+        $appName = Config::get('appName');
+        $subject = $appName . ' 邮箱验证';
+       
         try {
-            Mail::send($email, $subject, $text, true);
+            Mail::send($email, $subject,'auth/verify.tpl',[
+                'verification' => $verification,
+                'ttl' => $ttl
+            ]);
         } catch (Exception $e) {
             return false;
         }

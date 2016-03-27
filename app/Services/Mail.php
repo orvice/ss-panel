@@ -7,6 +7,7 @@ namespace App\Services;
  */
 
 use Smarty;
+use App\Services\Logger;
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Smtp;
 use App\Services\Mail\Ses;
@@ -62,9 +63,8 @@ class Mail
      */
     public static function send($to, $subject, $template, $ary)
     {
-        $text = self::genHtml($template,$ary);
+        $text = self::genHtml($template, $ary);
+        Logger::debug($text);
         return self::getClient()->send($to, $subject, $text);
     }
-
-
 }

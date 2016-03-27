@@ -6,6 +6,7 @@ namespace App\Services;
  * Mail Service
  */
 
+use Smarty;
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Smtp;
 use App\Services\Mail\Ses;

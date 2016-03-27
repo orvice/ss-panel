@@ -32,15 +32,37 @@ class Mail
         return null;
     }
 
-    /***
+    /**
+     * @param $template
+     * @param $ary
+     * @return mixed
+     */
+    public static function genHtml($template, $ary)
+    {
+        $smarty = new smarty();
+        $smarty->settemplatedir(BASE_PATH . '/resources/email/');
+        $smarty->setcompiledir(BASE_PATH . '/storage/framework/smarty/compile/');
+        $smarty->setcachedir(BASE_PATH . '/storage/framework/smarty/cache/');
+        // add config
+        $smarty->assign('config', Config::getPublicConfig());
+        $smarty->assign('analyticsCode', DbConfig::get('analytics-code'));
+        foreach ($ary as $key => $value) {
+            $smarty->assign($key, $value);
+        }
+        return $smarty->fetch($template);
+    }
+
+    /**
      * @param $to
      * @param $subject
-     * @param $text
-     * @return bool
+     * @param $template
+     * @param $ary
+     * @return bool|void
      */
-    public static function send($to, $subject, $text, $ishtml = false)
+    public static function send($to, $subject, $template, $ary)
     {
-        return self::getClient()->send($to, $subject, $text, $ishtml);
+        $text = self::genHtml($template,$ary);
+        return self::getClient()->send($to, $subject, $text);
     }
 
 

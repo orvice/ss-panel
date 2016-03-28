@@ -108,6 +108,10 @@ $app->group('/admin', function () {
     $this->delete('/user/{id}', 'App\Controllers\Admin\UserController:delete');
     $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
 
+    // Test
+    $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');
+    $this->post('/test/sendmail', 'App\Controllers\Admin\TestController:sendMailPost');
+
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');

@@ -32,14 +32,14 @@ class AuthController extends BaseController
         $user = User::where('email', '=', $email)->first();
 
         if ($user == null) {
-            $rs['ret'] = 0;
-            $rs['msg'] = "401 邮箱或者密码错误";
+            $res['ret'] = 0;
+            $res['msg'] = "401 邮箱或者密码错误";
             return $this->echoJson($response, $res);
         }
 
         if (!Hash::checkPassword($user->pass, $passwd)) {
-            $rs['ret'] = 0;
-            $rs['msg'] = "402 邮箱或者密码错误";
+            $res['ret'] = 0;
+            $res['msg'] = "402 邮箱或者密码错误";
             return $this->echoJson($response, $res);
         }
         // @todo
@@ -48,8 +48,8 @@ class AuthController extends BaseController
             $time = 3600 * 24 * 7;
         }
         Auth::login($user->id, $time);
-        $rs['ret'] = 1;
-        $rs['msg'] = "欢迎回来";
+        $res['ret'] = 1;
+        $res['msg'] = "欢迎回来";
         return $this->echoJson($response, $res);
     }
 

@@ -144,7 +144,7 @@ class Tools
 
     public static function getLastPort()
     {
-        $user = User::orderBy('id', 'desc')->first();
+        $user = User::orderBy('port', 'desc')->first();
         if ($user == null) {
             return 1024; // @todo
         }

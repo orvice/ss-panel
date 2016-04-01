@@ -3,9 +3,12 @@
 namespace App\Controllers\Mu;
 
 use App\Controllers\BaseController;
-use App\Models\Node, App\Models\TrafficLog, App\Models\User;
+use App\Models\Node;
+use App\Models\TrafficLog;
+use App\Models\User;
+use App\Services\Config;
+use App\Services\Logger;
 use App\Storage\Dynamodb\TrafficLog as DynamoTrafficLog;
-use App\Services\Config, App\Services\Logger;
 use App\Utils\Tools;
 
 class UserController extends BaseController

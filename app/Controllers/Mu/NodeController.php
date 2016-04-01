@@ -4,9 +4,8 @@
 namespace App\Controllers\Mu;
 
 use App\Controllers\BaseController;
-use App\Models\NodeInfo;
+use App\Models\NodeInfoLog;
 use App\Models\NodeOnlineLog;
-use App\Services\Logger;
 
 class NodeController extends BaseController
 {
@@ -39,7 +38,7 @@ class NodeController extends BaseController
         $load = $request->getParam('load');
         $uptime = $request->getParam('uptime');
 
-        $log = new NodeInfo();
+        $log = new NodeInfoLog();
         $log->node_id = $node_id;
         $log->load = $load;
         $log->uptime = $uptime;

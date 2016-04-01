@@ -55,7 +55,7 @@
                                         <li><a href="./node/{$node->id}">加密方式 <span
                                                         class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a>
                                         </li>
-                                        <li><a href="./node/{$node->id}">Uptime: <span
+                                        <li><a href="./node/{$node->id}">负载: <span
                                                         class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a>
                                         </li>
                                     </ul>

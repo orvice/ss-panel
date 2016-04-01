@@ -133,7 +133,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <input class="form-control" id="usedTraffic" type="number"
-                                                       value="{$user->u}" readonly>
+                                                       value="{$user->u+$user->d}" readonly>
 
                                                 <div class="input-group-addon">字节</div>
                                             </div>

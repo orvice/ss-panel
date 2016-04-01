@@ -17,14 +17,16 @@ class Mu
         if ($key == null) {
             $res['ret'] = 0;
             $res['msg'] = "key is null";
-            $response->getBody()->write(json_encode($res));
-            return $response;
+            $newResponse = $response->withStatus(401);
+            $newResponse->getBody()->write(json_encode($res));
+            return $newResponse;
         }
         if ($key != Config::get('muKey')) {
             $res['ret'] = 0;
             $res['msg'] = "token is  invalid";
-            $response->getBody()->write(json_encode($res));
-            return $response;
+            $newResponse = $response->withStatus(401);
+            $newResponse->getBody()->write(json_encode($res));
+            return $newResponse;
         }
         $response = $next($request, $response);
         return $response;

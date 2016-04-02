@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <div>
+    <div align="center">
         {$userFooter}
     </div>
     <div class="pull-right hidden-xs">

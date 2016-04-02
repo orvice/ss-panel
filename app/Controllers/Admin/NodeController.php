@@ -3,9 +3,9 @@
 namespace App\Controllers\Admin;
 
 use App\Models\Node;
-use App\Controllers\BaseController;
+use App\Controllers\AdminController;
 
-class NodeController extends BaseController
+class NodeController extends AdminController
 {
     public function index(){
         $nodes = Node::all();

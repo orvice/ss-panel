@@ -3,10 +3,10 @@
 namespace App\Controllers\Admin;
 
 use App\Models\User;
-use App\Controllers\BaseController;
+use App\Controllers\AdminController;
 use App\Utils\Hash;
 
-class UserController extends BaseController
+class UserController extends AdminController
 {
     public function index($request, $response, $args){
         $pageNum = 1;

@@ -3,11 +3,11 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\AdminController;
 use App\Services\Mail;
 use App\Utils\Tools;
 
-class TestController extends BaseController
+class TestController extends AdminController
 {
     public function sendMail($request, $response, $args)
     {

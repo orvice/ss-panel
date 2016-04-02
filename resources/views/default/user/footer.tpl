@@ -1,4 +1,7 @@
 <footer class="main-footer">
+    <div>
+        {$userFooter}
+    </div>
     <div class="pull-right hidden-xs">
         Made with Love
     </div>

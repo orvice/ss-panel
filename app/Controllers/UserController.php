@@ -21,6 +21,12 @@ class UserController extends BaseController
     {
         $this->user = Auth::getUser();
     }
+    
+    public function view()
+    {
+        $userFooter = DbConfig::get('user-footer');
+        return parent::view()->assign('userFooter',$userFooter); 
+    }
 
     public function index()
     {

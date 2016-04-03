@@ -16,11 +16,11 @@ class UserController extends BaseController
     // User List
     public function index($request, $response, $args)
     {
-        $user = User::all();
+        $users = User::all();
         $res = [
             "ret" => 1,
             "msg" => "ok",
-            "data" => $user
+            "data" => $users
         ];
         return $this->echoJson($response, $res);
     }

@@ -127,3 +127,13 @@ CREATE TABLE `user_traffic_log` (
   `log_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `ss_node_info_log`;
+CREATE TABLE `ss_node_info_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `node_id` int(11) NOT NULL,
+  `uptime` float NOT NULL,
+  `load` varchar(32) NOT NULL,
+  `log_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

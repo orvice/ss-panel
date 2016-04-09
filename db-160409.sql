@@ -1,5 +1,5 @@
 SET NAMES utf8;
-SET time_zone = '+08:00';
+SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
@@ -53,6 +53,17 @@ CREATE TABLE `ss_node` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+DROP TABLE IF EXISTS `ss_node_info_log`;
+CREATE TABLE `ss_node_info_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `node_id` int(11) NOT NULL,
+  `uptime` float NOT NULL,
+  `load` varchar(32) NOT NULL,
+  `log_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `ss_node_online_log`;
 CREATE TABLE `ss_node_online_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -100,7 +111,9 @@ CREATE TABLE `user` (
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `port` (`port`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -126,14 +139,4 @@ CREATE TABLE `user_traffic_log` (
   `traffic` varchar(32) NOT NULL,
   `log_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `ss_node_info_log`;
-CREATE TABLE `ss_node_info_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `node_id` int(11) NOT NULL,
-  `uptime` float NOT NULL,
-  `load` varchar(32) NOT NULL,
-  `log_time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 

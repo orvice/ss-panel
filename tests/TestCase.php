@@ -3,44 +3,62 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Slim\Environment;
-
+use Slim\Http\Environment;
+use Slim\HTTP\Request as Request;
+use Slim\Http\Response as Response;
 
 class TestCase extends PHPUnit_Framework_TestCase
 {
     public $app;
 
-    public $request,$response;
+    public $request, $response;
+
+    public function requestFactory($method, $path)
+    {
+        $environment = Environment::mock([
+                'REQUEST_METHOD' => $method,
+                'REQUEST_URI' => $path,
+                'QUERY_STRING' => 'foo=bar'
+            ]
+        );
+        $request = Request::createFromEnvironment($environment);
+        $request->withMethod('GET');
+        return $request;
+    }
+
 
     public function request($method, $path, $options = array())
     {
-        // Capture STDOUT
-        ob_start();
-
-        // Prepare a mock environment
-        Environment::mock(array_merge(array(
-            'REQUEST_METHOD' => $method,
-            'PATH_INFO' => $path,
-            'SERVER_NAME' => 'slim-test.dev',
-        ), $options));
-
-        $app = new \Slim\Slim();
+        // Build App
+        $app = require __DIR__ . '/../config/routes.php';
         $this->app = $app;
-        $this->request = $app->request();
-        $this->response = $app->response();
 
-        // Return STDOUT
-        return ob_get_clean();
+        // Build Req,Res
+        $response = new Response();
+        $request = $this->requestFactory($method, $path);
+
+        // send Req
+        $this->response = $app($request, $response);
     }
 
-    public function get($path, $options = array())
+    public function get($path, $options = [])
     {
         $this->request('GET', $path, $options);
     }
 
-    public function testIndex()
+    public function post($path, $options = [])
     {
-        $this->get('/');
-        $this->assertEquals('200', $this->response->status());
+        $this->request('POST', $path, $options);
     }
+
+    public function put($path, $options = [])
+    {
+        $this->request('PUT', $path, $options);
+    }
+
+    public function delete($path, $options = [])
+    {
+        $this->request('DELETE', $path, $options);
+    }
+
 }

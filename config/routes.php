@@ -143,3 +143,6 @@ $app->group('/res', function () {
 // Run Slim Routes for App
 $app->run();
 
+return $app;
+
+

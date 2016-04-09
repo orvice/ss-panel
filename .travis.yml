@@ -11,7 +11,7 @@ services:
 
 before_script:
   - "mysql -e 'create database `sspanel`;'"
-  - mysql -uroot -p"" sspanel < db-160409.sql
+  - mysql -u root sspanel < db-160409.sql
   - cp .env.testing .env
   - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then composer require satooshi/php-coveralls:dev-master squizlabs/php_codesniffer:2.* -n ; fi
   - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then composer install -n ; fi

@@ -35,8 +35,10 @@ class UserController extends AdminController
         if ($request->getParam('pass') != '') {
             $user->pass = Hash::passwordHash($request->getParam('pass'));
         }
+        if($request->getParam('passwd') != ''){
+            $user->passwd = $request->getParam('passwd');
+        }
         $user->port =  $request->getParam('port');
-        $user->passwd = $request->getParam('passwd');
         $user->transfer_enable = $request->getParam('transfer_enable');
         $user->invite_num = $request->getParam('invite_num');
         $user->method = $request->getParam('method');

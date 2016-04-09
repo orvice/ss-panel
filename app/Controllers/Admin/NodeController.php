@@ -7,7 +7,7 @@ use App\Controllers\AdminController;
 
 class NodeController extends AdminController
 {
-    public function index(){
+    public function index($request, $response, $args){
         $nodes = Node::all();
         return $this->view()->assign('nodes',$nodes)->display('admin/node/index.tpl');
     }

@@ -1,8 +1,5 @@
 <?php
 
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Slim\Http\Environment;
 use Slim\HTTP\Request;
 use Slim\Http\Response;

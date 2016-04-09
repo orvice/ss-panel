@@ -6,10 +6,9 @@ namespace App\Models;
  * User Model
  */
 
-use App\Utils\Tools;
-use App\Utils\Hash;
-use App\Models\InviteCode;
 use App\Services\Config;
+use App\Utils\Hash;
+use App\Utils\Tools;
 
 class User extends Model
 
@@ -113,6 +112,12 @@ class User extends Model
     {
         $transfer_enable = $this->attributes['transfer_enable'];
         return Tools::flowAutoShow($transfer_enable);
+    }
+
+    public function enableTrafficInGB()
+    {
+        $transfer_enable = $this->attributes['transfer_enable'];
+        return Tools::flowToGB($transfer_enable);
     }
 
     public function usedTraffic()

@@ -120,23 +120,20 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <input class="form-control" id="transfer_enable" type="number"
-                                                       value="{$user->transfer_enable}">
+                                                       value="{$user->enableTrafficInGB()}">
 
-                                                <div class="input-group-addon">字节</div>
+                                                <div class="input-group-addon">GiB</div>
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">已用流量</label>
 
                                         <div class="col-sm-9">
-                                            <div class="input-group">
-                                                <input class="form-control" id="usedTraffic" type="number"
-                                                       value="{$user->u+$user->d}" readonly>
-
-                                                <div class="input-group-addon">字节</div>
-                                            </div>
+                                            <input class="form-control" id="invite_num" type="number"
+                                                   value="{$user->usedTraffic()}" readonly>
                                         </div>
                                     </div>
                                 </fieldset>

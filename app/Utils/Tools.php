@@ -30,16 +30,23 @@ class Tools
         }
     }
 
-    static function toMB($traffic)
+
+    public static function toMB($traffic)
     {
         $mb = 1048576;
         return $traffic * $mb;
     }
 
-    static function toGB($traffic)
+    public static function toGB($traffic)
     {
         $gb = 1048576 * 1024;
         return $traffic * $gb;
+    }
+
+    public static function flowToGB($traffic)
+    {
+        $gb = 1048576 * 1024;
+        return $traffic / $gb;
     }
 
     //获取随机字符串

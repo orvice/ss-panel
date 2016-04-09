@@ -26,7 +26,8 @@ class TestCase extends PHPUnit_Framework_TestCase
         return $request;
     }
 
-    public function createApp(){
+    public function createApp()
+    {
         // Build App
         $app = require __DIR__ . '/../config/routes.php';
         return $app;
@@ -38,7 +39,6 @@ class TestCase extends PHPUnit_Framework_TestCase
         // Build App
         $app = $this->createApp();
         $this->app = $app;
-
         // Build Req,Res
         $response = new Response();
         $request = $this->requestFactory($method, $path);

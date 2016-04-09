@@ -28,7 +28,7 @@ class UserController extends BaseController
         return parent::view()->assign('userFooter',$userFooter); 
     }
 
-    public function index()
+    public function index($request, $response, $args)
     {
         $msg = DbConfig::get('user-index');
         if($msg == null ){
@@ -37,7 +37,7 @@ class UserController extends BaseController
         return $this->view()->assign('msg',$msg)->display('user/index.tpl');
     }
 
-    public function node()
+    public function node($request, $response, $args)
     {
         $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
@@ -73,18 +73,18 @@ class UserController extends BaseController
         return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
     }
 
-    public function profile()
+    public function profile($request, $response, $args)
     {
         return $this->view()->display('user/profile.tpl');
     }
 
-    public function edit()
+    public function edit($request, $response, $args)
     {
         return $this->view()->display('user/edit.tpl');
     }
 
 
-    public function invite()
+    public function invite($request, $response, $args)
     {
         $codes = $this->user->inviteCodes();
         return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
@@ -110,7 +110,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function sys()
+    public function sys($request, $response, $args)
     {
         return $this->view()->assign('ana', "")->display('user/sys.tpl');
     }

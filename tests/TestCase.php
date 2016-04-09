@@ -27,6 +27,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     {
         // Build App
         $app = require __DIR__ . '/../app/routes.php';
+        $app->run(true);
         return $app;
     }
 

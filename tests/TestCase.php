@@ -1,11 +1,8 @@
 <?php
 
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Slim\Http\Environment;
-use Slim\HTTP\Request as Request;
-use Slim\Http\Response as Response;
+use Slim\HTTP\Request;
+use Slim\Http\Response;
 
 class TestCase extends PHPUnit_Framework_TestCase
 {
@@ -26,9 +23,11 @@ class TestCase extends PHPUnit_Framework_TestCase
         return $request;
     }
 
-    public function createApp(){
+    public function createApp()
+    {
         // Build App
-        $app = require __DIR__ . '/../config/routes.php';
+        $app = require __DIR__ . '/../app/routes.php';
+        $app->run(true);
         return $app;
     }
 
@@ -38,7 +37,6 @@ class TestCase extends PHPUnit_Framework_TestCase
         // Build App
         $app = $this->createApp();
         $this->app = $app;
-
         // Build Req,Res
         $response = new Response();
         $request = $this->requestFactory($method, $path);

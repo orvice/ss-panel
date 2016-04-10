@@ -15,11 +15,7 @@ class AuthTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
-    public function testUser()
-    {
-        $this->get('/user');
-        $this->assertEquals('302', $this->response->getStatusCode());
-    }
+    
 
     public function testAdmin()
     {

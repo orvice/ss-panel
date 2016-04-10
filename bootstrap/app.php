@@ -10,7 +10,7 @@
 use App\Services\Boot;
 
 //  BASE_PATH
-define('BASE_PATH', __DIR__);
+define('BASE_PATH', __DIR__ . '/../');
 define('VERSION', '3.3.9');
 
 // Vendor Autoload

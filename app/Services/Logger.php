@@ -16,7 +16,7 @@ class Logger
     public static function logger()
     {
         $logger = new MonoLogger('my_logger');
-        $fileHandler = new StreamHandler(BASE_PATH . '/storage/app.log');
+        $fileHandler = new StreamHandler(BASE_PATH . '/storage/logs/app.log');
         $logger->pushHandler($fileHandler);
         return $logger;
     }

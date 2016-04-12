@@ -1,7 +1,8 @@
 {
   "require": {
     "ozcat/framework": "dev-master",
-    "ramsey/uuid": "^3.3"
+    "ramsey/uuid": "^3.3",
+    "monolog/monolog": "^1.18"
   },
   "require-dev": {
     "phpunit/phpunit": "~5.0"

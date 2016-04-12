@@ -18,17 +18,9 @@ $debug = false;
 if (defined("DEBUG")) {
     $debug = true;
 }
-/***
- * $configuration = [
- * 'settings' => [
- * 'displayErrorDetails' => $debug,
- * ]
- * ];
- * $c = new Container($configuration);
- ***/
 
 // Make a Slim App
-// $app = new App($c);
+// $app = new App($c)
 $app = new App([
     'settings' => [
         'debug' => $debug,

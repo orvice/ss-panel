@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use OzCat\Services\Config as OzConfig;
+use Pongtan\Services\Config as PongtanConfig;
 
 
-class Config extends OzConfig
+class Config extends PongtanConfig
 {
     public static function getPublicConfig()
     {

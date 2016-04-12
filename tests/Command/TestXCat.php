@@ -10,4 +10,5 @@ class TestXCat extends TestCase
         $cat->defaultAction();
         $cat->resetTraffic();
     }
+
 }

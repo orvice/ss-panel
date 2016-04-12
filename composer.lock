@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "993b3785cb38b36c5f18982eabbeba52",
-    "content-hash": "0b5b603d057c371000d153e16cc4ea45",
+    "hash": "6450dc2f733a724b39469b8032905ce6",
+    "content-hash": "0207373c136c75f5271010ae4e6067ca",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.17.5",
+            "version": "3.17.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f"
+                "reference": "d5a5145263da88c9ba870b579c3d4f648b82d2a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1cef9b334729b3564c9aef15481a55561c54b53f",
-                "reference": "1cef9b334729b3564c9aef15481a55561c54b53f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d5a5145263da88c9ba870b579c3d4f648b82d2a9",
+                "reference": "d5a5145263da88c9ba870b579c3d4f648b82d2a9",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-04-07 22:44:13"
+            "time": "2016-04-11 17:36:01"
         },
         {
             "name": "container-interop/container-interop",
@@ -1160,57 +1160,6 @@
             "time": "2015-06-18 19:15:47"
         },
         {
-            "name": "ozcat/framework",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OzCat/framework.git",
-                "reference": "05d96e3de8a865e2005a8afa3531ba92996396be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OzCat/framework/zipball/05d96e3de8a865e2005a8afa3531ba92996396be",
-                "reference": "05d96e3de8a865e2005a8afa3531ba92996396be",
-                "shasum": ""
-            },
-            "require": {
-                "aws/aws-sdk-php": "3.*",
-                "desarrolla2/cache": "~2.0",
-                "firebase/php-jwt": "~3.0",
-                "gregwar/captcha": "1.*",
-                "illuminate/database": "*",
-                "illuminate/pagination": "~5.1",
-                "mailgun/mailgun-php": "~1.7.2",
-                "phpmailer/phpmailer": "~5.2",
-                "predis/predis": "~1.0",
-                "slim/csrf": "0.5.*",
-                "slim/slim": "^3.0",
-                "slim/twig-view": "~2.0",
-                "smarty/smarty": "~3.1",
-                "vlucas/phpdotenv": "~2.1",
-                "zeuxisoo/slim-whoops": "0.4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [],
-                "files": [
-                    "src/OzCat/Support/helpers.php"
-                ],
-                "psr-4": {
-                    "OzCat\\": "src/OzCat"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Orvice",
-                    "email": "ozcat@orx.me"
-                }
-            ],
-            "description": "The OzCat Framework.",
-            "time": "2016-03-27 12:52:52"
-        },
-        {
             "name": "paragonie/random_compat",
             "version": "v2.0.2",
             "source": {
@@ -1364,6 +1313,58 @@
                 "dependency injection"
             ],
             "time": "2015-09-11 15:10:35"
+        },
+        {
+            "name": "pongtan/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pongtan/framework.git",
+                "reference": "965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pongtan/framework/zipball/965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f",
+                "reference": "965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "3.*",
+                "desarrolla2/cache": "~2.0",
+                "firebase/php-jwt": "~3.0",
+                "gregwar/captcha": "1.*",
+                "illuminate/database": "*",
+                "illuminate/pagination": "~5.1",
+                "mailgun/mailgun-php": "~1.7.2",
+                "monolog/monolog": "^1.18",
+                "phpmailer/phpmailer": "~5.2",
+                "predis/predis": "~1.0",
+                "slim/csrf": "0.5.*",
+                "slim/slim": "^3.0",
+                "slim/twig-view": "~2.0",
+                "smarty/smarty": "~3.1",
+                "vlucas/phpdotenv": "~2.1",
+                "zeuxisoo/slim-whoops": "0.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "files": [
+                    "src/Pongtan/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Pongtan\\": "src/Pongtan"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Xiaobin",
+                    "email": "pongtan@orx.me"
+                }
+            ],
+            "description": "The Pongtan Framework.",
+            "time": "2016-04-12 16:46:07"
         },
         {
             "name": "predis/predis",
@@ -2600,16 +2601,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.3.1",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c"
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2c6da3536035617bae3fe3db37283c9e0eb63ab3",
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3",
                 "shasum": ""
             },
             "require": {
@@ -2671,7 +2672,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-07 07:04:34"
+            "time": "2016-04-12 16:20:08"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3294,7 +3295,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ozcat/framework": 20
+        "pongtan/framework": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

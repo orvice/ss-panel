@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as EloquentMedel;
+use Pongtan\Database\Model as BaseModel;
 
 /**
  * Base Model
  */
-
-class Model extends EloquentMedel
-
+class Model extends BaseModel
 {
     public $timestamps = false;
 

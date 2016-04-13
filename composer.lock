@@ -938,16 +938,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -1320,12 +1320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/framework.git",
-                "reference": "965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f"
+                "reference": "eed28e776dca9b7aca884d5eadba4c91eebdd2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/framework/zipball/965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f",
-                "reference": "965fd58ae2e07bda82a9fb262fa4a5a2f9d9d40f",
+                "url": "https://api.github.com/repos/Pongtan/framework/zipball/eed28e776dca9b7aca884d5eadba4c91eebdd2eb",
+                "reference": "eed28e776dca9b7aca884d5eadba4c91eebdd2eb",
                 "shasum": ""
             },
             "require": {
@@ -1346,6 +1346,9 @@
                 "vlucas/phpdotenv": "~2.1",
                 "zeuxisoo/slim-whoops": "0.4.*"
             },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
             "type": "library",
             "autoload": {
                 "classmap": [],
@@ -1364,7 +1367,7 @@
                 }
             ],
             "description": "The Pongtan Framework.",
-            "time": "2016-04-12 16:46:07"
+            "time": "2016-04-12 17:41:46"
         },
         {
             "name": "predis/predis",

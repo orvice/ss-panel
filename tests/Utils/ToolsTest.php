@@ -16,4 +16,25 @@ class ToolsTest extends TestCase
         $char = Tools::genRandomChar(8);
         $this->assertEquals(8, strlen($char));
     }
+
+    public function testGenSID()
+    {
+        Tools::genSID();
+    }
+
+    public function testGenUUID()
+    {
+        Tools::genUUID();
+    }
+
+    public function testGenToken()
+    {
+        Tools::genToken();
+    }
+
+    public function testCheckHtml()
+    {
+        $legalText = 'xoxo';
+        $this->assertEquals($legalText, Tools::checkHtml($legalText));
+    }
 }

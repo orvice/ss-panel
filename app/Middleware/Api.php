@@ -16,22 +16,22 @@ class Api
         if ($accessToken==null){
             $res['ret'] = 0;
             $res['msg'] = "token is null";
-            $response->getBody()->write(json_encode($res));
-            return $response;
+            $newResponse = $response->withJson($res,401);
+            return $newResponse;
         }
         $storage = Factory::createTokenStorage();
         $token = $storage->get($accessToken);
         if ($token==null){
             $res['ret'] = 0;
             $res['msg'] = "token is null";
-            $response->getBody()->write(json_encode($res));
-            return $response;
+            $newResponse = $response->withJson($res,401);
+            return $newResponse;
         }
         if ($token->expireTime < time()){
             $res['ret'] = 0;
             $res['msg'] = "token is expire";
-            $response->getBody()->write(json_encode($res));
-            return $response;
+            $newResponse = $response->withJson($res,401);
+            return $newResponse;
         }
         $response = $next($request, $response);
         return $response;

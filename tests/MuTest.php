@@ -21,7 +21,9 @@ class MuTest extends TestCase
     public function testUsers()
     {
         $this->get('/mu/users', [
-            'query' => "key=$this->muKey"
+            'query' => [
+                'key' => $this->muKey
+            ]
         ]);
     }
 }

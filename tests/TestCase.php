@@ -10,13 +10,13 @@ class TestCase extends PHPUnit_Framework_TestCase
 
     public $request, $response;
 
-    public function requestFactory($method, $path, $option)
+
+    public function requestFactory($method, $path, $options)
     {
         $query = [];
         if (isset($options['query'])) {
             $query = $options['query'];
         }
-
         $environment = Environment::mock([
                 'REQUEST_METHOD' => $method,
                 'REQUEST_URI' => $path,
@@ -25,8 +25,15 @@ class TestCase extends PHPUnit_Framework_TestCase
         );
         $request = Request::createFromEnvironment($environment);
         $request->withMethod($method);
+        $request->withQueryParams($query);
+        if(isset($options['header'])){
+            foreach ($options['header'] as $key => $value){
+                $request->withHeader($key,$value);
+            }
+        }
         return $request;
     }
+
 
     public function createApp()
     {

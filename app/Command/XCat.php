@@ -8,7 +8,10 @@ namespace App\Command;
  */
 
 use App\Models\User;
-use App\Utils\Hash,App\Utils\Tools,App\Services\Config;
+use App\Services\Config;
+use App\Utils\Hash;
+use App\Utils\Tools;
+
 class XCat
 {
 
@@ -19,8 +22,9 @@ class XCat
         $this->argv = $argv;
     }
 
-    public function boot(){
-        switch($this->argv[1]){
+    public function boot()
+    {
+        switch ($this->argv[1]) {
             case("install"):
                 return $this->install();
             case("createAdmin"):
@@ -34,15 +38,17 @@ class XCat
         }
     }
 
-    public function defaultAction(){
-        echo "Memo";
+    public function defaultAction()
+    {
     }
 
-    public function install(){
+    public function install()
+    {
         echo "x cat will install ss-panel v3...../n";
     }
 
-    public function createAdmin(){
+    public function createAdmin()
+    {
         echo "add admin/ 创建管理员帐号.....";
         // ask for input
         fwrite(STDOUT, "Enter your email/输入管理员邮箱: ");
@@ -54,7 +60,7 @@ class XCat
         echo "Email: $email, Password: $passwd! ";
         fwrite(STDOUT, "Press [Y] to create admin..... 按下[Y]确认来确认创建管理员账户..... ");
         $y = trim(fgets(STDIN));
-        if ( strtolower($y) == "y" ){
+        if (strtolower($y) == "y") {
             echo "start create admin account";
             // create admin user
             // do reg user
@@ -63,7 +69,7 @@ class XCat
             $user->email = $email;
             $user->pass = Hash::passwordHash($passwd);
             $user->passwd = Tools::genRandomChar(6);
-            $user->port = Tools::getLastPort()+1;
+            $user->port = Tools::getLastPort() + 1;
             $user->t = 0;
             $user->u = 0;
             $user->d = 0;
@@ -71,7 +77,7 @@ class XCat
             $user->invite_num = Config::get('inviteNum');
             $user->ref_by = 0;
             $user->is_admin = 1;
-            if ($user->save()){
+            if ($user->save()) {
                 echo "Successful/添加成功!";
                 return true;
             }
@@ -82,15 +88,16 @@ class XCat
         return false;
     }
 
-    public function resetTraffic(){
-        try{
-            User::where("enable",1)->update([
+    public function resetTraffic()
+    {
+        try {
+            User::where("enable", 1)->update([
                 'd' => 0,
                 'u' => 0,
             ]);
-        }catch (\Exception $e){
-             echo $e->getMessage();
-             return false;
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return false;
         }
         return "reset traffic successful";
     }

@@ -10,7 +10,9 @@ class ApiTest extends TestCase
 
     public function testUnauthorized()
     {
+        $this->setProdEnv();
         $this->get("/api/node");
         $this->assertEquals('401', $this->response->getStatusCode());
+        $this->setTestingEnv();
     }
 }

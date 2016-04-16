@@ -13,6 +13,10 @@ class Mu
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
+        if(Helper::isTesting()){
+            $response = $next($request, $response);
+            return $response;
+        }
         $key = Helper::getMuKeyFromReq($request);
         if ($key == null) {
             $res['ret'] = 0;

@@ -4,10 +4,23 @@
 namespace App\Utils;
 
 
+use Pongtan\Services\Config;
+
 class Helper
 {
     public static function redirect($url)
     {
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isTesting()
+    {
+        if (Config::get('env') === 'testing') {
+            return true;
+        }
+        return false;
     }
 
     public static function getTokenFromReq($request)

@@ -14,8 +14,10 @@ class MuTest extends TestCase
 
     public function testUnauthorized()
     {
+        $this->setProdEnv();
         $this->get("/mu/users");
         $this->assertEquals('401', $this->response->getStatusCode());
+        $this->setTestingEnv();
     }
 
     public function testUsers()

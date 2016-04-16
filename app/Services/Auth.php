@@ -23,7 +23,9 @@ class Auth
 
    public static function getUser(){
        if (Helper::isTesting()) {
-           return User::first();
+           $user =  User::first();
+           $user->isLogin = true;
+           return $user;
        }
        return self::getDriver()->getUser();
    }

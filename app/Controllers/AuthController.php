@@ -2,11 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Models\InviteCode, App\Models\User;
-use App\Services\Config, App\Services\Auth\EmailVerify, App\Services\Auth, App\Services\Mail;
-use App\Utils\Check, App\Utils\Tools, App\Utils\Http, App\Utils\Hash;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use App\Models\InviteCode;
+use App\Models\User;
+use App\Services\Auth;
+use App\Services\Auth\EmailVerify;
+use App\Services\Config;
+use App\Services\Mail;
+use App\Utils\Check;
+use App\Utils\Hash;
+use App\Utils\Http;
+use App\Utils\Tools;
 
 
 /**
@@ -114,6 +119,15 @@ class AuthController extends BaseController
         if (Config::get('emailVerifyEnabled') && !EmailVerify::checkVerifyCode($email, $verifycode)) {
             $res['ret'] = 0;
             $res['msg'] = '邮箱验证代码不正确';
+            return $this->echoJson($response, $res);
+        }
+
+        // check ip limit
+        $ip = Http::getClientIP();
+        $ipRegCount = Check::getIpRegCount($ip);
+        if ($ipRegCount >= Config::get('ipDayLimit')) {
+            $res['ret'] = 0;
+            $res['msg'] = '当前IP注册次数超过限制';
             return $this->echoJson($response, $res);
         }
 

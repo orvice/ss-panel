@@ -4,7 +4,10 @@ namespace App\Controllers;
 
 use App\Models\InviteCode;
 use App\Services\Auth;
-use App\Services\Config, App\Services\DbConfig, App\Services\Logger;
+use App\Services\Config;
+use App\Services\DbConfig;
+use App\Services\Logger;
+use App\Utils\Check;
 use App\Utils\Http;
 
 /**
@@ -16,7 +19,7 @@ class HomeController extends BaseController
     public function index()
     {
         $homeIndexMsg = DbConfig::get('home-index');
-        return $this->view()->assign('homeIndexMsg',$homeIndexMsg)->display('index.tpl');
+        return $this->view()->assign('homeIndexMsg', $homeIndexMsg)->display('index.tpl');
     }
 
     public function code()
@@ -31,6 +34,7 @@ class HomeController extends BaseController
         $res = [
             "ip" => Http::getClientIP(),
             "version" => Config::get('version'),
+            "reg_count" => Check::getIpRegCount(Http::getClientIP()),
         ];
         Logger::debug(json_encode($res));
         return $this->echoJson($response, $res);

@@ -19,8 +19,10 @@ class AuthTest extends TestCase
 
     public function testAdmin()
     {
+        $this->setProdEnv();
         $this->get('/admin');
         $this->assertEquals('302', $this->response->getStatusCode());
+        $this->setTestingEnv();
     }
 
 

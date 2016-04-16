@@ -30,5 +30,6 @@ class MuTest extends TestCase
                 'Key'  => $this->muKey
             ]
         ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
     }
 }

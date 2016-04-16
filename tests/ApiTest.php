@@ -15,4 +15,10 @@ class ApiTest extends TestCase
         $this->assertEquals('401', $this->response->getStatusCode());
         $this->setTestingEnv();
     }
+
+    public function testNode()
+    {
+        $this->get('/api/node');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
 }

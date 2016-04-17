@@ -7,17 +7,14 @@ class MuTest extends TestCase
 
     protected $muKey = 'muKey';
 
+    public function setUp()
+    {
+        $this->setTestingEnv();
+    }
+
     protected function setMuKey()
     {
         Config::set('muKey', $this->muKey);
-    }
-
-    public function testUnauthorized()
-    {
-        $this->setProdEnv();
-        $this->get("/mu/users");
-        $this->assertEquals('401', $this->response->getStatusCode());
-        $this->setTestingEnv();
     }
 
     public function testUsers()
@@ -27,7 +24,7 @@ class MuTest extends TestCase
                 'key' => $this->muKey
             ],
             'header' => [
-                'Key'  => $this->muKey
+                'Key' => $this->muKey
             ]
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());

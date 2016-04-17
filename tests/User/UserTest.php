@@ -3,19 +3,45 @@
 
 class UserTest extends TestCase
 {
-    public function testUser()
+    public function setUp()
     {
-        $this->setProdEnv();
-        $this->get('/user');
-        $this->assertEquals('302', $this->response->getStatusCode());
+        // set testing env
         $this->setTestingEnv();
     }
 
-    public function testUserNode()
+    public function testIndex()
     {
-        $this->setProdEnv();
+        $this->get('/user');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testNode()
+    {
         $this->get('/user/node');
-        $this->assertEquals('302', $this->response->getStatusCode());
-        $this->setTestingEnv();
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testProfile()
+    {
+        $this->get('/user/profile');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testInvite()
+    {
+        $this->get('/user/invite');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testTrafficLog()
+    {
+        $this->get('/user/trafficlog');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testEdit()
+    {
+        $this->get('/user/edit');
+        $this->assertEquals('200', $this->response->getStatusCode());
     }
 }

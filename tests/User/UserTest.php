@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Node;
 
 class UserTest extends TestCase
 {
@@ -15,10 +16,22 @@ class UserTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testCheckIn()
+    {
+        $this->post('/user/checkin');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
     public function testNode()
     {
         $this->get('/user/node');
         $this->assertEquals('200', $this->response->getStatusCode());
+
+        $node = Node::first();
+        if ($node != null) {
+            $this->get("/user/node/$node->id");
+            $this->assertEquals('200', $this->response->getStatusCode());
+        }
     }
 
     public function testProfile()

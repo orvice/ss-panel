@@ -27,6 +27,12 @@ class UserTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testKill()
+    {
+        $this->get('/user/kill');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
     public function testInvite()
     {
         $this->get('/user/invite');

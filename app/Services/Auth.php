@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\User;
+use App\Utils\Helper;
 
 class Auth
 {
@@ -20,6 +22,11 @@ class Auth
    }
 
    public static function getUser(){
+       if (Helper::isTesting()) {
+           $user =  User::first();
+           $user->isLogin = true;
+           return $user;
+       }
        return self::getDriver()->getUser();
    }
 

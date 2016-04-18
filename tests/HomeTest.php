@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Config;
 
 class HomeTest extends TestCase
 {
@@ -21,6 +22,14 @@ class HomeTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testDebug()
+    {
+        $this->get('/debug');
+        $this->assertEquals('200', $this->response->getStatusCode());
+        $ary = json_decode($this->response->getBody(), true);
+        // test version
+        $this->assertEquals(Config::get('version'), $ary['version']);
+    }
 
 
     public function testError()

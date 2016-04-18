@@ -2,12 +2,11 @@
 
 use App\Command\XCat;
 
-class TestXCat extends TestCase
+class XCatTest extends TestCase
 {
     public function testXcat()
     {
-        $cat = new XCat();
-        $cat->defaultAction();
+        $cat = new XCat([]);
         $cat->resetTraffic();
     }
 

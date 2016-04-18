@@ -1320,12 +1320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/framework.git",
-                "reference": "eed28e776dca9b7aca884d5eadba4c91eebdd2eb"
+                "reference": "a785268bf756c4a90437cd89956e31dd2b952307"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/framework/zipball/eed28e776dca9b7aca884d5eadba4c91eebdd2eb",
-                "reference": "eed28e776dca9b7aca884d5eadba4c91eebdd2eb",
+                "url": "https://api.github.com/repos/Pongtan/framework/zipball/a785268bf756c4a90437cd89956e31dd2b952307",
+                "reference": "a785268bf756c4a90437cd89956e31dd2b952307",
                 "shasum": ""
             },
             "require": {
@@ -1367,7 +1367,7 @@
                 }
             ],
             "description": "The Pongtan Framework.",
-            "time": "2016-04-12 17:41:46"
+            "time": "2016-04-14 14:57:25"
         },
         {
             "name": "predis/predis",

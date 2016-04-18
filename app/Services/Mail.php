@@ -6,6 +6,7 @@ namespace App\Services;
  * Mail Service
  */
 
+use App\Services\Mail\File;
 use App\Services\Mail\Mailgun;
 use App\Services\Mail\Ses;
 use App\Services\Mail\Smtp;
@@ -27,6 +28,8 @@ class Mail
                 return new Ses();
             case "smtp":
                 return new Smtp();
+            case "file":
+                return new File();
             default:
                 // @TODO default action
         }

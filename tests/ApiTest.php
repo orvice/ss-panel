@@ -8,9 +8,9 @@ class ApiTest extends TestCase
         $this->assertEquals('404', $this->response->getStatusCode());
     }
 
-    public function testUnauthorized()
+    public function testNode()
     {
-        $this->get("/api/node");
-        $this->assertEquals('401', $this->response->getStatusCode());
+        $this->get('/api/node');
+        $this->assertEquals('200', $this->response->getStatusCode());
     }
 }

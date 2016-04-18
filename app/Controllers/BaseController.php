@@ -43,4 +43,10 @@ class BaseController
         $newResponse = $response->withJson($res, $statusCode);
         return $newResponse;
     }
+
+    public function redirect($response, $to)
+    {
+        $newResponse = $response->withStatus(302)->withHeader('Location', $to);
+        return $newResponse;
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Config;
 use Slim\Http\Environment;
 use Slim\HTTP\Request;
 use Slim\Http\Response;
@@ -26,9 +27,9 @@ class TestCase extends PHPUnit_Framework_TestCase
         $request = Request::createFromEnvironment($environment);
         $request->withMethod($method);
         $request->withQueryParams($query);
-        if(isset($options['header'])){
-            foreach ($options['header'] as $key => $value){
-                $request->withHeader($key,$value);
+        if (isset($options['header'])) {
+            foreach ($options['header'] as $key => $value) {
+                $request->withHeader($key, $value);
             }
         }
         return $request;
@@ -76,6 +77,22 @@ class TestCase extends PHPUnit_Framework_TestCase
     public function delete($path, $options = [])
     {
         $this->request('DELETE', $path, $options);
+    }
+
+    /**
+     * Set env in prod
+     */
+    public function setProdEnv()
+    {
+        Config::set('env', 'prod');
+    }
+
+    /**
+     * Set testing env
+     */
+    public function setTestingEnv()
+    {
+        Config::set('env', 'testing');
     }
 
 }

@@ -132,7 +132,7 @@
                                         <label class="col-sm-3 control-label">已用流量</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="invite_num" type="text"
+                                            <input class="form-control" id="traffic_usage" type="text"
                                                    value="{$user->usedTraffic()}" readonly>
                                         </div>
                                     </div>

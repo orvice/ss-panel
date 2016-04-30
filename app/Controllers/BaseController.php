@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-
+use Slim\App;
 use App\Services\Auth;
 use App\Services\View;
 
@@ -12,13 +12,14 @@ use App\Services\View;
 class BaseController
 {
 
-    public $view;
+    protected $view;
 
-    public $smarty;
+    protected $smarty;
+
+    protected $app;
 
     public function construct__()
     {
-
     }
 
     public function smarty()

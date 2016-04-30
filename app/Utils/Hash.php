@@ -6,6 +6,10 @@ use App\Services\Config;
 
 class Hash
 {
+    /**
+     * @param $str
+     * @return string
+     */
     public static function passwordHash($str)
     {
         $method = Config::get('pwdMethod');
@@ -27,12 +31,20 @@ class Hash
         return substr(hash('sha256', $str . Config::get('key')), 5, 45);
     }
 
+    /**
+     * @param $pwd
+     * @return string
+     */
     public static function md5WithSalt($pwd)
     {
         $salt = Config::get('salt');
         return md5($pwd . $salt);
     }
 
+    /**
+     * @param $pwd
+     * @return string
+     */
     public static function sha256WithSalt($pwd)
     {
         $salt = Config::get('salt');

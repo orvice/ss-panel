@@ -8,9 +8,6 @@ use Pongtan\Services\Config;
 
 class Helper
 {
-    public static function redirect($url)
-    {
-    }
 
     /**
      * @return bool

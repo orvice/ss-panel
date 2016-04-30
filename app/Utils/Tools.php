@@ -13,8 +13,10 @@ class Tools
 
     /**
      * 根据流量值自动转换单位输出
+     * @param int $value
+     * @return string
      */
-    static function flowAutoShow($value = 0)
+    public static function flowAutoShow($value = 0)
     {
         $kb = 1024;
         $mb = 1048576;
@@ -30,26 +32,41 @@ class Tools
         }
     }
 
-
+    /**
+     * @param $traffic
+     * @return mixed
+     */
     public static function toMB($traffic)
     {
         $mb = 1048576;
         return $traffic * $mb;
     }
 
+    /**
+     * @param $traffic
+     * @return mixed
+     */
     public static function toGB($traffic)
     {
         $gb = 1048576 * 1024;
         return $traffic * $gb;
     }
 
+    /**
+     * @param $traffic
+     * @return float
+     */
     public static function flowToGB($traffic)
     {
         $gb = 1048576 * 1024;
         return $traffic / $gb;
     }
 
-    //获取随机字符串
+    /**
+     * generate random string
+     * @param int $length
+     * @return string
+     */
     public static function genRandomChar($length = 8)
     {
         // 密码字符集，可任意添加你需要的字符
@@ -61,13 +78,20 @@ class Tools
         return $char;
     }
 
+    /**
+     * @return string
+     */
     public static function genToken()
     {
         return self::genRandomChar(64);
     }
 
 
-    // Unix time to Date Time
+    /**
+     * Unix time to Date Time
+     * @param $time
+     * @return mixed
+     */
     public static function toDateTime($time)
     {
         return date('Y-m-d H:i:s', $time);
@@ -84,7 +108,10 @@ class Tools
         return $dtF->diff($dtT)->format('%a 天, %h 小时, %i 分 and %s 秒');
     }
 
-    // check html
+    /**
+     * @param $html
+     * @return mixed
+     */
     static function checkHtml($html)
     {
         $html = stripslashes($html);
@@ -143,12 +170,18 @@ class Tools
         return $html;
     }
 
+    /**
+     * @return string
+     */
     public static function genSID()
     {
         $unid = uniqid(Config::get('key'));
         return Hash::sha256WithSalt($unid);
     }
 
+    /**
+     * @return string
+     */
     public static function genUUID()
     {
         try {
@@ -161,6 +194,9 @@ class Tools
         }
     }
 
+    /**
+     * @return int
+     */
     public static function getLastPort()
     {
         $user = User::orderBy('port', 'desc')->first();

@@ -21,6 +21,9 @@ class Auth
        self::getDriver()->login($uid,$time);
    }
 
+    /**
+     * @return User|void
+     */
    public static function getUser(){
        if (Helper::isTesting()) {
            $user =  User::first();

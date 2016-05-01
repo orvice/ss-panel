@@ -22,6 +22,22 @@ class Factory
         }
     }
 
+
+    /**
+     * @return Cache
+     */
+    public static function newSessionCache()
+    {
+        switch (Config::get('cacheDriver')) {
+            case 'redis':
+                return self::newRedisCache();
+            case 'file':
+                return self::newFileCache(Config::getStoragePath('/framework/sessions'));
+            default:
+                return self::newFileCache();
+        }
+    }
+
     /**
      * @return Redis
      */
@@ -31,10 +47,11 @@ class Factory
     }
 
     /**
+     * @param string $dir
      * @return File
      */
-    public static function newFileCache()
+    public static function newFileCache($dir = '/tmp')
     {
-        return new File();
+        return new File($dir);
     }
 }

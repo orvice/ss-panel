@@ -19,5 +19,10 @@ class ConfigTest extends TestCase
         $value = "value";
         DbConfig::set($key, $value);
         $this->assertEquals($value, DbConfig::get($key));
+
+        $this->assertEquals(null, DbConfig::get(time()));
+
+        DbConfig::set($key, null);
+        $this->assertEquals("", DbConfig::get($key));
     }
 }

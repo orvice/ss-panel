@@ -22,12 +22,18 @@ class BaseController
     {
     }
 
+    /**
+     * @return \Smarty
+     */
     public function smarty()
     {
         $this->smarty = View::getSmarty();
         return $this->smarty;
     }
 
+    /**
+     * @return \Smarty
+     */
     public function view()
     {
         return $this->smarty();
@@ -45,6 +51,11 @@ class BaseController
         return $newResponse;
     }
 
+    /**
+     * @param $response
+     * @param $to
+     * @return mixed
+     */
     public function redirect($response, $to)
     {
         $newResponse = $response->withStatus(302)->withHeader('Location', $to);

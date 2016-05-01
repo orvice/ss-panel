@@ -4,6 +4,8 @@
 namespace App\Services\Cache;
 
 
+use DoctrineTest\InstantiatorTestAsset\ExceptionAsset;
+
 class File extends Cache
 {
     protected $cacheDir;
@@ -37,7 +39,11 @@ class File extends Cache
 
     public function get($key)
     {
-        $content = file_get_contents($this->getFilePath($key));
+        try{
+            $content = file_get_contents($this->getFilePath($key));
+        }catch (\Exception $e){
+            return null;
+        }
         if(!$content){
             return null;
         }

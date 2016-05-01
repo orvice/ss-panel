@@ -12,6 +12,7 @@ use App\Utils\Check;
 use App\Utils\Hash;
 use App\Utils\Http;
 use App\Utils\Tools;
+use App\Services\Logger;
 
 
 /**
@@ -52,7 +53,9 @@ class AuthController extends BaseController
         if ($rememberMe) {
             $time = 3600 * 24 * 7;
         }
+        Logger::info("login user $user->id ");
         Auth::login($user->id, $time);
+
         $res['ret'] = 1;
         $res['msg'] = "欢迎回来";
         return $this->echoJson($response, $res);

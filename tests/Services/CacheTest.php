@@ -20,7 +20,7 @@ class CacheTest extends TestCase
 
     public function TestingCache($cache)
     {
-        Config::set('cacheDriver', $cache);
+        Config::set('cache', $cache);
         $client = Factory::newCache();
         $key = 'key';
         $value = 'value';

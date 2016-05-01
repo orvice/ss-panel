@@ -12,7 +12,7 @@ class Factory
      */
     public static function newCache()
     {
-        switch (Config::get('cacheDriver')) {
+        switch (Config::get('cache')) {
             case 'redis':
                 return self::newRedisCache();
             case 'file':
@@ -28,7 +28,7 @@ class Factory
      */
     public static function newSessionCache()
     {
-        switch (Config::get('cacheDriver')) {
+        switch (Config::get('session')) {
             case 'redis':
                 return self::newRedisCache();
             case 'file':

@@ -20,6 +20,7 @@ class CacheTest extends TestCase
 
     public function TestingCache($cache)
     {
+        fwrite(STDERR, "test $cache cache  ");
         Config::set('cache', $cache);
         $client = Factory::newCache();
         $key = 'key';

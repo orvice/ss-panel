@@ -1,24 +1,34 @@
 <?php
 
 
-namespace App\Service\Cache;
+namespace App\Services\Cache;
 
 use App\Services\RedisClient;
 
-class Redis extends Base
+class Redis extends Cache
 {
+
+    protected $client;
+
     public function __construct()
     {
-
+        $redis = new RedisClient();
+        $this->client = $redis;
     }
 
-    public function set()
+
+    public function set($key, $value, $ttl)
     {
-        // TODO: Implement set() method
+        return $this->client->setex($key, $ttl, $value);
     }
 
-    public function get()
+    public function get($key)
     {
-        // TODO: Implement get() method.
+        return $this->client->get($key);
+    }
+
+    public function del($key)
+    {
+        return $this->client->del($key);
     }
 }

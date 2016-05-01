@@ -8,19 +8,22 @@ use Predis\Client;
 
 class RedisClient
 {
-    public $client;
+    protected $client;
 
     public function __construct()
     {
-        $config = [
+        $this->client = new Client($this->getConfig());
+    }
+
+    protected function getConfig()
+    {
+        return [
             'scheme' => Config::get('redis_scheme'),
             'host' => Config::get('redis_host'),
             'port' => Config::get('redis_port'),
             'database' => Config::get('redis_database'),
             'password' => Config::get('redis_pass'),
         ];
-        $this->client = new Client($config);
-
     }
 
     public function getClient()

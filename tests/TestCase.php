@@ -14,6 +14,11 @@ class TestCase extends PHPUnit_Framework_TestCase
 
     public $request, $response;
 
+    public function setUp()
+    {
+        $this->setTestingEnv();
+    }
+
 
     public function requestFactory($method, $path, $options)
     {

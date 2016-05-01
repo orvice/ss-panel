@@ -1,7 +1,9 @@
 <?php
+namespace Tests\Command;
 
 use App\Command\DailyMail;
 use App\Services\Config;
+use Tests\TestCase;
 
 class SendDailyMailTest extends TestCase
 {

@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Utils;
+
+use Tests\TestCase;
 use App\Utils\Check;
 
 class CheckTest extends TestCase

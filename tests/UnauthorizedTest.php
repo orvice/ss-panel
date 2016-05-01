@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 
 class UnauthorizedTest extends TestCase
 {

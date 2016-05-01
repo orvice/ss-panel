@@ -1,6 +1,9 @@
 <?php
 
+namespace Tests\Utils;
+
 use App\Utils\Tools;
+use Tests\TestCase;
 
 class ToolsTest extends TestCase
 {

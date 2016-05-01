@@ -1,6 +1,9 @@
 <?php
 
+namespace Tests\Services;
+
 use App\Services\Logger;
+use Tests\TestCase;
 
 class LoggerTest extends TestCase
 {

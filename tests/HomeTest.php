@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use App\Services\Config;
 
 class HomeTest extends TestCase

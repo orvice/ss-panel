@@ -1,5 +1,9 @@
 <?php
 
+namespace Tests\Admin;
+
+use Tests\TestCase;
+
 
 class AdminHomeTest extends TestCase
 {

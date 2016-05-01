@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests;
+
+use PHPUnit_Framework_TestCase;
 use App\Services\Config;
 use Slim\Http\Environment;
 use Slim\HTTP\Request;

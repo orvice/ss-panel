@@ -1,8 +1,10 @@
 <?php
+namespace Tests\Utils;
 
 use App\Services\Config;
-use App\Utils\Tools;
 use App\Utils\Hash;
+use App\Utils\Tools;
+use Tests\TestCase;
 
 class HashTest extends TestCase
 {
@@ -18,7 +20,8 @@ class HashTest extends TestCase
         $this->hashTest();
     }
 
-    public function testCookieHash(){
+    public function testCookieHash()
+    {
         $str = Tools::genRandomChar();
         Hash::cookieHash($str);
     }

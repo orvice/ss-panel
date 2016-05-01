@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Services;
+
+use Tests\TestCase;
 use App\Services\Cache\Factory;
 use App\Services\Config;
 

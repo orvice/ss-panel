@@ -1,7 +1,10 @@
 <?php
 
+namespace Tests\Models;
+
 use App\Models\TrafficLog;
 use App\Utils\Tools;
+use Tests\TestCase;
 
 class TrafficLogTest extends TestCase
 {

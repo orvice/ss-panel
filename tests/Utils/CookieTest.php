@@ -1,5 +1,9 @@
 <?php
 
+namespace Tests\Utils;
+
+use Tests\TestCase;
+
 class CookieTest extends TestCase
 {
     public function testCookie()

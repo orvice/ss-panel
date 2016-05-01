@@ -15,7 +15,7 @@ class Logger
      */
     public static function logger()
     {
-        $logger = new MonoLogger('my_logger');
+        $logger = new MonoLogger('ss-panel v3');
         $fileHandler = new StreamHandler(BASE_PATH . '/storage/logs/app.log');
         $logger->pushHandler($fileHandler);
         return $logger;

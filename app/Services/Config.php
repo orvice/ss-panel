@@ -43,4 +43,9 @@ class Config extends PongtanConfig
         ];
     }
 
+    public static function getStoragePath($dir)
+    {
+        return BASE_PATH . '/storage/' . $dir;
+    }
+
 }

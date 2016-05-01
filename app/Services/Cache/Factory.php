@@ -16,7 +16,7 @@ class Factory
             case 'redis':
                 return self::newRedisCache();
             case 'file':
-                return self::newFileCache();
+                return self::newFileCache(Config::getStoragePath('/framework/cache'));
             default:
                 return self::newFileCache();
         }

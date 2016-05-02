@@ -31,6 +31,12 @@ class AdminHomeTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testCheckinLog()
+    {
+        $this->get('/admin/checkinlog');
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
     public function testInvite()
     {
         $this->get('/admin/invite');

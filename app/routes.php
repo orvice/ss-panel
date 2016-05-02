@@ -80,6 +80,7 @@ $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
+    $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
     // app config
     $this->get('/config', 'App\Controllers\AdminController:config');
     $this->post('/config', 'App\Controllers\AdminController:updateConfig');

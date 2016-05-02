@@ -130,6 +130,12 @@
                 </li>
 
                 <li>
+                    <a href="/admin/checkinlog">
+                        <i class="fa  fa-check-square"></i> <span>签到日志</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/user">
                         <i class="fa fa-reply-all"></i> <span>用户中心</span>
                     </a>

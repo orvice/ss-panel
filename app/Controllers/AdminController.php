@@ -2,9 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\InviteCode, App\Models\Node, App\Models\TrafficLog;
+use App\Models\CheckInLog;
+use App\Models\InviteCode;
+use App\Models\TrafficLog;
+use App\Services\Analytics;
+use App\Services\DbConfig;
 use App\Utils\Tools;
-use App\Services\Analytics, App\Services\DbConfig;
 
 /**
  *  Admin Controller
@@ -45,15 +48,26 @@ class AdminController extends UserController
         return $response->getBody()->write(json_encode($res));
     }
 
+    public function checkInLog($request, $response, $args)
+    {
+        $pageNum = 1;
+        if (isset($request->getQueryParams()["page"])) {
+            $pageNum = $request->getQueryParams()["page"];
+        }
+        $traffic = CheckInLog::orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
+        $traffic->setPath('/admin/checkinlog');
+        return $this->view()->assign('logs', $traffic)->display('admin/checkinlog.tpl');
+    }
+
     public function trafficLog($request, $response, $args)
     {
         $pageNum = 1;
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $traffic = TrafficLog::orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
-        $traffic->setPath('/admin/trafficlog');
-        return $this->view()->assign('logs', $traffic)->display('admin/trafficlog.tpl');
+        $logs = TrafficLog::orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
+        $logs->setPath('/admin/trafficlog');
+        return $this->view()->assign('logs', $logs)->display('admin/trafficlog.tpl');
     }
 
     public function config($request, $response, $args)

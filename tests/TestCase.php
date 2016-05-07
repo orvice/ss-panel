@@ -25,19 +25,31 @@ class TestCase extends PHPUnit_Framework_TestCase
     /**
      * @param $method
      * @param $path
+     * @param $body
      * @param $options
      * @return Request
      */
-    protected function requestFactory($method, $path, $options)
+    protected function requestFactory($method, $path, $body = [], $options = [])
     {
         $uri = Uri::createFromString($path);
         $headers = new Headers();
         $cookies = [];
         $env = Environment::mock();
         $serverParams = $env->all();
-        $body = new Body(fopen('php://temp', 'r+'));
+        $body = $this->buildBody($body);
         $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body);
         return $request;
+    }
+
+    protected function buildBody($input)
+    {
+        $body = new Body(fopen('php://temp', 'r+'));
+        if (is_array($input)) {
+            $body->write(http_build_query($input));
+            return $body;
+        }
+        $body->write($input);
+        return $body;
     }
 
     public function createApp()
@@ -67,19 +79,19 @@ class TestCase extends PHPUnit_Framework_TestCase
         $this->request('GET', $path, $options);
     }
 
-    public function post($path, $options = [])
+    public function post($path, $body = [], $options = [])
     {
-        $this->request('POST', $path, $options);
+        $this->request('POST', $path, $body, $options);
     }
 
-    public function put($path, $options = [])
+    public function put($path, $body = [], $options = [])
     {
-        $this->request('PUT', $path, $options);
+        $this->request('POST', $path, $body, $options);
     }
 
-    public function delete($path, $options = [])
+    public function delete($path, $body = [], $options = [])
     {
-        $this->request('DELETE', $path, $options);
+        $this->request('POST', $path, $body, $options);
     }
 
     /**

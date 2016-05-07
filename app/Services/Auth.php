@@ -27,12 +27,7 @@ class Auth
     {
         return Factory::newSessionCache();
     }
-
-    private static function getDriver()
-    {
-        // return Factory::createAuth();
-    }
-
+    
     public static function login($uid, $time)
     {
         $sid = Tools::genSID();

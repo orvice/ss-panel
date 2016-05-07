@@ -2,11 +2,14 @@
 
 namespace Tests;
 
-use PHPUnit_Framework_TestCase;
 use App\Services\Config;
+use PHPUnit_Framework_TestCase;
+use Slim\Http\Body;
 use Slim\Http\Environment;
+use Slim\Http\Headers;
 use Slim\HTTP\Request;
 use Slim\Http\Response;
+use Slim\Http\Uri;
 
 class TestCase extends PHPUnit_Framework_TestCase
 {
@@ -19,30 +22,23 @@ class TestCase extends PHPUnit_Framework_TestCase
         $this->setTestingEnv();
     }
 
-
-    public function requestFactory($method, $path, $options)
+    /**
+     * @param $method
+     * @param $path
+     * @param $options
+     * @return Request
+     */
+    protected function requestFactory($method, $path, $options)
     {
-        $query = [];
-        if (isset($options['query'])) {
-            $query = $options['query'];
-        }
-        $environment = Environment::mock([
-                'REQUEST_METHOD' => $method,
-                'REQUEST_URI' => $path,
-                'QUERY_STRING' => http_build_query($query)
-            ]
-        );
-        $request = Request::createFromEnvironment($environment);
-        $request->withMethod($method);
-        $request->withQueryParams($query);
-        if (isset($options['header'])) {
-            foreach ($options['header'] as $key => $value) {
-                $request->withHeader($key, $value);
-            }
-        }
+        $uri = Uri::createFromString($path);
+        $headers = new Headers();
+        $cookies = [];
+        $env = Environment::mock();
+        $serverParams = $env->all();
+        $body = new Body(fopen('php://temp', 'r+'));
+        $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body);
         return $request;
     }
-
 
     public function createApp()
     {
@@ -51,7 +47,6 @@ class TestCase extends PHPUnit_Framework_TestCase
         $app->run(true);
         return $app;
     }
-
 
     public function request($method, $path, $options = [])
     {

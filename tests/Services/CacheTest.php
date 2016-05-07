@@ -30,7 +30,7 @@ class CacheTest extends TestCase
         $this->assertEquals($value, $client->get($key));
 
         $client->del($key);
-        $this->assertEquals(null, $this->get($key));
-        $this->assertEquals(null,$this->get(time()));
+        $this->assertEquals(null, $client->get($key));
+        $this->assertEquals(null,$client->get(time()));
     }
 }

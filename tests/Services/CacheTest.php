@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
-use Tests\TestCase;
 use App\Services\Cache\Factory;
 use App\Services\Config;
+use Tests\TestCase;
 
 class CacheTest extends TestCase
 {
@@ -31,6 +31,15 @@ class CacheTest extends TestCase
 
         $client->del($key);
         $this->assertEquals(null, $client->get($key));
-        $this->assertEquals(null,$client->get(time()));
+
+
+        // test expired
+        $ttl = 1;
+        $client->set($key, $value, $ttl);
+        sleep(2);
+        $this->assertEquals(null, $client->get($key));
+
+        // test wrong key
+        $this->assertEquals(null, $client->get(time()));
     }
 }

@@ -31,7 +31,12 @@ class HomeController extends BaseController
 
     public function debug($request, $response, $args)
     {
+        $server = [
+            "headers" => $request->getHeaders(),
+            "content_type" => $request->getContentType()
+        ];
         $res = [
+            "server_info" => $server,
             "ip" => Http::getClientIP(),
             "version" => Config::get('version'),
             "reg_count" => Check::getIpRegCount(Http::getClientIP()),

@@ -25,10 +25,16 @@ class Factory
         return $sdk;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function createDynamodb(){
         return self::createAwsClient()->createDynamoDb();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function createSes(){
         return self::createAwsClient()->createSes();
     }

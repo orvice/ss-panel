@@ -10,12 +10,18 @@ class Dynamodb extends Base
 
     protected $tableName = 'token';
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct()
     {
         $this->client = Factory::createDynamodb();
         $this->tableName = 'token';
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function store($token, User $user, $expireTime)
     {
         $result = $this->client->putItem(array(
@@ -30,6 +36,9 @@ class Dynamodb extends Base
         return true;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function delete($token)
     {
         $this->client->deleteItem(array(
@@ -40,6 +49,9 @@ class Dynamodb extends Base
         ));
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function get($token)
     {
         $result = $this->client->getItem(array(

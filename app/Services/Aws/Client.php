@@ -6,6 +6,9 @@ use Aws\Sdk;
 
 class Client
 {
+    /**
+     * @codeCoverageIgnore
+     */
     public function getClient(){
         $sdk = new Sdk([
             'region'   => 'us-west-2',

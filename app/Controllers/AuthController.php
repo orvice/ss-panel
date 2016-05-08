@@ -30,6 +30,10 @@ class AuthController extends BaseController
     // Login Error Code
     const UserNotExist = 601;
     const UserPasswordWrong = 602;
+    
+    // Verify Email
+    const VerifyEmailWrongEmail = 701;
+    const VerifyEmailExist  = 702;
 
     public function login($request, $response, $args)
     {
@@ -179,11 +183,12 @@ class AuthController extends BaseController
 
     public function sendVerifyEmail($request, $response, $args)
     {
-        $res = array();
+        $res = [];
         $email = $request->getParam('email');
 
         if (!Check::isEmailLegal($email)) {
             $res['ret'] = 0;
+            $res['error_code'] = self::VerifyEmailWrongEmail;
             $res['msg'] = '邮箱无效';
             return $this->echoJson($response, $res);
         }
@@ -192,6 +197,7 @@ class AuthController extends BaseController
         $user = User::where('email', $email)->first();
         if ($user != null) {
             $res['ret'] = 0;
+            $res['error_code'] = self::VerifyEmailExist;
             $res['msg'] = "邮箱已经被注册了";
             return $this->echoJson($response, $res);
         }

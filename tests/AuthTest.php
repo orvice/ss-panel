@@ -44,6 +44,11 @@ class AuthTest extends TestCase
         return Tools::genRandomChar(8) . "@sp3.me";
     }
 
+    protected function getExistEmail()
+    {
+        return User::first()->email;
+    }
+
     public function testHandleRegister()
     {
 
@@ -83,10 +88,9 @@ class AuthTest extends TestCase
         $this->checkErrorCode(AuthController::PasswordNotEqual);
 
         // test email used
-        $usedEmail = User::first()->email;
         $this->post('/auth/register', [
             "code" => $code,
-            "email" => $usedEmail,
+            "email" => $this->getExistEmail(),
             "passwd" => $this->password,
             "repasswd" => $this->password
         ]);
@@ -107,7 +111,17 @@ class AuthTest extends TestCase
 
     public function testSendVerifyEmail()
     {
+        $this->post('/auth/sendcode', [
+            "email" => ""
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+        $this->checkErrorCode(AuthController::VerifyEmailWrongEmail);
 
+        $this->post('/auth/sendcode', [
+            "email" => $this->getExistEmail(),
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+        $this->checkErrorCode(AuthController::VerifyEmailExist);
     }
 
     public function testHandleLogin()
@@ -123,7 +137,7 @@ class AuthTest extends TestCase
 
         // wrong password
         $this->post('/auth/login', [
-            "email" => User::first()->email,
+            "email" => $this->getExistEmail(),
             "password" => ""
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());

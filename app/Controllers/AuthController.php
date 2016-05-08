@@ -21,6 +21,7 @@ use App\Services\Logger;
 class AuthController extends BaseController
 {
 
+
     public function login($request, $response, $args)
     {
         return $this->view()->display('auth/login.tpl');
@@ -93,6 +94,7 @@ class AuthController extends BaseController
         // check email format
         if (!Check::isEmailLegal($email)) {
             $res['ret'] = 0;
+            $res['error_code'] = 502;
             $res['msg'] = "邮箱无效";
             return $this->echoJson($response, $res);
         }

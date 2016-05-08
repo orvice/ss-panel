@@ -72,11 +72,14 @@ class NodeTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
-    public function testDelete()
+
+    public function Delete()
     {
+        $this->testNodeCreate();
         $this->get('/admin/node/' . $this->getLastNode()->id . "/delete");
         $this->assertEquals('302', $this->response->getStatusCode());
 
+        $this->testNodeCreate();
         $this->delete('/admin/node/' . $this->getLastNode()->id);
         $this->assertEquals('200', $this->response->getStatusCode());
     }

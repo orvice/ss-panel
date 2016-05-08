@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Dotenv\Dotenv;
 use Illuminate\Database\Capsule\Manager as Capsule;
-
+// @codeCoverageIgnoreStart
 class Boot
 {
     public static function loadEnv()
@@ -42,3 +42,4 @@ class Boot
         $capsule->bootEloquent();
     }
 }
+// @codeCoverageIgnoreEnd

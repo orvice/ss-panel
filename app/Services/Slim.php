@@ -14,7 +14,7 @@ use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
  */
-
+// @codeCoverageIgnoreStart
 class Slim
 {
     public $app;
@@ -41,3 +41,4 @@ class Slim
         $this->app->run();
     }
 }
+// @codeCoverageIgnoreEnd

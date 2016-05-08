@@ -4,6 +4,8 @@ namespace Tests;
 
 use App\Controllers\AuthController;
 use App\Models\InviteCode;
+use App\Models\User;
+use App\Services\Config;
 use App\Utils\Tools;
 
 class AuthTest extends TestCase
@@ -16,6 +18,7 @@ class AuthTest extends TestCase
     public function setUp()
     {
         $this->setProdEnv();
+        $this->email = Tools::genRandomChar(8) . "@sp3.me";
     }
 
     public function testAuthLogin()
@@ -74,6 +77,27 @@ class AuthTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::PasswordNotEqual);
 
+        // test email used
+        $usedEmail = User::first()->email;
+        $this->post('/auth/register', [
+            "code" => $code,
+            "email" => $usedEmail,
+            "passwd" => $this->password,
+            "repasswd" => $this->password
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+        $this->checkErrorCode(AuthController::EmailUsed);
+
+        //  illegal register
+        Config::set('emailVerifyEnabled', false);
+        $this->post('/auth/register', [
+            "code" => $code,
+            "email" => $this->email,
+            "passwd" => $this->password,
+            "repasswd" => $this->password,
+            "name" => "name"
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
     }
 
     public function testHandleLogin()

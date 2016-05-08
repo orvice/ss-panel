@@ -24,6 +24,7 @@ class AuthController extends BaseController
     const IllegalEmail = 502;
     const PasswordTooShort = 511;
     const PasswordNotEqual = 512;
+    const EmailUsed = 521;
 
     public function login($request, $response, $args)
     {
@@ -122,6 +123,7 @@ class AuthController extends BaseController
         $user = User::where('email', $email)->first();
         if ($user != null) {
             $res['ret'] = 0;
+            $res['error_code'] = self::EmailUsed;
             $res['msg'] = "邮箱已经被注册了";
             return $this->echoJson($response, $res);
         }

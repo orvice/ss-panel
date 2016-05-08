@@ -21,7 +21,7 @@ use App\Services\Logger;
 class AuthController extends BaseController
 {
 
-    public function login()
+    public function login($request, $response, $args)
     {
         return $this->view()->display('auth/login.tpl');
     }
@@ -61,7 +61,7 @@ class AuthController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function register($request, $response, $next)
+    public function register($request, $response, $args)
     {
         $ary = $request->getQueryParams();
         $code = "";
@@ -72,7 +72,7 @@ class AuthController extends BaseController
         return $this->view()->assign('code', $code)->assign('requireEmailVerification', $requireEmailVerification)->display('auth/register.tpl');
     }
 
-    public function registerHandle($request, $response, $next)
+    public function registerHandle($request, $response, $args)
     {
         $name = $request->getParam('name');
         $email = $request->getParam('email');
@@ -160,7 +160,7 @@ class AuthController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function sendVerifyEmail($request, $response, $next)
+    public function sendVerifyEmail($request, $response, $args)
     {
         $res = array();
         $email = $request->getParam('email');
@@ -189,11 +189,10 @@ class AuthController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function logout($request, $response, $next)
+    public function logout($request, $response, $args)
     {
         Auth::logout();
-        $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
-        return $newResponse;
+        return $this->redirect($response,'/auth/login');
     }
 
 }

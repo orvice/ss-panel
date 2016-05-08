@@ -2,6 +2,11 @@
 
 namespace App\Controllers;
 
+//use Psr\Http\Message\ServerRequestInterface as Request;
+//use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 use App\Models\InviteCode;
 use App\Services\Auth;
 use App\Services\Config;
@@ -48,6 +53,17 @@ class HomeController extends BaseController
     public function tos()
     {
         return $this->view()->display('tos.tpl');
+    }
+
+    public function postDebug(Request $request,Response $response, $args)
+    {
+        $res = [
+            "body" => $request->getBody(),
+            "pa" => $request->getParsedBody(),
+            "params" => $request->getParams(),
+            "name" => $request->getParam('name'),
+        ];
+        return $this->echoJson($response, $res);
     }
 
 }

@@ -32,6 +32,16 @@ class HomeTest extends TestCase
         // test version
         $this->assertEquals(Config::get('version'), $ary['version']);
     }
+    
+    public function testPost(){
+        $this->post('/debug',[
+           "name" => "bar"
+        ]);
+        echo $this->response->getBody();
+
+        $this->post('/debug',"foobar");
+        echo $this->response->getBody();
+    }
 
 
     public function testError()

@@ -5,6 +5,7 @@ namespace Tests;
 use App\Services\Config;
 use PHPUnit_Framework_TestCase;
 use Slim\Http\Body;
+use Slim\Http\RequestBody;
 use Slim\Http\Environment;
 use Slim\Http\Headers;
 use Slim\HTTP\Request;
@@ -37,18 +38,37 @@ class TestCase extends PHPUnit_Framework_TestCase
         $env = Environment::mock();
         $serverParams = $env->all();
         $body = $this->buildBody($body);
-        $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body);
+        echo $body->getContents();
+        $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body, []);
         return $request;
     }
 
+    public function newNewStream()
+    {
+        $stream = fopen('php://temp', 'w+');
+        stream_copy_to_stream(fopen('php://input', 'r'), $stream);
+        rewind($stream);
+        return $stream;
+    }
+
+    /**
+     * @param $input
+     * @return Body
+     */
     protected function buildBody($input)
     {
-        $body = new Body(fopen('php://temp', 'r+'));
-        if (is_array($input)) {
-            $body->write(http_build_query($input));
-            return $body;
-        }
-        $body->write($input);
+        $path = '/tmp/input';
+        $getContent = function () use ($input) {
+            if (is_array($input)) {
+                return http_build_query($input);
+            }
+            return $input;
+        };
+        $content = $getContent();
+        echo $content;
+        //file_put_contents($path, $content);
+        $body = new Body(fopen($path, 'r+'));
+        //$body->write($content);
         return $body;
     }
 

@@ -10,6 +10,11 @@ class MuTest extends TestCase
 
     protected $muKey = 'muKey';
 
+    protected $uid = '1';
+    protected $nodeId = '1';
+    protected $u = "1024";
+    protected $d = "1024";
+
     public function setUp()
     {
         $this->setTestingEnv();
@@ -29,6 +34,16 @@ class MuTest extends TestCase
             'header' => [
                 'Key' => $this->muKey
             ]
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testLogTraffic()
+    {
+        $this->post('/mu/users/' . $this->uid . '/traffic', [
+            "u" => $this->u,
+            "d" => $this->d,
+            "node_id" => $this->nodeId
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
     }

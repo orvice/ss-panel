@@ -5,10 +5,10 @@ namespace Tests;
 use App\Services\Config;
 use PHPUnit_Framework_TestCase;
 use Slim\Http\Body;
-use Slim\Http\RequestBody;
 use Slim\Http\Environment;
 use Slim\Http\Headers;
 use Slim\HTTP\Request;
+use Slim\Http\RequestBody;
 use Slim\Http\Response;
 use Slim\Http\Uri;
 
@@ -36,8 +36,8 @@ class TestCase extends PHPUnit_Framework_TestCase
         $headers = new Headers();
         $cookies = [];
         $_POST['_METHOD'] = $method;
-        if(strtolower($method) != 'get' && is_array($body)){
-            foreach ($body as $key => $value){
+        if (strtolower($method) != 'get' && is_array($body)) {
+            foreach ($body as $key => $value) {
                 $_POST[$key] = $value;
             }
         }
@@ -131,6 +131,19 @@ class TestCase extends PHPUnit_Framework_TestCase
     public function setTestingEnv()
     {
         Config::set('env', 'testing');
+    }
+
+    /**
+     * @param $code
+     * @param null $response
+     */
+    public function checkErrorCode($code, $response = null)
+    {
+        if ($response == null) {
+            $response = $this->response;
+        }
+        $data = json_decode($response->getBody(), true);
+        $this->assertEquals($code, $data['error_code']);
     }
 
 }

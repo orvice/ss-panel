@@ -11,7 +11,7 @@ class CacheTest extends TestCase
     public function testCache()
     {
         $driverArray = [
-            'redis', 'file'
+            'redis', 'file', 'default'
         ];
         foreach ($driverArray as $driver) {
             $this->TestingCache($driver);

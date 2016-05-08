@@ -7,12 +7,12 @@ use App\Models\User;
 use App\Services\Auth;
 use App\Services\Auth\EmailVerify;
 use App\Services\Config;
+use App\Services\Logger;
 use App\Services\Mail;
 use App\Utils\Check;
 use App\Utils\Hash;
 use App\Utils\Http;
 use App\Utils\Tools;
-use App\Services\Logger;
 
 
 /**
@@ -20,7 +20,10 @@ use App\Services\Logger;
  */
 class AuthController extends BaseController
 {
-
+    const WrongCode = 501;
+    const IllegalEmail = 502;
+    const PasswordTooShort = 511;
+    const PasswordNotEqual = 512;
 
     public function login($request, $response, $args)
     {
@@ -87,6 +90,7 @@ class AuthController extends BaseController
         $c = InviteCode::where('code', $code)->first();
         if ($c == null) {
             $res['ret'] = 0;
+            $res['error_code'] = self::WrongCode;
             $res['msg'] = "邀请码无效";
             return $this->echoJson($response, $res);
         }
@@ -94,13 +98,14 @@ class AuthController extends BaseController
         // check email format
         if (!Check::isEmailLegal($email)) {
             $res['ret'] = 0;
-            $res['error_code'] = 502;
+            $res['error_code'] = self::IllegalEmail;
             $res['msg'] = "邮箱无效";
             return $this->echoJson($response, $res);
         }
         // check pwd length
         if (strlen($passwd) < 8) {
             $res['ret'] = 0;
+            $res['error_code'] = self::PasswordTooShort;
             $res['msg'] = "密码太短";
             return $this->echoJson($response, $res);
         }
@@ -108,6 +113,7 @@ class AuthController extends BaseController
         // check pwd re
         if ($passwd != $repasswd) {
             $res['ret'] = 0;
+            $res['error_code'] = self::PasswordNotEqual;
             $res['msg'] = "两次密码输入不符";
             return $this->echoJson($response, $res);
         }
@@ -194,7 +200,7 @@ class AuthController extends BaseController
     public function logout($request, $response, $args)
     {
         Auth::logout();
-        return $this->redirect($response,'/auth/login');
+        return $this->redirect($response, '/auth/login');
     }
 
 }

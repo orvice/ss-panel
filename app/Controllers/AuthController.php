@@ -26,14 +26,14 @@ class AuthController extends BaseController
     const PasswordTooShort = 511;
     const PasswordNotEqual = 512;
     const EmailUsed = 521;
-    
+
     // Login Error Code
     const UserNotExist = 601;
     const UserPasswordWrong = 602;
-    
+
     // Verify Email
     const VerifyEmailWrongEmail = 701;
-    const VerifyEmailExist  = 702;
+    const VerifyEmailExist = 702;
 
     public function login($request, $response, $args)
     {
@@ -205,10 +205,10 @@ class AuthController extends BaseController
         if (EmailVerify::sendVerification($email)) {
             $res['ret'] = 1;
             $res['msg'] = '验证代码已发送至您的邮箱，请在登录邮箱后将验证码填到相应位置.';
-        } else {
-            $res['ret'] = 0;
-            $res['msg'] = '邮件发送失败，请联系管理员';
+            return $this->echoJson($response, $res);
         }
+        $res['ret'] = 0;
+        $res['msg'] = '邮件发送失败，请联系管理员';
         return $this->echoJson($response, $res);
     }
 

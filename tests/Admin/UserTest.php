@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+
     public function testUserList()
     {
         $this->get('/admin/user');

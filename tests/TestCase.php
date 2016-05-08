@@ -41,9 +41,13 @@ class TestCase extends PHPUnit_Framework_TestCase
                 $_POST[$key] = $value;
             }
         }
+        $envMethod = 'POST';
+        if (strtolower($method) == 'get') {
+            $envMethod = 'GET';
+        }
         $env = Environment::mock([
             'REQUEST_URI' => $path,
-            'REQUEST_METHOD' => $method,
+            'REQUEST_METHOD' => $envMethod,
             'HTTP_CONTENT_TYPE' => 'multipart/form-data; boundary=---foo'
         ]);
         $serverParams = $env->all();
@@ -109,12 +113,12 @@ class TestCase extends PHPUnit_Framework_TestCase
 
     public function put($path, $body = [], $options = [])
     {
-        $this->request('POST', $path, $body, $options);
+        $this->request('PUT', $path, $body, $options);
     }
 
     public function delete($path, $body = [], $options = [])
     {
-        $this->request('POST', $path, $body, $options);
+        $this->request('DELETE', $path, $body, $options);
     }
 
     /**

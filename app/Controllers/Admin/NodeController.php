@@ -94,7 +94,6 @@ class NodeController extends AdminController
         $id = $args['id'];
         $node = Node::find($id);
         $node->delete();
-        $newResponse = $response->withStatus(302)->withHeader('Location', '/admin/node');
-        return $newResponse;
+        return $this->redirect($response, '/admin/node');
     }
 }

@@ -73,7 +73,7 @@ class NodeTest extends TestCase
     }
 
 
-    public function Delete()
+    public function testDelete()
     {
         $this->testNodeCreate();
         $this->get('/admin/node/' . $this->getLastNode()->id . "/delete");

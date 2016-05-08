@@ -6,6 +6,10 @@ namespace App\Utils;
 
 class Http
 {
+    /**
+     * @codeCoverageIgnore
+     * return string
+     */
     public static function getClientIP()
     {
         $ip = "unknown";

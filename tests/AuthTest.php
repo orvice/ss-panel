@@ -39,6 +39,11 @@ class AuthTest extends TestCase
         return null;
     }
 
+    protected function getRandomEmail()
+    {
+        return Tools::genRandomChar(8) . "@sp3.me";
+    }
+
     public function testHandleRegister()
     {
 
@@ -100,13 +105,29 @@ class AuthTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testSendVerifyEmail()
+    {
+
+    }
+
     public function testHandleLogin()
     {
+
+        // user not exist
         $this->post('/auth/login', [
-            "email" => "",
+            "email" => $this->getRandomEmail(),
             "password" => ""
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
+        $this->checkErrorCode(AuthController::UserNotExist);
+
+        // wrong password
+        $this->post('/auth/login', [
+            "email" => User::first()->email,
+            "password" => ""
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+        $this->checkErrorCode(AuthController::UserPasswordWrong);
     }
 
     public function testAuthRegister()

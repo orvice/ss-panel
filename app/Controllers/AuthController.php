@@ -20,11 +20,16 @@ use App\Utils\Tools;
  */
 class AuthController extends BaseController
 {
+    // Register Error Code
     const WrongCode = 501;
     const IllegalEmail = 502;
     const PasswordTooShort = 511;
     const PasswordNotEqual = 512;
     const EmailUsed = 521;
+    
+    // Login Error Code
+    const UserNotExist = 601;
+    const UserPasswordWrong = 602;
 
     public function login($request, $response, $args)
     {
@@ -44,13 +49,15 @@ class AuthController extends BaseController
 
         if ($user == null) {
             $res['ret'] = 0;
-            $res['msg'] = "401 邮箱或者密码错误";
+            $res['error_code'] = self::UserNotExist;
+            $res['msg'] = "邮箱或者密码错误";
             return $this->echoJson($response, $res);
         }
 
         if (!Hash::checkPassword($user->pass, $passwd)) {
             $res['ret'] = 0;
-            $res['msg'] = "402 邮箱或者密码错误";
+            $res['error_code'] = self::UserPasswordWrong;
+            $res['msg'] = "邮箱或者密码错误";
             return $this->echoJson($response, $res);
         }
         // @todo

@@ -38,7 +38,7 @@ class TestCase extends PHPUnit_Framework_TestCase
         $env = Environment::mock();
         $serverParams = $env->all();
         $body = $this->buildBody($body);
-        echo $body->getContents();
+        //echo $body->getContents();
         $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body, []);
         return $request;
     }
@@ -57,7 +57,6 @@ class TestCase extends PHPUnit_Framework_TestCase
      */
     protected function buildBody($input)
     {
-        $path = '/tmp/input';
         $getContent = function () use ($input) {
             if (is_array($input)) {
                 return http_build_query($input);
@@ -65,10 +64,9 @@ class TestCase extends PHPUnit_Framework_TestCase
             return $input;
         };
         $content = $getContent();
-        echo $content;
-        //file_put_contents($path, $content);
-        $body = new Body(fopen($path, 'r+'));
-        //$body->write($content);
+        $body = new RequestBody();
+        $body->write($content);
+        $body->rewind();
         return $body;
     }
 

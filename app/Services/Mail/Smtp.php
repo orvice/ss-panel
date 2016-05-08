@@ -11,6 +11,9 @@ class Smtp extends Base
 
     private $mail, $config;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct()
     {
         $this->config = $this->getConfig();
@@ -27,7 +30,8 @@ class Smtp extends Base
         $mail->CharSet = 'UTF-8';
         $this->mail = $mail;
     }
-
+    
+    
     public function getConfig()
     {
         return [
@@ -40,6 +44,9 @@ class Smtp extends Base
         ];
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function send($to, $subject, $text, $file)
     {
         $mail = $this->mail;

@@ -9,16 +9,25 @@ class Ses extends Base
 {
     protected $client;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct()
     {
         $this->client = Factory::createSes();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getSender()
     {
         return Config::get('aws_ses_sender');
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function send($to, $subject, $text)
     {
 

@@ -7,6 +7,9 @@ use App\Services\Config;
 
 class Factory
 {
+    /**
+     * @codeCoverageIgnore
+     */
     public static function createAwsClient(){
         $sdk = new Sdk([
             'credentials' => array(

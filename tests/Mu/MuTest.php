@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests;
+namespace Tests\Mu;
 
 use App\Services\Config;
+use Tests\TestCase;
 
 class MuTest extends TestCase
 {

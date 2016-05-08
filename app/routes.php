@@ -84,7 +84,7 @@ $app->group('/admin', function () {
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
     // app config
     $this->get('/config', 'App\Controllers\AdminController:config');
-    $this->post('/config', 'App\Controllers\AdminController:updateConfig');
+    $this->put('/config', 'App\Controllers\AdminController:updateConfig');
     // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');

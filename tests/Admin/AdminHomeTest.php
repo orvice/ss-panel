@@ -38,4 +38,25 @@ class AdminHomeTest extends TestCase
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
+    public function testUpdateConfig()
+    {
+        $this->put('/admin/config', [
+            "analyticsCode" => "",
+            "homeCode" => "",
+            "appName" => "",
+            "user-index" => "",
+            "user-node" => ""
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testAddInviteCode(){
+        $this->post('/admin/invite', [
+            "num" => "10",
+            "prefix" => "prefix-",
+            "uid" => "0",
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
 }

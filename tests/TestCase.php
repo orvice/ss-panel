@@ -35,20 +35,25 @@ class TestCase extends PHPUnit_Framework_TestCase
         $uri = Uri::createFromString($path);
         $headers = new Headers();
         $cookies = [];
-        $env = Environment::mock();
+        $_POST['_METHOD'] = $method;
+        if(strtolower($method) != 'get' && is_array($body)){
+            foreach ($body as $key => $value){
+                $_POST[$key] = $value;
+            }
+        }
+        $env = Environment::mock([
+            'REQUEST_URI' => $path,
+            'REQUEST_METHOD' => $method,
+            'HTTP_CONTENT_TYPE' => 'multipart/form-data; boundary=---foo'
+        ]);
         $serverParams = $env->all();
         $body = $this->buildBody($body);
         //echo $body->getContents();
-        $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body, []);
+        // @todo
+        // $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body, []);
+        $request = Request::createFromEnvironment($env);
+        unset($_POST);
         return $request;
-    }
-
-    public function newNewStream()
-    {
-        $stream = fopen('php://temp', 'w+');
-        stream_copy_to_stream(fopen('php://input', 'r'), $stream);
-        rewind($stream);
-        return $stream;
     }
 
     /**

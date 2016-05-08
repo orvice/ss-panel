@@ -12,7 +12,7 @@ class AdminHomeTest extends TestCase
         $this->get('/admin');
         $this->assertEquals('200', $this->response->getStatusCode());
     }
-    
+
 
     public function testConfig()
     {
@@ -37,4 +37,5 @@ class AdminHomeTest extends TestCase
         $this->get('/admin/invite');
         $this->assertEquals('200', $this->response->getStatusCode());
     }
+
 }

@@ -23,6 +23,11 @@ class NodeTest extends TestCase
         return Node::first();
     }
 
+    protected function getLastNode()
+    {
+        return Node::orderBy('id', "DESC")->first();
+    }
+
     public function testNodeList()
     {
         $this->get('/admin/node');
@@ -64,6 +69,15 @@ class NodeTest extends TestCase
             "status" => $this->status,
             "sort" => $this->sort
         ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+    }
+
+    public function testDelete()
+    {
+        $this->get('/admin/node/' . $this->getLastNode()->id . "/delete");
+        $this->assertEquals('302', $this->response->getStatusCode());
+
+        $this->delete('/admin/node/' . $this->getLastNode()->id);
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 

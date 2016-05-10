@@ -11,6 +11,7 @@ use App\Services\Config;
 use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
+use Omnipay\Omnipay;
 
 /**
  *  HomeController
@@ -42,6 +43,25 @@ class UserController extends BaseController
     public function buy($request, $response, $args){
 
 
+        $gateway = Omnipay::create('PayPal_Express');
+        $gateway->setUsername('backtrack843_api1.163.com');
+        $gateway->setPassword('4JX7AW4ZT73MWBQK');
+//        $gateway->setApiKey('AzU-pe3RUEYtyPpzBLN7qQMm0ZrrAjvaC7rndb0zirbzqGxaNpwHtNxH');
+        $settings = $gateway->getDefaultParameters();
+        $response = $gateway->purchase(array(
+            'amount' => '10.00',
+            'card' => '',
+            'returnUrl' =>'http://vpn.webloft.cn',
+            'cancelUrl' =>'http://vpn.webloft.cn'
+        ))->send();
+        $response->redirect($response->getRedirectUrl());
+        if ($response->isSuccessful()) {
+            // payment is complete
+        } elseif ($response->isRedirect()) {
+            $response->redirect(); // this will automatically forward the customer
+        } else {
+            // not successful
+        }
         die();
     }
 

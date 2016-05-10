@@ -1,0 +1,102 @@
+{include file='user/main.tpl'}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            购买流量
+            <small>Buy traffic</small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>流量套餐</th>
+                                <th>套餐金额</th>
+                                <th>套餐流量</th>
+                                <th>套餐描述</th>
+                                <th>套餐购买</th>
+                            </tr>
+                            <tr>
+                                <td>流量套餐A</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐B</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐C</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐D</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐E</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐F</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流量套餐G</td>
+                                <td>USD:2.98$</td>
+                                <td>20GB</td>
+                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+
+{include file='user/footer.tpl'}

@@ -21,6 +21,14 @@ class AdminController extends UserController
         return $this->view()->assign('sts', $sts)->display('admin/index.tpl');
     }
 
+    public function package($request, $response, $args){
+        $msg = DbConfig::get('user-index');
+        if ($msg == null) {
+            $msg = "在后台修改用户中心公告...";
+        }
+        return $this->view()->assign('pay', $msg)->display('admin/package.tpl');
+    }
+
     public function invite($request, $response, $args)
     {
         $codes = InviteCode::where('user_id', '=', '0')->get();

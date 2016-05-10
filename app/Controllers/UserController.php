@@ -12,7 +12,6 @@ use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
-
 /**
  *  HomeController
  */
@@ -30,6 +29,20 @@ class UserController extends BaseController
     {
         $userFooter = DbConfig::get('user-footer');
         return parent::view()->assign('userFooter', $userFooter);
+    }
+
+    public function package($request, $response, $args){
+        $msg = DbConfig::get('user-index');
+        if ($msg == null) {
+            $msg = "在后台修改用户中心公告...";
+        }
+        return $this->view()->assign('pay', $msg)->display('user/package.tpl');
+    }
+
+    public function buy($request, $response, $args){
+
+
+        die();
     }
 
     public function index($request, $response, $args)

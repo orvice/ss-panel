@@ -56,6 +56,8 @@ $app->group('/user', function () {
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->get('/logout', 'App\Controllers\UserController:logout');
+    $this->get('/package', 'App\Controllers\UserController:package');
+    $this->get('/buy/{id}', 'App\Controllers\UserController:buy');
 })->add(new Auth());
 
 // Auth
@@ -110,6 +112,7 @@ $app->group('/admin', function () {
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
+    $this->get('/package', 'App\Controllers\AdminController:package');
 })->add(new Admin());
 
 // API

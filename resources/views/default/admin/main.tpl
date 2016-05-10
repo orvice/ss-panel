@@ -124,6 +124,12 @@
                 </li>
 
                 <li>
+                    <a href="/admin/package">
+                        <i class="fa  fa-paper-plane"></i> <span>套餐管理</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/admin/trafficlog">
                         <i class="fa fa-history"></i> <span>流量记录</span>
                     </a>

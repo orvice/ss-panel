@@ -11,7 +11,16 @@ use App\Services\Config;
 use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
-use Omnipay\Omnipay;
+
+use \PayPal\Api\Payer;
+use \PayPal\Api\Item;
+use \PayPal\Api\ItemList;
+use \PayPal\Api\Details;
+use \PayPal\Api\Amount;
+use \PayPal\Api\Transaction;
+use \PayPal\Api\RedirectUrls;
+use \PayPal\Api\Payment;
+use \PayPal\Exception\PayPalConnectionException;
 
 /**
  *  HomeController
@@ -42,27 +51,100 @@ class UserController extends BaseController
 
     public function buy($request, $response, $args){
 
+        define('SITE_URL', 'http://www.paydemo.com'); //网站url自行定义
+//创建支付对象实例
+        $paypal = new \PayPal\Rest\ApiContext(
+            new \PayPal\Auth\OAuthTokenCredential(
+                'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
+                'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
+            );
 
-        $gateway = Omnipay::create('PayPal_Express');
-        $gateway->setUsername('backtrack843_api1.163.com');
-        $gateway->setPassword('4JX7AW4ZT73MWBQK');
-//        $gateway->setApiKey('AzU-pe3RUEYtyPpzBLN7qQMm0ZrrAjvaC7rndb0zirbzqGxaNpwHtNxH');
-        $settings = $gateway->getDefaultParameters();
-        $response = $gateway->purchase(array(
-            'amount' => '10.00',
-            'card' => '',
-            'returnUrl' =>'http://vpn.webloft.cn',
-            'cancelUrl' =>'http://vpn.webloft.cn'
-        ))->send();
-        $response->redirect($response->getRedirectUrl());
-        if ($response->isSuccessful()) {
-            // payment is complete
-        } elseif ($response->isRedirect()) {
-            $response->redirect(); // this will automatically forward the customer
-        } else {
-            // not successful
+        $product = 'aaaaaaaaa';
+        $price = '10.10';
+        $shipping = 2.00; //运费
+
+        $total = $price + $shipping;
+
+        $payer = new Payer();
+        $payer->setPaymentMethod('paypal');
+
+        $item = new Item();
+        $item->setName($product)
+            ->setCurrency('USD')
+            ->setQuantity(1)
+            ->setPrice($price);
+
+        $itemList = new ItemList();
+        $itemList->setItems([$item]);
+
+        $details = new Details();
+        $details->setShipping($shipping)
+            ->setSubtotal($price);
+
+        $amount = new Amount();
+        $amount->setCurrency('USD')
+            ->setTotal($total)
+            ->setDetails($details);
+
+        $transaction = new Transaction();
+        $transaction->setAmount($amount)
+            ->setItemList($itemList)
+            ->setDescription("支付描述内容")
+            ->setInvoiceNumber(uniqid());
+
+        $redirectUrls = new RedirectUrls();
+        $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
+            ->setCancelUrl(SITE_URL . '/pay.php?success=false');
+
+        $payment = new Payment();
+        $payment->setIntent('sale')
+            ->setPayer($payer)
+            ->setRedirectUrls($redirectUrls)
+            ->setTransactions([$transaction]);
+
+        try {
+            $payment->create($paypal);
+        } catch (PayPalConnectionException $e) {
+            echo $e->getData();
+            die();
         }
-        die();
+
+        $approvalUrl = $payment->getApprovalLink();
+        header("Location: {$approvalUrl}");
+
+
+        //回调处理
+
+
+
+//    use PayPal\Api\Payment;
+//    use PayPal\Api\PaymentExecution;
+
+//        if(!isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID'])){
+//            die();
+//        }
+//
+//        if((bool)$_GET['success']=== 'false'){
+//
+//            echo 'Transaction cancelled!';
+//            die();
+//        }
+//
+//        $paymentID = $_GET['paymentId'];
+//        $payerId = $_GET['PayerID'];
+//
+//        $payment = Payment::get($paymentID, $paypal);
+//
+//        $execute = new PaymentExecution();
+//        $execute->setPayerId($payerId);
+//
+//        try{
+//            $result = $payment->execute($execute, $paypal);
+//        }catch(Exception $e){
+//            die($e);
+//        }
+//        echo '支付成功！感谢支持!';
+
     }
 
     public function index($request, $response, $args)

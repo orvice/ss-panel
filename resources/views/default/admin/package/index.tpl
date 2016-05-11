@@ -26,17 +26,18 @@
                                 <th>套餐描述</th>
                                 <th>套餐管理</th>
                             </tr>
+                            {foreach $packages as $package}
                             <tr>
-                                <td>流量套餐A</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>{$package->name}</td>
+                                <td>{$package->money_type}:{$package->money}$</td>
+                                <td>{$package->flow}GB</td>
+                                <td>{$package->desc}</td>
                                 <td>
-                                    <a class="btn btn-info btn-xs" href="javascript:;">编辑</a>
-                                    <a class="btn btn-danger btn-xs" id="delete" value="1" href="javascript:;">删除</a>
+                                    <a class="btn btn-info btn-xs" href="/admin/package/{$package->id}/edit">编辑</a>
+                                    <a class="btn btn-danger btn-xs" id="delete" value="{$package->id}" href="/admin/package/{$package->id}/delete">删除</a>
                                 </td>
                             </tr>
-
+                            {/foreach}
                         </table>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

@@ -85,9 +85,11 @@ $app->group('/admin', function () {
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
+
     // app config
     $this->get('/config', 'App\Controllers\AdminController:config');
     $this->put('/config', 'App\Controllers\AdminController:updateConfig');
+
     // Node Mange
     $this->get('/node', 'App\Controllers\Admin\NodeController:index');
     $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');
@@ -104,6 +106,14 @@ $app->group('/admin', function () {
     $this->delete('/user/{id}', 'App\Controllers\Admin\UserController:delete');
     $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
 
+    // Package Manage
+    $this->get('/package', 'App\Controllers\Admin\PackageController:index');
+    $this->post('/package', 'App\Controllers\Admin\PackageController:add');
+    $this->get('/package/create', 'App\Controllers\Admin\PackageController:create');
+    $this->get('/package/{id}/edit', 'App\Controllers\Admin\PackageController:edit');
+    $this->put('/package/{id}', 'App\Controllers\Admin\PackageController:update');
+    $this->get('/package/{id}/delete', 'App\Controllers\Admin\PackageController:delete');
+
     // Test
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');
     $this->post('/test/sendmail', 'App\Controllers\Admin\TestController:sendMailPost');
@@ -113,7 +123,6 @@ $app->group('/admin', function () {
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
-    $this->get('/package', 'App\Controllers\AdminController:package');
 })->add(new Admin());
 
 // API

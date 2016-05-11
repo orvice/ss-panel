@@ -32,8 +32,8 @@
                                 <td>20GB</td>
                                 <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="javascript:;">编辑</a>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="javascript:;">删除</a>
+                                    <a class="btn btn-info btn-xs" href="javascript:;">编辑</a>
+                                    <a class="btn btn-danger btn-xs" id="delete" value="1" href="javascript:;">删除</a>
                                 </td>
                             </tr>
 

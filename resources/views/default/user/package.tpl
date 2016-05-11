@@ -25,69 +25,17 @@
                                 <th>套餐描述</th>
                                 <th>套餐购买</th>
                             </tr>
+                            {foreach $packages as $package}
                             <tr>
-                                <td>流量套餐A</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
+                                <td>{$package->name}</td>
+                                <td>{$package->money_type}:{$package->money}$</td>
+                                <td>{$package->flow}GB</td>
+                                <td>{$package->desc}</td>
                                 <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
+                                    <a class="btn btn-danger btn-xs" id="delete" value="{$package->id}" href="./buy/{$package->id}">购买</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>流量套餐B</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流量套餐C</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流量套餐D</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流量套餐E</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流量套餐F</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流量套餐G</td>
-                                <td>USD:2.98$</td>
-                                <td>20GB</td>
-                                <td>已使用锐速黑科技加速,可享1080P高清视频观看</td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="1" href="./buy/1">购买</a>
-                                </td>
-                            </tr>
+                            {/foreach}
                         </table>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

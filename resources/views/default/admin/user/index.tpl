@@ -46,8 +46,8 @@
                                 <th>{$user->reg_ip}</th>
                                 <th>{$user->ref_by}</th>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="/admin/user/{$user->id}/edit">编辑</a>
-                                    <a class="btn btn-danger btn-sm" id="delete" value="{$user->id}" href="/admin/user/{$user->id}/delete">删除</a>
+                                    <a class="btn btn-info btn-xs" href="/admin/user/{$user->id}/edit">编辑</a>
+                                    <a class="btn btn-danger btn-xs" id="delete" value="{$user->id}" href="/admin/user/{$user->id}/delete">删除</a>
                                 </td>
                             </tr>
                             {/foreach}

@@ -43,11 +43,8 @@ class UserController extends BaseController
     }
 
     public function package($request, $response, $args){
-        $msg = DbConfig::get('user-index');
-        if ($msg == null) {
-            $msg = "在后台修改用户中心公告...";
-        }
-        return $this->view()->assign('pay', $msg)->display('user/package.tpl');
+        $package = Package::get();
+        return $this->view()->assign('packages', $package)->display('user/package.tpl');
     }
 
     public function buy($request, $response, $args){

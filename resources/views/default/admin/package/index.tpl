@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <p> <a class="btn btn-success btn-sm" href="javascript:;">添加套餐</a> </p>
+                <p> <a class="btn btn-success btn-sm" href="/admin/package/create">添加套餐</a> </p>
                 <div class="box">
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">

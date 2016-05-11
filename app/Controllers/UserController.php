@@ -21,6 +21,8 @@ use \PayPal\Api\Transaction;
 use \PayPal\Api\RedirectUrls;
 use \PayPal\Api\Payment;
 use \PayPal\Exception\PayPalConnectionException;
+use PayPal\Handler\OauthHandler;
+use PayPal\Rest\ApiContext;
 
 /**
  *  HomeController
@@ -58,13 +60,13 @@ class UserController extends BaseController
                 'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
                 'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
             );
-
+        //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
+        $paypal->setConfig(array('mode'=>'sandbox'));
         $product = 'aaaaaaaaa';
         $price = '10.10';
         $shipping = 2.00; //运费
 
         $total = $price + $shipping;
-
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -108,7 +110,6 @@ class UserController extends BaseController
             echo $e->getData();
             die();
         }
-
         $approvalUrl = $payment->getApprovalLink();
         header("Location: {$approvalUrl}");
 

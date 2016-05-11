@@ -6,6 +6,7 @@ use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\Node;
 use App\Models\TrafficLog;
+use App\Models\Package;
 use App\Services\Auth;
 use App\Services\Config;
 use App\Services\DbConfig;
@@ -21,9 +22,7 @@ use \PayPal\Api\Transaction;
 use \PayPal\Api\RedirectUrls;
 use \PayPal\Api\Payment;
 use \PayPal\Exception\PayPalConnectionException;
-use PayPal\Handler\OauthHandler;
-use PayPal\Rest\ApiContext;
-
+use \PayPal\Api\PaymentExecution;
 /**
  *  HomeController
  */
@@ -52,9 +51,8 @@ class UserController extends BaseController
     }
 
     public function buy($request, $response, $args){
+        $package = Package::find($args['id']);
 
-        define('SITE_URL', 'http://www.paydemo.com'); //网站url自行定义
-//创建支付对象实例
         $paypal = new \PayPal\Rest\ApiContext(
             new \PayPal\Auth\OAuthTokenCredential(
                 'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
@@ -62,47 +60,30 @@ class UserController extends BaseController
             );
         //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
         $paypal->setConfig(array('mode'=>'sandbox'));
-        $product = 'aaaaaaaaa';
-        $price = '10.10';
-        $shipping = 2.00; //运费
 
-        $total = $price + $shipping;
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
         $item = new Item();
-        $item->setName($product)
-            ->setCurrency('USD')
-            ->setQuantity(1)
-            ->setPrice($price);
+        $item->setName($package->name)->setCurrency($package->money_type)->setQuantity(1)->setPrice($package->money);
 
         $itemList = new ItemList();
         $itemList->setItems([$item]);
 
         $details = new Details();
-        $details->setShipping($shipping)
-            ->setSubtotal($price);
+        $details->setSubtotal($package->money);
 
         $amount = new Amount();
-        $amount->setCurrency('USD')
-            ->setTotal($total)
-            ->setDetails($details);
+        $amount->setCurrency($package->money_type)->setTotal($package->money)->setDetails($details);
 
         $transaction = new Transaction();
-        $transaction->setAmount($amount)
-            ->setItemList($itemList)
-            ->setDescription("支付描述内容")
-            ->setInvoiceNumber(uniqid());
+        $transaction->setAmount($amount)->setItemList($itemList)->setDescription($package->desc)->setInvoiceNumber(uniqid());
 
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
-            ->setCancelUrl(SITE_URL . '/pay.php?success=false');
+        $redirectUrls->setReturnUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/true')->setCancelUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/false');
 
         $payment = new Payment();
-        $payment->setIntent('sale')
-            ->setPayer($payer)
-            ->setRedirectUrls($redirectUrls)
-            ->setTransactions([$transaction]);
+        $payment->setIntent('sale')->setPayer($payer)->setRedirectUrls($redirectUrls)->setTransactions([$transaction]);
 
         try {
             $payment->create($paypal);
@@ -112,40 +93,45 @@ class UserController extends BaseController
         }
         $approvalUrl = $payment->getApprovalLink();
         header("Location: {$approvalUrl}");
+    }
 
+    public function callback($request, $response, $args){
 
-        //回调处理
+        $paypal = new \PayPal\Rest\ApiContext(
+            new \PayPal\Auth\OAuthTokenCredential(
+                'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
+                'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
+        );
+        //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
+        $paypal->setConfig(array('mode'=>'sandbox'));
 
+        if(!isset($_REQUEST['paymentId'], $_REQUEST['PayerID'])){
+            echo 'Transaction Error!';
+            die();
+        }
 
+        if((bool)$args['commit'] === 'false'){
 
-//    use PayPal\Api\Payment;
-//    use PayPal\Api\PaymentExecution;
+            echo 'Transaction cancelled!';
+            die();
+        }
 
-//        if(!isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID'])){
-//            die();
-//        }
-//
-//        if((bool)$_GET['success']=== 'false'){
-//
-//            echo 'Transaction cancelled!';
-//            die();
-//        }
-//
-//        $paymentID = $_GET['paymentId'];
-//        $payerId = $_GET['PayerID'];
-//
-//        $payment = Payment::get($paymentID, $paypal);
-//
-//        $execute = new PaymentExecution();
-//        $execute->setPayerId($payerId);
-//
-//        try{
-//            $result = $payment->execute($execute, $paypal);
-//        }catch(Exception $e){
-//            die($e);
-//        }
-//        echo '支付成功！感谢支持!';
+        $paymentID = $_REQUEST['paymentId'];
+        $payerId = $_REQUEST['PayerID'];
 
+        $payment = Payment::get($paymentID, $paypal);
+
+        $execute = new PaymentExecution();
+        $execute->setPayerId($payerId);
+
+        try{
+            $result = $payment->execute($execute, $paypal);
+            echo '<pre>';
+            print_r($result);
+        }catch(Exception $e){
+            die($e);
+        }
+        echo '支付成功！感谢支持!';
     }
 
     public function index($request, $response, $args)

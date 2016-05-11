@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
@@ -74,15 +74,6 @@
                         </button>
                     </div>
 
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">其他信息</h3>
-                    </div>
-                    <div class="box-footer">
-                    </div>
                 </div>
             </div>
             <!-- /.box -->

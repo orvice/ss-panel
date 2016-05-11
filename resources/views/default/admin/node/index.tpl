@@ -13,6 +13,22 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
+            <div class="col-md-12">
+                <div id="msg-success" class="alert alert-success alert-dismissable" style="display: none;">
+                    <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-info"></i> 成功!</h4>
+
+                    <p id="msg-success-p"></p>
+                </div>
+                <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+                    <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+
+                    <p id="msg-error-p"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-12">
                 <p> <a class="btn btn-success btn-sm" href="/admin/node/create">添加</a> </p>
                 <div class="box">
@@ -20,19 +36,23 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
-                                <th>节点</th>
-                                <th>加密</th>
-                                <th>描述</th>
-                                <th>排序</th>
-                                <th>操作</th>
+                                <th>节点名称</th>
+                                <th>节点类型</th>
+                                <th>加密方式</th>
+                                <th>节点描述</th>
+                                <th>是否显示</th>
+                                <th>节点状态</th>
+                                <th>节点操作</th>
                             </tr>
                             {foreach $nodes as $node}
                             <tr>
                                 <td>#{$node->id}</td>
                                 <td> {$node->name}</td>
+                                <td> {if $node->server_type == '0'}【共享流量服务器】{else}【独立专线服务器】{/if}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
-                                <td>{$node->sort}</td>
+                                <td>{if $node->type == '1'}显示{else}隐藏{/if}</td>
+                                <td>{$node->status}</td>
                                 <td>
                                     <a class="btn btn-info btn-xs" href="/admin/node/{$node->id}/edit">编辑</a>
                                     <a class="btn btn-danger btn-xs" id="delete" value="{$node->id}" href="/admin/node/{$node->id}/delete">删除</a>

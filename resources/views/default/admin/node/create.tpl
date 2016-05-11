@@ -47,6 +47,21 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="server" class="col-sm-3 control-label">节点类型</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="server_type">
+                                                <option value="0" selected="selected">
+                                                    共享流量服务器
+                                                </option>
+                                                <option value="1">
+                                                    独立专线服务器
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="server" class="col-sm-3 control-label">节点地址</label>
 
                                         <div class="col-sm-9">
@@ -156,6 +171,7 @@
                     name: $("#name").val(),
                     server: $("#server").val(),
                     method: $("#method").val(),
+                    server_type: $("#server_type").val(),
                     custom_method: $("#custom_method").val(),
                     rate: $("#rate").val(),
                     info: $("#info").val(),

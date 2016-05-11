@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Models\Node;
+use App\Models\Buy;
 use App\Utils\Tools;
 
 class Analytics
@@ -33,6 +34,10 @@ class Analytics
     public function getTotalNode()
     {
         return Node::count();
+    }
+
+    public function getBuyLog(){
+        return Buy::count();
     }
 
 }

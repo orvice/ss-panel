@@ -112,7 +112,10 @@ $app->group('/admin', function () {
     $this->get('/package/create', 'App\Controllers\Admin\PackageController:create');
     $this->get('/package/{id}/edit', 'App\Controllers\Admin\PackageController:edit');
     $this->put('/package/{id}', 'App\Controllers\Admin\PackageController:update');
-    $this->get('/package/{id}/delete', 'App\Controllers\Admin\PackageController:delete');
+    $this->delete('/package/{id}', 'App\Controllers\Admin\PackageController:delete');
+    $this->get('/package/{id}/delete', 'App\Controllers\Admin\PackageController:deleteGet');
+
+    $this->get('/buy', 'App\Controllers\Admin\BuyController:index');
 
     // Test
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');

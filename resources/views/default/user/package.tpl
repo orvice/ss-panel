@@ -19,7 +19,8 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>流量套餐</th>
+                                <th>套餐名称</th>
+                                <th>套餐类型</th>
                                 <th>套餐金额</th>
                                 <th>套餐流量</th>
                                 <th>套餐描述</th>
@@ -28,6 +29,7 @@
                             {foreach $packages as $package}
                             <tr>
                                 <td>{$package->name}</td>
+                                <td>{if $package->server == '0'}独立专线服务器{else}共享流量服务器{/if}</td>
                                 <td>{$package->money_type}:{$package->money}$</td>
                                 <td>{$package->flow}GB</td>
                                 <td>{$package->desc}</td>

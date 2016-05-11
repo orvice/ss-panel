@@ -35,7 +35,7 @@
                                         <img src="../assets/public/img/iconfont-server.png" alt="Server Node">
                                     </div>
                                     <div class="product-info">
-                                        <a href="./node/{$node->id}" class="product-title">{$node->name} <span
+                                        <a href="./node/{$node->id}" class="product-title">【{if $node->server_type=='0'}共享流量服务器{else}独立专线服务器{/if}】{$node->name} <span
                                                     class="label label-info pull-right">{$node->status}</span></a>
                                         <p>
                                             {$node->info}

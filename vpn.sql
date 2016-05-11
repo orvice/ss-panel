@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地服务器
+Source Server         : 127.0.0.1
 Source Server Version : 50540
 Source Host           : localhost:3306
 Source Database       : vpn
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2016-05-11 10:18:34
+Date: 2016-05-12 01:36:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,6 +70,19 @@ CREATE TABLE `sp_log` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for ss_buy
+-- ----------------------------
+DROP TABLE IF EXISTS `ss_buy`;
+CREATE TABLE `ss_buy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of ss_buy
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for ss_checkin_log
 -- ----------------------------
 DROP TABLE IF EXISTS `ss_checkin_log`;
@@ -81,11 +94,12 @@ CREATE TABLE `ss_checkin_log` (
   `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ss_checkin_log
 -- ----------------------------
+INSERT INTO `ss_checkin_log` VALUES ('1', '2', '1462969688', '98566144', '2016-05-11 20:28:08', '2016-05-11 20:28:08');
 
 -- ----------------------------
 -- Table structure for ss_chg_code
@@ -142,12 +156,15 @@ CREATE TABLE `ss_node` (
   `status` varchar(128) NOT NULL,
   `offset` int(11) NOT NULL DEFAULT '0',
   `sort` int(3) NOT NULL,
+  `server_type` enum('1','0') DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of ss_node
 -- ----------------------------
+INSERT INTO `ss_node` VALUES ('4', '翻墙小能手_No.01', '1', 'http://vpn.webloft.cn', 'rc4-md5', '0', '1', 'HAH', '正常', '0', '1', '0');
+INSERT INTO `ss_node` VALUES ('5', '翻墙小能手_No.02', '1', 'http://vpn.webloft.cn', 'rc4-md5', '0', '1', 'HAH', '管理员配置中', '0', '2', '1');
 
 -- ----------------------------
 -- Table structure for ss_node_info_log
@@ -193,13 +210,15 @@ CREATE TABLE `ss_package` (
   `flow` varchar(128) DEFAULT NULL,
   `desc` text,
   `money_type` enum('RMB','USD') DEFAULT NULL,
+  `server` enum('1','0') DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ss_package
 -- ----------------------------
-INSERT INTO `ss_package` VALUES ('1', '流量套餐A', '2.98', '20', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD');
+INSERT INTO `ss_package` VALUES ('1', '流量套餐A', '2.98', '20', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD', null);
+INSERT INTO `ss_package` VALUES ('4', '套餐B', '111.00', 'aaa', '1111', 'USD', '0');
 
 -- ----------------------------
 -- Table structure for ss_password_reset
@@ -255,7 +274,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '9B3np5', '1462855200', '0', '8951484', '2251292672', '21568', '1', '1', '1', '0', '1462810171', '0', '2016-05-09 15:50:18', '0', '1', '0', '0', 'rc4-md5', '0', '127.0.0.1');
+INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '', '1462855200', '0', '8951484', '2349858816', '21568', '1', '1', '1', '0', '1462969688', '0', '2016-05-09 15:50:18', '0', '1', '0', '0', '', '0', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for user_token

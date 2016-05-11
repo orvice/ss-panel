@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
-Source Server Version : 50547
+Source Server         : 本地服务器
+Source Server Version : 50540
 Source Host           : localhost:3306
 Source Database       : vpn
 
 Target Server Type    : MYSQL
-Target Server Version : 50547
+Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2016-05-10 20:33:23
+Date: 2016-05-11 10:18:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,11 +26,16 @@ CREATE TABLE `sp_config` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sp_config
 -- ----------------------------
+INSERT INTO `sp_config` VALUES ('1', 'analytics-code', '', '2016-05-10 13:28:55', '0000-00-00 00:00:00');
+INSERT INTO `sp_config` VALUES ('2', 'home-code', '', '2016-05-10 13:28:55', '0000-00-00 00:00:00');
+INSERT INTO `sp_config` VALUES ('3', 'app-name', '墙外的世界', '2016-05-10 13:28:55', '0000-00-00 00:00:00');
+INSERT INTO `sp_config` VALUES ('4', 'user-index', '', '2016-05-10 13:28:55', '0000-00-00 00:00:00');
+INSERT INTO `sp_config` VALUES ('5', 'user-node', '', '2016-05-10 13:28:55', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for sp_email_verify
@@ -138,12 +143,11 @@ CREATE TABLE `ss_node` (
   `offset` int(11) NOT NULL DEFAULT '0',
   `sort` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of ss_node
 -- ----------------------------
-INSERT INTO `ss_node` VALUES ('1', 'name3', '1', 'server', 'rc4', '1', '0.5', 'info', 'ok', '0', '1');
 
 -- ----------------------------
 -- Table structure for ss_node_info_log
@@ -177,6 +181,25 @@ CREATE TABLE `ss_node_online_log` (
 -- ----------------------------
 -- Records of ss_node_online_log
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for ss_package
+-- ----------------------------
+DROP TABLE IF EXISTS `ss_package`;
+CREATE TABLE `ss_package` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) DEFAULT NULL,
+  `money` varchar(128) DEFAULT NULL,
+  `flow` varchar(128) DEFAULT NULL,
+  `desc` text,
+  `money_type` enum('RMB','USD') DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ss_package
+-- ----------------------------
+INSERT INTO `ss_package` VALUES ('1', '流量套餐A', '2.98', '20', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD');
 
 -- ----------------------------
 -- Table structure for ss_password_reset
@@ -232,7 +255,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '9B3np5', '1462880409', '0', '9762057', '2251292672', '21568', '1', '1', '1', '0', '1462810171', '0', '2016-05-09 23:50:18', '0', '1', '0', '0', 'rc4-md5', '0', '127.0.0.1');
+INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '9B3np5', '1462855200', '0', '8951484', '2251292672', '21568', '1', '1', '1', '0', '1462810171', '0', '2016-05-09 15:50:18', '0', '1', '0', '0', 'rc4-md5', '0', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for user_token

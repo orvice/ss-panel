@@ -34,8 +34,10 @@ class BuyController extends AdminController
             $package = Package::find($val->package_id);
             if(!empty($package)){
                 $buy[$key]->packageName = $package->name;
+                $buy[$key]->packageType = $package->server;
             }else{
                 $buy[$key]->packageName = '不存在的套餐';
+                $buy[$key]->packageType = 'no';
             }
         }
         return $this->view()->assign('buys', $buy)->display('admin/buy/index.tpl');

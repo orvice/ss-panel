@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2016-05-12 01:36:07
+Date: 2016-05-13 01:10:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,12 +75,24 @@ CREATE TABLE `sp_log` (
 DROP TABLE IF EXISTS `ss_buy`;
 CREATE TABLE `ss_buy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `package_id` int(11) DEFAULT NULL,
+  `node_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `remark` text,
+  `update_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of ss_buy
 -- ----------------------------
+INSERT INTO `ss_buy` VALUES ('19', '2', '1', '0', '3', '服务器已到期,该订单作废', '1463068840');
+INSERT INTO `ss_buy` VALUES ('20', '2', '4', null, '2', '系统自动发货', '1463069003');
+INSERT INTO `ss_buy` VALUES ('21', '2', '1', null, '0', null, '1463069582');
+INSERT INTO `ss_buy` VALUES ('22', '2', '1', null, '0', null, '1463069691');
+INSERT INTO `ss_buy` VALUES ('23', '2', '1', null, '0', null, '1463069941');
+INSERT INTO `ss_buy` VALUES ('24', '2', '1', null, '0', null, '1463072567');
 
 -- ----------------------------
 -- Table structure for ss_checkin_log
@@ -94,12 +106,15 @@ CREATE TABLE `ss_checkin_log` (
   `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ss_checkin_log
 -- ----------------------------
 INSERT INTO `ss_checkin_log` VALUES ('1', '2', '1462969688', '98566144', '2016-05-11 20:28:08', '2016-05-11 20:28:08');
+INSERT INTO `ss_checkin_log` VALUES ('2', '2', '1463066231', '100663296', '2016-05-12 23:17:11', '2016-05-12 23:17:11');
+INSERT INTO `ss_checkin_log` VALUES ('3', '2', '1463067217', '20971520', '2016-05-12 23:33:37', '2016-05-12 23:33:37');
+INSERT INTO `ss_checkin_log` VALUES ('4', '2', '1463069050', '524288000', '2016-05-13 00:04:10', '2016-05-13 00:04:10');
 
 -- ----------------------------
 -- Table structure for ss_chg_code
@@ -164,7 +179,7 @@ CREATE TABLE `ss_node` (
 -- Records of ss_node
 -- ----------------------------
 INSERT INTO `ss_node` VALUES ('4', '翻墙小能手_No.01', '1', 'http://vpn.webloft.cn', 'rc4-md5', '0', '1', 'HAH', '正常', '0', '1', '0');
-INSERT INTO `ss_node` VALUES ('5', '翻墙小能手_No.02', '1', 'http://vpn.webloft.cn', 'rc4-md5', '0', '1', 'HAH', '管理员配置中', '0', '2', '1');
+INSERT INTO `ss_node` VALUES ('5', '翻墙小能手_No.02', '1', 'http://vpn.webloft.cn', 'rc4-md5', '0', '1', 'HAH', 'ok', '0', '2', '1');
 
 -- ----------------------------
 -- Table structure for ss_node_info_log
@@ -217,8 +232,8 @@ CREATE TABLE `ss_package` (
 -- ----------------------------
 -- Records of ss_package
 -- ----------------------------
-INSERT INTO `ss_package` VALUES ('1', '流量套餐A', '2.98', '20', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD', null);
-INSERT INTO `ss_package` VALUES ('4', '套餐B', '111.00', 'aaa', '1111', 'USD', '0');
+INSERT INTO `ss_package` VALUES ('1', '流量套餐A', '2.98', '20', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD', '1');
+INSERT INTO `ss_package` VALUES ('4', '流量套餐B', '20.00', '500', '已使用锐速黑科技加速,可享1080P高清视频观看', 'USD', '0');
 
 -- ----------------------------
 -- Table structure for ss_password_reset
@@ -274,7 +289,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '', '1462855200', '0', '8951484', '2349858816', '21568', '1', '1', '1', '0', '1462969688', '0', '2016-05-09 15:50:18', '0', '1', '0', '0', '', '0', '127.0.0.1');
+INSERT INTO `user` VALUES ('2', 'admin', 'backtrack843@163.com', '4414a0c9e9f39fd5f196299acbc7a4df62ea3e99a67550cb920f1acfd2f3d40e', '', '1462855200', '0', '8951484', '539342405632', '21568', '1', '1', '1', '0', '1463069050', '0', '2016-05-09 15:50:18', '0', '1', '0', '0', '', '0', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for user_token

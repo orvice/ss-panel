@@ -93,7 +93,7 @@
                     <div class="inner">
                         <h3>{$sts->getBuyLog()}</h3>
 
-                        <p>购买记录</p>
+                        <p>订单记录</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>

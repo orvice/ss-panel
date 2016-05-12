@@ -52,10 +52,10 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" id="server">
                                                 <option value="0" {if $package->server=='0'} selected="selected" {/if} >
-                                                    独立专线服务器
+                                                    共享流量服务器
                                                 </option>
                                                 <option value="1" {if $package->server=='1'} selected="selected" {/if} >
-                                                    共享流量服务器
+                                                    独立专线服务器
                                                 </option>
                                             </select>
                                         </div>

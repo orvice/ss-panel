@@ -35,8 +35,8 @@
                                     <td>{$buy->nickName}</td>
                                     <td>{if $buy->packageName}{$buy->packageName}{else}套餐已作废{/if}</td>
                                     <td>
-                                        {if $buy->packageType == 0}共享流量服务器{/if}
-                                        {if $buy->packageType == 1}独立专线服务器{/if}
+                                        {if $buy->packageType == 1}共享流量服务器{/if}
+                                        {if $buy->packageType == 0}独立专线服务器{/if}
                                         {if $buy->packageType == 'no'}套餐已作废{/if}
                                     </td>
                                     <td>

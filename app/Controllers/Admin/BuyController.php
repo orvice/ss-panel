@@ -47,6 +47,7 @@ class BuyController extends AdminController
         $buy->status = $request->getParam('status');
         $buy->node_id = $request->getParam('node_id');
         $buy->remark = $request->getParam('remark');
+        $buy->update_at = time();
         if (!$buy->save()) {
             $rs['ret'] = 0;
             $rs['msg'] = "订单记录修改失败";

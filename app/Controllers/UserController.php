@@ -25,6 +25,8 @@ use \PayPal\Api\RedirectUrls;
 use \PayPal\Api\Payment;
 use \PayPal\Exception\PayPalConnectionException;
 use \PayPal\Api\PaymentExecution;
+use PayPal\Rest\ApiContext;
+
 /**
  *  HomeController
  */
@@ -44,54 +46,74 @@ class UserController extends BaseController
         return parent::view()->assign('userFooter', $userFooter);
     }
 
+    private function mySuccess($code,$msg){
+        $this->view()->assign('code',$code)->assign('msg',$msg)->display('user/success.tpl');
+    }
+
+    private function myError($code,$msg){
+        $this->view()->assign('code',$code)->assign('msg',$msg)->display('user/error.tpl');
+    }
+
     public function package($request, $response, $args){
         $package = Package::get();
         return $this->view()->assign('packages', $package)->display('user/package.tpl');
     }
 
     public function buy($request, $response, $args){
+
         $package = Package::find($args['id']);
 
-        $paypal = new \PayPal\Rest\ApiContext(
-            new \PayPal\Auth\OAuthTokenCredential(
-                'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
-                'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
-            );
-        //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
-        $paypal->setConfig(array('mode'=>'sandbox'));
+        $buy = new Buy();
+        $buy->user_id = $this->user->id;
+        $buy->package_id = $args['id'];
+        $buy->status = 0;
+        $buy->update_at = time();
 
-        $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
+        if($buy->save()){
+            $paypal = new \PayPal\Rest\ApiContext(
+                new \PayPal\Auth\OAuthTokenCredential(
+                    'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
+                    'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
+                );
+            //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
+            $paypal->setConfig(array('mode'=>'sandbox'));
 
-        $item = new Item();
-        $item->setName($package->name)->setCurrency($package->money_type)->setQuantity(1)->setPrice($package->money);
+            $payer = new Payer();
+            $payer->setPaymentMethod('paypal');
 
-        $itemList = new ItemList();
-        $itemList->setItems([$item]);
+            $item = new Item();
+            $item->setName($package->name)->setCurrency($package->money_type)->setQuantity(1)->setPrice($package->money);
 
-        $details = new Details();
-        $details->setSubtotal($package->money);
+            $itemList = new ItemList();
+            $itemList->setItems([$item]);
 
-        $amount = new Amount();
-        $amount->setCurrency($package->money_type)->setTotal($package->money)->setDetails($details);
+            $details = new Details();
+            $details->setSubtotal($package->money);
 
-        $transaction = new Transaction();
-        $transaction->setAmount($amount)->setItemList($itemList)->setDescription($package->desc)->setInvoiceNumber(uniqid());
+            $amount = new Amount();
+            $amount->setCurrency($package->money_type)->setTotal($package->money)->setDetails($details);
 
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/true')->setCancelUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/false');
+            $transaction = new Transaction();
+            $transaction->setAmount($amount)->setItemList($itemList)->setDescription($package->desc)->setInvoiceNumber(uniqid());
 
-        $payment = new Payment();
-        $payment->setIntent('sale')->setPayer($payer)->setRedirectUrls($redirectUrls)->setTransactions([$transaction]);
+            $redirectUrls = new RedirectUrls();
+            $redirectUrls->setReturnUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/true/'.base64_encode($buy->id))->setCancelUrl('http://'.$_SERVER['SERVER_NAME'] . '/user/callback/false/'.base64_encode($buy->id));
 
-        try {
-            $payment->create($paypal);
-        } catch (PayPalConnectionException $e) {
-            echo $e->getData();
-            die();
+            $payment = new Payment();
+            $payment->setIntent('sale')->setPayer($payer)->setRedirectUrls($redirectUrls)->setTransactions([$transaction]);
+
+            try {
+                $payment->create($paypal);
+            } catch (PayPalConnectionException $e) {
+                $this->myError(3002,$e->getData());
+                exit();
+            }
+            $approvalUrl = $payment->getApprovalLink();
+            header("Location: {$approvalUrl}");
+        }else{
+            $this->myError(3001,'支付出错啦,创建订单失败');
+            exit();
         }
-        $approvalUrl = $payment->getApprovalLink();
-        header("Location: {$approvalUrl}");
     }
 
     public function callback($request, $response, $args){
@@ -105,14 +127,18 @@ class UserController extends BaseController
         $paypal->setConfig(array('mode'=>'sandbox'));
 
         if(!isset($_REQUEST['paymentId'], $_REQUEST['PayerID'])){
-            echo 'Transaction Error!';
-            die();
+            $this->myError(3003,'支付出错啦,获取回调信息失败');
+            exit();
         }
 
         if((bool)$args['commit'] === 'false'){
-
-            echo 'Transaction cancelled!';
-            die();
+            $this->myError(3004,'支付失败,你的订单已被你取消');
+            exit();
+        }
+        $buy = Buy::find(base64_decode($args['buy']));
+        if(empty($buy)){
+            $this->myError(3005,'支付失败,这条订单不存在');
+            exit();
         }
 
         $paymentID = $_REQUEST['paymentId'];
@@ -124,13 +150,52 @@ class UserController extends BaseController
         $execute->setPayerId($payerId);
 
         try{
-            $result = $payment->execute($execute, $paypal);
-            echo '<pre>';
-            print_r($result);
+            if($payment->execute($execute, $paypal)){
+                $package = Package::find($buy->package_id);
+                //更新用户流量
+                $this->user->transfer_enable = $this->user->transfer_enable + Tools::toGB($package->flow);
+                $this->user->last_check_in_time = time();
+                if($this->user->save()){
+                    try {
+                        //更新流量变更日志
+                        $log = new CheckInLog();
+                        $log->user_id = Auth::getUser()->id;
+                        $log->traffic = Tools::toMB($package->flow);
+                        $log->checkin_at = time();
+                        $log->save();
+                    } catch (\Exception $e) {}
+                }else{
+                    $this->myError(3006,'支付失败,更新用户流量失败');
+                    exit();
+                }
+                //共享流量服务器套餐处理
+                if($package->server == 0){
+                    $buy->status = 2;
+                    $buy->remark = '系统自动发货';
+                    if(!$buy->save()){
+                        $this->myError(3007,'支付失败,更新用户订单状态失败');
+                        exit();
+                    }
+                }
+                //独立专线服务器套餐处理
+                if($package->server == 1){
+                    $buy->status = 1;
+                    $buy->remark = '请耐心等待管理员发货';
+                    if(!$buy->save()){
+                        $this->myError(3007,'支付失败,更新用户订单状态失败');
+                        exit();
+                    }
+                }
+            }else{
+                $this->myError(3008,'支付失败,回调数据异常');
+                exit();
+            }
         }catch(Exception $e){
-            die($e);
+            $this->myError(3009,'支付失败,'.$e);
+            exit();
         }
-        echo '支付成功！感谢支持!';
+        $this->mySuccess(3010,'支付成功,感谢您的支持,已成功订购套餐: < '.$package->name.' >');
+        exit();
     }
 
     public function index($request, $response, $args)

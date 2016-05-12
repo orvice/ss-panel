@@ -29,7 +29,7 @@
                             {foreach $packages as $package}
                             <tr>
                                 <td>{$package->name}</td>
-                                <td>{if $package->server == '0'}独立专线服务器{else}共享流量服务器{/if}</td>
+                                <td>{if $package->server == '0'}共享流量服务器{else}独立专线服务器{/if}</td>
                                 <td>{$package->money_type}:{$package->money}$</td>
                                 <td>{$package->flow}GB</td>
                                 <td>{$package->desc}</td>

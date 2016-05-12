@@ -58,7 +58,7 @@ $app->group('/user', function () {
     $this->get('/logout', 'App\Controllers\UserController:logout');
     $this->get('/package', 'App\Controllers\UserController:package');
     $this->get('/buy/{id}', 'App\Controllers\UserController:buy');
-    $this->get('/callback/{commit}', 'App\Controllers\UserController:callback');
+    $this->get('/callback/{commit}/{buy}', 'App\Controllers\UserController:callback');
 })->add(new Auth());
 
 // Auth

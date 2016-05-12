@@ -68,15 +68,10 @@ class UserController extends BaseController
         $buy->package_id = $args['id'];
         $buy->status = 0;
         $buy->update_at = time();
-
         if($buy->save()){
-            $paypal = new \PayPal\Rest\ApiContext(
-                new \PayPal\Auth\OAuthTokenCredential(
-                    'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
-                    'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
-                );
+            $paypal = new \PayPal\Rest\ApiContext(new \PayPal\Auth\OAuthTokenCredential(Config::get('paypalClientID'),Config::get('paypalSecret')));
             //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
-            $paypal->setConfig(array('mode'=>'sandbox'));
+            $paypal->setConfig(array('mode'=>'live'));
 
             $payer = new Payer();
             $payer->setPaymentMethod('paypal');
@@ -118,13 +113,9 @@ class UserController extends BaseController
 
     public function callback($request, $response, $args){
 
-        $paypal = new \PayPal\Rest\ApiContext(
-            new \PayPal\Auth\OAuthTokenCredential(
-                'AV9s_kaDTlQ6K4tWfNrwYh6eqo1Yhmt2imJpLJyH3TO2fTxYbWI4ELqnTyvLOXQse2AuG6VLBjn2PI-W',
-                'ECnj4fnlWTsPCsuRR1T-GyB5QevKTTj-JxC26BUkHKOXFet30s8egmNeczMgY8E6_3REqJPo5hzJeypz')
-        );
+        $paypal = new \PayPal\Rest\ApiContext(new \PayPal\Auth\OAuthTokenCredential(Config::get('paypalClientID'),Config::get('paypalSecret')));
         //设置支付环境(mode=>sandbox,mode=>live)测试环境,正式环境
-        $paypal->setConfig(array('mode'=>'sandbox'));
+        $paypal->setConfig(array('mode'=>'live'));
 
         if(!isset($_REQUEST['paymentId'], $_REQUEST['PayerID'])){
             $this->myError(3003,'支付出错啦,获取回调信息失败');

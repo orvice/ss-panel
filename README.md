@@ -74,6 +74,23 @@ location / {
 view config guide on [wiki](https://github.com/orvice/ss-panel/wiki/v3-Config)
 
 ### 修改地方说明
-
+ 添加了用户使用paypal进行在线支付购买流量功能
+ 服务器节点,修改为 公共流量节点,独立专线节点 其中公共流量节点注册用户都可以看到,对立专线节点可以关联到付费用户,使其只对改付费用户可见
+ 又以其中公共节点为自动流程,自动添加用户所购买套餐所对应的流量,但需要管理自己处理废弃订单
+ 对立专用节点在用户付款后需要管理员手动关联对应的节点服务器,该才可以使用该服务器
+ 
+#### 添加用户购买流量页面
 ![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/user_buy_func.png)
+#### 添加用户订单查看功能
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/user_order_log.png)
+#### 添加管理员首页订单查看入口
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/admin.png)
+#### 节点管理添加节点类型(私人节点,公共节点),
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/user_order_log.png)
+#### 添加管理员后台流量套餐管理功能(可自定义流量套餐资费标准)
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/admin_package_manage.png)
+#### 添加管理员后台流量套餐管理功能(可自定义流量套餐资费标准)
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/admin_package_manage.png)
+#### 添加管理员后台流量套餐购买订单记录查看功能
+![](https://github.com/chuanshuo843/ss-panel/blob/master/public/assets/remark/admin_order_log.png)
 

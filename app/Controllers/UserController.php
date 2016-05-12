@@ -7,6 +7,8 @@ use App\Models\InviteCode;
 use App\Models\Node;
 use App\Models\TrafficLog;
 use App\Models\Package;
+use App\Models\Buy;
+use App\Models\User;
 use App\Services\Auth;
 use App\Services\Config;
 use App\Services\DbConfig;
@@ -142,10 +144,21 @@ class UserController extends BaseController
 
     public function node($request, $response, $args)
     {
+        header("Content-type:text/html;charset=utf-8");
         $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
-        $nodes = Node::where(array('type'=>1,'server_type'=>0))->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
+        $buys = Buy::where(array('user_id'=>$this->user->id))->orderBy('update_at','desc')->get();
+        $public = Node::where(array('type'=>1,'server_type'=>0))->orderBy('sort')->get();
+        if(!empty($buys)){
+            $id = '';
+            foreach($buys as $buy){
+                $id .= $buy->node_id.',';
+            }
+            $private = Node::where('id',trim($id,','))->get();
+        }else{
+            $private = null;
+        }
+        return $this->view()->assign('private',$private)->assign('nodes', $public)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
     }
 
 
@@ -178,7 +191,33 @@ class UserController extends BaseController
 
     public function profile($request, $response, $args)
     {
-        return $this->view()->display('user/profile.tpl');
+        $buy = Buy::where('user_id', $this->user->id)->get();
+        foreach($buy as $key => $val){
+            //查找昵称
+            $user = User::find($val->user_id);
+            if(!empty($user)){
+                $buy[$key]->nickName = $user->user_name;
+            }else{
+                $buy[$key]->nickName = '不存在的账户';
+            }
+            //查找节点名称和状态
+            $node = Node::find($val->node_id);
+            if(!empty($node)){
+                $buy[$key]->serverName = $node->name;
+                $buy[$key]->serverStatus = $node->status;
+            }else{
+                $buy[$key]->serverName = '未分配服务器';
+                $buy[$key]->serverStatus = '未分配服务器';
+            }
+            //查找套餐名称
+            $package = Package::find($val->package_id);
+            if(!empty($package)){
+                $buy[$key]->packageName = $package->name;
+            }else{
+                $buy[$key]->packageName = '不存在的套餐';
+            }
+        }
+        return $this->view()->assign('buys',$buy)->display('user/profile.tpl');
     }
 
     public function edit($request, $response, $args)

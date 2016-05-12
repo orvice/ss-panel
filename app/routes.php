@@ -116,6 +116,9 @@ $app->group('/admin', function () {
     $this->get('/package/{id}/delete', 'App\Controllers\Admin\PackageController:deleteGet');
 
     $this->get('/buy', 'App\Controllers\Admin\BuyController:index');
+    $this->get('/buy/{id}/delete', 'App\Controllers\Admin\BuyController:deleteGet');
+    $this->get('/buy/{id}/edit', 'App\Controllers\Admin\BuyController:edit');
+    $this->put('/buy/{id}', 'App\Controllers\Admin\BuyController:update');
 
     // Test
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');

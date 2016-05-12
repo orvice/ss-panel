@@ -56,28 +56,31 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>订单ID</th>
                                     <th>购买用户</th>
                                     <th>购买套餐</th>
-                                    <th>支付状态</th>
                                     <th>订单状态</th>
+                                    <th>服务器</th>
                                     <th>服务器状态</th>
+                                    <th>订单备注</th>
                                     <th>更新时间</th>
-                                    <th>操作</th>
                                 </tr>
+                                {foreach $buys as $buy}
                                     <tr>
-                                        <td>#{$user->id}</td>
-                                        <td>{$user->email}</td>
-                                        <td>{$user->port}</td>
-                                        <td>{$user->enable}</td>
-                                        <td>{$user->method}</td>
-                                        <td>{$user->usedTraffic()}/{$user->enableTraffic()}</td>
-                                        <td>{$user->lastSsTime()}</td>
+                                        <td>#{$buy->id}</td>
+                                        <td>{$buy->nickName}</td>
+                                        <td>{$buy->packageName}</td>
                                         <td>
-                                            <a class="btn btn-info btn-xs" href="/admin/user/{$user->id}/edit">编辑</a>
-                                            <a class="btn btn-danger btn-xs" id="delete" value="{$user->id}" href="/admin/user/{$user->id}/delete">删除</a>
+                                            {if $buy->status == 0}<span class="label label-default" >未支付</span>{/if}
+                                            {if $buy->status == 1}<span class="label label-warning" >待发货</span>{/if}
+                                            {if $buy->status == 2}<span class="label label-success" >已完成</span>{/if}
                                         </td>
+                                        <td>{$buy->serverName}</td>
+                                        <td>{$buy->serverStatus}</td>
+                                        <td>{$buy->remark}</td>
+                                        <td>{$buy->update_at|date_format:"Y-m-d H:i:s"}</td>
                                     </tr>
+                                {/foreach}
                             </table>
                         </div><!-- /.box-body -->
                     </div>

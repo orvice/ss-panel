@@ -21,6 +21,7 @@
                                 <th>订单ID</th>
                                 <th>购买用户</th>
                                 <th>购买套餐</th>
+                                <th>套餐类型</th>
                                 <th>订单状态</th>
                                 <th>服务器</th>
                                 <th>服务器状态</th>
@@ -32,11 +33,17 @@
                                 <tr>
                                     <td>#{$buy->id}</td>
                                     <td>{$buy->nickName}</td>
-                                    <td>{$buy->packageName}</td>
+                                    <td>{if $buy->packageName}{$buy->packageName}{else}套餐已作废{/if}</td>
+                                    <td>
+                                        {if $buy->packageType == 0}共享流量服务器{/if}
+                                        {if $buy->packageType == 1}独立专线服务器{/if}
+                                        {if $buy->packageType == 'no'}套餐已作废{/if}
+                                    </td>
                                     <td>
                                         {if $buy->status == 0}<span class="label label-default" >未支付</span>{/if}
                                         {if $buy->status == 1}<span class="label label-warning" >待发货</span>{/if}
                                         {if $buy->status == 2}<span class="label label-success" >已完成</span>{/if}
+                                        {if $buy->status == 3}<span class="label label-info" >已作废</span>{/if}
                                     </td>
                                     <td>{$buy->serverName}</td>
                                     <td>{$buy->serverStatus}</td>

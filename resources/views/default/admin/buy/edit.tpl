@@ -69,6 +69,9 @@
                                                 <option value="2" {if $res['buy']->status==2}selected="selected"{/if} >
                                                     已完成
                                                 </option>
+                                                <option value="3" {if $res['buy']->status==3}selected="selected"{/if} >
+                                                    已作废
+                                                </option>
                                             </select>
                                         </div>
                                     </div>

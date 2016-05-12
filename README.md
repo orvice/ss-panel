@@ -75,5 +75,5 @@ view config guide on [wiki](https://github.com/orvice/ss-panel/wiki/v3-Config)
 
 ### 修改地方说明
 
-![image](https://github.com/chuanshuo843/ss-panel/public/assets/remark/user_buy_func.png)
+![image](https://github.com/chuanshuo843/ss-panel/tree/master/public/assets/remark/user_buy_func.png)
 

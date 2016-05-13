@@ -25,7 +25,7 @@ class Check
      * @param int $time
      * @return int
      */
-    public static function getIpRegCount($ip, $time = 3600 * 24)
+    public static function getIpRegCount($ip, $time = 86400)
     {
         return User::where('reg_ip', $ip)->where('reg_date', '>', Tools::toDateTime(time() - $time))->count();
     }

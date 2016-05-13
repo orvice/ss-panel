@@ -89,4 +89,12 @@ class BuyController extends AdminController
         }
         return $this->view()->assign('res',array('buy'=>$buy,'node'=>Node::all()))->display('admin/buy/edit.tpl');
     }
+
+    public function deleteGet($request, $response, $args)
+    {
+        $id = $args['id'];
+        $buy = Buy::find($id);
+        $buy->delete();
+        return $this->redirect($response, '/admin/buy');
+    }
 }

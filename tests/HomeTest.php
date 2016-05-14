@@ -37,10 +37,10 @@ class HomeTest extends TestCase
         $this->post('/debug',[
            "name" => "bar"
         ]);
-        echo $this->response->getBody();
+        //echo $this->response->getBody();
 
-        $this->post('/debug',"foobar");
-        echo $this->response->getBody();
+        //$this->post('/debug',"foobar");
+        //echo $this->response->getBody();
     }
 
 

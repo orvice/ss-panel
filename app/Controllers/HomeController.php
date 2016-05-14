@@ -58,10 +58,8 @@ class HomeController extends BaseController
     public function postDebug(Request $request,Response $response, $args)
     {
         $res = [
-            "body" => $request->getBody(),
-            "pa" => $request->getParsedBody(),
-            "params" => $request->getParams(),
-            "name" => $request->getParam('name'),
+            "body" => $request->getBody(), 
+            "params" => $request->getParams() 
         ];
         return $this->echoJson($response, $res);
     }

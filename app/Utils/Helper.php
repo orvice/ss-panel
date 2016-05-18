@@ -38,6 +38,9 @@ class Helper
         if ($request->hasHeader('Key')) {
             return $request->getHeaderLine('Key');
         }
+        if ($request->hasHeader('Token')) {
+            return $request->getHeaderLine('Token');
+        }
         $params = $request->getQueryParams();
         if (!isset($params['key'])) {
             return null;

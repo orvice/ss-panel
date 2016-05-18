@@ -36,11 +36,30 @@ class MuTest extends TestCase
             ]
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
+
+
+        $this->get('/mu/v2/users', [
+            'query' => [
+                'key' => $this->muKey
+            ],
+            'header' => [
+                'Key' => $this->muKey
+            ]
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
     }
 
     public function testLogTraffic()
     {
         $this->post('/mu/users/' . $this->uid . '/traffic', [
+            "u" => $this->u,
+            "d" => $this->d,
+            "node_id" => $this->nodeId
+        ]);
+        $this->assertEquals('200', $this->response->getStatusCode());
+
+
+        $this->post('/mu/v2/users/' . $this->uid . '/traffic', [
             "u" => $this->u,
             "d" => $this->d,
             "node_id" => $this->nodeId

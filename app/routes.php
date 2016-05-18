@@ -130,10 +130,10 @@ $app->group('/mu', function () {
 
 // mu
 $app->group('/mu/v2', function () {
-    $this->get('/users', 'App\Controllers\Mu\UserController:index');
-    $this->post('/users/{id}/traffic', 'App\Controllers\Mu\UserController:addTraffic');
-    $this->post('/nodes/{id}/online_count', 'App\Controllers\Mu\NodeController:onlineUserLog');
-    $this->post('/nodes/{id}/info', 'App\Controllers\Mu\NodeController:info');
+    $this->get('/users', 'App\Controllers\MuV2\UserController:index');
+    $this->post('/users/{id}/traffic', 'App\Controllers\MuV2\UserController:addTraffic');
+    $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
+    $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
 })->add(new Mu());
 
 // res

@@ -6,7 +6,10 @@
   },
   "require-dev": {
     "phpunit/phpunit": "~5.0",
-    "phploc/phploc": "*"
+    "phploc/phploc": "*",
+    "phpmd/phpmd" : "@stable",
+    "sebastian/phpcpd": "*",
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
     "classmap": [

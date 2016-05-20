@@ -27,7 +27,7 @@
   <delete dir="${basedir}/build/coverage"/>
   <delete dir="${basedir}/build/logs"/>
   <delete dir="${basedir}/build/api"/>
-  <delete dir="${basedir}/application/cache"/>
+  <delete dir="${basedir}/app/cache"/>
  </target>
 
 <!-- Prepare for the new build --> 
@@ -35,15 +35,15 @@
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/logs"/>
   <mkdir dir="${basedir}/build/api"/>
-   <mkdir dir="${basedir}/application/cache"/>
+   <mkdir dir="${basedir}/app/cache"/>
  </target>
 
-<!-- Lint the PHP files in application dir. Linting the whole ZF framework library takes forever -->
+<!-- Lint the PHP files in app dir. Linting the whole ZF framework library takes forever -->
  <target name="lint" description="Perform syntax check of sourcecode files">
   <apply executable="php" failonerror="true">
    <arg value="-l" />
    
-    <fileset dir="${basedir}/application">
+    <fileset dir="${basedir}/app">
       <include name="**/*.php" />
     <modified />
    </fileset>
@@ -55,14 +55,14 @@
   <exec executable="./vendor/bin/phploc">
    <arg value="--log-csv" />
    <arg value="${basedir}/logs/phploc.csv" />
-   <arg path="${basedir}/application" />
+   <arg path="${basedir}/app" />
   </exec>
  </target>
 
 <!-- PHP Mess Detector -->
 <target name="phpmd" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
-  <exec executable="phpmd">
-   <arg path="${basedir}/application" />
+  <exec executable="./vendor/bin/phpmd">
+   <arg path="${basedir}/app" />
    <arg value="xml" />
    <arg value="codesize,unusedcode,naming" />
    <arg value="--reportfile" />
@@ -72,25 +72,25 @@
  
 <!-- PHP Copy Paste Detector -->
 <target name="phpcpd" description="Find duplicate code using PHPCPD">
-  <exec executable="phpcpd">
+  <exec executable="./vendor/bin/phpcpd">
    <arg value="--log-pmd" />
    <arg value="${basedir}/build/logs/pmd-cpd.xml" />
-   <arg path="${basedir}/application" />
+   <arg path="${basedir}/app" />
   </exec>
  </target>
 
 <!-- PHP Code Sniffer - tokenises PHP, JS and CSS files and detects violations of defined coding standards --> 
  <target name="phpcs" description="Check code with PHP Code Sniffer">
- <exec executable="phpcs">
+ <exec executable="./vendor/bin/phpcs">
   <arg value="-n" />
-  <arg path="${basedir}/application" />
+  <arg path="${basedir}/app" />
  </exec>
 </target> 
 
 <!-- Kick off phpunit - this requires 3.4.1 because of assertType(), deprecated in 3.5.x and removed from 3.6.x. --> 
  <target name="phpunit">
   <exec dir="${basedir}/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-  <env key="APPLICATION_ENV" value="testing"/>
+  <env key="app_ENV" value="testing"/>
   <arg line="--verbose --stderr" />   
   </exec>
  </target>

@@ -5,7 +5,8 @@
     "ramsey/uuid": "^3.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.0"
+    "phpunit/phpunit": "~5.0",
+    "phploc/phploc": "*"
   },
   "autoload": {
     "classmap": [

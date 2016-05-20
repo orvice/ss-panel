@@ -52,7 +52,7 @@
  
 <!-- PHPLoc (Lines Of Code) report -->  
  <target name="phploc" description="Measure project size using PHPLOC">
-  <exec executable="phploc">
+  <exec executable="./vendor/bin/phploc">
    <arg value="--log-csv" />
    <arg value="${basedir}/logs/phploc.csv" />
    <arg path="${basedir}/application" />

@@ -88,8 +88,8 @@
 </target> 
 
 <!-- Kick off phpunit - this requires 3.4.1 because of assertType(), deprecated in 3.5.x and removed from 3.6.x. --> 
- <target name="./vendor/bin/phpunit">
-  <exec dir="${basedir}/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+ <target name="phpunit">
+  <exec dir="${basedir}/tests" executable="./vendor/bin/phpunit" failonerror="true" description="Run unit tests with PHPUnit">
   <env key="app_ENV" value="testing"/>
   <arg line="--verbose --stderr" />   
   </exec>

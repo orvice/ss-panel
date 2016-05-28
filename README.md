@@ -18,9 +18,10 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 
 ## Supported Server
 
-* [shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
-* [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go)
-
+* [mengskysama/shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
+* [mengskysama/shadowsocks-rm manyuser](https://github.com/mengskysama/shadowsocks-rm/tree/manyuser)
+* [orvice/shadowsocks-go mu (support custom encryption method and data statistics)](https://github.com/orvice/shadowsocks-go)
+* [fsgmhoward/shadowsocks-python-mu (support custom encryption method)](https://github.com/fsgmhoward/shadowsocks-py-mu)
 
 ## Install
 

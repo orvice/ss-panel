@@ -134,6 +134,7 @@ $app->group('/mu/v2', function () {
     $this->post('/users/{id}/traffic', 'App\Controllers\MuV2\UserController:addTraffic');
     $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
+    $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
 })->add(new Mu());
 
 // res

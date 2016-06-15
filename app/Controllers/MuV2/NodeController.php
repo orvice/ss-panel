@@ -74,10 +74,17 @@ class NodeController extends BaseController
         foreach ($datas as $data) {
             try {
                 $user = User::find($data['user_id']);
+                if ($user == null) {
+                    array_push($failUser, $data['user_id']);
+                    continue;
+                }
                 $user->t = time();
                 $user->u = $user->u + ($data['u'] * $rate);
                 $user->d = $user->d + ($data['d'] * $rate);
-                $user->save();
+                if (!$user->save()) {
+                    array_push($failUser, $data['user_id']);
+                    continue;
+                }
 
                 // log
                 $totalTraffic = Tools::flowAutoShow(($data['u'] + $data['d']) * $rate);

@@ -13,6 +13,14 @@ CREATE TABLE `sp_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `sp_email_verify`;
+CREATE TABLE `sp_email_verify` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(32) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `expire_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `sp_log`;
 CREATE TABLE `sp_log` (
@@ -42,7 +50,9 @@ CREATE TABLE `ss_node` (
   `name` varchar(128) NOT NULL,
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
-  `method` varchar(64) NOT NULL,
+  `protocol` varchar(64) NOT NULL DEFAULT 'origin',
+  `obfs` varchar(64) NOT NULL DEFAULT 'plain',
+  `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   `custom_method` tinyint(1) NOT NULL DEFAULT '0',
   `traffic_rate` float NOT NULL DEFAULT '1',
   `info` varchar(128) NOT NULL,
@@ -51,6 +61,84 @@ CREATE TABLE `ss_node` (
   `sort` int(3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 触发器 `ss_node`
+--
+DELIMITER $$
+CREATE TRIGGER `sync-user-custom_method` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 0 OR new.status = '不可用' THEN
+update user set user.custom_method = 0;
+end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `sync-user-custom_method2` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 1 THEN
+IF new.status = '可用' THEN
+IF new.custom_method = 0 THEN
+update user set user.custom_method = 0;
+end if;
+end if;
+end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `sync-user-custom_method3` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 1 THEN
+IF new.status = '可用' THEN
+IF new.custom_method = 1 THEN
+update user set user.custom_method = 1;
+end if;
+end if;
+end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `sync-user-method` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 1 THEN
+IF new.status = '可用' THEN
+IF new.method != old.method THEN
+update user set user.method = new.method;
+end if;
+end if;
+end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `sync-user-obfs` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 1 THEN
+IF new.status = '可用' THEN
+IF new.obfs != old.obfs THEN
+update user set user.obfs = new.obfs;
+end if;
+end if;
+end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `sync-user-protocol` AFTER UPDATE ON `ss_node`
+ FOR EACH ROW begin
+IF new.type = 1 THEN
+IF new.status = '可用' THEN
+IF new.protocol != old.protocol THEN
+update user set user.protocol = new.protocol;
+end if;
+end if;
+end if;
+end
+$$
+DELIMITER ;
 
 
 DROP TABLE IF EXISTS `ss_node_info_log`;
@@ -97,8 +185,8 @@ CREATE TABLE `user` (
   `d` bigint(20) NOT NULL,
   `transfer_enable` bigint(20) NOT NULL,
   `port` int(11) NOT NULL,
-  `protocol` varchar(32) NOT NULL DEFAULT 'origin',
-  `obfs` varchar(32) NOT NULL DEFAULT 'plain',
+  `protocol` varchar(64) NOT NULL DEFAULT 'origin',
+  `obfs` varchar(64) NOT NULL DEFAULT 'plain',
   `switch` tinyint(4) NOT NULL DEFAULT '1',
   `enable` tinyint(4) NOT NULL DEFAULT '1',
   `type` tinyint(4) NOT NULL DEFAULT '1',
@@ -111,6 +199,7 @@ CREATE TABLE `user` (
   `ref_by` int(11) NOT NULL DEFAULT '0',
   `expire_time` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
+  `custom_method` tinyint(1) NOT NULL DEFAULT '0',
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`),

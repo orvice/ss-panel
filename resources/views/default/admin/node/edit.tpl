@@ -53,93 +53,52 @@
                                             <input class="form-control" id="server" value="{$node->server}">
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="protocol">
-                                                <option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>
-                                                    origin
-                                                </option>
-                                                <option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>
-                                                    verify_simple
-                                                </option>
-						<option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>
-                                                    verify_deflate
-                                                </option>
-                                                <option value="verify_sha1" {if $node->protocol=="verify_sha1"}selected="selected"{/if}>
-                                                    verify_sha1
-                                                </option>												
-                                                <option value="auth_simple" {if $node->protocol=="auth_simple"}selected="selected"{/if}>
-                                                    auth_simple
-                                                </option>
-                                                <option value="auth_sha1" {if $node->protocol=="auth_sha1"}selected="selected"{/if}>
-                                                    auth_sha1
-                                                </option>
-                                                <option value="auth_sha1_compatible" {if $node->protocol=="auth_sha1_compatible"}selected="selected"{/if}>
-                                                    auth_sha1_compatible
-                                                </option>
-                                                <option value="auth_sha1_v2" {if $node->protocol=="auth_sha1_v2"}selected="selected"{/if}>
-                                                    auth_sha1_v2
-                                                </option> 
-                                                <option value="auth_sha1_v2_compatible" {if $node->protocol=="auth_sha1_v2_compatible"}selected="selected"{/if}>
-                                                    auth_sha1_v2_compatible
-                                                </option>												
+                                                <option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>origin</option>
+                                                <option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
+	                                              <option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
+                                                <option value="verify_sha1" {if $node->protocol=="verify_sha1"}selected="selected"{/if}>verify_sha1</option>												
+                                                <option value="auth_simple" {if $node->protocol=="auth_simple"}selected="selected"{/if}>auth_simple</option>
+                                                <option value="auth_sha1" {if $node->protocol=="auth_sha1"}selected="selected"{/if}>auth_sha1</option>
+                                                <option value="auth_sha1_compatible" {if $node->protocol=="auth_sha1_compatible"}selected="selected"{/if}>auth_sha1_compatible</option>
+                                                <option value="auth_sha1_v2" {if $node->protocol=="auth_sha1_v2"}selected="selected"{/if}>auth_sha1_v2</option> 
+                                                <option value="auth_sha1_v2_compatible" {if $node->protocol=="auth_sha1_v2_compatible"}selected="selected"{/if}>auth_sha1_v2_compatible</option>												
                                             </select>	
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="obfs">
-                                                <option value="plain" {if $node->obfs=="plain"}selected="selected"{/if}>
-                                                    plain
-                                                </option>
-                                                <option value="http_simple" {if $node->obfs=="http_simple"}selected="selected"{/if}>
-                                                    http_simple
-                                                </option>
-                                                <option value="http_simple_compatible" {if $node->obfs=="http_simple_compatible"}selected="selected"{/if}>
-                                                    http_simple_compatible
-                                                </option>
-						<option value="tls_simple" {if $node->obfs=="tls_simple"}selected="selected"{/if}>
-                                                    tls_simple
-                                                </option>
-                                                <option value="random_head" {if $node->obfs=="random_head"}selected="selected"{/if}>
-                                                    random_head
-                                                </option>												
-                                                <option value="tls1.0_session_auth" {if $node->obfs=="tls1.0_session_auth"}selected="selected"{/if}>
-                                                    tls1.0_session_auth
-                                                </option>
-                                                <option value="tls1.0_session_auth_compatible" {if $node->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>
-                                                    tls1.0_session_auth_compatible
-                                                </option>
-                                                <option value="tls1.2_ticket_auth" {if $node->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>
-                                                    tls1.2_ticket_auth
-                                                </option>
-                                                <option value="tls1.2_ticket_auth_compatible" {if $node->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>
-                                                    tls1.2_ticket_auth_compatible
-                                                </option>										
+                                                <option value="plain" {if $node->obfs=="plain"}selected="selected"{/if}>plain</option>
+                                                <option value="http_simple" {if $node->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
+                                                <option value="http_simple_compatible" {if $node->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
+						                                    <option value="tls_simple" {if $node->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
+                                                <option value="random_head" {if $node->obfs=="random_head"}selected="selected"{/if}>random_head</option>												
+                                                <option value="tls1.0_session_auth" {if $node->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
+                                                <option value="tls1.0_session_auth_compatible" {if $node->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
+                                                <option value="tls1.2_ticket_auth" {if $node->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
+                                                <option value="tls1.2_ticket_auth_compatible" {if $node->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>										
                                             </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="method">
-                                                <option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>
-                                                    rc4-md5
-                                                </option>
-                                                <option value="aes-256-cfb" {if $node->method=="aes-256-cfb"}selected="selected"{/if}>
-                                                    aes-256-cfb
-                                                </option>
-						<option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>
-                                                    chacha20
-                                                </option>
-                                                <option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>
-                                                    chacha20-ietf
-                                                </option>		             										
+                                                <option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+                                                <option value="aes-256-cfb" {if $node->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
+						                                    <option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+                                                <option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>		             										
                                             </select>	
                                         </div>
                                     </div>
@@ -158,12 +117,8 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="custom_method">
-                                                <option value="0" {if $node->custom_method==0}selected="selected"{/if}>
-                                                    不支持
-                                                </option>
-                                                <option value="1" {if $node->custom_method==1}selected="selected"{/if}>
-                                                    支持
-                                                </option>
+                                                <option value="0" {if $node->custom_method==0}selected="selected"{/if}>不支持</option>
+                                                <option value="1" {if $node->custom_method==1}selected="selected"{/if}>支持</option>
                                             </select>
 
                                             <p class="help-block">
@@ -180,10 +135,8 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="type">
-                                                <option value="1" {if $node->type==1}selected="selected"{/if}>显示
-                                                </option>
-                                                <option value="0" {if $node->type==0}selected="selected"{/if}>隐藏
-                                                </option>
+                                                <option value="1" {if $node->type==1}selected="selected"{/if}>显示</option>
+                                                <option value="0" {if $node->type==0}selected="selected"{/if}>隐藏</option>
                                             </select>
                                         </div>
                                     </div>
@@ -194,10 +147,8 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="status">
-                                                <option value="可用" {if $node->status=="可用"}selected="selected"{/if}>可用
-                                                </option>
-                                                <option value="不可用" {if $node->status=="不可用"}selected="selected"{/if}>不可用
-                                                </option>
+                                                <option value="可用" {if $node->status=="可用"}selected="selected"{/if}>可用</option>
+                                                <option value="不可用" {if $node->status=="不可用"}selected="selected"{/if}>不可用</option>
                                             </select>
                                         </div>
                                     </div>

@@ -23,6 +23,8 @@ class NodeController extends AdminController
         $node = new Node();
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
+        $node->protocol = $request->getParam('protocol');
+        $node->obfs = $request->getParam('obfs');
         $node->method = $request->getParam('method');
         $node->custom_method = $request->getParam('custom_method');
         $node->traffic_rate = $request->getParam('rate');
@@ -57,6 +59,8 @@ class NodeController extends AdminController
 
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
+        $node->protocol = $request->getParam('protocol');
+        $node->obfs = $request->getParam('obfs');
         $node->method = $request->getParam('method');
         $node->custom_method = $request->getParam('custom_method');
         $node->traffic_rate = $request->getParam('rate');

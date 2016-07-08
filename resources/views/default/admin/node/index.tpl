@@ -21,6 +21,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>节点</th>
+                                <th>协议</th>
+                                <th>混淆</th>
                                 <th>加密</th>
                                 <th>描述</th>
                                 <th>排序</th>
@@ -30,6 +32,8 @@
                             <tr>
                                 <td>#{$node->id}</td>
                                 <td> {$node->name}</td>
+                                <td>{$node->protocol}</td>
+                                <td>{$node->obfs}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
                                 <td>{$node->sort}</td>

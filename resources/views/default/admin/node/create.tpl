@@ -55,10 +55,54 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="protocol" class="col-sm-3 control-label">协议插件</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="protocol">
+                                                <option value="" ></option>
+                                                <option value="origin" >origin</option>
+                                                <option value="verify_simple" >verify_simple</option>
+                                                <option value="verify_deflate" >verify_deflate</option>
+                                                <option value="verify_sha1" >verify_sha1</option>
+                                                <option value="auth_simple" >auth_simple</option>
+                                                <option value="auth_sha1" >auth_sha1</option>
+                                                <option value="auth_sha1_compatible" >auth_sha1_compatible</option>
+                                                <option value="auth_sha1_v2" >auth_sha1_v2</option>
+                                                <option value="auth_sha1_v2_compatible">auth_sha1_v2_compatible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="obfs">
+                                                <option value="" ></option>
+                                                <option value="plain" >plain</option>
+                                                <option value="http_simple" >http_simple</option>
+                                                <option value="http_simple_compatible" >http_simple_compatible</option>
+                                                <option value="tls_simple" >tls_simple</option>
+                                                <option value="random_head" >random_head</option>
+                                                <option value="tls1.0_session_auth" >tls1.0_session_auth</option>
+                                                <option value="tls1.0_session_auth_compatible" >tls1.0_session_auth_compatible</option>
+                                                <option value="tls1.2_ticket_auth" >tls1.2_ticket_auth</option>
+                                                <option value="tls1.2_ticket_auth_compatible" >tls1.2_ticket_auth_compatible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="method" value="">
+                                            <select class="form-control" id="method">
+                                                <option value=""></option>
+                                                <option value="rc4-md5">rc4-md5</option>
+                                                <option value="aes-256-cfb">aes-256-cfb</option>
+                                                <option value="chacha20">chacha20</option>
+                                                <option value="chacha20-ietf">chacha20-ietf</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -109,7 +153,11 @@
                                         <label for="status" class="col-sm-3 control-label">节点状态</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="status" value="">
+                                            <select class="form-control" id="status">
+                                                <option value=""></option>
+                                                <option value="可用">可用</option>
+                                                <option value="不可用">不可用</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -155,6 +203,8 @@
                 data: {
                     name: $("#name").val(),
                     server: $("#server").val(),
+                    protocol: $("#protocol").val(),
+                    obfs: $("#obfs").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
                     rate: $("#rate").val(),

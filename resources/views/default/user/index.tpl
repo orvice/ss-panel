@@ -23,7 +23,11 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        {$msg}
+                       <!-- {$msg}-->
+                       <p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>
+                       <p>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a></p>
+                       <p>Android客户端下载：<a href="hthttps://github.com/shadowsocks/shadowsocks-android/releases/download/v2.10.4/shadowsocks-nightly-2.10.4.apk">Shadowsocks for Android</a></p>
+                       <p>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -107,6 +111,10 @@
                             <dd>{$user->port}</dd>
                             <dt>密码</dt>
                             <dd>{$user->passwd}</dd>
+                            <dt>协议</dt>
+                            <dd>{$user->protocol}</dd>
+                            <dt>混淆</dt>
+                            <dd>{$user->obfs}</dd>
                             <dt>自定义加密方式</dt>
                             <dd>{$user->method}</dd>
                             <dt>上次使用</dt>

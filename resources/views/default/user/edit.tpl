@@ -109,18 +109,33 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">加密方式</label>
-
+                          <div class="form-group">
+                                <label class="col-sm-3 control-label">加密方法</label>
+            
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" id="method" placeholder="输入新加密方式" class="form-control">
-                                        <div class="input-group-btn">
-                                            <button type="submit" id="method-update" class="btn btn-primary">修改</button>
-                                        </div>
+                                   <div class="input-group">
+                                     <div style="width:380px">
+                                        <select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
+                                          <option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>
+                                              rc4-md5
+                                          </option>
+                                          <option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>
+                                              aes-256-cfb
+                                          </option>
+                                          <option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>
+                                              chacha20
+                                          </option>
+                                          <option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>
+                                              chacha20-ietf
+                                          </option>
+                                        </select>
+                                      </div>
+                                    <div class="input-group-btn">
+                                        <button type="submit" id="method-update" class="btn btn-primary">修改</button>
                                     </div>
+                                  </div>
                                 </div>
-                            </div>
+                           </div>
 
                         </div>
                         <div class="box-footer"></div>

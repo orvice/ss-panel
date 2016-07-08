@@ -17,8 +17,8 @@
             <div class="col-md-12">
                 <div class="callout callout-warning">
                     <h4>注意!</h4>
-                    <p>请勿在任何地方公开节点地址！</p>
-                    <p>流量比例为0.5即使用1000MB按照500MB流量记录记录结算.</p>
+                    <p>请勿在任何地方公开节点地址！谢谢配合！</p>
+                    <p>流量比例为1即使用1000MB按照1000MB流量记录记录结算.</p>
                     {$msg}
                 </div>
             </div>
@@ -52,6 +52,10 @@
                                                         class="pull-right badge bg-blue">{$node->server}</span></a></li>
                                         <li><a href="./node/{$node->id}">连接端口 <span
                                                         class="pull-right badge bg-aqua">{$user->port}</span></a></li>
+                                        <li><a href="./node/{$node->id}">协议插件 <span
+                                                        class="pull-right badge bg-aqua">{$node->protocol}</span></a></li>
+                                        <li><a href="./node/{$node->id}">混淆插件 <span
+                                                        class="pull-right badge bg-aqua">{$node->obfs}</span></a></li>
                                         <li><a href="./node/{$node->id}">加密方式 <span
                                                         class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a>
                                         </li>

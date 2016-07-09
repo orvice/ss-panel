@@ -21,12 +21,20 @@ class AdminController extends UserController
         return $this->view()->assign('sts', $sts)->display('admin/index.tpl');
     }
 
+
     public function invite($request, $response, $args)
     {
-        $codes = InviteCode::where('user_id', '=', '0')->get();
-        return $this->view()->assign('codes', $codes)->display('admin/invite.tpl');
+		
+		$pageNum = 1;
+        if (isset($request->getQueryParams()["page"])) {
+            $pageNum = $request->getQueryParams()["page"];
+        }
+		$paybacks = Payback::orderBy("datetime","desc")->paginate(15, ['*'], 'page', $pageNum);
+		$paybacks->setPath('/admin/invite');
+		
+        return $this->view()->assign("paybacks",$paybacks)->display('admin/invite.tpl');
     }
-
+	
     public function addInvite($request, $response, $args)
     {
         $n = $request->getParam('num');

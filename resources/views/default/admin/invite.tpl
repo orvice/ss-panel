@@ -38,27 +38,34 @@
                         <div class="form-horizontal">
 
                             <div class="form-group">
-                                <div class="form-group form-group-label">
-									<label class="floating-label" for="prefix">邀请码前缀</label>
-									<input class="form-control" id="prefix" type="text">
-								</div>
-								
-								<div class="form-group form-group-label">
-									<label class="floating-label" for="uid">邀请码类别(0为公开，其他数字为对应用户的ID，或者输入用户的完整邮箱)</label>
-									<input class="form-control" id="uid" type="text">
-								</div>
-								
-								<div class="form-group form-group-label">
-									<label class="floating-label" for="prefix">邀请码数量</label>
-									<input class="form-control" id="num" type="number">
-								</div>
-							</div>	
+                                <label for="cate_title" class="col-sm-3 control-label">邀请码前缀</label>
+
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="prefix" type="text" placeholder="小于8个字符">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title" class="col-sm-3 control-label">邀请码类别</label>
+
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="uid" type="number" placeholder="0为公开，其他数字为对应用户的UID">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title" class="col-sm-3 control-label">邀请码数量</label>
+
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="num" type="number" placeholder="要生成的邀请码数量">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <a class="btn btn-flat waves-attach" id="invite" ><span class="icon">check</span>&nbsp;生成</a>
+                        <button id="invite" type="submit" name="action" value="add" class="btn btn-primary">生成</button>
                     </div>
 
                 </div>

@@ -135,7 +135,6 @@
                                         </div>
                                     </div>
 									
-									<!--{if $config['enable_rss']=='true'}-->
 									<div class="form-group">
                                         <label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
 
@@ -150,7 +149,6 @@
                                             </select>
                                         </div>
                                     </div>
-									<!-- {/if} -->
 
                                 </fieldset>
                                 <fieldset class="col-sm-6">

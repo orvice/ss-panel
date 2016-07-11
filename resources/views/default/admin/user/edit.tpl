@@ -102,7 +102,6 @@
                                         </div>
                                     </div>
 
-									<!-- {if $config['enable_rss']=='true'} -->
                                     <div class="form-group">
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
@@ -183,7 +182,6 @@
 									    <label class="floating-label" for="obfs_param">自定义混淆参数</label>
 									    <input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}">
 								    </div>
-								<!-- 	{/if} -->
 
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">自定义加密方法</label>

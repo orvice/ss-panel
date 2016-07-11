@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
 use App\Models\Node;
+use App\Models\User;
 
 class NodeController extends AdminController
 {
@@ -21,12 +22,19 @@ class NodeController extends AdminController
     public function add($request, $response, $args)
     {
         $node = new Node();
+		
+		$id = $args['id'];
+        $user = User::find($id);
+		
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
-        $node->protocol = $request->getParam('protocol');
-        $node->obfs = $request->getParam('obfs');
+        $user->protocol = $request->getParam('protocol');
+		$user->protocol_param = $request->getParam('protocol_param');
+        $user->obfs = $request->getParam('obfs');
+		$user->obfs_param = $request->getParam('obfs_param');
         $node->method = $request->getParam('method');
         $node->custom_method = $request->getParam('custom_method');
+		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');
         $node->info = $request->getParam('info');
         $node->type = $request->getParam('type');
@@ -63,6 +71,7 @@ class NodeController extends AdminController
         $node->obfs = $request->getParam('obfs');
         $node->method = $request->getParam('method');
         $node->custom_method = $request->getParam('custom_method');
+		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');
         $node->info = $request->getParam('info');
         $node->type = $request->getParam('type');

@@ -102,7 +102,8 @@
                                         </div>
                                     </div>
 
-                                   <div class="form-group">
+									<!-- {if $config['enable_rss']=='true'} -->
+                                    <div class="form-group">
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
                                         <div class="col-sm-9">
@@ -137,6 +138,11 @@
                                             </select>
                                         </div>
                                     </div>
+									
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="protocol_param">自定义协议参数</label>
+									    <input class="form-control" id="protocol_param" type="text" value="{$user->protocol_param}">
+								    </div>
 
                                     <div class="form-group">
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
@@ -173,6 +179,11 @@
                                             </select>
                                         </div>
                                     </div>
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="obfs_param">自定义混淆参数</label>
+									    <input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}">
+								    </div>
+								<!-- 	{/if} -->
 
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">自定义加密方法</label>
@@ -193,8 +204,8 @@
                                                 </option>
                                             </select>
                                         </div>
-                                    </div>   
-
+                                    </div>					
+																
                                 </fieldset>
                             </div>
                             <div class="row">
@@ -275,7 +286,9 @@
                     transfer_enable: $("#transfer_enable").val(),
                     invite_num: $("#invite_num").val(),
                     protocol: $("#protocol").val(),
+					protocol_param: $("#protocol_param").val(),
                     obfs: $("#obfs").val(),
+					obfs_param: $("#obfs_param").val(),
                     method: $("#method").val(),
                     enable: $("#enable").val(),
                     is_admin: $("#is_admin").val(),

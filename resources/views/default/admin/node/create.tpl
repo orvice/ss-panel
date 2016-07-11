@@ -135,7 +135,7 @@
                                         </div>
                                     </div>
 									
-									{if $config['enable_rss']=='true'}
+									<!--{if $config['enable_rss']=='true'}-->
 									<div class="form-group">
                                         <label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
 
@@ -150,7 +150,7 @@
                                             </select>
                                         </div>
                                     </div>
-									{/if}
+									<!-- {/if} -->
 
                                 </fieldset>
                                 <fieldset class="col-sm-6">
@@ -228,11 +228,12 @@
                     info: $("#info").val(),
                     type: $("#type").val(),
                     status: $("#status").val(),
-                    sort: $("#sort").val()
-					{if $config['enable_rss']=='true'},
-					custom_rss: custom_rss{else},
-					custom_rss: 0
-					{/if}
+                    sort: $("#sort").val(),
+					custom_rss: $("#custom_rss").val()
+ 					//{if $config['enable_rss']=="true"},
+					//custom_rss: custom_rss{else},
+					//custom_rss: 0
+					//{/if}
                 },
                 success: function (data) {
                     if (data.ret) {

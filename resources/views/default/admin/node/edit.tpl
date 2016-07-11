@@ -125,8 +125,21 @@
                                                 <a href="https://github.com/orvice/ss-panel/wiki/v3-custom-method">如何使用自定义加密?</a>
                                             </p>
                                         </div>
-
                                     </div>
+									
+									<!-- {if $config['enable_rss']=='true'} -->
+									<div class="form-group">
+                                        <label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="custom_rss">
+                                                <option value="0" {if $node->custom_rss==0}selected="selected"{/if}>不支持</option>
+                                                <option value="1" {if $node->custom_rss==0}selected="selected"{/if}>支持</option>
+                                            </select>
+                                        </div>
+                                    </div>
+							<!-- 		{/if} -->									
+									
                                 </fieldset>
                                 <fieldset class="col-sm-6">
                                     <legend>描述信息</legend>
@@ -202,7 +215,12 @@
                     info: $("#info").val(),
                     type: $("#type").val(),
                     status: $("#status").val(),
-                    sort: $("#sort").val()
+                    sort: $("#sort").val(),
+					custom_rss: $("#custom_rss").val()
+			    //  {if $config['enable_rss']=="true"},
+				//	custom_rss: custom_rss{else},
+				//	custom_rss: 0
+				//  {/if}
                 },
                 success: function (data) {
                     if (data.ret) {

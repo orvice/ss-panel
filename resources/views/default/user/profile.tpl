@@ -23,7 +23,7 @@
                         <dl class="dl-horizontal">
                             <dt>用户名</dt>
                             <dd>{$user->user_name}</dd>
-                            <dt>邮    箱</dt>
+                            <dt>邮&nbsp;&nbsp;箱</dt>
                             <dd>{$user->email}</dd>
                         </dl>
 

@@ -51,17 +51,19 @@
                                         <li><a href="./node/{$node->id}">节点地址 <span
                                                         class="pull-right badge bg-blue">{$node->server}</span></a></li>
                                         <li><a href="./node/{$node->id}">连接端口 <span
-                                                        class="pull-right badge bg-aqua">{$user->port}</span></a></li>
+                                                    class="pull-right badge bg-aqua">{$user->port}</span></a></li>
                                         <li><a href="./node/{$node->id}">协议插件 <span
-                                                        class="pull-right badge bg-aqua">{$node->protocol}</span></a></li>
+                                                       class="pull-right badge bg-aqua">{$user->protocol}</span></a></li>
+                                        <li><a href="./node/{$node->id}">协议参数 <span
+                                                       class="pull-right badge bg-aqua">{$user->protocol_obfs}</span></a></li> 
                                         <li><a href="./node/{$node->id}">混淆插件 <span
-                                                        class="pull-right badge bg-aqua">{$node->obfs}</span></a></li>
+                                                       class="pull-right badge bg-aqua">{$user->obfs}</span></a></li>
+                                        <li><a href="./node/{$node->id}">混淆参数 <span
+                                                       class="pull-right badge bg-aqua">{$user->obfs_obfs}</span></a></li>
                                         <li><a href="./node/{$node->id}">加密方式 <span
-                                                        class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a>
-                                        </li>
+                                                        class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a></li>
                                         <li><a href="./node/{$node->id}">负载: <span
-                                                        class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a>
-                                        </li>
+                                                        class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">

@@ -179,6 +179,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <input class="form-control" id="transfer_enable" type="number" value="{$user->enableTrafficInGB()}">
+
                                                 <div class="input-group-addon">GiB</div>
                                             </div>
                                         </div>

@@ -72,6 +72,10 @@
                                             </select>
                                         </div>
                                     </div>
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="protocol_param">自定义协议参数</label>
+									    <input class="form-control" id="protocol_param" type="text" value="{$user->protocol_param}">
+								    </div>
 
                                     <div class="form-group">
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
@@ -91,6 +95,10 @@
                                             </select>
                                         </div>
                                     </div>
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="obfs_param">自定义混淆参数</label>
+									    <input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}">
+								    </div>
 
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
@@ -127,11 +135,6 @@
                                                     支持
                                                 </option>
                                             </select>
-
-                                            <p class="help-block">
-                                                <a href="https://github.com/orvice/ss-panel/wiki/v3-custom-method">如何使用自定义加密?</a>|
-                                                <a href="https://github.com/orvice/ss-panel/wiki/v3-traffic-rate">如何设置流量比例?</a>
-                                            </p>
                                         </div>
                                     </div>
 									
@@ -219,9 +222,12 @@
                     name: $("#name").val(),
                     server: $("#server").val(),
                     protocol: $("#protocol").val(),
+					protocol_param: $("#protocol_param").val(),
                     obfs: $("#obfs").val(),
+					obfs_param: $("#obfs_param").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
+					custom_rss: $("#custom_rss").val(),
                     rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: $("#type").val(),

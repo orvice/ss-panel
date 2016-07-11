@@ -59,36 +59,44 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="protocol">
-                                                <option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>origin</option>
-                                                <option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
-	                                              <option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
-                                                <option value="verify_sha1" {if $node->protocol=="verify_sha1"}selected="selected"{/if}>verify_sha1</option>												
-                                                <option value="auth_simple" {if $node->protocol=="auth_simple"}selected="selected"{/if}>auth_simple</option>
-                                                <option value="auth_sha1" {if $node->protocol=="auth_sha1"}selected="selected"{/if}>auth_sha1</option>
-                                                <option value="auth_sha1_compatible" {if $node->protocol=="auth_sha1_compatible"}selected="selected"{/if}>auth_sha1_compatible</option>
-                                                <option value="auth_sha1_v2" {if $node->protocol=="auth_sha1_v2"}selected="selected"{/if}>auth_sha1_v2</option> 
-                                                <option value="auth_sha1_v2_compatible" {if $node->protocol=="auth_sha1_v2_compatible"}selected="selected"{/if}>auth_sha1_v2_compatible</option>												
+                                                <option value="origin" {if $user->protocol=="origin"}selected="selected"{/if}>origin</option>
+                                                <option value="verify_simple" {if $user->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
+	                                              <option value="verify_deflate" {if $user->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
+                                                <option value="verify_sha1" {if $user->protocol=="verify_sha1"}selected="selected"{/if}>verify_sha1</option>												
+                                                <option value="auth_simple" {if $user->protocol=="auth_simple"}selected="selected"{/if}>auth_simple</option>
+                                                <option value="auth_sha1" {if $user->protocol=="auth_sha1"}selected="selected"{/if}>auth_sha1</option>
+                                                <option value="auth_sha1_compatible" {if $user->protocol=="auth_sha1_compatible"}selected="selected"{/if}>auth_sha1_compatible</option>
+                                                <option value="auth_sha1_v2" {if $user->protocol=="auth_sha1_v2"}selected="selected"{/if}>auth_sha1_v2</option> 
+                                                <option value="auth_sha1_v2_compatible" {if $user->protocol=="auth_sha1_v2_compatible"}selected="selected"{/if}>auth_sha1_v2_compatible</option>												
                                             </select>	
                                         </div>
                                     </div>
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="protocol_param">自定义协议参数</label>
+									    <input class="form-control" id="protocol_param" type="text" value="{$user->protocol_param}">
+								    </div>
                                     
                                     <div class="form-group">
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="obfs">
-                                                <option value="plain" {if $node->obfs=="plain"}selected="selected"{/if}>plain</option>
-                                                <option value="http_simple" {if $node->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
-                                                <option value="http_simple_compatible" {if $node->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
-						                                    <option value="tls_simple" {if $node->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
-                                                <option value="random_head" {if $node->obfs=="random_head"}selected="selected"{/if}>random_head</option>												
-                                                <option value="tls1.0_session_auth" {if $node->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
-                                                <option value="tls1.0_session_auth_compatible" {if $node->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
-                                                <option value="tls1.2_ticket_auth" {if $node->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
-                                                <option value="tls1.2_ticket_auth_compatible" {if $node->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>										
+                                                <option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
+                                                <option value="http_simple" {if $user->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
+                                                <option value="http_simple_compatible" {if $user->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
+						                                    <option value="tls_simple" {if $user->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
+                                                <option value="random_head" {if $user->obfs=="random_head"}selected="selected"{/if}>random_head</option>												
+                                                <option value="tls1.0_session_auth" {if $user->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
+                                                <option value="tls1.0_session_auth_compatible" {if $user->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
+                                                <option value="tls1.2_ticket_auth" {if $user->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
+                                                <option value="tls1.2_ticket_auth_compatible" {if $user->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>										
                                             </select>
                                         </div>
                                     </div>
+									<div class="form-group form-group-label">
+									    <label class="floating-label" for="obfs_param">自定义混淆参数</label>
+									    <input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}">
+								    </div>
                                     
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
@@ -208,9 +216,12 @@
                     name: $("#name").val(),
                     server: $("#server").val(),
                     protocol: $("#protocol").val(),
+					protocol_param: $("#protocol_param").val(),
                     obfs: $("#obfs").val(),
+					obfs_param: $("#obfs_param").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
+					custom_rss: $("#custom_rss").val(),
                     rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: $("#type").val(),

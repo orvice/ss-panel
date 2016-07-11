@@ -11,11 +11,13 @@ class NodeController extends AdminController
     public function index($request, $response, $args)
     {
         $nodes = Node::all();
+		$user = User::find($id);
         return $this->view()->assign('nodes', $nodes)->display('admin/node/index.tpl');
     }
 
     public function create($request, $response, $args)
     {
+		$user = User::find($id);
         return $this->view()->display('admin/node/create.tpl');
     }
 

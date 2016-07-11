@@ -11,7 +11,6 @@ class UserController extends AdminController
 {
     public function index($request, $response, $args)
     {
-		$nodes = Node::all();
         $pageNum = 1;
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];

@@ -39,13 +39,7 @@
                                 <td>#{$user->id}</td>
                                 <td>{$user->email}</td>
                                 <td>{$user->port}</td>
-                                
-                                {if $user->enable==1}
-                                    <td>可用</td>
-								                {else}
-								                    <td>禁用</td>
-								                {/if}
-                                
+                                <td>{$user->enable}</td>
                                 <td>{$user->protocol}</td>
                                 <td>{$user->obfs}</td>
                                 <td>{$user->method}</td>

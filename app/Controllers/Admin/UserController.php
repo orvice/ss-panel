@@ -24,8 +24,6 @@ class UserController extends AdminController
     public function edit($request, $response, $args)
     {
         $id = $args['id'];
-		$nodes = Node::all();
-		$node = Node::find($id);
         $user = User::find($id);
         if ($user == null) {
 
@@ -36,7 +34,6 @@ class UserController extends AdminController
     public function update($request, $response, $args)
     {
         $id = $args['id'];
-		$node = Node::find($id);
         $user = User::find($id);
 
         $user->email = $request->getParam('email');
@@ -49,11 +46,11 @@ class UserController extends AdminController
         $user->port = $request->getParam('port');
         $user->transfer_enable = Tools::toGB($request->getParam('transfer_enable'));
         $user->invite_num = $request->getParam('invite_num');
-        $node->protocol = $request->getParam('protocol');
-		$node->protocol_param = $request->getParam('protocol_param');
-	    $node->obfs = $request->getParam('obfs');
-        $node->obfs_param = $request->getParam('obfs_param');
-        $node->method = $request->getParam('method');
+        $user->protocol = $request->getParam('protocol');
+		    $user->protocol_param = $request->getParam('protocol_param');
+	      $user->obfs = $request->getParam('obfs');
+        $user->obfs_param = $request->getParam('obfs_param');
+        $user->method = $request->getParam('method');
         $user->enable = $request->getParam('enable');
         $user->is_admin = $request->getParam('is_admin');
         $user->ref_by = $request->getParam('ref_by');

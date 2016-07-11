@@ -54,6 +54,55 @@
                                         </div>
                                     </div>
 
+									
+									<div class="form-group">
+                                        <label for="protocol" class="col-sm-3 control-label">协议插件</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="protocol">
+                                                <option value="origin">origin</option>
+                                                <option value="verify_simple">verify_simple</option>
+	                                            <option value="verify_deflate">verify_deflate</option>
+                                                <option value="verify_sha1">verify_sha1</option>												
+                                                <option value="auth_simple">auth_simple</option>
+                                                <option value="auth_sha1">auth_sha1</option>
+                                                <option value="auth_sha1_compatible">auth_sha1_compatible</option>
+                                                <option value="auth_sha1_v2">auth_sha1_v2</option> 
+                                                <option value="auth_sha1_v2_compatible">auth_sha1_v2_compatible</option>												
+                                            </select>	
+                                        </div>
+                                    </div>
+									<div class="form-group">
+									    <label class="col-sm-3 control-label" for="protocol_param">自定义协议参数</label>
+										<div class="col-sm-9">
+									        <input class="form-control" id="protocol_param" type="text" value="">
+										</div>
+								    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="obfs">
+										        <option value="plain">plain</option>
+                                                <option value="http_simple">http_simple</option>
+                                                <option value="http_simple_compatible">http_simple_compatible</option>
+						                        <option value="tls_simple">tls_simple</option>
+                                                <option value="random_head">random_head</option>												
+                                                <option value="tls1.0_session_auth">tls1.0_session_auth</option>
+                                                <option value="tls1.0_session_auth_compatible">tls1.0_session_auth_compatible</option>
+                                                <option value="tls1.2_ticket_auth">tls1.2_ticket_auth</option>
+                                                <option value="tls1.2_ticket_auth_compatible">tls1.2_ticket_auth_compatible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+									<div class="form-group">
+									    <label class="col-sm-3 control-label" for="obfs_param">自定义混淆参数</label>
+										<div class="col-sm-9">
+									        <input class="form-control" id="obfs_param" type="text" value="">
+										</div>
+								    </div>
+									
                                     <div class="form-group">
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
 
@@ -176,6 +225,10 @@
                     name: $("#name").val(),
                     server: $("#server").val(),
                     method: $("#method").val(),
+                    protocol: $("#protocol").val(),
+					protocol_param: $("#protocol_param").val(),
+                    obfs: $("#obfs").val(),
+					obfs_param: $("#obfs_param").val(),					
                     custom_method: $("#custom_method").val(),
                     rate: $("#rate").val(),
                     info: $("#info").val(),

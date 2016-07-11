@@ -32,8 +32,8 @@
                             <tr>
                                 <td>#{$node->id}</td>
                                 <td>{$node->name}</td>
-                                <td>{$user->protocol}</td>
-                                <td>{$user->obfs}</td>
+                                <td>{$node->protocol}</td>
+                                <td>{$node->obfs}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
                                 <td>{$node->sort}</td>

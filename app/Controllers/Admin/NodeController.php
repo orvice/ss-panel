@@ -17,7 +17,6 @@ class NodeController extends AdminController
 
     public function create($request, $response, $args)
     {
-		$user = User::find($id);
         return $this->view()->display('admin/node/create.tpl');
     }
 
@@ -28,6 +27,10 @@ class NodeController extends AdminController
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
         $node->method = $request->getParam('method');
+        $node->protocol = $request->getParam('protocol');
+		$node->protocol_param = $request->getParam('protocol_param');
+	    $node->obfs = $request->getParam('obfs');
+        $node->obfs_param = $request->getParam('obfs_param');		
         $node->custom_method = $request->getParam('custom_method');
 		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');
@@ -64,10 +67,10 @@ class NodeController extends AdminController
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
         $node->method = $request->getParam('method');
-        $user->protocol = $request->getParam('protocol');
-		$user->protocol_param = $request->getParam('protocol_param');
-	    $user->obfs = $request->getParam('obfs');
-        $user->obfs_param = $request->getParam('obfs_param');		
+        $node->protocol = $request->getParam('protocol');
+		$node->protocol_param = $request->getParam('protocol_param');
+	    $node->obfs = $request->getParam('obfs');
+        $node->obfs_param = $request->getParam('obfs_param');		
         $node->custom_method = $request->getParam('custom_method');
 		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');

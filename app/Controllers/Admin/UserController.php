@@ -11,6 +11,7 @@ class UserController extends AdminController
 {
     public function index($request, $response, $args)
     {
+		$nodes = Node::all();
         $pageNum = 1;
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
@@ -33,6 +34,7 @@ class UserController extends AdminController
     public function update($request, $response, $args)
     {
         $id = $args['id'];
+		$nodes = Node::all();
         $user = User::find($id);
 
         $user->email = $request->getParam('email');

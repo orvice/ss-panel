@@ -24,6 +24,7 @@ class UserController extends AdminController
     public function edit($request, $response, $args)
     {
         $id = $args['id'];
+		$nodes = Node::all();
 		$node = Node::find($id);
         $user = User::find($id);
         if ($user == null) {

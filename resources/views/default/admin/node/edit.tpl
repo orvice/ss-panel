@@ -139,7 +139,6 @@
                                         </div>
                                     </div>
 									
-									<!-- {if $config['enable_rss']=='true'} -->
 									<div class="form-group">
                                         <label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
 
@@ -149,8 +148,7 @@
                                                 <option value="1" {if $node->custom_rss==0}selected="selected"{/if}>支持</option>
                                             </select>
                                         </div>
-                                    </div>
-							<!-- 		{/if} -->									
+                                    </div>								
 									
                                 </fieldset>
                                 <fieldset class="col-sm-6">

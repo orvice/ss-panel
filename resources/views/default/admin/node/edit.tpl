@@ -217,10 +217,6 @@
                     status: $("#status").val(),
                     sort: $("#sort").val(),
 					custom_rss: $("#custom_rss").val()
-			    //  {if $config['enable_rss']=="true"},
-				//	custom_rss: custom_rss{else},
-				//	custom_rss: 0
-				//  {/if}
                 },
                 success: function (data) {
                     if (data.ret) {

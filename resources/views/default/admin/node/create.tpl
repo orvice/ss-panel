@@ -72,9 +72,9 @@
                                             </select>
                                         </div>
                                     </div>
-									<div class="form-group form-group-label">
-									    <label class="floating-label" for="protocol_param">自定义协议参数</label>
-									    <input class="form-control" id="protocol_param" type="text" value="{$user->protocol_param}">
+									<div class="form-group">
+									    <label class="col-sm-3 control-label" for="protocol_param">自定义协议参数</label>
+									    <input class="form-control" id="protocol_param" type="text" value="">
 								    </div>
 
                                     <div class="form-group">
@@ -95,9 +95,9 @@
                                             </select>
                                         </div>
                                     </div>
-									<div class="form-group form-group-label">
-									    <label class="floating-label" for="obfs_param">自定义混淆参数</label>
-									    <input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}">
+									<div class="form-group">
+									    <label class="col-sm-3 control-label" for="obfs_param">自定义混淆参数</label>
+									    <input class="form-control" id="obfs_param" type="text" value="">
 								    </div>
 
                                     <div class="form-group">

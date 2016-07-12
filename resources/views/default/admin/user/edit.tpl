@@ -308,7 +308,7 @@ function checkProcotol()
   {
      {if $user->protocol == "auth_simple" || $user->protocol == "auth_sha1" || $user->protocol == "auth_sha1_v2"}{ 
   	  document.getElementById("protocol_param").disabled=false
-     }{else} { 
+     } else { 
   	  document.getElementById("protocol_param").disabled=true
      }
   }
@@ -331,7 +331,7 @@ function checkObfs()
   {
      {if $user->obfs == "http_simple" || $user->obfs == "http_post" || $user->obfs == "tls1.2_ticket_auth"}{ 
   	    document.getElementById("obfs_param").disabled=false
-     }{else} { 
+     } else { 
   	  document.getElementById("obfs_param").disabled=true
      }
   }

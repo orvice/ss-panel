@@ -282,7 +282,7 @@ function checkProcotol()
   {
      {if $node->protocol == "auth_simple" || $node->protocol == "auth_sha1" || $node->protocol == "auth_sha1_v2"}{ 
   	  document.getElementById("protocol_param").disabled=false
-     }{else} { 
+     } else { 
   	  document.getElementById("protocol_param").disabled=true
      }
   }
@@ -305,7 +305,7 @@ function checkObfs()
   {
      {if $node->obfs == "http_simple" || $node->obfs == "http_post" || $node->obfs == "tls1.2_ticket_auth"}{ 
   	  document.getElementById("obfs_param").disabled=false
-     }{else} { 
+     } else { 
   	  document.getElementById("obfs_param").disabled=true
      }
   }

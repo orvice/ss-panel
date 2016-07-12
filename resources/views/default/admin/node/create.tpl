@@ -287,6 +287,7 @@ function disprotocolparam()
   	    document.getElementById("protocol_param").disabled=false
      } else { 
   	  document.getElementById("protocol_param").disabled=true
+  	}
   }
 </script> 
 

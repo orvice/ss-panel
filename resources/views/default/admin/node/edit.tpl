@@ -58,7 +58,7 @@
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="protocol">
+                                            <select class="form-control" id="protocol" onchange="disprotocolparam();">
                                                 <option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>origin</option>
                                                 <option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
 	                                            <option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
@@ -74,7 +74,7 @@
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="protocol_param">自定义协议参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" {if $node->protocol !=='auth_simple'||$node->protocol !=='auth_sha1'||$node->protocol !=='auth_sha1_v2'} disabled="disabled"{/if}>
+									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" disabled="disabled">
 										</div>
 								    </div>
                                     
@@ -267,5 +267,15 @@
     })
 </script>
 
+<script type="text/javascript">
+function disprotocolparam()
+  {
+  var protocol = document.getElementById("protocol");
+  if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" protocol.value == "auth_sha1_v2")
+     { document.getElementById("protocol_param").disabled=true}
+  else
+     {document.getElementById("protocol_param").disabled=false}
+  }
+</script> 
 
 {include file='admin/footer.tpl'}

@@ -293,10 +293,10 @@
 function disprotocolparam()
   {
   var protocol = document.getElementById("protocol");
-  if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" protocol.value == "auth_sha1_v2")
-     { document.getElementById("protocol_param").disabled=true}
-  else
-     {document.getElementById("protocol_param").disabled=false}
+  if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
+  	  document.getElementById("protocol_param").disabled=true
+  } else { 
+  	  document.getElementById("protocol_param").disabled=false
   }
 </script> 
 

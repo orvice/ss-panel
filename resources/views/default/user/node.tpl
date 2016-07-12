@@ -58,7 +58,7 @@
                                                        class="pull-right badge bg-aqua">{$user->protocol_param}</span></a></li> -->
                                         <li><a href="./node/{$node->id}">混淆插件 <span
                                                        class="pull-right badge bg-aqua">{$user->obfs}</span></a></li>
-                                        if ($user->obfs=='http_post'||$user->obfs=='http_simple'||$user->obfs=='tls1.2_ticket_auth') {
+                                        {if $user->obfs=='http_post' || $user->obfs=='http_simple' || $user->obfs=='tls1.2_ticket_auth' }{
                                         <li><a href="./node/{$node->id}">混淆参数 <span
                                                        class="pull-right badge bg-aqua">{$user->obfs_param}</span></a></li>
                                         }               

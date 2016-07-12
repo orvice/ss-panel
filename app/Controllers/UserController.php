@@ -21,6 +21,7 @@ class UserController extends BaseController
 {
 
     private $user;
+    private $node;
 
     public function __construct()
     {

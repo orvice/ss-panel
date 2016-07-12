@@ -74,7 +74,7 @@
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="protocol_param">协议参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}">
+									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" {if $node->protocol == "auth_simple" || $node->protocol == "auth_sha1" || $node->protocol == "auth_sha1_v2"} disabled="disabled" {/if}>
 										</div>
 								    </div>
                                     
@@ -100,7 +100,7 @@
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="obfs_param">混淆参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="obfs_param" type="text" value="{$node->obfs_param}" >
+									        <input class="form-control" id="obfs_param" type="text" value="{$node->obfs_param}" {if $node->obfs == "http_simple" || $node->obfs == "http_post" || $node->obfs == "tls1.2_ticket_auth"} disabled="disabled"{/if}>
 										</div>
 								    </div>
 									

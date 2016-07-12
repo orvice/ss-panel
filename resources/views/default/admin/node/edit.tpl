@@ -270,7 +270,7 @@ function disprotocolparam()
   {
   var protocol = document.getElementById("protocol");
      if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
-  	    document.getElementById("protocol_param").disabled=false
+  	  document.getElementById("protocol_param").disabled=false
      } else { 
   	  document.getElementById("protocol_param").disabled=true
      }
@@ -280,10 +280,9 @@ function disprotocolparam()
 <script>
 function checkProcotol()
   {
-  var protocol = document.getElementById("protocol");
-     if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
-  	    document.getElementById("protocol_param").disabled=false
-     } else { 
+     {if $node->protocol == "auth_simple" || $node->protocol == "auth_sha1" || $node->protocol == "auth_sha1_v2"}{ 
+  	  document.getElementById("protocol_param").disabled=false
+     }{else} { 
   	  document.getElementById("protocol_param").disabled=true
      }
   }
@@ -294,7 +293,7 @@ function disobfsparam()
   {
   var protocol = document.getElementById("obfs");
      if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
-  	    document.getElementById("obfs_param").disabled=false
+  	  document.getElementById("obfs_param").disabled=false
      } else { 
   	  document.getElementById("obfs_param").disabled=true
      }
@@ -304,13 +303,11 @@ function disobfsparam()
 <script>
 function checkObfs()
   {
-  var obfs = document.getElementById("obfs");
-     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
-  	    document.getElementById("obfs_param").disabled=false
-     } else { 
+     {if $node->obfs == "http_simple" || $node->obfs == "http_post" || $node->obfs == "tls1.2_ticket_auth"}{ 
+  	  document.getElementById("obfs_param").disabled=false
+     }{else} { 
   	  document.getElementById("obfs_param").disabled=true
      }
   }
-</script>  
-
+</script> 
 {include file='admin/footer.tpl'}

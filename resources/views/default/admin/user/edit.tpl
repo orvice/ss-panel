@@ -306,10 +306,9 @@ function disprotocolparam()
 <script>
 function checkProcotol()
   {
-  var protocol = document.getElementById("protocol");
-     if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
-  	    document.getElementById("protocol_param").disabled=false
-     } else { 
+     {if $user->protocol == "auth_simple" || $user->protocol == "auth_sha1" || $user->protocol == "auth_sha1_v2"}{ 
+  	  document.getElementById("protocol_param").disabled=false
+     }{else} { 
   	  document.getElementById("protocol_param").disabled=true
      }
   }
@@ -330,10 +329,9 @@ function disobfsparam()
 <script>
 function checkObfs()
   {
-  var obfs = document.getElementById("obfs");
-     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
+     {if $user->obfs == "http_simple" || $user->obfs == "http_post" || $user->obfs == "tls1.2_ticket_auth"}{ 
   	    document.getElementById("obfs_param").disabled=false
-     } else { 
+     }{else} { 
   	  document.getElementById("obfs_param").disabled=true
      }
   }

@@ -59,16 +59,17 @@
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="protocol" onchange="disprotocolparam();" onload="checkProtocol()">
-                                                <option value="origin">origin</option>
-                                                <option value="verify_simple">verify_simple</option>
+                                            <select class="form-control" id="protocol" onchange="disprotocolparam();">
+                                            	<option value=""></option>
+                                              <option value="origin">origin</option>
+                                              <option value="verify_simple">verify_simple</option>
 	                                            <option value="verify_deflate">verify_deflate</option>
-                                                <option value="verify_sha1">verify_sha1</option>												
-                                                <option value="auth_simple">auth_simple</option>
-                                                <option value="auth_sha1">auth_sha1</option>
-                                                <option value="auth_sha1_compatible">auth_sha1_compatible</option>
-                                                <option value="auth_sha1_v2">auth_sha1_v2</option> 
-                                                <option value="auth_sha1_v2_compatible">auth_sha1_v2_compatible</option>												
+                                              <option value="verify_sha1">verify_sha1</option>												
+                                              <option value="auth_simple">auth_simple</option>
+                                              <option value="auth_sha1">auth_sha1</option>
+                                              <option value="auth_sha1_compatible">auth_sha1_compatible</option>
+                                              <option value="auth_sha1_v2">auth_sha1_v2</option> 
+                                              <option value="auth_sha1_v2_compatible">auth_sha1_v2_compatible</option>												
                                             </select>	
                                         </div>
                                     </div>
@@ -84,7 +85,8 @@
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="obfs" onchange="disobfsparam();" onload="checkObfs()">
+                                            <select class="form-control" id="obfs" onchange="disobfsparam();">
+                                            	<option value=""></option>
 										        <option value="plain">plain</option>
 										        <option value="http_post">http_post</option>
                                                 <option value="http_post_compatible">http_post_compatible</option>
@@ -289,18 +291,6 @@ function disprotocolparam()
 </script> 
 
 <script>
-function checkProcotol()
-  {
-  var protocol = document.getElementById("protocol");
-     if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
-  	    document.getElementById("protocol_param").disabled=false
-     } else { 
-  	  document.getElementById("protocol_param").disabled=true
-     }
-  }
-</script> 
-
-<script>
 function disobfsparam()
   {
   var protocol = document.getElementById("obfs");
@@ -312,15 +302,4 @@ function disobfsparam()
   }
 </script> 
 
-<script>
-function checkObfs()
-  {
-  var obfs = document.getElementById("obfs");
-     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
-  	    document.getElementById("obfs_param").disabled=false
-     } else { 
-  	  document.getElementById("obfs_param").disabled=true
-     }
-  }
-</script> 
 {include file='admin/footer.tpl'}

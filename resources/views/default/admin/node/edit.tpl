@@ -272,9 +272,9 @@ function disprotocolparam()
   {
   var protocol = document.getElementById("protocol");
      if (protocol.value == "auth_simple" || protocol.value == "auth_sha1" || protocol.value == "auth_sha1_v2"){ 
-  	    document.getElementById("protocol_param").disabled=true
+  	    document.getElementById("protocol_param").disabled=false
      } else { 
-  	  document.getElementById("protocol_param").disabled=false
+  	  document.getElementById("protocol_param").disabled=true
      }
   }
 </script> 

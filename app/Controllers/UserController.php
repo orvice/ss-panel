@@ -40,6 +40,7 @@ class UserController extends BaseController
             $msg = "在后台修改用户中心公告...";
         }
         
+        $nodes = Node::all();
     		$android_add="";
 	    	foreach($nodes as $node)
 	    	{

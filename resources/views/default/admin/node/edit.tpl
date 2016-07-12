@@ -58,7 +58,7 @@
                                         <label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="protocol" onchange="disprotocolparam();" onload="checkProtocol()">
+                                            <select class="form-control" id="protocol" onchange="disprotocolparam();">
                                                 <option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>origin</option>
                                                 <option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
 	                                            <option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
@@ -82,7 +82,7 @@
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="obfs" onchange="disobfsparam();" onload="checkObfs()">
+                                            <select class="form-control" id="obfs" onchange="disobfsparam();">
                                                 <option value="plain" {if $node->obfs=="plain"}selected="selected"{/if}>plain</option>
                                                 <option value="http_post" {if $node->obfs=="http_post"}selected="selected"{/if}>http_post</option>
                                                 <option value="http_post_compatible" {if $node->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
@@ -277,7 +277,7 @@ function disprotocolparam()
   }
 </script> 
 
-<script>
+<!--<script>
 function checkProcotol()
   {
      {if $node->protocol == "auth_simple" || $node->protocol == "auth_sha1" || $node->protocol == "auth_sha1_v2"}{ 
@@ -286,7 +286,7 @@ function checkProcotol()
   	  document.getElementById("protocol_param").disabled=true
      }{/if}
   }
-</script>
+</script>-->
 
 <script>
 function disobfsparam()
@@ -300,7 +300,7 @@ function disobfsparam()
   }
 </script> 
 
-<script>
+<!--<script>
 function checkObfs()
   {
      {if $node->obfs == "http_simple" || $node->obfs == "http_post" || $node->obfs == "tls1.2_ticket_auth"}{ 
@@ -309,5 +309,5 @@ function checkObfs()
   	  document.getElementById("obfs_param").disabled=true
      }{/if}
   }
-</script> 
+</script> -->
 {include file='admin/footer.tpl'}

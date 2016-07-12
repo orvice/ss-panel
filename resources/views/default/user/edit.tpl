@@ -91,7 +91,7 @@
                     <div class="box-header">
                         <i class="fa fa-link"></i>
 
-                        <h3 class="box-title">Shadowsocks连接信息修改</h3>
+                        <h3 class="box-title">ShadowsocksR连接信息修改</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

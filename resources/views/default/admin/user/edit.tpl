@@ -132,8 +132,10 @@
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="obfs">
+                                            <select class="form-control" id="obfs" onchange="disobfsparam();" onload="checkObfs()">
                                                 <option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
+                                                <option value="http_post" {if $user->obfs=="http_post"}selected="selected"{/if}>http_post</option>
+                                                <option value="http_post_compatible" {if $user->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
                                                 <option value="http_simple" {if $user->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
                                                 <option value="http_simple_compatible" {if $user->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
 						                                    <option value="tls_simple" {if $user->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
@@ -313,4 +315,27 @@ function checkProcotol()
   }
 </script>  
 
+<script>
+function disobfsparam()
+  {
+  var protocol = document.getElementById("obfs");
+     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
+  	    document.getElementById("obfs_param").disabled=false
+     } else { 
+  	  document.getElementById("obfs_param").disabled=true
+     }
+  }
+</script> 
+
+<script>
+function checkObfs()
+  {
+  var obfs = document.getElementById("obfs");
+     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
+  	    document.getElementById("obfs_param").disabled=false
+     } else { 
+  	  document.getElementById("obfs_param").disabled=true
+     }
+  }
+</script> 
 {include file='admin/footer.tpl'}

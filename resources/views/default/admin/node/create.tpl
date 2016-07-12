@@ -84,7 +84,7 @@
                                         <label for="obfs" class="col-sm-3 control-label">混淆插件</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="obfs">
+                                            <select class="form-control" id="obfs" onchange="disobfsparam();" onload="checkObfs()">
 										        <option value="plain">plain</option>
 										        <option value="http_post">http_post</option>
                                                 <option value="http_post_compatible">http_post_compatible</option>
@@ -277,7 +277,7 @@
     })
 </script>
 
-<script type="text/javascript">
+<script>
 function disprotocolparam()
   {
   var protocol = document.getElementById("protocol");
@@ -300,4 +300,27 @@ function checkProcotol()
   }
 </script> 
 
+<script>
+function disobfsparam()
+  {
+  var protocol = document.getElementById("obfs");
+     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
+  	    document.getElementById("obfs_param").disabled=false
+     } else { 
+  	  document.getElementById("obfs_param").disabled=true
+     }
+  }
+</script> 
+
+<script>
+function checkObfs()
+  {
+  var obfs = document.getElementById("obfs");
+     if (obfs.value == "http_simple" || obfs.value == "http_post" || obfs.value == "tls1.2_ticket_auth"){ 
+  	    document.getElementById("obfs_param").disabled=false
+     } else { 
+  	  document.getElementById("obfs_param").disabled=true
+     }
+  }
+</script> 
 {include file='admin/footer.tpl'}

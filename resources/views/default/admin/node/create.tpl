@@ -72,10 +72,11 @@
                                             </select>	
                                         </div>
                                     </div>
+                                    
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="protocol_param">自定义协议参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="protocol_param" type="text" value="">
+									        <input class="form-control" id="protocol_param" type="text" value="" {if $this->user->protocol !=='auth_simple'||$this->user->protocol !=='auth_sha1'||$this->user->protocol !=='auth_sha1_v2'} disabled="disabled"{/if} >
 										</div>
 								    </div>
                                     
@@ -85,6 +86,8 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" id="obfs">
 										        <option value="plain">plain</option>
+										        <option value="http_post">http_post</option>
+                                                <option value="http_post_compatible">http_post_compatible</option>
                                                 <option value="http_simple">http_simple</option>
                                                 <option value="http_simple_compatible">http_simple_compatible</option>
 						                        <option value="tls_simple">tls_simple</option>

@@ -103,7 +103,7 @@ class UserController extends BaseController
         }
         $ary['protocol'] = $this->user->protocol;
         $ary['obfs'] = $this->user->obfs;
-        if ($this->user->obfs=='plain'||$this->user->obfs=='random_head'||$this->user->obfs=='tls1.0_session_auth'||$this->user->obfs=='http_simple_compatible'||$this->user->obfs=='tls1.0_session_auth_compatible'||$this->user->obfs=='tls1.2_ticket_auth_compatible') {
+        if ($this->user->obfs=='http_post'||$this->user->obfs=='http_simple'||$this->user->obfs=='tls1.2_ticket_auth') {
         $ary['obfs_param'] = $this->user->obfs_param;
         }	
         $json = json_encode($ary);

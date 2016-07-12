@@ -74,7 +74,7 @@
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="protocol_param">协议参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" {if $node->protocol not "auth_simple" || $node->protocol not "auth_sha1" || $node->protocol not "auth_sha1_v2"} disabled="disabled" {/if}>
+									        <input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" {if $node->protocol !== "auth_simple" || $node->protocol !== "auth_sha1" || $node->protocol !== "auth_sha1_v2"} disabled="disabled" {/if}>
 										</div>
 								    </div>
                                     

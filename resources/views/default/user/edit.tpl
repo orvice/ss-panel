@@ -109,6 +109,58 @@
                                 </div>
                             </div>
 
+                           <div class="form-group">
+                              <label class="col-sm-3 control-label">协议插件</label>
+
+                              <div class="col-sm-9">
+                              	<div class="input-group">
+                              		<div style="width:380px">
+                                     <select class="form-control" id="obfs" onchange="disobfsparam();">
+                                         <option value="origin" {if $user->protocol=="origin"}selected="selected"{/if}>origin</option>
+                                         <option value="verify_simple" {if $user->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
+	                                       <option value="verify_deflate" {if $user->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
+                                         <option value="verify_sha1" {if $user->protocol=="verify_sha1"}selected="selected"{/if}>verify_sha1</option>												
+                                         <option value="auth_simple" {if $user->protocol=="auth_simple"}selected="selected"{/if}>auth_simple</option>
+                                         <option value="auth_sha1" {if $user->protocol=="auth_sha1"}selected="selected"{/if}>auth_sha1</option>
+                                         <option value="auth_sha1_compatible" {if $user->protocol=="auth_sha1_compatible"}selected="selected"{/if}>auth_sha1_compatible</option>
+                                         <option value="auth_sha1_v2" {if $user->protocol=="auth_sha1_v2"}selected="selected"{/if}>auth_sha1_v2</option> 
+                                         <option value="auth_sha1_v2_compatible" {if $user->protocol=="auth_sha1_v2_compatible"}selected="selected"{/if}>auth_sha1_v2_compatible</option>									
+                                     </select>
+                                  </div>
+                                  <div class="input-group-btn">
+                                     <button type="submit" id="method-update" class="btn btn-primary">修改</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                                                               
+                           <div class="form-group">
+                              <label class="col-sm-3 control-label">混淆插件</label>
+
+                              <div class="col-sm-9">
+                              	<div class="input-group">
+                              		<div style="width:380px">
+                                     <select class="form-control" id="obfs" onchange="disobfsparam();">
+                                         <option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
+                                         <option value="http_post" {if $user->obfs=="http_post"}selected="selected"{/if}>http_post</option>
+                                         <option value="http_post_compatible" {if $user->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
+                                         <option value="http_simple" {if $user->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
+                                         <option value="http_simple_compatible" {if $user->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
+						                             <option value="tls_simple" {if $user->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
+                                         <option value="random_head" {if $user->obfs=="random_head"}selected="selected"{/if}>random_head</option>												
+                                         <option value="tls1.0_session_auth" {if $user->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
+                                         <option value="tls1.0_session_auth_compatible" {if $user->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
+                                         <option value="tls1.2_ticket_auth" {if $user->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
+                                         <option value="tls1.2_ticket_auth_compatible" {if $user->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>										
+                                     </select>
+                                  </div>
+                                  <div class="input-group-btn">
+                                     <button type="submit" id="method-update" class="btn btn-primary">修改</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          
                           <div class="form-group">
                                 <label class="col-sm-3 control-label">加密方法</label>
             

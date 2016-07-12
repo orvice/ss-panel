@@ -14,6 +14,7 @@ class User extends Model
 
 {
     protected $table = "user";
+    protected $table = "ss_node";
 
     public $isLogin;
 

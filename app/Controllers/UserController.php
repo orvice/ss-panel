@@ -214,6 +214,7 @@ class UserController extends BaseController
 
     public function updateMethod($request, $response, $args)
     {
+    	  $nodes = Node::all();
         $user = Auth::getUser();
         $method = $request->getParam('method');
         $method = strtolower($method);

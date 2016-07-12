@@ -76,7 +76,7 @@
 									<div class="form-group">
 									    <label class="col-sm-3 control-label" for="protocol_param">自定义协议参数</label>
 										<div class="col-sm-9">
-									        <input class="form-control" id="protocol_param" type="text" value="" {if $this->user->protocol !=='auth_simple'||$this->user->protocol !=='auth_sha1'||$this->user->protocol !=='auth_sha1_v2'} disabled="disabled"{/if} >
+									        <input class="form-control" id="protocol_param" type="text" value="" {if protocol !=='auth_simple'||protocol !=='auth_sha1'||protocol !=='auth_sha1_v2'} disabled="disabled"{/if} >
 										</div>
 								    </div>
                                     

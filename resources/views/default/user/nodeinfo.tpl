@@ -40,7 +40,8 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <input id="ss-qr-text" class="form-control" value="{$ssqr}">
+                        <input id="ss-qr-text" class="form-control" value="{$ssqr_s}">
+                        <a href="{$ssqr}"/>Android 手机上用默认浏览器打开点我就可以直接添加了</a>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -122,7 +123,7 @@
         <!-- END PROGRESS BARS -->
         <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
         <script>
-            var text_qrcode = jQuery('#ss-qr-text').val();
+            var text_qrcode = '{$ssqr_s}';
             jQuery('#ss-qr').qrcode({
                 "text": text_qrcode
             });

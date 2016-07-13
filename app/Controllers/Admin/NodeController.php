@@ -78,7 +78,7 @@ class NodeController extends AdminController
 			$node->type = $request->getParam('type');
 			$node->status = $request->getParam('status');
 			$node->sort = $request->getParam('sort');
-			if (!$node->save()) {
+			if (!($node->save() && $user->save())) {
 				$rs['ret'] = 0;
 				$rs['msg'] = "修改失败";
 

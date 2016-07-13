@@ -86,6 +86,12 @@ class User extends Model
         $this->save();
     }
     
+    public function updateCustomMethod($custom_method)
+    {
+        $this->custom_method = $custom_method;
+        $this->save();
+    }    
+    
     public function updateProtocol($protocol)
     {
         $this->protocol = $protocol;

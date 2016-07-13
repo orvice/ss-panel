@@ -42,14 +42,14 @@
 											<div class="row">
 												<fieldset class="col-sm-6">
 													<legend>帐号信息</legend>
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">邮箱</label>
 
 														<div class="col-sm-9">
 															<input class="form-control" id="email" type="email" value="{$user->email}">
 														</div>
 													</div>
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">密码</label>
 
 														<div class="col-sm-9">
@@ -57,7 +57,7 @@
 														</div>
 													</div>
 
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">是否管理员</label>
 
 														<div class="col-sm-9">
@@ -73,7 +73,7 @@
 													</div>
 
 
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">用户状态</label>
 
 														<div class="col-sm-9">
@@ -93,7 +93,7 @@
 											<div class="row">
 												<fieldset class="col-sm-6">
 													<legend>流量</legend>
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">总流量</label>
 
 														<div class="col-sm-9">
@@ -104,7 +104,7 @@
 														</div>
 													</div>
 
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">已用流量</label>
 
 														<div class="col-sm-9">
@@ -116,7 +116,7 @@
 											<div class="row">
 												<fieldset class="col-sm-6">
 													<legend>邀请</legend>
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">可用邀请数量</label>
 
 														<div class="col-sm-9">
@@ -124,7 +124,7 @@
 														</div>
 													</div>
 
-													<div class="form-group" style="width:120px;">
+													<div class="form-group" style="width:120px;white-space:nowrap;">
 														<label class="col-sm-3 control-label">邀请人ID</label>
 
 														<div class="col-sm-9">

@@ -131,8 +131,8 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="custom_method">
-                                                <option value="0" {if $user->custom_method==0}selected="selected"{/if}>不支持</option>
-                                                <option value="1" {if $user->custom_method==1}selected="selected"{/if}>支持</option>
+                                                <option value="0" {if $node->custom_method==0}selected="selected"{/if}>不支持</option>
+                                                <option value="1" {if $node->custom_method==1}selected="selected"{/if}>支持</option>
                                             </select>
                                         </div>
                                     </div>

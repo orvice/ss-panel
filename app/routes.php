@@ -93,7 +93,6 @@ $app->group('/admin', function () {
     $this->post('/node', 'App\Controllers\Admin\NodeController:add');
     $this->get('/node/{id}/edit', 'App\Controllers\Admin\NodeController:edit');
     $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update');
-    $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update1');
     $this->delete('/node/{id}', 'App\Controllers\Admin\NodeController:delete');
     $this->get('/node/{id}/delete', 'App\Controllers\Admin\NodeController:deleteGet');
 

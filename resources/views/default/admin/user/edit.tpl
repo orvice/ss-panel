@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" style="width:110px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">
                                         <label class="col-sm-3 control-label">是否管理员</label>
 
                                         <div class="col-sm-9">

@@ -84,6 +84,54 @@
                                     </div>
 
                                 </fieldset>
+                            </div>    
+                            <div class="row">
+                                <fieldset class="col-sm-6">
+                                    <legend>流量</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">总流量</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input class="form-control" id="transfer_enable" type="number" value="{$user->enableTrafficInGB()}">
+                                                <div class="input-group-addon">GiB</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">已用流量</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="traffic_usage" type="text" value="{$user->usedTraffic()}" readonly>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>    
+                            <div class="row">    
+                                <fieldset class="col-sm-6">
+                                    <legend>邀请</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">可用邀请数量</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="invite_num" type="number" value="{$user->invite_num}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">邀请人ID</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="ref_by" type="number"
+                                                   value="{$user->ref_by}" readonly>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            
+                            <div class="row">    
                                 <fieldset class="col-sm-6">
                                     <legend>ShadowSocks连接信息</legend>
                                     <div class="form-group">
@@ -194,51 +242,7 @@
                                 </fieldset>
                             </div>
                             
-                            <div class="row">
-                                <fieldset class="col-sm-6">
-                                    <legend>流量</legend>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">总流量</label>
 
-                                        <div class="col-sm-9">
-                                            <div class="input-group">
-                                                <input class="form-control" id="transfer_enable" type="number" value="{$user->enableTrafficInGB()}">
-                                                <div class="input-group-addon">GiB</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">已用流量</label>
-
-                                        <div class="col-sm-9">
-                                            <input class="form-control" id="traffic_usage" type="text" value="{$user->usedTraffic()}" readonly>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>    
-                            <div class="row">    
-                                <fieldset class="col-sm-6">
-                                    <legend>邀请</legend>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">可用邀请数量</label>
-
-                                        <div class="col-sm-9">
-                                            <input class="form-control" id="invite_num" type="number" value="{$user->invite_num}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">邀请人ID</label>
-
-                                        <div class="col-sm-9">
-                                            <input class="form-control" id="ref_by" type="number"
-                                                   value="{$user->ref_by}" readonly>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
                         </div>
                     </div>
                     <!-- /.box-body -->

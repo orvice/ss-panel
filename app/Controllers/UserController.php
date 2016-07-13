@@ -137,8 +137,9 @@ class UserController extends BaseController
     }
 
     public function edit($request, $response, $args)
-    {
-        return $this->view()->display('user/edit.tpl');
+    {    	 
+        $nodes = Node::where('type', 1)->orderBy('sort')->get();
+        return $this->view()->assign('nodes', $nodes)->display('user/edit.tpl');
     }
 
 

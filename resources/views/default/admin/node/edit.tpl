@@ -60,7 +60,7 @@
 												</div>
 											</div>
 
-											<div class="form-group">
+<!--											<div class="form-group">
 												<label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
 
@@ -112,7 +112,7 @@
 												<div class="col-sm-9">
 													<input class="form-control" id="obfs_param" type="text" value="{$node->obfs_param}" {if $node->obfs != "http_simple" && $node->obfs != "http_post" && $node->obfs != "tls1.2_ticket_auth"} disabled="disabled"{/if}>
 												</div>
-											</div>
+											</div>-->
 
 											<div class="form-group">
 												<label for="method" class="col-sm-3 control-label">加密方式</label>
@@ -138,7 +138,7 @@
 
 											</div>
 
-											<div class="form-group">
+<!--											<div class="form-group">
 												<label for="method" class="col-sm-3 control-label">自定义加密</label>
 
 
@@ -164,7 +164,7 @@
 
 														</select>
 													</div>
-												</div>
+												</div>-->
 
 											</fieldset>
 											<fieldset class="col-sm-6">
@@ -243,18 +243,18 @@
 								data: {
 									name: $("#name").val(),
 									server: $("#server").val(),
-									protocol: $("#protocol").val(),
+/*									protocol: $("#protocol").val(),
 									protocol_param: $("#protocol_param").val(),
 									obfs: $("#obfs").val(),
-									obfs_param: $("#obfs_param").val(),
+									obfs_param: $("#obfs_param").val(),*/
 									method: $("#method").val(),
-									custom_method: $("#custom_method").val(),
+/*									custom_method: $("#custom_method").val(),
+									custom_rss: $("#custom_rss").val(),		*/							
 									rate: $("#rate").val(),
 									info: $("#info").val(),
 									type: $("#type").val(),
 									status: $("#status").val(),
-									sort: $("#sort").val(),
-									custom_rss: $("#custom_rss").val()
+									sort: $("#sort").val()
 								},
 								success: function (data) {
 									if (data.ret) {
@@ -294,7 +294,7 @@
 					})
 				</script>
 
-				<script>
+				<!--<script>
 					function disprotocolparam()
 					{
 						var protocol = document.getElementById("protocol");
@@ -304,7 +304,7 @@
 							document.getElementById("protocol_param").disabled=true
 						}
 					}
-				</script>
+				</script>-->
 
 				<!--<script>
 				function checkProcotol()
@@ -317,7 +317,7 @@
 				}
 				</script>-->
 
-				<script>
+				<!--<script>
 					function disobfsparam()
 					{
 						var protocol = document.getElementById("obfs");
@@ -327,7 +327,7 @@
 							document.getElementById("obfs_param").disabled=true
 						}
 					}
-				</script>
+				</script>-->
 
 				<!--<script>
 				function checkObfs()

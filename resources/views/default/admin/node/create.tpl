@@ -61,7 +61,7 @@
 											</div>
 
 
-											<div class="form-group">
+<!--											<div class="form-group">
 												<label for="protocol" class="col-sm-3 control-label">协议插件</label>
 
 
@@ -116,7 +116,7 @@
 												<div class="col-sm-9">
 													<input class="form-control" id="obfs_param" type="text" value="">
 												</div>
-											</div>
+											</div>-->
 
 											<div class="form-group">
 												<label for="method" class="col-sm-3 control-label">加密方式</label>
@@ -143,7 +143,7 @@
 
 											</div>
 
-											<div class="form-group">
+<!--											<div class="form-group">
 												<label for="method" class="col-sm-3 control-label">自定义加密</label>
 
 
@@ -164,7 +164,6 @@
 											<div class="form-group">
 												<label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
 
-
 													<div class="col-sm-9">
 														<select class="form-control" id="custom_rss">
 															<option value="0" selected="selected">
@@ -177,7 +176,7 @@
 															</option>
 														</select>
 													</div>
-												</div>
+												</div>-->
 
 											</fieldset>
 											<fieldset class="col-sm-6">

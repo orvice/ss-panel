@@ -40,7 +40,7 @@
 									<div class="row">
 										<fieldset class="col-sm-6">
 											<div class="row">
-												<fieldset class="col-sm-6">
+												<fieldset class="col-sm-6" style=" width:400px">
 													<legend>帐号信息</legend>
 													<div class="form-group">
 														<label class="col-sm-3 control-label">邮箱</label>
@@ -91,7 +91,7 @@
 												</fieldset>
 											</div>
 											<div class="row">
-												<fieldset class="col-sm-6">
+												<fieldset class="col-sm-6"  style=" width:400px">
 													<legend>流量</legend>
 													<div class="form-group">
 														<label class="col-sm-3 control-label">总流量</label>
@@ -114,7 +114,7 @@
 												</fieldset>
 											</div>
 											<div class="row">
-												<fieldset class="col-sm-6">
+												<fieldset class="col-sm-6" style=" width:400px">
 													<legend>邀请</legend>
 													<div class="form-group">
 														<label class="col-sm-3 control-label">可用邀请数量</label>

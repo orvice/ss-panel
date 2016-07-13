@@ -138,10 +138,12 @@ class UserController extends BaseController
 
     public function edit($request, $response, $args)
     {   
-    	  $user = Auth::getUser(); 
+    $user = Auth::getUser();	
         $id = $args['id'];
         $node = Node::find($id);
-        if ($node == null){
+
+        if ($node == null) {
+
         }
         return $this->view()->assign('node', $node)->display('user/edit.tpl');
     }

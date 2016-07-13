@@ -43,22 +43,17 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">邮箱</label>
 
-                                        <div class="col-sm-9">
                                             <input class="form-control" id="email" type="email" value="{$user->email}">
-                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">密码</label>
 
-                                        <div class="col-sm-9">
                                             <input class="form-control" id="pass" value="" placeholder="不修改时留空">
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">是否管理员</label>
 
-                                        <div class="col-sm-9">
                                             <select class="form-control" id="is_admin">
                                                 <option value="0" {if $user->is_admin==0}selected="selected"{/if}>
                                                     否
@@ -67,22 +62,21 @@
                                                     是
                                                 </option>
                                             </select>
-                                        </div>
                                     </div>
 
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">用户状态</label>
 
-                                        <div class="col-sm-9"><select class="form-control" id="enable">
+                                        <select class="form-control" id="enable">
                                                 <option value="1" {if $user->enable==1}selected="selected"{/if}>
                                                     正常
                                                 </option>
                                                 <option value="0" {if $user->enable==0}selected="selected"{/if}>
                                                     禁用
                                                 </option>
-                                            </select>
-                                        </div>
+                                        </select>
+                                        
                                     </div>
 
                                 </fieldset>
@@ -93,21 +87,17 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">总流量</label>
 
-                                        <div class="col-sm-9">
                                             <div class="input-group">
                                                 <input class="form-control" id="transfer_enable" type="number" value="{$user->enableTrafficInGB()}">
                                                 <div class="input-group-addon">GiB</div>
                                             </div>
-                                        </div>
                                     </div>
 
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">已用流量</label>
 
-                                        <div class="col-sm-9">
                                             <input class="form-control" id="traffic_usage" type="text" value="{$user->usedTraffic()}" readonly>
-                                        </div>
                                     </div>
                                 </fieldset>
                             </div>    
@@ -116,25 +106,20 @@
                                     <legend>邀请</legend>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">可用邀请数量</label>
-
-                                        <div class="col-sm-9">
+                                        
                                             <input class="form-control" id="invite_num" type="number" value="{$user->invite_num}">
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">邀请人ID</label>
 
-                                        <div class="col-sm-9">
-                                            <input class="form-control" id="ref_by" type="number"
-                                                   value="{$user->ref_by}" readonly>
-                                        </div>
+                                            <input class="form-control" id="ref_by" type="number" value="{$user->ref_by}" readonly>
                                     </div>
                                 </fieldset>
                             </div>
                           </fieldset>
   
-                                <fieldset class="col-sm-6">
+                          <fieldset class="col-sm-6">
                                     <legend>ShadowSocksR连接信息</legend>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">连接端口</label>

@@ -137,7 +137,8 @@ class UserController extends BaseController
     }
 
     public function edit($request, $response, $args)
-    {    
+    {   
+    	  $user = Auth::getUser(); 
         $id = $args['id'];
         $node = Node::find($id);
         if ($node == null){

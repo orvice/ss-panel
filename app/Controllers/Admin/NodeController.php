@@ -11,7 +11,6 @@ class NodeController extends AdminController
     public function index($request, $response, $args)
     {
         $nodes = Node::all();
-		$user = User::all();
         return $this->view()->assign('nodes', $nodes)->display('admin/node/index.tpl');
     }
 
@@ -71,7 +70,7 @@ class NodeController extends AdminController
 		$node->protocol_param = $request->getParam('protocol_param');
 	    $node->obfs = $request->getParam('obfs');
         $node->obfs_param = $request->getParam('obfs_param');		
-        $user->custom_method = $request->getParam('custom_method');
+        $node->custom_method = $request->getParam('custom_method');
 		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');
         $node->info = $request->getParam('info');
@@ -87,7 +86,21 @@ class NodeController extends AdminController
         $rs['msg'] = "修改成功";
         return $response->getBody()->write(json_encode($rs));
     }
+    public function update($request, $response, $args)
+    {
+        $id = $args['id'];
+		    $user = User::find($id);	
+        $user->custom_method = $request->getParam('custom_method');
 
+        if (!$user->save()) {
+            $rs['ret'] = 0;
+            $rs['msg'] = "修改失败";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = "修改成功";
+        return $response->getBody()->write(json_encode($rs));
+    }
 
     public function delete($request, $response, $args)
     {

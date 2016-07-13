@@ -63,7 +63,7 @@
                                                        class="pull-right badge bg-aqua">{$user->obfs_param}</span></a></li>
                                         {/if}               
                                         <li><a href="./node/{$node->id}">加密方式 <span
-                                                        class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a></li>
+                                                        class="pull-right badge bg-green">{if $user->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a></li>
                                         <li><a href="./node/{$node->id}">负载: <span
                                                         class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a></li>
                                     </ul>

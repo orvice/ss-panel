@@ -217,6 +217,8 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                            </div>    
+                            <div class="row">    
                                 <fieldset class="col-sm-6">
                                     <legend>邀请</legend>
                                     <div class="form-group">

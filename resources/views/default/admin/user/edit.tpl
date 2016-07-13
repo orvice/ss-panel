@@ -38,7 +38,7 @@
 							<div class="box-body">
 								<div class="form-horizontal">
 									<div class="row">
-										<fieldset class="col-sm-6">
+										<fieldset class="col-sm-6" style=" width:430px">
 											<div class="row">
 												<fieldset class="col-sm-6" style=" width:420px">
 													<legend>帐号信息</legend>
@@ -136,7 +136,7 @@
 											</div>
 										</fieldset>
 
-										<fieldset class="col-sm-6">
+										<fieldset class="col-sm-6" style=" width:400px">
 											<legend>ShadowSocksR连接信息</legend>
 											<div class="form-group">
 												<label class="col-sm-3 control-label">连接端口</label>

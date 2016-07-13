@@ -36,7 +36,8 @@
                     <div class="box-body">
                         <div class="form-horizontal">
                         	<fieldset class="col-sm-6">
-                            <div class="row">
+                        		<div class="row">
+                              <div class="row">
                                 <fieldset class="col-sm-6">
                                     <legend>帐号信息</legend>
                                     <div class="form-group">
@@ -85,8 +86,8 @@
                                     </div>
 
                                 </fieldset>
-                            </div>    
-                            <div class="row">
+                              </div>    
+                              <div class="row">
                                 <fieldset class="col-sm-6">
                                     <legend>流量</legend>
                                     <div class="form-group">
@@ -109,8 +110,8 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                            </div>    
-                            <div class="row">    
+                              </div>    
+                              <div class="row">    
                                 <fieldset class="col-sm-6">
                                     <legend>邀请</legend>
                                     <div class="form-group">
@@ -130,10 +131,11 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                            </div>
-                          </fieldset>    
-                          <fieldset class="col-sm-6">    
-                            <div class="row">    
+                              </div>
+                             </div>
+                            </fieldset>    
+                            <fieldset class="col-sm-6">    
+                              <div class="row">    
                                 <fieldset class="col-sm-6">
                                     <legend>ShadowSocks连接信息</legend>
                                     <div class="form-group">
@@ -242,8 +244,8 @@
                                     </div>	
                                     																
                                 </fieldset>
-                            </div>
-                          </fieldset>    
+                              </div>
+                            </fieldset>    
 
                         </div>
                     </div>

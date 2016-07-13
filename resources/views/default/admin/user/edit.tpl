@@ -5,7 +5,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			ÓÃ»§±à¼­ #{$user->id}
+			ç”¨æˆ·ç¼–è¾‘ #{$user->id}
 			<small>Edit User</small>
 		</h1>
 	</section>
@@ -17,14 +17,14 @@
 				<div id="msg-success" class="alert alert-success alert-dismissable" style="display: none;">
 					<button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
 					<h4>
-					<i class="icon fa fa-info"></i> ³É¹¦!</h4>
+					<i class="icon fa fa-info"></i> æˆåŠŸ!</h4>
 
 						<p id="msg-success-p"></p>
 					</div>
 					<div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
 						<button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
 						<h4>
-						<i class="icon fa fa-warning"></i> ³ö´íÁË!</h4>
+						<i class="icon fa fa-warning"></i> å‡ºé”™äº†!</h4>
 
 							<p id="msg-error-p"></p>
 						</div>
@@ -41,32 +41,32 @@
 										<fieldset class="col-sm-6">
 											<div class="row">
 												<fieldset class="col-sm-6">
-													<legend>ÕÊºÅÐÅÏ¢</legend>
+													<legend>å¸å·ä¿¡æ¯</legend>
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÓÊÏä</label>
+														<label class="col-sm-3 control-label">é‚®ç®±</label>
 
 														<div class="col-sm-9">
 															<input class="form-control" id="email" type="email" value="{$user->email}">
 														</div>
 													</div>
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÃÜÂë</label>
+														<label class="col-sm-3 control-label">å¯†ç </label>
 
 														<div class="col-sm-9">
-															<input class="form-control" id="pass" value="" placeholder="²»ÐÞ¸ÄÊ±Áô¿Õ">
+															<input class="form-control" id="pass" value="" placeholder="ä¸ä¿®æ”¹æ—¶ç•™ç©º">
 														</div>
 													</div>
 
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÊÇ·ñ¹ÜÀíÔ±</label>
+														<label class="col-sm-3 control-label">æ˜¯å¦ç®¡ç†å‘˜</label>
 
 														<div class="col-sm-9">
 															<select class="form-control" id="is_admin">
 																<option value="0" {if $user->is_admin==0}selected="selected"{/if}>
-																	·ñ
+																	å¦
 																</option>
 																<option value="1" {if $user->is_admin==1}selected="selected"{/if}>
-																	ÊÇ
+																	æ˜¯
 																</option>
 															</select>
 														</div>
@@ -74,15 +74,15 @@
 
 
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÓÃ»§×´Ì¬</label>
+														<label class="col-sm-3 control-label">ç”¨æˆ·çŠ¶æ€</label>
 
 														<div class="col-sm-9">
 															<select class="form-control" id="enable">
 																<option value="1" {if $user->enable==1}selected="selected"{/if}>
-																	Õý³£
+																	æ­£å¸¸
 																</option>
 																<option value="0" {if $user->enable==0}selected="selected"{/if}>
-																	½ûÓÃ
+																	ç¦ç”¨
 																</option>
 															</select>
 														</div>
@@ -92,9 +92,9 @@
 											</div>
 											<div class="row">
 												<fieldset class="col-sm-6">
-													<legend>Á÷Á¿</legend>
+													<legend>æµé‡</legend>
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">×ÜÁ÷Á¿</label>
+														<label class="col-sm-3 control-label">æ€»æµé‡</label>
 
 														<div class="col-sm-9">
 															<div class="input-group">
@@ -104,9 +104,8 @@
 														</div>
 													</div>
 
-
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÒÑÓÃÁ÷Á¿</label>
+														<label class="col-sm-3 control-label">å·²ç”¨æµé‡</label>
 
 														<div class="col-sm-9">
 															<input class="form-control" id="traffic_usage" type="text" value="{$user->usedTraffic()}" readonly>
@@ -116,9 +115,9 @@
 											</div>
 											<div class="row">
 												<fieldset class="col-sm-6">
-													<legend>ÑûÇë</legend>
+													<legend>é‚€è¯·</legend>
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">¿ÉÓÃÑûÇëÊýÁ¿</label>
+														<label class="col-sm-3 control-label">å¯ç”¨é‚€è¯·æ•°é‡</label>
 
 														<div class="col-sm-9">
 															<input class="form-control" id="invite_num" type="number" value="{$user->invite_num}">
@@ -126,7 +125,7 @@
 													</div>
 
 													<div class="form-group" style="width:120px;">
-														<label class="col-sm-3 control-label">ÑûÇëÈËID</label>
+														<label class="col-sm-3 control-label">é‚€è¯·äººID</label>
 
 														<div class="col-sm-9">
 															<input class="form-control" id="ref_by" type="number"
@@ -138,9 +137,9 @@
 										</fieldset>
 
 										<fieldset class="col-sm-6">
-											<legend>ShadowSocksRÁ¬½ÓÐÅÏ¢</legend>
+											<legend>ShadowSocksRè¿žæŽ¥ä¿¡æ¯</legend>
 											<div class="form-group">
-												<label class="col-sm-3 control-label">Á¬½Ó¶Ë¿Ú</label>
+												<label class="col-sm-3 control-label">è¿žæŽ¥ç«¯å£</label>
 
 												<div class="col-sm-9">
 													<input class="form-control" id="port" type="number" value="{$user->port}">
@@ -148,7 +147,7 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-3 control-label">Á¬½ÓÃÜÂë</label>
+												<label class="col-sm-3 control-label">è¿žæŽ¥å¯†ç </label>
 
 												<div class="col-sm-9">
 													<input class="form-control" id="passwd" value="{$user->passwd}">
@@ -156,7 +155,7 @@
 											</div>
 
 											<div class="form-group">
-												<label for="protocol" class="col-sm-3 control-label">Ð­Òé²å¼þ</label>
+												<label for="protocol" class="col-sm-3 control-label">åè®®æ’ä»¶</label>
 
 												<div class="col-sm-9">
 													<select class="form-control" id="protocol" onchange="disprotocolparam();">
@@ -174,7 +173,7 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="protocol_param">Ð­Òé²ÎÊý</label>
+												<label class="col-sm-3 control-label" for="protocol_param">åè®®å‚æ•°</label>
 
 												<div class="col-sm-9">
 													<input class="form-control" id="protocol_param" type="text" value="{$user->protocol_param}" {if $user->protocol != "auth_simple" && $user->protocol != "auth_sha1" && $user->protocol != "auth_sha1_v2"} disabled="disabled" {/if}>
@@ -182,7 +181,7 @@
 											</div>
 
 											<div class="form-group">
-												<label for="obfs" class="col-sm-3 control-label">»ìÏý²å¼þ</label>
+												<label for="obfs" class="col-sm-3 control-label">æ··æ·†æ’ä»¶</label>
 
 												<div class="col-sm-9">
 													<select class="form-control" id="obfs" onchange="disobfsparam();">
@@ -202,7 +201,7 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="obfs_param">»ìÏý²ÎÊý</label>
+												<label class="col-sm-3 control-label" for="obfs_param">æ··æ·†å‚æ•°</label>
 
 												<div class="col-sm-9">
 													<input class="form-control" id="obfs_param" type="text" value="{$user->obfs_param}" {if $user->obfs != "http_simple" && $user->obfs != "http_post" && $user->obfs != "tls1.2_ticket_auth"} disabled="disabled"{/if}>
@@ -210,7 +209,7 @@
 											</div>
 
 											<div class="form-group">
-												<label for="method" class="col-sm-3 control-label">¼ÓÃÜ·½Ê½</label>
+												<label for="method" class="col-sm-3 control-label">åŠ å¯†æ–¹å¼</label>
 
 												<div class="col-sm-9">
 													<select class="form-control" id="method">
@@ -223,23 +222,23 @@
 											</div>
 
 											<div class="form-group">
-												<label for="method" class="col-sm-3 control-label">×Ô¶¨Òå¼ÓÃÜ</label>
+												<label for="method" class="col-sm-3 control-label">è‡ªå®šä¹‰åŠ å¯†</label>
 
 												<div class="col-sm-9">
 													<select class="form-control" id="custom_method">
-														<option value="0" {if $user->custom_method==0}selected="selected"{/if}>²»Ö§³Ö</option>
-														<option value="1" {if $user->custom_method==1}selected="selected"{/if}>Ö§³Ö</option>
+														<option value="0" {if $user->custom_method==0}selected="selected"{/if}>ä¸æ”¯æŒ</option>
+														<option value="1" {if $user->custom_method==1}selected="selected"{/if}>æ”¯æŒ</option>
 													</select>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="custom_rss" class="col-sm-3 control-label">×Ô¶¨ÒåÐ­Òé&»ìÏý</label>
+												<label for="custom_rss" class="col-sm-3 control-label">è‡ªå®šä¹‰åè®®&æ··æ·†</label>
 
 												<div class="col-sm-9">
 													<select class="form-control" id="custom_rss">
-														<option value="0" {if $user->custom_rss==0}selected="selected"{/if}>²»Ö§³Ö</option>
-														<option value="1" {if $user->custom_rss==1}selected="selected"{/if}>Ö§³Ö</option>
+														<option value="0" {if $user->custom_rss==0}selected="selected"{/if}>ä¸æ”¯æŒ</option>
+														<option value="1" {if $user->custom_rss==1}selected="selected"{/if}>æ”¯æŒ</option>
 													</select>
 												</div>
 											</div>
@@ -252,7 +251,7 @@
 							</div>
 							<!-- /.box-body -->
 							<div class="box-footer">
-								<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">ÐÞ¸Ä</button>
+								<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">ä¿®æ”¹</button>
 							</div>
 						</div>
 					</div>
@@ -304,7 +303,7 @@
 						error: function (jqXHR) {
 							$("#msg-error").hide(10);
 							$("#msg-error").show(100);
-							$("#msg-error-p").html("·¢Éú´íÎó£º" + jqXHR.status);
+							$("#msg-error-p").html("å‘ç”Ÿé”™è¯¯ï¼š" + jqXHR.status);
 						}
 					});
 				}

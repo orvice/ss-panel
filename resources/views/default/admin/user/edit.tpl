@@ -168,7 +168,29 @@
                                             </select>	
                                         </div>
                                     </div>					
-																
+
+                                    <div class="form-group">
+                                        <label for="method" class="col-sm-3 control-label">自定义加密</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="custom_method">
+                                                <option value="0" {if $user->custom_method==0}selected="selected"{/if}>不支持</option>
+                                                <option value="1" {if $user->custom_method==1}selected="selected"{/if}>支持</option>
+                                            </select>
+                                        </div>
+                                    </div>
+									
+									                  <div class="form-group">
+                                        <label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="custom_rss">
+                                                <option value="0" {if $user->custom_rss==0}selected="selected"{/if}>不支持</option>
+                                                <option value="1" {if $user->custom_rss==1}selected="selected"{/if}>支持</option>
+                                            </select>
+                                        </div>
+                                    </div>	
+                                    																
                                 </fieldset>
                             </div>
                             
@@ -250,6 +272,8 @@
                     obfs: $("#obfs").val(),
 					          obfs_param: $("#obfs_param").val(),
                     method: $("#method").val(),
+                    custom_method: $("#custom_method").val(),
+                    custom_rss: $("#custom_rss").val(),
                     enable: $("#enable").val(),
                     is_admin: $("#is_admin").val(),
                     ref_by: $("#ref_by").val()
@@ -303,17 +327,6 @@ function disprotocolparam()
   }
 </script>
 
-<!--<script>
-function checkProcotol()
-  {
-     {if $user->protocol == "auth_simple" || $user->protocol == "auth_sha1" || $user->protocol == "auth_sha1_v2"}{ 
-  	  document.getElementById("protocol_param").disabled=false
-     } {else} { 
-  	  document.getElementById("protocol_param").disabled=true
-     }{/if}
-  }
-</script>-->  
-
 <script>
 function disobfsparam()
   {
@@ -326,14 +339,4 @@ function disobfsparam()
   }
 </script> 
 
-<!--<script>
-function checkObfs()
-  {
-     {if $user->obfs == "http_simple" || $user->obfs == "http_post" || $user->obfs == "tls1.2_ticket_auth"}{ 
-  	    document.getElementById("obfs_param").disabled=false
-     } {else} { 
-  	  document.getElementById("obfs_param").disabled=true
-     }{/if}
-  }
-</script> -->
 {include file='admin/footer.tpl'}

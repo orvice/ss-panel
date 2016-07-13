@@ -138,10 +138,7 @@ class UserController extends BaseController
 
     public function edit($request, $response, $args)
     {   
-        $msg = DbConfig::get('user-node');
-        $user = Auth::getUser();
-        $node = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('node', $node)->assign('user', $user)->assign('msg', $msg)->display('user/edit.tpl');
+        return $this->view()->display('user/edit.tpl');
     }
 
 

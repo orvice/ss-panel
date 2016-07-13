@@ -62,7 +62,7 @@ class NodeController extends AdminController
     {
         $id = $args['id'];
         $node = Node::find($id);
-		$user = User::find($id);
+		    $user = User::find($id);
 
         $node->name = $request->getParam('name');
         $node->server = $request->getParam('server');
@@ -71,7 +71,7 @@ class NodeController extends AdminController
 		$node->protocol_param = $request->getParam('protocol_param');
 	    $node->obfs = $request->getParam('obfs');
         $node->obfs_param = $request->getParam('obfs_param');		
-        $node->custom_method = $request->getParam('custom_method');
+        $user->custom_method = $request->getParam('custom_method');
 		$node->custom_rss = $request->getParam('custom_rss');
         $node->traffic_rate = $request->getParam('rate');
         $node->info = $request->getParam('info');

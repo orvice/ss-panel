@@ -51,6 +51,8 @@ class UserController extends AdminController
 	      $user->obfs = $request->getParam('obfs');
         $user->obfs_param = $request->getParam('obfs_param');
         $user->method = $request->getParam('method');
+        $user->custom_method = $request->getParam('custom_method');
+        $user->custom_rss = $request->getParam('custom_rss');
         $user->enable = $request->getParam('enable');
         $user->is_admin = $request->getParam('is_admin');
         $user->ref_by = $request->getParam('ref_by');

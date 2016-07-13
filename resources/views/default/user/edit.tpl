@@ -115,7 +115,7 @@
                               <div class="col-sm-9">
                               	<div class="input-group">
                               		<div style="width:380px">
-                                     <select class="form-control" id="protocol" {if $user->custom_rss == 0} disabled="disabled" {/if}>
+                                     <select class="form-control" id="protocol" {if $node->custom_rss == 0} disabled="disabled" {/if}>
                                          <option value="origin" {if $user->protocol=="origin"}selected="selected"{/if}>origin</option>
                                          <option value="verify_simple" {if $user->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
 	                                       <option value="verify_deflate" {if $user->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
@@ -128,7 +128,7 @@
                                      </select>
                                   </div>
                                   <div class="input-group-btn">
-                                     <button type="submit" id="protocol-update" class="btn btn-primary" {if $user->custom_rss == 0} disabled="disabled" {/if}>修改</button>
+                                     <button type="submit" id="protocol-update" class="btn btn-primary" {if $node->custom_rss == 0} disabled="disabled" {/if}>修改</button>
                                   </div>
                                 </div>
                               </div>
@@ -140,7 +140,7 @@
                               <div class="col-sm-9">
                               	<div class="input-group">
                               		<div style="width:380px">
-                                     <select class="form-control" id="obfs" {if $user->custom_rss == 0} disabled="disabled" {/if}>
+                                     <select class="form-control" id="obfs" {if $node->custom_rss == 0} disabled="disabled" {/if}>
                                          <option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
                                          <option value="http_post" {if $user->obfs=="http_post"}selected="selected"{/if}>http_post</option>
                                          <option value="http_post_compatible" {if $user->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
@@ -155,7 +155,7 @@
                                      </select>
                                   </div>
                                   <div class="input-group-btn">
-                                     <button type="submit" id="obfs-update" class="btn btn-primary" {if $user->custom_rss == 0} disabled="disabled" {/if}>修改</button>
+                                     <button type="submit" id="obfs-update" class="btn btn-primary" {if $node->custom_rss == 0} disabled="disabled" {/if}>修改</button>
                                   </div>
                                 </div>
                               </div>
@@ -167,7 +167,7 @@
                                 <div class="col-sm-9">
                                    <div class="input-group">
                                      <div style="width:380px">
-                                        <select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
+                                        <select class="form-control" id="method" {if $node->custom_method == 0} disabled="disabled"{/if}>
                                           <option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
                                           <option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
                                           <option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
@@ -175,7 +175,7 @@
                                         </select>
                                       </div>
                                     <div class="input-group-btn">
-                                        <button type="submit" id="method-update" class="btn btn-primary" {if $user->custom_method == 0} disabled="disabled" {/if}>修改</button>
+                                        <button type="submit" id="method-update" class="btn btn-primary" {if $node->custom_method == 0} disabled="disabled" {/if}>修改</button>
                                     </div>
                                   </div>
                                 </div>

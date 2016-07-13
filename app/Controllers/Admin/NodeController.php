@@ -86,7 +86,7 @@ class NodeController extends AdminController
         $rs['msg'] = "修改成功";
         return $response->getBody()->write(json_encode($rs));
     }
-    public function update($request, $response, $args)
+    public function update1($request, $response, $args)
     {
         $id = $args['id'];
 		    $user = User::find($id);	

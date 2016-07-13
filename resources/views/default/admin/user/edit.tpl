@@ -35,7 +35,7 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <div class="form-horizontal">
-                        	<fieldset class="col-sm-6">
+                        	
                             <div class="row">
                                 <fieldset class="col-sm-6">
                                     <legend>帐号信息</legend>
@@ -131,8 +131,8 @@
                                     </div>
                                 </fieldset>
                             </div>
-                          </fieldset>    
-                          <fieldset class="col-sm-6">    
+ 
+
                             <div class="row">    
                                 <fieldset class="col-sm-6">
                                     <legend>ShadowSocks连接信息</legend>
@@ -243,7 +243,7 @@
                                     																
                                 </fieldset>
                             </div>
-                          </fieldset>    
+  
 
                         </div>
                     </div>

@@ -41,7 +41,7 @@
 								<div class="form-horizontal">
 									<div class="row">
 										<fieldset class="col-sm-6">
-											<legend>连接信息 <small>(如需修改加密方式、协议及混淆插件，请至用户管理界面修改)</small></legend>
+											<legend>连接信息</legend>
 
 											<div class="form-group">
 												<label for="title" class="col-sm-3 control-label">节点名称</label>

@@ -36,11 +36,11 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="./node/{$node->id}" class="product-title">{$node->name} 
-                                                    <span class="label label-info  bg-green pull-right" 
+                                                    <span
                                                     	{if $node->status=='可用'} 
-                                                    	   style="background-color: #008000" 
+                                                    	   class="pull-right badge bg-green" 
                                                     	{else} 
-                                                    	   style="background-color: #ff0000" 
+                                                    	   class="pull-right badge bg-red"  
                                                     	{/if}> {$node->status}</span></a>         
                                         <p>
                                             {$node->info}
@@ -54,7 +54,7 @@
                                 <div class="col-md-6">
                                     <ul class="nav nav-stacked">
                                         <li><a href="./node/{$node->id}">节点地址 <span
-                                                        class="pull-right badge bg-red">{$node->server}</span></a></li>
+                                                        class="pull-right badge bg-blue">{$node->server}</span></a></li>
                                         <li><a href="./node/{$node->id}">连接端口 <span
                                                     class="pull-right badge bg-aqua">{$user->port}</span></a></li>
                                         <li><a href="./node/{$node->id}">协议插件 <span

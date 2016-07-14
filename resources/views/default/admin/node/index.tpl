@@ -21,9 +21,13 @@
                             <tr>
                                 <th>ID</th>
                                 <th>节点</th>
+                                <th>节点地址</th>
 <!--                                <th>协议</th>
                                 <th>混淆</th>-->
-                                <th>加密</th>
+                                <th>加密方式</th>
+                                <th>流量比例</th>
+                                <th>是否显示</th>
+                                <th>节点状态</th>
                                 <th>描述</th>
                                 <th>排序</th>
                                 <th>操作</th>
@@ -32,9 +36,13 @@
                             <tr>
                                 <td>#{$node->id}</td>
                                 <td>{$node->name}</td>
+                                <td>{$node->server}</td>
 <!--                                <td>{$node->protocol}</td>
                                 <td>{$node->obfs}</td>-->
                                 <td>{$node->method}</td>
+                                <td>{$node->rate}</td>
+                                <td>{$node->type}</td>
+                                <td>{$node->status}</td>
                                 <td>{$node->info}</td>
                                 <td>{$node->sort}</td>
                                 <td>

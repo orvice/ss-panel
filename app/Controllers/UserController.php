@@ -50,11 +50,11 @@ class UserController extends BaseController
 	    			$ary['server'] = $node->server;
 	    			$ary['server_port'] = $this->user->port;
 	    			$ary['password'] = $this->user->passwd;
-	    			$ary['method'] = $node->method;
-	    			if ($this->user->custom_method) {
+	    			$ary['method'] = $this->user->method;
+/*	    			if ($this->user->custom_method) {
 	    				$ary['method'] = $this->user->method;
 	    			}
-	    			
+	    			*/
 	    			$ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
 	    			$ssqr = "ss://" . base64_encode($ssurl);
 	    			$android_add .="'".$ssqr."'";
@@ -64,10 +64,10 @@ class UserController extends BaseController
 	    			$ary['server'] = $node->server;
 	    			$ary['server_port'] = $this->user->port;
 	    			$ary['password'] = $this->user->passwd;
-	    			$ary['method'] = $node->method;
-	    			if ($this->user->custom_method) {
+	    			$ary['method'] = $this->user->method;
+/*	    			if ($this->user->custom_method) {
 	    				$ary['method'] = $this->user->method;
-	    			}
+	    			}*/
 	    			
 	    			$ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
 	    			$ssqr = "ss://" . base64_encode($ssurl);
@@ -98,10 +98,10 @@ class UserController extends BaseController
         $ary['server'] = $node->server;
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
-        $ary['method'] = $node->method;		
-        if ($this->user->custom_method) {
+        $ary['method'] = $this->user->method;		
+/*        if ($this->user->custom_method) {
             $ary['method'] = $this->user->method;
-        }
+        }*/
         $ary['protocol'] = $this->user->protocol;
         $ary['obfs'] = $this->user->obfs;
         if ($this->user->obfs=='http_post'||$this->user->obfs=='http_simple'||$this->user->obfs=='tls1.2_ticket_auth') {

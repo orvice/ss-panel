@@ -27,7 +27,7 @@
                        {$msg}
                        <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a></small></p>
                        <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a></small></p>
-                       <p><small>IOS客户端下载：&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></small></p>
+                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></small></p>
                     </div>
                     <!-- /.box-body -->
                 </div>

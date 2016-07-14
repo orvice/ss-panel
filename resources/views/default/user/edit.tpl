@@ -161,51 +161,52 @@
 														</div>
 													</div>
 												</div>
-											</div>
+
+
+												<div class="form-group">
+													<label class="col-sm-3 control-label">混淆插件</label>
+
+
+													<div class="col-sm-9">
+														<div class="input-group">
+															<select class="form-control" id="obfs" {if $user->custom_rss == 0} disabled="disabled" {/if}>
+																<option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
+																<option value="http_post" {if $user->obfs=="http_post"}selected="selected"{/if}>http_post</option>
+																<option value="http_post_compatible" {if $user->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
+																<option value="http_simple" {if $user->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
+																<option value="http_simple_compatible" {if $user->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
+																<option value="tls_simple" {if $user->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
+																<option value="random_head" {if $user->obfs=="random_head"}selected="selected"{/if}>random_head</option>
+																<option value="tls1.0_session_auth" {if $user->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
+																<option value="tls1.0_session_auth_compatible" {if $user->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
+																<option value="tls1.2_ticket_auth" {if $user->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
+																<option value="tls1.2_ticket_auth_compatible" {if $user->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>
+															</select>
+															<div class="input-group-btn">
+																<button type="submit" id="obfs-update" class="btn btn-primary" {if $user->custom_rss == 0} disabled="disabled" {/if}>修改</button>
+
+															</div>
+														</div>
+													</div>
+												</div>
+
 
 											<div class="form-group">
-												<label class="col-sm-3 control-label">混淆插件</label>
+												<label class="col-sm-3 control-label">加密方法</label>
 
 
 												<div class="col-sm-9">
 													<div class="input-group">
-														<select class="form-control" id="obfs" {if $user->custom_rss == 0} disabled="disabled" {/if}>
-															<option value="plain" {if $user->obfs=="plain"}selected="selected"{/if}>plain</option>
-															<option value="http_post" {if $user->obfs=="http_post"}selected="selected"{/if}>http_post</option>
-															<option value="http_post_compatible" {if $user->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
-															<option value="http_simple" {if $user->obfs=="http_simple"}selected="selected"{/if}>http_simple</option>
-															<option value="http_simple_compatible" {if $user->obfs=="http_simple_compatible"}selected="selected"{/if}>http_simple_compatible</option>
-															<option value="tls_simple" {if $user->obfs=="tls_simple"}selected="selected"{/if}>tls_simple</option>
-															<option value="random_head" {if $user->obfs=="random_head"}selected="selected"{/if}>random_head</option>
-															<option value="tls1.0_session_auth" {if $user->obfs=="tls1.0_session_auth"}selected="selected"{/if}>tls1.0_session_auth</option>
-															<option value="tls1.0_session_auth_compatible" {if $user->obfs=="tls1.0_session_auth_compatible"}selected="selected"{/if}>tls1.0_session_auth_compatible</option>
-															<option value="tls1.2_ticket_auth" {if $user->obfs=="tls1.2_ticket_auth"}selected="selected"{/if}>tls1.2_ticket_auth</option>
-															<option value="tls1.2_ticket_auth_compatible" {if $user->obfs=="tls1.2_ticket_auth_compatible"}selected="selected"{/if}>tls1.2_ticket_auth_compatible</option>
+														<select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
+															<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+															<option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
+															<option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+															<option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
 														</select>
 														<div class="input-group-btn">
-															<button type="submit" id="obfs-update" class="btn btn-primary" {if $user->custom_rss == 0} disabled="disabled" {/if}>修改</button>
+															<button type="submit" id="method-update" class="btn btn-primary" {if $user->custom_method == 0} disabled="disabled" {/if}>修改</button>
 
 														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="col-sm-3 control-label">加密方法</label>
-
-
-											<div class="col-sm-9">
-												<div class="input-group">
-													<select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
-														<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
-														<option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
-														<option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
-														<option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
-													</select>
-													<div class="input-group-btn">
-														<button type="submit" id="method-update" class="btn btn-primary" {if $user->custom_method == 0} disabled="disabled" {/if}>修改</button>
-
 													</div>
 												</div>
 											</div>

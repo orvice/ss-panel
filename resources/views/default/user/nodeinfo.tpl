@@ -27,7 +27,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <textarea class="form-control" rows="6">{$json_show}</textarea>
+                        <textarea class="form-control" rows="8">{$json_show}</textarea>
                     </div>
                     <!-- /.box-body -->
                 </div>

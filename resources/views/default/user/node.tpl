@@ -63,7 +63,7 @@
                                                        class="pull-right badge bg-aqua">{$user->obfs_param}</span></a></li>
                                         {/if}               
                                         <li><a href="./node/{$node->id}">加密方式 <span
-                                                        class="pull-right badge bg-green">{$user->method}</span></a></li>
+                                                        class="pull-right badge bg-aqua">{$user->method}</span></a></li>
                                         <li><a href="./node/{$node->id}">负载: <span
                                                         class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a></li>
                                     </ul>
@@ -74,7 +74,7 @@
                                                         class="pull-right badge bg-blue">{$node->traffic_rate}</span></a>
                                         </li>
                                         <li><a href="./node/{$node->id}">在线人数 <span
-                                                        class="pull-right badge bg-aqua">{$node->getOnlineUserCount()}</span></a>
+                                                        class="pull-right badge bg-green">{$node->getOnlineUserCount()}</span></a>
                                         </li>
                                         <li><a href="./node/{$node->id}">产生流量 <span
                                                         class="pull-right badge bg-green">{$node->getTrafficFromLogs()}</span></a>

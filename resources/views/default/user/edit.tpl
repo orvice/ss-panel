@@ -185,7 +185,7 @@
 													<label class="col-sm-3 control-label">加密方法</label>
 
 													<div class="col-sm-9">
-														<div class="input-group" action="" method="get">
+														<div class="input-group">
 															<div style="width:380px">
 																<select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
 																	<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>

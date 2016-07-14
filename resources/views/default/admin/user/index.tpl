@@ -41,7 +41,7 @@
                                 <td>{$user->port}</td>
                                 
                                 {if $user->enable==1}
-                                    <td>可用</td>
+                                    <td>正常</td>
 								                {else}
 								                    <td>禁用</td>
 								                {/if}

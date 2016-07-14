@@ -39,6 +39,7 @@
 						<div class="box box-primary">
 							<div class="box-body">
 								<div class="form-horizontal">
+
 									<fieldset class="col-sm-6">
 										<div class="row">
 											<legend>帐号信息</legend>
@@ -56,7 +57,6 @@
 
 												<div class="col-sm-9">
 													<input class="form-control" id="pass" value="" placeholder="不修改时留空">
-
 
 
 												</div>
@@ -77,24 +77,23 @@
 													</select>
 												</div>
 											</div>
-										</div>
+
+											<div class="form-group">
+												<label class="col-sm-3 control-label">用户状态</label>
 
 
-										<div class="form-group">
-											<label class="col-sm-3 control-label">用户状态</label>
+												<div class="col-sm-9">
+													<select class="form-control" id="enable">
+														<option value="1" {if $user->enable==1}selected="selected"{/if}>
+															正常
 
+														</option>
+														<option value="0" {if $user->enable==0}selected="selected"{/if}>
+															禁用
 
-											<div class="col-sm-9">
-												<select class="form-control" id="enable">
-													<option value="1" {if $user->enable==1}selected="selected"{/if}>
-														正常
-
-													</option>
-													<option value="0" {if $user->enable==0}selected="selected"{/if}>
-														禁用
-
-													</option>
-												</select>
+														</option>
+													</select>
+												</div>
 											</div>
 										</div>
 
@@ -126,7 +125,6 @@
 
 											<div class="form-group">
 												<label class="col-sm-3 control-label">可用邀请数量</label>
-
 
 
 												<div class="col-sm-9">
@@ -257,7 +255,6 @@
 											<label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
 
 
-
 												<div class="col-sm-9">
 													<select class="form-control" id="custom_rss">
 														<option value="0" {if $user->custom_rss==0}selected="selected"{/if}>不支持</option>
@@ -267,16 +264,16 @@
 													</select>
 												</div>
 											</div>
-
 										</fieldset>
-									</div>
 
+									</div>
 								</div>
 								<!-- /.box-body -->
 								<div class="box-footer">
 									<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
 
 								</div>
+
 							</div>
 						</div>
 						<!-- /.box -->

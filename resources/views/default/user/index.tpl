@@ -25,9 +25,9 @@
                     <div class="box-body">                      
                        <!--<p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>-->
                        <p>{$msg}</p>
-                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a></small></p>
-                       <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a></small></p>
-                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></small></p>
+                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip"><span class="pull-right badge bg-blue">ShadowsocksR for Windows</span></a></small></p>
+                       <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest"><span class="pull-right badge bg-blue">Shadowsocks for Android</span></a></small></p>
+                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118"><span class="pull-right badge bg-blue">Shadowrocket for IOS</span></a></small></p>
                     </div>
                     <!-- /.box-body -->
                 </div>

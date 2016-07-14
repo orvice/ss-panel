@@ -40,8 +40,14 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                    {if $user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls_simple' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2'}
+                        <p>当前模式仅支持支持混淆协议的客户端</p>
                         <input id="ss-qr-text" class="form-control" value="{$ssqr_s}">
-                        <a href="{$ssqr}"/>Android 手机上用默认浏览器打开点我就可以直接添加了</a>
+                    {else}
+                        <input id="ss-qr-text" class="form-control" value="{$ssqr_s}">
+                        <p>当前模式支持Andriod等原版协议客户端</p>
+                        <a href="{$ssqr}"/>Android 手机上用默认浏览器打开点我就可以直接添加</a>
+                    {/if}
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -49,7 +55,7 @@
             </div>
             <!-- /.col (right) -->
             
-             {if $user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2'}
+             {if $user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls_simple' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2'}
              <div class="col-md-6">
                 <div class="box box-solid">
                     <div class="box-header">
@@ -74,7 +80,7 @@
                     <div class="box-header">
                         <i class="fa fa-qrcode"></i>
 
-                        <h3 class="box-title">配置二维码</h3>
+                        <h3 class="box-title">ShadowsocksR配置二维码</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -166,7 +172,7 @@
         <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
         <script>
         	 
-            {if $user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2'}
+            {if $user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls_simple' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2'}
           
             var text_qrcode = '{$ssqr_s}';
             jQuery('#ss-qr').qrcode({

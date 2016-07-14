@@ -39,7 +39,7 @@
                                         	{if $node->status=='可用'}
                                                     <span class="label label-info  bg-green pull-right">
                                           {elseif $node->status=='不可用'}
-                                                    <span class="label label-info  bg-red pull-right">
+                                                    <span class="label label-info pull-right" style="background-color: #ff0000">
                                           {/if} {$node->status}</span></a>         
                                         <p>
                                             {$node->info}

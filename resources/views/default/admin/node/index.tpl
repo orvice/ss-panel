@@ -7,7 +7,7 @@
         <h1>
             节点列表
             <small>Node List</small>
-            <small>如需修改加密方式、协议及混淆插件，请至用户管理界面修改</small>
+            <small><small>如需修改加密方式、协议及混淆插件，请至用户管理界面修改</small></small>
         </h1>
     </section>
 
@@ -42,7 +42,7 @@
                                 <td>{$node->obfs}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->traffic_rate}</td>
-                                <td>{$node->type}</td>
+                                <td>{if $node->type==1}{显示}else{隐藏}{/if}</td>
                                 <td>{$node->status}</td>
                                 <td>{$node->info}</td>
                                 <td>{$node->sort}</td>

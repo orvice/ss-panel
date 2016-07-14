@@ -40,7 +40,10 @@
             <p id="msg-error-p"></p>
         </div>
         <div style="text-align:left;">
-            </br><a href="/password/reset"><span class="pull-left badge bg-blue">忘记密码</span></a><a href="/auth/register"><span class="badge bg-blue"><center>注册帐号</center></span></a><a href="/"><span class="pull-right badge bg-blue">返回首页</span></a>
+            </br>
+            	    <button class="btn btn-primary btn-block btn-flat pull-left"><a href="/password/reset">忘记密码</a></button>
+            	    <button class="btn btn-primary btn-block btn-flat"><a href="/password/reset">注册帐号</a></button>
+            	    <button class="btn btn-primary btn-block btn-flat pull-right"><a href="/password/reset">返回首页</a></button>
         </div>
 
     </div><!-- /.login-box-body -->

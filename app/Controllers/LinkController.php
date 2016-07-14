@@ -1,7 +1,5 @@
 ﻿<?php
 
-//Thanks to http://blog.csdn.net/jollyjumper/article/details/9823047
-
 namespace App\Controllers;
 
 

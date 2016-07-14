@@ -8,6 +8,7 @@
 			添加节点
 
 			<small>Add Node</small>
+			<small>如需修改加密方式、协议及混淆插件，请至用户管理界面修改</small>
 		</h1>
 	</section>
 
@@ -40,7 +41,7 @@
 								<div class="form-horizontal">
 									<div class="row">
 										<fieldset class="col-sm-6">
-											<legend>连接信息</legend>
+											<legend>连接信息(如需修改加密方式、协议及混淆插件，请至用户管理界面修改)</legend>
 
 											<div class="form-group">
 												<label for="title" class="col-sm-3 control-label">节点名称</label>
@@ -61,14 +62,13 @@
 											</div>
 
 
-<!--											<div class="form-group">
-												<label for="protocol" class="col-sm-3 control-label">协议插件</label>
+											<div class="form-group">
+												<label for="protocol" class="col-sm-3 control-label">默认协议插件</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="protocol" onchange="disprotocolparam();">
-														<option value=""></option>
-														<option value="origin">origin</option>
+													<select class="form-control" id="protocol" onchange="disprotocolparam();" disabled="disabled">
+														<option value="origin" selected="selected">origin</option>
 														<option value="verify_simple">verify_simple</option>
 														<option value="verify_deflate">verify_deflate</option>
 														<option value="verify_sha1">verify_sha1</option>
@@ -82,21 +82,20 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="protocol_param">协议参数</label>
+												<label class="col-sm-3 control-label" for="protocol_param">默认协议参数</label>
 
 												<div class="col-sm-9">
-													<input class="form-control" id="protocol_param" type="text" value="">
+													<input class="form-control" id="protocol_param" type="text" value="" readonly="true">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="obfs" class="col-sm-3 control-label">混淆插件</label>
+												<label for="obfs" class="col-sm-3 control-label">默认混淆插件</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="obfs" onchange="disobfsparam();">
-														<option value=""></option>
-														<option value="plain">plain</option>
+													<select class="form-control" id="obfs" onchange="disobfsparam();" disabled="disabled">
+														<option value="plain" selected="selected">plain</option>
 														<option value="http_post">http_post</option>
 														<option value="http_post_compatible">http_post_compatible</option>
 														<option value="http_simple">http_simple</option>
@@ -111,21 +110,20 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="obfs_param">混淆参数</label>
+												<label class="col-sm-3 control-label" for="obfs_param">默认混淆参数</label>
 
 												<div class="col-sm-9">
-													<input class="form-control" id="obfs_param" type="text" value="">
+													<input class="form-control" id="obfs_param" type="text" value="" readonly="true">
 												</div>
-											</div>-->
+											</div>
 
 											<div class="form-group">
-												<label for="method" class="col-sm-3 control-label">加密方式</label>
+												<label for="method" class="col-sm-3 control-label">默认加密方式</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="method">
-														<option value=""></option>
-														<option value="rc4-md5">rc4-md5</option>
+													<select class="form-control" id="method" disabled="disabled">
+														<option value="rc4-md5" selected="selected">rc4-md5</option>
 														<option value="aes-256-cfb">aes-256-cfb</option>
 														<option value="chacha20">chacha20</option>
 														<option value="chacha20-ietf">chacha20-ietf</option>
@@ -254,18 +252,18 @@
 							data: {
 								name: $("#name").val(),
 								server: $("#server").val(),
-								method: $("#method").val(),
+/*								method: $("#method").val(),
 								protocol: $("#protocol").val(),
 								protocol_param: $("#protocol_param").val(),
 								obfs: $("#obfs").val(),
 								obfs_param: $("#obfs_param").val(),
 								custom_method: $("#custom_method").val(),
+								custom_rss: $("#custom_rss").val(),*/
 								rate: $("#rate").val(),
 								info: $("#info").val(),
 								type: $("#type").val(),
 								status: $("#status").val(),
-								sort: $("#sort").val(),
-								custom_rss: $("#custom_rss").val()
+								sort: $("#sort").val()
 							},
 							success: function (data) {
 								if (data.ret) {

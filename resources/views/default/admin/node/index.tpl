@@ -7,6 +7,7 @@
         <h1>
             节点列表
             <small>Node List</small>
+            <small>如需修改加密方式、协议及混淆插件，请至用户管理界面修改</small>
         </h1>
     </section>
 
@@ -22,9 +23,9 @@
                                 <th>ID</th>
                                 <th>节点</th>
                                 <th>节点地址</th>
-<!--                                <th>协议</th>
-                                <th>混淆</th>-->
-                                <th>加密方式</th>
+                                <th>默认协议</th>
+                                <th>默认混淆</th>
+                                <th>默认加密</th>
                                 <th>流量比例</th>
                                 <th>是否显示</th>
                                 <th>节点状态</th>
@@ -37,10 +38,10 @@
                                 <td>#{$node->id}</td>
                                 <td>{$node->name}</td>
                                 <td>{$node->server}</td>
-<!--                                <td>{$node->protocol}</td>
-                                <td>{$node->obfs}</td>-->
+                                <td>{$node->protocol}</td>
+                                <td>{$node->obfs}</td>
                                 <td>{$node->method}</td>
-                                <td>{$node->rate}</td>
+                                <td>{$node->traffic_rate}</td>
                                 <td>{$node->type}</td>
                                 <td>{$node->status}</td>
                                 <td>{$node->info}</td>

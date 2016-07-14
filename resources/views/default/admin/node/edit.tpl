@@ -8,6 +8,7 @@
 			编辑节点 #{$node->id}
 
 			<small>Edit Node</small>
+			<small>如需修改加密方式、协议及混淆插件，请至用户管理界面修改</small>
 		</h1>
 	</section>
 
@@ -40,11 +41,10 @@
 								<div class="form-horizontal">
 									<div class="row">
 										<fieldset class="col-sm-6">
-											<legend>连接信息</legend>
+											<legend>连接信息(如需修改加密方式、协议及混淆插件，请至用户管理界面修改)</legend>
 
 											<div class="form-group">
 												<label for="title" class="col-sm-3 control-label">节点名称</label>
-
 
 												<div class="col-sm-9">
 													<input class="form-control" id="name" value="{$node->name}">
@@ -60,12 +60,12 @@
 												</div>
 											</div>
 
-<!--											<div class="form-group">
-												<label for="protocol" class="col-sm-3 control-label">协议插件</label>
+											<div class="form-group">
+												<label for="protocol" class="col-sm-3 control-label">默认协议插件</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="protocol" onchange="disprotocolparam();">
+													<select class="form-control" id="protocol" onchange="disprotocolparam();" disabled="disabled">
 														<option value="origin" {if $node->protocol=="origin"}selected="selected"{/if}>origin</option>
 														<option value="verify_simple" {if $node->protocol=="verify_simple"}selected="selected"{/if}>verify_simple</option>
 														<option value="verify_deflate" {if $node->protocol=="verify_deflate"}selected="selected"{/if}>verify_deflate</option>
@@ -79,19 +79,19 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="protocol_param">协议参数</label>
+												<label class="col-sm-3 control-label" for="protocol_param">默认协议参数</label>
 
 												<div class="col-sm-9">
-													<input class="form-control" id="protocol_param" type="text" value="{$node->protocol_param}" {if $node->protocol != "auth_simple" && $node->protocol != "auth_sha1" && $node->protocol != "auth_sha1_v2"} disabled="disabled"{/if}>
+													<input class="form-control" id="protocol_param" type="text" readonly="true" value="{$node->protocol_param}" {if $node->protocol != "auth_simple" && $node->protocol != "auth_sha1" && $node->protocol != "auth_sha1_v2"} disabled="disabled"{/if}>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="obfs" class="col-sm-3 control-label">混淆插件</label>
+												<label for="obfs" class="col-sm-3 control-label">默认混淆插件</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="obfs" onchange="disobfsparam();">
+													<select class="form-control" id="obfs" onchange="disobfsparam();"  disabled="disabled">
 														<option value="plain" {if $node->obfs=="plain"}selected="selected"{/if}>plain</option>
 														<option value="http_post" {if $node->obfs=="http_post"}selected="selected"{/if}>http_post</option>
 														<option value="http_post_compatible" {if $node->obfs=="http_post_compatible"}selected="selected"{/if}>http_post_compatible</option>
@@ -107,19 +107,19 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-3 control-label" for="obfs_param">混淆参数</label>
+												<label class="col-sm-3 control-label" for="obfs_param">默认混淆参数</label>
 
 												<div class="col-sm-9">
-													<input class="form-control" id="obfs_param" type="text" value="{$node->obfs_param}" {if $node->obfs != "http_simple" && $node->obfs != "http_post" && $node->obfs != "tls1.2_ticket_auth"} disabled="disabled"{/if}>
+													<input class="form-control" id="obfs_param" type="text"  readonly="true" value="{$node->obfs_param}" {if $node->obfs != "http_simple" && $node->obfs != "http_post" && $node->obfs != "tls1.2_ticket_auth"} disabled="disabled"{/if}>
 												</div>
-											</div>-->
+											</div>
 
 											<div class="form-group">
-												<label for="method" class="col-sm-3 control-label">加密方式</label>
+												<label for="method" class="col-sm-3 control-label">默认加密方式</label>
 
 
 												<div class="col-sm-9">
-													<select class="form-control" id="method">
+													<select class="form-control" id="method"  disabled="disabled">
 														<option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
 														<option value="aes-256-cfb" {if $node->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
 														<option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>

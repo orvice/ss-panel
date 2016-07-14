@@ -25,7 +25,7 @@ class NodeController extends AdminController
 
 		$node->name = $request->getParam('name');
 		$node->server = $request->getParam('server');
-		$node->method = $request->getParam('method');
+/*		$node->method = $request->getParam('method');*/
 /*		$node->protocol = $request->getParam('protocol');
 		$node->protocol_param = $request->getParam('protocol_param');
 		$node->obfs = $request->getParam('obfs');
@@ -66,7 +66,7 @@ class NodeController extends AdminController
 /*			$user = User::find($id);*/
 			$node->name = $request->getParam('name');
 			$node->server = $request->getParam('server');
-			$node->method = $request->getParam('method');
+/*			$node->method = $request->getParam('method');*/
 /*			$node->protocol = $request->getParam('protocol');
 			$node->protocol_param = $request->getParam('protocol_param');
 			$node->obfs = $request->getParam('obfs');

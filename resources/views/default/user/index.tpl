@@ -24,9 +24,10 @@
                     <!-- /.box-header -->
                     <div class="box-body">                      
                        <p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>
-                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a></small></p>
-                       <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a></small></p>
-                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></small></p>
+                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a> 
+                       	         Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a>
+                       	         IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a>
+                       </small></p>
                        {$msg}
                     </div>
                     <!-- /.box-body -->
@@ -111,11 +112,11 @@
                             <dd>{$user->port}</dd>
                             <dt>密码</dt>
                             <dd>{$user->passwd}</dd>
-                            <dt>协议</dt>
+                            <dt>协议插件</dt>
                             <dd>{$user->protocol}</dd>
-                            <dt>混淆</dt>
+                            <dt>混淆插件</dt>
                             <dd>{$user->obfs}</dd>
-                            <dt>自定义加密方式</dt>
+                            <dt>加密方式</dt>
                             <dd>{$user->method}</dd>
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>

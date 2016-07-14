@@ -27,7 +27,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <textarea class="form-control" rows="8">{$json_show}</textarea>
+                        <textarea class="form-control" {if $user->obfs=='http_post' || $user->obfs=='http_simple' || $user->obfs=='tls1.2_ticket_auth' } rows="9" {else} rows="8" {/if}>{$json_show}</textarea>
                     </div>
                     <!-- /.box-body -->
                 </div>

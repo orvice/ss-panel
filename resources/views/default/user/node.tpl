@@ -19,7 +19,7 @@
                     <h4>注意!</h4>
                     <p>请勿在任何地方公开节点地址！谢谢配合！</p>
                     <p>流量比例为1即使用1000MB按照1000MB流量记录记录结算.</p>
-                    {$msg}
+                    <p>{$msg}</p>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                                                        class="pull-right badge bg-aqua">{$user->obfs}</span></a></li>
                                         {if $user->obfs=='http_post' || $user->obfs=='http_simple' || $user->obfs=='tls1.2_ticket_auth' }
                                         <li><a href="./node/{$node->id}">混淆参数 <span
-                                                       class="pull-right badge bg-aqua">{$user->obfs_param}</span></a></li>
+                                                       class="pull-right badge bg-aqua">{$user->obfs_param}&nbsp;&nbsp;</span></a></li>
                                         {/if}               
                                         <li><a href="./node/{$node->id}">加密方式 <span
                                                         class="pull-right badge bg-aqua">{$user->method}</span></a></li>

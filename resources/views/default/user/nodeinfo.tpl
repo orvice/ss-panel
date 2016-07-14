@@ -45,6 +45,7 @@
                         <input id="ss-qr-text" class="form-control" value="{$ssqr_s}">
                     {else}
                         <input id="ss-qr-text" class="form-control" value="{$ssqr_s}">
+                        <p></p>
                         <p>当前模式支持Andriod等原版协议客户端</p>
                         <a href="{$ssqr}"/>Android 手机上用默认浏览器打开点我就可以直接添加</a>
                     {/if}

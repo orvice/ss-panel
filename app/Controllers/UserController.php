@@ -115,6 +115,7 @@ class UserController extends BaseController
 				
 					$ssurl = str_replace("_compatible","",$user->obfs).":".str_replace("_compatible","",$user->protocol).":".$ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port']."/".base64_encode($user->obfs_param);
 					$ssqr_s = "ss://" . base64_encode($ssurl);
+					$ssqr = "ss://" . base64_encode($ssurl);
 				}
 				else
 				{

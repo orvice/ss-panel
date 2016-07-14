@@ -42,7 +42,7 @@
                                 <td>{$node->obfs}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->traffic_rate}</td>
-                                <td>{if $node->type==1}{显示}else{隐藏}{/if}</td>
+                                <td>{if $node->type==1}显示{else}隐藏{/if}</td>
                                 <td>{$node->status}</td>
                                 <td>{$node->info}</td>
                                 <td>{$node->sort}</td>

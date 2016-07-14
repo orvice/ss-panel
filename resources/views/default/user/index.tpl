@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            用户中心
+            �û�����
             <small>User Center</small>
         </h1>
     </section>
@@ -19,16 +19,15 @@
                     <div class="box-header">
                         <i class="fa fa-bullhorn"></i>
 
-                        <h3 class="box-title">公告&FAQ</h3>
+                        <h3 class="box-title">����&FAQ</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">                      
-                       <p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>
-                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a> 
-                       	         Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a>
-                       	         IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a>
-                       </small></p>
+                       <!--<p>��վ�ڵ�֧�ֻ���Э�飬������ʹ��֧�ֻ����Ŀͻ��ˣ��ֻ�����ѡ�����ģʽ��</p>-->
                        {$msg}
+                       <p><small>Windows�ͻ������أ�<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip">ShadowsocksR for Windows</a></small></p>
+                       <p><small>Android�ͻ������أ�<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest">Shadowsocks for Android</a></small></p>
+                       <p><small>IOS�ͻ������أ�&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118">Shadowrocket for IOS</a></small></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -41,7 +40,7 @@
                     <div class="box-header">
                         <i class="fa fa-exchange"></i>
 
-                        <h3 class="box-title">流量使用情况</h3>
+                        <h3 class="box-title">����ʹ�����</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -57,11 +56,11 @@
                             </div>
                         </div>
                         <dl class="dl-horizontal">
-                            <dt>总流量</dt>
+                            <dt>������</dt>
                             <dd>{$user->enableTraffic()}</dd>
-                            <dt>已用流量</dt>
+                            <dt>��������</dt>
                             <dd>{$user->usedTraffic()}</dd>
-                            <dt>剩余流量</dt>
+                            <dt>ʣ������</dt>
                             <dd>{$user->unusedTraffic()}</dd>
                         </dl>
                     </div>
@@ -76,19 +75,19 @@
                     <div class="box-header">
                         <i class="fa fa-pencil"></i>
 
-                        <h3 class="box-title">签到获取流量</h3>
+                        <h3 class="box-title">ǩ����ȡ����</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <p> 每{$config['checkinTime']}小时可以签到一次。</p>
+                        <p> ÿ{$config['checkinTime']}Сʱ����ǩ��һ�Ρ�</p>
 
-                        <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
+                        <p>�ϴ�ǩ��ʱ�䣺<code>{$user->lastCheckInTime()}</code></p>
                         {if $user->isAbleToCheckin() }
                             <p id="checkin-btn">
-                                <button id="checkin" class="btn btn-success  btn-flat">签到</button>
+                                <button id="checkin" class="btn btn-success  btn-flat">ǩ��</button>
                             </p>
                         {else}
-                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a></p>
+                            <p><a class="btn btn-success btn-flat disabled" href="#">����ǩ��</a></p>
                         {/if}
                         <p id="checkin-msg"></p>
                     </div>
@@ -103,22 +102,22 @@
                     <div class="box-header">
                         <i class="fa  fa-paper-plane"></i>
 
-                        <h3 class="box-title">连接信息</h3>
+                        <h3 class="box-title">������Ϣ</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <dl class="dl-horizontal">
-                            <dt>端口</dt>
+                            <dt>�˿�</dt>
                             <dd>{$user->port}</dd>
-                            <dt>密码</dt>
+                            <dt>����</dt>
                             <dd>{$user->passwd}</dd>
-                            <dt>协议插件</dt>
+                            <dt>Э����</dt>
                             <dd>{$user->protocol}</dd>
-                            <dt>混淆插件</dt>
+                            <dt>�������</dt>
                             <dd>{$user->obfs}</dd>
-                            <dt>加密方式</dt>
+                            <dt>���ܷ�ʽ</dt>
                             <dd>{$user->method}</dd>
-                            <dt>上次使用</dt>
+                            <dt>�ϴ�ʹ��</dt>
                             <dd>{$user->lastSsTime()}</dd>
                         </dl>
                     </div>
@@ -145,7 +144,7 @@
                     $("#checkin-btn").hide();
                 },
                 error: function (jqXHR) {
-                    alert("发生错误：" + jqXHR.status);
+                    alert("��������" + jqXHR.status);
                 }
             })
         })

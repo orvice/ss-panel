@@ -36,7 +36,11 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="./node/{$node->id}" class="product-title">{$node->name} <span
-                                                    class="label label-info {if $node->status=='可用'} bg-green {else $node->status=='不可用'} bg-red {/if} pull-right">{$node->status}</span></a>
+                                        	{if $node->status=='可用'}
+                                                    class="label label-info  bg-green pull-right"
+                                          {else} $node->status=='不可用'}
+                                                    class="label label-info  bg-red pull-right"
+                                          {/if} >{$node->status}</span></a>         
                                         <p>
                                             {$node->info}
                                         </p>

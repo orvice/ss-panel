@@ -48,7 +48,8 @@ class Node extends Model
         if ($log == null) {
             return "暂无数据";
         }
-        return $log->load;
+        /*return $log->load;*/
+        return $log;
     }
 
     public function getLastNodeOnlineLog()

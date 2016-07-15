@@ -69,20 +69,20 @@
                                         {/if}               
                                         <li><a href="./node/{$node->id}">加密方式 <span
                                                         class="pull-right badge bg-aqua">{$user->method}</span></a></li>
-                                        <li><a href="./node/{$node->id}">负载: <span
-                                                        class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
                                     <ul class="nav nav-stacked">
                                         <li><a href="./node/{$node->id}">流量比例 <span
-                                                        class="pull-right badge bg-blue">{$node->traffic_rate}</span></a>
+                                                        class="pull-right badge bg-blue">{$node->traffic_rate}</span></a>                                                       
                                         </li>
                                         <li><a href="./node/{$node->id}">在线人数 <span
                                                         class="pull-right badge bg-green">{$node->getOnlineUserCount()}</span></a>
                                         </li>
                                         <li><a href="./node/{$node->id}">产生流量 <span
                                                         class="pull-right badge bg-green">{$node->getTrafficFromLogs()}</span></a>
+                                        <li><a href="./node/{$node->id}">负载: <span
+                                                        class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a></li>                                                         
                                         </li>
                                         <li><a href="./node/{$node->id}">Uptime: <span
                                                         class="pull-right badge bg-green">{$node->getNodeUptime()}</span></a>

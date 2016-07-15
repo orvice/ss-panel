@@ -84,8 +84,12 @@ class UserController extends BaseController
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
         return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
     }
+<<<<<<< HEAD
     
     
+=======
+
+>>>>>>> parent of 5803016... fix issues
 
     public function nodeInfo($request, $response, $args)
     {

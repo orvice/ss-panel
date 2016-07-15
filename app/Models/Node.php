@@ -33,18 +33,13 @@ class Node extends Model
         return Tools::secondsToTime((int)$log->uptime);
     }
 
-	  public function getNodeUpRate()
-    {
-        $id = $this->attributes['id'];
-        $log = NodeOnlineLog::where('node_id', $id)->where('log_time', '>=',time()-86400)->count();
-		
-		return $log/1440;
-    }
-    
     public function getNodeLoad()
     {
+<<<<<<< HEAD
         /* $id = $this->attributes['id'];
         $log = NodeInfoLog::where('node_id', $id)->orderBy('id', 'desc')->whereRaw('`log_time`%1800<60')->limit(48)->get();*/
+=======
+>>>>>>> parent of 5803016... fix issues
         $log = $this->getLastNodeInfoLog();
         if ($log == null) {
             return "暂无数据";
@@ -55,8 +50,7 @@ class Node extends Model
     public function getLastNodeOnlineLog()
     {
         $id = $this->attributes['id'];
-/*        $log = NodeOnlineLog::where('node_id', $id)->orderBy('id', 'desc')->first();*/
-        $log = NodeOnlineLog::where('node_id', $id)->orderBy('id', 'desc')->whereRaw('`log_time`%1800<60')->limit(48)->get();
+        $log = NodeOnlineLog::where('node_id', $id)->orderBy('id', 'desc')->first();
         if ($log == null) {
             return null;
         }
@@ -65,9 +59,7 @@ class Node extends Model
 
     function getOnlineUserCount()
     {
-/*        $log = $this->getLastNodeOnlineLog();*/
-        $id = $this->attributes['id'];
-        $log = NodeOnlineLog::where('node_id',$id)->orderBy('id', 'desc')->first();
+        $log = $this->getLastNodeOnlineLog();
         if ($log == null) {
             return "暂无数据";
         }

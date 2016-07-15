@@ -35,11 +35,6 @@ class Node extends Model
 
     public function getNodeLoad()
     {
-<<<<<<< HEAD
-        /* $id = $this->attributes['id'];
-        $log = NodeInfoLog::where('node_id', $id)->orderBy('id', 'desc')->whereRaw('`log_time`%1800<60')->limit(48)->get();*/
-=======
->>>>>>> parent of 5803016... fix issues
         $log = $this->getLastNodeInfoLog();
         if ($log == null) {
             return "暂无数据";

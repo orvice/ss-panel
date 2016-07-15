@@ -144,7 +144,7 @@
 									</fieldset>
 
 									<fieldset class="col-sm-6" >
-										<legend>ShadowSocksR连接信息</legend>
+										<legend>ShadowsocksR连接信息</legend>
 
 
 										<div class="form-group">

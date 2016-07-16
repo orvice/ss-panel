@@ -39,8 +39,11 @@
             <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
             <p id="msg-error-p"></p>
         </div>
-        <a href="/password/reset">忘记密码</a><br>
-        <a href="/auth/register" class="text-center">注册个帐号</a>
+        <div style="text-align:left;">
+            </br><a href="/password/reset"><span class="pull-left">忘记密码</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	<a href="/auth/register"><span class="">注册帐号</span></a>
+            	<a href="/"><span class="pull-right">返回首页</span></a>
+        </div>
 
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->

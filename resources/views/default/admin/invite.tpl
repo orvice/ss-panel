@@ -41,7 +41,7 @@
                                 <label for="cate_title" class="col-sm-3 control-label">邀请码前缀</label>
 
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="prefix" placeholder="小于8个字符">
+                                    <input class="form-control" id="prefix" type="text" placeholder="小于8个字符">
                                 </div>
                             </div>
 

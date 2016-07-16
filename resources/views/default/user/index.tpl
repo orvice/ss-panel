@@ -22,8 +22,12 @@
                         <h3 class="box-title">公告&FAQ</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        {$msg}
+                    <div class="box-body">                      
+                       <!--<p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>-->
+                       <p>{$msg}</p>
+                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip"><span class="badge bg-blue">ShadowsocksR for Windows</span></a></small></p>
+                       <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest"><span class="badge bg-blue">Shadowsocks for Android</span></a></small></p>
+                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118"><span class="badge bg-blue">Shadowrocket for IOS</span></a></small></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -107,7 +111,11 @@
                             <dd>{$user->port}</dd>
                             <dt>密码</dt>
                             <dd>{$user->passwd}</dd>
-                            <dt>自定义加密方式</dt>
+                            <dt>协议插件</dt>
+                            <dd>{$user->protocol}</dd>
+                            <dt>混淆插件</dt>
+                            <dd>{$user->obfs}</dd>
+                            <dt>加密方式</dt>
                             <dd>{$user->method}</dd>
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>

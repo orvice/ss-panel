@@ -31,7 +31,8 @@ class AdminController extends UserController
     {
         $n = $request->getParam('num');
         $prefix = $request->getParam('prefix');
-        $uid = $request->getParam('uid');
+	    	$uid = $request->getParam('uid');
+			
         if ($n < 1) {
             $res['ret'] = 0;
             return $response->getBody()->write(json_encode($res));

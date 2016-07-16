@@ -23,7 +23,9 @@
                                 <th>邮箱</th>
                                 <th>端口</th>
                                 <th>状态</th>
-                                <th>加密方式</th>
+                                <th>协议</th>
+                                <th>混淆</th>
+                                <th>加密</th>
                                 <th>已用流量/总流量</th>
                                 <th>最后在线时间</th>
                                 <th>最后签到时间</th>
@@ -37,7 +39,15 @@
                                 <td>#{$user->id}</td>
                                 <td>{$user->email}</td>
                                 <td>{$user->port}</td>
-                                <td>{$user->enable}</td>
+                                
+                                {if $user->enable==1}
+                                    <td>正常</td>
+								                {else}
+								                    <td>禁用</td>
+								                {/if}
+                                
+                                <td>{$user->protocol}</td>
+                                <td>{$user->obfs}</td>
                                 <td>{$user->method}</td>
                                 <td>{$user->usedTraffic()}/{$user->enableTraffic()}</td>
                                 <td>{$user->lastSsTime()}</td>

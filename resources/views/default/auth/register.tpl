@@ -14,7 +14,7 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input type="text" id="email" class="form-control" placeholder="邮箱"/>
+            <input type="text" id="email" class="form-control" placeholder="如果使用QQ邮箱,可能无法接收到验证邮件"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 

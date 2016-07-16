@@ -42,6 +42,13 @@ class Config extends PongtanConfig
             'prefix' => self::get('db_prefix')
         ];
     }
+	
+    public static function getRssConfig()
+    {
+        return [
+            'enable_rss' => self::get('enable_rss')
+        ];
+    }
 
     public static function getStoragePath($dir)
     {

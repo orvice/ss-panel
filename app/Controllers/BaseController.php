@@ -5,9 +5,6 @@ namespace App\Controllers;
 use App\Services\Auth;
 use App\Services\View;
 
-use Slim\Http\Response;
-use Slim\Http\Request;
-
 /**
  * BaseController
  */
@@ -44,7 +41,7 @@ class BaseController
      * @param int $statusCode
      * @return mixed
      */
-    public function echoJson(Response $response, $res, $statusCode = 200)
+    public function echoJson($response, $res, $statusCode = 200)
     {
         $newResponse = $response->withJson($res, $statusCode);
         return $newResponse;
@@ -55,7 +52,7 @@ class BaseController
      * @param $to
      * @return mixed
      */
-    public function redirect(Response $response, $to)
+    public function redirect($response, $to)
     {
         $newResponse = $response->withStatus(302)->withHeader('Location', $to);
         return $newResponse;

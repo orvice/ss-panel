@@ -69,44 +69,24 @@ class NodeController extends BaseController
 
         $input = $request->getBody();
         $datas = json_decode($input, true);
-
-        $failUser = [];
         foreach ($datas as $data) {
-            try {
-                $user = User::find($data['user_id']);
-                if ($user == null) {
-                    array_push($failUser, $data['user_id']);
-                    continue;
-                }
-                $user->t = time();
-                $user->u = $user->u + ($data['u'] * $rate);
-                $user->d = $user->d + ($data['d'] * $rate);
-                if (!$user->save()) {
-                    array_push($failUser, $data['user_id']);
-                    continue;
-                }
+            $user = User::find($data['user_id']);
+            $user->t = time();
+            $user->u = $user->u + ($data['u'] * $rate);
+            $user->d = $user->d + ($data['d'] * $rate);
+            $user->save();
 
-                // log
-                $totalTraffic = Tools::flowAutoShow(($data['u'] + $data['d']) * $rate);
-                $traffic = new TrafficLog();
-                $traffic->user_id = $data['user_id'];
-                $traffic->u = $data['u'];
-                $traffic->d = $data['d'];
-                $traffic->node_id = $nodeId;
-                $traffic->rate = $rate;
-                $traffic->traffic = $totalTraffic;
-                $traffic->log_time = time();
-                $traffic->save();
-            } catch (\Exception $e) {
-                array_push($failUser, $data['user_id']);
-            }
-        }
-
-        if (count($failUser) != 0) {
-            $res = [
-                "fail_users" => $failUser
-            ];
-            return $this->echoJson($response, $res, 400);
+            // log
+            $totalTraffic = Tools::flowAutoShow(($data['u'] + $data['d']) * $rate);
+            $traffic = new TrafficLog();
+            $traffic->user_id = $data['user_id'];
+            $traffic->u = $data['u'];
+            $traffic->d = $data['d'];
+            $traffic->node_id = $nodeId;
+            $traffic->rate = $rate;
+            $traffic->traffic = $totalTraffic;
+            $traffic->log_time = time();
+            $traffic->save();
         }
 
         $res = [

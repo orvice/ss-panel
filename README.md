@@ -19,6 +19,7 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 ## Supported Server
 
 * [shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
+* [shadowsocksrss manyuser](https://github.com/breakwa11/shadowsocks/tree/manyuser)
 * [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go)
 
 
@@ -27,7 +28,9 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 ### Step 0
 
 ```
-git clone https://github.com/orvice/ss-panel.git
+进入网站根目录下执行下面命令
+git clone https://github.com/monokoo/ss-panel.git
+mv ss-panel/.git . && rm -rf ss-panel && git reset --hard
 ```
 
 ### Step 1

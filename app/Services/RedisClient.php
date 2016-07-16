@@ -17,13 +17,18 @@ class RedisClient
 
     protected function getConfig()
     {
-        return [
+
+        $config = [
             'scheme' => Config::get('redis_scheme'),
             'host' => Config::get('redis_host'),
             'port' => Config::get('redis_port'),
             'database' => Config::get('redis_database'),
             'password' => Config::get('redis_pass'),
         ];
+        if (Config::get('redis_pass') == null || Config::get('redis_pass') == '') {
+            unset($config['password']);
+        }
+        return $config;
     }
 
     public function getClient()

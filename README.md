@@ -21,7 +21,7 @@ Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to do
 * [shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
 * [shadowsocksrss manyuser](https://github.com/breakwa11/shadowsocks/tree/manyuser)
 * [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go)
-
+* [shadowsocksR](https://github.com/breakwa11/shadowsocks/tree/manyuser)
 
 ## Install
 

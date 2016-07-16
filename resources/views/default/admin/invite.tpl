@@ -49,7 +49,7 @@
                                 <label for="cate_title" class="col-sm-3 control-label">邀请码类别</label>
 
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="uid" type="number" placeholder="0为公开，其他数字为对应用户的UID">
+                                    <input class="form-control" id="uid" type="text" placeholder="0为公开，其他数字为对应用户的UID，或者输入用户的完整邮箱">
                                 </div>
                             </div>
 

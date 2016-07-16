@@ -31,26 +31,8 @@ class AdminController extends UserController
     {
         $n = $request->getParam('num');
         $prefix = $request->getParam('prefix');
-		
-		if($request->getParam('uid')!="0"){
-			if(strpos($request->getParam('uid'),"@")!=FALSE){
-				$user=User::where("email","=",$request->getParam('uid'))->first();
-			}
-			else{
-				$user=User::Where("id","=",$request->getParam('uid'))->first();
-			}
+	    	$uid = $request->getParam('uid');
 			
-			if($user==null){
-				$res['ret'] = 0;
-				$res['msg'] = "输入不正确";
-				return $response->getBody()->write(json_encode($res));
-			}
-			$uid = $user->id;
-        }
-		else{
-			$uid=0;
-		}
-		
         if ($n < 1) {
             $res['ret'] = 0;
             return $response->getBody()->write(json_encode($res));

@@ -191,197 +191,197 @@
 												</div>
 
 
-											<div class="form-group">
-												<label class="col-sm-3 control-label">加密方法</label>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">加密方法</label>
 
 
-												<div class="col-sm-9">
-													<div class="input-group">
-														<select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
-															<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
-															<option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
-															<option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
-															<option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
-														</select>
-														<div class="input-group-btn">
-															<button type="submit" id="method-update" class="btn btn-primary" {if $user->custom_method == 0} disabled="disabled" {/if}>修改</button>
+													<div class="col-sm-9">
+														<div class="input-group">
+															<select class="form-control" id="method" {if $user->custom_method == 0} disabled="disabled"{/if}>
+																<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+																<option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
+																<option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+																<option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
+															</select>
+															<div class="input-group-btn">
+																<button type="submit" id="method-update" class="btn btn-primary" {if $user->custom_method == 0} disabled="disabled" {/if}>修改</button>
 
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+
 									</div>
-
+									<!--<div class="box-footer"></div>-->
 								</div>
-								<div class="box-footer"></div>
+								<!-- /.box-body -->
 							</div>
-							<!-- /.box-body -->
+							<!-- /.box -->
 						</div>
-						<!-- /.box -->
+						<!-- /.col (right) -->
+
 					</div>
-					<!-- /.col (right) -->
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
 
-				</div>
-			</section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
+			<script>
+				$("#msg-success").hide();
+				$("#msg-error").hide();
+				$("#ss-msg-success").hide();
+			</script>
 
-		<script>
-			$("#msg-success").hide();
-			$("#msg-error").hide();
-			$("#ss-msg-success").hide();
-		</script>
+			<script>
+				$(document).ready(function () {
+					$("#pwd-update").click(function () {
+						$.ajax({
+							type: "POST",
+							url: "password",
+							dataType: "json",
+							data: {
+								oldpwd: $("#oldpwd").val(),
+								pwd: $("#pwd").val(),
+								repwd: $("#repwd").val()
+							},
+							success: function (data) {
+								if (data.ret) {
+									$("#msg-error").hide();
+									$("#msg-success").show();
+									$("#msg-success-p").html(data.msg);
+								} else {
+									$("#msg-error").show();
+									$("#msg-error-p").html(data.msg);
+								}
+							},
+							error: function (jqXHR) {
+								alert("发生错误：" + jqXHR.status);
 
-		<script>
-			$(document).ready(function () {
-				$("#pwd-update").click(function () {
-					$.ajax({
-						type: "POST",
-						url: "password",
-						dataType: "json",
-						data: {
-							oldpwd: $("#oldpwd").val(),
-							pwd: $("#pwd").val(),
-							repwd: $("#repwd").val()
-						},
-						success: function (data) {
-							if (data.ret) {
-								$("#msg-error").hide();
-								$("#msg-success").show();
-								$("#msg-success-p").html(data.msg);
-							} else {
-								$("#msg-error").show();
-								$("#msg-error-p").html(data.msg);
+
 							}
-						},
-						error: function (jqXHR) {
-							alert("发生错误：" + jqXHR.status);
-
-
-						}
+						})
 					})
 				})
-			})
-		</script>
+			</script>
 
-		<script>
-			$(document).ready(function () {
-				$("#ss-pwd-update").click(function () {
-					$.ajax({
-						type: "POST",
-						url: "sspwd",
-						dataType: "json",
-						data: {
-							sspwd: $("#sspwd").val()
-						},
-						success: function (data) {
-							if (data.ret) {
-								$("#ss-msg-success").show();
-								$("#ss-msg-success-p").html(data.msg);
-							} else {
-								$("#ss-msg-error").show();
-								$("#ss-msg-error-p").html(data.msg);
+			<script>
+				$(document).ready(function () {
+					$("#ss-pwd-update").click(function () {
+						$.ajax({
+							type: "POST",
+							url: "sspwd",
+							dataType: "json",
+							data: {
+								sspwd: $("#sspwd").val()
+							},
+							success: function (data) {
+								if (data.ret) {
+									$("#ss-msg-success").show();
+									$("#ss-msg-success-p").html(data.msg);
+								} else {
+									$("#ss-msg-error").show();
+									$("#ss-msg-error-p").html(data.msg);
+								}
+							},
+							error: function (jqXHR) {
+								alert("发生错误：" + jqXHR.status);
+
+
 							}
-						},
-						error: function (jqXHR) {
-							alert("发生错误：" + jqXHR.status);
-
-
-						}
+						})
 					})
 				})
-			})
-		</script>
+			</script>
 
 
-		<script>
-			$(document).ready(function () {
-				$("#method-update").click(function () {
-					$.ajax({
-						type: "POST",
-						url: "method",
-						dataType: "json",
-						data: {
-							method: $("#method").val()
-						},
-						success: function (data) {
-							if (data.ret) {
-								$("#ss-msg-success").show();
-								$("#ss-msg-success-p").html(data.msg);
-							} else {
-								$("#ss-msg-error").show();
-								$("#ss-msg-error-p").html(data.msg);
+			<script>
+				$(document).ready(function () {
+					$("#method-update").click(function () {
+						$.ajax({
+							type: "POST",
+							url: "method",
+							dataType: "json",
+							data: {
+								method: $("#method").val()
+							},
+							success: function (data) {
+								if (data.ret) {
+									$("#ss-msg-success").show();
+									$("#ss-msg-success-p").html(data.msg);
+								} else {
+									$("#ss-msg-error").show();
+									$("#ss-msg-error-p").html(data.msg);
+								}
+							},
+							error: function (jqXHR) {
+								alert("发生错误：" + jqXHR.status);
+
+
 							}
-						},
-						error: function (jqXHR) {
-							alert("发生错误：" + jqXHR.status);
-
-
-						}
+						})
 					})
 				})
-			})
-		</script>
+			</script>
 
-		<script>
-			$(document).ready(function () {
-				$("#protocol-update").click(function () {
-					$.ajax({
-						type: "POST",
-						url: "protocol",
-						dataType: "json",
-						data: {
-							protocol: $("#protocol").val()
-						},
-						success: function (data) {
-							if (data.ret) {
-								$("#ss-msg-success").show();
-								$("#ss-msg-success-p").html(data.msg);
-							} else {
-								$("#ss-msg-error").show();
-								$("#ss-msg-error-p").html(data.msg);
+			<script>
+				$(document).ready(function () {
+					$("#protocol-update").click(function () {
+						$.ajax({
+							type: "POST",
+							url: "protocol",
+							dataType: "json",
+							data: {
+								protocol: $("#protocol").val()
+							},
+							success: function (data) {
+								if (data.ret) {
+									$("#ss-msg-success").show();
+									$("#ss-msg-success-p").html(data.msg);
+								} else {
+									$("#ss-msg-error").show();
+									$("#ss-msg-error-p").html(data.msg);
+								}
+							},
+							error: function (jqXHR) {
+								alert("发生错误：" + jqXHR.status);
+
+
 							}
-						},
-						error: function (jqXHR) {
-							alert("发生错误：" + jqXHR.status);
-
-
-						}
+						})
 					})
 				})
-			})
-		</script>
+			</script>
 
-		<script>
-			$(document).ready(function () {
-				$("#obfs-update").click(function () {
-					$.ajax({
-						type: "POST",
-						url: "obfs",
-						dataType: "json",
-						data: {
-							obfs: $("#obfs").val()
-						},
-						success: function (data) {
-							if (data.ret) {
-								$("#ss-msg-success").show();
-								$("#ss-msg-success-p").html(data.msg);
-							} else {
-								$("#ss-msg-error").show();
-								$("#ss-msg-error-p").html(data.msg);
+			<script>
+				$(document).ready(function () {
+					$("#obfs-update").click(function () {
+						$.ajax({
+							type: "POST",
+							url: "obfs",
+							dataType: "json",
+							data: {
+								obfs: $("#obfs").val()
+							},
+							success: function (data) {
+								if (data.ret) {
+									$("#ss-msg-success").show();
+									$("#ss-msg-success-p").html(data.msg);
+								} else {
+									$("#ss-msg-error").show();
+									$("#ss-msg-error-p").html(data.msg);
+								}
+							},
+							error: function (jqXHR) {
+								alert("发生错误：" + jqXHR.status);
+
+
 							}
-						},
-						error: function (jqXHR) {
-							alert("发生错误：" + jqXHR.status);
-
-
-						}
+						})
 					})
 				})
-			})
-		</script>
+			</script>
 
 
-		{include file='user/footer.tpl'}
+			{include file='user/footer.tpl'}

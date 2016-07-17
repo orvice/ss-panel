@@ -102,7 +102,19 @@ class User extends Model
     {
         $this->obfs = $obfs;
         $this->save();
-    }        
+    }
+    
+    public function updateUserClass($user_class)
+    {
+        $this->user_class = $user_class;
+        $this->save();
+    }
+    
+    public function updateUserGroup($user_group)
+    {
+        $this->user_group = $user_group;
+        $this->save();
+    }         
 
     public function addInviteCode()
     {

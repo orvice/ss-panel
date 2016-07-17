@@ -53,6 +53,8 @@ class UserController extends AdminController
         $user->method = $request->getParam('method');
         $user->custom_method = $request->getParam('custom_method');
         $user->custom_rss = $request->getParam('custom_rss');
+        $user->user_class = $request->getParam('user_class');
+        $user->user_group = $request->getParam('user_group');
         $user->enable = $request->getParam('enable');
         $user->is_admin = $request->getParam('is_admin');
         $user->ref_by = $request->getParam('ref_by');

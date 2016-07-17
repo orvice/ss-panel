@@ -92,9 +92,8 @@ class UserController extends BaseController
         				$query->Where("node_group","=",$this->user->user_group)
         					->orWhere("node_group","=",0);
         			}
-        		)->where('type', 1)->where("node_class","<=",$this->user->user_class)->orderBy('name')->get();
-        		
-        		
+        		)->where('type', 1)->where("node_class","<=",$this->user->user_class)->orderBy('sort')->get();
+        		        		
         return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
     }
 

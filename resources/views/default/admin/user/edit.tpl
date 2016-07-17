@@ -95,6 +95,25 @@
 													</select>
 												</div>
 											</div>
+											
+											<div class="form-group">
+											  <label class="col-sm-3 control-label" for="user_class"><p Title="用户只能访问等级小于等于这个数字的节点">用户等级</p></label>
+
+
+											  <div class="col-sm-9">
+												  <input class="form-control" id="user_class" type="number" value="{$user->user_class}">
+											  </div>
+										 </div>
+											
+											<div class="form-group">
+											<label class="col-sm-3 control-label" for="user_group"><p Title="用户只能访问组别等于这个数字或0的节点">用户群组</p></label>
+
+
+											<div class="col-sm-9">
+												<input class="form-control" id="user_group" type="number" value="{$user->user_group}">
+											</div>
+										</div>
+											
 										</div>
 
 										<div class="row">
@@ -238,7 +257,7 @@
 										</div>
 
 										<div class="form-group">
-											<label for="method" class="col-sm-3 control-label">自定义加密</label>
+											<label for="method" class="col-sm-3 control-label"><p Title="是否允许用户自己修改加密方式">自定义加密</p></label>
 
 
 											<div class="col-sm-9">
@@ -252,7 +271,7 @@
 										</div>
 
 										<div class="form-group">
-											<label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
+											<label for="custom_rss" class="col-sm-3 control-label"><p Title="是否允许用户自己修改协议及混淆">自定义协议&混淆</p></label>
 
 
 												<div class="col-sm-9">
@@ -264,23 +283,7 @@
 													</select>
 												</div>
 											</div>
-											<div class="form-group">
-											<label class="col-sm-3 control-label" for="user_class">用户等级(用户只能访问到等级小于等于这个数字的节点)</label>
-
-
-											<div class="col-sm-9">
-												<input class="form-control" id="user_class" type="number" value="{$user->user_class}">
-											</div>
-										</div>
 											
-											<div class="form-group">
-											<label class="col-sm-3 control-label" for="user_group">用户群组(用户只能访问到组别等于这个数字或0的节点)</label>
-
-
-											<div class="col-sm-9">
-												<input class="form-control" id="user_group" type="number" value="{$user->user_group}">
-											</div>
-										</div>
 											
 																						
 										</fieldset>
@@ -325,7 +328,7 @@
 								custom_method: $("#custom_method").val(),
 								custom_rss: $("#custom_rss").val(),
 								user_class: $("#user_class").val(),
-								node_group: $("#node_group").val(),
+								user_group: $("#user_group").val(),
 								enable: $("#enable").val(),
 								is_admin: $("#is_admin").val(),
 								ref_by: $("#ref_by").val()

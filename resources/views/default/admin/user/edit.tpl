@@ -291,14 +291,16 @@
 									</div>
 								</div>
 								<!-- /.box-body -->
-								<div class="box-footer">
-									<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
-
-								</div>
 
 							</div>
 						</div>
 						<!-- /.box -->
+						
+								<div class="box-footer">
+									<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
+
+								</div>	
+													
 					</div>
 					<!-- /.row -->
 				</section>

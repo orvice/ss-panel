@@ -169,6 +169,24 @@
 											</fieldset>
 											<fieldset class="col-sm-6">
 												<legend>描述信息</legend>
+												
+												<div class="form-group">
+													<label for="class" class="col-sm-3 control-label">节点类别</label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_class" type="number" value="{$node->node_class}">
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label for="group" class="col-sm-3 control-label">节点群组</label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_group" type="number" value="{$node->node_group}">
+													</div>
+												</div>
 
 												<div class="form-group">
 													<label for="type" class="col-sm-3 control-label">是否显示</label>
@@ -249,7 +267,9 @@
 									obfs_param: $("#obfs_param").val(),*/
 									method: $("#method").val(),
 /*									custom_method: $("#custom_method").val(),
-									custom_rss: $("#custom_rss").val(),		*/							
+									custom_rss: $("#custom_rss").val(),		*/
+									node_class: $("#node_class").val(),
+								  node_group: $("#node_group").val(),							
 									rate: $("#rate").val(),
 									info: $("#info").val(),
 									type: $("#type").val(),

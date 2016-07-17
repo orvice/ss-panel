@@ -264,6 +264,25 @@
 													</select>
 												</div>
 											</div>
+											<div class="form-group">
+											<label class="col-sm-3 control-label" for="user_class">用户等级(用户只能访问到等级小于等于这个数字的节点)</label>
+
+
+											<div class="col-sm-9">
+												<input class="form-control" id="user_class" type="number" value="{$user->user_class}">
+											</div>
+										</div>
+											
+											<div class="form-group">
+											<label class="col-sm-3 control-label" for="user_group">用户群组(用户只能访问到组别等于这个数字或0的节点)</label>
+
+
+											<div class="col-sm-9">
+												<input class="form-control" id="user_group" type="number" value="{$user->user_group}">
+											</div>
+										</div>
+											
+																						
 										</fieldset>
 
 									</div>
@@ -305,6 +324,8 @@
 								method: $("#method").val(),
 								custom_method: $("#custom_method").val(),
 								custom_rss: $("#custom_rss").val(),
+								user_class: $("#user_class").val(),
+								node_group: $("#node_group").val(),
 								enable: $("#enable").val(),
 								is_admin: $("#is_admin").val(),
 								ref_by: $("#ref_by").val()

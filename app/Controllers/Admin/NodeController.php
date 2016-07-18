@@ -36,6 +36,7 @@ class NodeController extends AdminController
 		$node->node_group = $request->getParam('node_group');
 		$node->traffic_rate = $request->getParam('rate');
 		$node->info = $request->getParam('info');
+		$node->note = $request->getParam('note');
 		$node->type = $request->getParam('type');
 		$node->status = $request->getParam('status');
 		$node->sort = $request->getParam('sort');
@@ -79,6 +80,7 @@ class NodeController extends AdminController
 		  $node->node_group = $request->getParam('node_group');
 			$node->traffic_rate = $request->getParam('rate');
 			$node->info = $request->getParam('info');
+			$node->note = $request->getParam('note');
 			$node->type = $request->getParam('type');
 			$node->status = $request->getParam('status');
 			$node->sort = $request->getParam('sort');

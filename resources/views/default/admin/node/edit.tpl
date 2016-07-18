@@ -240,6 +240,14 @@
 															<textarea class="form-control" id="info" rows="3">{$node->info}</textarea>
 														</div>
 													</div>
+													<div class="form-group">
+													<label for="info" class="col-sm-3 control-label">节点备注</label>
+
+
+													<div class="col-sm-9">
+														<textarea class="form-control" id="note" rows="2">{$node->note}</textarea>
+													</div>
+												</div>
 												</fieldset>
 											</div>
 										</div>
@@ -280,6 +288,7 @@
 								  node_group: $("#node_group").val(),							
 									rate: $("#rate").val(),
 									info: $("#info").val(),
+									note: $("#note").val(),
 									type: $("#type").val(),
 									status: $("#status").val(),
 									sort: $("#sort").val()

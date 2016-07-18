@@ -106,11 +106,11 @@
 										 </div>
 											
 											<div class="form-group">
-											<label class="col-sm-3 control-label" for="user_group"><p Title="用户只能访问用户群组等于节点群组和节点群组为0的节点">用户群组</p></label>
+											<label class="col-sm-3 control-label" for="node_group"><p Title="用户只能访问用户所属节点群组和节点群组为0的节点">用户群组</p></label>
 
 
 											<div class="col-sm-9">
-												<input class="form-control" id="user_group" type="number" value="{$user->user_group}">
+												<input class="form-control" id="user_group" type="number" value="{$user->node_group}">
 											</div>
 										</div>
 											
@@ -338,7 +338,7 @@
 								custom_method: $("#custom_method").val(),
 								custom_rss: $("#custom_rss").val(),
 								user_class: $("#user_class").val(),
-								user_group: $("#user_group").val(),
+								node_group: $("#node_group").val(),
 								enable: $("#enable").val(),
 								is_admin: $("#is_admin").val(),
 								ref_by: $("#ref_by").val()

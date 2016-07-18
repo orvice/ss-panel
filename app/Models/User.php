@@ -110,9 +110,9 @@ class User extends Model
         $this->save();
     }
     
-    public function updateUserGroup($user_group)
+    public function updateUserGroup($node_group)
     {
-        $this->user_group = $user_group;
+        $this->node_group = $node_group;
         $this->save();
     }         
 

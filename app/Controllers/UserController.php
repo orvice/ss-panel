@@ -44,7 +44,7 @@ class UserController extends BaseController
 
         $nodes=Node::where('sort', 0)->where(
 		  	function ($query) {
-			  	$query->where("node_group","=",$this->user->user_group)
+			  	$query->where("node_group","=",$this->user->node_group)
 				  	->orWhere("node_group","=",0);
 			  })->where("type","1")->where("node_class","<=",$this->user->user_class)->get();
 			  
@@ -89,7 +89,7 @@ class UserController extends BaseController
         $user = Auth::getUser();
         $nodes = Node::where(
         			function ($query) {
-        				$query->Where("node_group","=",$this->user->user_group)
+        				$query->Where("node_group","=",$this->user->node_group)
         					->orWhere("node_group","=",0);
         			}
         		)->where('type', 1)->where("node_class","<=",$this->user->user_class)->orderBy('sort')->get();
@@ -108,7 +108,7 @@ class UserController extends BaseController
 
         }
         
-        if($user->user_class>=$node->node_class&&($user->user_group==$node->node_group||$node->node_group==0)){
+        if($user->user_class>=$node->node_class&&($user->node_group==$node->node_group||$node->node_group==0)){
         $ary['server'] = $node->server;
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
@@ -156,7 +156,7 @@ class UserController extends BaseController
     {   
         return $this->view()->display('user/edit.tpl');
     }
-
+    
 
     public function invite($request, $response, $args)
     {

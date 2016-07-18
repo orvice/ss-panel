@@ -188,7 +188,7 @@
 												</div>
 												
 												<div class="form-group">
-													<label for="group" class="col-sm-3 control-label"><p Title="用户只能访问用户群组等于节点群组和节点群组为0的节点">节点群组</p></label>
+													<label for="group" class="col-sm-3 control-label"><p Title="用户只能访问用户所属节点群组和节点群组为0的节点">节点群组</p></label>
 
 
 													<div class="col-sm-9">

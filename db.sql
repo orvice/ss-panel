@@ -129,7 +129,7 @@ CREATE TABLE `user` (
   `obfs` varchar(128) NOT NULL DEFAULT 'plain',
   `obfs_param` varchar(128) NULL DEFAULT NULL,
   `user_class` int(11) NOT NULL DEFAULT '0',
-  `user_group` int(11) NOT NULL DEFAULT '0', 
+  `node_group` int(11) NOT NULL DEFAULT '0', 
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`),

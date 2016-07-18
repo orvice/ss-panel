@@ -179,7 +179,7 @@
 												<legend>描述信息</legend>
 												
 												<div class="form-group">
-													<label for="class" class="col-sm-3 control-label"><p Title="用户只能访问等级小于等于这个数字的节点">节点类别</p></label>
+													<label for="class" class="col-sm-3 control-label"><p Title="用户只能访问用户等级大于等于节点类别的节点">节点类别</p></label>
 
 
 													<div class="col-sm-9">
@@ -188,7 +188,7 @@
 												</div>
 												
 												<div class="form-group">
-													<label for="group" class="col-sm-3 control-label"><p Title="用户只能访问组别等于这个数字或0的节点">节点群组</p></label>
+													<label for="group" class="col-sm-3 control-label"><p Title="用户只能访问用户群组等于节点群组和节点群组为0的节点">节点群组</p></label>
 
 
 													<div class="col-sm-9">

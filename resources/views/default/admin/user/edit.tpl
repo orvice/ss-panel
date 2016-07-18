@@ -97,7 +97,7 @@
 											</div>
 											
 											<div class="form-group">
-											  <label class="col-sm-3 control-label" for="user_class"><p Title="用户只能访问等级小于等于这个数字的节点">用户等级</p></label>
+											  <label class="col-sm-3 control-label" for="user_class"><p Title="用户只能访问用户等级大于等于节点类别的节点">用户等级</p></label>
 
 
 											  <div class="col-sm-9">
@@ -106,7 +106,7 @@
 										 </div>
 											
 											<div class="form-group">
-											<label class="col-sm-3 control-label" for="user_group"><p Title="用户只能访问组别等于这个数字或0的节点">用户群组</p></label>
+											<label class="col-sm-3 control-label" for="user_group"><p Title="用户只能访问用户群组等于节点群组和节点群组为0的节点">用户群组</p></label>
 
 
 											<div class="col-sm-9">

@@ -120,10 +120,18 @@
 
 												<div class="col-sm-9">
 													<select class="form-control" id="method"  disabled="disabled">
-														<option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
 														<option value="aes-256-cfb" {if $node->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
-														<option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>
-														<option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
+                            <option value="aes-256-ctr" {if $node->method=="aes-256-ctr"}selected="selected"{/if}>aes-256-ctr</option>
+                            <option value="camellia-256-cfb" {if $node->method=="camellia-256-cfb"}selected="selected"{/if}>camellia-256-cfb</option>
+                            <option value="bf-cfb" {if $node->method=="bf-cfb"}selected="selected"{/if}>bf-cfb</option>
+                            <option value="cast5-cfb" {if $node->method=="cast5-cfb"}selected="selected"{/if}>cast5-cfb</option>
+                            <option value="des-cfb" {if $node->method=="des-cfb"}selected="selected"{/if}>des-cfb</option>
+                            <option value="des-ede3-cfb" {if $node->method=="des-ede3-cfb"}selected="selected"{/if}>des-ede3-cfb</option>
+                            <option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+                            <option value="rc4-md5-6" {if $node->method=="rc4-md5-6"}selected="selected"{/if}>rc4-md5-6</option>
+                            <option value="salsa20" {if $node->method=="salsa20"}selected="selected"{/if}>salsa20</option>
+                            <option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+                            <option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
 													</select>
 												</div>
 											</div>

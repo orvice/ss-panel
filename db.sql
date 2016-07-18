@@ -59,6 +59,7 @@ CREATE TABLE `ss_node` (
   `node_group` int(11) NOT NULL DEFAULT '0',    
   `traffic_rate` float NOT NULL DEFAULT '1',
   `info` varchar(128) NOT NULL,
+  `note` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
   `offset` int(11) NOT NULL DEFAULT '0',
   `sort` int(3) NOT NULL,

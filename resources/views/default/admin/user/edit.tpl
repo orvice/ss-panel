@@ -110,7 +110,7 @@
 
 
 											<div class="col-sm-9">
-												<input class="form-control" id="user_group" type="number" value="{$user->node_group}">
+												<input class="form-control" id="node_group" type="number" value="{$user->node_group}">
 											</div>
 										</div>
 											

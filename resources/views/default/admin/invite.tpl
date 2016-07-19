@@ -76,8 +76,32 @@
                         <h3 class="box-title">注意</h3>
                     </div>
                     <div class="box-footer">
-                        <p>公共邀请码（类别为0的邀请码）请<a href="/code">在这里查看</a>。</p>
+                        <p>公共邀请码（类别为0的邀请码）请<a href="/code">在这里查看</a>。<br>以下为特定用户邀请码（类别不为0和1的邀请码）:</p>
                     </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>用户ID</th>
+                                <th>邀请码(点右键复制链接)</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {foreach $othercodes as $code}
+                                <tr>
+                                    <td><b>{$code->id}</b></td>
+                                    <td><b>{$code->user_id}</b></td>
+                                    <td><a href="/auth/register?code={$code->code}" target="_blank">{$code->code}</a>
+                                    </td>
+                                    <td>可用</td>
+                                </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
             <!-- /.box -->
@@ -103,6 +127,7 @@
                     if (data.ret) {
                         $("#msg-success").show(100);
                         $("#msg-success-p").html(data.msg);
+                        setTimeout("window.location.reload()",3000);
                         //window.setTimeout("location.href='/admin/invite'", 2000);
                     }
                     // window.location.reload();

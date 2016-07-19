@@ -24,7 +24,7 @@ class AdminController extends UserController
     public function invite($request, $response, $args)
     {
         $codes = InviteCode::where('user_id', '=', '0')->get();
-        $othercodes = InviteCode::where('user_id', '!=', '0', 'and', 'user_id', '!=', '1')->get();
+        $othercodes = InviteCode::where('user_id', '>', '1')->get();
         return $this->view()->assign('codes', $codes)->assign('othercodes', $othercodes)->display('admin/invite.tpl');
     }
 

@@ -119,6 +119,8 @@
                             <dd>{$user->method}</dd>
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>
+                            <dt>帐号到期时间</dt>
+                            <dd>{$user->expire_at}</dd>
                         </dl>
                     </div>
                     <!-- /.box-body -->

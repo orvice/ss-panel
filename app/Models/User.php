@@ -21,8 +21,8 @@ class User extends Model
 
     protected $casts = [
         "t" => 'int',
-        "u" => 'int',
-        "d" => 'int',
+        "u" => 'float',
+        "d" => 'float',
         "port" => 'int',
         "transfer_enable" => 'float',
         "enable" => 'int',

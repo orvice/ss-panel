@@ -97,6 +97,15 @@
 											</div>
 											
 											<div class="form-group">
+												<label class="col-sm-3 control-label">账户过期时间</label>
+
+
+												<div class="col-sm-9">
+												  <input class="form-control" id="expire_at" type="date" value="{$user->expire_at}">													
+												</div>
+											</div>
+											
+											<div class="form-group">
 											  <label class="col-sm-3 control-label" for="user_class"><p Title="用户只能访问用户等级大于等于节点类别的节点">用户等级</p></label>
 
 
@@ -340,6 +349,7 @@
 								user_class: $("#user_class").val(),
 								node_group: $("#node_group").val(),
 								enable: $("#enable").val(),
+								expire_at: $("#expire_at").val(),
 								is_admin: $("#is_admin").val(),
 								ref_by: $("#ref_by").val()
 							},

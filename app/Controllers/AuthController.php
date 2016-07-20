@@ -160,7 +160,7 @@ class AuthController extends BaseController
         $user->user_name = $name;
         $user->email = $email;
         $user->pass = Hash::passwordHash($passwd);
-        $user->passwd = Tools::genRandomChar(6);
+        $user->passwd = Tools::genRandomChar(8);
         $user->port = Tools::getLastPort() + 1;
         $user->t = 0;
         $user->u = 0;

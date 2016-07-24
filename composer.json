@@ -1,6 +1,6 @@
 {
   "require": {
-    "pongtan/framework": "dev-master",
+    "pongtan/framework": "0.0.1",
     "pongtan/utils": "dev-master",
     "ramsey/uuid": "^3.3"
   },

@@ -14,17 +14,20 @@ class DailyMail
     {
         $users = User::all();
         foreach ($users as $user) {
-            echo "Send daily mail to user: " . $user->id;
-            $subject = Config::get('appName') . "-每日流量报告";
-            $to = $user->email;
-            try {
-                Mail::send($to, $subject, 'news/daily-traffic-report.tpl', [
-                    "user" => $user
-                ], [
-                ]);
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
+			if ($user->ifUsedIn(24))
+			{
+				echo "Send daily mail to user: " . $user->user_name . " " . $user->email . "\n";
+				$subject = Config::get('appName') . "-每日流量报告";
+				$to = $user->email;
+				try {
+					Mail::send($to, $subject, 'news/daily-traffic-report.tpl', [
+						"user" => $user
+					], [
+					]);
+				} catch (Exception $e) {
+					echo $e->getMessage();
+				}
+			}
         }
     }
 }

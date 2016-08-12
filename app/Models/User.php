@@ -54,6 +54,11 @@ class User extends Model
         }
         return Tools::toDateTime($this->attributes['t']);
     }
+	
+	public function ifUsedIn($hours)
+	{
+		return (time() - $this->attributes['t']) <= ($hours * 3600);
+	}
 
     public function lastCheckInTime()
     {

@@ -14,7 +14,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">{$config["appName"]}</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/">{$lang->get('nav.home')}</a></li>
-            <li><a href="https://shadowsocks.org/en/download/clients.html">{$lang->get('nav.download')}</a></li>
+            <li><a href="https://down.moe.gr/soft/shadowsocks/">{$lang->get('nav.download')}</a></li>
             <li><a href="/code">{$lang->get('nav.invite-code')}</a></li>
             {if $user->isLogin}
                 <li><a href="/user">{$lang->get('auth.user-center')}</a></li>
@@ -28,7 +28,7 @@
 
         <ul id="nav-mobile" class="side-nav">
             <li><a href="/">{$lang->get('nav.home')}</a></li>
-            <li><a href="https://shadowsocks.org/en/download/clients.html">{$lang->get('nav.download')}</a></li>
+            <li><a href="https://down.moe.gr/soft/shadowsocks/">{$lang->get('nav.download')}</a></li>
             <li><a href="/code">{$lang->get('nav.invite-code')}</a></li>
             {if $user->isLogin}
                 <li><a href="/user">{$lang->get('nav.user-center')}</a></li>

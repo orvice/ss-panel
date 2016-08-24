@@ -1,5 +1,0 @@
-<?php
-
-return [
-  "down" => 'Down'
-];

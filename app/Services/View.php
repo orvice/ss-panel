@@ -23,9 +23,15 @@ class View
         return $smarty;
     }
 
+    /**
+     * @return Translator
+     */
     protected static function getLang()
     {
         $lang = Config::get('lang');
+        if(!$lang){
+            $lang = 'en';
+        }
         // Prepare the FileLoader
         $loader = new FileLoader(new Filesystem(), BASE_PATH . '/resources/lang/');
         // Register the English translator

@@ -6,24 +6,24 @@
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">注册，然后变成一只猫。</p>
+        <p class="login-box-msg">{$lang->get('auth.register-be-a-cat')}</p>
 
         <div class="form-group has-feedback">
-            <input type="text" id="name" class="form-control" placeholder="昵称"/>
+            <input type="text" id="name" class="form-control" placeholder="{$lang->get('auth.username')}"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <input type="text" id="email" class="form-control" placeholder="如果使用QQ邮箱,可能无法接收到验证邮件"/>
+            <input type="text" id="email" class="form-control" placeholder="{$lang->get('auth.email')}"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
         {if $requireEmailVerification}
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" id="verifycode" class="form-control" placeholder="邮箱验证码"/>
+                    <input type="text" id="verifycode" class="form-control" placeholder="{$lang->get('auth.activation-code')}"/>
                 <span class="input-group-btn">
-                    <button type="button" id="sendcode" class="btn btn-default btn-flat">发送验证码</button>
+                    <button type="button" id="sendcode" class="btn btn-default btn-flat">{$lang->get('auth.send-code')}</button>
                 </span>
                 </div>
             </div>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
+            <input type="password" id="repasswd" class="form-control" placeholder="{$lang->get('auth.password-repeat')}"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
 
@@ -45,26 +45,26 @@
         </div>
 
         <div class="form-group has-feedback">
-            <p>注册即代表同意<a href="/tos">服务条款</a></p>
+            <p><a href="/tos">{$lang->get('nav.tos')}</a></p>
         </div>
 
         <div class="form-group has-feedback">
-            <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">同意服务条款并提交注册</button>
+            <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">{$lang->get('auth.accept-tos-register')}</button>
         </div>
 
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> 成功!</h4>
+            <h4><i class="icon fa fa-info"></i> {$lang->get('success')}!</h4>
             <p id="msg-success-p"></p>
         </div>
 
         <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
             <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+            <h4><i class="icon fa fa-warning"></i>{$lang->get('error')}!</h4>
             <p id="msg-error-p"></p>
         </div>
 
-        <a href="/auth/login" class="text-center">已经注册？请登录</a>
+        <a href="/auth/login" class="text-center">{$lang->get('auth.login')}</a>
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
 

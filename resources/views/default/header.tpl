@@ -20,8 +20,8 @@
                 <li><a href="/user">用户中心</a></li>
                 <li><a href="/user/logout">退出</a></li>
             {else}
-                <li><a href="/auth/login">登录</a></li>
-                <li><a href="/auth/register">注册</a></li>
+                <li><a href="/auth/login">{$lang->get('auth.login')}</a></li>
+                <li><a href="/auth/register">{$lang->get('auth.register')}</a></li>
             {/if}
 
         </ul>

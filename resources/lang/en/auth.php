@@ -3,5 +3,5 @@
 return [
 
     'login' => 'Login',
-    'Register' => 'Register'
+    'register' => 'Register'
 ];

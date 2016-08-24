@@ -10,7 +10,8 @@
     "phploc/phploc": "*",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "*",
-    "squizlabs/php_codesniffer": "2.*"
+    "squizlabs/php_codesniffer": "2.*",
+    "illuminate/translation": "~5.1.0"
   },
   "autoload": {
     "classmap": [

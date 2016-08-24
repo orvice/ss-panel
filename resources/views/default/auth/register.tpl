@@ -30,7 +30,7 @@
         {/if}
 
         <div class="form-group has-feedback">
-            <input type="password" id="passwd" class="form-control" placeholder="密码"/>
+            <input type="password" id="passwd" class="form-control" placeholder="{$lang->get('auth.password')}"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
+            <input type="text" id="code" value="{$code}" class="form-control" placeholder="{$lang->get('nav.invite-code')}"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
 

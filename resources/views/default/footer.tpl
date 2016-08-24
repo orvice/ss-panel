@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="white-text">{$lang->get('nav.about')}</h5>
-				<p class="grey-text text-lighten-4">本站提供某种帐号用于科学上网.</p>
+				<p class="grey-text text-lighten-4">{$lang->get('index.info')}</p>
 
 
 			</div>

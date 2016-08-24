@@ -5,15 +5,15 @@
         <a href="#"><b>{$config['appName']}</b></a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">登录到用户中心</p>
+        <p class="login-box-msg">{$lang->get('auth.login')}</p>
 
         <form>
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
+                <input id="email" name="Email" type="text" class="form-control" placeholder="{$lang->get('auth.email')}"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
+                <input id="passwd" name="Password" type="password" class="form-control" placeholder="{$lang->get('auth.password')}"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
         </form>
@@ -21,12 +21,12 @@
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
-                        <input id="remember_me" value="week" type="checkbox"> 记住我
+                        <input id="remember_me" value="week" type="checkbox"> {$lang->get('auth.remember-me')}
                     </label>
                 </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
-                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat">{$lang->get('auth.login')}</button>
             </div><!-- /.col -->
         </div>
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
@@ -40,9 +40,9 @@
             <p id="msg-error-p"></p>
         </div>
         <div style="text-align:left;">
-            </br><a href="/password/reset"><span class="pull-left">忘记密码</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            	<a href="/auth/register"><span class="">注册帐号</span></a>
-            	<a href="/"><span class="pull-right">返回首页</span></a>
+            </br><a href="/password/reset"><span class="pull-left">{$lang->get('auth.forgot-password')}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	<a href="/auth/register"><span class="">{$lang->get('auth.register')}</span></a>
+            	<a href="/"><span class="pull-right">{$lang->get('nav.home')}</span></a>
         </div>
 
     </div><!-- /.login-box-body -->

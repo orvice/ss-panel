@@ -13,6 +13,7 @@ use App\Utils\Check;
 use App\Utils\Hash;
 use App\Utils\Http;
 use App\Utils\Tools;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 
 /**
@@ -79,6 +80,7 @@ class AuthController extends BaseController
 
     public function register($request, $response, $args)
     {
+        throw new Exception("wor");
         $ary = $request->getQueryParams();
         $code = "";
         if (isset($ary['code'])) {

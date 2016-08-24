@@ -8,6 +8,8 @@ use App\Middleware\Guest;
 use App\Middleware\Mu;
 use Slim\App;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 /***
  * The slim documents: http://www.slimframework.com/docs/objects/router.html
@@ -20,14 +22,22 @@ if (defined("DEBUG")) {
 }
 
 // Make a Slim App
-// $app = new App($c)
-$app = new App([
-    'settings' => [
-        'debug' => $debug,
-        'whoops.editor' => 'sublime'
-    ]
-]);
-$app->add(new WhoopsMiddleware);
+
+$c = new \Slim\Container();
+$c['errorHandler'] = function ($c) {
+    return function ($request, $response, $exception) use ($c) {
+
+
+        $filename = BASE_PATH . '/storage/logs/error.log';
+        $log = new Logger('App');
+        $log->pushHandler(new StreamHandler($filename, Logger::WARNING));
+        $log->error($exception->getMessage());
+        return $c['response']->withStatus(500)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Something went wrong!');
+    };
+};
+$app = new App($c);
 
 
 // Home

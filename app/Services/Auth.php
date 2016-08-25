@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Services\Cache\Cache;
-use App\Services\Cache\Factory;
+use App\Services\Cache\Factory as CacheFactory;
 use App\Utils\Cookie;
 use App\Utils\Helper;
 use App\Utils\Tools;
@@ -25,7 +25,7 @@ class Auth
      */
     protected static function getCache()
     {
-        return Factory::newSessionCache();
+        return CacheFactory::newSessionCache();
     }
     
     public static function login($uid, $time)

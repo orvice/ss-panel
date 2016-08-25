@@ -123,16 +123,18 @@ CREATE TABLE `user` (
   `expire_time` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
   `custom_method` tinyint(1) NOT NULL DEFAULT '0',
+  `custom_rss` tinyint(1) NOT NULL DEFAULT '0',
   `protocol` varchar(128) NOT NULL DEFAULT 'origin',
   `protocol_param` varchar(128) NULL DEFAULT NULL,
   `obfs` varchar(128) NOT NULL DEFAULT 'plain',
-  `obfs_param` varchar(128) NULL DEFAULT NULL,  
+  `obfs_param` varchar(128) NULL DEFAULT NULL,
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `port` (`port`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 

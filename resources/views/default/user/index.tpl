@@ -5,8 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            用户中心
-            <small>User Center</small>
+            {$lang->get('user-nav.user-home')}
         </h1>
     </section>
 
@@ -19,15 +18,12 @@
                     <div class="box-header">
                         <i class="fa fa-bullhorn"></i>
 
-                        <h3 class="box-title">公告&FAQ</h3>
+                        <h3 class="box-title">{$lang->get('user-index.announcement')}&{$lang->get('user-index.faq')}</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">                      
-                       <!--<p>本站节点支持混淆协议，请优先使用支持混淆的客户端，手机端请选择兼容模式。</p>-->
+                    <div class="box-body">
+                        <p><a href="https://down.moe.gr/soft/shadowsocks/">{$lang->get('nav.download')}</a></p>
                        <p>{$msg}</p>
-                       <p><small>Windows客户端下载：<a href="http://any.mokoo.xyz/app/ShadowsocksR-win.zip"><span class="badge bg-blue">ShadowsocksR for Windows</span></a></small></p>
-                       <p><small>Android客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-android/releases/latest"><span class="badge bg-blue">Shadowsocks for Android</span></a></small></p>
-                       <p><small>IOS客户端下载：<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118"><span class="badge bg-blue">Shadowrocket for IOS</span></a></small></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -40,7 +36,7 @@
                     <div class="box-header">
                         <i class="fa fa-exchange"></i>
 
-                        <h3 class="box-title">流量使用情况</h3>
+                        <h3 class="box-title">{$lang->get('user-index.traffic-info')}</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -56,11 +52,11 @@
                             </div>
                         </div>
                         <dl class="dl-horizontal">
-                            <dt>总流量</dt>
+                            <dt>{$lang->get('user-index.traffic-total')}</dt>
                             <dd>{$user->enableTraffic()}</dd>
-                            <dt>已用流量</dt>
+                            <dt>{$lang->get('user-index.traffic-used')}</dt>
                             <dd>{$user->usedTraffic()}</dd>
-                            <dt>剩余流量</dt>
+                            <dt>{$lang->get('user-index.traffic-unused')}</dt>
                             <dd>{$user->unusedTraffic()}</dd>
                         </dl>
                     </div>
@@ -75,19 +71,19 @@
                     <div class="box-header">
                         <i class="fa fa-pencil"></i>
 
-                        <h3 class="box-title">签到获取流量</h3>
+                        <h3 class="box-title">{$lang->get('user-index.checkin')}</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <p> 每{$config['checkinTime']}小时可以签到一次。</p>
 
-                        <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
+                        <p>{$lang->get('user-index.last-checkin-at')}：<code>{$user->lastCheckInTime()}</code></p>
                         {if $user->isAbleToCheckin() }
                             <p id="checkin-btn">
-                                <button id="checkin" class="btn btn-success  btn-flat">签到</button>
+                                <button id="checkin" class="btn btn-success  btn-flat">{$lang->get('user-index.checkin')}</button>
                             </p>
                         {else}
-                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a></p>
+                            <p><a class="btn btn-success btn-flat disabled" href="#">{$lang->get('user-index.cant-checkin')}</a></p>
                         {/if}
                         <p id="checkin-msg"></p>
                     </div>
@@ -102,22 +98,22 @@
                     <div class="box-header">
                         <i class="fa  fa-paper-plane"></i>
 
-                        <h3 class="box-title">连接信息</h3>
+                        <h3 class="box-title">{$lang->get('user-index.connection-info')}</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <dl class="dl-horizontal">
-                            <dt>端口</dt>
+                            <dt>{$lang->get('user-index.port')}</dt>
                             <dd>{$user->port}</dd>
-                            <dt>密码</dt>
+                            <dt>{$lang->get('user-index.password')}</dt>
                             <dd>{$user->passwd}</dd>
                             <dt>协议插件</dt>
                             <dd>{$user->protocol}</dd>
                             <dt>混淆插件</dt>
                             <dd>{$user->obfs}</dd>
-                            <dt>加密方式</dt>
+                            <dt>{$lang->get('user-index.method')}</dt>
                             <dd>{$user->method}</dd>
-                            <dt>上次使用</dt>
+                            <dt>{$lang->get('user-index.last-used')}</dt>
                             <dd>{$user->lastSsTime()}</dd>
                         </dl>
                     </div>

@@ -173,3 +173,6 @@ CREATE TABLE `ss_checkin_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+INSERT INTO `user` (`id`, `user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `transfer_enable`, `port`, `switch`, `enable`, `type`, `last_get_gift_time`, `last_check_in_time`, `last_rest_pass_time`, `reg_date`, `invite_num`, `is_admin`, `ref_by`, `expire_time`, `method`, `custom_rss`, `protocol`, `protocol_param`, `obfs`, `obfs_param`, `is_email_verify`, `reg_ip`)
+VALUES
+	(1, 'admin', 'admin@sample.com', '01cf847ebff0914e59b1947c8468f7822b35e4705af610a764ff90443f491df5', 'PORwqk', 1466005644, 14337, 1893017603, 81244717056, 1025, 1, 1, 1, 0, 1471795620, 0, '2016-08-21 12:07:30', 0, 1, 0, 0, 'rc4-md5', 0, 'origin', NULL, 'plain', NULL, 0, '127.0.0.1');

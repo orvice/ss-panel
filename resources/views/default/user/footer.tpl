@@ -6,7 +6,7 @@
         Made with Love
     </div>
     <strong>Copyright &copy; 2016 <a href="#">{$config['appName']}</a> </strong>
-    All rights reserved. Powered by <b>ss-panel</b> {$config['version']} | <a href="/tos">服务条款 </a>
+    All rights reserved. Powered by <b>ss-panel</b> {$config['version']} | <a href="/tos">{$lang->get('nav.tos')}</a>
 </footer>
 </div><!-- ./wrapper -->
 

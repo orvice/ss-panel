@@ -18,5 +18,7 @@ return [
     "port" => "Port",
     "password" => "Password",
     "method" => "Method",
+    "obfs-protocol" => "obfs Protocol",
+    "obfs-plugin" => "obfs Plugin",
     "last-used" => "Last used at"
 ];

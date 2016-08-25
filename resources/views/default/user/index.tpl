@@ -107,9 +107,9 @@
                             <dd>{$user->port}</dd>
                             <dt>{$lang->get('user-index.password')}</dt>
                             <dd>{$user->passwd}</dd>
-                            <dt>协议插件</dt>
+                            <dt>{$lang->get('user-index.obfs-protocol')}</dt>
                             <dd>{$user->protocol}</dd>
-                            <dt>混淆插件</dt>
+                            <dt>{$lang->get('user-index.obfs-plugin')}</dt>
                             <dd>{$user->obfs}</dd>
                             <dt>{$lang->get('user-index.method')}</dt>
                             <dd>{$user->method}</dd>

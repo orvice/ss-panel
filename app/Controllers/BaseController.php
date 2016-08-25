@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Services\Auth;
+use App\Services\Factory;
 use App\Services\View;
 
 /**
@@ -16,6 +17,25 @@ class BaseController
     protected $smarty;
 
     protected $app;
+
+    /**
+     * @var \Illuminate\Translation\Translator
+     */
+    protected $lang;
+    
+    
+    public function __construct()
+    {
+        $this->lang = Factory::getLang();
+    }
+
+    /**
+     * @return \Illuminate\Translation\Translator
+     */
+    protected function getLang()
+    {
+        return Factory::getLang();
+    }
 
 
     /**

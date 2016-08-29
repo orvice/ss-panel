@@ -30,7 +30,7 @@ class Node extends Model
         if ($log == null) {
             return "暂无数据";
         }
-        return Tools::secondsToTime((int)$log->uptime);
+        return Tools::secondsToTime((float)$log->uptime);
     }
 
     public function getNodeLoad()

@@ -22,7 +22,7 @@
 			<div class="col l3 s12">
 				<h5 class="white-text">页面</h5>
 				<ul>
-					<li><a class="white-text" href="/code">邀请码</a></li>
+					<!-- <li><a class="white-text" href="/code">邀请码</a></li> -->
 					<li><a class="white-text" href="/tos">TOS</a></li>
 				</ul>
 			</div>

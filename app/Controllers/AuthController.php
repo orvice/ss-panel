@@ -97,10 +97,11 @@ class AuthController extends BaseController
         $repasswd = $request->getParam('repasswd');
         $code = $request->getParam('code');
         $verifycode = $request->getParam('verifycode');
-
+        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@longtugame.com$/i";
+ 
         // check code
         $c = InviteCode::where('code', $code)->first();
-        if ($c == null) {
+        if ($c != null) {
             $res['ret'] = 0;
             $res['error_code'] = self::WrongCode;
             $res['msg'] = "邀请码无效";
@@ -108,7 +109,7 @@ class AuthController extends BaseController
         }
 
         // check email format
-        if (!Check::isEmailLegal($email)) {
+        if (!Check::isEmailLegal($email) || !preg_match( $pattern, $email )) {
             $res['ret'] = 0;
             $res['error_code'] = self::IllegalEmail;
             $res['msg'] = "邮箱无效";
@@ -168,12 +169,12 @@ class AuthController extends BaseController
         $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
         $user->invite_num = Config::get('inviteNum');
         $user->reg_ip = Http::getClientIP();
-        $user->ref_by = $c->user_id;
+        //$user->ref_by = $c->user_id;
 
         if ($user->save()) {
             $res['ret'] = 1;
             $res['msg'] = "注册成功";
-            $c->delete();
+            //$c->delete();
             return $this->echoJson($response, $res);
         }
         $res['ret'] = 0;
@@ -185,8 +186,9 @@ class AuthController extends BaseController
     {
         $res = [];
         $email = $request->getParam('email');
+        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@longtugame.com$/i";
 
-        if (!Check::isEmailLegal($email)) {
+        if (!Check::isEmailLegal($email) || !preg_match( $pattern, $email )) {
             $res['ret'] = 0;
             $res['error_code'] = self::VerifyEmailWrongEmail;
             $res['msg'] = '邮箱无效';

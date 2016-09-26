@@ -96,7 +96,7 @@ CREATE TABLE `user` (
   `u` bigint(20) NOT NULL,
   `d` bigint(20) NOT NULL,
   `transfer_enable` bigint(20) NOT NULL,
-  `port` int(11) NOT NULL,
+  `port` int(11) NOT NULL DEFAULT '50000',
   `protocol` varchar(32) NOT NULL DEFAULT 'origin',
   `obfs` varchar(32) NOT NULL DEFAULT 'plain',
   `switch` tinyint(4) NOT NULL DEFAULT '1',
@@ -110,7 +110,7 @@ CREATE TABLE `user` (
   `is_admin` int(2) NOT NULL DEFAULT '0',
   `ref_by` int(11) NOT NULL DEFAULT '0',
   `expire_time` int(11) NOT NULL DEFAULT '0',
-  `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
+  `method` varchar(64) NOT NULL DEFAULT 'aes-256-cfb',
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`),
@@ -156,4 +156,12 @@ CREATE TABLE `ss_checkin_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `sp_email_verify`;
+CREATE TABLE `sp_email_verify` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(32) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `expire_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

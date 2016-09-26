@@ -164,8 +164,4 @@ CREATE TABLE `sp_email_verify` (
   `expire_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-<<<<<<< HEAD
-=======
-
->>>>>>> 7d60cecb67a4d3e62ebb51fbb081cf3683696b97
 

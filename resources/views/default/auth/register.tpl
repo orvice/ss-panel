@@ -6,7 +6,7 @@
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">注册，然后变成一只猫。</p>
+        <p class="login-box-msg">注意：目前限定了只允许龙图邮箱注册。</p>
 
         <div class="form-group has-feedback">
             <input type="text" id="name" class="form-control" placeholder="昵称"/>
@@ -38,11 +38,12 @@
             <input type="password" id="repasswd" class="form-control" placeholder="重复密码"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
-
+	<!--
         <div class="form-group has-feedback">
             <input type="text" id="code" value="{$code}" class="form-control" placeholder="邀请码"/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
+       --> 
 
         <div class="form-group has-feedback">
             <p>注册即代表同意<a href="/tos">服务条款</a></p>

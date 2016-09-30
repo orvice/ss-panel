@@ -15,6 +15,7 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="/">首页</a></li>
             <li><a href="https://shadowsocks.org/en/download/clients.html">客户端下载</a></li>
+            <li><a href="/start">新人指南</a></li>
             <li><a href="/code">邀请码</a></li>
             {if $user->isLogin}
                 <li><a href="/user">用户中心</a></li>

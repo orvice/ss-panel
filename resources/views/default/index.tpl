@@ -28,22 +28,22 @@
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                    <h5 class="center">Super Fast</h5>
+                    <h2 class="center light-blue-text"><i class="material-icons">attach_money</i></h2>
+                    <h5 class="center">价格低廉</h5>
 
                     <p class="light">
-                        Bleeding edge techniques using Asynchronous I/O and Event-driven programming.
+                        校园网外网服务每月 15 元 25GiB 流量，而我们的服务每月 100GiB 流量最低只需 5 元。同时，我们还提供比校园网更多的附加服务。
                     </p>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">Open Source</h5>
+                    <h2 class="center light-blue-text"><i class="material-icons">vpn_key</i></h2>
+                    <h5 class="center">科学上网</h5>
 
                     <p class="light">
-                        Totally free and open source. A worldwide community devoted to deliver bug-free code and long-term support.
+                        基于 Shadowsocks 的科学上网服务，轻松加速访问国外网站。全局加密连接，保护上网隐私。
                     </p>
                 </div>
             </div>
@@ -51,10 +51,10 @@
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-                    <h5 class="center">Easy to work with</h5>
+                    <h5 class="center">易于使用</h5>
 
                     <p class="light">
-                        Avaliable on multiple platforms, including PC, MAC, Mobile (Android and iOS) and Routers (OpenWRT).
+                        你将不再需要每切换一次网络就重新登录校园网关，只要 Shadowsocks 后台服务在运行，你就一直可以通过它访问外网。
                     </p>
                 </div>
             </div>

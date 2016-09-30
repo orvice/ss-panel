@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\InviteCode;
 use App\Models\Node,App\Models\User;
 use App\Services\Factory;
+use App\Services\Config;
 use App\Utils\Tools,App\Utils\Hash,App\Utils\Helper;
 /**
  *  ApiController

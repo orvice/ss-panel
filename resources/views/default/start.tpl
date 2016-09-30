@@ -29,14 +29,17 @@
     </p>
     <p>本站使用 Shadowsocks 代理传输，有关 Shadowsocks 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> <a href="https://github.com/shadowsocks">Shadowsocks 团队</a> <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> </p>
 
-    <h3>其它</h3>
+    <h3>如何开始</h3>
     <p>
-    <ul>
-        <li>本站仅限人类及猫注册使用。</li>
-        <li>TOS更新时用户需要遵守最新TOS。本站有TOS更新时不通知用户的权利。</li>
-    </ul>
+        首先注册。由于服务器负载量有限，为保证服务质量，测试阶段只放送第一批邀请码 5 个。以后将会放送更多的邀请码。<a href="/code">找邀请码戳这里</a>
+    </p>
+    <p>
+        然后按照用户中心的公告付费，开通服务即可。
     </p>
 
+    <h3>客户端使用</h3>
+    <p><a href="/client">客户端下载戳这里</a></p>
+    <p>给小白的教程日后再写吧</p>
 </div>
 </div>
 {include file='footer.tpl'}

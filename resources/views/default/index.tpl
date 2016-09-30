@@ -13,6 +13,7 @@
             </div>
         {else}
         <div class="row center">
+            <a href="/start" id="download-button" class="btn-large waves-effect waves-light orange">新人指南</a>
             <a href="/auth/register" id="download-button" class="btn-large waves-effect waves-light orange">立即注册</a>
         </div>
         {/if}

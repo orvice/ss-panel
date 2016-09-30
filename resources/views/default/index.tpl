@@ -13,6 +13,7 @@
             </div>
         {else}
         <div class="row center">
+            <a href="/start" id="download-button" class="btn-large waves-effect waves-light orange">新人指南</a>
             <a href="/auth/register" id="download-button" class="btn-large waves-effect waves-light orange">立即注册</a>
         </div>
         {/if}
@@ -54,7 +55,7 @@
                     <h5 class="center">易于使用</h5>
 
                     <p class="light">
-                        你将不再需要每切换一次网络就重新登录校园网关，只要 Shadowsocks 后台服务在运行，你就一直可以通过它访问外网。
+                        你将不再需要每切换一次网络就重新登录校园网关，只要 Shadowsocks 后台服务在运行，你就一直可以通过它访问外网。我们不限制设备数量，你可以使用任意多的设备连接。
                     </p>
                 </div>
             </div>

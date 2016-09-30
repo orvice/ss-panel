@@ -165,6 +165,30 @@
                         <button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
                     </div>
                 </div>
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-body">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <fieldset class="col-sm-6">
+                                    <legend>用户续期</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">月数</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="month_num" type="number" required>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" id="submit_prolong" name="action" value="add" class="btn btn-primary">提交</button>
+                    </div>
+                </div>
             </div>
             <!-- /.box -->
         </div>
@@ -212,6 +236,33 @@
                 }
             });
         }
+        function submit_prolong() {
+            $.ajax({
+                type: "PUT",
+                url: "/admin/user/{$user->id}/prolong",
+                dataType: "json",
+                data: {
+                    month_num: $("#month_num").val(),
+                },
+                success: function (data) {
+                    if (data.ret) {
+                        $("#msg-error").hide(100);
+                        $("#msg-success").show(100);
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("location.href='/admin/user'", 2000);
+                    } else {
+                        $("#msg-error").hide(10);
+                        $("#msg-error").show(100);
+                        $("#msg-error-p").html(data.msg);
+                    }
+                },
+                error: function (jqXHR) {
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
+                }
+            });
+        }
 
         $("html").keydown(function (event) {
             if (event.keyCode == 13) {
@@ -220,6 +271,9 @@
         });
         $("#submit").click(function () {
             submit();
+        });
+        $("#submit_prolong").click(function () {
+            submit_prolong();
         });
         $("#ok-close").click(function () {
             $("#msg-success").hide(100);

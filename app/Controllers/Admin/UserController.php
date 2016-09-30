@@ -59,6 +59,25 @@ class UserController extends AdminController
         return $response->getBody()->write(json_encode($rs));
     }
 
+    public function extendPayment($request, $response, $args)
+    {
+        $id = $args['id'];
+        $user = User::find($id);
+        $nowtime = time();
+        $user->last_get_gift_time = $nowtime;
+        $user->expire_time = strtotime("+".$request->getParam('month_num')." month", $nowtime > $user->expire_time ? $nowtime : $user->expire_time);
+        $user->enable = true;
+        //记log
+        if (!$user->save()) {
+            $rs['ret'] = 0;
+            $rs['msg'] = "修改失败";
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = "修改成功";
+        return $response->getBody()->write(json_encode($rs));
+    }
+
     public function delete($request, $response, $args)
     {
         $id = $args['id'];

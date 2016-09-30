@@ -29,8 +29,36 @@
                 </div>
                 <!-- /.box -->
             </div>
-            <!-- /.col (right) -->
 
+            <!-- /.col (right) -->
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <i class="fa fa-exchange"></i>
+
+                        <h3 class="box-title">账户状态</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <dl class="dl-horizontal">
+                            <dt>账户状态</dt>
+                            <dd>{if $user->enable }正常
+                                {else}已欠费
+                                {/if}</dd>
+                            <dt>上次续费时间</dt>
+                            <dd>{$user->lastGetGiftTime()}</dd>
+                            <dt>本月开始时间</dt>
+                            <dd>{$user->lastRestPassTime()}</dd>
+                            <dt>续费到期时间</dt>
+                            <dd>{$user->expireTime()}</dd>
+                        </dl>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <!-- /.col (left) -->
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header">
@@ -64,33 +92,7 @@
                 </div>
                 <!-- /.box -->
             </div>
-            <!-- /.col (left) -->
 
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <i class="fa fa-pencil"></i>
-
-                        <h3 class="box-title">签到获取流量</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <p> 每{$config['checkinTime']}小时可以签到一次。</p>
-
-                        <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
-                        {if $user->isAbleToCheckin() }
-                            <p id="checkin-btn">
-                                <button id="checkin" class="btn btn-success  btn-flat">签到</button>
-                            </p>
-                        {else}
-                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a></p>
-                        {/if}
-                        <p id="checkin-msg"></p>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
             <!-- /.col (right) -->
 
             <div class="col-md-6">
@@ -118,6 +120,31 @@
                 <!-- /.box -->
             </div>
             <!-- /.col (right) -->
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <i class="fa fa-pencil"></i>
+
+                        <h3 class="box-title">签到获取流量</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <p> 每{$config['checkinTime']}小时可以签到一次。</p>
+
+                        <p>上次签到时间：<code>{$user->lastCheckInTime()}</code></p>
+                        {if $user->isAbleToCheckin() }
+                            <p id="checkin-btn">
+                                <button id="checkin" class="btn btn-success  btn-flat">签到</button>
+                            </p>
+                        {else}
+                            <p><a class="btn btn-success btn-flat disabled" href="#">不能签到</a></p>
+                        {/if}
+                        <p id="checkin-msg"></p>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
         </div>
         <!-- /.row --><!-- END PROGRESS BARS -->
     </section>

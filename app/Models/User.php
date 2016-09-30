@@ -63,6 +63,30 @@ class User extends Model
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
 
+    public function lastGetGiftTime()
+    {
+        if ($this->attributes['last_get_gift_time'] == 0) {
+            return "从未充值";
+        }
+        return Tools::toDateTime($this->attributes['last_get_gift_time']);
+    }
+
+    public function lastRestPassTime()
+    {
+        if ($this->attributes['last_rest_pass_time'] == 0) {
+            return "从未重置";
+        }
+        return Tools::toDateTime($this->attributes['last_rest_pass_time']);
+    }
+
+    public function expireTime()
+    {
+        if ($this->attributes['expire_time'] == 0) {
+            return "从未充值";
+        }
+        return Tools::toDateTime($this->attributes['expire_time']);
+    }
+
     public function regDate()
     {
         return $this->attributes['reg_date'];

@@ -101,7 +101,7 @@ class ApiController extends BaseController
             if($user->expire_time > time()) { // 没欠费
                 if(strtotime("+30 day", $user->last_rest_pass_time) <= time()) { // 需要重置
                     $user->last_rest_pass_time = time();
-                    $user->enable_traffic = Tools::toGB(Config::get('defaultTraffic'));
+                    $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
                     $user->d = 0;
                     $user->u = 0;
                 }

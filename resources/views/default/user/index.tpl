@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <i class="fa fa-exchange"></i>
+                        <i class="fa fa-home"></i>
 
                         <h3 class="box-title">账户状态</h3>
                     </div>

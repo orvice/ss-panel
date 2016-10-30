@@ -71,7 +71,7 @@ class Node extends Model
         return Tools::flowAutoShow($traffic);
     }
 
-    public function getCustomerMethod()
+    public static function getCustomerMethod()
     {
         return [
             "rc4-md5" => "rc4-md5",

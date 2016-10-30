@@ -154,6 +154,13 @@ class UserController extends BaseController
     {
         $user = Auth::getUser();
         $pwd = $request->getParam('sspwd');
+        if (strlen($pwd) == 0) {
+            Tools::genRandomChar(6);
+        } elseif (strlen($pwd) < 5) {
+            $res['ret'] = 0;
+            $res['msg'] = "密码要大于4位或者留空生成随机密码";
+            return $response->getBody()->write(json_encode($res));;
+        }
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
         return $this->echoJson($response, $res);

@@ -84,7 +84,8 @@ class UserController extends BaseController
 
     public function edit($request, $response, $args)
     {
-        return $this->view()->display('user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('method', $method)->display('user/edit.tpl');
     }
 
 

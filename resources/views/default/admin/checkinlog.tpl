@@ -28,7 +28,7 @@
                             {foreach $logs as $log}
                                 <tr>
                                     <td>#{$log->id}</td>
-                                    <td>{$log->user_id}</td>
+                                    <td>{$log->user()->user_name}</td>
                                     <td>{$log->traffic()}</td>
                                     <td>{$log->CheckInTime()}</td>
                                 </tr>

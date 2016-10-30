@@ -39,7 +39,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="/admin/user" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    <a href="/admin/checkinlog" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>

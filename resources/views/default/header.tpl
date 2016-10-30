@@ -40,6 +40,7 @@
                 <li><a href="/auth/register">注册</a></li>
             {/if}
         </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	<!-- menu e5d2 -->
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">&#xE5D2</i></a>
     </div>
 </nav>

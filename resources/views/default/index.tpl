@@ -29,7 +29,8 @@
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-blue-text"><i class="material-icons">attach_money</i></h2>
+		    <!-- attach_money e227 -->
+                    <h2 class="center light-blue-text"><i class="material-icons">&#xE227</i></h2>
                     <h5 class="center">价格低廉</h5>
 
                     <p class="light">
@@ -40,7 +41,8 @@
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-blue-text"><i class="material-icons">vpn_key</i></h2>
+		    <!-- vpn_key e0da -->
+                    <h2 class="center light-blue-text"><i class="material-icons">&#xE0DA</i></h2>
                     <h5 class="center">科学上网</h5>
 
                     <p class="light">
@@ -51,7 +53,8 @@
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+		    <!-- settings e8b8 -->
+                    <h2 class="center light-blue-text"><i class="material-icons">&#xE8B8</i></h2>
                     <h5 class="center">易于使用</h5>
 
                     <p class="light">

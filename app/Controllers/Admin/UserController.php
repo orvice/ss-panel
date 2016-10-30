@@ -27,7 +27,8 @@ class UserController extends AdminController
         if ($user == null) {
 
         }
-        return $this->view()->assign('user', $user)->display('admin/user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('user', $user)->assign('method', $method)->display('admin/user/edit.tpl');
     }
 
     public function update($request, $response, $args)

@@ -108,6 +108,12 @@
                 </li>
 
                 <li>
+                    <a href="/client">
+                        <i class="fa fa-download"></i> <span>客户端下载</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/user/profile">
                         <i class="fa fa-user"></i> <span>我的信息</span>
                     </a>

@@ -39,7 +39,6 @@ class UserController extends BaseController
         $user->t = time();
         $user->u = $user->u + ($u * $rate);
         $user->d = $user->d + ($d * $rate);
-        $user->reg_date = $user->reg_date;
         if (!$user->save()) {
             $res = [
                 "ret" => 0,

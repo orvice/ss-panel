@@ -15,7 +15,7 @@ class UserController extends AdminController
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $users = User::paginate(15, ['*'], 'page', $pageNum);
+        $users = User::orderBy('t','desc')->paginate(15, ['*'], 'page', $pageNum);
         $users->setPath('/admin/user');
         return $this->view()->assign('users', $users)->display('admin/user/index.tpl');
     }

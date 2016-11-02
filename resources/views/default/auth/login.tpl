@@ -16,6 +16,10 @@
                 <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div id="codeBox" class="form-group has-feedback" style="display: none">
+                <input type="text" id="code" value="" class="form-control" placeholder="邀请码"/>
+                <span class="glyphicon glyphicon-send form-control-feedback"></span>
+            </div>
         </form>
         <div class="row">
             <div class="col-xs-8">
@@ -72,7 +76,8 @@
                 data:{
                     email: $("#email").val(),
                     passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
+                    remember_me: $("#remember_me").val(),
+                    code: $("#code").val()
                 },
                 success:function(data){
                     if(data.ret == 1){
@@ -84,6 +89,9 @@
                         $("#msg-success").hide(10);
                         $("#msg-error").show(100);
                         $("#msg-error-p").html(data.msg);
+                        if(data.msg == "请使用邀请码解封您的账号。") {
+                            $("#codeBox").removeAttr('style');
+                        }
                     }
                 },
                 error:function(jqXHR){

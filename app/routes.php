@@ -122,6 +122,7 @@ $app->group('/api', function () {
     $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());
     $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
     $this->get('/do', 'App\Controllers\ApiController:maintainPayment');
+    $this->get('/recycle', 'App\Controllers\ApiController:cleanInactiveUsers');
 });
 
 // mu

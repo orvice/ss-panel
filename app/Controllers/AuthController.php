@@ -64,6 +64,27 @@ class AuthController extends BaseController
             $res['msg'] = "邮箱或者密码错误";
             return $this->echoJson($response, $res);
         }
+
+        if ($user->ref_by == -1) {
+
+            $code = $request->getParam('code');
+
+            // check code
+            $c = InviteCode::where('code', $code)->first();
+            if ($c == null) {
+                $res['ret'] = 0;
+                $res['error_code'] = self::WrongCode;
+                $res['msg'] = "请使用邀请码解封您的账号。";
+                return $this->echoJson($response, $res);
+            }
+            else
+            {
+                $user->ref_by = 0;
+                $user->save();
+                $c->delete();
+            }
+        }
+
         // @todo
         $time = 3600 * 24;
         if ($rememberMe) {

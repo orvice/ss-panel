@@ -115,4 +115,36 @@ class ApiController extends BaseController
         return json_encode(true);
     }
 
+    public function cleanInactiveUsers() {
+        $users = User::all();
+        foreach ($users as $user) {
+            if($user->expire_time > time()) { // 没欠费
+            }
+            else { //欠费
+                $user->enable = false;
+                if (($user->expire_time != 0 && $user->expire_time < strtotime("-90 day", time()) )
+                    || ($user->expire_time == 0 && strtotime($user->regDate()) < strtotime("-90 day", time()))
+                ) //欠费很多时
+                {
+                    $user->delete();
+                }
+                else if (($user->expire_time != 0 && $user->expire_time < strtotime("-1 day", time()) )
+                    || ($user->expire_time == 0 && strtotime($user->regDate()) < strtotime("-1 day", time()))
+                ) //欠费多时
+                {
+                    if($user->ref_by != -1) {
+                        $user->ref_by = -1;
+                        $char = Tools::genRandomChar(32);
+                        $code = new InviteCode();
+                        $code->code = 'AutoRecy' . $char;
+                        $code->user_id = 0;
+                        $code->save();
+                        $user->save();
+                    }
+                }
+            }
+        }
+        return json_encode(true);
+    }
+
 }

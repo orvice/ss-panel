@@ -102,9 +102,14 @@
                 </li>
 
                 <li>
+                    {if $user->enable }
                     <a href="/user/node">
                         <i class="fa fa-sitemap"></i> <span>节点列表</span>
-                    </a>
+                        {else}
+                        <a href="#">
+                            <i class="fa fa-sitemap"></i> <span>节点列表(已禁用)</span>
+                            {/if}
+                        </a>
                 </li>
 
                 <li>

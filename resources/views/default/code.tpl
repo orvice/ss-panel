@@ -7,6 +7,8 @@
             <h5>如遇到无邀请码请找已经注册的用户获取，</h5>
             <h5>或发送邮件到<a href="mailto:wangkule@cool2645.com">wangkule@cool2645.com</a>索要。</h5>
             {$msg}
+            <h5>本站是付费服务，为了服务质量不提供测试账号，请谅解。</h5>
+            <h5>有关本站收费标准请戳<a href="/start">这里</a>。</h5>
         </div>
     </div>
 </div>

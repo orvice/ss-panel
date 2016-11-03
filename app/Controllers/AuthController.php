@@ -79,7 +79,7 @@ class AuthController extends BaseController
             }
             else
             {
-                $user->ref_by = 0;
+                $user->ref_by = $c->user_id;
                 $user->save();
                 $c->delete();
             }

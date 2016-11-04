@@ -40,18 +40,33 @@
         </div>
     </div>
     <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h4 class="box-title">iOS客户端</h4>
+            </div>
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>Wingy（免费）</dt>
+                    <dd><a href="https://itunes.apple.com/cn/app/wingy-free-proxy-utility-for/id1148026741?mt=8">App Store</a></dd>
+                    <dt>Shadowrocket（￥18）</dt>
+                    <dd><a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8">App Store</a></dd>
+                    <dt>Surge（￥328）</dt>
+                    <dd><a href="https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8">App Store</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
         <div class="box box-info">
             <div class="box-header">
                 <h4 class="box-title">其它系统的客户端</h4>
             </div>
             <div class="box-body">
                 <dl class="dl-horizontal">
-                    <dt>iOS-Surge</dt>
-                    <dd><a href="https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8">App Srore</a></dd>
                     <dt>OpenWrt-SS-Libev</dt>
                     <dd><a href="https://github.com/shadowsocks/openwrt-shadowsocks/releases">Github源码</a>|<a href="https://sourceforge.net/projects/openwrt-dist/files/shadowsocks-libev/">SorceForge下载软件包</a></dd>
                     <dt>其他系统-搜一下</dt>
-                    <dd><a href="https://www.baidu.com">百度</a>|<a href="https://www.google.com">谷歌</a></dd>
+                    <dd><a href="https://shadowsocks.org">Shadowsocks官网</a>|<a href="https://www.baidu.com">百度</a>|<a href="https://www.google.com">谷歌</a></dd>
                 </dl>
             </div>
         </div>

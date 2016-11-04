@@ -3,7 +3,7 @@
 <div class="section no-pad-bot" id="index-banner">
 <div class="container">
     <div class="page-header">
-        <h1>新人指南 QuickStart </h1>
+        <h1>服务介绍</h1>
     </div>
     <p>{$config["appName"]}，以下简称本站。</p>
     <h3>适用人群</h3>
@@ -22,6 +22,11 @@
     <p>64 bytes from www.neu6.edu.cn (2001:da8:9000::7): icmp_seq=1 ttl=61 time=7.02 ms<br/>
         64 bytes from www.neu6.edu.cn (2001:da8:9000::7): icmp_seq=2 ttl=61 time=2.24 ms
     </p>
+
+    <h3>服务介绍</h3>
+    <p>我们目前共有日本、美国共三个节点。</p>
+    <p>所有节点均提供 ipv6-ipv4 双向支持。</p>
+    <p>有关节点的详细信息，查看<a href="/node">节点列表及状态</a>。 </p>
 
     <h3>收费标准</h3>
     <p>价格：10元/月 20元/三个月 25元/五个月。</p>

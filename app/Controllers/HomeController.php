@@ -8,6 +8,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 use App\Models\InviteCode;
+use App\Models\Node;
 use App\Services\Auth;
 use App\Services\Config;
 use App\Services\DbConfig;
@@ -32,6 +33,12 @@ class HomeController extends BaseController
         $msg = DbConfig::get('home-code');
         $codes = InviteCode::where('user_id', '=', '0')->take(10)->get();
         return $this->view()->assign('codes', $codes)->assign('msg', $msg)->display('code.tpl');
+    }
+
+    public function node()
+    {
+        $nodes = Node::where('type', 1)->orderBy('sort')->get();
+        return $this->view()->assign('nodes', $nodes)->display('node.tpl');
     }
 
     public function debug($request, $response, $args)

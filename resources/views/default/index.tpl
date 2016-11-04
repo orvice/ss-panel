@@ -13,7 +13,7 @@
             </div>
         {else}
         <div class="row center">
-            <a href="/start" id="download-button" class="btn-large waves-effect waves-light orange">新人指南</a>
+            <a href="/start" id="download-button" class="btn-large waves-effect waves-light orange">服务介绍</a>
             <a href="/auth/register" id="download-button" class="btn-large waves-effect waves-light orange">立即注册</a>
         </div>
         {/if}
@@ -46,7 +46,7 @@
                     <h5 class="center">科学上网</h5>
 
                     <p class="light">
-                        基于 Shadowsocks 的科学上网服务，轻松加速访问国外网站。全局加密连接，保护上网隐私。
+                        基于 Shadowsocks 的科学上网服务，轻松加速访问国外网站。影梭特有的加密技术，全局加密连接，让数据无法被审查，同时你的隐私也能有效地被保护。
                     </p>
                 </div>
             </div>

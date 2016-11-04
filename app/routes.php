@@ -35,6 +35,7 @@ $app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
 $app->get('/tos', 'App\Controllers\HomeController:tos');
 $app->get('/start', 'App\Controllers\HomeController:start');
+$app->get('/node', 'App\Controllers\HomeController:node');
 $app->get('/client', 'App\Controllers\HomeController:client');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
 $app->post('/debug', 'App\Controllers\HomeController:postDebug');

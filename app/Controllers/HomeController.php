@@ -62,6 +62,11 @@ class HomeController extends BaseController
         return $this->view()->display('tos.tpl');
     }
 
+    public function scs()
+    {
+        return $this->view()->display('scs.tpl');
+    }
+
     public function start()
     {
         return $this->view()->display('start.tpl');

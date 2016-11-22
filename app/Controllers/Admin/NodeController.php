@@ -32,8 +32,11 @@ class NodeController extends AdminController
 		$node->obfs_param = $request->getParam('obfs_param');
 		$user->custom_method = $request->getParam('custom_method');
 		$node->custom_rss = $request->getParam('custom_rss');*/
+		$node->node_class = $request->getParam('node_class');
+		$node->node_group = $request->getParam('node_group');
 		$node->traffic_rate = $request->getParam('rate');
 		$node->info = $request->getParam('info');
+		$node->note = $request->getParam('note');
 		$node->type = $request->getParam('type');
 		$node->status = $request->getParam('status');
 		$node->sort = $request->getParam('sort');
@@ -73,8 +76,11 @@ class NodeController extends AdminController
 			$node->obfs_param = $request->getParam('obfs_param');
 			$user->custom_method = $request->getParam('custom_method');
 			$node->custom_rss = $request->getParam('custom_rss');*/
+			$node->node_class = $request->getParam('node_class');
+		  $node->node_group = $request->getParam('node_group');
 			$node->traffic_rate = $request->getParam('rate');
 			$node->info = $request->getParam('info');
+			$node->note = $request->getParam('note');
 			$node->type = $request->getParam('type');
 			$node->status = $request->getParam('status');
 			$node->sort = $request->getParam('sort');

@@ -120,10 +120,18 @@
 
 												<div class="col-sm-9">
 													<select class="form-control" id="method"  disabled="disabled">
-														<option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
 														<option value="aes-256-cfb" {if $node->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
-														<option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>
-														<option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
+                            <option value="aes-256-ctr" {if $node->method=="aes-256-ctr"}selected="selected"{/if}>aes-256-ctr</option>
+                            <option value="camellia-256-cfb" {if $node->method=="camellia-256-cfb"}selected="selected"{/if}>camellia-256-cfb</option>
+                            <option value="bf-cfb" {if $node->method=="bf-cfb"}selected="selected"{/if}>bf-cfb</option>
+                            <option value="cast5-cfb" {if $node->method=="cast5-cfb"}selected="selected"{/if}>cast5-cfb</option>
+                            <option value="des-cfb" {if $node->method=="des-cfb"}selected="selected"{/if}>des-cfb</option>
+                            <option value="des-ede3-cfb" {if $node->method=="des-ede3-cfb"}selected="selected"{/if}>des-ede3-cfb</option>
+                            <option value="rc4-md5" {if $node->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+                            <option value="rc4-md5-6" {if $node->method=="rc4-md5-6"}selected="selected"{/if}>rc4-md5-6</option>
+                            <option value="salsa20" {if $node->method=="salsa20"}selected="selected"{/if}>salsa20</option>
+                            <option value="chacha20" {if $node->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+                            <option value="chacha20-ietf" {if $node->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
 													</select>
 												</div>
 											</div>
@@ -169,6 +177,24 @@
 											</fieldset>
 											<fieldset class="col-sm-6">
 												<legend>描述信息</legend>
+												
+												<div class="form-group">
+													<label for="class" class="col-sm-3 control-label"><p Title="用户只能访问用户等级大于等于节点类别的节点">节点类别</p></label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_class" type="number" value="{$node->node_class}">
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label for="group" class="col-sm-3 control-label"><p Title="用户只能访问用户所属节点群组和节点群组为0的节点">节点群组</p></label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_group" type="number" value="{$node->node_group}">
+													</div>
+												</div>
 
 												<div class="form-group">
 													<label for="type" class="col-sm-3 control-label">是否显示</label>
@@ -214,6 +240,14 @@
 															<textarea class="form-control" id="info" rows="3">{$node->info}</textarea>
 														</div>
 													</div>
+													<div class="form-group">
+													<label for="info" class="col-sm-3 control-label">节点备注</label>
+
+
+													<div class="col-sm-9">
+														<textarea class="form-control" id="note" rows="2">{$node->note}</textarea>
+													</div>
+												</div>
 												</fieldset>
 											</div>
 										</div>
@@ -249,9 +283,12 @@
 									obfs_param: $("#obfs_param").val(),*/
 									method: $("#method").val(),
 /*									custom_method: $("#custom_method").val(),
-									custom_rss: $("#custom_rss").val(),		*/							
+									custom_rss: $("#custom_rss").val(),		*/
+									node_class: $("#node_class").val(),
+								  node_group: $("#node_group").val(),							
 									rate: $("#rate").val(),
 									info: $("#info").val(),
+									note: $("#note").val(),
 									type: $("#type").val(),
 									status: $("#status").val(),
 									sort: $("#sort").val()

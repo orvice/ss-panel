@@ -160,7 +160,7 @@ class AuthController extends BaseController
         $user->user_name = $name;
         $user->email = $email;
         $user->pass = Hash::passwordHash($passwd);
-        $user->passwd = Tools::genRandomChar(6);
+        $user->passwd = Tools::genRandomChar(8);
         $user->port = Tools::getLastPort() + 1;
         $user->t = 0;
         $user->u = 0;
@@ -169,6 +169,8 @@ class AuthController extends BaseController
         $user->invite_num = Config::get('inviteNum');
         $user->reg_ip = Http::getClientIP();
         $user->ref_by = $c->user_id;
+        $user->user_class = 0;
+        $user->node_group = 0;
 
         if ($user->save()) {
             $res['ret'] = 1;

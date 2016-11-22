@@ -123,10 +123,18 @@
 
 												<div class="col-sm-9">
 													<select class="form-control" id="method" disabled="disabled">
-														<option value="rc4-md5" selected="selected">rc4-md5</option>
 														<option value="aes-256-cfb">aes-256-cfb</option>
-														<option value="chacha20">chacha20</option>
-														<option value="chacha20-ietf">chacha20-ietf</option>
+                            <option value="aes-256-ctr">aes-256-ctr</option>
+                            <option value="camellia-256-cfb">camellia-256-cfb</option>
+                            <option value="bf-cfb">bf-cfb</option>
+                            <option value="cast5-cfb">cast5-cfb</option>
+                            <option value="des-cfb">des-cfb</option>
+                            <option value="des-ede3-cfb">des-ede3-cfb</option>
+                            <option value="rc4-md5" selected="selected">rc4-md5</option>
+                            <option value="rc4-md5-6">rc4-md5-6</option>
+                            <option value="salsa20">salsa20</option>
+                            <option value="chacha20">chacha20</option>
+                            <option value="chacha20-ietf">chacha20-ietf</option>
 													</select>
 												</div>
 											</div>
@@ -179,6 +187,24 @@
 											</fieldset>
 											<fieldset class="col-sm-6">
 												<legend>描述信息</legend>
+												
+												<div class="form-group">
+													<label for="class" class="col-sm-3 control-label">节点类别</label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_class" type="number" value="" placeholder="分类为数字，不分类请填0">
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label for="group" class="col-sm-3 control-label">节点群组</label>
+
+
+													<div class="col-sm-9">
+														<input class="form-control" id="node_group" type="number" value="" placeholder="分组为数字，不分组请填0">
+													</div>
+												</div>
 
 												<div class="form-group">
 													<label for="type" class="col-sm-3 control-label">是否显示</label>
@@ -222,6 +248,14 @@
 														<textarea class="form-control" id="info" rows="3"></textarea>
 													</div>
 												</div>
+												<div class="form-group">
+													<label for="info" class="col-sm-3 control-label">节点备注</label>
+
+
+													<div class="col-sm-9">
+														<textarea class="form-control" id="note" rows="2"></textarea>
+													</div>
+												</div>
 											</fieldset>
 										</div>
 									</div>
@@ -259,8 +293,11 @@
 								obfs_param: $("#obfs_param").val(),
 								custom_method: $("#custom_method").val(),
 								custom_rss: $("#custom_rss").val(),*/
+								node_class: $("#node_class").val(),
+								node_group: $("#node_group").val(),
 								rate: $("#rate").val(),
 								info: $("#info").val(),
+								note: $("#note").val(),
 								type: $("#type").val(),
 								status: $("#status").val(),
 								sort: $("#sort").val()

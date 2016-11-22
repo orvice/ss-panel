@@ -95,6 +95,34 @@
 													</select>
 												</div>
 											</div>
+											
+											<div class="form-group">
+												<label class="col-sm-3 control-label">账户过期时间</label>
+
+
+												<div class="col-sm-9">
+												  <input class="form-control" id="expire_at" type="date" value="{$user->expire_at}">													
+												</div>
+											</div>
+											
+											<div class="form-group">
+											  <label class="col-sm-3 control-label" for="user_class"><p Title="用户只能访问用户等级大于等于节点类别的节点">用户等级</p></label>
+
+
+											  <div class="col-sm-9">
+												  <input class="form-control" id="user_class" type="number" value="{$user->user_class}">
+											  </div>
+										 </div>
+											
+											<div class="form-group">
+											<label class="col-sm-3 control-label" for="node_group"><p Title="用户只能访问用户所属节点群组和节点群组为0的节点">用户群组</p></label>
+
+
+											<div class="col-sm-9">
+												<input class="form-control" id="node_group" type="number" value="{$user->node_group}">
+											</div>
+										</div>
+											
 										</div>
 
 										<div class="row">
@@ -229,16 +257,24 @@
 
 											<div class="col-sm-9">
 												<select class="form-control" id="method">
-													<option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
 													<option value="aes-256-cfb" {if $user->method=="aes-256-cfb"}selected="selected"{/if}>aes-256-cfb</option>
-													<option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
-													<option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
+                          <option value="aes-256-ctr" {if $user->method=="aes-256-ctr"}selected="selected"{/if}>aes-256-ctr</option>
+                          <option value="camellia-256-cfb" {if $user->method=="camellia-256-cfb"}selected="selected"{/if}>camellia-256-cfb</option>
+                          <option value="bf-cfb" {if $user->method=="bf-cfb"}selected="selected"{/if}>bf-cfb</option>
+                          <option value="cast5-cfb" {if $user->method=="cast5-cfb"}selected="selected"{/if}>cast5-cfb</option>
+                          <option value="des-cfb" {if $user->method=="des-cfb"}selected="selected"{/if}>des-cfb</option>
+                          <option value="des-ede3-cfb" {if $user->method=="des-ede3-cfb"}selected="selected"{/if}>des-ede3-cfb</option>
+                          <option value="rc4-md5" {if $user->method=="rc4-md5"}selected="selected"{/if}>rc4-md5</option>
+                          <option value="rc4-md5-6" {if $user->method=="rc4-md5-6"}selected="selected"{/if}>rc4-md5-6</option>
+                          <option value="salsa20" {if $user->method=="salsa20"}selected="selected"{/if}>salsa20</option>
+                          <option value="chacha20" {if $user->method=="chacha20"}selected="selected"{/if}>chacha20</option>
+                          <option value="chacha20-ietf" {if $user->method=="chacha20-ietf"}selected="selected"{/if}>chacha20-ietf</option>
 												</select>
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label for="method" class="col-sm-3 control-label">自定义加密</label>
+											<label for="method" class="col-sm-3 control-label"><p Title="是否允许用户自己修改加密方式">自定义加密</p></label>
 
 
 											<div class="col-sm-9">
@@ -252,7 +288,7 @@
 										</div>
 
 										<div class="form-group">
-											<label for="custom_rss" class="col-sm-3 control-label">自定义协议&混淆</label>
+											<label for="custom_rss" class="col-sm-3 control-label"><p Title="是否允许用户自己修改协议及混淆">自定义协议&混淆</p></label>
 
 
 												<div class="col-sm-9">
@@ -264,19 +300,24 @@
 													</select>
 												</div>
 											</div>
+											
+											
+																						
 										</fieldset>
 
 									</div>
 								</div>
 								<!-- /.box-body -->
-								<div class="box-footer">
-									<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
-
-								</div>
 
 							</div>
 						</div>
 						<!-- /.box -->
+						
+								<div class="box-footer">
+									<button type="submit" id="submit" name="action" value="add" class="btn btn-primary">修改</button>
+
+								</div>	
+													
 					</div>
 					<!-- /.row -->
 				</section>
@@ -305,7 +346,10 @@
 								method: $("#method").val(),
 								custom_method: $("#custom_method").val(),
 								custom_rss: $("#custom_rss").val(),
+								user_class: $("#user_class").val(),
+								node_group: $("#node_group").val(),
 								enable: $("#enable").val(),
+								expire_at: $("#expire_at").val(),
 								is_admin: $("#is_admin").val(),
 								ref_by: $("#ref_by").val()
 							},

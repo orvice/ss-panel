@@ -1,25 +1,33 @@
 <?php
 
 /***
- * ss-panel v3 Bootstrap
+ * Pontang Framework Bootstrap
  * @author orvice
- * @email sspanel@orx.me
- * @url https://github.com/orvice/ss-panel
+ * @email pongtan@orx.me
+ * @url https://github.com/Pongtan/LightFish
  */
-
-use App\Services\Boot;
-
 //  BASE_PATH
-define('BASE_PATH', __DIR__ . '/../');
-define('VERSION', '3.5.0');
+// define('BASE_PATH', __DIR__ . '/../');
+$basePath = realpath(__DIR__ . '/../');
+require_once __DIR__.'/../vendor/autoload.php';
 
-// Vendor Autoload
-require BASE_PATH . '/vendor/autoload.php';
+try {
+    (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
+} catch (Dotenv\Exception\InvalidPathException $e) {
+    //
+}
 
-Boot::loadEnv();
-Boot::setDebug();
-Boot::setVersion(VERSION);
-// config time zone
-Boot::setTimezone();
-// Init db
-Boot::bootDb();
+/**
+ * New App
+ */
+$app = new \Pongtan\App(__DIR__ . '/../');
+
+/**
+ * Register Config
+ */
+$app->registerConfig();
+$app->registerLang();
+$app->registerEloquent();
+
+require $basePath . "/routes/web.php";
+return $app;

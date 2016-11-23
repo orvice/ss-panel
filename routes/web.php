@@ -1,48 +1,10 @@
 <?php
 
-use App\Controllers;
-use App\Middleware\Admin;
-use App\Middleware\Api;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
+use App\Middleware\Admin;
+use App\Middleware\Api;
 use App\Middleware\Mu;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
-use Slim\App;
-
-/***
- * The slim documents: http://www.slimframework.com/docs/objects/router.html
- */
-
-// config
-$debug = false;
-if (defined("DEBUG")) {
-    $debug = true;
-}
-
-// Make a Slim App
-
-$c = new \Slim\Container();
-$c['errorHandler'] = function ($c) {
-    return function ($request, $response, $exception) use ($c) {
-        $filename = BASE_PATH . '/storage/logs/error.log';
-        $log = new Logger('App');
-        $log->pushHandler(new StreamHandler($filename, Logger::WARNING));
-        $log->error($exception->getMessage());
-        foreach ($exception->getTrace() as $key => $row) {
-            if (!isset($row['function']) || !isset($row['line']) || !isset($row['file'])) {
-                $log->error(sprintf("#%s %s  %s ", $key, $row['function'], $row['class']));
-                continue;
-            }
-            $log->error(sprintf("#%s %s %s", $key, $row['file'], $row['line']));
-        }
-        return $c['response']->withStatus(500)
-            ->withHeader('Content-Type', 'text/html')
-            ->write('Something went wrong!');
-    };
-};
-$app = new App($c);
-
 
 // Home
 $app->get('/', 'App\Controllers\HomeController:index');
@@ -158,6 +120,5 @@ $app->group('/res', function () {
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
 });
 
-return $app;
 
 

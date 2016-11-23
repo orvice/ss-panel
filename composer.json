@@ -1,6 +1,6 @@
 {
   "require": {
-    "pongtan/framework": "0.0.1",
+    "pongtan/framework": "0.1.*",
     "pongtan/utils": "dev-master",
     "ramsey/uuid": "^3.3",
     "china-shevy/sendcloud-email-v2": "dev-master"
@@ -10,8 +10,7 @@
     "phploc/phploc": "*",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "*",
-    "squizlabs/php_codesniffer": "2.*",
-    "illuminate/translation": "~5.1.0"
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
     "classmap": [

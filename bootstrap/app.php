@@ -23,11 +23,14 @@ try {
 $app = new \Pongtan\App(__DIR__ . '/../');
 
 /**
- * Register Config
+ * Register Service Provider
  */
-$app->registerConfig();
-$app->registerLang();
-$app->registerEloquent();
+$app->register(\Pongtan\Providers\ConfigServiceProvider::class);
+$app->register(\Pongtan\Providers\LoggerServiceProvider::class);
+$app->register(\Pongtan\Providers\LangServiceProvider::class);
+$app->register(\Pongtan\Providers\ViewServiceProvider::class);
+$app->register(\Pongtan\Providers\EloquentServiceProvider::class);
+
 
 require $basePath . "/routes/web.php";
 return $app;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Storage\Dynamodb;
 
 use App\Services\Aws\Factory;
@@ -25,16 +24,17 @@ class TrafficLog
             'TableName' => $this->tableName,
             'Item' => array(
                 'id' => array('S' => $id),
-                'u' => array('S' => (string)$u),
-                'd' => array('N' => (string)$d),
-                'node_id' => array('N' => (string)$nodeId),
-                'rate' => array('N' => (string)$rate),
-                'traffic' => array('S' => (string)$traffic),
-                'user_id' => array('N' => (string)$userId),
-                'create_at' => array('N' => (string)time()),
+                'u' => array('S' => (string) $u),
+                'd' => array('N' => (string) $d),
+                'node_id' => array('N' => (string) $nodeId),
+                'rate' => array('N' => (string) $rate),
+                'traffic' => array('S' => (string) $traffic),
+                'user_id' => array('N' => (string) $userId),
+                'create_at' => array('N' => (string) time()),
                 'create_time' => array('S' => Tools::toDateTime(time())),
-            )
+            ),
         ));
+
         return $id;
     }
 }

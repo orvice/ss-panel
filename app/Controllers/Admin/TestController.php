@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
@@ -18,21 +17,22 @@ class TestController extends AdminController
     {
         $to = $request->getParam('email');
         try {
-            Mail::send($to, "Test", 'test.tpl', [
-                'time' => Tools::toDateTime(time())
+            Mail::send($to, 'Test', 'test.tpl', [
+                'time' => Tools::toDateTime(time()),
             ], [
-                BASE_PATH . '/LICENSE'
+                BASE_PATH.'/LICENSE',
             ]);
             $res = [
-                "ret" => 1,
-                "msg" => "ok"
+                'ret' => 1,
+                'msg' => 'ok',
             ];
         } catch (\Exception $e) {
             $res = [
-                "ret" => 0,
-                "msg" => $e->getMessage()
+                'ret' => 0,
+                'msg' => $e->getMessage(),
             ];
         }
+
         return $this->echoJson($response, $res);
     }
 }

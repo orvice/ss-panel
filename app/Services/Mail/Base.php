@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Mail;
-
 
 abstract class Base
 {

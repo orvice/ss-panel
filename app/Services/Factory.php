@@ -7,13 +7,10 @@ use App\Services\Token\Dynamodb;
 
 class Factory
 {
-
-
     public static function createMail()
     {
-
     }
-    
+
     public static function createTokenStorage()
     {
         switch (Config::get('tokenDriver')) {
@@ -25,6 +22,4 @@ class Factory
                 return new DB();
         }
     }
-
-
 }

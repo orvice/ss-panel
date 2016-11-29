@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services\Mail;
 
 use App\Services\Logger;

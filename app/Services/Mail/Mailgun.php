@@ -15,9 +15,9 @@ class Mailgun extends Base
     public function __construct()
     {
         $this->config = $this->getConfig();
-        $this->mg = new MailgunService($this->config["key"]);
-        $this->domain = $this->config["domain"];
-        $this->sender = $this->config["sender"];
+        $this->mg = new MailgunService($this->config['key']);
+        $this->domain = $this->config['domain'];
+        $this->sender = $this->config['sender'];
     }
 
     /**
@@ -26,9 +26,9 @@ class Mailgun extends Base
     public function getConfig()
     {
         return [
-            "key" => Config::get('mailgun_key'),
-            "domain" => Config::get('mailgun_domain'),
-            "sender" => Config::get('mailgun_sender')
+            'key' => Config::get('mailgun_key'),
+            'domain' => Config::get('mailgun_domain'),
+            'sender' => Config::get('mailgun_sender'),
         ];
     }
 
@@ -42,10 +42,10 @@ class Mailgun extends Base
                 'from' => $this->sender,
                 'to' => $to,
                 'subject' => $subject,
-                'html' => $text
+                'html' => $text,
             ],
             [
-                'inline' => $file
+                'inline' => $file,
             ]
         );
     }

@@ -4,7 +4,6 @@ namespace Tests\Admin;
 
 use Tests\TestCase;
 
-
 class AdminHomeTest extends TestCase
 {
     public function testHome()
@@ -12,7 +11,6 @@ class AdminHomeTest extends TestCase
         $this->get('/admin');
         $this->assertEquals('200', $this->response->getStatusCode());
     }
-
 
     public function testConfig()
     {
@@ -41,22 +39,22 @@ class AdminHomeTest extends TestCase
     public function testUpdateConfig()
     {
         $this->put('/admin/config', [
-            "analyticsCode" => "",
-            "homeCode" => "",
-            "appName" => "",
-            "user-index" => "",
-            "user-node" => ""
+            'analyticsCode' => '',
+            'homeCode' => '',
+            'appName' => '',
+            'user-index' => '',
+            'user-node' => '',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
     }
 
-    public function testAddInviteCode(){
+    public function testAddInviteCode()
+    {
         $this->post('/admin/invite', [
-            "num" => "10",
-            "prefix" => "prefix-",
-            "uid" => "0",
+            'num' => '10',
+            'prefix' => 'prefix-',
+            'uid' => '0',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
     }
-
 }

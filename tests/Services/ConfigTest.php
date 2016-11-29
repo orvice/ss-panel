@@ -15,14 +15,14 @@ class ConfigTest extends TestCase
 
     public function testDbConfig()
     {
-        $key = 'key' . time();
-        $value = "value";
+        $key = 'key'.time();
+        $value = 'value';
         DbConfig::set($key, $value);
         $this->assertEquals($value, DbConfig::get($key));
 
         $this->assertEquals(null, DbConfig::get(time()));
 
         DbConfig::set($key, null);
-        $this->assertEquals("", DbConfig::get($key));
+        $this->assertEquals('', DbConfig::get($key));
     }
 }

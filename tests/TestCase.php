@@ -28,6 +28,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      * @param $path
      * @param $body
      * @param $options
+     *
      * @return Request
      */
     protected function requestFactory($method, $path, $body = [], $options = [])
@@ -48,7 +49,7 @@ class TestCase extends PHPUnit_Framework_TestCase
         $env = Environment::mock([
             'REQUEST_URI' => $path,
             'REQUEST_METHOD' => $envMethod,
-            'HTTP_CONTENT_TYPE' => 'multipart/form-data; boundary=---foo'
+            'HTTP_CONTENT_TYPE' => 'multipart/form-data; boundary=---foo',
         ]);
         $serverParams = $env->all();
         $body = $this->buildBody($body);
@@ -57,11 +58,13 @@ class TestCase extends PHPUnit_Framework_TestCase
         // $request = new Request($method, $uri, $headers, $cookies, $serverParams, $body, []);
         $request = Request::createFromEnvironment($env);
         unset($_POST);
+
         return $request;
     }
 
     /**
      * @param $input
+     *
      * @return Body
      */
     protected function buildBody($input)
@@ -70,20 +73,23 @@ class TestCase extends PHPUnit_Framework_TestCase
             if (is_array($input)) {
                 return http_build_query($input);
             }
+
             return $input;
         };
         $content = $getContent();
         $body = new RequestBody();
         $body->write($content);
         $body->rewind();
+
         return $body;
     }
 
     public function createApp()
     {
         // Build App
-        $app = require __DIR__ . '/../app/routes.php';
+        $app = require __DIR__.'/../app/routes.php';
         $app->run(true);
+
         return $app;
     }
 
@@ -122,7 +128,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Set env in prod
+     * Set env in prod.
      */
     public function setProdEnv()
     {
@@ -130,7 +136,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Set testing env
+     * Set testing env.
      */
     public function setTestingEnv()
     {
@@ -149,5 +155,4 @@ class TestCase extends PHPUnit_Framework_TestCase
         $data = json_decode($response->getBody(), true);
         $this->assertEquals($code, $data['error_code']);
     }
-
 }

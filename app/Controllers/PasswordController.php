@@ -29,17 +29,20 @@ class PasswordController extends BaseController
         if ($user == null) {
             $rs['ret'] = 0;
             $rs['msg'] = '此邮箱不存在.';
+
             return $response->getBody()->write(json_encode($rs));
         }
         Password::sendResetEmail($email);
         $rs['ret'] = 1;
         $rs['msg'] = '重置邮件已经发送,请检查邮箱.';
+
         return $response->getBody()->write(json_encode($rs));
     }
 
     public function token($request, $response, $args)
     {
         $token = $args['token'];
+
         return $this->view()->assign('token', $token)->display('password/token.tpl');
     }
 
@@ -52,6 +55,7 @@ class PasswordController extends BaseController
         if ($token == null || $token->expire_time < time()) {
             $rs['ret'] = 0;
             $rs['msg'] = '链接已经失效,请重新获取';
+
             return $response->getBody()->write(json_encode($rs));
         }
 
@@ -59,6 +63,7 @@ class PasswordController extends BaseController
         if ($user == null) {
             $rs['ret'] = 0;
             $rs['msg'] = '链接已经失效,请重新获取';
+
             return $response->getBody()->write(json_encode($rs));
         }
 
@@ -68,10 +73,12 @@ class PasswordController extends BaseController
         if (!$user->save()) {
             $rs['ret'] = 0;
             $rs['msg'] = '重置失败,请重试';
+
             return $response->getBody()->write(json_encode($rs));
         }
         $rs['ret'] = 1;
         $rs['msg'] = '重置成功';
+
         return $response->getBody()->write(json_encode($rs));
     }
 }

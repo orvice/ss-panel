@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Utils;
 
 use App\Services\Config;
@@ -28,9 +29,9 @@ class HashTest extends TestCase
 
     public function hashTest()
     {
-        $pwd = "testPassword";
+        $pwd = 'testPassword';
         $hashPwd = Hash::passwordHash($pwd);
         $this->assertEquals(true, Hash::checkPassword($hashPwd, $pwd));
-        $this->assertEquals(false, Hash::checkPassword("", $pwd));
+        $this->assertEquals(false, Hash::checkPassword('', $pwd));
     }
 }

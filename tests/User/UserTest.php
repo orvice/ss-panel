@@ -5,7 +5,7 @@ namespace Tests\User;
 use Tests\TestCase;
 use App\Models\Node;
 
-class UserTest extends TestCase 
+class UserTest extends TestCase
 {
     public function setUp()
     {

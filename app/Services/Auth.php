@@ -17,7 +17,6 @@ class Auth
 
     public function __construct()
     {
-
     }
 
     /**
@@ -27,12 +26,12 @@ class Auth
     {
         return CacheFactory::newSessionCache();
     }
-    
+
     public static function login($uid, $time)
     {
         $sid = Tools::genSID();
         Cookie::set([
-            'sid' => $sid
+            'sid' => $sid,
         ], $time + time());
         $key = $sid;
         $value = $uid;
@@ -47,6 +46,7 @@ class Auth
         if (Helper::isTesting()) {
             $user = User::first();
             $user->isLogin = true;
+
             return $user;
         }
         $sid = Cookie::get('sid');
@@ -54,6 +54,7 @@ class Auth
         if ($value == null || !$value) {
             $user = new User();
             $user->isLogin = false;
+
             return $user;
         }
         $uid = $value;
@@ -61,9 +62,11 @@ class Auth
         if ($user == null) {
             $user = new User();
             $user->isLogin = false;
+
             return $user;
         }
         $user->isLogin = true;
+
         return $user;
     }
 

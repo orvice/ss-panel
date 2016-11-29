@@ -18,10 +18,11 @@ class UserController extends BaseController
     {
         $users = User::all();
         $res = [
-            "ret" => 1,
-            "msg" => "ok",
-            "data" => $users
+            'ret' => 1,
+            'msg' => 'ok',
+            'data' => $users,
         ];
+
         return $this->echoJson($response, $res);
     }
 
@@ -41,9 +42,10 @@ class UserController extends BaseController
         $user->d = $user->d + ($d * $rate);
         if (!$user->save()) {
             $res = [
-                "ret" => 0,
-                "msg" => "update failed",
+                'ret' => 0,
+                'msg' => 'update failed',
             ];
+
             return $this->echoJson($response, $res);
         }
         // log
@@ -59,19 +61,20 @@ class UserController extends BaseController
         $traffic->save();
 
         $res = [
-            "ret" => 1,
-            "msg" => "ok",
+            'ret' => 1,
+            'msg' => 'ok',
         ];
         if (Config::get('log_traffic_dynamodb')) {
             try {
                 $client = new DynamoTrafficLog();
                 $id = $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
-                $res["id"] = $id;
+                $res['id'] = $id;
             } catch (\Exception $e) {
-                $res["msg"] = $e->getMessage();
+                $res['msg'] = $e->getMessage();
                 Logger::error($e->getMessage());
             }
         }
+
         return $this->echoJson($response, $res);
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Utils;
 
 use App\Models\User;
@@ -9,6 +8,7 @@ class Check
 {
     /**
      * @param $email
+     *
      * @return bool
      */
     public static function isEmailLegal($email)
@@ -23,6 +23,7 @@ class Check
     /**
      * @param $ip
      * @param int $time
+     *
      * @return int
      */
     public static function getIpRegCount($ip, $time = 3600 * 24)

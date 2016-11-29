@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services;
 
 use App\Models\Log;
@@ -9,15 +8,15 @@ use Monolog\Logger as MonoLogger;
 
 class Logger
 {
-
     /**
      * @return MonoLogger
      */
     public static function logger()
     {
         $logger = new MonoLogger('ss-panel v3');
-        $fileHandler = new StreamHandler(BASE_PATH . '/storage/logs/app.log');
+        $fileHandler = new StreamHandler(BASE_PATH.'/storage/logs/app.log');
         $logger->pushHandler($fileHandler);
+
         return $logger;
     }
 
@@ -27,11 +26,13 @@ class Logger
         $log->type = $type;
         $log->msg = $msg;
         $log->created_time = time();
+
         return $log->save();
     }
 
     /**
      * @param $msg
+     *
      * @return bool
      */
     public static function info($msg)
@@ -41,6 +42,7 @@ class Logger
 
     /**
      * @param $msg
+     *
      * @return bool
      */
     public static function error($msg)
@@ -50,6 +52,7 @@ class Logger
 
     /**
      * @param $msg
+     *
      * @return bool
      */
     public static function debug($msg)
@@ -59,6 +62,7 @@ class Logger
 
     /**
      * @param $msg
+     *
      * @return bool
      */
     public static function warning($msg)

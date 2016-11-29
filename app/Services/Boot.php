@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Dotenv\Dotenv;
 use Illuminate\Database\Capsule\Manager as Capsule;
+
 // @codeCoverageIgnoreStart
 class Boot
 {
@@ -17,8 +18,8 @@ class Boot
     public static function setDebug()
     {
         // debug
-        if (Config::get('debug') == "true") {
-            define("DEBUG", true);
+        if (Config::get('debug') == 'true') {
+            define('DEBUG', true);
         }
     }
 
@@ -37,7 +38,7 @@ class Boot
     public static function bootDb()
     {
         // Init Eloquent ORM Connection
-        $capsule = new Capsule;
+        $capsule = new Capsule();
         $capsule->addConnection(Config::getDbConfig());
         $capsule->bootEloquent();
     }

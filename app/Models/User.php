@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-/**
+/*
  * User Model
  */
 
@@ -11,21 +11,20 @@ use App\Utils\Hash;
 use App\Utils\Tools;
 
 class User extends Model
-
 {
-    protected $table = "user";
+    protected $table = 'user';
 
     public $isLogin;
 
     public $isAdmin;
 
     protected $casts = [
-        "t" => 'int',
-        "u" => 'int',
-        "d" => 'int',
-        "port" => 'int',
-        "transfer_enable" => 'float',
-        "enable" => 'int',
+        't' => 'int',
+        'u' => 'int',
+        'd' => 'int',
+        'port' => 'int',
+        'transfer_enable' => 'float',
+        'enable' => 'int',
         'is_admin' => 'boolean',
     ];
 
@@ -39,6 +38,7 @@ class User extends Model
     public function getGravatarAttribute()
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
+
         return "https://secure.gravatar.com/avatar/$hash";
     }
 
@@ -50,21 +50,23 @@ class User extends Model
     public function lastSsTime()
     {
         if ($this->attributes['t'] == 0) {
-            return "从未使用喵";
+            return '从未使用喵';
         }
+
         return Tools::toDateTime($this->attributes['t']);
     }
-	
-	public function ifUsedIn($hours)
-	{
-		return (time() - $this->attributes['t']) <= ($hours * 3600);
-	}
+
+    public function ifUsedIn($hours)
+    {
+        return (time() - $this->attributes['t']) <= ($hours * 3600);
+    }
 
     public function lastCheckInTime()
     {
         if ($this->attributes['last_check_in_time'] == 0) {
-            return "从未签到";
+            return '从未签到';
         }
+
         return Tools::toDateTime($this->attributes['last_check_in_time']);
     }
 
@@ -90,24 +92,24 @@ class User extends Model
         $this->method = $method;
         $this->save();
     }
-    
+
     public function updateCustomMethod($custom_method)
     {
         $this->custom_method = $custom_method;
         $this->save();
-    }    
-    
+    }
+
     public function updateProtocol($protocol)
     {
         $this->protocol = $protocol;
         $this->save();
     }
-    
+
     public function updateObfs($obfs)
     {
         $this->obfs = $obfs;
         $this->save();
-    }        
+    }
 
     public function addInviteCode()
     {
@@ -120,7 +122,7 @@ class User extends Model
 
     public function addManyInviteCodes($num)
     {
-        for ($i = 0; $i < $num; $i++) {
+        for ($i = 0; $i < $num; ++$i) {
             $this->addInviteCode();
         }
     }
@@ -135,24 +137,28 @@ class User extends Model
         $percent = $total / $transferEnable;
         $percent = round($percent, 2);
         $percent = $percent * 100;
+
         return $percent;
     }
 
     public function enableTraffic()
     {
         $transfer_enable = $this->attributes['transfer_enable'];
+
         return Tools::flowAutoShow($transfer_enable);
     }
 
     public function enableTrafficInGB()
     {
         $transfer_enable = $this->attributes['transfer_enable'];
+
         return Tools::flowToGB($transfer_enable);
     }
 
     public function usedTraffic()
     {
         $total = $this->attributes['u'] + $this->attributes['d'];
+
         return Tools::flowAutoShow($total);
     }
 
@@ -160,6 +166,7 @@ class User extends Model
     {
         $total = $this->attributes['u'] + $this->attributes['d'];
         $transfer_enable = $this->attributes['transfer_enable'];
+
         return Tools::flowAutoShow($transfer_enable - $total);
     }
 
@@ -170,6 +177,7 @@ class User extends Model
         if ($last + $hour * 3600 < time()) {
             return true;
         }
+
         return false;
     }
 
@@ -183,7 +191,7 @@ class User extends Model
     public function inviteCodes()
     {
         $uid = $this->attributes['id'];
+
         return InviteCode::where('user_id', $uid)->get();
     }
-
 }

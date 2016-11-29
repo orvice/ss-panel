@@ -24,9 +24,9 @@ class SendCloud extends Base
     public function getConfig()
     {
         return [
-            "key" => Config::get('sendcloud_key'),
-            "user" => Config::get('sendcloud_user'),
-            "sender" => Config::get('sendcloud_sender')
+            'key' => Config::get('sendcloud_key'),
+            'user' => Config::get('sendcloud_user'),
+            'sender' => Config::get('sendcloud_sender'),
         ];
     }
 
@@ -35,15 +35,14 @@ class SendCloud extends Base
      */
     public function send($to, $subject, $text, $file)
     {
-		$req = $this->sc->prepare('mail', 'send', [
-			'apiUser' => $this->config["user"],
-			'apiKey' => $this->config["key"],
-			'from' => $this->config["sender"],
-			'to' => $to,
-			'subject' => $subject,
-			'html' => $text
-		]);
-		$req->send();
+        $req = $this->sc->prepare('mail', 'send', [
+            'apiUser' => $this->config['user'],
+            'apiKey' => $this->config['key'],
+            'from' => $this->config['sender'],
+            'to' => $to,
+            'subject' => $subject,
+            'html' => $text,
+        ]);
+        $req->send();
     }
-};
-
+}

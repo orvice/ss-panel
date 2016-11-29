@@ -1,6 +1,6 @@
 <?php
 
 return [
-    "success" => "Success",
-    "error" => "Whoops"
+    'success' => 'Success',
+    'error' => 'Whoops',
 ];

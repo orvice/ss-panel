@@ -21,12 +21,14 @@ class Analytics
     public function getTrafficUsage()
     {
         $total = User::sum('u') + USer::sum('d');
+
         return Tools::flowAutoShow($total);
     }
 
     public function getOnlineUser($time)
     {
         $time = time() - $time;
+
         return User::where('t', '>', $time)->count();
     }
 
@@ -34,5 +36,4 @@ class Analytics
     {
         return Node::count();
     }
-
 }

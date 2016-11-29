@@ -13,13 +13,11 @@ use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
-
 /**
- *  HomeController
+ *  HomeController.
  */
 class UserController extends BaseController
 {
-
     private $user;
     private $node;
 
@@ -31,6 +29,7 @@ class UserController extends BaseController
     public function view()
     {
         $userFooter = DbConfig::get('user-footer');
+
         return parent::view()->assign('userFooter', $userFooter);
     }
 
@@ -38,43 +37,40 @@ class UserController extends BaseController
     {
         $msg = DbConfig::get('user-index');
         if ($msg == null) {
-            $msg = "在后台修改用户中心公告...";
+            $msg = '在后台修改用户中心公告...';
         }
-        
+
         $nodes = Node::all();
-    		$android_add="";
-	    	foreach($nodes as $node)
-	    	{
-	    		if($android_add=="")
-	    		{
-	    			$ary['server'] = $node->server;
-	    			$ary['server_port'] = $this->user->port;
-	    			$ary['password'] = $this->user->passwd;
-	    			$ary['method'] = $this->user->method;
+        $android_add = '';
+        foreach ($nodes as $node) {
+            if ($android_add == '') {
+                $ary['server'] = $node->server;
+                $ary['server_port'] = $this->user->port;
+                $ary['password'] = $this->user->passwd;
+                $ary['method'] = $this->user->method;
 /*	    			if ($this->user->custom_method) {
-	    				$ary['method'] = $this->user->method;
-	    			}
-	    			*/
-	    			$ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
-	    			$ssqr = "ss://" . base64_encode($ssurl);
-	    			$android_add .="'".$ssqr."'";
-	    		}
-	    		else
-	    		{
-	    			$ary['server'] = $node->server;
-	    			$ary['server_port'] = $this->user->port;
-	    			$ary['password'] = $this->user->passwd;
-	    			$ary['method'] = $this->user->method;
+                        $ary['method'] = $this->user->method;
+                    }
+                    */
+                    $ssurl = $ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'];
+                $ssqr = 'ss://'.base64_encode($ssurl);
+                $android_add .= "'".$ssqr."'";
+            } else {
+                $ary['server'] = $node->server;
+                $ary['server_port'] = $this->user->port;
+                $ary['password'] = $this->user->passwd;
+                $ary['method'] = $this->user->method;
 /*	    			if ($this->user->custom_method) {
-	    				$ary['method'] = $this->user->method;
-	    			}*/
-	    			
-	    			$ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
-	    			$ssqr = "ss://" . base64_encode($ssurl);
-	    			$android_add .=",'".$ssqr."'";
-	    		}
-	    	}    
-        return $this->view()->assign('msg', $msg)->assign("android_add",$android_add)->assign('baseUrl',Config::get('baseUrl'))->display('user/index.tpl');
+                        $ary['method'] = $this->user->method;
+                    }*/
+
+                    $ssurl = $ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'];
+                $ssqr = 'ss://'.base64_encode($ssurl);
+                $android_add .= ",'".$ssqr."'";
+            }
+        }
+
+        return $this->view()->assign('msg', $msg)->assign('android_add', $android_add)->assign('baseUrl', Config::get('baseUrl'))->display('user/index.tpl');
     }
 
     public function node($request, $response, $args)
@@ -82,56 +78,53 @@ class UserController extends BaseController
         $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
+
         return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
     }
 
     public function nodeInfo($request, $response, $args)
     {
-    $user = Auth::getUser();	
+        $user = Auth::getUser();
         $id = $args['id'];
         $node = Node::find($id);
 
         if ($node == null) {
-
         }
         $ary['server'] = $node->server;
         $ary['server_port'] = $this->user->port;
         $ary['password'] = $this->user->passwd;
-        $ary['method'] = $this->user->method;		
+        $ary['method'] = $this->user->method;
 /*        if ($this->user->custom_method) {
             $ary['method'] = $this->user->method;
         }*/
         $ary['protocol'] = $this->user->protocol;
         $ary['obfs'] = $this->user->obfs;
-        if ($this->user->obfs=='http_post'||$this->user->obfs=='http_simple'||$this->user->obfs=='tls1.2_ticket_auth') {
-        $ary['obfs_param'] = $this->user->obfs_param;
-        }	
+        if ($this->user->obfs == 'http_post' || $this->user->obfs == 'http_simple' || $this->user->obfs == 'tls1.2_ticket_auth') {
+            $ary['obfs_param'] = $this->user->obfs_param;
+        }
         $json = json_encode($ary);
         $json_show = json_encode($ary, JSON_PRETTY_PRINT);
-        
-        if ($user->obfs=='http_simple' || $user->obfs=='http_post' || $user->obfs=='random_head' || $user->obfs=='tls_simple' || $user->obfs=='tls1.0_session_auth' || $user->obfs=='tls1.2_ticket_auth' || $user->protocol=='verify_simple' || $user->protocol=='verify_deflate' || $user->protocol=='verify_sha1' || $user->protocol=='auth_simple' || $user->protocol=='auth_sha1' || $user->protocol=='auth_sha1_v2')
-				{
-				
-					$ssurl = str_replace("_compatible","",$user->obfs).":".str_replace("_compatible","",$user->protocol).":".$ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port']."/".base64_encode($user->obfs_param);
-					$ssqr_s = "ss://" . base64_encode($ssurl);
-					$ssqr = "ss://" . base64_encode($ssurl);
-				}
-				else
-				{
-					$ssurl = str_replace("_compatible","",$user->obfs).":".str_replace("_compatible","",$user->protocol).":".$ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port']."/".base64_encode($user->obfs_param);
-					$ssqr_s = "ss://" . base64_encode($ssurl);					
-					$ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
-					$ssqr = "ss://" . base64_encode($ssurl);
-				}		
+
+        if ($user->obfs == 'http_simple' || $user->obfs == 'http_post' || $user->obfs == 'random_head' || $user->obfs == 'tls_simple' || $user->obfs == 'tls1.0_session_auth' || $user->obfs == 'tls1.2_ticket_auth' || $user->protocol == 'verify_simple' || $user->protocol == 'verify_deflate' || $user->protocol == 'verify_sha1' || $user->protocol == 'auth_simple' || $user->protocol == 'auth_sha1' || $user->protocol == 'auth_sha1_v2') {
+            $ssurl = str_replace('_compatible', '', $user->obfs).':'.str_replace('_compatible', '', $user->protocol).':'.$ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'].'/'.base64_encode($user->obfs_param);
+            $ssqr_s = 'ss://'.base64_encode($ssurl);
+            $ssqr = 'ss://'.base64_encode($ssurl);
+        } else {
+            $ssurl = str_replace('_compatible', '', $user->obfs).':'.str_replace('_compatible', '', $user->protocol).':'.$ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'].'/'.base64_encode($user->obfs_param);
+            $ssqr_s = 'ss://'.base64_encode($ssurl);
+            $ssurl = $ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'];
+            $ssqr = 'ss://'.base64_encode($ssurl);
+        }
 
 /*        $token_1 = LinkController::GenerateSurgeCode($ary['server'],$ary['server_port'],$this->user->id,0,$ary['method']);
-				$token_2 = LinkController::GenerateSurgeCode($ary['server'],$ary['server_port'],$this->user->id,1,$ary['method']);*/
-					
-        $surge_base = Config::get('baseUrl') . "/downloads/ProxyBase.conf";
+                $token_2 = LinkController::GenerateSurgeCode($ary['server'],$ary['server_port'],$this->user->id,1,$ary['method']);*/
+
+        $surge_base = Config::get('baseUrl').'/downloads/ProxyBase.conf';
         $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
         $surge_proxy .= "[Proxy]\n";
-        $surge_proxy .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . "," . Config::get('baseUrl') . "/downloads/SSEncrypt.module";
-         return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('ssqr_s', $ssqr_s)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+        $surge_proxy .= 'Proxy = custom,'.$ary['server'].','.$ary['server_port'].','.$ary['method'].','.$ary['password'].','.Config::get('baseUrl').'/downloads/SSEncrypt.module';
+
+        return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('ssqr_s', $ssqr_s)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
  /*        return $this->view()->assign('ary', $ary)->assign('node',$node)->assign('user',$this->user)->assign('json', $json)->assign('link1',Config::get('baseUrl')."/link/".$token_1)->assign('link2',Config::get('baseUrl')."/link/".$token_2)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('ssqr_s', $ssqr_s)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->assign('info_server', $ary['server'])->assign('info_port', $this->user->port)->assign('info_method', $ary['method'])->assign('info_pass', $this->user->passwd)->display('user/nodeinfo.tpl');*/
     }
 
@@ -141,14 +134,14 @@ class UserController extends BaseController
     }
 
     public function edit($request, $response, $args)
-    {   
+    {
         return $this->view()->display('user/edit.tpl');
     }
-
 
     public function invite($request, $response, $args)
     {
         $codes = $this->user->inviteCodes();
+
         return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
     }
 
@@ -157,9 +150,10 @@ class UserController extends BaseController
         $n = $this->user->invite_num;
         if ($n < 1) {
             $res['ret'] = 0;
+
             return $response->getBody()->write(json_encode($res));
         }
-        for ($i = 0; $i < $n; $i++) {
+        for ($i = 0; $i < $n; ++$i) {
             $char = Tools::genRandomChar(32);
             $code = new InviteCode();
             $code->code = $char;
@@ -169,12 +163,13 @@ class UserController extends BaseController
         $this->user->invite_num = 0;
         $this->user->save();
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
     public function sys($request, $response, $args)
     {
-        return $this->view()->assign('ana', "")->display('user/sys.tpl');
+        return $this->view()->assign('ana', '')->display('user/sys.tpl');
     }
 
     public function updatePassword($request, $response, $args)
@@ -185,18 +180,21 @@ class UserController extends BaseController
         $user = $this->user;
         if (!Hash::checkPassword($user->pass, $oldpwd)) {
             $res['ret'] = 0;
-            $res['msg'] = "旧密码错误";
+            $res['msg'] = '旧密码错误';
+
             return $response->getBody()->write(json_encode($res));
         }
         if ($pwd != $repwd) {
             $res['ret'] = 0;
-            $res['msg'] = "两次输入不符合";
+            $res['msg'] = '两次输入不符合';
+
             return $response->getBody()->write(json_encode($res));
         }
 
         if (strlen($pwd) < 8) {
             $res['ret'] = 0;
-            $res['msg'] = "密码太短啦";
+            $res['msg'] = '密码太短啦';
+
             return $response->getBody()->write(json_encode($res));
         }
         $hashPwd = Hash::passwordHash($pwd);
@@ -204,7 +202,8 @@ class UserController extends BaseController
         $user->save();
 
         $res['ret'] = 1;
-        $res['msg'] = "ok";
+        $res['msg'] = 'ok';
+
         return $this->echoJson($response, $res);
     }
 
@@ -214,6 +213,7 @@ class UserController extends BaseController
         $pwd = $request->getParam('sspwd');
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
@@ -224,9 +224,10 @@ class UserController extends BaseController
         $method = strtolower($method);
         $user->updateMethod($method);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
-    
+
     public function updateProtocol($request, $response, $args)
     {
         $user = Auth::getUser();
@@ -234,9 +235,10 @@ class UserController extends BaseController
         $protocol = strtolower($protocol);
         $user->updateProtocol($protocol);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
-    
+
     public function updateObfs($request, $response, $args)
     {
         $user = Auth::getUser();
@@ -244,21 +246,24 @@ class UserController extends BaseController
         $obfs = strtolower($obfs);
         $user->updateObfs($obfs);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
-    }        
+    }
 
     public function logout($request, $response, $args)
     {
         Auth::logout();
         $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+
         return $newResponse;
     }
 
     public function doCheckIn($request, $response, $args)
     {
         if (!$this->user->isAbleToCheckin()) {
-            $res['msg'] = "您似乎已经签到过了...";
+            $res['msg'] = '您似乎已经签到过了...';
             $res['ret'] = 1;
+
             return $response->getBody()->write(json_encode($res));
         }
         $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
@@ -275,8 +280,9 @@ class UserController extends BaseController
             $log->save();
         } catch (\Exception $e) {
         }
-        $res['msg'] = sprintf("获得了 %u MB流量.", $traffic);
+        $res['msg'] = sprintf('获得了 %u MB流量.', $traffic);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
@@ -293,24 +299,27 @@ class UserController extends BaseController
         $res = array();
         if (!Hash::checkPassword($user->pass, $passwd)) {
             $res['ret'] = 0;
-            $res['msg'] = " 密码错误";
+            $res['msg'] = ' 密码错误';
+
             return $this->echoJson($response, $res);
         }
         Auth::logout();
         $user->delete();
         $res['ret'] = 1;
-        $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
+        $res['msg'] = 'GG!您的帐号已经从我们的系统中删除.';
+
         return $this->echoJson($response, $res);
     }
 
     public function trafficLog($request, $response, $args)
     {
         $pageNum = 1;
-        if (isset($request->getQueryParams()["page"])) {
-            $pageNum = $request->getQueryParams()["page"];
+        if (isset($request->getQueryParams()['page'])) {
+            $pageNum = $request->getQueryParams()['page'];
         }
         $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
+
         return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
     }
 }

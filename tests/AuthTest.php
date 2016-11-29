@@ -10,15 +10,14 @@ use App\Utils\Tools;
 
 class AuthTest extends TestCase
 {
+    protected $email = 'sp3@sp3.me';
 
-    protected $email = "sp3@sp3.me";
-
-    protected $password = "password123##";
+    protected $password = 'password123##';
 
     public function setUp()
     {
         $this->setProdEnv();
-        $this->email = Tools::genRandomChar(8) . "@sp3.me";
+        $this->email = Tools::genRandomChar(8).'@sp3.me';
     }
 
     public function testAuthLogin()
@@ -36,12 +35,13 @@ class AuthTest extends TestCase
         if ($code->save()) {
             return $codeStr;
         }
+
         return null;
     }
 
     protected function getRandomEmail()
     {
-        return Tools::genRandomChar(8) . "@sp3.me";
+        return Tools::genRandomChar(8).'@sp3.me';
     }
 
     protected function getExistEmail()
@@ -51,7 +51,6 @@ class AuthTest extends TestCase
 
     public function testHandleRegister()
     {
-
         $code = $this->addCode();
 
         // test wrong code
@@ -62,7 +61,7 @@ class AuthTest extends TestCase
 
         // test illegal email
         $this->post('/auth/register', [
-            "code" => $code
+            'code' => $code,
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::IllegalEmail);
@@ -70,29 +69,29 @@ class AuthTest extends TestCase
         // test password to short
         $shortPwd = '123';
         $this->post('/auth/register', [
-            "code" => $code,
-            "email" => $this->email,
-            "passwd" => $shortPwd
+            'code' => $code,
+            'email' => $this->email,
+            'passwd' => $shortPwd,
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::PasswordTooShort);
 
         // test password not equal
         $this->post('/auth/register', [
-            "code" => $code,
-            "email" => $this->email,
-            "passwd" => $this->password,
-            "repasswd" => $shortPwd
+            'code' => $code,
+            'email' => $this->email,
+            'passwd' => $this->password,
+            'repasswd' => $shortPwd,
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::PasswordNotEqual);
 
         // test email used
         $this->post('/auth/register', [
-            "code" => $code,
-            "email" => $this->getExistEmail(),
-            "passwd" => $this->password,
-            "repasswd" => $this->password
+            'code' => $code,
+            'email' => $this->getExistEmail(),
+            'passwd' => $this->password,
+            'repasswd' => $this->password,
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::EmailUsed);
@@ -100,11 +99,11 @@ class AuthTest extends TestCase
         //  illegal register
         Config::set('emailVerifyEnabled', false);
         $this->post('/auth/register', [
-            "code" => $code,
-            "email" => $this->email,
-            "passwd" => $this->password,
-            "repasswd" => $this->password,
-            "name" => "name"
+            'code' => $code,
+            'email' => $this->email,
+            'passwd' => $this->password,
+            'repasswd' => $this->password,
+            'name' => 'name',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
     }
@@ -112,13 +111,13 @@ class AuthTest extends TestCase
     public function testSendVerifyEmail()
     {
         $this->post('/auth/sendcode', [
-            "email" => ""
+            'email' => '',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::VerifyEmailWrongEmail);
 
         $this->post('/auth/sendcode', [
-            "email" => $this->getExistEmail(),
+            'email' => $this->getExistEmail(),
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::VerifyEmailExist);
@@ -129,16 +128,16 @@ class AuthTest extends TestCase
 
         // user not exist
         $this->post('/auth/login', [
-            "email" => $this->getRandomEmail(),
-            "password" => ""
+            'email' => $this->getRandomEmail(),
+            'password' => '',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::UserNotExist);
 
         // wrong password
         $this->post('/auth/login', [
-            "email" => $this->getExistEmail(),
-            "password" => ""
+            'email' => $this->getExistEmail(),
+            'password' => '',
         ]);
         $this->assertEquals('200', $this->response->getStatusCode());
         $this->checkErrorCode(AuthController::UserPasswordWrong);
@@ -149,5 +148,4 @@ class AuthTest extends TestCase
         $this->get('/auth/register');
         $this->assertEquals('200', $this->response->getStatusCode());
     }
-
 }

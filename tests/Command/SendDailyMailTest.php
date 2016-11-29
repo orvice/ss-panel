@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Command;
 
 use App\Command\DailyMail;

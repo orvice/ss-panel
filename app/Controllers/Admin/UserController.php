@@ -4,7 +4,6 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
 use App\Models\User;
-use App\Models\Node;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
@@ -13,11 +12,12 @@ class UserController extends AdminController
     public function index($request, $response, $args)
     {
         $pageNum = 1;
-        if (isset($request->getQueryParams()["page"])) {
-            $pageNum = $request->getQueryParams()["page"];
+        if (isset($request->getQueryParams()['page'])) {
+            $pageNum = $request->getQueryParams()['page'];
         }
         $users = User::paginate(15, ['*'], 'page', $pageNum);
         $users->setPath('/admin/user');
+
         return $this->view()->assign('users', $users)->display('admin/user/index.tpl');
     }
 
@@ -26,8 +26,8 @@ class UserController extends AdminController
         $id = $args['id'];
         $user = User::find($id);
         if ($user == null) {
-
         }
+
         return $this->view()->assign('user', $user)->display('admin/user/edit.tpl');
     }
 
@@ -47,8 +47,8 @@ class UserController extends AdminController
         $user->transfer_enable = Tools::toGB($request->getParam('transfer_enable'));
         $user->invite_num = $request->getParam('invite_num');
         $user->protocol = $request->getParam('protocol');
-		    $user->protocol_param = $request->getParam('protocol_param');
-	      $user->obfs = $request->getParam('obfs');
+        $user->protocol_param = $request->getParam('protocol_param');
+        $user->obfs = $request->getParam('obfs');
         $user->obfs_param = $request->getParam('obfs_param');
         $user->method = $request->getParam('method');
         $user->custom_method = $request->getParam('custom_method');
@@ -58,11 +58,13 @@ class UserController extends AdminController
         $user->ref_by = $request->getParam('ref_by');
         if (!$user->save()) {
             $rs['ret'] = 0;
-            $rs['msg'] = "修改失败";
+            $rs['msg'] = '修改失败';
+
             return $response->getBody()->write(json_encode($rs));
         }
         $rs['ret'] = 1;
-        $rs['msg'] = "修改成功";
+        $rs['msg'] = '修改成功';
+
         return $response->getBody()->write(json_encode($rs));
     }
 
@@ -72,11 +74,13 @@ class UserController extends AdminController
         $user = User::find($id);
         if (!$user->delete()) {
             $rs['ret'] = 0;
-            $rs['msg'] = "删除失败";
+            $rs['msg'] = '删除失败';
+
             return $response->getBody()->write(json_encode($rs));
         }
         $rs['ret'] = 1;
-        $rs['msg'] = "删除成功";
+        $rs['msg'] = '删除成功';
+
         return $response->getBody()->write(json_encode($rs));
     }
 
@@ -86,6 +90,7 @@ class UserController extends AdminController
         $user = User::find($id);
         $user->delete();
         $newResponse = $response->withStatus(302)->withHeader('Location', '/admin/user');
+
         return $newResponse;
     }
 }

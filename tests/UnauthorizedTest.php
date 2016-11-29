@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-
 class UnauthorizedTest extends TestCase
 {
     public function setUp()
@@ -12,13 +11,13 @@ class UnauthorizedTest extends TestCase
 
     public function testMuUnauthorized()
     {
-        $this->get("/mu/users");
+        $this->get('/mu/users');
         $this->assertEquals('401', $this->response->getStatusCode());
     }
 
     public function testUnauthorized()
     {
-        $this->get("/api/node");
+        $this->get('/api/node');
         $this->assertEquals('401', $this->response->getStatusCode());
     }
 

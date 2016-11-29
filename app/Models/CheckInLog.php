@@ -1,14 +1,12 @@
 <?php
 
-
 namespace App\Models;
 
 use App\Utils\Tools;
 
-
 class CheckInLog extends Model
 {
-    protected $table = "ss_checkin_log";
+    protected $table = 'ss_checkin_log';
 
     public $timestamps = true;
 

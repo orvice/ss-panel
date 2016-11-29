@@ -1,9 +1,9 @@
 <?php
 
-
 namespace App\Services\Auth;
 
-use App\Services\Config, App\Services\Mail;
+use App\Services\Config;
+use App\Services\Mail;
 use App\Models\EmailVerify as EmailVerifyModel;
 use App\Utils\Tools;
 
@@ -11,6 +11,7 @@ class EmailVerify
 {
     /**
      * @param $email string
+     *
      * @return bool
      */
     public static function sendVerification($email)
@@ -27,22 +28,24 @@ class EmailVerify
             return false;
         }
         $appName = Config::get('appName');
-        $subject = $appName . ' 邮箱验证';
-       
+        $subject = $appName.' 邮箱验证';
+
         try {
-            Mail::send($email, $subject,'auth/verify.tpl',[
+            Mail::send($email, $subject, 'auth/verify.tpl', [
                 'verification' => $verification,
-                'ttl' => $ttl
-            ],[]);
+                'ttl' => $ttl,
+            ], []);
         } catch (Exception $e) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $email
      * @param string $verify_code
+     *
      * @return bool
      */
     public static function checkVerifyCode($email, $verify_code)
@@ -52,6 +55,7 @@ class EmailVerify
             return false;
         }
         $verification->delete();
+
         return true;
     }
 }

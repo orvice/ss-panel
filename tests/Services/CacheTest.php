@@ -11,7 +11,7 @@ class CacheTest extends TestCase
     public function testCache()
     {
         $driverArray = [
-            'redis', 'file', 'default'
+            'redis', 'file', 'default',
         ];
         foreach ($driverArray as $driver) {
             $this->TestingCache($driver);
@@ -31,7 +31,6 @@ class CacheTest extends TestCase
 
         $client->del($key);
         $this->assertEquals(null, $client->get($key));
-
 
         // test expired
         $ttl = 1;

@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Services;
 
 use Predis\Client;
-
 
 class RedisClient
 {
@@ -20,7 +18,6 @@ class RedisClient
      */
     protected function getConfig()
     {
-
         $config = [
             'scheme' => Config::get('redis_scheme'),
             'host' => Config::get('redis_host'),
@@ -31,6 +28,7 @@ class RedisClient
         if (Config::get('redis_pass') == null || Config::get('redis_pass') == '') {
             unset($config['password']);
         }
+
         return $config;
     }
 
@@ -44,6 +42,7 @@ class RedisClient
 
     /**
      * @param $key
+     *
      * @return string
      */
     public function get($key)
@@ -58,7 +57,6 @@ class RedisClient
     public function set($key, $value)
     {
         $this->client->set($key, $value);
-
     }
 
     /**

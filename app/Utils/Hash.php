@@ -8,6 +8,7 @@ class Hash
 {
     /**
      * @param $str
+     *
      * @return string
      */
     public static function passwordHash($str)
@@ -23,32 +24,37 @@ class Hash
             default:
                 return self::md5WithSalt($str);
         }
+
         return $str;
     }
 
     public static function cookieHash($str)
     {
-        return substr(hash('sha256', $str . Config::get('key')), 5, 45);
+        return substr(hash('sha256', $str.Config::get('key')), 5, 45);
     }
 
     /**
      * @param $pwd
+     *
      * @return string
      */
     public static function md5WithSalt($pwd)
     {
         $salt = Config::get('salt');
-        return md5($pwd . $salt);
+
+        return md5($pwd.$salt);
     }
 
     /**
      * @param $pwd
+     *
      * @return string
      */
     public static function sha256WithSalt($pwd)
     {
         $salt = Config::get('salt');
-        return hash('sha256', $pwd . $salt);
+
+        return hash('sha256', $pwd.$salt);
     }
 
     // @TODO
@@ -58,6 +64,7 @@ class Hash
         if ($hashedPassword == self::passwordHash($password)) {
             return true;
         }
+
         return false;
     }
 }

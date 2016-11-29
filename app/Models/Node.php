@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-/**
+/*
  * Node Model
  */
 
 use App\Utils\Tools;
 
 class Node extends Model
-
 {
-    protected $table = "ss_node";
-
+    protected $table = 'ss_node';
 
     public function getLastNodeInfoLog()
     {
@@ -21,6 +19,7 @@ class Node extends Model
         if ($log == null) {
             return null;
         }
+
         return $log;
     }
 
@@ -28,17 +27,19 @@ class Node extends Model
     {
         $log = $this->getLastNodeInfoLog();
         if ($log == null) {
-            return "暂无数据";
+            return '暂无数据';
         }
-        return Tools::secondsToTime((int)$log->uptime);
+
+        return Tools::secondsToTime((int) $log->uptime);
     }
 
     public function getNodeLoad()
     {
         $log = $this->getLastNodeInfoLog();
         if ($log == null) {
-            return "暂无数据";
+            return '暂无数据';
         }
+
         return $log->load;
     }
 
@@ -49,26 +50,28 @@ class Node extends Model
         if ($log == null) {
             return null;
         }
+
         return $log;
     }
 
-    function getOnlineUserCount()
+    public function getOnlineUserCount()
     {
         $log = $this->getLastNodeOnlineLog();
         if ($log == null) {
-            return "暂无数据";
+            return '暂无数据';
         }
+
         return $log->online_user;
     }
 
-    function getTrafficFromLogs()
+    public function getTrafficFromLogs()
     {
         $id = $this->attributes['id'];
         $traffic = TrafficLog::where('node_id', $id)->sum('u') + TrafficLog::where('node_id', $id)->sum('d');
         if ($traffic == 0) {
-            return "暂无数据";
+            return '暂无数据';
         }
+
         return Tools::flowAutoShow($traffic);
     }
-
 }

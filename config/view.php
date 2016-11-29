@@ -2,13 +2,10 @@
 
 return [
 
-
     'paths' => [
-        realpath(base_path('/resources/views')),
+        realpath(base_path('/resources/views/default')),
     ],
-
 
     'compiled' => env('VIEW_CACHE_PATH', realpath(base_path('/storage/framework/views'))),
 
 ];
-

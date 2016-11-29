@@ -119,6 +119,3 @@ $app->group('/mu/v2', function () {
 $app->group('/res', function () {
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
 });
-
-
-

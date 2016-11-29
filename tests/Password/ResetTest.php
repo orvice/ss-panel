@@ -4,7 +4,6 @@ namespace Tests\Password;
 
 use Tests\TestCase;
 
-
 class ResetTest extends TestCase
 {
     public function setUp()

@@ -2,23 +2,23 @@
 
 return [
 
-    'announcement' => "Announcement",
-    'faq' => "FAQ",
+    'announcement' => 'Announcement',
+    'faq' => 'FAQ',
 
-    "checkin" => "Check-In",
-    "cant-checkin" => "Cant't Check-In",
-    'last-checkin-at' => "Last check-in at",
+    'checkin' => 'Check-In',
+    'cant-checkin' => "Cant't Check-In",
+    'last-checkin-at' => 'Last check-in at',
 
-    "traffic-info" => "Traffic Info",
-    "traffic-total" => "Total Traffic",
-    "traffic-used" => "Used Traffic",
-    "traffic-unused" => "Unused Traffic",
+    'traffic-info' => 'Traffic Info',
+    'traffic-total' => 'Total Traffic',
+    'traffic-used' => 'Used Traffic',
+    'traffic-unused' => 'Unused Traffic',
 
-    "connection-info" => "Connection Info",
-    "port" => "Port",
-    "password" => "Password",
-    "method" => "Method",
-    "obfs-protocol" => "obfs Protocol",
-    "obfs-plugin" => "obfs Plugin",
-    "last-used" => "Last used at"
+    'connection-info' => 'Connection Info',
+    'port' => 'Port',
+    'password' => 'Password',
+    'method' => 'Method',
+    'obfs-protocol' => 'obfs Protocol',
+    'obfs-plugin' => 'obfs Plugin',
+    'last-used' => 'Last used at',
 ];

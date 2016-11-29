@@ -12,13 +12,11 @@ use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
-
 /**
- *  HomeController
+ *  HomeController.
  */
 class UserController extends BaseController
 {
-
     private $user;
 
     public function __construct()
@@ -29,6 +27,7 @@ class UserController extends BaseController
     public function view()
     {
         $userFooter = DbConfig::get('user-footer');
+
         return parent::view()->assign('userFooter', $userFooter);
     }
 
@@ -36,8 +35,9 @@ class UserController extends BaseController
     {
         $msg = DbConfig::get('user-index');
         if ($msg == null) {
-            $msg = "在后台修改用户中心公告...";
+            $msg = '在后台修改用户中心公告...';
         }
+
         return $this->view()->assign('msg', $msg)->display('user/index.tpl');
     }
 
@@ -46,9 +46,9 @@ class UserController extends BaseController
         $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
+
         return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
     }
-
 
     public function nodeInfo($request, $response, $args)
     {
@@ -56,7 +56,6 @@ class UserController extends BaseController
         $node = Node::find($id);
 
         if ($node == null) {
-
         }
         $ary['server'] = $node->server;
         $ary['server_port'] = $this->user->port;
@@ -67,13 +66,14 @@ class UserController extends BaseController
         }
         $json = json_encode($ary);
         $json_show = json_encode($ary, JSON_PRETTY_PRINT);
-        $ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
-        $ssqr = "ss://" . base64_encode($ssurl);
+        $ssurl = $ary['method'].':'.$ary['password'].'@'.$ary['server'].':'.$ary['server_port'];
+        $ssqr = 'ss://'.base64_encode($ssurl);
 
-        $surge_base = Config::get('baseUrl') . "/downloads/ProxyBase.conf";
+        $surge_base = Config::get('baseUrl').'/downloads/ProxyBase.conf';
         $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
         $surge_proxy .= "[Proxy]\n";
-        $surge_proxy .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . "," . Config::get('baseUrl') . "/downloads/SSEncrypt.module";
+        $surge_proxy .= 'Proxy = custom,'.$ary['server'].','.$ary['server_port'].','.$ary['method'].','.$ary['password'].','.Config::get('baseUrl').'/downloads/SSEncrypt.module';
+
         return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
     }
 
@@ -87,10 +87,10 @@ class UserController extends BaseController
         return $this->view()->display('user/edit.tpl');
     }
 
-
     public function invite($request, $response, $args)
     {
         $codes = $this->user->inviteCodes();
+
         return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
     }
 
@@ -99,9 +99,10 @@ class UserController extends BaseController
         $n = $this->user->invite_num;
         if ($n < 1) {
             $res['ret'] = 0;
+
             return $response->getBody()->write(json_encode($res));
         }
-        for ($i = 0; $i < $n; $i++) {
+        for ($i = 0; $i < $n; ++$i) {
             $char = Tools::genRandomChar(32);
             $code = new InviteCode();
             $code->code = $char;
@@ -111,12 +112,13 @@ class UserController extends BaseController
         $this->user->invite_num = 0;
         $this->user->save();
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
     public function sys($request, $response, $args)
     {
-        return $this->view()->assign('ana', "")->display('user/sys.tpl');
+        return $this->view()->assign('ana', '')->display('user/sys.tpl');
     }
 
     public function updatePassword($request, $response, $args)
@@ -127,18 +129,21 @@ class UserController extends BaseController
         $user = $this->user;
         if (!Hash::checkPassword($user->pass, $oldpwd)) {
             $res['ret'] = 0;
-            $res['msg'] = "旧密码错误";
+            $res['msg'] = '旧密码错误';
+
             return $response->getBody()->write(json_encode($res));
         }
         if ($pwd != $repwd) {
             $res['ret'] = 0;
-            $res['msg'] = "两次输入不符合";
+            $res['msg'] = '两次输入不符合';
+
             return $response->getBody()->write(json_encode($res));
         }
 
         if (strlen($pwd) < 8) {
             $res['ret'] = 0;
-            $res['msg'] = "密码太短啦";
+            $res['msg'] = '密码太短啦';
+
             return $response->getBody()->write(json_encode($res));
         }
         $hashPwd = Hash::passwordHash($pwd);
@@ -146,7 +151,8 @@ class UserController extends BaseController
         $user->save();
 
         $res['ret'] = 1;
-        $res['msg'] = "ok";
+        $res['msg'] = 'ok';
+
         return $this->echoJson($response, $res);
     }
 
@@ -156,6 +162,7 @@ class UserController extends BaseController
         $pwd = $request->getParam('sspwd');
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
@@ -166,6 +173,7 @@ class UserController extends BaseController
         $method = strtolower($method);
         $user->updateMethod($method);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
@@ -173,14 +181,16 @@ class UserController extends BaseController
     {
         Auth::logout();
         $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
+
         return $newResponse;
     }
 
     public function doCheckIn($request, $response, $args)
     {
         if (!$this->user->isAbleToCheckin()) {
-            $res['msg'] = "您似乎已经签到过了...";
+            $res['msg'] = '您似乎已经签到过了...';
             $res['ret'] = 1;
+
             return $response->getBody()->write(json_encode($res));
         }
         $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
@@ -197,8 +207,9 @@ class UserController extends BaseController
             $log->save();
         } catch (\Exception $e) {
         }
-        $res['msg'] = sprintf("获得了 %u MB流量.", $traffic);
+        $res['msg'] = sprintf('获得了 %u MB流量.', $traffic);
         $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 
@@ -215,24 +226,27 @@ class UserController extends BaseController
         $res = array();
         if (!Hash::checkPassword($user->pass, $passwd)) {
             $res['ret'] = 0;
-            $res['msg'] = " 密码错误";
+            $res['msg'] = ' 密码错误';
+
             return $this->echoJson($response, $res);
         }
         Auth::logout();
         $user->delete();
         $res['ret'] = 1;
-        $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
+        $res['msg'] = 'GG!您的帐号已经从我们的系统中删除.';
+
         return $this->echoJson($response, $res);
     }
 
     public function trafficLog($request, $response, $args)
     {
         $pageNum = 1;
-        if (isset($request->getQueryParams()["page"])) {
-            $pageNum = $request->getQueryParams()["page"];
+        if (isset($request->getQueryParams()['page'])) {
+            $pageNum = $request->getQueryParams()['page'];
         }
         $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
+
         return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
     }
 }

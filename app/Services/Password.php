@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services;
 
 use App\Models\PasswordReset;
@@ -14,6 +13,7 @@ class Password
 {
     /**
      * @param $email string
+     *
      * @return bool
      */
     public static function sendResetEmail($email)
@@ -26,23 +26,22 @@ class Password
         if (!$pwdRst->save()) {
             return false;
         }
-        $subject = Config::get('appName') . "重置密码";
-        $resetUrl = Config::get('baseUrl') . "/password/token/" . $pwdRst->token;
+        $subject = Config::get('appName').'重置密码';
+        $resetUrl = Config::get('baseUrl').'/password/token/'.$pwdRst->token;
         try {
             Mail::send($email, $subject, 'password/reset.tpl', [
-                "resetUrl" => $resetUrl
+                'resetUrl' => $resetUrl,
             ], [
                 //BASE_PATH.'/public/assets/email/styles.css'
             ]);
         } catch (Exception $e) {
             return false;
         }
+
         return true;
     }
 
     public static function resetBy($token, $password)
     {
-
     }
-
 }

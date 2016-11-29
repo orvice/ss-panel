@@ -30,7 +30,6 @@ class Ses extends Base
      */
     public function send($to, $subject, $text)
     {
-
         $this->client->sendEmail([
             'Destination' => [ // REQUIRED
                 'ToAddresses' => [$to],
@@ -45,7 +44,7 @@ class Ses extends Base
                     ],
                 ],
                 'Subject' => [ // REQUIRED
-                    'Data' => $subject, // REQUIRED
+                    'Data' => $subject// REQUIRED
                 ],
             ],
             'Source' => $this->getSender(), // REQUIRED

@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Models;
 
 use App\Utils\Tools;
 
 class TrafficLog extends Model
 {
-    protected $table = "user_traffic_log";
+    protected $table = 'user_traffic_log';
 
     public function node()
     {

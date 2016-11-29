@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\Utils;
-
 
 use Pongtan\Services\Config;
 
 class Helper
 {
-
     /**
      * @return bool
      */
@@ -17,6 +14,7 @@ class Helper
         if (Config::get('env') === 'testing') {
             return true;
         }
+
         return false;
     }
 
@@ -30,6 +28,7 @@ class Helper
             return null;
         }
         $accessToken = $params['access_token'];
+
         return $accessToken;
     }
 
@@ -46,6 +45,7 @@ class Helper
             return null;
         }
         $accessToken = $params['key'];
+
         return $accessToken;
     }
 }

@@ -4,5 +4,4 @@ namespace App\Command;
 
 class Job
 {
-
 }

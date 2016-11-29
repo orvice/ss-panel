@@ -12,5 +12,4 @@ class XCatTest extends TestCase
         $cat = new XCat([]);
         $cat->resetTraffic();
     }
-
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Tests\Models;
-
 
 use App\Models\CheckInLog;
 use App\Utils\Tools;
@@ -20,6 +18,5 @@ class CheckInLogTest extends TestCase
 
         $this->assertEquals(Tools::toDateTime($log->checkin_at), $log->CheckInTime());
         $this->assertEquals(Tools::flowAutoShow($log->traffic), $log->traffic());
-
     }
 }

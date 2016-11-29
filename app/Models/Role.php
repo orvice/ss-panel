@@ -3,12 +3,9 @@
 namespace App\Models;
 
 /**
- * Node Model
+ * Node Model.
  */
-
 class Role extends Model
-
 {
-    protected $table = "user_role";
-
+    protected $table = 'user_role';
 }

@@ -32,10 +32,11 @@ class HomeTest extends TestCase
         // test version
         $this->assertEquals(Config::get('version'), $ary['version']);
     }
-    
-    public function testPost(){
-        $this->post('/debug',[
-           "name" => "bar"
+
+    public function testPost()
+    {
+        $this->post('/debug', [
+           'name' => 'bar',
         ]);
         //echo $this->response->getBody();
 
@@ -43,12 +44,9 @@ class HomeTest extends TestCase
         //echo $this->response->getBody();
     }
 
-
     public function testError()
     {
         $this->get('/404');
         $this->assertEquals('404', $this->response->getStatusCode());
     }
-
-
 }

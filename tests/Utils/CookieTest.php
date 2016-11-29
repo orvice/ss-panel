@@ -8,11 +8,10 @@ class CookieTest extends TestCase
 {
     public function testCookie()
     {
-        $key = "key";
-        $value = "value";
+        $key = 'key';
+        $value = 'value';
         $ary = [
-            $key => $value
+            $key => $value,
         ];
-       
     }
 }

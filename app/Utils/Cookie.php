@@ -2,7 +2,6 @@
 
 namespace App\Utils;
 
-
 class Cookie
 {
     public static function set($arg, $time)
@@ -17,6 +16,7 @@ class Cookie
         if (isset($_COOKIE[$key])) {
             return $_COOKIE[$key];
         }
-        return "";
+
+        return '';
     }
 }

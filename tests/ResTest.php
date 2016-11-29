@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-
 class ResTest extends TestCase
 {
     public function testCaptcha()

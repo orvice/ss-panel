@@ -13,7 +13,6 @@ class ToolsTest extends TestCase
         $this->assertEquals(100, Tools::flowAutoShow($traffic));
     }
 
-
     public function testGetRandomChar()
     {
         $char = Tools::genRandomChar(8);

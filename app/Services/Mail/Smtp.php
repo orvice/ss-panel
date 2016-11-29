@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services\Mail;
 
 use PHPMailer;
@@ -8,7 +7,6 @@ use App\Services\Config;
 
 class Smtp extends Base
 {
-
     private $mail, $config;
 
     /**
@@ -17,7 +15,7 @@ class Smtp extends Base
     public function __construct()
     {
         $this->config = $this->getConfig();
-        $mail = new PHPMailer;
+        $mail = new PHPMailer();
         //$mail->SMTPDebug = 3;                               // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = $this->config['host'];  // Specify main and backup SMTP servers
@@ -30,17 +28,16 @@ class Smtp extends Base
         $mail->CharSet = 'UTF-8';
         $this->mail = $mail;
     }
-    
-    
+
     public function getConfig()
     {
         return [
-            "host" => Config::get('smtp_host'),
-            "username" => Config::get('smtp_username'),
-            "port" => Config::get('smtp_port'),
-            "sender" => Config::get('smtp_sender'),
-            "name" => Config::get('smtp_name'),
-            "passsword" => Config::get('smtp_passsword')
+            'host' => Config::get('smtp_host'),
+            'username' => Config::get('smtp_username'),
+            'port' => Config::get('smtp_port'),
+            'sender' => Config::get('smtp_sender'),
+            'name' => Config::get('smtp_name'),
+            'passsword' => Config::get('smtp_passsword'),
         ];
     }
 
@@ -58,7 +55,7 @@ class Smtp extends Base
         if (!$mail->send()) {
             return true;
         }
+
         return false;
     }
-
 }

@@ -5,7 +5,7 @@
  */
 
 return [
-    'appName' => 'LightFish',
+    'name' => 'ss-panel 4 ',
     'baseUrl' => '/',
     'timeZone' => 'PRC',  // UTC
     'theme' => 'default',

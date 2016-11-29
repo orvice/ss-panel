@@ -33,14 +33,30 @@
 <div class="container">
     <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="https://goo.gl/J1M8Rj">Github</a></li>
+            <li role="presentation"><a href="/">{{ lang('nav.home') }}</a></li>
+            <li role="presentation"><a href="/code">{{ lang('nav.invite-code') }}</a></li>
+            <li role="presentation"><a href="/auth/login">{{ lang('auth.login') }}</a></li>
+            <li role="presentation"><a href="/auth/register">{{ lang('auth.register') }}</a></li>
         </ul>
-        <h3 class="text-muted">{{ config('app.appName') }}</h3>
+        <h3 class="text-muted">{{ config('app.name') }}</h3>
     </div>
 
     {% block content %}{% endblock %}
 
+    <div class="row marketing">
+
+        <div class="col-lg-6">
+            <h4>{{ lang('nav.about') }}</h4>
+            <p>about.</p>
+        </div>
+
+        <div class="col-lg-6">
+            <h4>{{ lang('nav.pages') }}</h4>
+            <p><a href="/tos">{{ lang('nav.tos') }}</a></p>
+            <p><a href="#">{{ lang('nav.download') }}</a></p>
+        </div>
+
+    </div>
 
     <div class="footer">
         <p>&copy; {{ config('app.name') }} 2016</p>

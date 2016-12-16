@@ -106,8 +106,8 @@
                     <a href="/user/node">
                         <i class="fa fa-sitemap"></i> <span>节点列表</span>
                         {else}
-                        <a href="#">
-                            <i class="fa fa-sitemap"></i> <span>节点列表(已禁用)</span>
+                        <a href="/node">
+                            <i class="fa fa-sitemap"></i> <span>节点列表</span>
                             {/if}
                         </a>
                 </li>

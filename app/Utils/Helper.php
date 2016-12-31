@@ -11,7 +11,7 @@ class Helper
      */
     public static function isTesting()
     {
-        if (Config::get('env') === 'testing') {
+        if (config('app.env') === 'testing') {
             return true;
         }
 

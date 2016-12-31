@@ -1,25 +1,33 @@
 <?php
 
+
 namespace App\Services;
 
-use App\Services\Token\DB;
-use App\Services\Token\Dynamodb;
+use Psr\SimpleCache\CacheInterface;
+use Psr\Log\LoggerInterface;
 
 class Factory
 {
-    public static function createMail()
+    /**
+     * @return CacheInterface
+     */
+    public static function getCache()
     {
+        return app()->make('cache');
     }
 
-    public static function createTokenStorage()
+    /**
+     * @return LoggerInterface
+     */
+    public static function getLogger()
     {
-        switch (Config::get('tokenDriver')) {
-            case 'db':
-                return new DB();
-            case 'dynamodb':
-                return new Dynamodb();
-            default:
-                return new DB();
-        }
+        return app()->make('log');
+    }
+
+    /**
+     * @return Auth
+     */
+    public static function getAuth(){
+        return app()->make('auth');
     }
 }

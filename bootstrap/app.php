@@ -6,20 +6,20 @@
  * @email pongtan@orx.me
  * @url https://github.com/Pongtan/LightFish
  */
-//  BASE_PATH
-// define('BASE_PATH', __DIR__ . '/../');
-$basePath = realpath(__DIR__.'/../');
-require_once __DIR__.'/../vendor/autoload.php';
+use Tracy\Debugger;
+
+$basePath = realpath(__DIR__ . '/../');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 try {
-    (new Dotenv\Dotenv(__DIR__.'/../'))->load();
+    (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
 }
 
 /**
  * New App.
  */
-$app = new \Pongtan\App(__DIR__.'/../');
+$app = new \Pongtan\App(__DIR__ . '/../');
 
 /*
  * Register Service Provider
@@ -29,7 +29,30 @@ $app->register(\Pongtan\Providers\LoggerServiceProvider::class);
 $app->register(\Pongtan\Providers\LangServiceProvider::class);
 $app->register(\Pongtan\Providers\ViewServiceProvider::class);
 $app->register(\Pongtan\Providers\EloquentServiceProvider::class);
+$app->register(\Pongtan\Providers\CacheServiceProvider::class);
+$app->register(\App\Providers\AuthServiceProvider::class);
 
-require $basePath.'/routes/web.php';
+require $basePath . '/routes/web.php';
+
+
+// $app->getContainer()['errorHandler'] = null;
+
+$c = new \Slim\Container();
+$app->getContainer()['errorHandler'] = function ($c) {
+    return function ($request, $response, $exception) use ($c) {
+        $log = app()->make('log');
+        $log->error($exception->getMessage());
+        foreach ($exception->getTrace() as $key => $row) {
+            if (!isset($row['function']) || !isset($row['line']) || !isset($row['file'])) {
+                $log->error(sprintf("#%s %s  %s ", $key, $row['function'], $row['class']));
+                continue;
+            }
+            $log->error(sprintf("#%s %s %s", $key, $row['file'], $row['line']));
+        }
+        return $c['response']->withStatus(500)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Something went wrong!');
+    };
+};
 
 return $app;

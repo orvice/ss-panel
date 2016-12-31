@@ -8,6 +8,7 @@ return [
 
     'pages' => 'Pages',
     'about' => 'About',
+    'about-des' => "A way to share shadowsocks.",
     'user' => 'User',
     'tos' => 'TOS',
 ];

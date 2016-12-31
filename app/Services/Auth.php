@@ -3,76 +3,83 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Services\Cache\Cache;
-use App\Services\Cache\Factory as CacheFactory;
 use App\Utils\Cookie;
-use App\Utils\Helper;
 use App\Utils\Tools;
+use Psr\SimpleCache\CacheInterface;
 
 class Auth
 {
     protected $driver;
 
+    /**
+     * @var CacheInterface
+     */
     protected $cache;
 
-    public function __construct()
+    const SID = 'sid';
+
+    public function __construct($cache)
     {
+        $this->cache = $cache;
     }
 
-    /**
-     * @return Cache
-     */
-    protected static function getCache()
-    {
-        return CacheFactory::newSessionCache();
-    }
 
-    public static function login($uid, $time)
+    public function login($uid, $time)
     {
         $sid = Tools::genSID();
+        // @todo
         Cookie::set([
             'sid' => $sid,
         ], $time + time());
         $key = $sid;
         $value = $uid;
-        self::getCache()->set($key, $value, $time);
+        $this->cache->set($key, $value, $time);
+        return $sid;
     }
 
     /**
-     * @return User|void
+     * @return User
      */
-    public static function getUser()
+    protected function emptyUser()
     {
-        if (Helper::isTesting()) {
-            $user = User::first();
-            $user->isLogin = true;
+        $user = new User();
+        $user->isLogin = false;
+        return $user;
+    }
 
-            return $user;
+    /**
+     * @return User
+     */
+    public function getUser($cookie)
+    {
+        // @todo test support
+        if (!isset($cookie[self::SID])) {
+            return $this->emptyUser();
         }
-        $sid = Cookie::get('sid');
-        $value = self::getCache()->get($sid);
-        if ($value == null || !$value) {
-            $user = new User();
-            $user->isLogin = false;
-
-            return $user;
+        $sid = $cookie[self::SID];
+        $value = $this->cache->get($sid);
+        if (!$value) {
+            return $this->emptyUser();
         }
         $uid = $value;
         $user = User::find($uid);
         if ($user == null) {
-            $user = new User();
-            $user->isLogin = false;
-
-            return $user;
+            return $this->emptyUser();
         }
         $user->isLogin = true;
-
         return $user;
     }
 
-    public static function logout()
+    /**
+     * @param $cookie
+     * @return bool
+     */
+    public function logout($cookie)
     {
-        $sid = Cookie::get('sid');
-        self::getCache()->del($sid);
+        if (!isset($cookie[self::SID])) {
+            return true;
+        }
+        $sid = $cookie[self::SID];
+        $this->cache->delete($sid);
     }
 }

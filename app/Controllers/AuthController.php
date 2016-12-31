@@ -6,7 +6,6 @@ use App\Models\InviteCode;
 use App\Models\User;
 use App\Services\Auth;
 use App\Services\Auth\EmailVerify;
-use App\Services\Config;
 use App\Services\Logger;
 use App\Utils\Check;
 use App\Utils\Hash;
@@ -35,7 +34,7 @@ class AuthController extends BaseController
 
     public function login($request, $response, $args)
     {
-        return $this->view()->display('auth/login.tpl');
+        return $this->view('auth/login');
     }
 
     public function loginHandle($request, $response, $args)

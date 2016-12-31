@@ -13,5 +13,5 @@ return [
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
     'lang' => env('APP_LANG', 'en'),
 
-    'email_verify_enabled' => env('APP_EmailVerifyEnabled', false),
+
 ];

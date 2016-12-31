@@ -9,6 +9,7 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">{{ lang('auth.register-be-a-cat') }}</p>
+        <form id="registerForm" action="" method="post">
 
         <div class="form-group has-feedback">
             <input type="text" id="name" class="form-control" placeholder="{{ lang('auth.username') }}"/>
@@ -19,7 +20,7 @@
             <input type="text" id="email" class="form-control" placeholder="{{ lang('auth.username') }}"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
-        {% if config("auth.is_enable_facebook_login") %}
+        {% if config("auth.email_verify_enabled") %}
 
         <div class="form-group">
             <div class="input-group">
@@ -50,6 +51,8 @@
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
 
+          </form>
+
         <div class="form-group has-feedback">
             <p><a href="/tos">{{ lang('nav.tos') }}</a></p>
         </div>
@@ -62,13 +65,13 @@
 
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> {$lang->get('success')}!</h4>
+            <h4><i class="icon fa fa-info"></i> {{ lang("base.success") }}!</h4>
             <p id="msg-success-p"></p>
         </div>
 
         <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
             <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i>{$lang->get('error')}!</h4>
+            <h4><i class="icon fa fa-warning"></i>{{ lang("base.error") }}!</h4>
             <p id="msg-error-p"></p>
         </div>
 
@@ -95,112 +98,48 @@
     });
 </script>
 <script>
-    $(document).ready(function () {
-        function register() {
-            $.ajax({
-                type: "POST",
-                url: "/auth/register",
-                dataType: "json",
-                data: {
-                    email: $("#email").val(),
-                    name: $("#name").val(),
-                    passwd: $("#passwd").val(),
-                    repasswd: $("#repasswd").val(),
-                    code: $("#code").val(),
-                    verifycode: $("#verifycode").val(),
-                    agree: $("#agree").val()
-                },
-                success: function (data) {
-                    if (data.ret == 1) {
-                        $("#msg-error").hide(10);
-                        $("#msg-success").show(100);
-                        $("#msg-success-p").html(data.msg);
-                        window.setTimeout("location.href='/auth/login'", 2000);
-                    } else {
-                        $("#msg-success").hide(10);
-                        $("#msg-error").show(100);
-                        $("#msg-error-p").html(data.msg);
+        $(document).ready(function(){
+            var form=$("#registerForm");
+            function register(){
+                $.ajax({
+                    type:"POST",
+                    url:"/auth/register",
+                    dataType:"json",
+                    data: form.serialize(),
+                    success:function (data) {
+                        console.log(data.msg)
+                        console.log("login success");
+                        $(location).attr('href', '/user') 
+                    },
+                    error:function (xhr){ 
+                        switch (xhr.status) {
+                            case 500:
+                                console.log("500");
+                                msg = "{{ lang('base.something-wrong') }} ";
+                                console.log(msg);
+                                $("#error-div").show(100);
+                                $("#error-msg").html(msg);
+                            default:
+                                var data = $.parseJSON(xhr.responseText);
+                                console.log(xhr.responseText)
+                                console.log(xhr.status);
+                                //console.log(xhr.response);
+                                $("#error-div").show(100);
+                                $("#error-msg").html(data.msg);
+                        }
                     }
-                },
-                error: function (jqXHR) {
-                    $("#msg-error").hide(10);
-                    $("#msg-error").show(100);
-                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
+                });
+            }
+            $("html").keydown(function(event){
+                if(event.keyCode==13){
+                    register();
                 }
             });
-        }
-
-        $("html").keydown(function (event) {
-            if (event.keyCode == 13) {
+            $("#register").click(function(){
                 register();
-            }
-        });
-        $("#reg").click(function () {
-            register();
-        });
-        $("#sendcode").on("click", function () {
-            var count = sessionStorage.getItem('email-code-count') || 0;
-            var email = $("#email").val();
-            var timer, countdown = 60, $btn = $(this);
-            if (count > 3 || timer) return false;
-
-            if (!email) {
-                $("#msg-error").hide(10);
-                $("#msg-error").show(100);
-                $("#msg-error-p").html("请先填写邮箱!");
-                return $("#email").focus();
-            }
-
-            $.ajax({
-                type: "POST",
-                url: "/auth/sendcode",
-                dataType: "json",
-                data: {
-                    email: email
-                },
-                success: function (data) {
-                    if (data.ret == 1) {
-                        $("#msg-error").hide(10);
-                        $("#msg-success").show(100);
-                        $("#msg-success-p").html(data.msg);
-                        timer = setInterval(function () {
-                            --countdown;
-                            if (countdown) {
-                                $btn.text('重新发送 (' + countdown + '秒)');
-                            } else {
-                                clearTimer();
-                            }
-                        }, 1000);
-                    } else {
-                        $("#msg-success").hide(10);
-                        $("#msg-error").show(100);
-                        $("#msg-error-p").html(data.msg);
-                        clearTimer();
-                    }
-                },
-                error: function (jqXHR) {
-                    $("#msg-error").hide(10);
-                    $("#msg-error").show(100);
-                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
-                    clearTimer();
-                }
             });
-            $btn.addClass("disabled").prop("disabled", true).text('发送中...');
-            $("#verifycode").select();
-            function clearTimer() {
-                $btn.text('重新发送').removeClass("disabled").prop("disabled", false);
-                clearInterval(timer);
-                timer = null;
-            }
-        });
-        $("#ok-close").click(function () {
-            $("#msg-success").hide(100);
-        });
-        $("#error-close").click(function () {
-            $("#msg-error").hide(100);
-        });
-    })
-</script>
+        })
+    </script>
 <div style="display:none;">
     {$analyticsCode}
 </div>

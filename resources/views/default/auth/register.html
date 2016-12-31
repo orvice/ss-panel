@@ -1,55 +1,63 @@
-{include file='auth/header.tpl'}
+{% extends "auth/layout.html" %}
+
+{% block content %}
 <body class="register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="../"><b>{$config['appName']}</b></a>
+        <a href="../"><b>{{ config('app.name') }} </b></a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">{$lang->get('auth.register-be-a-cat')}</p>
+        <p class="login-box-msg">{{ lang('auth.register-be-a-cat') }}</p>
 
         <div class="form-group has-feedback">
-            <input type="text" id="name" class="form-control" placeholder="{$lang->get('auth.username')}"/>
+            <input type="text" id="name" class="form-control" placeholder="{{ lang('auth.username') }}"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <input type="text" id="email" class="form-control" placeholder="{$lang->get('auth.email')}"/>
+            <input type="text" id="email" class="form-control" placeholder="{{ lang('auth.username') }}"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
+        {% if config("auth.is_enable_facebook_login") %}
 
-        {if $requireEmailVerification}
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" id="verifycode" class="form-control" placeholder="{$lang->get('auth.activation-code')}"/>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" id="verifycode" class="form-control"
+                       placeholder="{{ lang('auth.activation-code') }}"/>
                 <span class="input-group-btn">
-                    <button type="button" id="sendcode" class="btn btn-default btn-flat">{$lang->get('auth.send-code')}</button>
+                    <button type="button" id="sendcode"
+                            class="btn btn-default btn-flat">{{ lang('auth.send-code') }}</button>
                 </span>
-                </div>
             </div>
-        {/if}
+        </div>
+        {% endif %}
 
         <div class="form-group has-feedback">
-            <input type="password" id="passwd" class="form-control" placeholder="{$lang->get('auth.password')}"/>
+            <input type="password" id="passwd" class="form-control" placeholder="{{ lang('auth.password')}} "/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <input type="password" id="repasswd" class="form-control" placeholder="{$lang->get('auth.password-repeat')}"/>
+            <input type="password" id="repasswd" class="form-control"
+                   placeholder=" {{ lang('auth.password-repeat')}}  "/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <input type="text" id="code" value="{$code}" class="form-control" placeholder="{$lang->get('nav.invite-code')}"/>
+            <input type="text" id="code" value="{{ code }}" class="form-control"
+                   placeholder=" {{ lang('nav.invite-code')}} "/>
             <span class="glyphicon glyphicon-send form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            <p><a href="/tos">{$lang->get('nav.tos')}</a></p>
+            <p><a href="/tos">{{ lang('nav.tos') }}</a></p>
         </div>
 
         <div class="form-group has-feedback">
-            <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">{$lang->get('auth.accept-tos-register')}</button>
+            <button type="submit" id="reg" class="btn btn-primary btn-block btn-flat">{{
+                lang('auth.accept-tos-register') }}
+            </button>
         </div>
 
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
@@ -64,7 +72,7 @@
             <p id="msg-error-p"></p>
         </div>
 
-        <a href="/auth/login" class="text-center">{$lang->get('auth.login')}</a>
+        <a href="/auth/login" class="text-center">{{ lang('auth.login') }}</a>
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
 
@@ -198,3 +206,5 @@
 </div>
 </body>
 </html>
+
+{% endblock %}

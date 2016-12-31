@@ -6,7 +6,9 @@
  * @email pongtan@orx.me
  * @url https://github.com/Pongtan/LightFish
  */
-use Tracy\Debugger;
+
+// @todo debug bar support
+// use Tracy\Debugger;
 
 $basePath = realpath(__DIR__ . '/../');
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -36,7 +38,7 @@ require $basePath . '/routes/web.php';
 
 
 // $app->getContainer()['errorHandler'] = null;
-
+// @todo mv to framework
 $c = new \Slim\Container();
 $app->getContainer()['errorHandler'] = function ($c) {
     return function ($request, $response, $exception) use ($c) {

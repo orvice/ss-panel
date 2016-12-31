@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{$config['appName']}</title>
+    <title>{{config('app.name')}}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="/assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -19,3 +19,5 @@
     <script src="//cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
+
+{% block content %}{% endblock %}

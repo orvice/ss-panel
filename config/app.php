@@ -11,4 +11,6 @@ return [
     'timeZone' => env("APP_TIMEZONE", 'UTC'),  // UTC
     'theme' => env("APP_THEME", 'default'),
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
+    'email_verify_enabled' => env('APP_EmailVerifyEnabled',false),
 ];

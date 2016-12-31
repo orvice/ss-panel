@@ -6,6 +6,7 @@ use App\Services\Auth as AuthService;
 use App\Utils\Helper;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Services\Factory;
 
 class Admin
 {
@@ -16,7 +17,8 @@ class Admin
 
             return $response;
         }
-        $user = AuthService::getUser();
+        $auth = Factory::getAuth();
+        $user = $auth->getUser($request->getCookieParams());
         if (!$user->isLogin) {
             $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
 

@@ -1,19 +1,21 @@
-{include file='auth/header.tpl'}
+{% extends "auth/layout.html" %}
+
+{% block content %}
 <body class="login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>{$config['appName']}</b></a>
+        <a href="#"><b>{{ config('app.name') }} </b></a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">{$lang->get('auth.login')}</p>
+        <p class="login-box-msg">{{ lang('auth.login') }}</p>
 
         <form>
             <div class="form-group has-feedback">
-                <input id="email" name="Email" type="text" class="form-control" placeholder="{$lang->get('auth.email')}"/>
+                <input id="email" name="Email" type="text" class="form-control" placeholder="{{ lang('auth.email') }}"/>
                 <span  class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input id="passwd" name="Password" type="password" class="form-control" placeholder="{$lang->get('auth.password')}"/>
+                <input id="passwd" name="Password" type="password" class="form-control" placeholder="{{ lang('auth.password') }}"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
         </form>
@@ -21,12 +23,12 @@
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
-                        <input id="remember_me" value="week" type="checkbox"> {$lang->get('auth.remember-me')}
+                        <input id="remember_me" value="week" type="checkbox"> {{ lang('auth.remember-me') }}
                     </label>
                 </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
-                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat">{$lang->get('auth.login')}</button>
+                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat"> {{lang('auth.login')}} </button>
             </div><!-- /.col -->
         </div>
         <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
@@ -40,9 +42,9 @@
             <p id="msg-error-p"></p>
         </div>
         <div style="text-align:left;">
-            </br><a href="/password/reset"><span class="pull-left">{$lang->get('auth.forgot-password')}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            	<a href="/auth/register"><span class="">{$lang->get('auth.register')}</span></a>
-            	<a href="/"><span class="pull-right">{$lang->get('nav.home')}</span></a>
+            </br><a href="/password/reset"><span class="pull-left">{{ lang('auth.forgot-password') }}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	<a href="/auth/register"><span class="">{{ lang('auth.register') }}</span></a>
+            	<a href="/"><span class="pull-right">{{ lang('nav.home') }}  </span></a>
         </div>
 
     </div><!-- /.login-box-body -->
@@ -117,3 +119,4 @@
 </div>
 </body>
 </html>
+{% endblock %}

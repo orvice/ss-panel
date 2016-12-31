@@ -7,8 +7,6 @@ namespace App\Controllers;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\InviteCode;
-use App\Services\Config;
-use App\Services\DbConfig;
 use App\Services\Logger;
 use App\Utils\Check;
 use App\Utils\Http;
@@ -25,10 +23,13 @@ class HomeController extends BaseController
 
     public function code()
     {
-        return $this->view('code');
+        $codes = InviteCode::where('user_id', '=', '0')->take(10)->get();
+        return $this->view('code', [
+            "codes" => $codes,
+        ]);
     }
 
-    public function debug($request, $response, $args)
+    public function debug(Request $request, $response, $args)
     {
         $server = [
             'headers' => $request->getHeaders(),
@@ -37,7 +38,7 @@ class HomeController extends BaseController
         $res = [
             'server_info' => $server,
             'ip' => Http::getClientIP(),
-            'version' => Config::get('version'),
+            'version' => config('app.version'),
             'reg_count' => Check::getIpRegCount(Http::getClientIP()),
         ];
         Logger::debug(json_encode($res));
@@ -47,16 +48,8 @@ class HomeController extends BaseController
 
     public function tos()
     {
-        return $this->view()->display('tos.tpl');
+        return $this->view('tos');
     }
 
-    public function postDebug(Request $request, Response $response, $args)
-    {
-        $res = [
-            'body' => $request->getBody(),
-            'params' => $request->getParams(),
-        ];
 
-        return $this->echoJson($response, $res);
-    }
 }

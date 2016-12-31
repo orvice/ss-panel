@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "697351396902cf97645029cecc16c40c",
+    "hash": "e0f35652d5a9e619b4874ec4b807795e",
     "content-hash": "e3ffa1fefd310f7cfddc6857a4987ddc",
     "packages": [
         {
@@ -1497,16 +1497,16 @@
         },
         {
             "name": "pongtan/framework",
-            "version": "v0.1.7",
+            "version": "v0.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/framework.git",
-                "reference": "45c91d73772528fc8c72bd122accfc606009a01e"
+                "reference": "a35a8c9a75fcc2f81cc19131584944ba06c032af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/framework/zipball/45c91d73772528fc8c72bd122accfc606009a01e",
-                "reference": "45c91d73772528fc8c72bd122accfc606009a01e",
+                "url": "https://api.github.com/repos/Pongtan/framework/zipball/a35a8c9a75fcc2f81cc19131584944ba06c032af",
+                "reference": "a35a8c9a75fcc2f81cc19131584944ba06c032af",
                 "shasum": ""
             },
             "require": {
@@ -1557,7 +1557,7 @@
                 }
             ],
             "description": "The Pongtan Framework.",
-            "time": "2016-12-31 13:14:25"
+            "time": "2016-12-31 15:24:26"
         },
         {
             "name": "pongtan/simple-cache",

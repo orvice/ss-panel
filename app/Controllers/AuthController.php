@@ -11,6 +11,7 @@ use App\Utils\Check;
 use App\Utils\Hash;
 use App\Utils\Http;
 use App\Utils\Tools;
+use Slim\Http\Request;
 
 /**
  *  AuthController.
@@ -37,7 +38,7 @@ class AuthController extends BaseController
         return $this->view('auth/login');
     }
 
-    public function loginHandle($request, $response, $args)
+    public function loginHandle(Request $request, $response, $args)
     {
         // $data = $request->post('sdf');
         $email = $request->getParam('email');
@@ -77,19 +78,21 @@ class AuthController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function register($request, $response, $args)
+    public function register(Request $request, $response, $args)
     {
-        $ary = $request->getQueryParams();
+        $arr = $request->getQueryParams();
         $code = '';
-        if (isset($ary['code'])) {
-            $code = $ary['code'];
+        if (isset($arr['code'])) {
+            $code = $arr['code'];
         }
-        $requireEmailVerification = Config::get('emailVerifyEnabled');
-
-        return $this->view()->assign('code', $code)->assign('requireEmailVerification', $requireEmailVerification)->display('auth/register.tpl');
+        $requireEmailVerification = config('app.email_verify_enabled');
+        return $this->view('auth/register', [
+            'requireEmailVerification' => $requireEmailVerification,
+            "code" => $code,
+        ]);
     }
 
-    public function registerHandle($request, $response, $args)
+    public function registerHandle(Request $request, $response, $args)
     {
         $name = $request->getParam('name');
         $email = $request->getParam('email');

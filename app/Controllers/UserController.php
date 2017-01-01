@@ -62,18 +62,17 @@ class UserController extends BaseController
             }
         }
 
-        return $this->view('user/index',[
+        return $this->view('user/index', [
             "user" => $this->user,
         ]);
     }
 
     public function node($request, $response, $args)
     {
-        $msg = DbConfig::get('user-node');
-        $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-
-        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
+        return $this->view('user/node', [
+            "nodes" => $nodes
+        ]);
     }
 
     public function nodeInfo($request, $response, $args)

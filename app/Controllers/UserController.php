@@ -279,7 +279,6 @@ class UserController extends BaseController
         }
         $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
-
         return $this->view('user/trafficlog', [
             "logs" => $traffic
         ]);

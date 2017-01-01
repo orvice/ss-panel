@@ -150,13 +150,13 @@
 
     <footer class="main-footer">
     <div align="center">
-        {$userFooter}
+        {{ conf("uc.footer") }}
     </div>
     <div class="pull-right hidden-xs">
         Made with Love
     </div>
     <strong>Copyright &copy; 2016 <a href="#">{{ conf('app.name') }}</a> </strong>
-    All rights reserved. Powered by <b>ss-panel</b> {$config['version']} | <a href="/tos">{$lang->get('nav.tos')}</a>
+    All rights reserved. Powered by <b>ss-panel</b> {{ get_version() }} | <a href="/tos"> {{ lang("nav.tos") }}  </a>
 </footer>
 </div><!-- ./wrapper -->
 

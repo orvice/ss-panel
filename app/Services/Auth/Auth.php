@@ -7,12 +7,21 @@ class Auth extends Token implements AuthInterface
 {
     // @todo add header support
 
-    public function login($uid, $time)
+    /**
+     * @param $uid
+     * @param $ttl
+     * @return string
+     */
+    public function login($uid, $ttl)
     {
-        return $this->saveToken($uid, $time);
+        return $this->saveToken($uid, $ttl);
     }
 
 
+    /**
+     * @param $input
+     * @return \App\Models\User
+     */
     public function getUser($input)
     {
         // @todo test support

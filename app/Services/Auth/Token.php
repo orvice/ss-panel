@@ -9,7 +9,6 @@ use Psr\SimpleCache\CacheInterface;
 
 class Token
 {
-    protected $driver;
 
     /**
      * @var CacheInterface
@@ -18,18 +17,26 @@ class Token
 
     const SID = 'sid';
 
-    public function __construct($cache)
+    /**
+     * Token constructor.
+     * @param CacheInterface $cache
+     */
+    public function __construct(CacheInterface $cache)
     {
         $this->cache = $cache;
     }
 
-
-    public function saveToken($uid, $time)
+    /**
+     * @param $uid
+     * @param $ttl
+     * @return string
+     */
+    public function saveToken($uid, $ttl)
     {
         $sid = Tools::genSID();
         $key = $sid;
         $value = $uid;
-        $this->cache->set($key, $value, $time);
+        $this->cache->set($key, $value, $ttl);
         return $sid;
     }
 
@@ -43,6 +50,10 @@ class Token
         return $user;
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     private function getUidFromData($data)
     {
         // @todo

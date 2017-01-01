@@ -5,7 +5,7 @@ namespace App\Services\Auth;
 
 interface AuthInterface
 {
-    public function login($uid, $time);
+    public function login($uid, $ttl);
 
     public function getUser($input);
 

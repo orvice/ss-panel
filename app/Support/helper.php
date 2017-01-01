@@ -18,3 +18,13 @@ if (!function_exists('user')) {
     }
 
 }
+
+if (!function_exists('get_version')) {
+    /**
+     * @return string
+     */
+    function get_version()
+    {
+        return VERSION;
+    }
+}

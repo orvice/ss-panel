@@ -87,7 +87,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     public function createApp()
     {
         // Build App
-        $app = require __DIR__.'/../app/routes.php';
+        $app = require __DIR__ . '/../app/routes.php';
         $app->run(true);
 
         return $app;
@@ -127,12 +127,17 @@ class TestCase extends PHPUnit_Framework_TestCase
         $this->request('DELETE', $path, $body, $options);
     }
 
+    public function setEnv($key, $value)
+    {
+        putenv("$key=$value");
+    }
+
     /**
      * Set env in prod.
      */
     public function setProdEnv()
     {
-        Config::set('env', 'prod');
+        $this->setEnv('env', 'prod');
     }
 
     /**
@@ -140,7 +145,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      */
     public function setTestingEnv()
     {
-        Config::set('env', 'testing');
+        $this->setEnv('env', 'testing');
     }
 
     /**

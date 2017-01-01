@@ -29,8 +29,6 @@ class UserController extends BaseController
 
     public function index(Request $request, $response, $args)
     {
-        $auth = Factory::getAuth();
-        $this->user = $auth->getUser(app()->getContainer()->get('request')->getCookieParams());
 
         $msg = "";
 
@@ -65,7 +63,7 @@ class UserController extends BaseController
         }
 
         return $this->view('user/index',[
-
+            "user" => $this->user,
         ]);
     }
 

@@ -47,25 +47,25 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{$user->gravatar}" class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">{{ user()->user_name }}</span>
+                            <img src="{{ user().gravatar }}" class="user-image" alt="User Image"/>
+                            <span class="hidden-xs">{{ user().user_name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{$user->gravatar}" class="img-circle" alt="User Image"/>
+                                <img src="{{ user().gravatar }}" class="img-circle" alt="User Image"/>
 
                                 <p>
-                                    {$user->email}
-                                    <small>{{ lang('user-nav.join-at')}} ：{$user->regDate()}</small>
+                                   {{ user().email }}
+                                    <small>{{ lang('user-nav.join-at')}} ： {{ user().regDate() }} </small>
                                 </p>
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/user/profile" class="btn btn-default btn-flat">{$lang->get('user-nav.my-profile')}</a>
+                                    <a href="/user/profile" class="btn btn-default btn-flat">{{ lang('user-nav.my-profile') }}</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="/user/logout" class="btn btn-default btn-flat">{$lang->get('auth.logout')}</a>
+                                    <a href="/user/logout" class="btn btn-default btn-flat">{{ lang('auth.logout') }} </a>
                                 </div>
                             </li>
                         </ul>
@@ -84,10 +84,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{$user->gravatar}" class="img-circle" alt="User Image"/>
+                    <img src="{{ user().gravatar }}" class="img-circle" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
-                    <p>{$user->user_name}</p>
+                    <p>{{ user().user_name }}</p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
@@ -109,7 +109,7 @@
 
                 <li>
                     <a href="/user/profile">
-                        <i class="fa fa-user"></i> <span> {{ lang("user-nav.my-profile'") }} </span>
+                        <i class="fa fa-user"></i> <span> {{ lang("user-nav.my-profile") }} </span>
                     </a>
                 </li>
 
@@ -131,14 +131,14 @@
                         <i class="fa fa-users"></i> <span> {{ lang("user-nav.invite-friend") }}  </span>
                     </a>
                 </li>
-
-                {if $user->isAdmin()}
+                {% if user().isAdmin %} 
+                 
                     <li>
                         <a href="/admin">
                             <i class="fa fa-cog"></i> <span>{{ lang("user-nav.admin-panel") }} </span>
                         </a>
                     </li>
-                {/if}
+                {% endif %}
 
             </ul>
         </section>

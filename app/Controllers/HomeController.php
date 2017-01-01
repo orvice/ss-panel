@@ -34,6 +34,7 @@ class HomeController extends BaseController
         $server = [
             'headers' => $request->getHeaders(),
             'content_type' => $request->getContentType(),
+            'cookies' => $request->getCookieParams(),
         ];
         $res = [
             'server_info' => $server,

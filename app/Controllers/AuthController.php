@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\InviteCode;
 use App\Models\User;
-use App\Services\Auth;
 use App\Services\Auth\EmailVerify;
 use App\Services\Factory;
 use App\Services\Logger;
@@ -20,7 +19,6 @@ use Slim\Http\Request;
  */
 class AuthController extends BaseController
 {
-
 
     // Register Error Code
     const WrongCode = 501;
@@ -49,7 +47,7 @@ class AuthController extends BaseController
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
         $rememberMe = $request->getParam('remember_me');
-
+        $this->logger->debug($email . Hash::passwordHash($passwd));
         // Handle Login
         $user = User::where('email', '=', $email)->first();
 
@@ -71,13 +69,17 @@ class AuthController extends BaseController
         if ($rememberMe) {
             $time = 3600 * 24 * 7;
         }
-        Logger::info("login user $user->id ");
+        $this->logger->info("login user $user->id ");
         $auth = Factory::getAuth();
         $sid = $auth->login($user->id, $time);
-
+        $this->logger->info($sid);
 
         $res['ret'] = 1;
         $res['msg'] = '欢迎回来';
+        $res['data'] = [
+            "sid" => $sid,
+            "token" => $sid,
+        ];
 
         return $this->echoJson($response, $res);
     }

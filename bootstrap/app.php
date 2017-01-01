@@ -36,5 +36,4 @@ $app->register(\App\Providers\AuthServiceProvider::class);
 
 require $basePath . '/routes/web.php';
 
-
 return $app;

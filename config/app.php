@@ -6,6 +6,7 @@
 
 return [
     'env' => env("APP_ENV", "prod"),
+    'key' => env("APP_KEY",''),
     'name' => env("APP_NAME", 'ss-panel 4'),
     'baseUrl' => env("APP_BASEURL", '/'),
     'timeZone' => env("APP_TIMEZONE", 'UTC'),  // UTC

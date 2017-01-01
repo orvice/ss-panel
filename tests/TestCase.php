@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use App\Services\Config;
 use PHPUnit_Framework_TestCase;
 use Slim\Http\Body;
 use Slim\Http\Environment;
@@ -16,7 +15,15 @@ class TestCase extends PHPUnit_Framework_TestCase
 {
     public $app;
 
-    public $request, $response;
+    /**
+     * @var Request
+     */
+    public $request;
+
+    /**
+     * @var Response
+     */
+    public $response;
 
     public function setUp()
     {

@@ -3,7 +3,6 @@
 namespace App\Utils;
 
 use App\Models\User;
-use App\Services\Config;
 use DateTime;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 use Ramsey\Uuid\Uuid;
@@ -23,11 +22,11 @@ class Tools
         $mb = 1048576;
         $gb = 1073741824;
         if (abs($value) > $gb) {
-            return round($value / $gb, 2).'GB';
+            return round($value / $gb, 2) . 'GB';
         } elseif (abs($value) > $mb) {
-            return round($value / $mb, 2).'MB';
+            return round($value / $mb, 2) . 'MB';
         } elseif (abs($value) > $kb) {
-            return round($value / $kb, 2).'KB';
+            return round($value / $kb, 2) . 'KB';
         } else {
             return round($value, 2);
         }
@@ -140,7 +139,7 @@ class Tools
 						|object|param|embed'; //允许的标签
             $ms[1] = array_unique($ms[1]);
             foreach ($ms[1] as $value) {
-                $searchs[] = '<'.$value.'>';
+                $searchs[] = '<' . $value . '>';
                 $value = shtmlspecialchars($value);
                 $value = str_replace(array('/', '/*'), array('.', '/.'), $value);
                 $skipkeys = array(
@@ -176,7 +175,7 @@ class Tools
                 if (!preg_match("/^[/|s]?($allowtags)(s+|$)/is", $value)) {
                     $value = '';
                 }
-                $replaces[] = empty($value) ? '' : '<'.str_replace('"', '"', $value).'>';
+                $replaces[] = empty($value) ? '' : '<' . str_replace('"', '"', $value) . '>';
             }
         }
         $html = str_replace($searchs, $replaces, $html);
@@ -190,8 +189,7 @@ class Tools
      */
     public static function genSID()
     {
-        $unid = uniqid(Config::get('key'));
-
+        $unid = uniqid(config('app.key'));
         return Hash::sha256WithSalt($unid);
     }
 

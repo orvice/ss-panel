@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use App\Services\Config;
 
 class HomeTest extends TestCase
 {
@@ -48,5 +47,8 @@ class HomeTest extends TestCase
     {
         $this->get('/404');
         $this->assertEquals('404', $this->response->getStatusCode());
+
+        $this->get('/500');
+        $this->assertEquals('500', $this->response->getStatusCode());
     }
 }

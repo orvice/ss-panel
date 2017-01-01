@@ -3,6 +3,7 @@
 namespace App\Utils;
 
 use App\Services\Config;
+use App\Services\Factory;
 
 class Hash
 {
@@ -13,16 +14,13 @@ class Hash
      */
     public static function passwordHash($str)
     {
-        $method = Config::get('pwdMethod');
+        $method = config('auth.password_encryption_type');
         switch ($method) {
             case 'md5':
                 return self::md5WithSalt($str);
-                break;
             case 'sha256':
                 return self::sha256WithSalt($str);
-                break;
             default:
-                return self::md5WithSalt($str);
         }
 
         return $str;
@@ -30,7 +28,7 @@ class Hash
 
     public static function cookieHash($str)
     {
-        return substr(hash('sha256', $str.Config::get('key')), 5, 45);
+        return substr(hash('sha256', $str . config('auth.salt')), 5, 45);
     }
 
     /**
@@ -40,9 +38,9 @@ class Hash
      */
     public static function md5WithSalt($pwd)
     {
-        $salt = Config::get('salt');
+        $salt = config('auth.salt');
 
-        return md5($pwd.$salt);
+        return md5($pwd . $salt);
     }
 
     /**
@@ -52,19 +50,26 @@ class Hash
      */
     public static function sha256WithSalt($pwd)
     {
-        $salt = Config::get('salt');
-
-        return hash('sha256', $pwd.$salt);
+        $salt = config('auth.salt');
+        return hash('sha256', $pwd . $salt);
     }
 
-    // @TODO
+    /**
+     * @param $hashedPassword
+     * @param $password
+     * @return bool
+     */
     public static function checkPassword($hashedPassword, $password)
     {
-        $method = Config::get('pwdMethod');
-        if ($hashedPassword == self::passwordHash($password)) {
+        $method = config('auth.password_encryption_type');
+        if($method == 'bcrypt'){
+            // @todo
+        }
+        $truePassword = self::passwordHash($password);
+        if ($hashedPassword == $truePassword) {
             return true;
         }
-
+        Factory::getLogger()->error("true: ". $truePassword .  "  input: ".$hashedPassword);
         return false;
     }
 }

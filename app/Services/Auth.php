@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Utils\Cookie;
 use App\Utils\Tools;
+use PDepend\Report\FileAwareGenerator;
 use Psr\SimpleCache\CacheInterface;
 
 class Auth
@@ -27,10 +28,6 @@ class Auth
     public function login($uid, $time)
     {
         $sid = Tools::genSID();
-        // @todo
-        Cookie::set([
-            'sid' => $sid,
-        ], $time + time());
         $key = $sid;
         $value = $uid;
         $this->cache->set($key, $value, $time);

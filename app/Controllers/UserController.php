@@ -29,39 +29,6 @@ class UserController extends BaseController
 
     public function index(Request $request, $response, $args)
     {
-
-        $msg = "";
-        $this->user = user();
-        $nodes = Node::all();
-        $android_add = '';
-        foreach ($nodes as $node) {
-            if ($android_add == '') {
-                $ary['server'] = $node->server;
-                $ary['server_port'] = $this->user->port;
-                $ary['password'] = $this->user->passwd;
-                $ary['method'] = $this->user->method;
-                /*	    			if ($this->user->custom_method) {
-                                        $ary['method'] = $this->user->method;
-                                    }
-                                    */
-                $ssurl = $ary['method'] . ':' . $ary['password'] . '@' . $ary['server'] . ':' . $ary['server_port'];
-                $ssqr = 'ss://' . base64_encode($ssurl);
-                $android_add .= "'" . $ssqr . "'";
-            } else {
-                $ary['server'] = $node->server;
-                $ary['server_port'] = $this->user->port;
-                $ary['password'] = $this->user->passwd;
-                $ary['method'] = $this->user->method;
-                /*	    			if ($this->user->custom_method) {
-                                        $ary['method'] = $this->user->method;
-                                    }*/
-
-                $ssurl = $ary['method'] . ':' . $ary['password'] . '@' . $ary['server'] . ':' . $ary['server_port'];
-                $ssqr = 'ss://' . base64_encode($ssurl);
-                $android_add .= ",'" . $ssqr . "'";
-            }
-        }
-
         return $this->view('user/index', [
             "user" => $this->user,
         ]);
@@ -112,7 +79,7 @@ class UserController extends BaseController
         /*        $token_1 = LinkController::GenerateSurgeCode($ary['server'],$ary['server_port'],$this->user->id,0,$ary['method']);
                         $token_2 = LinkController::GenerateSurgeCode($ary['server'],$ary['server_port'],$this->user->id,1,$ary['method']);*/
 
-        $surge_base = Config::get('baseUrl') . '/downloads/ProxyBase.conf';
+        $surge_base = config('app.base_url') . '/downloads/ProxyBase.conf';
         $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
         $surge_proxy .= "[Proxy]\n";
         $surge_proxy .= 'Proxy = custom,' . $ary['server'] . ',' . $ary['server_port'] . ',' . $ary['method'] . ',' . $ary['password'] . ',' . Config::get('baseUrl') . '/downloads/SSEncrypt.module';
@@ -123,19 +90,20 @@ class UserController extends BaseController
 
     public function profile($request, $response, $args)
     {
-        return $this->view()->display('user/profile.tpl');
+        return $this->view('user/profile');
     }
 
     public function edit($request, $response, $args)
     {
-        return $this->view()->display('user/edit.tpl');
+        return $this->view('user/edit');
     }
 
     public function invite($request, $response, $args)
     {
-        $codes = $this->user->inviteCodes();
-
-        return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
+        $codes = user()->inviteCodes();
+        return $this->view('user/invite', [
+            "codes" => $codes,
+        ]);
     }
 
     public function doInvite($request, $response, $args)
@@ -162,7 +130,7 @@ class UserController extends BaseController
 
     public function sys($request, $response, $args)
     {
-        return $this->view()->assign('ana', '')->display('user/sys.tpl');
+        return $this->view('user/sys');
     }
 
     public function updatePassword($request, $response, $args)
@@ -243,15 +211,14 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function logout($request, $response, $args)
+    public function logout(Request $request, $response, $args)
     {
-        Auth::logout();
+        Factory::getAuth()->logout([]);
         $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
-
         return $newResponse;
     }
 
-    public function doCheckIn($request, $response, $args)
+    public function doCheckIn(Request $request, $response, $args)
     {
         if (!$this->user->isAbleToCheckin()) {
             $res['msg'] = '您似乎已经签到过了...';
@@ -279,7 +246,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function kill($request, $response, $args)
+    public function kill(Request $request, $response, $args)
     {
         return $this->view()->display('user/kill.tpl');
     }
@@ -304,7 +271,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function trafficLog($request, $response, $args)
+    public function trafficLog(Request $request, $response, $args)
     {
         $pageNum = 1;
         if (isset($request->getQueryParams()['page'])) {
@@ -313,6 +280,8 @@ class UserController extends BaseController
         $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
         $traffic->setPath('/user/trafficlog');
 
-        return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
+        return $this->view('user/trafficlog', [
+            "logs" => $traffic
+        ]);
     }
 }

@@ -8,5 +8,5 @@ return [
 
     'compiled' => env('VIEW_CACHE_PATH', realpath(base_path('/storage/framework/views'))),
 
-    'enable_functions' => ['config', 'lang', 'conf', 'user', 'get_version'],
+    'enable_functions' => ['config', 'lang', 'conf', 'user', 'get_version', 'sprintf'],
 ];

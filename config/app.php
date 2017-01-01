@@ -17,6 +17,7 @@ return [
 
     'mu_key' => env("APP_MU_KEY"),
 
-    'checkin_time' => env("APP_CHECKIN_TIME", 3600 * 24),
+    // hour
+    'checkin_time' => env("APP_CHECKIN_TIME", 24),
 
 ];

@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ conf('app.name') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             <li role="presentation"><a href="/auth/login">{{ lang('auth.login') }}</a></li>
             <li role="presentation"><a href="/auth/register">{{ lang('auth.register') }}</a></li>
         </ul>
-        <h3 class="text-muted">{{ config('app.name') }}</h3>
+        <h3 class="text-muted">{{ conf('app.name') }}</h3>
     </div>
 
     {% block content %}{% endblock %}
@@ -59,7 +59,7 @@
     </div>
 
     <div class="footer">
-        <p>&copy; {{ config('app.name') }} 2016</p>
+        <p>&copy; {{ conf('app.name') }} 2016</p>
     </div>
 
 </div> <!-- /container -->

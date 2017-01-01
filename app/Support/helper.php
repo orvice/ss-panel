@@ -6,3 +6,15 @@ if (!function_exists('conf')) {
         return config($key);
     }
 }
+
+if (!function_exists('user')) {
+
+    /**
+     * @return \App\Models\User
+     */
+    function user()
+    {
+        return app()->make('auth')->getUser([]);
+    }
+
+}

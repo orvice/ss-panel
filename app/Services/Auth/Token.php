@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Services;
+
+namespace App\Services\Auth;
 
 use App\Models\User;
-use App\Utils\Cookie;
 use App\Utils\Tools;
-use PDepend\Report\FileAwareGenerator;
 use Psr\SimpleCache\CacheInterface;
 
-class Auth
+class Token
 {
     protected $driver;
 
@@ -25,7 +24,7 @@ class Auth
     }
 
 
-    public function login($uid, $time)
+    public function saveToken($uid, $time)
     {
         $sid = Tools::genSID();
         $key = $sid;
@@ -44,21 +43,23 @@ class Auth
         return $user;
     }
 
+    private function getUidFromData($data)
+    {
+        // @todo
+        return $data;
+    }
+
     /**
+     * @param $token
      * @return User
      */
-    public function getUser($cookie)
+    public function getUserFromToken($token)
     {
-        // @todo test support
-        if (!isset($cookie[self::SID])) {
-            return $this->emptyUser();
-        }
-        $sid = $cookie[self::SID];
-        $value = $this->cache->get($sid);
+        $value = $this->cache->get($token);
         if (!$value) {
             return $this->emptyUser();
         }
-        $uid = $value;
+        $uid = $this->getUidFromData($value);
         $user = User::find($uid);
         if ($user == null) {
             return $this->emptyUser();
@@ -68,15 +69,12 @@ class Auth
     }
 
     /**
-     * @param $cookie
+     * @param $token
      * @return bool
      */
-    public function logout($cookie)
+    public function delToken($token)
     {
-        if (!isset($cookie[self::SID])) {
-            return true;
-        }
-        $sid = $cookie[self::SID];
-        $this->cache->delete($sid);
+        $this->cache->delete($token);
+        return true;
     }
 }

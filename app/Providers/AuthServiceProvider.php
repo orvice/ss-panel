@@ -3,7 +3,7 @@
 
 namespace App\Providers;
 
-use App\Services\Auth;
+use App\Services\Auth\Auth;
 use Pongtan\Contracts\ServiceProviderInterface;
 
 class AuthServiceProvider implements ServiceProviderInterface

@@ -9,7 +9,7 @@ use Slim\Http\Response;
 use App\Models\InviteCode;
 use App\Utils\Check;
 use App\Utils\Http;
-use Symfony\Component\Config\Definition\Exception\Exception;
+use Exception;
 
 /**
  *  HomeController.
@@ -41,6 +41,7 @@ class HomeController extends BaseController
             'ip' => Http::getClientIP(),
             'version' => config('app.version'),
             'reg_count' => Check::getIpRegCount(Http::getClientIP()),
+            // 'user' => user(),
         ];
         return $this->echoJson($response, $res);
     }

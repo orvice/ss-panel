@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Services\Auth\AuthInterface;
 use Psr\SimpleCache\CacheInterface;
 use Psr\Log\LoggerInterface;
 
@@ -25,7 +26,7 @@ class Factory
     }
 
     /**
-     * @return Auth
+     * @return AuthInterface
      */
     public static function getAuth(){
         return app()->make('auth');

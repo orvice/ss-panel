@@ -20,7 +20,7 @@
       "App\\": "app/",
       "Tests\\": "tests/"
     },
-    "file":[
+    "files":[
       "app/Support/helper.php"
     ]
   }

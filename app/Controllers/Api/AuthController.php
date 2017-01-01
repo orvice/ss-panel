@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Auth;
 
 use App\Models\Node;
 use App\Models\User;
@@ -12,7 +12,7 @@ use App\Utils\Helper;
 /**
  *  ApiController.
  */
-class ApiController extends BaseController
+class AuthController extends BaseController
 {
     public function index()
     {

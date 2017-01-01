@@ -173,7 +173,7 @@ class User extends Model
     public function isAbleToCheckin()
     {
         $last = $this->attributes['last_check_in_time'];
-        $hour = Config::get('checkinTime');
+        $hour = config('app.checkin_time');
         if ($last + $hour * 3600 < time()) {
             return true;
         }

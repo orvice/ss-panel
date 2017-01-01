@@ -31,7 +31,7 @@ class UserController extends BaseController
     {
 
         $msg = "";
-
+        $this->user = user();
         $nodes = Node::all();
         $android_add = '';
         foreach ($nodes as $node) {

@@ -13,5 +13,6 @@ return [
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
     'lang' => env('APP_LANG', 'en'),
 
+    'mu_key' => env("APP_MU_KEY"),
 
 ];

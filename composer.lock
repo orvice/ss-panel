@@ -1497,16 +1497,16 @@
         },
         {
             "name": "pongtan/framework",
-            "version": "v0.1.8",
+            "version": "v0.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/framework.git",
-                "reference": "a35a8c9a75fcc2f81cc19131584944ba06c032af"
+                "reference": "308738391a0ce628550a11e8246789214de6f7b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/framework/zipball/a35a8c9a75fcc2f81cc19131584944ba06c032af",
-                "reference": "a35a8c9a75fcc2f81cc19131584944ba06c032af",
+                "url": "https://api.github.com/repos/Pongtan/framework/zipball/308738391a0ce628550a11e8246789214de6f7b9",
+                "reference": "308738391a0ce628550a11e8246789214de6f7b9",
                 "shasum": ""
             },
             "require": {
@@ -1557,7 +1557,7 @@
                 }
             ],
             "description": "The Pongtan Framework.",
-            "time": "2016-12-31 15:24:26"
+            "time": "2017-01-01 05:42:03"
         },
         {
             "name": "pongtan/simple-cache",

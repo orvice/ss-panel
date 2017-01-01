@@ -37,24 +37,4 @@ $app->register(\App\Providers\AuthServiceProvider::class);
 require $basePath . '/routes/web.php';
 
 
-// $app->getContainer()['errorHandler'] = null;
-// @todo mv to framework
-$c = new \Slim\Container();
-$app->getContainer()['errorHandler'] = function ($c) {
-    return function ($request, $response, $exception) use ($c) {
-        $log = app()->make('log');
-        $log->error($exception->getMessage());
-        foreach ($exception->getTrace() as $key => $row) {
-            if (!isset($row['function']) || !isset($row['line']) || !isset($row['file'])) {
-                $log->error(sprintf("#%s %s  %s ", $key, $row['function'], $row['class']));
-                continue;
-            }
-            $log->error(sprintf("#%s %s %s", $key, $row['file'], $row['line']));
-        }
-        return $c['response']->withStatus(500)
-            ->withHeader('Content-Type', 'text/html')
-            ->write('Something went wrong!');
-    };
-};
-
 return $app;

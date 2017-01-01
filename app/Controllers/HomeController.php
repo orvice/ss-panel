@@ -7,9 +7,9 @@ namespace App\Controllers;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\InviteCode;
-use App\Services\Logger;
 use App\Utils\Check;
 use App\Utils\Http;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  *  HomeController.
@@ -41,14 +41,16 @@ class HomeController extends BaseController
             'version' => config('app.version'),
             'reg_count' => Check::getIpRegCount(Http::getClientIP()),
         ];
-        Logger::debug(json_encode($res));
-
         return $this->echoJson($response, $res);
     }
 
     public function tos()
     {
         return $this->view('tos');
+    }
+
+    public function serverError(){
+        throw new Exception("500");
     }
 
 

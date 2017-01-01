@@ -12,10 +12,6 @@ class Auth
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
-        if (Helper::isTesting()) {
-            $response = $next($request, $response);
-            return $response;
-        }
         $auth = Factory::getAuth();
         $user = $auth->getUser($request->getCookieParams());
         if (!$user->isLogin) {

@@ -12,6 +12,7 @@ $app->get('/code', 'App\Controllers\HomeController:code');
 $app->get('/tos', 'App\Controllers\HomeController:tos');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
 $app->post('/debug', 'App\Controllers\HomeController:postDebug');
+$app->get('/500', 'App\Controllers\HomeController:serverError');
 
 // User Center
 $app->group('/user', function () {

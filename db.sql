@@ -13,6 +13,14 @@ CREATE TABLE `sp_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `sp_email_verify`;
+CREATE TABLE `sp_email_verify` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(32) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `expire_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `sp_log`;
 CREATE TABLE `sp_log` (
@@ -42,8 +50,11 @@ CREATE TABLE `ss_node` (
   `name` varchar(128) NOT NULL,
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
-  `method` varchar(64) NOT NULL,
-  `custom_method` tinyint(1) NOT NULL DEFAULT '0',
+  `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
+  `protocol` varchar(128) NOT NULL DEFAULT 'origin',
+  `protocol_param` varchar(128) NULL DEFAULT NULL,
+  `obfs` varchar(128) NOT NULL DEFAULT 'plain',
+  `obfs_param` varchar(128) NULL DEFAULT NULL,    
   `traffic_rate` float NOT NULL DEFAULT '1',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
@@ -97,8 +108,6 @@ CREATE TABLE `user` (
   `d` bigint(20) NOT NULL,
   `transfer_enable` bigint(20) NOT NULL,
   `port` int(11) NOT NULL,
-  `protocol` varchar(32) NOT NULL DEFAULT 'origin',
-  `obfs` varchar(32) NOT NULL DEFAULT 'plain',
   `switch` tinyint(4) NOT NULL DEFAULT '1',
   `enable` tinyint(4) NOT NULL DEFAULT '1',
   `type` tinyint(4) NOT NULL DEFAULT '1',
@@ -111,6 +120,12 @@ CREATE TABLE `user` (
   `ref_by` int(11) NOT NULL DEFAULT '0',
   `expire_time` int(11) NOT NULL DEFAULT '0',
   `method` varchar(64) NOT NULL DEFAULT 'rc4-md5',
+  `custom_method` tinyint(1) NOT NULL DEFAULT '0',
+  `custom_rss` tinyint(1) NOT NULL DEFAULT '0',  
+  `protocol` varchar(128) NOT NULL DEFAULT 'origin',
+  `protocol_param` varchar(128) NULL DEFAULT NULL,
+  `obfs` varchar(128) NOT NULL DEFAULT 'plain',
+  `obfs_param` varchar(128) NULL DEFAULT NULL,  
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
   PRIMARY KEY (`id`),

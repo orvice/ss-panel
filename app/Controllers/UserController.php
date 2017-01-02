@@ -253,7 +253,7 @@ class UserController extends BaseController
 
     public function handleKill($request, $response, $args)
     {
-        $user = Auth::getUser();
+        $user = user();
         $passwd = $request->getParam('passwd');
         // check passwd
         $res = array();

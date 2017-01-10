@@ -6,7 +6,7 @@
     <section class="content-header">
         <h1>
             签到记录
-            <small>Check In Log</small>
+          <small>Check-in Log</small>
         </h1>
     </section>
 

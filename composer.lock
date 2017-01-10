@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9740c1c35779d5808fae9ec2ebcac58d",
-    "content-hash": "dce0f9099ee0f750174f149e8c7e6e8d",
+    "hash": "e0db245b0b82f38948858bb656932d5f",
+    "content-hash": "8f9e09514fe355dd9d0b0ca6ffc3d6e7",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -86,6 +86,46 @@
                 "sdk"
             ],
             "time": "2016-05-26 20:43:24"
+        },
+        {
+            "name": "china-shevy/sendcloud-email-v2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/china-shevy/sendcloud-email-v2.git",
+                "reference": "ffd6dcd7dd4d99efc78cbd69dae170a5dce2f35b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/china-shevy/sendcloud-email-v2/zipball/ffd6dcd7dd4d99efc78cbd69dae170a5dce2f35b",
+                "reference": "ffd6dcd7dd4d99efc78cbd69dae170a5dce2f35b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SendCloud\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "shevy",
+                    "email": "huyao9950@gmail.com"
+                }
+            ],
+            "description": "SendCloud 邮件APIv2简易调用库",
+            "keywords": [
+                "email",
+                "sendcloud"
+            ],
+            "time": "2016-05-09 02:30:24"
         },
         {
             "name": "container-interop/container-interop",
@@ -478,6 +518,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2015-03-18 18:23:50"
         },
         {
@@ -4023,6 +4064,7 @@
     "stability-flags": {
         "pongtan/framework": 20,
         "pongtan/utils": 20,
+        "china-shevy/sendcloud-email-v2": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,

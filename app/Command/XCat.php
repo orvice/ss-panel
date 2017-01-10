@@ -8,6 +8,7 @@ namespace App\Command;
  */
 
 use App\Models\User;
+use App\Models\TrafficLog;
 use App\Services\Config;
 use App\Utils\Hash;
 use App\Utils\Tools;
@@ -92,6 +93,7 @@ class XCat
     {
         try {
             User::where("enable", 1)->update([
+				'transfer_enable' => Tools::toGB(Config::get('defaultTraffic')),
                 'd' => 0,
                 'u' => 0,
             ]);

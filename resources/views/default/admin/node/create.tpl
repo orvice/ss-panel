@@ -58,7 +58,11 @@
                                         <label for="method" class="col-sm-3 control-label">加密方式</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="method" value="">
+                                            <select class="form-control" id="method">
+                                            {foreach $method as $cipher}
+                                               <option value="{$cipher}">{$cipher}</option>  
+                                            {/foreach}
+                                            </select>
                                         </div>
                                     </div>
 

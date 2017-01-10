@@ -106,7 +106,11 @@
                                         <label class="col-sm-3 control-label">自定义加密</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="method" value="{$user->method}">
+                                            <select class="form-control" id="method">
+                                            {foreach $method as $cipher}
+                                               <option value="{$cipher}" {if $user->method==$cipher}selected="selected"{/if} >{$cipher}</option>  
+                                            {/foreach}
+                                            </select>  
                                         </div>
                                     </div>
                                 </fieldset>

@@ -114,7 +114,11 @@
 
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" id="method" placeholder="输入新加密方式" class="form-control">
+                                        <select class="form-control" id="method">
+                                        {foreach $method as $cipher}
+                                           <option value="{$cipher}" {if $user->method==$cipher}selected="selected"{/if} >{$cipher}</option>  
+                                        {/foreach}
+                                        </select>  
                                         <div class="input-group-btn">
                                             <button type="submit" id="method-update" class="btn btn-primary">修改</button>
                                         </div>

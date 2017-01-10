@@ -23,4 +23,9 @@ class TrafficLog extends Model
     {
         return Tools::toDateTime($this->attributes['log_time']);
     }
+
+    public function user()
+    {
+        return User::find($this->attributes['user_id']);
+    }
 }

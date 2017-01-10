@@ -84,7 +84,8 @@ class UserController extends BaseController
 
     public function edit($request, $response, $args)
     {
-        return $this->view()->display('user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('method', $method)->display('user/edit.tpl');
     }
 
 
@@ -154,8 +155,16 @@ class UserController extends BaseController
     {
         $user = Auth::getUser();
         $pwd = $request->getParam('sspwd');
+        if (strlen($pwd) == 0) {
+            $pwd = Tools::genRandomChar(8);
+        } elseif (strlen($pwd) < 5) {
+            $res['ret'] = 0;
+            $res['msg'] = "密码要大于4位或者留空生成随机密码";
+            return $response->getBody()->write(json_encode($res));;
+        }
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
+        $res['msg'] = sprintf("新密码为: %s", $pwd);
         return $this->echoJson($response, $res);
     }
 

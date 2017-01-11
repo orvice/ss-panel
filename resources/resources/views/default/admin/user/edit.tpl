@@ -39,13 +39,6 @@
                                 <fieldset class="col-sm-6">
                                     <legend>帐号信息</legend>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">昵称</label>
-
-                                        <div class="col-sm-9">
-                                            <input class="form-control" id="user_name" value="{$user->user_name}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-3 control-label">邮箱</label>
 
                                         <div class="col-sm-9">
@@ -193,7 +186,6 @@
                 url: "/admin/user/{$user->id}",
                 dataType: "json",
                 data: {
-                    user_name: $("#user_name").val(),
                     email: $("#email").val(),
                     pass: $("#pass").val(),
                     port: $("#port").val(),

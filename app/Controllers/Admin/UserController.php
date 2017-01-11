@@ -37,6 +37,7 @@ class UserController extends AdminController
         $id = $args['id'];
         $user = User::find($id);
 
+        $user->user_name = $request->getParam('user_name');
         $user->email = $request->getParam('email');
         if ($request->getParam('pass') != '') {
             $user->pass = Hash::passwordHash($request->getParam('pass'));

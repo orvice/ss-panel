@@ -13,22 +13,6 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-12">
-                <div id="msg-success" class="alert alert-success alert-dismissable" style="display: none;">
-                    <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-info"></i> 成功!</h4>
-
-                    <p id="msg-success-p"></p>
-                </div>
-                <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
-                    <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
-
-                    <p id="msg-error-p"></p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body table-responsive no-padding">
@@ -51,7 +35,7 @@
                             {foreach $users as $user}
                             <tr>
                                 <td>#{$user->id}</td>
-                                <td><abbr title="{$user->user_name}">{$user->email}</abbr></td>
+                                <td>{$user->email}</td>
                                 <td>{$user->port}</td>
                                 <td>{$user->enable}</td>
                                 <td>{$user->method}</td>
@@ -63,7 +47,7 @@
                                 <th>{$user->ref_by}</th>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="/admin/user/{$user->id}/edit">编辑</a>
-                                    <a class="btn btn-danger btn-sm" onclick="deleteUser({$user->id})">删除</a>
+                                    <a class="btn btn-danger btn-sm" id="delete" value="{$user->id}" href="/admin/user/{$user->id}/delete">删除</a>
                                 </td>
                             </tr>
                             {/foreach}
@@ -79,17 +63,14 @@
 
 
 <script>
-    //$(document).ready(function () {
-        function deleteUser(userId){
-            if (!confirm("确定要删除用户 #"+userId+" 吗？")){
-                return;
-            }
+    $(document).ready(function(){
+        function delete(){
             $.ajax({
                 type:"DELETE",
-                url:"/admin/user/"+userId,
+                url:"/admin/user/",
                 dataType:"json",
                 data:{
-                    id: userId
+                    name: $("#name").val()
                 },
                 success:function(data){
                     if(data.ret){
@@ -115,13 +96,16 @@
                 login();
             }
         });
+        $("#delete").click(function(){
+            delete();
+        });
         $("#ok-close").click(function(){
             $("#msg-success").hide(100);
         });
         $("#error-close").click(function(){
             $("#msg-error").hide(100);
         });
-    //})
+    })
 </script>
 
 {include file='admin/footer.tpl'}

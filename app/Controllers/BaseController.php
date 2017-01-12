@@ -23,12 +23,19 @@ class BaseController extends Controller
     /**
      * @var User
      */
-    private $user;
+    protected  $user;
 
     public function __construct(ContainerInterface $ci)
     {
         $this->logger = Factory::getLogger();
         $this->user = Factory::getAuth()->getUser([]);
         parent::__construct($ci);
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(){
+        return user();
     }
 }

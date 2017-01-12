@@ -3,13 +3,11 @@
 namespace App\Controllers;
 
 use App\Services\Factory;
-use Interop\Container\ContainerInterface;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\Node;
 use App\Models\User;
 use App\Models\TrafficLog;
-use App\Services\Auth;
 use App\Utils\Hash;
 use App\Utils\Tools;
 use Slim\Http\Request;
@@ -19,14 +17,14 @@ use Slim\Http\Request;
  */
 class UserController extends BaseController
 {
+
+
     /**
-     * @var User
+     * @param Request $request
+     * @param $response
+     * @param $args
+     * @return string
      */
-    private $user;
-
-    private $node;
-
-
     public function index(Request $request, $response, $args)
     {
         return $this->view('user/index', [
@@ -34,7 +32,13 @@ class UserController extends BaseController
         ]);
     }
 
-    public function node($request, $response, $args)
+    /**
+     * @param Request $request
+     * @param $response
+     * @param $args
+     * @return string
+     */
+    public function node(Request $request, $response, $args)
     {
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
         return $this->view('user/node', [
@@ -42,9 +46,15 @@ class UserController extends BaseController
         ]);
     }
 
-    public function nodeInfo($request, $response, $args)
+    /**
+     * @param Request $request
+     * @param $response
+     * @param $args
+     * @return mixed
+     */
+    public function nodeInfo(Request $request, $response, $args)
     {
-        $user = Auth::getUser();
+        $user = $this->getUser();
         $id = $args['id'];
         $node = Node::find($id);
 
@@ -128,12 +138,12 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function sys($request, $response, $args)
+    public function sys(Request $request, $response, $args)
     {
         return $this->view('user/sys');
     }
 
-    public function updatePassword($request, $response, $args)
+    public function updatePassword(Request $request, $response, $args)
     {
         $oldpwd = $request->getParam('oldpwd');
         $pwd = $request->getParam('pwd');
@@ -168,7 +178,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function updateSsPwd($request, $response, $args)
+    public function updateSsPwd(Request $request, $response, $args)
     {
         $user = Auth::getUser();
         $pwd = $request->getParam('sspwd');
@@ -178,7 +188,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function updateMethod($request, $response, $args)
+    public function updateMethod(Request $request, $response, $args)
     {
         $user = Auth::getUser();
         $method = $request->getParam('method');
@@ -248,15 +258,15 @@ class UserController extends BaseController
 
     public function kill(Request $request, $response, $args)
     {
-        return $this->view()->display('user/kill.tpl');
+        return $this->view('user/kill');
     }
 
-    public function handleKill($request, $response, $args)
+    public function handleKill(Request $request, $response, $args)
     {
         $user = user();
         $passwd = $request->getParam('passwd');
         // check passwd
-        $res = array();
+        $res = [];
         if (!Hash::checkPassword($user->pass, $passwd)) {
             $res['ret'] = 0;
             $res['msg'] = ' 密码错误';

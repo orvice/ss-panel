@@ -11,7 +11,8 @@
     "phploc/phploc": "*",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "*",
-    "squizlabs/php_codesniffer": "2.*"
+    "squizlabs/php_codesniffer": "2.*",
+    "illuminate/pagination": "^5.3"
   },
   "autoload": {
     "classmap": [

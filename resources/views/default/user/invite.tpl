@@ -36,7 +36,12 @@
                     <div class="box-body">
                         <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码。 </p>
                         {if $user->invite_num }
-                            <button id="invite" class="btn btn-sm btn-info">生成我的邀请码</button>
+                        <div class="input-group">
+                            <input class="form-control" id="num" type="number" placeholder="要生成的邀请码数量">
+                            <div class="input-group-btn">
+                                <button id="invite" class="btn btn-info">生成我的邀请码</button>
+                            </div>
+                        </div>
                         {/if}
                     </div>
                     <!-- /.box -->
@@ -100,6 +105,9 @@
                 type: "POST",
                 url: "/user/invite",
                 dataType: "json",
+                data: {
+                    num: $("#num").val()
+                },
                 success: function (data) {
                     window.location.reload();
                 },

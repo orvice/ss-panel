@@ -97,8 +97,8 @@ class UserController extends BaseController
 
     public function doInvite($request, $response, $args)
     {
-        $n = $this->user->invite_num;
-        if ($n < 1) {
+        $n = $request->getParam('num');
+        if ($n < 1 || $n > $this->user->invite_num) {
             $res['ret'] = 0;
             return $response->getBody()->write(json_encode($res));
         }
@@ -109,7 +109,7 @@ class UserController extends BaseController
             $code->user_id = $this->user->id;
             $code->save();
         }
-        $this->user->invite_num = 0;
+        $this->user->invite_num = $this->user->invite_num - $request->getParam('num');
         $this->user->save();
         $res['ret'] = 1;
         return $this->echoJson($response, $res);

@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
 use App\Models\User;
+use App\Models\Node;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
@@ -27,7 +28,8 @@ class UserController extends AdminController
         if ($user == null) {
 
         }
-        return $this->view()->assign('user', $user)->display('admin/user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('user', $user)->assign('method', $method)->display('admin/user/edit.tpl');
     }
 
     public function update($request, $response, $args)

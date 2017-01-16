@@ -25,7 +25,7 @@
                     <div class="icon">
                         <i class="ion ion-person"></i>
                     </div>
-                    <a href="/admin/user" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    <a href="/admin/user" class="small-box-footer"> 用户管理 <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
@@ -37,9 +37,9 @@
                         <p>签到用户</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="ion ion-person-stalker"></i>
                     </div>
-                    <a href="/admin/user" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    <a href="/admin/checkinlog" class="small-box-footer"> 签到日志 <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="/admin/user" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    <a href="/admin/invite" class="small-box-footer"> 邀请管理 <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
 
@@ -70,7 +70,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="/admin/node" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    <a href="/admin/node" class="small-box-footer"> 节点管理 <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
@@ -82,10 +82,9 @@
                         <p>产生流量</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="ion ion-speedometer"></i>
                     </div>
-                    <a href="/admin/trafficlog" class="small-box-footer"> More info <i
-                                class="fa fa-arrow-circle-right"></i> </a>
+                    <a href="/admin/trafficlog" class="small-box-footer"> 流量记录 <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

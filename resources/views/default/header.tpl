@@ -38,6 +38,9 @@
                 <li><a href="/auth/register">注册</a></li>
             {/if}
         </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <!-- To be compatible with some old browsers(especially mobile browsers), use &#xE5D2 instead of menu. For more information visit the link below.
+         http://google.github.io/material-design-icons/#using-the-icons-in-html
+         -->
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">&#xE5D2</i></a>
     </div>
 </nav>

@@ -5,8 +5,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            流量使用记录
-            <small>Traffic Log</small>
+            签到记录
+          <small>Check-in Log</small>
         </h1>
     </section>
 
@@ -28,7 +28,7 @@
                             {foreach $logs as $log}
                                 <tr>
                                     <td>#{$log->id}</td>
-                                    <td>{$log->user_id}</td>
+                                    <td>{$log->user()->user_name}</td>
                                     <td>{$log->traffic()}</td>
                                     <td>{$log->CheckInTime()}</td>
                                 </tr>

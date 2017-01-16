@@ -14,6 +14,16 @@ use App\Utils\Tools;
 class NodeController extends BaseController
 {
 
+    public function users($request, $response, $args)
+    {
+        $users = User::all();
+        $res = [
+            "msg" => "ok",
+            "data" => $users
+        ];
+        return $this->echoJson($response, $res);
+    }
+
     public function onlineUserLog($request, $response, $args)
     {
         $node_id = $args['id'];

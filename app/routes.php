@@ -132,6 +132,7 @@ $app->group('/mu', function () {
 $app->group('/mu/v2', function () {
     $this->get('/users', 'App\Controllers\MuV2\UserController:index');
     $this->post('/users/{id}/traffic', 'App\Controllers\MuV2\UserController:addTraffic');
+    $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
     $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');

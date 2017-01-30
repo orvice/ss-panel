@@ -28,15 +28,17 @@ RUN { \
 RUN a2enmod rewrite
 
 ENV SSPANEL_VERSION 4.0.0
-
-RUN cd /var/www/html && git clone https://github.com/orvice/ss-panel.git && cd ss-panel && git checkout 4.x-dev
+VOLUME /var/www/html
 
 # Config Apache
 RUN rm /etc/apache2/sites-enabled/000-default.conf
-RUN mv  000-default.conf /etc/apache2/sites-enabled/
+
+RUN cd /var/www/html && git clone https://github.com/orvice/ss-panel.git && cd ss-panel && git checkout 4.x-dev
 
 
-RUN chmod -R 777 storage
+RUN cp  /var/www/html/ss-panel/000-default.conf /etc/apache2/sites-enabled/
+
+RUN chmod -R 777 /var/www/html/ss-panel/storage
 
 VOLUME /var/www/html
 
@@ -46,6 +48,8 @@ ONBUILD RUN composer install
 
 
 COPY docker-entrypoint.sh /entrypoint.sh
+
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

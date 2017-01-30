@@ -7,4 +7,18 @@ services:
     command:
     - --loglevel warning
     volumes:
-    - $PWD/redis:/var/lib/redis:Z
+    - $PWD/redis_data:/var/lib/redis:Z
+
+  mysql:
+      image: mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: sspanel
+      volumes:
+        - $PWD/mysql_data:/var/lib/mysql:Z
+
+  ss-panel:
+      image: docker pull orvice/ss-panel
+      ports:
+        - 8080:80
+      volumes:
+        - $PWD/html:/var/www/html

@@ -1,5 +1,5 @@
 FROM php:7.1.1-apache
-
+MAINTAINER orvice<orvice@orx.me>
 RUN apt-get update && apt-get install -y \
 	bzip2 \
 	libcurl4-openssl-dev \
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 	libpq-dev \
 	libxml2-dev \
 	git \
+	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
 # set recommended PHP.ini settings
@@ -25,7 +26,9 @@ RUN { \
 		echo 'opcache.fast_shutdown=1'; \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+
 RUN a2enmod rewrite
+RUN service apache2 restart
 
 ENV SSPANEL_VERSION 4.0.0
 VOLUME /var/www/html
@@ -33,9 +36,8 @@ VOLUME /var/www/html
 # Config Apache
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
-RUN cd /var/www/html && git clone https://github.com/orvice/ss-panel.git && cd ss-panel && git checkout 4.x-dev
-
-
+RUN cd /var/www/html && git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html/ss-panel
+RUN cd /var/www/html/ss-panel
 RUN cp  /var/www/html/ss-panel/000-default.conf /etc/apache2/sites-enabled/
 
 RUN chmod -R 777 /var/www/html/ss-panel/storage

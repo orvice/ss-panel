@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
 	libpng12-dev \
 	libpq-dev \
 	libxml2-dev \
+	git \
 	&& rm -rf /var/lib/apt/lists/*
 
 # set recommended PHP.ini settings
@@ -26,9 +27,9 @@ RUN { \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 RUN a2enmod rewrite
 
-
-
 ENV SSPANEL_VERSION 4.0.0
+
+RUN cd /var/www/html && git clone https://github.com/orvice/ss-panel.git && cd ss-panel && git checkout 4.x-dev
 
 # Config Apache
 RUN rm /etc/apache2/sites-enabled/000-default.conf

@@ -44,14 +44,12 @@ RUN chmod -R 777 /var/www/html/ss-panel/storage
 
 VOLUME /var/www/html
 
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 ONBUILD RUN composer install
 
-
-COPY docker-entrypoint.sh /entrypoint.sh
+#COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 80
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

@@ -31,7 +31,7 @@ RUN a2enmod rewrite
 RUN service apache2 restart
 
 ENV SSPANEL_VERSION 4.0.0
-VOLUME /var/www/html
+#VOLUME /var/www/html
 
 # Config Apache
 RUN rm /etc/apache2/sites-enabled/000-default.conf

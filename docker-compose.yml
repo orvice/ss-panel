@@ -17,8 +17,9 @@ services:
         - $PWD/mysql_data:/var/lib/mysql:Z
 
   ss-panel:
-      image: docker pull orvice/ss-panel
+      image: orvice/ss-panel
       ports:
         - 8080:80
-      volumes:
-        - $PWD/html:/var/www/html
+      # @todo
+      #volumes:
+      #  - $PWD/html:/var/www/html

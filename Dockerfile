@@ -14,7 +14,9 @@ RUN apt-get update && apt-get install -y \
 	libxml2-dev \
 	git \
 	unzip \
-	&& rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/* && \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/  &&  \
+    docker-php-ext-install gd
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
@@ -31,21 +33,23 @@ RUN a2enmod rewrite
 RUN service apache2 restart
 
 ENV SSPANEL_VERSION 4.0.0
-#VOLUME /var/www/html
 
 # Config Apache
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
-RUN cd /var/www/html && git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html/ss-panel
-RUN cd /var/www/html/ss-panel
-RUN cp  /var/www/html/ss-panel/000-default.conf /etc/apache2/sites-enabled/
-
-RUN chmod -R 777 /var/www/html/ss-panel/storage
-
-VOLUME /var/www/html
+RUN git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html/ss-panel
+#VOLUME /var/www/html
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-ONBUILD RUN composer install
+WORKDIR /var/www/html/ss-panel
+COPY composer.json composer.lock ./
+
+# Install dependencies with Composer.
+# --prefer-source fixes issues with download limits on Github.
+# --no-interaction makes sure composer can run fully automated
+RUN composer install --prefer-source --no-interaction
+RUN cp 000-default.conf /etc/apache2/sites-enabled/
+RUN chmod -R 777 storage
 
 #COPY docker-entrypoint.sh /entrypoint.sh
 

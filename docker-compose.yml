@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  redis:
+    restart: always
+    image: redis:latest
+    command:
+    - --loglevel warning
+    volumes:
+    - $PWD/redis:/var/lib/redis:Z

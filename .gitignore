@@ -3,3 +3,4 @@
 vendor/
 composer.phar
 build/
+composer

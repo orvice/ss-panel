@@ -91,7 +91,8 @@ class UserController extends BaseController
 
     public function edit($request, $response, $args)
     {
-        return $this->view()->display('user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('method', $method)->display('user/edit.tpl');
     }
 
 
@@ -103,8 +104,8 @@ class UserController extends BaseController
 
     public function doInvite($request, $response, $args)
     {
-        $n = $this->user->invite_num;
-        if ($n < 1) {
+        $n = $request->getParam('num');
+        if ($n < 1 || $n > $this->user->invite_num) {
             $res['ret'] = 0;
             return $response->getBody()->write(json_encode($res));
         }
@@ -115,7 +116,7 @@ class UserController extends BaseController
             $code->user_id = $this->user->id;
             $code->save();
         }
-        $this->user->invite_num = 0;
+        $this->user->invite_num = $this->user->invite_num - $request->getParam('num');
         $this->user->save();
         $res['ret'] = 1;
         return $this->echoJson($response, $res);
@@ -161,8 +162,16 @@ class UserController extends BaseController
     {
         $user = Auth::getUser();
         $pwd = $request->getParam('sspwd');
+        if (strlen($pwd) == 0) {
+            $pwd = Tools::genRandomChar(8);
+        } elseif (strlen($pwd) < 5) {
+            $res['ret'] = 0;
+            $res['msg'] = "密码要大于4位或者留空生成随机密码";
+            return $response->getBody()->write(json_encode($res));;
+        }
         $user->updateSsPwd($pwd);
         $res['ret'] = 1;
+        $res['msg'] = sprintf("新密码为: %s", $pwd);
         return $this->echoJson($response, $res);
     }
 

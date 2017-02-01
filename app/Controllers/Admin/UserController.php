@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
 use App\Models\User;
+use App\Models\Node;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
@@ -27,7 +28,8 @@ class UserController extends AdminController
         if ($user == null) {
 
         }
-        return $this->view()->assign('user', $user)->display('admin/user/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('user', $user)->assign('method', $method)->display('admin/user/edit.tpl');
     }
 
     public function update($request, $response, $args)
@@ -35,6 +37,7 @@ class UserController extends AdminController
         $id = $args['id'];
         $user = User::find($id);
 
+        $user->user_name = $request->getParam('user_name');
         $user->email = $request->getParam('email');
         if ($request->getParam('pass') != '') {
             $user->pass = Hash::passwordHash($request->getParam('pass'));

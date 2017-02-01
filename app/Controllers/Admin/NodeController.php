@@ -15,7 +15,8 @@ class NodeController extends AdminController
 
     public function create($request, $response, $args)
     {
-        return $this->view()->display('admin/node/create.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('method', $method)->display('admin/node/create.tpl');
     }
 
     public function add($request, $response, $args)
@@ -47,7 +48,8 @@ class NodeController extends AdminController
         if ($node == null) {
 
         }
-        return $this->view()->assign('node', $node)->display('admin/node/edit.tpl');
+        $method = Node::getCustomerMethod();
+        return $this->view()->assign('node', $node)->assign('method', $method)->display('admin/node/edit.tpl');
     }
 
     public function update($request, $response, $args)

@@ -40,7 +40,12 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <input id="ss-qr-text" class="form-control" value="{$ssqr}">
+                        <div class="input-group">
+                            <input type="text" id="ss-qr-text" class="form-control" value="{$ssqr}">
+                            <div class="input-group-btn">
+                                <a class="btn btn-primary btn-flat" href="{$ssqr}">></a>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

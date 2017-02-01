@@ -227,6 +227,11 @@ class UserController extends BaseController
         }
         Auth::logout();
         $user->delete();
+        $char = Tools::genRandomChar(32);
+        $code = new InviteCode();
+        $code->code = 'AutoRecy' . $char;
+        $code->user_id = 0;
+        $code->save();
         $res['ret'] = 1;
         $res['msg'] = "GG!您的帐号已经从我们的系统中删除.";
         return $this->echoJson($response, $res);

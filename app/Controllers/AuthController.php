@@ -185,6 +185,7 @@ class AuthController extends BaseController
         $user->port = Tools::getLastPort() + 1;
         $user->enable = false;
         $user->t = 0;
+        $user->method = "aes-256-cfb";
         $user->u = 0;
         $user->d = 0;
         $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));

@@ -34,6 +34,8 @@ RUN a2enmod rewrite
 
 ENV SSPANEL_VERSION 4.0.0
 
+WORKDIR /var/www
+
 # Install sspanel
 RUN rm -rf /var/www/html && git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html
 

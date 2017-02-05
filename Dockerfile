@@ -33,12 +33,14 @@ RUN { \
 RUN a2enmod rewrite
 
 ENV SSPANEL_VERSION 4.0.0
-VOLUME /var/www/html
 
 WORKDIR /var/www
 
 # Install sspanel
-RUN rm -rf /var/www/html && git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html
+RUN rm -rf /var/www/html
+
+VOLUME /var/www/html
+RUN git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

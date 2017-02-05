@@ -29,30 +29,27 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+# Enable Rewrite
 RUN a2enmod rewrite
-RUN service apache2 restart
 
 ENV SSPANEL_VERSION 4.0.0
 
-# Config Apache
-RUN rm /etc/apache2/sites-enabled/000-default.conf
+# Install sspanel
+RUN rm -rf /var/www/html && git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html
 
-RUN git clone -b 4.x-dev https://github.com/orvice/ss-panel.git /var/www/html/ss-panel
-#VOLUME /var/www/html
-
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-WORKDIR /var/www/html/ss-panel
-COPY composer.json composer.lock ./
+
+WORKDIR /var/www/html
 
 # Install dependencies with Composer.
 # --prefer-source fixes issues with download limits on Github.
 # --no-interaction makes sure composer can run fully automated
-RUN composer install --prefer-source --no-interaction
-RUN cp 000-default.conf /etc/apache2/sites-enabled/
-RUN chmod -R 777 storage
+RUN composer install --prefer-source --no-interactionn && chmod -R 777 storage
 
 #COPY docker-entrypoint.sh /entrypoint.sh
 
+VOLUME /var/www/html
 EXPOSE 80
 
 #ENTRYPOINT ["/entrypoint.sh"]

@@ -47,7 +47,7 @@ WORKDIR /var/www/html
 # Install dependencies with Composer.
 # --prefer-source fixes issues with download limits on Github.
 # --no-interaction makes sure composer can run fully automated
-RUN composer install --prefer-source --no-interactionn && chmod -R 777 storage
+ONBUILD RUN composer install --prefer-source --no-interactionn && chmod -R 777 storage
 
 #COPY docker-entrypoint.sh /entrypoint.sh
 

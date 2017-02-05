@@ -33,6 +33,7 @@ RUN { \
 RUN a2enmod rewrite
 
 ENV SSPANEL_VERSION 4.0.0
+VOLUME /var/www/html
 
 WORKDIR /var/www
 
@@ -51,7 +52,7 @@ ONBUILD RUN composer install --prefer-source --no-interactionn && chmod -R 777 s
 
 #COPY docker-entrypoint.sh /entrypoint.sh
 
-VOLUME /var/www/html
+
 EXPOSE 80
 
 #ENTRYPOINT ["/entrypoint.sh"]

@@ -5,7 +5,7 @@
 				<h5 class="white-text">关于</h5>
 				<p class="grey-text text-lighten-4">本站提供校园网上网及科学上网服务</p>
 				<p class="grey-text text-lighten-4">快速高效，使用方便，价格低廉，稳定性强</p>
-				<p class="grey-text text-lighten-4">更多信息参考<a href="" class="grey-text text-lighten-4">Shadowsocks服务介绍</a></p>
+				<p class="grey-text text-lighten-4">更多信息参考 <a href="/start" class="grey-text text-lighten-4">Shadowsocks 服务介绍</a></p>
 
 
 			</div>
@@ -25,7 +25,7 @@
 				<h5 class="white-text">页面</h5>
 				<ul>
 					<li><a class="white-text" href="/code">邀请码</a></li>
-					<li><a class="white-text" href="/tos">用户协议</a></li>
+					<li><a class="white-text" href="/tos">服务条款</a></li>
 					<li><a class="white-text" href="/scs">服务器托管服务</a></li>
 				</ul>
 			</div>

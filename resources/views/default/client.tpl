@@ -13,9 +13,9 @@
             <div class="box-body">
                 <dl class="dl-horizontal">
                     <dt>C#版本（推荐）</dt>
-                    <dd><a href="https://github.com/shadowsocks/shadowsocks-windows/releases">Github下载</a>|<a href="http://ix-cdn-qiniu-ss.chinacrec.org/Shadowsocks-CSharp-3.2.zip">七牛CDN下载</a></dd>
+                    <dd><a href="https://github.com/shadowsocks/shadowsocks-windows/releases">Github下载</a></dd>
                     <dt>Qt版本</dt>
-                    <dd><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">Github下载</a>|<a href="http://ix-cdn-qiniu-ss.chinacrec.org/Shadowsocks-QT5-2.7.zip">七牛CDN下载</a></dd>
+                    <dd><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">Github下载</a></dd>
                     <dt>.NET框架（用于C#版）</dt>
                     <dd><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=17718">直接前往微软官网下载</a></dd>
                 </dl>
@@ -33,8 +33,6 @@
                     <dd><a href="https://github.com/shadowsocks/shadowsocks-android/releases">点此进入</a></dd>
                     <dt>Play商店（有广告）</dt>
                     <dd><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks&hl=zh_CN">点此进入</a></dd>
-                    <dt>七牛CDN下载</dt>
-                    <dd><a href="http://ix-cdn-qiniu-ss.chinacrec.org/Shadowsocks-nightly-3.0.6.apk">点此进入</a></dd>
                 </dl>
             </div>
         </div>

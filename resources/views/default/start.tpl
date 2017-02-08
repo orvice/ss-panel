@@ -31,14 +31,14 @@
     <h3>收费标准</h3>
     <p>价格：10元/月 20元/三个月 25元/五个月。</p>
     <p>流量限制：每月 100G 流量。部分海外节点有流量比例优惠。</p>
-    <p>使用本站服务您须同意<a href="/tos">本站用户协议</a>。 </p>
+    <p>使用本站服务您须同意<a href="/tos">本站服务条款</a>。 </p>
 
     <h3>实现原理</h3>
     <p>
         本站根据校园网 ipv6 协议免费，同时服务器流量比校园网网费便宜而实现。
     </p>
     <p>本站使用 Shadowsocks 代理传输，有关 Shadowsocks 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> <a href="https://github.com/shadowsocks">Shadowsocks 团队</a> <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> </p>
-
+    <p><a href="http://vc2tea.com/whats-shadowsocks/">写给非专业人士看的 Shadowsocks 简介</a> <a href="https://plus点goo去掉我gle点com/+GhostAssassin/posts/TtWFAQmSMVE">SS 和未批恩辨析</a></p>
     <h3>如何开始</h3>
     <p>
         首先注册。由于服务器负载量有限，为保证服务质量，测试阶段只放送第一批邀请码 5 个。以后将会放送更多的邀请码。<a href="/code">找邀请码戳这里</a>

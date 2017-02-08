@@ -3,7 +3,7 @@
 <div class="section no-pad-bot" id="index-banner">
 <div class="container">
     <div class="page-header">
-        <h1>用户协议 Terms of Service </h1>
+        <h1>服务条款</h1>
     </div>
     <p>{$config["appName"]}，以下简称本站。</p>
     <h3>隐私</h3>

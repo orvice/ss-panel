@@ -125,6 +125,39 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">protocol</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <select class="form-control" id="protocol">
+                                        {foreach $protocols as $protocol}
+                                           <option value="{$protocol}" {if $user->protocol==$protocol}selected="selected"{/if} >{$protocol}</option>  
+                                        {/foreach}
+                                        </select>  
+                                        <div class="input-group-btn">
+                                            <button type="submit" id="protocol-update" class="btn btn-primary">修改</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">obfs</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <select class="form-control" id="obfs">
+                                        {foreach $obfs as $o}
+                                           <option value="{$o}" {if $user->obfs==$o}selected="selected"{/if} >{$o}</option>  
+                                        {/foreach}
+                                        </select>  
+                                        <div class="input-group-btn">
+                                            <button type="submit" id="obfs-update" class="btn btn-primary">修改</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                         <div class="box-footer"></div>
@@ -213,6 +246,50 @@
                 dataType: "json",
                 data: {
                     method: $("#method").val()
+                },
+                success: function (data) {
+                    if (data.ret) {
+                        $("#ss-msg-success").show();
+                        $("#ss-msg-success-p").html(data.msg);
+                    } else {
+                        $("#ss-msg-error").show();
+                        $("#ss-msg-error-p").html(data.msg);
+                    }
+                },
+                error: function (jqXHR) {
+                    alert("发生错误：" + jqXHR.status);
+                }
+            })
+        })
+        $("#protocol-update").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "protocol",
+                dataType: "json",
+                data: {
+                    protocol: $("#protocol").val()
+                },
+                success: function (data) {
+                    if (data.ret) {
+                        $("#ss-msg-success").show();
+                        $("#ss-msg-success-p").html(data.msg);
+                    } else {
+                        $("#ss-msg-error").show();
+                        $("#ss-msg-error-p").html(data.msg);
+                    }
+                },
+                error: function (jqXHR) {
+                    alert("发生错误：" + jqXHR.status);
+                }
+            })
+        })
+        $("#obfs-update").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "obfs",
+                dataType: "json",
+                data: {
+                    obfs: $("#obfs").val()
                 },
                 success: function (data) {
                     if (data.ret) {

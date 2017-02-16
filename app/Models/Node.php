@@ -85,4 +85,26 @@ class Node extends Model
             "salsa20" => "salsa20",
         ];
     }
+
+    public static function getProtocol()
+    {
+        return [
+		"origin" => "origin",
+		"verify_sha1" => "verify_sha1",
+		"auth_sha1_v2" => "auth_sha1_v2",
+		"auth_sha1_v4" => "auth_sha1_v4",
+		"auth_aes128_md5" => "auth_aes128_md5",
+		"auth_aes128_sha1" => "auth_aes128_sha1"
+        ];
+    }
+
+    public static function getObfs()
+    {
+        return [
+                "plain" => "plain",
+                "tls1.2_ticket_auth" => "tls1.2_ticket_auth",
+                "tls1.2_ticket_auth_compatible" => "tls1.2_ticket_auth_compatible"
+        ];
+
+    }
 }

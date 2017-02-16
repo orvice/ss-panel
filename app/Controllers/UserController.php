@@ -64,6 +64,8 @@ class UserController extends BaseController
         $ary['method'] = $node->method;
         if ($node->custom_method) {
             $ary['method'] = $this->user->method;
+	    $ary['protocol'] = $this->user->protocol;
+	    $ary['obfs'] = $this->user->obfs;
         }
         $json = json_encode($ary);
         $json_show = json_encode($ary, JSON_PRETTY_PRINT);
@@ -85,7 +87,12 @@ class UserController extends BaseController
     public function edit($request, $response, $args)
     {
         $method = Node::getCustomerMethod();
-        return $this->view()->assign('method', $method)->display('user/edit.tpl');
+        $protocols = Node::getProtocol();
+	$obfs = Node::getObfs();
+        return $this->view()->assign('method', $method)
+		->assign('protocols', $protocols)
+		->assign('obfs', $obfs)
+		->display('user/edit.tpl');
     }
 
 
@@ -174,6 +181,26 @@ class UserController extends BaseController
         $method = $request->getParam('method');
         $method = strtolower($method);
         $user->updateMethod($method);
+        $res['ret'] = 1;
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateProtocol($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $protocol = $request->getParam('protocol');
+        $protocol = strtolower($protocol);
+        $user->updateProtocol($protocol);
+        $res['ret'] = 1;
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateObfs($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $obfs = $request->getParam('obfs');
+        $obfs = strtolower($obfs);
+        $user->updateObfs($obfs);
         $res['ret'] = 1;
         return $this->echoJson($response, $res);
     }

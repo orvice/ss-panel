@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e163ae7b606b2e120cb7dcc698bb743e",
+    "content-hash": "acb17dd4a9ba8d95c8a3fae8661acd94",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1964,6 +1964,47 @@
                 "uuid"
             ],
             "time": "2016-11-22T19:21:44+00:00"
+        },
+        {
+            "name": "shadowsocks/shadowsocks",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moephp/Shadowsocks.git",
+                "reference": "2d060dfbd5b089228370c05a18dc7c3142b8b24e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moephp/Shadowsocks/zipball/2d060dfbd5b089228370c05a18dc7c3142b8b24e",
+                "reference": "2d060dfbd5b089228370c05a18dc7c3142b8b24e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "files": [],
+                "psr-4": {
+                    "Shadowsocks\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "orvice"
+                }
+            ],
+            "description": "shadowsocks",
+            "keywords": [
+                "Shadowsocks",
+                "ShadowsocksR"
+            ],
+            "time": "2017-02-19T13:48:48+00:00"
         },
         {
             "name": "slim/csrf",

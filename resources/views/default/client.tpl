@@ -44,7 +44,9 @@
             </div>
             <div class="box-body">
                 <dl class="dl-horizontal">
-                    <dt>Wingy（￥6）</dt>
+                    <dt>Wingy（免费，有广告）</dt>
+                    <dd><a href="https://itunes.apple.com/cn/app/wingy-http-s-socks5-proxy-utility/id1178584911?mt=8">App Store</a></dd>
+                    <dt>Wingy（￥6，已停止维护）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/wingy-free-proxy-utility-for/id1148026741?mt=8">App Store</a></dd>
                     <dt>Shadowrocket（￥18）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8">App Store</a></dd>

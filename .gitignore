@@ -4,3 +4,4 @@ vendor/
 composer.phar
 build/
 composer
+node_modules/

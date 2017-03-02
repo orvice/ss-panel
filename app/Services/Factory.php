@@ -6,6 +6,7 @@ namespace App\Services;
 use App\Services\Auth\AuthInterface;
 use Psr\SimpleCache\CacheInterface;
 use Psr\Log\LoggerInterface;
+use App\Contracts\TokenStorageInterface;
 
 class Factory
 {
@@ -28,7 +29,16 @@ class Factory
     /**
      * @return AuthInterface
      */
-    public static function getAuth(){
+    public static function getAuth()
+    {
         return app()->make('auth');
+    }
+
+    /**
+     * @return TokenStorageInterface
+     */
+    public static function createTokenStorage()
+    {
+        return app()->make('token-storage');
     }
 }

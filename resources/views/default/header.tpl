@@ -15,7 +15,7 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="/">首页</a></li>
             <li><a href="/start">服务介绍</a></li>
-            <li><a href="/node">节点列表及状态</a></li>
+            <li><a href="/node">节点列表</a></li>
             <li><a href="/client">客户端下载</a></li>
             <li><a href="/code">邀请码</a></li>
             {if $user->isLogin}
@@ -31,7 +31,7 @@
         <ul id="nav-mobile" class="side-nav">
             <li><a href="/">首页</a></li>
 	        <li><a href="/start">服务介绍</a></li>
-            <li><a href="/node">节点列表及状态</a></li>
+            <li><a href="/node">节点列表</a></li>
             <li><a href="/client">客户端下载</a></li>
             <li><a href="/code">邀请码</a></li>
             {if $user->isLogin}

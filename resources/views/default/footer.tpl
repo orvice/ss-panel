@@ -26,6 +26,7 @@
 				<ul>
 					<li><a class="white-text" href="/code">邀请码</a></li>
 					<li><a class="white-text" href="/tos">服务条款</a></li>
+					<li><a class="white-text" href="https://status.2645net.work">状态监控</a></li>
 					<li><a class="white-text" href="/scs">服务器托管服务</a></li>
 				</ul>
 			</div>

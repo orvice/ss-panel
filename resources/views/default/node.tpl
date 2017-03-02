@@ -3,7 +3,7 @@
     <div class="container">
         <br><br>
         <div class="row center">
-            <h3>节点列表及状态</h3>
+            <h3>节点列表</h3>
         </div>
     </div>
 </div>

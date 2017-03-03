@@ -11,47 +11,47 @@
         <p class="login-box-msg">{{ lang('auth.register-be-a-cat') }}</p>
         <form id="registerForm" action="" method="post">
 
-        <div class="form-group has-feedback">
-            <input type="text" id="name" class="form-control" placeholder="{{ lang('auth.username') }}"/>
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
+            <div class="form-group has-feedback">
+                <input type="text" id="name" class="form-control" placeholder="{{ lang('auth.username') }}"/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
 
-        <div class="form-group has-feedback">
-            <input type="text" id="email" class="form-control" placeholder="{{ lang('auth.username') }}"/>
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        {% if config("auth.email_verify_enabled") %}
+            <div class="form-group has-feedback">
+                <input type="text" id="email" class="form-control" placeholder="{{ lang('auth.username') }}"/>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            {% if config("auth.email_verify_enabled") %}
 
-        <div class="form-group">
-            <div class="input-group">
-                <input type="text" id="verifycode" class="form-control"
-                       placeholder="{{ lang('auth.activation-code') }}"/>
-                <span class="input-group-btn">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="verifycode" class="form-control"
+                           placeholder="{{ lang('auth.activation-code') }}"/>
+                    <span class="input-group-btn">
                     <button type="button" id="sendcode"
                             class="btn btn-default btn-flat">{{ lang('auth.send-code') }}</button>
                 </span>
+                </div>
             </div>
-        </div>
-        {% endif %}
+            {% endif %}
 
-        <div class="form-group has-feedback">
-            <input type="password" id="passwd" class="form-control" placeholder="{{ lang('auth.password')}} "/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
+            <div class="form-group has-feedback">
+                <input type="password" id="passwd" class="form-control" placeholder="{{ lang('auth.password')}} "/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
 
-        <div class="form-group has-feedback">
-            <input type="password" id="repasswd" class="form-control"
-                   placeholder=" {{ lang('auth.password-repeat')}}  "/>
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        </div>
+            <div class="form-group has-feedback">
+                <input type="password" id="repasswd" class="form-control"
+                       placeholder=" {{ lang('auth.password-repeat')}}  "/>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
 
-        <div class="form-group has-feedback">
-            <input type="text" id="code" value="{{ code }}" class="form-control"
-                   placeholder=" {{ lang('nav.invite-code')}} "/>
-            <span class="glyphicon glyphicon-send form-control-feedback"></span>
-        </div>
+            <div class="form-group has-feedback">
+                <input type="text" id="code" value="{{ code }}" class="form-control"
+                       placeholder=" {{ lang('nav.invite-code')}} "/>
+                <span class="glyphicon glyphicon-send form-control-feedback"></span>
+            </div>
 
-          </form>
+        </form>
 
         <div class="form-group has-feedback">
             <p><a href="/tos">{{ lang('nav.tos') }}</a></p>
@@ -69,7 +69,7 @@
             <p id="msg-success-p"></p>
         </div>
 
-       
+
         <div id="error-div" class="alert alert-warning alert-dismissable" style="display: none;">
             <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i>{{ lang("base.error") }}!</h4>
@@ -100,48 +100,51 @@
     });
 </script>
 <script>
-        $(document).ready(function(){
-            var form=$("#registerForm");
-            function register(){
-                $.ajax({
-                    type:"POST",
-                    url:"/auth/register",
-                    dataType:"json",
-                    data: form.serialize(),
-                    success:function (data) {
-                        console.log(data.msg);
-                        console.log("login success");
-                        $(location).attr('href', '/user') 
-                    },
-                    error:function (xhr){ 
-                        switch (xhr.status) {
-                            case 500:
-                                console.log("500");
-                                msg = "{{ lang('base.something-wrong') }} ";
-                                console.log(msg);
-                                $("#error-div").show(100);
-                                $("#error-msg").html(msg);
-                            default:
-                                var data = $.parseJSON(xhr.responseText);
-                                console.log(xhr.responseText)
-                                console.log(xhr.status);
-                                //console.log(xhr.response);
-                                $("#error-div").show(100);
-                                $("#error-msg").html(data.msg);
-                        }
+    $(document).ready(function () {
+        var form = $("#registerForm");
+
+        function register() {
+            $.ajax({
+                type: "POST",
+                url: "/auth/register",
+                dataType: "json",
+                data: form.serialize(),
+                success: function (data) {
+                    console.log(data.msg);
+                    console.log("login success");
+                    $(location).attr('href', '/user')
+                },
+                error: function (xhr) {
+                    switch (xhr.status) {
+                        case 500:
+                            console.log("500");
+                            msg = "{{ lang('base.something-wrong') }} ";
+                            console.log(msg);
+                            $("#error-div").show(100);
+                            $("#error-msg").html(msg);
+                        default:
+                            var data = $.parseJSON(xhr.responseText);
+                            console.log(xhr.responseText)
+                            console.log(xhr.status);
+                            //console.log(xhr.response);
+                            $("#error-div").show(100);
+                            $("#error-msg").html(data.msg);
                     }
-                });
-            }
-            $("html").keydown(function(event){
-                if(event.keyCode==13){
-                    register();
                 }
             });
-            $("#register").click(function(){
+        }
+
+        $("html").keydown(function (event) {
+            if (event.keyCode == 13) {
                 register();
-            });
-        })
-    </script>
+            }
+        });
+        $("#register").click(function () {
+            register();
+        });
+    })
+</script>
+<script src="/assets/js/auth.js"></script>
 <div style="display:none;">
     {$analyticsCode}
 </div>

@@ -6,44 +6,13 @@
     <div class="login-logo">
         <a href="#"><b>{{ conf('app.name') }} </b></a>
     </div><!-- /.login-logo -->
-    <div class="login-box-body">
+    <div id="auth" class="login-box-body">
         <p class="login-box-msg">{{ lang('auth.login') }}</p>
 
-        <form id="loginForm" action="" method="post">
-            <div class="form-group has-feedback">
-                <input id="email" name="email" type="text" class="form-control" placeholder="{{ lang('auth.email') }}"/>
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input id="passwd" name="password" type="password" class="form-control"
-                       placeholder="{{ lang('auth.password') }}"/>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-        </form>
-        <div class="row">
-            <div class="col-xs-8">
-                <div class="checkbox icheck">
-                    <label>
-                        <input id="remember_me" value="week" type="checkbox"> {{ lang('auth.remember-me') }}
-                    </label>
-                </div>
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-                <button id="login" type="submit" class="btn btn-primary btn-block btn-flat"> {{lang('auth.login')}}
-                </button>
-            </div><!-- /.col -->
-        </div>
-        <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
-            <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i> {{ lang("base.success") }}!</h4>
-            <p id="msg-success-p"></p>
-        </div>
-
-        <div id="error-div" class="alert alert-warning alert-dismissable" style="display: none;">
-            <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i>{{ lang("base.error") }}!</h4>
-            <p id="error-msg"></p>
-        </div>
+        <login
+                login-str = "{{ lang('auth.login') }}"
+                remember-me = "{{ lang('auth.remember-me') }}"
+        ></login>
 
         <div style="text-align:left;">
             </br><a href="/password/reset"><span class="pull-left">{{ lang('auth.forgot-password') }}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -120,6 +89,10 @@
         });
     })
 </script>
+
+<script src="/assets/js/auth.js"></script>
+
+
 <div style="display:none;">
     {$analyticsCode}
 </div>

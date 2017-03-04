@@ -1,0 +1,56 @@
+<?php
+
+
+namespace App\Middleware;
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use App\Services\Factory;
+use App\Utils\Http;
+use App\Models\User as UserModel;
+use App\Services\Auth\User as AuthUser;
+
+class User
+{
+
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param $next
+     * @return ResponseInterface
+     */
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
+    {
+        $user = $this->getUserFromReq($request);
+        AuthUser::setUser($user);
+        $response = $next($request, $response);
+        return $response;
+    }
+
+    /**
+     * @param ServerRequestInterface $request
+     * @return UserModel
+     */
+    public function getUserFromReq(ServerRequestInterface $request)
+    {
+        $token = Http::getTokenFromReq($request);
+        if (!$token) {
+            return $this->guestUser();
+        }
+        $token = Factory::getTokenStorage()->get($token);
+        if (!$token) {
+            return $this->guestUser();
+        }
+        return $token->getUser();
+    }
+
+    /**
+     * @return UserModel
+     */
+    private function guestUser()
+    {
+        $user = new UserModel();
+        $user->isLogin = false;
+        return $user;
+    }
+}

@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-//use Psr\Http\Message\ServerRequestInterface as Request;
+use App\Services\Factory;
+use Psr\Http\Message\ServerRequestInterface;
 //use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -41,6 +42,7 @@ class HomeController extends BaseController
             'ip' => Http::getClientIP(),
             'version' => config('app.version'),
             'reg_count' => Check::getIpRegCount(Http::getClientIP()),
+            'e' => Factory::getCache()->has('ez370Y84NT5cBkuxoGHTYR5UqGdlKaS5zwOW515hLoSBG7ogtG5MgGNBdhUprMpn'),
             // 'user' => user(),
         ];
         return $this->echoJson($response, $res);

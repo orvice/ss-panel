@@ -29,7 +29,6 @@
         <div v-if="showInfo"
              v-bind:class="[success ? 'alert-info' : 'alert-warning', 'alert  alert-dismissable' ]">
             <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-info"></i>Success!</h4>
             <p>{{infoMsg}}</p>
         </div>
 
@@ -64,7 +63,7 @@
                     this.success = true;
                     this.infoMsg = response.data.msg;
                     console.log("login success");
-                    this.$cookie.set('token', response.data.token, 1);
+                    this.$cookie.set('token', response.data.data.token, 1);
                     location.href = '/user';
                 }, function (response) {
                     // Fail

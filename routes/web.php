@@ -5,14 +5,18 @@ use App\Middleware\Guest;
 use App\Middleware\Admin;
 use App\Middleware\Api;
 use App\Middleware\Mu;
+use App\Middleware\User;
+
 
 // Home
-$app->get('/', 'App\Controllers\HomeController:index');
-$app->get('/code', 'App\Controllers\HomeController:code');
-$app->get('/tos', 'App\Controllers\HomeController:tos');
-$app->get('/debug', 'App\Controllers\HomeController:debug');
-$app->post('/debug', 'App\Controllers\HomeController:postDebug');
-$app->get('/500', 'App\Controllers\HomeController:serverError');
+$app->group('', function () {
+    $this->get('/', 'App\Controllers\HomeController:index');
+    $this->get('/code', 'App\Controllers\HomeController:code');
+    $this->get('/tos', 'App\Controllers\HomeController:tos');
+    $this->get('/debug', 'App\Controllers\HomeController:debug');
+    $this->post('/debug', 'App\Controllers\HomeController:postDebug');
+    $this->get('/500', 'App\Controllers\HomeController:serverError');
+})->add(new User());
 
 // User Center
 $app->group('/user', function () {
@@ -35,7 +39,7 @@ $app->group('/user', function () {
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->get('/logout', 'App\Controllers\UserController:logout');
-})->add(new Auth());
+})->add(new Auth())->add(new User());
 
 // Auth
 $app->group('/auth', function () {
@@ -89,7 +93,7 @@ $app->group('/admin', function () {
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
-})->add(new Admin());
+})->add(new Admin())->add(new User());
 
 // API
 $app->group('/api', function () {

@@ -33,15 +33,27 @@ class AuthController extends BaseController
     const VerifyEmailWrongEmail = 701;
     const VerifyEmailExist = 702;
 
+
+    /**
+     * @param $request
+     * @param $response
+     * @param $args
+     * @return string
+     */
     public function login($request, $response, $args)
     {
         return $this->view('auth/login');
     }
 
+    /**
+     * @param Request $request
+     * @param $response
+     * @param $args
+     * @return mixed
+     */
     public function loginHandle(Request $request, $response, $args)
     {
 
-        // $data = $request->post('sdf');
         $email = $request->getParam('email');
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
@@ -51,34 +63,33 @@ class AuthController extends BaseController
         $user = User::where('email', '=', $email)->first();
 
         if ($user == null) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::UserNotExist;
-            $res['msg'] = lang('auth.login-fail');
-            return $this->echoJson($response, $res, 400);
+            return $this->echoJson($response, [
+                'error_code' => self::UserNotExist,
+                'msg' => lang('auth.login-fail'),
+            ], 400);
         }
 
         if (!Hash::checkPassword($user->pass, $passwd)) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::UserPasswordWrong;
-            $res['msg'] = lang('auth.login-fail');
-            return $this->echoJson($response, $res, 400);
+            return $this->echoJson($response, [
+                'error_code' => self::UserPasswordWrong,
+                'msg' => lang('auth.login-fail'),
+                'hash' => Hash::passwordHash($passwd),
+            ], 400);
         }
         // @todo
         $ttl = config('auth.session_timeout');
         if ($rememberMe) {
             $ttl = 3600 * 24 * 7;
         }
-        $this->logger->info("login user $user->id ");
+        $token = Factory::getTokenStorage()->store($user, $ttl);
+        $this->logger->info(sprintf("login user %d token: %s  ttl:  %d", $user->id, $token->getAccessToken(), $ttl));
 
-        $token = Factory::getTokenStorage()->store($user,$ttl);
-
-        $res['ret'] = 1;
-        $res['msg'] = '欢迎回来';
-        $res['data'] = [
-            "token" => $token->getAccessToken(),
-        ];
-
-        return $this->echoJson($response, $res);
+        return $this->echoJson($response, [
+            'msg' => '',
+            'data' => [
+                'token' => $token->getAccessToken(),
+            ]
+        ]);
     }
 
     public function register(Request $request, $response, $args)
@@ -232,11 +243,15 @@ class AuthController extends BaseController
         return $this->echoJson($response, $res);
     }
 
+    /**
+     * @param Request $request
+     * @param $response
+     * @param $args
+     * @return mixed
+     */
     public function logout(Request $request, $response, $args)
     {
-        $auth = Factory::getAuth();
-        $auth->logout($request->getCookieParams());
-        // @todo
+        Factory::getTokenStorage()->delete(Http::getTokenFromReq($request));
         return $this->redirect($response, '/auth/login');
     }
 }

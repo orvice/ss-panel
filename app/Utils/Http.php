@@ -58,6 +58,6 @@ class Http
             return $token;
         }
         $cookies =  $req->getCookieParams();
-        return isset($cookies['Token']) ? $cookies['Token'] : null;
+        return isset($cookies['token']) ? $cookies['token'] : null;
     }
 }

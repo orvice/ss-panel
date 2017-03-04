@@ -26,10 +26,6 @@ class Hash
         return $str;
     }
 
-    public static function cookieHash($str)
-    {
-        return substr(hash('sha256', $str . config('auth.salt')), 5, 45);
-    }
 
     /**
      * @param $pwd

@@ -24,6 +24,7 @@ class Auth
         }
 
         if (!Factory::getTokenStorage()->get($token)) {
+            Factory::getLogger()->info("token no redis");
             return $this->login($response);
         }
 

@@ -14,7 +14,7 @@ if (!function_exists('user')) {
      */
     function user()
     {
-        return app()->make('auth')->getUser([]);
+        return \App\Services\Auth\User::getUser();
     }
 
 }

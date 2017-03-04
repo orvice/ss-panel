@@ -37,8 +37,10 @@ class Factory
     /**
      * @return TokenStorageInterface
      */
-    public static function createTokenStorage()
+    public static function getTokenStorage()
     {
         return app()->make('token-storage');
     }
+
+
 }

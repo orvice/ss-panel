@@ -65,6 +65,7 @@
                     this.infoMsg = response.data.msg;
                     console.log("login success");
                     this.$cookie.set('token', response.data.token, 1);
+                    location.href = '/user';
                 }, function (response) {
                     // Fail
                     this.showInfo = true;

@@ -6,12 +6,10 @@ use App\Models\InviteCode;
 use App\Models\User;
 use App\Services\Auth\EmailVerify;
 use App\Services\Factory;
-use App\Services\Logger;
 use App\Utils\Check;
 use App\Utils\Hash;
 use App\Utils\Http;
 use App\Utils\Tools;
-use Interop\Container\ContainerInterface;
 use Slim\Http\Request;
 
 /**
@@ -42,6 +40,7 @@ class AuthController extends BaseController
 
     public function loginHandle(Request $request, $response, $args)
     {
+
         // $data = $request->post('sdf');
         $email = $request->getParam('email');
         $email = strtolower($email);
@@ -65,20 +64,18 @@ class AuthController extends BaseController
             return $this->echoJson($response, $res, 400);
         }
         // @todo
-        $time = config('auth.session_timeout');
+        $ttl = config('auth.session_timeout');
         if ($rememberMe) {
-            $time = 3600 * 24 * 7;
+            $ttl = 3600 * 24 * 7;
         }
         $this->logger->info("login user $user->id ");
-        $auth = Factory::getAuth();
-        $sid = $auth->login($user->id, $time);
-        $this->logger->info($sid);
+
+        $token = Factory::getTokenStorage()->store($user,$ttl);
 
         $res['ret'] = 1;
         $res['msg'] = '欢迎回来';
         $res['data'] = [
-            "sid" => $sid,
-            "token" => $sid,
+            "token" => $token->getAccessToken(),
         ];
 
         return $this->echoJson($response, $res);

@@ -8,6 +8,7 @@ use App\Services\Factory;
 use App\Utils\Tools;
 use App\Utils\Hash;
 use App\Utils\Helper;
+use App\Controllers\BaseController;
 
 /**
  *  ApiController.

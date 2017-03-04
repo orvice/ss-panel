@@ -119,7 +119,7 @@ $app->group('/mu/v2', function () {
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
     $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
-})->add(new Mu());
+})->add(new Mu())->add(new User());
 
 // res
 $app->group('/res', function () {

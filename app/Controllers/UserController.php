@@ -2,11 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Services\Factory;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\Node;
-use App\Models\User;
 use App\Models\TrafficLog;
 use App\Utils\Hash;
 use App\Utils\Tools;
@@ -221,12 +219,7 @@ class UserController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function logout(Request $request, $response, $args)
-    {
-        Factory::getAuth()->logout([]);
-        $newResponse = $response->withStatus(302)->withHeader('Location', '/auth/login');
-        return $newResponse;
-    }
+
 
     public function doCheckIn(Request $request, $response, $args)
     {

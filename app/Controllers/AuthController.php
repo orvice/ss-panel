@@ -25,9 +25,7 @@ class AuthController extends BaseController
     const PasswordNotEqual = 512;
     const EmailUsed = 521;
 
-    // Login Error Code
-    const UserNotExist = 601;
-    const UserPasswordWrong = 602;
+
 
     // Verify Email
     const VerifyEmailWrongEmail = 701;
@@ -45,52 +43,7 @@ class AuthController extends BaseController
         return $this->view('auth/login');
     }
 
-    /**
-     * @param Request $request
-     * @param $response
-     * @param $args
-     * @return mixed
-     */
-    public function loginHandle(Request $request, $response, $args)
-    {
 
-        $email = $request->getParam('email');
-        $email = strtolower($email);
-        $passwd = $request->getParam('passwd');
-        $rememberMe = $request->getParam('remember_me');
-        $this->logger->debug($email . Hash::passwordHash($passwd));
-        // Handle Login
-        $user = User::where('email', '=', $email)->first();
-
-        if ($user == null) {
-            return $this->echoJson($response, [
-                'error_code' => self::UserNotExist,
-                'msg' => lang('auth.login-fail'),
-            ], 400);
-        }
-
-        if (!Hash::checkPassword($user->pass, $passwd)) {
-            return $this->echoJson($response, [
-                'error_code' => self::UserPasswordWrong,
-                'msg' => lang('auth.login-fail'),
-                'hash' => Hash::passwordHash($passwd),
-            ], 400);
-        }
-        // @todo
-        $ttl = config('auth.session_timeout');
-        if ($rememberMe) {
-            $ttl = 3600 * 24 * 7;
-        }
-        $token = Factory::getTokenStorage()->store($user, $ttl);
-        $this->logger->info(sprintf("login user %d token: %s  ttl:  %d", $user->id, $token->getAccessToken(), $ttl));
-
-        return $this->echoJson($response, [
-            'msg' => '',
-            'data' => [
-                'token' => $token->getAccessToken(),
-            ]
-        ]);
-    }
 
     public function register(Request $request, $response, $args)
     {

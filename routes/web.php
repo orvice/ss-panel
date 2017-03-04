@@ -38,13 +38,12 @@ $app->group('/user', function () {
     $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
-    $this->get('/logout', 'App\Controllers\UserController:logout');
+    $this->get('/logout', 'App\Controllers\AuthController:logout');
 })->add(new Auth())->add(new User());
 
 // Auth
 $app->group('/auth', function () {
     $this->get('/login', 'App\Controllers\AuthController:login');
-    $this->post('/login', 'App\Controllers\AuthController:loginHandle');
     $this->get('/register', 'App\Controllers\AuthController:register');
     $this->post('/register', 'App\Controllers\AuthController:registerHandle');
     $this->post('/sendcode', 'App\Controllers\AuthController:sendVerifyEmail');
@@ -97,6 +96,7 @@ $app->group('/admin', function () {
 
 // API
 $app->group('/api', function () {
+    $this->post('/auth/login', 'App\Controllers\Api\AuthController:handleLogin');
     $this->get('/token/{token}', 'App\Controllers\ApiController:token');
     $this->post('/token', 'App\Controllers\ApiController:newToken');
     $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());

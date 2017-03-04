@@ -51,7 +51,7 @@
         props: ['rememberMe', 'loginStr'],
         methods: {
             login () {
-                this.$http.post('/auth/login', {
+                this.$http.post('/api/auth/login', {
                     email: this.email,
                     password: this.password,
                 }, {

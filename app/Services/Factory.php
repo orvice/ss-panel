@@ -3,7 +3,6 @@
 
 namespace App\Services;
 
-use App\Services\Auth\AuthInterface;
 use Psr\SimpleCache\CacheInterface;
 use Psr\Log\LoggerInterface;
 use App\Contracts\TokenStorageInterface;
@@ -26,20 +25,14 @@ class Factory
         return app()->make('log');
     }
 
-    /**
-     * @return AuthInterface
-     */
-    public static function getAuth()
-    {
-        return app()->make('auth');
-    }
+
 
     /**
      * @return TokenStorageInterface
      */
     public static function getTokenStorage()
     {
-        return app()->make('token-storage');
+        return app()->make(TokenStorageInterface::class);
     }
 
 

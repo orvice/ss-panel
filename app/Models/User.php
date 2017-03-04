@@ -162,6 +162,11 @@ class User extends Model
         return Tools::flowAutoShow($total);
     }
 
+    public function getId()
+    {
+        return $this->attributes['id'];
+    }
+
     public function unusedTraffic()
     {
         $total = $this->attributes['u'] + $this->attributes['d'];

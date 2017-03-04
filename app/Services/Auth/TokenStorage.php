@@ -7,6 +7,7 @@ use App\Contracts\TokenStorageInterface;
 use App\Models\User;
 use App\Contracts\TokenInterface;
 use Psr\SimpleCache\CacheInterface;
+use App\Utils\Tools;
 
 class TokenStorage implements TokenStorageInterface
 {
@@ -31,7 +32,9 @@ class TokenStorage implements TokenStorageInterface
      */
     public function store(User $user, $ttl)
     {
-
+        $accessToken = Tools::genToken();
+        $this->cache->set($accessToken, $user->getId(), $ttl);
+        return new Token($accessToken);
     }
 
     /**
@@ -40,7 +43,10 @@ class TokenStorage implements TokenStorageInterface
      */
     public function get($token)
     {
-
+        if (!$this->cache->has($token)) {
+            return null;
+        }
+        return new Token($token);
     }
 
     /**
@@ -49,7 +55,8 @@ class TokenStorage implements TokenStorageInterface
      */
     public function delete($token)
     {
-
+        $this->cache->delete($token);
+        return true;
     }
 
 

@@ -2,6 +2,9 @@
 
 namespace App\Utils;
 
+
+use Psr\Http\Message\ServerRequestInterface;
+
 class Http
 {
     /**
@@ -43,5 +46,18 @@ class Http
         }
 
         return $ip;
+    }
+
+    /**
+     * @param ServerRequestInterface $req
+     * @return null|string
+     */
+    public static function getTokenFromReq(ServerRequestInterface $req){
+        $token =  $req->getHeader('Token');
+        if ($token){
+            return $token;
+        }
+        $cookies =  $req->getCookieParams();
+        return isset($cookies['Token']) ? $cookies['Token'] : null;
     }
 }

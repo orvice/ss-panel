@@ -25,6 +25,7 @@ if (!function_exists('get_version')) {
      */
     function get_version()
     {
-        return VERSION;
+        // @todo
+        return '4.0.0';
     }
 }

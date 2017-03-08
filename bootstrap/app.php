@@ -7,7 +7,7 @@
  * @url https://github.com/Pongtan/LightFish
  */
 
-define("VERSION", '4.0.0');
+// define("VERSION", '4.0.0');
 
 // @todo debug bar support
 // use Tracy\Debugger;

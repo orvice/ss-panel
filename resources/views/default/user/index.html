@@ -79,7 +79,7 @@
                     <div class="box-body">
                         <p> {{ sprintf(lang('user-index.checkin-des'),conf('app.checkin_time')) }} </p>
 
-                        <p> {{ lang("user-index.last-checkin-at") }}  ：<code>{{ user.lastCheckInTime()}}</code></p>
+                        <p> {{ lang("user-index.last-checkin-at") }}  ：<code>{{ user().lastCheckInTime()}}</code></p>
                         
                         {% if user().isAbleToCheckin() %}
                             <p id="checkin-btn">
@@ -107,17 +107,17 @@
                     <div class="box-body">
                         <dl class="dl-horizontal">
                             <dt>{{ lang("ss.port") }}  </dt>
-                            <dd>{{ user.port }}</dd>
+                            <dd>{{ user().port }} </dd>
                             <dt>{{ lang("ss.password") }}  </dt>
-                            <dd>{{ user.passwd }}</dd>
+                            <dd>{{ user().passwd }}</dd>
                             <dt>{{ lang("ss.obfs-protocol") }}  </dt>
-                            <dd>{{ user.protocol}}</dd>
+                            <dd>{{ user().protocol}}</dd>
                             <dt>{{ lang("ss.obfs-plugin") }}  </dt>
-                            <dd>{{ user.obfs}}</dd>
+                            <dd>{{ user().obfs}}</dd>
                             <dt>{{ lang("ss.method") }}  </dt>
-                            <dd>{{ user.method }}</dd>
+                            <dd>{{ user().method }}</dd>
                             <dt>{{ lang("user-index.last-used") }}  </dt>
-                            <dd>{{ user.lastSsTime() }}</dd>
+                            <dd>{{ user().lastSsTime() }}</dd>
                         </dl>
                     </div>
                     <!-- /.box-body -->

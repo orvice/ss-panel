@@ -99,8 +99,8 @@ $app->group('/api', function () {
     $this->post('/auth/login', 'App\Controllers\Api\AuthController:handleLogin');
     $this->get('/token/{token}', 'App\Controllers\ApiController:token');
     $this->post('/token', 'App\Controllers\ApiController:newToken');
-    $this->get('/node', 'App\Controllers\ApiController:node')->add(new Api());
-    $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
+    $this->get('/nodes', 'App\Controllers\Api\NodeController:index')->add(new Api());
+    $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
 });
 
 // mu

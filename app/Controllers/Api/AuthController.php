@@ -64,6 +64,7 @@ class AuthController extends BaseController
             'msg' => '',
             'data' => [
                 'token' => $token->getAccessToken(),
+                'user_id' => $user->id,
             ]
         ]);
     }

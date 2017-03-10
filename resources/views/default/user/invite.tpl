@@ -23,6 +23,16 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-12">
+                <div id="msg-info" class="alert alert-info">
+                    <h4>
+                        <i class="icon fa fa-info"></i>
+                        你知道吗？被你介绍的朋友在第一次充值的时候可以获得15天的额外时长，你自己也可以获得15天的时长返利！
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
@@ -36,12 +46,12 @@
                     <div class="box-body">
                         <p>当前您可以生成<code>{$user->invite_num}</code>个邀请码。 </p>
                         {if $user->invite_num }
-                        <div class="input-group">
-                            <input class="form-control" id="num" type="number" placeholder="要生成的邀请码数量">
-                            <div class="input-group-btn">
-                                <button id="invite" class="btn btn-info">生成我的邀请码</button>
+                            <div class="input-group">
+                                <input class="form-control" id="num" type="number" placeholder="要生成的邀请码数量">
+                                <div class="input-group-btn">
+                                    <button id="invite" class="btn btn-info">生成我的邀请码</button>
+                                </div>
                             </div>
-                        </div>
                         {/if}
                     </div>
                     <!-- /.box -->
@@ -75,22 +85,49 @@
 
             <div class="col-md-6">
                 <div class="callout callout-warning">
-                    <h4>注意！</h4>
+                    <h4>说明</h4>
 
                     <p>邀请码请给认识的需要的人。</p>
 
-                    <p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>
-                </div>
-
-                <div class="callout callout-info">
-                    <h4>说明</h4>
-
                     <p>用户注册48小时后，才可以生成邀请码。</p>
-
-                    <p>邀请码暂时无法购买，请珍惜。</p>
-
-                    <p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>
                 </div>
+
+                <!-- general form elements -->
+                <div class="box box-success">
+                    <div class="box-header">
+                        <i class="fa fa-users"></i>
+                        <h3 class="box-title">邀请的朋友</h3>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                            <tr>
+                                <th>##</th>
+                                <th>用户名</th>
+                                <th>状态</th>
+                                <th>注册时间</th>
+                                <th>上次续费时间</th>
+                            </tr>
+                            {foreach $refBys as $refBy}
+                                <tr>
+                                    <td>#{$refBy->id}</td>
+                                    <td>{$refBy->user_name}</td>
+                                    <td>
+                                        {if $refBy->lastGetGiftTime() == "从未充值"}
+                                            还未充值哦&gt;_&lt;
+                                        {else}
+                                            已返利o(*￣▽￣*)ブ
+                                        {/if}
+                                    </td>
+                                    <td>{$refBy->reg_date}</td>
+                                    <td>{$refBy->lastGetGiftTime()}</td>
+                                </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div><!-- /.box-body -->
+                </div>
+
             </div>
             <!-- /.col (right) -->
         </div>

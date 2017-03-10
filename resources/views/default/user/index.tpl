@@ -12,6 +12,17 @@
 
     <!-- Main content -->
     <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="msg-info" class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4>
+                        <i class="icon fa fa-info"></i>
+                        你知道吗？被你介绍的朋友在第一次充值的时候可以获得15天的额外时长，你自己也可以获得15天的时长返利！
+                    </h4>
+                </div>
+            </div>
+        </div>
         <!-- START PROGRESS BARS -->
         <div class="row">
             <div class="col-md-6">

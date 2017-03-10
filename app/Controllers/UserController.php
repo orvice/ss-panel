@@ -99,7 +99,10 @@ class UserController extends BaseController
     public function invite($request, $response, $args)
     {
         $codes = $this->user->inviteCodes();
-        return $this->view()->assign('codes', $codes)->display('user/invite.tpl');
+        $refBys = $this->user->refByUsers();
+        return $this->view()->assign('codes', $codes)
+            ->assign('refBys', $refBys)
+            ->display('user/invite.tpl');
     }
 
     public function doInvite($request, $response, $args)

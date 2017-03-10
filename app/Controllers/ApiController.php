@@ -118,7 +118,8 @@ class ApiController extends BaseController
     public function cleanInactiveUsers() {
         $users = User::all();
         foreach ($users as $user) {
-            if($user->expire_time > time()) { // 没欠费
+            if($user->ref_by != 0 || $user->expire_time > time()) { // 没欠费
+                continue;
             }
             else { //欠费
                 $user->enable = false;

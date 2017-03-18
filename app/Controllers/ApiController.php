@@ -151,7 +151,7 @@ class ApiController extends BaseController
 
     //没有保护机制 切勿频繁触发
     public function sendReminderMail($request) {
-        if($request->key != Config::get('key'))
+        if($request->getParam('key') != Config::get('key'))
             return json_encode([ 'result' => false, 'msg' => 'invalid key' ]);
         $mail = new Mail();
         $users = User::all();

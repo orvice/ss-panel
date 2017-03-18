@@ -1,7 +1,7 @@
-亲爱的 {$username}：
-
-{$text}
-
--------------------
-2645 Network.
+亲爱的 {$username}：<br>
+<br>
+{$text}<br>
+<br>
+-------------------<br>
+2645 Network.<br>
 {$time}

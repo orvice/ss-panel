@@ -97,7 +97,6 @@
                     console.log(data);
                     $("#msg-error").hide(100);
                     $("#msg-success").show(100);
-                    $("#msg-success-p").html(data.msg);
                 },
                 error: function (jqXHR) {
                     $("#msg-error").hide(10);

@@ -136,6 +136,12 @@
                 </li>
 
                 <li>
+                    <a href="/admin/sendmail">
+                        <i class="fa  fa-envelope"></i> <span>邮件通知</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/user">
                         <i class="fa fa-reply-all"></i> <span>用户中心</span>
                     </a>

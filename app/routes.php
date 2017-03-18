@@ -110,6 +110,9 @@ $app->group('/admin', function () {
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');
     $this->post('/test/sendmail', 'App\Controllers\Admin\TestController:sendMailPost');
 
+    $this->get('/sendmail', 'App\Controllers\AdminController:sendMail');
+    $this->post('/sendmail', 'App\Controllers\AdminController:sendMailPost');
+
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
@@ -125,6 +128,7 @@ $app->group('/api', function () {
     $this->get('/user/{id}', 'App\Controllers\ApiController:userInfo')->add(new Api());
     $this->get('/do', 'App\Controllers\ApiController:maintainPayment');
     $this->get('/recycle', 'App\Controllers\ApiController:cleanInactiveUsers');
+    $this->get('/sendmail', 'App\Controllers\ApiController:sendReminderMail');
 });
 
 // mu

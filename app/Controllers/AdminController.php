@@ -5,9 +5,11 @@ namespace App\Controllers;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\TrafficLog;
+use App\Models\User;
 use App\Services\Analytics;
 use App\Services\DbConfig;
 use App\Utils\Tools;
+use App\Services\Mail;
 
 /**
  *  Admin Controller
@@ -97,6 +99,47 @@ class AdminController extends UserController
         $res['ret'] = 1;
         $res['msg'] = "更新成功";
         return $response->getBody()->write(json_encode($res));
+    }
+
+    public function sendMail($request, $response, $args)
+    {
+        return $this->view()->display('admin/sendmail.tpl');
+    }
+
+    public function sendMailPost($request, $response, $args)
+    {
+        $who = $request->getParam('who');
+        $subject = $request->getParam('subject');
+        $text = $request->getParam('text');
+        $res = array();
+        $users = array();
+        if($who == 'all') {
+            $users = User::all();
+        }
+        else if($who == 'active') {
+            $users = User::where('enable', true)->get();
+        }
+        foreach ($users as $user) {
+            try {
+                Mail::send($user->email, $subject, 'news/notice.tpl', [
+                    'username' => $user->user_name,
+                    'time' => Tools::toDateTime(time()),
+                    'text' => $text
+                ], [
+                    BASE_PATH . '/LICENSE'
+                ]);
+                array_push($res, [
+                    "ret" => 1,
+                    "msg" => "ok"
+                ]);
+            } catch (\Exception $e) {
+                array_push($res, [
+                    "ret" => 0,
+                    "msg" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->echoJson($response, $res);
     }
 
 }

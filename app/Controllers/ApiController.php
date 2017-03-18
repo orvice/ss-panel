@@ -6,6 +6,7 @@ use App\Models\InviteCode;
 use App\Models\Node,App\Models\User;
 use App\Services\Factory;
 use App\Services\Config;
+use App\Services\Mail;
 use App\Utils\Tools,App\Utils\Hash,App\Utils\Helper;
 /**
  *  ApiController
@@ -148,4 +149,48 @@ class ApiController extends BaseController
         return json_encode(true);
     }
 
+    //没有保护机制 切勿频繁触发
+    public function sendReminderMail($request) {
+        if($request->key != Config::get('key'))
+            return json_encode([ 'result' => false, 'msg' => 'invalid key' ]);
+        $mail = new Mail();
+        $users = User::all();
+        $res = array();
+        foreach ($users as $user) {
+            if((strtotime("-6 day", $user->expire_time) > time() && strtotime("-7 day", $user->expire_time) < time()) ||
+                ($user->expire_time > time() && strtotime("-2 day", $user->expire_time) < time())
+            ) { // 发送提醒邮件
+                try {
+                    $mail->send($user->email, "2645 Network 用户续期提醒", 'service/remind.tpl', ['username' => $user->user_name, 'expiredate' => $user->expireTime()]);
+                    array_push($res, [
+                        "ret" => 1,
+                        "msg" => "ok"
+                    ]);
+                }
+                catch (\Exception $e) {
+                    array_push($res, [
+                        "ret" => 0,
+                        "msg" => $e->getMessage()
+                    ]);
+                }
+            }
+            else if($user->expire_time < time() && strtotime("+1 day", $user->expire_time) > time()
+            ) { // 发送提醒邮件
+                try {
+                    $mail->send($user->email, "2645 Network 用户欠费提醒", 'service/expire.tpl', [ 'username' => $user->user_name]);
+                    array_push($res, [
+                        "ret" => 1,
+                        "msg" => "ok"
+                    ]);
+                }
+                catch (\Exception $e) {
+                    array_push($res, [
+                        "ret" => 0,
+                        "msg" => $e->getMessage()
+                    ]);
+                }
+            }
+        }
+        return json_encode($res);
+    }
 }

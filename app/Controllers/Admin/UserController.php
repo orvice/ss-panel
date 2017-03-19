@@ -67,15 +67,14 @@ class UserController extends AdminController
         $id = $args['id'];
         $user = User::find($id);
         $nowtime = time();
+        $user->expire_time = strtotime("+".$request->getParam('month_num')." month",
+            $nowtime > $user->expire_time ? $nowtime : $user->expire_time);
+        $user->enable = true;
         //邀请激励机制
-        if($user->last_get_gift_time == 0)
+        if($user->last_get_gift_time == 0 && $user->ref_by != 0)
         {
             //Bonus for current user
-            $user->last_get_gift_time = $nowtime;
-            $user->expire_time = strtotime("+".$request->getParam('month_num')." month",
-                $nowtime > $user->expire_time ? $nowtime : $user->expire_time);
             $user->expire_time = strtotime("+15 day", $user->expire_time);
-            $user->enable = true;
             //Bonus for ref user
             $ref_user = User::find($user->ref_by);
             if(!empty($ref_user))
@@ -85,6 +84,7 @@ class UserController extends AdminController
                 $ref_user->save();
             }
         }
+        $user->last_get_gift_time = $nowtime;
         //记log
         if (!$user->save()) {
             $rs['ret'] = 0;

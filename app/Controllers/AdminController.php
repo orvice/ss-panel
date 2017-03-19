@@ -129,11 +129,13 @@ class AdminController extends UserController
                     BASE_PATH . '/LICENSE'
                 ]);
                 array_push($res, [
+                    "email" => $user->email,
                     "ret" => 1,
                     "msg" => "ok"
                 ]);
             } catch (\Exception $e) {
                 array_push($res, [
+                    "email" => $user->email,
                     "ret" => 0,
                     "msg" => $e->getMessage()
                 ]);

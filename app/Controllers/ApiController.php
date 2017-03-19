@@ -163,12 +163,14 @@ class ApiController extends BaseController
                 try {
                     $mail->send($user->email, "2645 Network 用户续期提醒", 'service/remind.tpl', ['username' => $user->user_name, 'expiredate' => $user->expireTime()]);
                     array_push($res, [
+                        "email" => $user->email,
                         "ret" => 1,
                         "msg" => "ok"
                     ]);
                 }
                 catch (\Exception $e) {
                     array_push($res, [
+                        "email" => $user->email,
                         "ret" => 0,
                         "msg" => $e->getMessage()
                     ]);
@@ -179,12 +181,14 @@ class ApiController extends BaseController
                 try {
                     $mail->send($user->email, "2645 Network 用户欠费提醒", 'service/expire.tpl', [ 'username' => $user->user_name]);
                     array_push($res, [
+                        "email" => $user->email,
                         "ret" => 1,
                         "msg" => "ok"
                     ]);
                 }
                 catch (\Exception $e) {
                     array_push($res, [
+                        "email" => $user->email,
                         "ret" => 0,
                         "msg" => $e->getMessage()
                     ]);

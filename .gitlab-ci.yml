@@ -1,48 +1,15 @@
-before_script:
-  - bash .gitlab-ci.sh
-
-variables:
-  MYSQL_DATABASE: project_name
-  MYSQL_ROOT_PASSWORD: secret
-
-phpunit:php5.5:mysql5.6:
-  image: php:5.5
-  services:
-    - mysql:5.6
+# This file is a template, and might need editing before it works on your project.
+# Official docker image.
+image: docker:latest
+services:
+  - docker:dind
+stages:
+    - build
+build:
+  stage: build
+  image: gitlab/dind
   script:
-    - php vendor/bin/phpunit --colors
-
-phpunit:php5.6:mysql5.6:
-  image: php:5.6
-  services:
-    - mysql:5.6
-  script:
-    - php vendor/bin/phpunit --colors
-
-phpunit:php7.0:mysql5.6:
-  image: php:7.0
-  services:
-    - mysql:5.6
-  script:
-    - php vendor/bin/phpunit --colors
-
-phpunit:php5.5:mysql5.7:
-  image: php:5.5
-  services:
-    - mysql:5.7
-  script:
-    - php vendor/bin/phpunit --colors
-
-phpunit:php5.6:mysql5.7:
-  image: php:5.6
-  services:
-    - mysql:5.7
-  script:
-    - php vendor/bin/phpunit --colors
-
-phpunit:php7.0:mysql5.7:
-  image: php:7.0
-  services:
-    - mysql:5.7
-  script:
-    - php vendor/bin/phpunit --colors
+    - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
+    - docker login -u "$CI_BUILD_USER"  -p "$CI_BUILD_TOKEN" $CI_REGISTRY
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
+    - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"

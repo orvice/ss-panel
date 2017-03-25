@@ -44,13 +44,13 @@
                             </div>
                             <div id="msg-info" class="alert alert-warning">
                                 <p>
-                                    不过，你需要至少保持冻结一个月才会被延期！
+                                    不过，你需要至少保持冻结一个月才会被视为有效冻结！
                                 </p>
                             </div>
                         {else}
                             <div id="msg-info" class="alert alert-warning">
                                 <p>
-                                    你需要至少保持冻结 30 天才会被延期！
+                                    你需要至少保持冻结 30 天才会被视为有效冻结！
                                 </p>
                             </div>
                             <dl class="dl-horizontal">

@@ -101,7 +101,7 @@ CREATE TABLE `user` (
   `obfs` varchar(32) NOT NULL DEFAULT 'plain',
   `switch` tinyint(4) NOT NULL DEFAULT '1',
   `enable` tinyint(4) NOT NULL DEFAULT '1',
-  `freeze` tinyint(4) NOT NULL DEFAULT '1',
+  `freeze` tinyint(4) NOT NULL DEFAULT '0',
   `type` tinyint(4) NOT NULL DEFAULT '1',
   `last_get_gift_time` int(11) NOT NULL DEFAULT '0',
   `last_check_in_time` int(11) NOT NULL DEFAULT '0',

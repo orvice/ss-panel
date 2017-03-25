@@ -54,6 +54,7 @@
                         <dl class="dl-horizontal">
                             <dt>账户状态</dt>
                             <dd>{if $user->enable }正常
+                                {elseif $user->freeze}已冻结
                                 {else}已欠费
                                 {/if}</dd>
                             <dt>上次续费时间</dt>
@@ -62,6 +63,10 @@
                             <dd>{$user->lastRestPassTime()}</dd>
                             <dt>续费到期时间</dt>
                             <dd>{$user->expireTime()}</dd>
+                            {if $user->freeze}
+                                <dt>已冻结时间</dt>
+                                <dd>{$user->frozenTime()}</dd>
+                            {/if}
                         </dl>
                     </div>
                     <!-- /.box-body -->

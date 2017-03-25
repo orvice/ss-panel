@@ -199,6 +199,7 @@ class UserController extends BaseController
     {
         if($this->user->enable) {
             if(!$this->user->freeze) {
+                $this->user->enable = false;
                 $this->user->freeze = true;
                 $this->user->last_freeze_time = time();
                 $this->user->save();
@@ -212,28 +213,21 @@ class UserController extends BaseController
                 return $this->echoJson($response, $res);
             }
         }
-        else {
-            $res['msg'] = "您尚未激活";
-            $res['ret'] = 0;
-            return $this->echoJson($response, $res);
-        }
-    }
-
-    public function unFreeze($request, $response, $args)
-    {
-        if($this->user->freeze)
+        elseif ($this->user->freeze)
         {
-            if(strtotime("+30 day", $this->user->last_freeze_time) > time()) {
+            if(strtotime("+30 day", $this->user->last_freeze_time) < time()) {
                 $this->user->freeze = false;
                 $this->user->expire_time += time() - $this->user->last_freeze_time;
-                $user->last_rest_pass_time += time() - $this->user->last_freeze_time;
+                $this->user->last_rest_pass_time += time() - $this->user->last_freeze_time;
+                $this->user->enable = true;
                 $this->user->save();
-                $res['msg'] = "解冻成功";
+                $res['msg'] = "解冻成功！";
                 $res['ret'] = 1;
                 return $this->echoJson($response, $res);
             }
             else {
                 $this->user->freeze = false;
+                $this->user->enable = true;
                 $this->user->save();
                 $res['msg'] = "解冻成功";
                 $res['ret'] = 1;
@@ -241,7 +235,7 @@ class UserController extends BaseController
             }
         }
         else {
-            $res['msg'] = "您未冻结";
+            $res['msg'] = "您尚未激活";
             $res['ret'] = 0;
             return $this->echoJson($response, $res);
         }

@@ -59,6 +59,7 @@ $app->group('/user', function () {
     $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
+    $this->post('/freeze', 'App\Controllers\UserController:freeze');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 

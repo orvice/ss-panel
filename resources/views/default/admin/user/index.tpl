@@ -43,6 +43,8 @@
                                 <th>已用流量/总流量</th>
                                 <th>最后缴费时间</th>
                                 <th>最后流量重置时间</th>
+                                <th>冻结</th>
+                                <th>最后冻结时间</th>
                                 <th>最后在线时间</th>
                                 <th>最后签到时间</th>
                                 <th>到期时间</th>
@@ -61,6 +63,8 @@
                                 <td>{$user->usedTraffic()}/{$user->enableTraffic()}</td>
                                 <td>{$user->lastGetGiftTime()}</td>
                                 <td>{$user->lastRestPassTime()}</td>
+                                <td>{$user->freeze}</td>
+                                <td>{$user->lastFreezeTime()}</td>
                                 <td>{$user->lastSsTime()}</td>
                                 <td>{$user->lastCheckInTime()}</td>
                                 <td>{$user->expireTime()}</td>

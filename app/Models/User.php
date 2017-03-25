@@ -96,6 +96,14 @@ class User extends Model
         return Tools::toDateTime($this->attributes['last_freeze_time']);
     }
 
+    public function frozenTime()
+    {
+        if ($this->attributes['freeze'] == 0) {
+            return "未冻结";
+        }
+        return Tools::secondsToTime(time() - $this->attributes['last_freeze_time']);
+    }
+
     public function regDate()
     {
         return $this->attributes['reg_date'];

@@ -26,6 +26,7 @@ class User extends Model
         "port" => 'int',
         "transfer_enable" => 'float',
         "enable" => 'int',
+        "freeze" => 'int',
         'is_admin' => 'boolean',
     ];
 
@@ -34,7 +35,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $hidden = ['pass', 'last_get_gift_time', 'last_rest_pass_time', 'reg_ip', 'is_email_verify', 'user_name', 'ref_by', 'is_admin'];
+    protected $hidden = ['pass', 'last_get_gift_time', 'last_rest_pass_time', 'last_freeze_time', 'reg_ip', 'is_email_verify', 'user_name', 'ref_by', 'is_admin'];
 
     public function getGravatarAttribute()
     {
@@ -85,6 +86,14 @@ class User extends Model
             return "从未充值";
         }
         return Tools::toDateTime($this->attributes['expire_time']);
+    }
+
+    public function lastFreezeTime()
+    {
+        if ($this->attributes['last_freeze_time'] == 0) {
+            return "从未冻结";
+        }
+        return Tools::toDateTime($this->attributes['last_freeze_time']);
     }
 
     public function regDate()

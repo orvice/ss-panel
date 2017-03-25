@@ -195,6 +195,58 @@ class UserController extends BaseController
         return $newResponse;
     }
 
+    public function freeze($request, $response, $args)
+    {
+        if($this->user->enable) {
+            if(!$this->user->freeze) {
+                $this->user->freeze = true;
+                $this->user->last_freeze_time = time();
+                $this->user->save();
+                $res['msg'] = "冻结成功";
+                $res['ret'] = 1;
+                return $this->echoJson($response, $res);
+            }
+            else {
+                $res['msg'] = "您已冻结";
+                $res['ret'] = 0;
+                return $this->echoJson($response, $res);
+            }
+        }
+        else {
+            $res['msg'] = "您尚未激活";
+            $res['ret'] = 0;
+            return $this->echoJson($response, $res);
+        }
+    }
+
+    public function unFreeze($request, $response, $args)
+    {
+        if($this->user->freeze)
+        {
+            if(strtotime("+30 day", $this->user->last_freeze_time) > time()) {
+                $this->user->freeze = false;
+                $this->user->expire_time += time() - $this->user->last_freeze_time;
+                $user->last_rest_pass_time += time() - $this->user->last_freeze_time;
+                $this->user->save();
+                $res['msg'] = "解冻成功";
+                $res['ret'] = 1;
+                return $this->echoJson($response, $res);
+            }
+            else {
+                $this->user->freeze = false;
+                $this->user->save();
+                $res['msg'] = "解冻成功";
+                $res['ret'] = 1;
+                return $this->echoJson($response, $res);
+            }
+        }
+        else {
+            $res['msg'] = "您未冻结";
+            $res['ret'] = 0;
+            return $this->echoJson($response, $res);
+        }
+    }
+
     public function doCheckIn($request, $response, $args)
     {
         if (!$this->user->isAbleToCheckin()) {

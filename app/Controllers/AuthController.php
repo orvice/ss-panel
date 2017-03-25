@@ -184,6 +184,7 @@ class AuthController extends BaseController
         $user->passwd = Tools::genRandomChar(6);
         $user->port = Tools::getLastPort() + 1;
         $user->enable = false;
+        $user->freeze = false;
         $user->t = 0;
         $user->method = "aes-256-cfb";
         $user->u = 0;

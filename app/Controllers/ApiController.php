@@ -100,7 +100,8 @@ class ApiController extends BaseController
     public function maintainPayment() {
         $users = User::all();
         foreach ($users as $user) {
-            if($user->expire_time > time()) { // 没欠费
+            if($user->freeze);
+            else if($user->expire_time > time()) { // 没欠费
                 if(strtotime("+30 day", $user->last_rest_pass_time) <= time()) { // 需要重置
                     $user->last_rest_pass_time = time();
                     $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
@@ -119,7 +120,7 @@ class ApiController extends BaseController
     public function cleanInactiveUsers() {
         $users = User::all();
         foreach ($users as $user) {
-            if($user->ref_by != 0 || $user->expire_time > time()) { // 没欠费
+            if($user->ref_by != 0 || $user->expire_time > time() || $user->freeze) { // 没欠费
                 continue;
             }
             else { //欠费
@@ -157,6 +158,7 @@ class ApiController extends BaseController
         $users = User::all();
         $res = array();
         foreach ($users as $user) {
+            if($user->freeze) continue; 
             if((strtotime("-6 day", $user->expire_time) > time() && strtotime("-7 day", $user->expire_time) < time()) ||
                 ($user->expire_time > time() && strtotime("-2 day", $user->expire_time) < time())
             ) { // 发送提醒邮件

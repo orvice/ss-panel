@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\TrafficLog;
+use App\Models\NodeInfoLog;
+use App\Models\NodeOnlineLog;
 use App\Services\Analytics;
 use App\Services\DbConfig;
 use App\Utils\Tools;
@@ -96,6 +98,33 @@ class AdminController extends UserController
         }
         $res['ret'] = 1;
         $res['msg'] = "更新成功";
+        return $response->getBody()->write(json_encode($res));
+    }
+    public function cleanNodelog($request, $response, $args)
+    {
+        if($clean = NodeInfoLog::TRUNCATE()){
+            $res['ret'] = 1;
+            return $response->getBody()->write(json_encode($res));
+        }
+        $res['ret'] = 0;
+        return $response->getBody()->write(json_encode($res));
+    }
+    public function cleanOnlinelog($request, $response, $args)
+    {
+        if($clean = NodeOnlineLog::TRUNCATE()){
+            $res['ret'] = 1;
+            return $response->getBody()->write(json_encode($res));
+        }
+        $res['ret'] = 0;
+        return $response->getBody()->write(json_encode($res));
+    }
+    public function cleantrafficlog($request, $response, $args)
+    {
+        if($clean = TrafficLog::TRUNCATE()){
+            $res['ret'] = 1;
+            return $response->getBody()->write(json_encode($res));
+        }
+        $res['ret'] = 0;
         return $response->getBody()->write(json_encode($res));
     }
 

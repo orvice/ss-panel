@@ -24,6 +24,7 @@ class User extends Model
         "u" => 'int',
         "d" => 'int',
         "port" => 'int',
+        "switch" => 'int',
         "transfer_enable" => 'float',
         "enable" => 'int',
         "freeze" => 'int',

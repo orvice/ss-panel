@@ -44,8 +44,8 @@
             </div>
             <div class="box-body">
                 <dl class="dl-horizontal">
-                    <dt>Wingy（免费，有广告）</dt>
-                    <dd><a href="https://itunes.apple.com/cn/app/wingy-http-s-socks5-proxy-utility/id1178584911?mt=8">App Store</a></dd>
+                    <dt><del>Wingy（免费，有广告）</del>多数用户反应此版本不好使 本页面更新于 2017-04-06 </dt>
+                    <dd><a href="https://itunes.apple.com/cn/app/wingy-http-s-socks5-proxy-utility/id1178584911?mt=8"><del>App Store</del></a></dd>
                     <dt>Wingy（￥6）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/wingy-free-proxy-utility-for/id1148026741?mt=8">App Store</a></dd>
                     <dt>Shadowrocket（￥18）</dt>

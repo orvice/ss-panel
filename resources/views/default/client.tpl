@@ -50,7 +50,7 @@
                     <dd><a href="https://itunes.apple.com/cn/app/wingy-free-proxy-utility-for/id1148026741?mt=8">App Store</a></dd>
                     <dt>Shadowrocket（￥18）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8">App Store</a></dd>
-                    <dt>Potatso（￥45）</dt>
+                    <dt>Potatso（￥68）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/potatso/id1070901416?mt=8">App Store</a></dd>
                     <dt>Surge（￥328）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8">App Store</a></dd>

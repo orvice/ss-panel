@@ -186,7 +186,7 @@ class AuthController extends BaseController
         $user->enable = false;
         $user->freeze = false;
         $user->t = 0;
-        $user->method = "aes-256-cfb";
+        $user->method = "aes-128-gcm";
         $user->u = 0;
         $user->d = 0;
         $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));

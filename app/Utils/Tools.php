@@ -201,7 +201,7 @@ class Tools
     {
         $user = User::orderBy('port', 'desc')->first();
         if ($user == null) {
-            return 1024; // @todo
+            return 50000; // @todo
         }
         return $user->port;
     }

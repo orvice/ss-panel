@@ -55,9 +55,18 @@
                                         <li><a href="./node/{$node->id}">加密方式 <span
                                                         class="pull-right badge bg-green">{if $node->custom_method == 1} {$user->method} {else} {$node->method} {/if}</span></a>
                                         </li>
-                                        <li><a href="./node/{$node->id}">负载: <span
-                                                        class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a>
-                                        </li>
+                                        {if $node->ssr}
+                                            <li><a href="./node/{$node->id}">连接协议: <span
+                                                            class="pull-right badge bg-maroon">{$node->protocol}</span></a>
+                                            </li>
+                                            <li><a href="./node/{$node->id}">连接端口: <span
+                                                            class="pull-right badge bg-maroon">{if $node->ssr_port == 0} {$user->port} {else} {$node->ssr_port} {/if}</span></a>
+                                            </li>
+                                        {else}
+                                            <li><a href="./node/{$node->id}">负载: <span
+                                                            class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a>
+                                            </li>
+                                        {/if}
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
@@ -74,6 +83,11 @@
                                         <li><a href="./node/{$node->id}">Uptime: <span
                                                         class="pull-right badge bg-green">{$node->getNodeUptime()}</span></a>
                                         </li>
+                                        {if $node->ssr}
+                                            <li><a href="./node/{$node->id}">负载: <span
+                                                            class="pull-right badge bg-green">{$node->getNodeLoad()}</span></a>
+                                            </li>
+                                        {/if}
                                     </ul>
                                 </div>
                             </div>

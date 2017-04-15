@@ -49,6 +49,14 @@ CREATE TABLE `ss_node` (
   `status` varchar(128) NOT NULL,
   `offset` int(11) NOT NULL DEFAULT '0',
   `sort` int(3) NOT NULL,
+  `ssr` tinyint(4) NOT NULL DEFAULT '0',
+  `protocol` varchar(64),
+  `protocol_param` varchar(128),
+  `obfs` varchar(64),
+  `obfs_param` varchar(128),
+  `ssr_port` int(11) NOT NULL DEFAULT '0',
+  `add_method` varchar(64),
+  `add_passwd` varchar(16),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

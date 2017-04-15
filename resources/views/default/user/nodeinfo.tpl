@@ -72,6 +72,63 @@
             </div>
             <!-- /.col (right) -->
         </div>
+        {if $ssr}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-solid bg-maroon">
+                        <div class="box-header">
+                            <i class="fa fa-code"></i>
+
+                            <h3 class="box-title">SSR 配置Json</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <textarea class="form-control" rows="6">{$jsonr_show}</textarea>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <div class="box box-solid bg-maroon">
+                        <div class="box-header">
+                            <i class="fa fa-code"></i>
+
+                            <h3 class="box-title">SSR 配置地址</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="input-group">
+                                <input type="text" id="ssr-qr-text" class="form-control" value="{$ssrqr}">
+                                <div class="input-group-btn">
+                                    <a class="btn btn-primary btn-flat" href="{$ssrqr}">></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col (right) -->
+
+                <div class="col-md-6">
+                    <div class="box box-solid bg-maroon">
+                        <div class="box-header">
+                            <i class="fa fa-qrcode"></i>
+
+                            <h3 class="box-title">SSR 配置二维码</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="text-center">
+                                <div id="ssr-qr"></div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        {/if}
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-solid">
@@ -130,6 +187,10 @@
             var text_qrcode = jQuery('#ss-qr-text').val();
             jQuery('#ss-qr').qrcode({
                 "text": text_qrcode
+            });
+            var text_rqrcode = jQuery('#ssr-qr-text').val();
+            jQuery('#ssr-qr').qrcode({
+                "text": text_rqrcode
             });
             var text_surge_base = jQuery('#surge-base-text').val();
             jQuery('#surge-base-qr').qrcode({

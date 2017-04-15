@@ -23,6 +23,7 @@
                                 <th>节点</th>
                                 <th>加密</th>
                                 <th>描述</th>
+                                <th>SSR</th>
                                 <th>排序</th>
                                 <th>操作</th>
                             </tr>
@@ -32,6 +33,7 @@
                                 <td> {$node->name}</td>
                                 <td>{$node->method}</td>
                                 <td>{$node->info}</td>
+                                <td>{$node->ssr}</td>
                                 <td>{$node->sort}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="/admin/node/{$node->id}/edit">编辑</a>

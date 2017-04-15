@@ -77,9 +77,37 @@ class UserController extends BaseController
         $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
         $surge_proxy .= "[Proxy]\n";
         $surge_proxy .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . "," . Config::get('baseUrl') . "/downloads/SSEncrypt.module";
+
+        $ssr = $node->ssr;
+        if($ssr) {
+            $aryr['server'] = $node->server;
+            $aryr['protocol'] = $node->protocol;
+            $aryr['obfs'] = $node->obfs;
+            $aryr['obfs_param'] = $node->obfs_param;
+            if($node->ssr_port == 0) {
+                $aryr['server_port'] = $this->user->port;
+                $aryr['password'] = $this->user->passwd;
+                $aryr['method'] = $this->user->method;
+                $aryr['protocol_param'] = $node->protocol_param;
+            } else {
+                $aryr['server_port'] = $node->ssr_port;
+                $aryr['password'] = $node->add_passwd;
+                $aryr['method'] = $node->add_method;
+                $aryr['protocol_param'] = strval($this->user->port) . ":" . $this->user->passwd;
+            }
+            $jsonr = json_encode($aryr);
+            $jsonr_show = json_encode($aryr, JSON_PRETTY_PRINT);
+            $ssrurl = $aryr['server'] . ":" . $aryr['server_port'] . ":" . $aryr['protocol'] . ":" . $aryr['method'] . ":" . $aryr['obfs'] . ":" . strtr(base64_encode($aryr['password']), '+/=', '-_,')
+                . "/?obfsparam=" . strtr(base64_encode($aryr['obfs_param']), '+/=', '-_,') . "&protoparam=" . strtr(base64_encode($aryr['protocol_param']), '+/=', '-_,') . "&udpport=1";
+            $ssrqr = "ssr://" . strtr(base64_encode($ssrurl), '+/=', '-_,');
+        }
+
         $user = Auth::getUser();
         if($user->enable)
-            return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+            return $this->view()->assign('ssr', $ssr)
+                ->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)
+                ->assign('jsonr', $jsonr)->assign('jsonr_show', $jsonr_show)->assign('ssrqr', $ssrqr)
+                ->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
         else
             return $this->redirect($response,'/user');
     }

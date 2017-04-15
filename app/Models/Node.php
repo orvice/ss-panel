@@ -90,4 +90,29 @@ class Node extends Model
             "chacha20-ietf-poly1305" => "chacha20-ietf-poly1305",
         ];
     }
+
+    public static function getProtocolMethod()
+    {
+        return [
+            "origin" => "origin",
+            "verify_simple" => "verify_simple",
+            "verify_sha1" => "verify_sha1",
+            "auth_sha1" => "auth_sha1",
+            "auth_sha1_v2" => "auth_sha1_v2",
+            "auth_sha1_v4" => "auth_sha1_v4",
+            "auth_aes128_sha1" => "auth_aes128_sha1",
+            "auth_aes128_md5" => "auth_aes128_md5"
+        ];
+    }
+
+    public static function getObfsMethod()
+    {
+        return [
+            "plain" => "plain",
+            "http_simple" => "http_simple",
+            "http_post" => "http_post",
+            "tls_simple" => "tls_simple",
+            "tls1.2_ticket_auth" => "tls1.2_ticket_auth"
+        ];
+    }
 }

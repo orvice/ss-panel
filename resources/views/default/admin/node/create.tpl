@@ -203,7 +203,7 @@
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="add_method">
-                                                {foreach $method as $cipher}
+                                                {foreach $ssrmethod as $cipher}
                                                     <option value="{$cipher}">{$cipher}</option>
                                                 {/foreach}
                                             </select>

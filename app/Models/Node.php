@@ -91,6 +91,29 @@ class Node extends Model
         ];
     }
 
+    public static function getSSRMethod()
+    {
+        return [
+            "table" => "table",
+            "rc4" => "rc4",
+            "rc4-md5" => "rc4-md5",
+            "rc4-md5-6" => "rc4-md5-6",
+            "aes-128-cfb" => "aes-128-cfb",
+            "aes-192-cfb" => "aes-192-cfb",
+            "aes-256-cfb" => "aes-256-cfb",
+            "aes-128-ctr" => "aes-128-ctr",
+            "aes-192-ctr" => "aes-192-ctr",
+            "aes-256-ctr" => "aes-256-ctr",
+            "bf-cfb" => "bf-cfb",
+            "camellia-128-ctr" => "camellia-128-ctr",
+            "camellia-192-ctr" => "camellia-192-ctr",
+            "camellia-256-ctr" => "camellia-256-ctr",
+            "chacha20" => "chacha20",
+            "salsa20" => "salsa20",
+            "chacha20-ietf" => "chacha20-ietf",
+        ];
+    }
+
     public static function getProtocolMethod()
     {
         return [

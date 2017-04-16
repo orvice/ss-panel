@@ -16,9 +16,11 @@ class NodeController extends AdminController
     public function create($request, $response, $args)
     {
         $method = Node::getCustomerMethod();
+        $ssrmethod = Node::getSSRMethod();
         $protocol = Node::getProtocolMethod();
         $obfs = Node::getObfsMethod();
         return $this->view()->assign('method', $method)
+            ->assign('ssrmethod', $ssrmethod)
             ->assign('protocol', $protocol)
             ->assign('obfs', $obfs)
             ->display('admin/node/create.tpl');
@@ -62,10 +64,12 @@ class NodeController extends AdminController
 
         }
         $method = Node::getCustomerMethod();
+        $ssrmethod = Node::getSSRMethod();
         $protocol = Node::getProtocolMethod();
         $obfs = Node::getObfsMethod();
         return $this->view()->assign('node', $node)
             ->assign('method', $method)
+            ->assign('ssrmethod', $ssrmethod)
             ->assign('protocol', $protocol)
             ->assign('obfs', $obfs)
             ->display('admin/node/edit.tpl');

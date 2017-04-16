@@ -74,13 +74,6 @@ class Node extends Model
     public static function getCustomerMethod()
     {
         return [
-            "rc4-md5" => "rc4-md5",
-            "aes-128-cfb" => "aes-128-cfb",
-            "aes-192-cfb" => "aes-192-cfb",
-            "aes-256-cfb" => "aes-256-cfb",
-            "des-cfb" => "des-cfb",
-            "bf-cfb" => "bf-cfb",
-            "cast5-cfb" => "cast5-cfb",
             "chacha20" => "chacha20",
             "salsa20" => "salsa20",
             "chacha20-ietf" => "chacha20-ietf",

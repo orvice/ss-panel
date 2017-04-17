@@ -85,8 +85,12 @@ $app->group('/password', function () {
 $app->group('/admin', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
+    $this->get('/sys', 'App\Controllers\AdminController:sysinfo');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
+    $this->post('/cleannodelog', 'App\Controllers\AdminController:cleanNodelog');
+    $this->post('/cleanonlinelog', 'App\Controllers\AdminController:cleanOnlinelog');
+    $this->post('/cleantrafficlog', 'App\Controllers\AdminController:cleantrafficlog');
     // app config
     $this->get('/config', 'App\Controllers\AdminController:config');
     $this->put('/config', 'App\Controllers\AdminController:updateConfig');
@@ -117,7 +121,6 @@ $app->group('/admin', function () {
     $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
-    $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
 

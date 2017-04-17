@@ -6,9 +6,26 @@
             系统维护
         </h1>
     </section>
-    <!-- Main content -->
+
     <!-- Main content -->
     <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="msg-error" class="alert alert-warning alert-dismissable" style="display:none">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+
+                    <p id="msg-error-p"></p>
+                </div>
+
+                <div id="msg-success" class="alert alert-success alert-dismissable" style="display:none">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-info"></i> 清理成功!</h4>
+
+                    <p id="msg-success-p"></p>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="box box-primary">
@@ -62,10 +79,14 @@
                 url: "/admin/cleannodelog",
                 dataType: "json",
                 success: function (data) {
-                    if (data.ret==1) {
-                        alert("清理成功");
-                    }else{
-                        alert("发生错误");
+                    if (data.ret) {
+                        $("#msg-error").hide();
+                        $("#msg-success").show();
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("history.go(0)", 2000);
+                    } else {
+                        $("#msg-error").show();
+                        $("#msg-error-p").html(data.msg);
                     }
                 },
                 error: function (jqXHR) {
@@ -83,10 +104,14 @@
                 url: "/admin/cleanonlinelog",
                 dataType: "json",
                 success: function (data) {
-                    if (data.ret==1) {
-                        alert("清理成功");
-                    }else{
-                        alert("发生错误");
+                    if (data.ret) {
+                        $("#msg-error").hide();
+                        $("#msg-success").show();
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("history.go(0)", 2000);
+                    } else {
+                        $("#msg-error").show();
+                        $("#msg-error-p").html(data.msg);
                     }
                 },
                 error: function (jqXHR) {
@@ -104,10 +129,14 @@
                 url: "/admin/cleantrafficlog",
                 dataType: "json",
                 success: function (data) {
-                    if (data.ret==1) {
-                        alert("清理成功");
-                    }else{
-                        alert("发生错误");
+                    if (data.ret) {
+                        $("#msg-error").hide();
+                        $("#msg-success").show();
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("history.go(0)", 2000);
+                    } else {
+                        $("#msg-error").show();
+                        $("#msg-error-p").html(data.msg);
                     }
                 },
                 error: function (jqXHR) {

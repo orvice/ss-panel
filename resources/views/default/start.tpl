@@ -37,11 +37,11 @@
     <p>
         本站根据校园网 ipv6 协议免费，同时服务器流量比校园网网费便宜而实现。
     </p>
-    <p>本站使用 Shadowsocks 代理传输，有关 Shadowsocks 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> <a href="https://github.com/shadowsocks">Shadowsocks 团队</a> <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> </p>
-    <p><a href="http://vc2tea.com/whats-shadowsocks/">写给非专业人士看的 Shadowsocks 简介</a> <a href="https://plus点goo去掉我gle点com/+GhostAssassin/posts/TtWFAQmSMVE">SS 和未批恩辨析</a></p>
+    <p>本站支持 Shadowsocks 和 ShadowsocksR 代理传输，有关 Shadowsocks(R) 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> 和 <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> 以及 <a href="https://breakwa11.github.io">SSR 官方网站</a> </p>
+    <p><a href="http://vc2tea.com/whats-shadowsocks/">写给非专业人士看的 Shadowsocks 简介</a><br><a href="https://plus点goo去掉我gle点com/+GhostAssassin/posts/TtWFAQmSMVE">SS 和虚拟（V）专用（P）网（N）辨析</a></p>
     <h3>如何开始</h3>
     <p>
-        首先注册。由于服务器负载量有限，为保证服务质量，测试阶段只放送第一批邀请码 5 个。以后将会放送更多的邀请码。<a href="/code">找邀请码戳这里</a>
+        首先注册。<a href="/code">找邀请码戳这里</a>
     </p>
     <p>
         然后按照用户中心的公告付费，开通服务即可。

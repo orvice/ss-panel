@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="white-text">关于</h5>
-				<p class="grey-text text-lighten-4">本站提供校园网上网及科学上网服务</p>
+				<p class="grey-text text-lighten-4">本站提供校园网上网及科学上网、出国加速服务</p>
 				<p class="grey-text text-lighten-4">快速高效，使用方便，价格低廉，稳定性强</p>
 				<p class="grey-text text-lighten-4">更多信息参考 <a href="/start" class="grey-text text-lighten-4">Shadowsocks 服务介绍</a></p>
 
@@ -26,7 +26,8 @@
 				<ul>
 					<li><a class="white-text" href="/code">邀请码</a></li>
 					<li><a class="white-text" href="/tos">服务条款</a></li>
-					<li><a class="white-text" href="https://status.2645net.work">状态监控</a></li>
+					<li><a class="white-text" href="https://status.2645net.work">节点状态监控</a></li>
+					<li><a class="white-text" href="https://ping.2645net.work">服务可用性测试</a></li>
 					<li><a class="white-text" href="/scs">服务器托管服务</a></li>
 					<li><a class="white-text" href="http://finance.2645net.work/">财政报表</a></li>
 				</ul>

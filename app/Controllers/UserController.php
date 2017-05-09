@@ -240,8 +240,14 @@ class UserController extends BaseController
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
-        $traffic->setPath('/user/trafficlog');
-        return $this->view()->assign('logs', $traffic)->display('user/trafficlog.tpl');
+        $node = $args['nid'];
+        if ($node && $node > 0) {
+            $traffic = TrafficLog::where('user_id', $this->user->id)->where('node_id', $node)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
+            $traffic->setPath("/user/trafficlog/$node");
+        } else {
+            $traffic = TrafficLog::where('user_id', $this->user->id)->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
+            $traffic->setPath('/user/trafficlog');
+        }
+        return $this->view()->assign('logs', $traffic)->assign('seleNode', $node)->assign('nodes', Node::all())->assign('node', $traffic)->display('user/trafficlog.tpl');
     }
 }

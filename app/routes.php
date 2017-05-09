@@ -83,8 +83,8 @@ $app->group('/admin', function () {
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/sys', 'App\Controllers\AdminController:sysinfo');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
-    $this->get('/trafficlog/{nid}', 'App\Controllers\AdminController:trafficLogNode');
-    $this->get('/trafficlog/{nid}/{uid}', 'App\Controllers\AdminController:trafficLogFull');
+    $this->get('/trafficlog/{nid}', 'App\Controllers\AdminController:trafficLog');
+    $this->get('/trafficlog/{nid}/{uid}', 'App\Controllers\AdminController:trafficLog');
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
     $this->post('/cleannodelog', 'App\Controllers\AdminController:cleanNodelog');
     $this->post('/cleanonlinelog', 'App\Controllers\AdminController:cleanOnlinelog');

@@ -7,6 +7,8 @@ use App\Models\InviteCode;
 use App\Models\TrafficLog;
 use App\Models\NodeInfoLog;
 use App\Models\NodeOnlineLog;
+use App\Models\User;
+use App\Models\Node;
 use App\Services\Analytics;
 use App\Services\DbConfig;
 use App\Utils\Tools;
@@ -61,15 +63,57 @@ class AdminController extends UserController
         return $this->view()->assign('logs', $traffic)->display('admin/checkinlog.tpl');
     }
 
+
+    private function getTrafficLog($node, $user, $pageNum){
+        $logs = TrafficLog::orderBy('id', 'desc');
+        if ($user > 0) {
+            $logs->where('user_id', $user);
+        }
+        if ($node > 0) {
+            $logs->where('node_id', $node);
+        }
+        $logs = $logs->paginate(15, ['*'], 'page', $pageNum);
+        if ($node == -1) {
+            $logs->setPath('/admin/trafficlog');
+        } elseif ($user == -1){
+            $logs->setPath("/admin/trafficlog/$node");
+        } else {
+            $logs->setPath("/admin/trafficlog/$node/$user");
+        }
+
+        return $this->view()->assign('logs', $logs)
+            ->assign('seleUser', $user)
+            ->assign('seleNode', $node)
+            ->assign('users', User::all())
+            ->assign('nodes', Node::all())
+            ->display('admin/trafficlog.tpl');
+    }
+
     public function trafficLog($request, $response, $args)
     {
         $pageNum = 1;
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $logs = TrafficLog::orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
-        $logs->setPath('/admin/trafficlog');
-        return $this->view()->assign('logs', $logs)->display('admin/trafficlog.tpl');
+        $this->getTrafficLog(-1, -1, $pageNum);
+    }
+
+    public function trafficLogNode($request, $response, $args)
+    {
+        $pageNum = 1;
+        if (isset($request->getQueryParams()["page"])) {
+            $pageNum = $request->getQueryParams()["page"];
+        }
+        $this->getTrafficLog($args['nid'], -1, $pageNum);
+    }
+
+    public function trafficLogFull($request, $response, $args)
+    {
+        $pageNum = 1;
+        if (isset($request->getQueryParams()["page"])) {
+            $pageNum = $request->getQueryParams()["page"];
+        }
+        $this->getTrafficLog($args['nid'], $args['uid'], $pageNum);
     }
 
     public function config($request, $response, $args)

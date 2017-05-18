@@ -14,6 +14,8 @@ use App\Services\DbConfig;
 use App\Services\Logger;
 use App\Utils\Check;
 use App\Utils\Http;
+use App\Models\Node;
+use App\Models\User;
 
 /**
  *  HomeController
@@ -23,8 +25,27 @@ class HomeController extends BaseController
 
     public function index()
     {
+        //新加坡
+        $node = Node::find("2");
+        if ($node == null) {
+
+        }
+        $user = User::find("3");
+
+        $ary['server'] = $node->server;
+        $ary['server_port'] = $user ->port;
+        $ary['password'] = $user ->passwd;
+        $ary['method'] = $node->method;
+        if ($node->custom_method) {
+            $ary['method'] = $user ->method;
+        }
+        $json = json_encode($ary);
+        $json_show = json_encode($ary, JSON_PRETTY_PRINT);
+        $ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
+        $ssqr = "ss://" . base64_encode($ssurl);
+
         $homeIndexMsg = DbConfig::get('home-index');
-        return $this->view()->assign('homeIndexMsg', $homeIndexMsg)->display('index.tpl');
+        return $this->view()->assign('homeIndexMsg', $homeIndexMsg)->assign('ssqr', $ssqr)->display('index.tpl');
     }
 
     public function code()

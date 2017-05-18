@@ -7,6 +7,9 @@
             <h5>如遇到无邀请码请找已经注册的用户获取。</h5>
             {$msg}
         </div>
+        <div class="row center">
+            <a href="https://www.vultr.com/?ref=7124671"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+        </div>
     </div>
 </div>
 

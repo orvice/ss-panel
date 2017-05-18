@@ -33,6 +33,8 @@ class XCat
                 return $this->resetTraffic();
             case("sendDiaryMail"):
                 return DailyMail::sendDailyMail();
+	    case("updateFreeSsPwd"):
+                return $this->updateFreeSsPwd();
             default:
                 return $this->defaultAction();
         }
@@ -100,5 +102,17 @@ class XCat
             return false;
         }
         return "reset traffic successful";
+    }
+
+    public function updateFreeSsPwd() {
+        try {
+            $user = User::find("3");
+            $pwd = Tools::genRandomChar(8);
+            $user->updateSsPwd($pwd);
+            echo "新密码为: $pwd";
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }

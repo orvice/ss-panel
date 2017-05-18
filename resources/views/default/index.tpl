@@ -13,7 +13,28 @@
             </div>
         {else}
         <div class="row center">
-            <a href="/auth/register" id="download-button" class="btn-large waves-effect waves-light orange">立即注册</a>
+            <a href="/code" id="download-button" class="btn-large waves-effect waves-light orange">立即注册</a>
+        </div>
+        <div class="row center">
+                <div class="section">
+        <div class="row">
+                <div class="box box-solid">
+                    <div class="box-header">
+                        <i class="fa fa-qrcode"></i>
+                        <h5 class="box-title">新加坡-测试节点1</h5>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="text-center">
+                            <div id="ss-qr"></div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+            <h5 class="header col s12 light">测试账号每天00:00更换配置，注册即可拥有永久免费账号</h5>
+            <p>本服务仅供实验和测试用途，请遵守当地国家或者地区的相关法律。服务已屏蔽了绝大多数非法信息，</br>如有任何违法行为，我们将配合当地相关部门协助调查。</p>
         </div>
         {/if}
         <br><br>
@@ -72,8 +93,12 @@
     </div>
     <br><br>
 
-    <div class="section">
-
-    </div>
+    <script src="/assets/public/js/jquery.min.js"></script>
+    <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
+    <script>
+         jQuery('#ss-qr').qrcode({
+           "text": "{$ssqr}"
+         });
+    </script>
 </div>
 {include file='footer.tpl'}

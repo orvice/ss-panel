@@ -19,7 +19,9 @@
                     <h4>注意!</h4>
                     <p>请勿在任何地方公开节点地址！</p>
                     <p>流量比例为0.5即使用1000MB按照500MB流量记录记录结算.</p>
-                    {$msg}
+                    <p>{$msg}</p>
+
+                    <a href="https://www.vultr.com/?ref=7124671"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
                 </div>
             </div>
         </div>

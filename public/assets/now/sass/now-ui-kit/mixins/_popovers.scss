@@ -1,0 +1,25 @@
+@mixin popover-color($color, $text-color) {
+    background-color: $color;
+    color: $text-color;
+
+
+    &.bs-tether-element-attached-right:after{
+        border-left-color:$color;
+    }
+
+    &.bs-tether-element-attached-top:after{
+        border-bottom-color:$color;
+    }
+
+    &.bs-tether-element-attached-bottom:after{
+        border-top-color:$color;
+    }
+
+    &.bs-tether-element-attached-left:after{
+        border-right-color:$color;
+    }
+
+    .popover-title{
+        color: $text-color;
+    }
+}

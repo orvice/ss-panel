@@ -4430,6 +4430,10 @@ vue-resource@^1.2.1:
   dependencies:
     got "^6.7.1"
 
+vue-router@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.5.3.tgz#073783f564b6aece6c8a59c63e298dc2aabfb51b"
+
 vue-style-loader@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-2.0.3.tgz#b464ffb6279702d4137a80ac81b5c12ac440f0a0"

@@ -8,4 +8,6 @@ namespace App\Models;
 class InviteCode extends Model
 {
     protected $table = 'ss_invite_code';
+
+    const PublicUid = 0;
 }

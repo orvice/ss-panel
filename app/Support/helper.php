@@ -3,6 +3,8 @@
 if (!function_exists('conf')) {
     function conf($key)
     {
+        // @todo
+        // Query from cache and db
         return config($key);
     }
 }

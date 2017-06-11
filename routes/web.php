@@ -101,6 +101,8 @@ $app->group('/api', function () {
     $this->post('/token', 'App\Controllers\ApiController:newToken');
     $this->get('/nodes', 'App\Controllers\Api\NodeController:index')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
+
+    $this->get('/codes', 'App\Controllers\Api\CodeController:index');
 });
 
 // mu

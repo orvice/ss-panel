@@ -102,6 +102,7 @@ $app->group('/api', function () {
     $this->get('/nodes', 'App\Controllers\Api\NodeController:index')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
 
+    $this->get('/config', 'App\Controllers\Api\ConfigController:index');
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');
 });
 

@@ -28,6 +28,6 @@
 </template>
 <script>
     export default {
-		name: 'Header'
+		name: 'Nav'
     }
 </script>

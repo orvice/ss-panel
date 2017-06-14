@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Header></Header>
+        <Nav></Nav>
         <div  class="wrapper">
             <div class="page-header clear-filter" filter-color="orange">
                 <div class="page-header-image" data-parallax="true" style="background-image: url('/assets/now/img/header.jpg');">
@@ -14,18 +14,18 @@
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
+            <Foot></Foot>
         </div>
     </div>
 </template>
 <script>
-    import Header from './Header.vue'
-    import Footer from './Footer.vue'
+    import Nav from './Nav.vue'
+    import Foot from './Foot.vue'
     export default {
         name: 'app',
         components: {
-            Header,
-            Footer
+            Nav,
+            Foot
         }
     }
 </script>

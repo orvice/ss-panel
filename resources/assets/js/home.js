@@ -1,11 +1,7 @@
-/**
- * Home
- */
+import Vue from 'vue'
+import App from './components/Home/Home.vue'
+import VueResource from 'vue-resource'
 
-require('./bootstrap');
+Vue.use(VueResource);
 
-Vue.component('login', require('./components/Home/Home.vue'));
-
-new Vue({
-    el: '#app'
-});
+new Vue({  }).$mount('#app')

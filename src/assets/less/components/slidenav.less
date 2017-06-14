@@ -1,0 +1,128 @@
+// Name:            Slidenav
+// Description:     Component to create previous/next icon navigations
+//
+// Component:       `uk-slidenav`
+//
+// Sub-objects:     `uk-slidenav-container`
+//
+// Modifiers:       `uk-slidenav-previous`
+//                  `uk-slidenav-next`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@slidenav-padding:                              5px;
+@slidenav-color:                                fadeout(@global-color, 40%);
+
+@slidenav-hover-color:                          fadeout(@global-color, 20%);
+
+@slidenav-active-color:                         fadeout(@global-color, 10%);
+
+
+/* ========================================================================
+   Component: Slidenav
+ ========================================================================== */
+
+/*
+ * Adopts `uk-icon`
+ */
+
+.uk-slidenav {
+    padding: @slidenav-padding;
+    color: @slidenav-color;
+    .hook-slidenav;
+}
+
+/* Hover + Focus */
+.uk-slidenav:hover,
+.uk-slidenav:focus {
+    color: @slidenav-hover-color;
+    outline: none;
+    .hook-slidenav-hover;
+}
+
+/* OnClick */
+.uk-slidenav:active {
+    color: @slidenav-active-color;
+    .hook-slidenav-active;
+}
+
+
+/* Icon modifier
+ ========================================================================== */
+
+/*
+ * Previous
+ */
+
+.uk-slidenav-previous {
+    .hook-slidenav-previous;
+}
+
+/*
+ * Next
+ */
+
+.uk-slidenav-next {
+    .hook-slidenav-next;
+}
+
+
+/* Container
+ ========================================================================== */
+
+.uk-slidenav-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    .hook-slidenav-container;
+}
+
+
+// Hooks
+// ========================================================================
+
+.hook-slidenav-misc;
+
+.hook-slidenav() {}
+.hook-slidenav-hover() {}
+.hook-slidenav-active() {}
+.hook-slidenav-previous() {}
+.hook-slidenav-next() {}
+.hook-slidenav-container() {}
+.hook-slidenav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-slidenav-color:                       fadeout(@inverse-global-color, 40%);
+@inverse-slidenav-hover-color:                 fadeout(@inverse-global-color, 20%);
+@inverse-slidenav-active-color:                fadeout(@inverse-global-color, 10%);
+
+.hook-inverse() {
+
+    .uk-slidenav {
+        color: @inverse-slidenav-color;
+        .hook-inverse-slidenav;
+    }
+
+    .uk-slidenav:hover,
+    .uk-slidenav:focus {
+        color: @inverse-slidenav-hover-color;
+        .hook-inverse-slidenav-hover;
+    }
+
+    .uk-slidenav:active {
+        color: @inverse-slidenav-active-color;
+        .hook-inverse-slidenav-active;
+    }
+
+}
+
+.hook-inverse-slidenav() {}
+.hook-inverse-slidenav-hover() {}
+.hook-inverse-slidenav-active() {}

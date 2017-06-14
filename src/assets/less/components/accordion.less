@@ -1,0 +1,110 @@
+// Name:            Accordion
+// Description:     Component to create accordions
+//
+// Component:       `uk-accordion`
+//
+// Sub-objects:     `uk-accordion-title`
+//                  `uk-accordion-content`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@accordion-item-margin-top:                    @global-margin;
+
+@accordion-title-font-size:                    @global-medium-font-size;
+@accordion-title-line-height:                  1.4;
+
+@accordion-content-margin-top:                 @global-margin;
+
+
+/* ========================================================================
+   Component: Accordion
+ ========================================================================== */
+
+.uk-accordion {
+    padding: 0;
+    list-style: none;
+    .hook-accordion;
+}
+
+
+/* Item
+ ========================================================================== */
+
+.uk-accordion > :nth-child(n+2) {
+    margin-top: @accordion-item-margin-top;
+    .hook-accordion-item;
+}
+
+
+/* Title
+ ========================================================================== */
+
+.uk-accordion-title {
+    margin: 0;
+    font-size: @accordion-title-font-size;
+    line-height: @accordion-title-line-height;
+    cursor: pointer;
+    .hook-accordion-title;
+}
+
+
+/* Content
+ ========================================================================== */
+
+.uk-accordion-content {
+    margin-top: @accordion-content-margin-top;
+    .hook-accordion-content;
+}
+
+/*
+ * Micro clearfix
+ */
+
+.uk-accordion-content:before,
+.uk-accordion-content:after {
+    content: "";
+    display: table;
+}
+
+.uk-accordion-content:after { clear: both; }
+
+/*
+ * Remove margin from the last-child
+ */
+
+ .uk-accordion-content > :last-child { margin-bottom: 0; }
+
+
+// Hooks
+// ========================================================================
+
+.hook-accordion-misc;
+
+.hook-accordion() {}
+.hook-accordion-item() {}
+.hook-accordion-title() {}
+.hook-accordion-content() {}
+.hook-accordion-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse() {
+
+    .uk-accordion > :nth-child(n+2) {
+        .hook-inverse-accordion-item;
+    }
+
+    .uk-accordion-title {
+        .hook-inverse-accordion-title;
+    }
+
+}
+
+.hook-inverse-accordion-item() {}
+.hook-inverse-accordion-title() {}

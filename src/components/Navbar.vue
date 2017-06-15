@@ -9,7 +9,7 @@
                     <router-link class="uk-navbar-item uk-logo" to="/">
                         <canvas class="uk-margin-small-right" width="28" height="34" uk-svg
                                 :src="'./images/uikit-logo.svg'"></canvas>
-                        UIkit
+                        Panel
 
                     </router-link>
 

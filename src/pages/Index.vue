@@ -1,6 +1,6 @@
 <template>
 
-    <div class="uk-section-primary tm-section-texture">
+    <div class="uk-section-primary tm-section-texture" id="app">
 
         <Navbar class="uk-navbar-transparent"></Navbar>
 
@@ -14,8 +14,7 @@
                     </p>
 
                     <p class="uk-margin-medium uk-text-lead">
-                        A lightweight and modular front-end framework<br class="uk-visible@s">
-                        for developing fast and powerful web interfaces.
+                        A lightweight Panel.
                     </p>
 
                     <div class="uk-child-width-auto uk-grid-medium uk-flex-inline uk-flex-center" uk-grid>

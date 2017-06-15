@@ -5,7 +5,7 @@ import Code from './pages/Code.vue';
 import Navbar from './components/Navbar.vue';
 //import analytics from './analytics.js';
 // //import navigation from '../docs/app/navigation.json';
-//import App from './App.vue'
+import App from './App.vue'
 // Pages
 //import IndexPage from './pages/index.vue';
 //import ErrorPage from './pages/404.vue';
@@ -49,7 +49,7 @@ new Vue({
 
     el: '#app',
 
-    extends: Index,
+    extends: App,
 
     data: () => ({
         page: false,

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="uk-section-primary tm-section-texture">
+    <div class="uk-section-primary tm-section-texture" id="app">
 
         <Navbar class="uk-navbar-transparent"></Navbar>
 

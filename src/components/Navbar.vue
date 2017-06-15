@@ -18,9 +18,9 @@
                 <div class="uk-navbar-right">
 
                     <ul class="uk-navbar-nav uk-visible@m">
-                        <router-link to="/pro" tag="li"><a>Pro</a></router-link>
-                        <li><a href="./docs/introduction">Documentation</a></li>
-                        <router-link to="/changelog" tag="li"><a>Changelog</a></router-link>
+                        <router-link to="/" tag="li"><a>Home</a></router-link>
+                        <router-link to="/code" tag="li"><a>Code</a></router-link>
+                        <router-link to="/tos" tag="li"><a>Tos</a></router-link>
                     </ul>
 
                     <div class="uk-navbar-item uk-visible@m">

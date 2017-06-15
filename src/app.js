@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Index from './pages/Index.vue';
+import Code from './pages/Code.vue';
 import Navbar from './components/Navbar.vue';
 //import analytics from './analytics.js';
 // //import navigation from '../docs/app/navigation.json';
@@ -28,6 +29,7 @@ if (location.pathname && location.pathname != '/') {
 const routes = [
     {path: '/', component: Index},
     {path: '/index', component: Index},
+    {path: '/code', component: Code},
     {path: '/*', component: Index}
 ];
 

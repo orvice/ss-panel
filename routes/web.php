@@ -11,7 +11,7 @@ use App\Middleware\User;
 // Home
 $app->group('', function () {
     $this->get('/', 'App\Controllers\HomeController:index');
-    $this->get('/code', 'App\Controllers\HomeController:code');
+    $this->get('/code', 'App\Controllers\HomeController:index');
     $this->get('/tos', 'App\Controllers\HomeController:tos');
     $this->get('/debug', 'App\Controllers\HomeController:debug');
     $this->post('/debug', 'App\Controllers\HomeController:postDebug');

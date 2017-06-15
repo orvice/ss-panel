@@ -1,23 +1,26 @@
 {
-  "name": "vue-two",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
-  "author": "orvice <orvice@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "webpack": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
     "autotrack": "^2.4.1",
+    "axios": "^0.15.2",
+    "bootstrap-sass": "^3.3.7",
+    "globs": "^0.1.3",
     "highlightjs": "^9.10.0",
     "icons": "^0.1.1",
     "jquery": "^3.2.1",
+    "laravel-mix": "^0.10.0",
+    "lodash": "^4.16.2",
     "marked": "^0.3.6",
     "npm": "^5.0.3",
     "tls": "0.0.1",
     "uikit": "^3.0.0-beta.25",
-    "vue": "^2.1.0",
+    "vue": "^2.0.1",
     "vue-mdl": "^1.1.1",
     "vue-resource": "^1.2.0",
     "vue-router": "^2.5.3"

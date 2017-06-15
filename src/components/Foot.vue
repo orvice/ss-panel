@@ -17,7 +17,7 @@
                                 class="uk-margin-small-right" uk-icon="icon: twitter"></span>@getuikit</a>
                     </li>
                     <li>
-                        <a href="https://gitter.im/uikit/uikit"><span class="uk-margin-small-right"
+                        <a href="/"><span class="uk-margin-small-right"
                                                                       uk-icon="icon: gitter"></span>Community</a>
                     </li>
                 </ul>

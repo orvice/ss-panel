@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autotrack": "^2.4.1",
+    "axios": "^0.16.2",
     "highlightjs": "^9.10.0",
     "icons": "^0.1.1",
     "jquery": "^3.2.1",

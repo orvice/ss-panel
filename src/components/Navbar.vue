@@ -9,7 +9,7 @@
                     <router-link class="uk-navbar-item uk-logo" to="/">
                         <canvas class="uk-margin-small-right" width="28" height="34" uk-svg
                                 :src="'./images/uikit-logo.svg'"></canvas>
-                        Panel
+                        {{title}}
 
                     </router-link>
 
@@ -40,8 +40,20 @@
 
 </template>
 <script>
+    import axios from 'axios'
+    import config from '../res/config'
     export default {
-        name: 'Navbar'
+        name: 'Navbar',
+        data () {
+            return {
+                title: 'Panel',
+                posts: []
+            }
+        },
+        mounted: function () {
+            console.log(config);
+            this.title = config.app
+        }
     }
 </script>
 

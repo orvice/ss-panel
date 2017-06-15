@@ -18,7 +18,11 @@ import marked from 'marked'
 import jquery from 'jquery'
 import UIkit from 'uikit'
 
+// http
+import axios from 'axios'
+
 Vue.use(VueRouter);
+Vue.use(axios);
 
 var base = '/';
 

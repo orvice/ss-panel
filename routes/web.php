@@ -16,6 +16,8 @@ $app->group('', function () {
     $this->get('/debug', 'App\Controllers\HomeController:debug');
     $this->post('/debug', 'App\Controllers\HomeController:postDebug');
     $this->get('/500', 'App\Controllers\HomeController:serverError');
+
+    $this->get('/dashboard', 'App\Controllers\HomeController:dashboard');
 })->add(new User());
 
 // User Center

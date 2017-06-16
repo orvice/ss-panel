@@ -2,17 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Index from './pages/Index.vue';
 import Code from './pages/Code.vue';
+import Dashboard from './pages/dashboard.vue'
 import Navbar from './components/Navbar.vue';
-//import analytics from './analytics.js';
-// //import navigation from '../docs/app/navigation.json';
 import App from './App.vue'
 // Pages
-//import IndexPage from './pages/index.vue';
 //import ErrorPage from './pages/404.vue';
-
-//import plugin from './assets/js/icons.js'
-//import UIkit from './assets/js/uikit.js'
-
 //import  autotrack from 'autotrack'
 import marked from 'marked'
 import jquery from 'jquery'
@@ -34,6 +28,7 @@ const routes = [
     {path: '/', component: Index},
     {path: '/index', component: Index},
     {path: '/code', component: Code},
+    {path: '/dashboard', component: Dashboard},
     {path: '/*', component: Index}
 ];
 

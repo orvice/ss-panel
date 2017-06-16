@@ -21,11 +21,12 @@
                         <router-link to="/" tag="li"><a>Home</a></router-link>
                         <router-link to="/code" tag="li"><a>Code</a></router-link>
                         <router-link to="/tos" tag="li"><a>Tos</a></router-link>
+                        <router-link to="/dashboard" tag="li"><a>Dashboard</a></router-link>
                     </ul>
 
                     <div class="uk-navbar-item uk-visible@m">
                         <router-link class="uk-button uk-button-default tm-button-default uk-icon" to="/download"
-                                     activeClass="page-active">Download
+                                     activeClass="page-active">UserCenter
                             <canvas uk-icon="icon: download" width="20" height="20"></canvas>
                         </router-link>
                     </div>
@@ -51,9 +52,16 @@
             }
         },
         mounted: function () {
-            console.log(config);
-            this.title = config.app
-        }
+            axios.get("/api/config")
+                .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.title = response.data.data.app
+                    document.title = response.data.data.app
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
+        },
     }
 </script>
 
@@ -70,4 +78,5 @@
 
     // 4. Import UIkit.
     @import "../assets/scss/uikit-theme.scss"
+    
 </style>

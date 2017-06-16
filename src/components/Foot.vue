@@ -6,7 +6,7 @@
                 <ul class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom" uk-margin>
 
                     <li>
-                        <a class="uk-text-lowercase" href="/"><span
+                        <a class="uk-text-lowercase" href="https://github.com/orvice/ss-panel"><span
                                 class="uk-margin-small-right"></span>Powered by ss-panel</a>
                     </li>
 

@@ -42,7 +42,6 @@
 </template>
 <script>
     import axios from 'axios'
-    import config from '../res/config'
     export default {
         name: 'Navbar',
         data () {
@@ -78,5 +77,5 @@
 
     // 4. Import UIkit.
     @import "../assets/scss/uikit-theme.scss"
-    
+
 </style>

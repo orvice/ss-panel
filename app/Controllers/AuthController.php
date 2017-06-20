@@ -82,7 +82,7 @@ class AuthController extends BaseController
         $ary = $request->getQueryParams();
         $code = "";
         if (isset($ary['code'])) {
-            $code = $ary['code'];
+            $code = Tools::checkHtml($ary['code']);
         }
         $requireEmailVerification = Config::get('emailVerifyEnabled');
         return $this->view()->assign('code', $code)->assign('requireEmailVerification', $requireEmailVerification)->display('auth/register.tpl');

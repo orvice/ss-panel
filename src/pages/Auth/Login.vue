@@ -67,6 +67,7 @@
                         console.log("success");
                         console.log(response.data.data);
                         this.$cookie.set('Token', response.data.data.token, 1);
+                        console.log("set cookie");
                     })
                     .catch(e => {
                         console.log("error");

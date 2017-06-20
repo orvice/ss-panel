@@ -53,18 +53,26 @@
             return {
                 email: '',
                 password: '',
+                message: '',
             }
         },
         methods: {
             login() {
                 console.log("start login");
-                axios.post("/api/token",{
+                axios.post("/api/auth/login", {
                     email: this.email,
                     password: this.password,
                 })
                     .then(response => {
+                        console.log("success");
+                        console.log(response.data.data);
+                        this.$cookie.set('Token', response.data.data.token, 1);
                     })
                     .catch(e => {
+                        console.log("error");
+                        if (e.response) {
+                            console.log(e.response.status);
+                        }
                     })
             }
         }

@@ -45,8 +45,8 @@ $app->group('/user', function () {
 
 // Auth
 $app->group('/auth', function () {
-    $this->get('/login', 'App\Controllers\AuthController:login');
-    $this->get('/register', 'App\Controllers\AuthController:register');
+    $this->get('/login', 'App\Controllers\HomeController:index');
+    $this->get('/register', 'App\Controllers\HomeController:index');
     $this->post('/register', 'App\Controllers\AuthController:registerHandle');
     $this->post('/sendcode', 'App\Controllers\AuthController:sendVerifyEmail');
     $this->get('/logout', 'App\Controllers\AuthController:logout');
@@ -98,9 +98,12 @@ $app->group('/admin', function () {
 
 // API
 $app->group('/api', function () {
+    // Auth
     $this->post('/auth/login', 'App\Controllers\Api\AuthController:handleLogin');
-    $this->get('/token/{token}', 'App\Controllers\ApiController:token');
+    $this->get('/token/{token}', 'App\Controllers\Api\TokenController:show');
     $this->post('/token', 'App\Controllers\ApiController:newToken');
+
+    // User
     $this->get('/nodes', 'App\Controllers\Api\NodeController:index')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
 

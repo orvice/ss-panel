@@ -32,7 +32,7 @@ class AuthController extends BaseController
 
         $email = $request->getParam('email');
         $email = strtolower($email);
-        $passwd = $request->getParam('passwd');
+        $passwd = $request->getParam('password');
         $rememberMe = $request->getParam('remember_me');
         $this->logger->debug($email . Hash::passwordHash($passwd));
         // Handle Login

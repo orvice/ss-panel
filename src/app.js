@@ -1,25 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
+import Vuex from 'vuex'
 import App from './app.vue'
-import Index from './pages/Index.vue'
-import Code from './pages/Code.vue'
+import router from './router'
 
 import UIkit from 'uikit'
 Vue.use(VueRouter);
 Vue.use(VueI18n);
+Vue.use(Vuex);
 
-const routes = [
-    {path: '/', component: Index},
-    {path: '/code', component: Code}
-];
-
-const router = new VueRouter({
-    routes,
-    mode: 'history',
-    history: true,
-    linkActiveClass: 'uk-active'
-});
 
 window.DocsApp = new Vue({
     router,

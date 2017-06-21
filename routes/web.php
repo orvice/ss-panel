@@ -99,13 +99,13 @@ $app->group('/admin', function () {
 // API
 $app->group('/api', function () {
     // Auth
-    $this->post('/auth/login', 'App\Controllers\Api\AuthController:handleLogin');
+    $this->post('/token', 'App\Controllers\Api\TokenController:store');
     $this->get('/token/{token}', 'App\Controllers\Api\TokenController:show');
-    $this->post('/token', 'App\Controllers\ApiController:newToken');
 
-    // User
-    $this->get('/nodes', 'App\Controllers\Api\NodeController:index')->add(new Api());
+    // User Resource
+    $this->get('/users/{id}/nodes', 'App\Controllers\Api\UserController:nodes')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
+    $this->put('/users/{id}', 'App\Controllers\Api\UserController:update')->add(new Api());
 
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');

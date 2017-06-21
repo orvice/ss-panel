@@ -46,6 +46,7 @@
 
 <script>
     import axios from 'axios'
+    import * as types from '../../store/types'
     export default {
         name: 'code',
         components: {},
@@ -59,15 +60,21 @@
         methods: {
             login() {
                 console.log("start login");
-                axios.post("/api/auth/login", {
+                axios.post("/api/token", {
                     email: this.email,
                     password: this.password,
                 })
                     .then(response => {
                         console.log("success");
-                        console.log(response.data.data);
-                        this.$cookie.set('Token', response.data.data.token, 1);
-                        console.log("set cookie");
+                        // Save token in cookie
+                        const token  = response.data.data.token;
+                        const id = response.data.data.id;
+                        const user = {
+                            token: token,
+                            id: id,
+                        };
+                        this.$store.commit(types.Login,token);
+                        this.$cookie.set('Token', token, 1);
                     })
                     .catch(e => {
                         console.log("error");

@@ -4,7 +4,7 @@ import VueI18n from 'vue-i18n'
 import VueCookie from 'vue-cookie'
 import App from './App.vue'
 import router from './router'
-import store  from './store'
+import store  from './store/'
 
 import UIkit from 'uikit'
 Vue.use(VueRouter);

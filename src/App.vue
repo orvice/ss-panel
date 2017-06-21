@@ -17,12 +17,13 @@
                     <div class="uk-navbar-right">
 
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <router-link tag="li" :to="{ path: '/auth/login' }"  exact><a>Login</a></router-link>
-                            <router-link tag="li" :to="{ path: '/auth/register' }"  exact><a>Register</a></router-link>
+                            <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>Login</a></router-link>
+                            <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>Register</a></router-link>
                         </ul>
 
                         <div class="uk-navbar-item uk-visible@m">
-                            <router-link class="uk-button uk-button-default tm-button-default uk-icon"  tag="li" :to="{ path: '/dashboard' }"  exact>Dashboard
+                            <router-link class="uk-button uk-button-default tm-button-default uk-icon" tag="li"
+                                         :to="{ path: '/dashboard' }" exact>Dashboard
                                 <canvas uk-icon="icon: download" width="20" height="20"></canvas>
                             </router-link>
                         </div>
@@ -81,35 +82,50 @@
 <script>
     /* eslint-disable no-new */
     import axios from 'axios'
+    import * as types from './store/types'
     export default {
         name: 'Post',
         data () {
             return {
                 title: 'ss-panel',
+                isLogin: this.$store.state.isLogin,
                 navigation: {
                     "Pages": {
-                        "Introduction": "introduction",
-                        "Code": "code"
+                        "Home": "/",
+                        "Code": "/code"
                     },
 
                     "Dashboard": {
-                        "Node": "accordion",
-                        "Profile": "dropdown",
-                        "Logout": "utility",
+                        "Node": "/nodes",
+                        "Profile": "/profile",
+                        "Logout": "/logout",
                     }
                 }
             }
         },
+        methods: {
+            handleCfg: function () {
+                axios.get("/api/config")
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        this.title = response.data.data.app;
+                        document.title = response.data.data.app;
+                    })
+                    .catch(e => {
+                        this.errors.push(e)
+                    })
+            },
+            checkToken: function () {
+                let token = sessionStorage.getItem('token');
+                // @todo check token from api
+                if (token) {
+                    this.$store.commit(types.Login,token);
+                }
+            }
+        },
         mounted: function () {
-            axios.get("/api/config")
-                .then(response => {
-                    // JSON responses are automatically parsed.
-                    this.title = response.data.data.app
-                    document.title = response.data.data.app
-                })
-                .catch(e => {
-                    this.errors.push(e)
-                })
+            this.handleCfg();
+            this.checkToken();
         },
     }
 </script>

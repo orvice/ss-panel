@@ -16,12 +16,12 @@
 
                     <div class="uk-navbar-right">
 
-                        <ul class="uk-navbar-nav uk-visible@m">
+                        <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
                             <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>Login</a></router-link>
                             <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>Register</a></router-link>
                         </ul>
 
-                        <div class="uk-navbar-item uk-visible@m">
+                        <div class="uk-navbar-item uk-visible@m" v-if="$store.state.isLogin">
                             <router-link class="uk-button uk-button-default tm-button-default uk-icon" tag="li"
                                          :to="{ path: '/dashboard' }" exact>Dashboard
                                 <canvas uk-icon="icon: download" width="20" height="20"></canvas>
@@ -119,7 +119,7 @@
                 let token = sessionStorage.getItem('token');
                 // @todo check token from api
                 if (token) {
-                    this.$store.commit(types.Login,token);
+                    this.$store.commit(types.Login, token);
                 }
             }
         },

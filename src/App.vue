@@ -16,9 +16,18 @@
 
                     <div class="uk-navbar-right">
 
+                        <ul class="uk-navbar-nav uk-visible@m" >
+                            <router-link tag="li" :to="{ path: '/' }" exact><a>Home</a></router-link>
+                            <router-link tag="li" :to="{ path: '/code' }" exact><a>Code</a></router-link>
+                        </ul>
+
                         <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
                             <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>Login</a></router-link>
                             <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>Register</a></router-link>
+                        </ul>
+
+                        <ul class="uk-navbar-nav uk-visible@m" v-if="$store.state.isLogin">
+                            <router-link tag="li" :to="{ path: '/logout' }" exact><a>Logout</a></router-link>
                         </ul>
 
                         <div class="uk-navbar-item uk-visible@m" v-if="$store.state.isLogin">
@@ -88,7 +97,6 @@
         data () {
             return {
                 title: 'ss-panel',
-                isLogin: this.$store.state.isLogin,
                 navigation: {
                     "Pages": {
                         "Home": "/",

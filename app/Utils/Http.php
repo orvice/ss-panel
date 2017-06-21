@@ -52,12 +52,13 @@ class Http
      * @param ServerRequestInterface $req
      * @return null|string
      */
-    public static function getTokenFromReq(ServerRequestInterface $req){
-        $token =  $req->getHeader('Token');
-        if ($token){
+    public static function getTokenFromReq(ServerRequestInterface $req)
+    {
+        $token = $req->getHeader('Token');
+        if ($token) {
             return $token;
         }
-        $cookies =  $req->getCookieParams();
+        $cookies = $req->getCookieParams();
         return isset($cookies['token']) ? $cookies['token'] : null;
     }
 }

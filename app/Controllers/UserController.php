@@ -220,7 +220,6 @@ class UserController extends BaseController
     }
 
 
-
     public function doCheckIn(Request $request, $response, $args)
     {
         if (!$this->user->isAbleToCheckin()) {

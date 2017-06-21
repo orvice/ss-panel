@@ -54,7 +54,8 @@ class Http
      */
     public static function getTokenFromReq(ServerRequestInterface $req)
     {
-        $token = $req->getHeader('Token');
+        $token = $req->getHeaderLine('Token');
+
         if ($token) {
             return $token;
         }

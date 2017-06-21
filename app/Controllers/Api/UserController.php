@@ -23,7 +23,7 @@ class UserController extends BaseController
     public function show(Request $req, Response $res, $args)
     {
         $user = $this->getUserFromArgs($args);
-        return $this->echoJson($req, [
+        return $this->echoJson($res, [
             'data' => $user,
         ]);
     }

@@ -6,7 +6,8 @@
     "china-shevy/sendcloud-email-v2": "dev-master",
     "tracy/tracy": "^2.4",
     "shadowsocks/shadowsocks": "0.1.*",
-    "zircote/swagger-php": "^2.0"
+    "zircote/swagger-php": "^2.0",
+    "martinlindhe/laravel-vue-i18n-generator": "^0.1.13"
   },
   "require-dev": {
     "phpunit/phpunit": "~5.0",

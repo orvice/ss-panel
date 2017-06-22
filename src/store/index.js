@@ -8,12 +8,15 @@ export default new Vuex.Store({
     state: {
         token: null,
         isLogin: false,
+        id: 0,
     },
     mutations: {
-        [types.Login]: (state, token) => {
-            sessionStorage.token = token;
-            state.token = token;
+        [types.Login]: (state, user) => {
+            sessionStorage.token = user.token;
+            sessionStorage.id = user.id;
+            state.token = user.token;
             state.isLogin = true;
+            state.id = user.id;
         },
     },
     modules: {},

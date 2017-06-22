@@ -67,13 +67,13 @@
                     .then(response => {
                         console.log("success");
                         // Save token in cookie
-                        const token  = response.data.data.token;
-                        const id = response.data.data.id;
-                        const user = {
+                        let token  = response.data.data.token;
+                        let id = response.data.data.user_id;
+                        let user = {
                             token: token,
                             id: id,
                         };
-                        this.$store.commit(types.Login,token);
+                        this.$store.commit(types.Login,user);
                         this.$cookie.set('Token', token, 1);
                     })
                     .catch(e => {

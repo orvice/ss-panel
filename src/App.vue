@@ -125,35 +125,25 @@
             },
             checkToken: function () {
                 let token = sessionStorage.getItem('token');
-                let id = 0;
-                // @todo check token from api
-                console.log("check token");
-                axios.get("/api/token/" + token)
-                    .then(response => {
-                        // JSON responses are automatically parsed.
-                        id = response.data.data.id;
-                        console.log(response.data.data);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                        return false;
-                    });
-
+                let id = sessionStorage.getItem('id');
+                if (!token) {
+                    return false;
+                }
 
                 axios.get("/api/users/" + id)
                     .then(response => {
                         // JSON responses are automatically parsed.
-                        console.log(response.data.data);
+                        console.log(response.data);
                     })
                     .catch(e => {
                         console.log(e);
                         return false;
                     });
 
-
-                if (token) {
-                    this.$store.commit(types.Login, token);
-                }
+                this.$store.commit(types.Login, {
+                    token: token,
+                    id: id,
+                });
             }
         },
         mounted: function () {

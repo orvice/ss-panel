@@ -9,6 +9,7 @@ export default new Vuex.Store({
         token: null,
         isLogin: false,
         id: 0,
+        lang: 'en',
     },
     mutations: {
         [types.Login]: (state, user) => {
@@ -18,6 +19,10 @@ export default new Vuex.Store({
             state.isLogin = true;
             state.id = user.id;
         },
+        [types.ChangeLocale]:(state,locale) => {
+            state.lang = locale;
+            Vue.config.lang = state.lang;
+        }
     },
     modules: {},
 

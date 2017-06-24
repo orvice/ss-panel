@@ -9,4 +9,3 @@ export  const Locales = {
     en: lang.en,
     zh_cn: lang.zh_cn, // @todo
 };
-

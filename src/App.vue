@@ -45,15 +45,7 @@
             </div>
         </div>
 
-        <div class="tm-sidebar-left uk-visible@m">
-
-            <ul class="uk-nav uk-nav-default tm-nav" :class="{ 'uk-margin-top': index }"
-                v-for="(pages, category, index) in navigation">
-                <li class="uk-nav-header">{{category}}</li>
-                <router-link tag="li" :to="p" :key="p" v-for="(p, label) in pages" exact><a>{{label}}</a></router-link>
-            </ul>
-
-        </div>
+       <LeftBar></LeftBar>
 
         <div class="tm-main uk-section uk-section-default">
             <div class="uk-container uk-container-small uk-position-relative">
@@ -63,26 +55,7 @@
             </div>
         </div>
 
-        <div id="offcanvas" uk-offcanvas="mode: push; overlay: true">
-            <div class="uk-offcanvas-bar">
-                <div class="uk-panel">
 
-                    <ul class="uk-nav uk-nav-default tm-nav">
-                        <li class="uk-nav-header">General</li>
-                        <li><a href="../index">Home</a></li>
-                        <li><a href="../pro">Pro</a></li>
-                        <li><a href="../changelog">Changelog</a></li>
-                        <li><a href="../download">Download</a></li>
-                    </ul>
-
-                    <ul class="uk-nav uk-nav-default tm-nav uk-margin-top"
-                        v-for="(pages, category, index) in navigation">
-                        <li class="uk-nav-header">{{category}}</li>
-                        <li v-for="(p, label) in pages" exact><a :href="'./'+p">{{label}}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -92,23 +65,13 @@
     /* eslint-disable no-new */
     import axios from 'axios'
     import * as types from './store/types'
+    import LeftBar from './components/Leftbar.vue'
+
     export default {
-        name: 'Post',
+        name: 'App',
         data () {
             return {
                 title: 'ss-panel',
-                navigation: {
-                    "Pages": {
-                        "Home": "/",
-                        "Code": "/code"
-                    },
-
-                    "Dashboard": {
-                        "Node": "/nodes",
-                        "Profile": "/profile",
-                        "Logout": "/logout",
-                    }
-                }
             }
         },
         methods: {
@@ -144,11 +107,23 @@
                     token: token,
                     id: id,
                 });
+            },
+            checkLang(){
+                let lang = sessionStorage.getItem('lang');
+                console.log("get lang from session: " +lang);
+                if(!lang){
+                    return false;
+                }
+                this.$store.commit(types.ChangeLocale,lang);
             }
         },
         mounted: function () {
             this.handleCfg();
             this.checkToken();
+            this.checkLang();
         },
+        components:{
+            LeftBar,
+        }
     }
 </script>

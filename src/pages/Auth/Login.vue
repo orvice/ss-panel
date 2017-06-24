@@ -6,7 +6,7 @@
                 <div class="uk-container">
                     <div class="uk-overflow-auto">
                         <p class="uk-table uk-table-divider">
-                            Login
+                            {{$t('auth.login')}}
                         </p>
 
                         <form>
@@ -30,7 +30,8 @@
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <p uk-margin>
-                                    <button class="uk-button uk-button-primary" @click="login">Login</button>
+                                    <button class="uk-button uk-button-primary" @click="login">{{$t('auth.login')}}
+                                    </button>
                                 </p>
                             </div>
                         </div>
@@ -63,17 +64,17 @@
                 axios.post("/api/token", {
                     email: this.email,
                     password: this.password,
-                })
+                })``
                     .then(response => {
                         console.log("success");
                         // Save token in cookie
-                        let token  = response.data.data.token;
+                        let token = response.data.data.token;
                         let id = response.data.data.user_id;
                         let user = {
                             token: token,
                             id: id,
                         };
-                        this.$store.commit(types.Login,user);
+                        this.$store.commit(types.Login, user);
                         this.$cookie.set('Token', token, 1);
                     })
                     .catch(e => {

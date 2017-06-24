@@ -24,5 +24,5 @@ return [
     |
     */
 
-    'jsFile' => '/src/vue-i18n-locales.generated.js'
+    'jsFile' => '/src/lang/vue-i18n-locales.generated.js'
 ];

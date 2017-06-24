@@ -8,8 +8,8 @@
 
                     <div class="uk-navbar-left">
 
-                        <a href="../" class="uk-navbar-item uk-logo">
-                            <img class="uk-margin-small-right" uk-svg :src="'../images/uikit-logo.svg'"> {{title}}
+                        <a href="/" class="uk-navbar-item uk-logo">
+                            {{title}}
                         </a>
 
                     </div>
@@ -17,13 +17,13 @@
                     <div class="uk-navbar-right">
 
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <router-link tag="li" :to="{ path: '/' }" exact><a>Home</a></router-link>
-                            <router-link tag="li" :to="{ path: '/code' }" exact><a>Code</a></router-link>
+                            <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link>
+                            <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a></router-link>
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
-                            <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>Login</a></router-link>
-                            <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>Register</a></router-link>
+                            <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>{{ $t("auth.login") }}</a></router-link>
+                            <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>{{ $t("auth.register") }}</a></router-link>
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="$store.state.isLogin">
@@ -66,6 +66,7 @@
     import axios from 'axios'
     import * as types from './store/types'
     import LeftBar from './components/Leftbar.vue'
+    import Lang from './components/Lang.vue'
 
     export default {
         name: 'App',
@@ -124,6 +125,7 @@
         },
         components:{
             LeftBar,
+            Lang,
         }
     }
 </script>

@@ -2,14 +2,22 @@
 
     <div class="tm-sidebar-left uk-visible@m">
 
-        <ul class="uk-nav uk-nav-default tm-nav" :class="{ 'uk-margin-top': index }"
-            v-for="(pages, category, index) in navigation">
-            <li class="uk-nav-header">{{category}}</li>
-            <router-link tag="li" :to="p" :key="p" v-for="(p, label) in pages" exact><a>{{label}}</a></router-link>
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="!$store.state.isLogin">
+        <li > <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link></li>
+            <li > <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a></router-link></li>
+            <li class="uk-nav-divider"></li>
         </ul>
 
-        <div>
-        </div>
+
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="$store.state.isLogin">
+            <li class="uk-nav-header">{{ $t("user-nav.user-home") }}</li>
+            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span>
+                {{ $t("user-nav.node-list") }}</a></li>
+            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+            <li class="uk-nav-divider"></li>
+        </ul>
+
+
         <div>
             <Lang></Lang>
         </div>
@@ -43,12 +51,10 @@
                 }
             }
         },
-        methods: {
-
-        },
+        methods: {},
         mounted: function () {
         },
-        components:{
+        components: {
             Lang,
         }
     };

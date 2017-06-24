@@ -64,7 +64,7 @@
                 axios.post("/api/token", {
                     email: this.email,
                     password: this.password,
-                })``
+                })
                     .then(response => {
                         console.log("success");
                         // Save token in cookie

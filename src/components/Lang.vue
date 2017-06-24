@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="uk-button uk-button-default" type="button">Language</button>
+        <a>Language</a>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
                 <li v-for="(v,k) in langs"><a @click="setLang(k)">{{v}}</a></li>

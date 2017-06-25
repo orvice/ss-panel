@@ -15,7 +15,7 @@
     "highlightjs": "^9.10.0",
     "icons": "^0.1.1",
     "jquery": "^3.2.1",
-    "laravel-vue-pagination": "^1.0.6",
+    "laravel-vue-pagination-uikit": "^1.0.6",
     "marked": "^0.3.6",
     "npm": "^5.0.3",
     "tls": "0.0.1",

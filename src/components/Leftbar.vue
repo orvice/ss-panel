@@ -3,10 +3,10 @@
     <div class="tm-sidebar-left uk-visible@m">
 
         <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="!$store.state.isLogin">
-            <li>
+            <li class="uk-nav">
                 <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link>
             </li>
-            <li>
+            <li class="uk-nav">
                 <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a></router-link>
             </li>
             <li class="uk-nav-divider"></li>

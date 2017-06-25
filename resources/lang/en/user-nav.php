@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
     'user-home' => 'User Center',
     'node-list' => 'Node List',
     'my-profile' => 'My Profile',

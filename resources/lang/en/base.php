@@ -5,4 +5,6 @@ return [
     "error" => "Error",
     "something-wrong" => "Some Wrong!",
     "system-error" => "System Error",
+
+    'setting' => 'Setting',
 ];

@@ -6,7 +6,7 @@
                 <div class="uk-container">
                     <div class="uk-overflow-auto">
                         <h1 class="uk-table uk-table-divider">
-                            {{ $t("user-nav.dashboard") }}
+                            {{ $t("base.setting") }}
                         </h1>
 
                         <div>
@@ -26,7 +26,7 @@
     import axios from 'axios'
     import rest from '../http/rest'
     export default {
-        name: 'Dashboard',
+        name: 'Setting',
         components: {
         },
         data () {

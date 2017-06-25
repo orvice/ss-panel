@@ -23,7 +23,9 @@ export default {
         "base": {
             "success": "Success",
             "error": "Error",
-            "something-wrong": "Some Wrong!"
+            "something-wrong": "Some Wrong!",
+            "system-error": "System Error",
+            "setting": "Setting"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -69,6 +71,7 @@ export default {
             "last-used": "Last used at"
         },
         "user-nav": {
+            "dashboard": "Dashboard",
             "user-home": "User Center",
             "node-list": "Node List",
             "my-profile": "My Profile",

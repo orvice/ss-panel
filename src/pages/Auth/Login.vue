@@ -31,7 +31,7 @@
                             <div class="uk-margin">
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                    <input class="uk-input" type="text" v-model="password">
+                                    <input class="uk-input" type="password" v-model="password">
                                 </div>
                             </div>
 

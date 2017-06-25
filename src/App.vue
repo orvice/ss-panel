@@ -22,17 +22,17 @@
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
-                            <router-link tag="li" :to="{ path: '/auth/login' }" exact><a>{{ $t("auth.login") }}</a></router-link>
-                            <router-link tag="li" :to="{ path: '/auth/register' }" exact><a>{{ $t("auth.register") }}</a></router-link>
+                            <router-link tag="li" :to="{ name: 'login' }" exact><a>{{ $t("auth.login") }}</a></router-link>
+                            <router-link tag="li" :to="{ name: 'register' }" exact><a>{{ $t("auth.register") }}</a></router-link>
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="$store.state.isLogin">
-                            <router-link tag="li" :to="{ path: '/logout' }" exact><a>Logout</a></router-link>
+                            <router-link tag="li" :to="{ name: 'logout' }" exact><a>Logout</a></router-link>
                         </ul>
 
                         <div class="uk-navbar-item uk-visible@m" v-if="$store.state.isLogin">
                             <router-link class="uk-button uk-button-default tm-button-default uk-icon" tag="li"
-                                         :to="{ path: '/dashboard' }" exact>Dashboard
+                                         :to="{ name: 'dashboard' }" exact>Dashboard
                                 <canvas uk-icon="icon: user" width="20" height="20"></canvas>
                             </router-link>
                         </div>

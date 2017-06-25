@@ -2,7 +2,7 @@
 
     <div>
         <div ref="container">
-            <div class="uk-width-1-1">
+            <div class="uk-width-auto">
                 <div class="uk-container">
                     <div class="uk-overflow-auto">
                         <h1 class="uk-table uk-table-divider">

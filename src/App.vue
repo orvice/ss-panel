@@ -18,12 +18,15 @@
 
                         <ul class="uk-navbar-nav uk-visible@m">
                             <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link>
-                            <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a></router-link>
+                            <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a>
+                            </router-link>
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
-                            <router-link tag="li" :to="{ name: 'login' }" exact><a>{{ $t("auth.login") }}</a></router-link>
-                            <router-link tag="li" :to="{ name: 'register' }" exact><a>{{ $t("auth.register") }}</a></router-link>
+                            <router-link tag="li" :to="{ name: 'login' }" exact><a>{{ $t("auth.login") }}</a>
+                            </router-link>
+                            <router-link tag="li" :to="{ name: 'register' }" exact><a>{{ $t("auth.register") }}</a>
+                            </router-link>
                         </ul>
 
                         <ul class="uk-navbar-nav uk-visible@m" v-if="$store.state.isLogin">
@@ -45,20 +48,14 @@
             </div>
         </div>
 
-       <LeftBar></LeftBar>
+        <LeftBar></LeftBar>
 
         <div class="tm-main uk-section uk-section-default">
             <div class="uk-container uk-container-small uk-position-relative">
-
                 <router-view></router-view>
-
             </div>
         </div>
-
-
-
     </div>
-
 </template>
 
 <script>
@@ -111,11 +108,11 @@
             },
             checkLang(){
                 let lang = sessionStorage.getItem('lang');
-                console.log("get lang from session: " +lang);
-                if(!lang){
+                console.log("get lang from session: " + lang);
+                if (!lang) {
                     return false;
                 }
-                this.$store.commit(types.ChangeLocale,lang);
+                this.$store.commit(types.ChangeLocale, lang);
             }
         },
         mounted: function () {
@@ -123,7 +120,7 @@
             this.checkToken();
             this.checkLang();
         },
-        components:{
+        components: {
             LeftBar,
             Lang,
         }

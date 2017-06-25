@@ -54,8 +54,14 @@ class Http
      */
     public static function getTokenFromReq(ServerRequestInterface $req)
     {
-        $token = $req->getHeaderLine('Token');
+        $auth =  $req->getHeaderLine('Authorization');
+        if($auth){
+            if (preg_match('/Bearer\s(\S+)/', $auth, $matches)) {
+                return $matches[1];
+            }
+        }
 
+        $token = $req->getHeaderLine('Token');
         if ($token) {
             return $token;
         }

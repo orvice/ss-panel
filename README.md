@@ -10,6 +10,12 @@ Let's talk about cat.  Based on [LightFish](https://github.com/Pongtan/LightFish
 
 Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to download ss-panel.
 
+## Install with Docker
+
+```bash
+docker pull orvice/ss-panel
+```
+
 ## Requirements
 
 * PHP 5.6 or newer

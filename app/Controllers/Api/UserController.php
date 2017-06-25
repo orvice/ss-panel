@@ -7,6 +7,7 @@ use App\Models\User;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Controllers\BaseController;
+use App\Models\Node;
 
 class UserController extends BaseController
 {
@@ -28,9 +29,10 @@ class UserController extends BaseController
         ]);
     }
 
-    public function nodes(Response $req, Response $res, $args)
+    public function nodes(Request $req, Response $res, $args)
     {
-
+        $nodes = Node::where('type', 1)->orderBy('sort')->get();
+        return $this->echoJsonWithData($res,$nodes);
     }
 
     public function update(Response $req, Response $res, $args)

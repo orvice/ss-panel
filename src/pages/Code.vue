@@ -5,9 +5,9 @@
             <div class="uk-width-1-1">
                 <div class="uk-container">
                     <div class="uk-overflow-auto">
-                        <p class="uk-table uk-table-divider">
+                        <h2 class="uk-table uk-table-divider">
                             {{ $t("nav.invite-code") }}
-                        </p>
+                        </h2>
 
                         <table class="uk-table uk-table-responsive uk-table-divider">
                             <thead>

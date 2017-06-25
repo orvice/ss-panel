@@ -18,6 +18,7 @@ $app->group('', function () {
     $this->get('/500', 'App\Controllers\HomeController:serverError');
 
     $this->get('/dashboard', 'App\Controllers\HomeController:index');
+    $this->get('/nodes', 'App\Controllers\HomeController:index');
 })->add(new User());
 
 // User Center

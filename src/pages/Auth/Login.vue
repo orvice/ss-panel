@@ -9,7 +9,17 @@
                             {{$t('auth.login')}}
                         </p>
 
+
                         <form>
+
+                            <div class="uk-margin" v-if="isError">
+                                <div class="uk-inline">
+                                    <div class="uk-alert-danger" uk-alert>
+                                        <a class="uk-alert-close" uk-close></a>
+                                        <p>{{errorMsg}}</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="uk-margin">
                                 <div class="uk-inline">
@@ -49,10 +59,12 @@
     import axios from 'axios'
     import * as types from '../../store/types'
     export default {
-        name: 'code',
+        name: 'Login',
         components: {},
         data () {
             return {
+                isError: false,
+                errorMsg: '',
                 email: '',
                 password: '',
                 message: '',
@@ -79,6 +91,8 @@
                     })
                     .catch(e => {
                         console.log("error");
+                        this.isError = true;
+                        this.errorMsg = e.response.data.msg;
                         if (e.response) {
                             console.log(e.response.status);
                         }

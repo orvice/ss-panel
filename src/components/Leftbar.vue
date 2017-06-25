@@ -11,9 +11,9 @@
 
         <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="$store.state.isLogin">
             <li class="uk-nav-header">{{ $t("user-nav.user-home") }}</li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span>
-                {{ $t("user-nav.node-list") }}</a></li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+            <li><router-link tag="li" :to="{ path: '/nodes' }" exact> <a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span>
+                {{ $t("user-nav.node-list") }}</a> </router-link> </li>
+            <li><router-link tag="li" :to="{ path: '/node' }" exact> <a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item </a> </router-link></li>
             <li class="uk-nav-divider"></li>
         </ul>
 

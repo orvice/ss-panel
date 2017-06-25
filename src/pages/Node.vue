@@ -36,22 +36,18 @@
 
 <script>
     import axios from 'axios'
+    import VueQr from 'vue-qr'
     export default {
-        name: 'code',
-        components: {},
+        name: 'Node',
+        components: {
+            VueQr,
+        },
         data () {
             return {
                 codes: []
             }
         },
         mounted: function () {
-            axios.get("/api/codes")
-                .then(response => {
-                    this.codes = response.data.data
-                })
-                .catch(e => {
-                    this.errors.push(e)
-                })
         },
     }
 </script>

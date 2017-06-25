@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from './router'
 import store  from './store/'
 import {Locales} from './lang'
-import UIkit from 'uikit'
+// import UIkit from 'uikit'
 
 
 Vue.use(VueRouter);
@@ -23,11 +23,11 @@ let lang = store.state.lang;
 
 // Ready translated locale messages
 // Create VueI18n instance with options
-const i18n = new VueI18n({
-    fallback: 'en',
-    locale: lang, // set locale
-    messages: Locales, // set locale messages
-});
+// const i18n = new VueI18n({
+//     fallback: 'en',
+//     locale: lang, // set locale
+//     messages: Locales, // set locale messages
+// });
 
 window.App = new Vue({
     router,

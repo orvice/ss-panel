@@ -25,6 +25,7 @@
     "vue-cookie": "^1.1.4",
     "vue-i18n": "^5.0.3",
     "vue-mdl": "^1.1.1",
+    "vue-qrcode": "github:xkeshi/vue-qrcode",
     "vue-resource": "^1.2.0",
     "vue-router": "^2.6.0",
     "vuex": "^2.3.1"

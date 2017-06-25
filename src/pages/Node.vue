@@ -36,11 +36,11 @@
 
 <script>
     import axios from 'axios'
-    import VueQr from 'vue-qr'
+    import VueQrcode from 'vue-qrcode'
     export default {
         name: 'Node',
         components: {
-            VueQr,
+            VueQrcode,
         },
         data () {
             return {

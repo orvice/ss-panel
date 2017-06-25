@@ -12,16 +12,20 @@
                         <table class="uk-table uk-table-striped">
                             <thead>
                             <tr>
-                                <th>Table Heading</th>
-                                <th>Table Heading</th>
-                                <th>Table Heading</th>
+                                <th>#</th>
+                                <th>{{$t("ss.node")}}</th>
+                                <th>{{$t("ss.traffic_rate")}}</th>
+                                <th>Traffic</th>
+                                <th>time</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr v-for="log in data.data">
                                 <td>#{{log.id}}</td>
-                                <td>{{log.node_id}}</td>
-                                <td>Table Data</td>
+                                <td>{{log.name}}</td>
+                                <td>{{log.rate}}</td>
+                                <td>{{ bytesToSize(log.u+log.d) }}</td>
+                                <td>{{ timeFormat(log.log_time) }}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -66,6 +70,16 @@
                     .catch(e => {
                         this.errors.push(e)
                     })
+            },
+            timeFormat(ut){
+                return new Date(ut * 1e3).toISOString();
+            },
+            bytesToSize(bytes) {
+                if (bytes === 0) return '0 B';
+                const k = 1000, // or 1024
+                    sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                    i = Math.floor(Math.log(bytes) / Math.log(k));
+                return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
             }
         },
         mounted: function () {

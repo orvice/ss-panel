@@ -10,6 +10,7 @@ return [
     'no_data' => "No Data",
 
     // Base Info
+    'node' => 'Node',
     'port' => 'Port',
     'password' => 'Password',
     'method' => 'Method',

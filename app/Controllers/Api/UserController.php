@@ -42,8 +42,14 @@ class UserController extends BaseController
         if (isset($req->getQueryParams()['page'])) {
             $pageNum = $req->getQueryParams()['page'];
         }
-        $traffic = TrafficLog::where('user_id', $args['id'])->orderBy('id', 'desc')->paginate(15, ['*'], 'page', $pageNum);
-        $traffic->setPath('/user/trafficlog');
+        $traffic = TrafficLog::where('user_id', $args['id'])
+            ->join('ss_node', 'user_traffic_log.node_id', '=', 'ss_node.id')
+            ->orderBy('user_traffic_log.id', 'desc')
+            ->paginate(15, [
+                'user_traffic_log.*',
+                'ss_node.name as name'
+            ], 'page', $pageNum);
+        $traffic->setPath('/api/users/'.$args['id'].'/trafficLogs');
         //return $this->echoJsonWithData($res,$traffic);
         return $this->echoJson($res,$traffic);
     }

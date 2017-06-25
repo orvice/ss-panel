@@ -49,6 +49,7 @@ export default {
             "online_count": "Online Count",
             "traffic_total": "Traffic Total",
             "no_data": "No Data",
+            "node": "Node",
             "port": "Port",
             "password": "Password",
             "method": "Method",

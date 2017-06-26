@@ -18,7 +18,7 @@ export default {
             "register-be-a-cat": "Register and Be a Cat!",
             "accept-tos-register": "Accept TOS,Register",
             "username": "Username",
-            "login-fail": "password or username wrong!"
+            "login-fail": "Invalid Username or Password!"
         },
         "base": {
             "success": "Success",

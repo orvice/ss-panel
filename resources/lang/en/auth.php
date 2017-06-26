@@ -18,6 +18,6 @@ return [
     'accept-tos-register' => 'Accept TOS,Register',
     'username' => 'Username',
 
-    'login-fail' => "password or username wrong!",
+    'login-fail' => "Invalid Username or Password!",
 
 ];

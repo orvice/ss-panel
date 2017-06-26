@@ -46,6 +46,7 @@
     import axios from 'axios'
     import rest from '../http/rest'
     import pagination from 'laravel-vue-pagination-uikit'
+    import {bytesToSize} from '../tools/util'
     export default {
         name: 'TrafficLog',
         components: {
@@ -74,13 +75,7 @@
             timeFormat(ut){
                 return new Date(ut * 1e3).toISOString();
             },
-            bytesToSize(bytes) {
-                if (bytes === 0) return '0 B';
-                const k = 1000, // or 1024
-                    sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                    i = Math.floor(Math.log(bytes) / Math.log(k));
-                return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
-            }
+            bytesToSize,
         },
         mounted: function () {
             this.Results();

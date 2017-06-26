@@ -58,6 +58,7 @@
 <script>
     import axios from 'axios'
     import * as types from '../../store/types'
+    import * as code from '../../code/auth'
     export default {
         name: 'Login',
         components: {},
@@ -88,13 +89,21 @@
                         };
                         this.$store.commit(types.Login, user);
                         this.$cookie.set('Token', token, 1);
+                        this.$router.push({name:"dashboard"});
                     })
                     .catch(e => {
                         console.log("error");
                         this.isError = true;
-                        this.errorMsg = e.response.data.msg;
                         if (e.response) {
                             console.log(e.response.status);
+                        }
+                        switch (e.response.data.error_code) {
+                            case code.PasswordWrong:
+                                this.errorMsg = this.$t('auth.login-fail');
+                                break;
+                            default:
+                                this.errorMsg = this.$t('base.system-error');
+                                break;
                         }
                     })
             }

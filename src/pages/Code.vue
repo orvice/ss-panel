@@ -1,32 +1,26 @@
 <template>
-    <div ref="container">
-        <div class="uk-width-1-1">
-            <div class="uk-container">
-                <div class="uk-overflow-auto">
-                    <h2 class="uk-table uk-table-divider">
-                        {{ $t("nav.invite-code") }}
-                    </h2>
+    <div class="container">
+        <div class="content-center">
+            <h1 class="title text-center"> {{ $t("nav.invite-code") }}</h1>
 
-                    <table class="uk-table uk-table-responsive uk-table-divider">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>{{ $t("nav.invite-code") }}</th>
-                        </tr>
-                        </thead>
+            <table class="uk-table uk-table-responsive uk-table-divider">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{{ $t("nav.invite-code") }}</th>
+                </tr>
+                </thead>
 
-                        <tbody>
-                        <tr v-for="code in codes">
-                            <td>{{code.id}}</td>
-                            <td><a href="#">{{code.code}}</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+                <tbody>
+                <tr v-for="code in codes">
+                    <td>{{code.id}}</td>
+                    <td><a href="#">{{code.code}}</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
 </template>
 
 <script>

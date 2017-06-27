@@ -21,4 +21,4 @@ build_front:
   image: node:latest
   script:
     - npm install
-    - npm run build
+    - npm run prod

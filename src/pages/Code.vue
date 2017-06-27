@@ -1,41 +1,36 @@
 <template>
+    <div ref="container">
+        <div class="uk-width-1-1">
+            <div class="uk-container">
+                <div class="uk-overflow-auto">
+                    <h2 class="uk-table uk-table-divider">
+                        {{ $t("nav.invite-code") }}
+                    </h2>
 
-    <div>
-        <div ref="container">
-            <div class="uk-width-1-1">
-                <div class="uk-container">
-                    <div class="uk-overflow-auto">
-                        <h2 class="uk-table uk-table-divider">
-                            {{ $t("nav.invite-code") }}
-                        </h2>
+                    <table class="uk-table uk-table-responsive uk-table-divider">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{ $t("nav.invite-code") }}</th>
+                        </tr>
+                        </thead>
 
-                        <table class="uk-table uk-table-responsive uk-table-divider">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>{{ $t("nav.invite-code") }}</th>
-                            </tr>
-                            </thead>
+                        <tbody>
+                        <tr v-for="code in codes">
+                            <td>{{code.id}}</td>
+                            <td><a href="#">{{code.code}}</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                            <tbody>
-                            <tr v-for="code in codes">
-                                <td>{{code.id}}</td>
-                                <td><a href="#">{{code.code}}</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </template>
 
 <script>
-    import axios from 'axios'
+    import http from '../http/base'
     export default {
         name: 'code',
         components: {},
@@ -45,7 +40,7 @@
             }
         },
         mounted: function () {
-            axios.get("/api/codes")
+            http.get("codes")
                 .then(response => {
                     this.codes = response.data.data
                 })

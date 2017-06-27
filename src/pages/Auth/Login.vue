@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import http from '../../http/base'
     import * as types from '../../store/types'
     import * as code from '../../code/auth'
     export default {
@@ -74,7 +74,7 @@
         methods: {
             login() {
                 console.log("start login");
-                axios.post("/api/token", {
+                http.post("token", {
                     email: this.email,
                     password: this.password,
                 })

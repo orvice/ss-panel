@@ -1,80 +1,66 @@
 <template>
 
-    <div class="uk-offcanvas-content">
+    <div>
 
-        <div class="uk-navbar-container tm-navbar-container" uk-sticky="media: 960">
+     <div uk-sticky class="uk-navbar-container tm-navbar-container uk-active">
             <div class="uk-container uk-container-expand">
-                <nav class="uk-navbar">
-
+                <nav uk-navbar>
                     <div class="uk-navbar-left">
-
+                        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
                         <a href="/" class="uk-navbar-item uk-logo">
-                            {{title}}
+                             {{title}}
                         </a>
-
                     </div>
-
-                    <div class="uk-navbar-right">
-
-                        <ul class="uk-navbar-nav uk-visible@m">
-                            <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link>
-                            <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a>
-                            </router-link>
+                    <div class="uk-navbar-right uk-light">
+                        <ul class="uk-navbar-nav">
+                            <li class="uk-active">
+                                <a href="#">{{user.data.email}}<span class="ion-ios-arrow-down"></span></a>
+                                <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
+                                   <ul class="uk-nav uk-navbar-dropdown-nav">
+                                       <li class="uk-nav-header">Options</li>
+                                       <li><a href="#">Edit Profile</a></li>
+                                       <li class="uk-nav-header">Actions</li>
+                                        
+                                       <router-link tag="li" :to="{ name: 'logout' }" exact><a>Logout</a></router-link>
+                                   </ul>
+                                </div>
+                            </li>
                         </ul>
-
-                        <ul class="uk-navbar-nav uk-visible@m" v-if="!$store.state.isLogin">
-                            <router-link tag="li" :to="{ name: 'login' }" exact><a>{{ $t("auth.login") }}</a>
-                            </router-link>
-                            <router-link tag="li" :to="{ name: 'register' }" exact><a>{{ $t("auth.register") }}</a>
-                            </router-link>
-                        </ul>
-
-                        <ul class="uk-navbar-nav uk-visible@m" v-if="$store.state.isLogin">
-                            <router-link tag="li" :to="{ name: 'logout' }" exact><a>Logout</a></router-link>
-                        </ul>
-
-                        <div class="uk-navbar-item uk-visible@m" v-if="$store.state.isLogin">
-                            <router-link class="uk-button uk-button-default tm-button-default uk-icon" tag="li"
-                                         :to="{ name: 'dashboard' }" exact>Dashboard
-                                <canvas uk-icon="icon: user" width="20" height="20"></canvas>
-                            </router-link>
-                        </div>
-
-                        <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas" uk-toggle></a>
-
                     </div>
-
                 </nav>
             </div>
         </div>
-
-        <LeftBar></LeftBar>
-
-        <div class="tm-main uk-section uk-section-default">
-            <div class="uk-container uk-container-small uk-position-relative">
-                <router-view></router-view>
-            </div>
+        <div id="sidebar" class="tm-sidebar-left uk-background-default">
+            <center>
+                <div class="user">
+                </div>
+                <br />
+            </center>
+            <LeftBar></LeftBar>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
     /* eslint-disable no-new */
-    import axios from 'axios'
     import * as types from './store/types'
     import LeftBar from './components/Leftbar.vue'
     import Lang from './components/Lang.vue'
+    import rest from './http/rest'
+    import http from './http/base'
 
     export default {
         name: 'App',
         data () {
             return {
                 title: 'ss-panel',
+                user: {},
             }
         },
         methods: {
             handleCfg: function () {
-                axios.get("/api/config")
+                http.get("config")
                     .then(response => {
                         // JSON responses are automatically parsed.
                         this.title = response.data.data.app;
@@ -90,17 +76,6 @@
                 if (!token) {
                     return false;
                 }
-
-                axios.get("/api/users/" + id)
-                    .then(response => {
-                        // JSON responses are automatically parsed.
-                        console.log(response.data);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                        return false;
-                    });
-
                 this.$store.commit(types.Login, {
                     token: token,
                     id: id,
@@ -113,11 +88,23 @@
                     return false;
                 }
                 this.$store.commit(types.ChangeLocale, lang);
+            },
+            initUser(){
+                rest.get("")
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        this.user = response.data;
+                        console.log(this.user);
+                    })
+                    .catch(e => {
+                        this.errors.push(e)
+                    })
             }
         },
         mounted: function () {
             this.handleCfg();
             this.checkToken();
+            this.initUser();
             this.checkLang();
         },
         components: {

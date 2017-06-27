@@ -1,35 +1,33 @@
 <template>
 
-    <div>
-        <div ref="container">
-            <div class="uk-width-1-1">
-                <div class="uk-container">
-                    <div class="uk-overflow-auto">
-                        <h1 class="uk-table uk-table-divider">
-                            {{ $t("user-nav.node-list") }}
-                        </h1>
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h3><span class="ion-speedometer"></span> {{ $t("user-nav.node-list") }} </h3>
+            </div>
+        </div>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <ul uk-accordion>
+                            <li v-for="node in nodes">
+                                <h3 class="uk-accordion-title"><span class="uk-margin-small-right"
+                                                                     uk-icon="icon: table"></span> {{node.name}}</h3>
+                                <div class="uk-accordion-content">
+                                    <p> {{$t("ss.server_addr")}}: <em>{{node.server}}</em></p>
+                                    <p> {{$t("ss.method")}}: <em>{{node.method}}</em></p>
+                                    <blockquote>{{node.info}}</blockquote>
+                                </div>
+                            </li>
 
-                        <div class="table-responsive">
-                            <ul uk-accordion >
-                                <li v-for="node in nodes" >
-                                    <h3 class="uk-accordion-title"><span class="uk-margin-small-right"
-                                                                         uk-icon="icon: table"></span> {{node.name}}</h3>
-                                    <div class="uk-accordion-content">
-                                        <p> {{$t("ss.server_addr")}}: <em>{{node.server}}</em>   </p>
-                                        <p> {{$t("ss.method")}}: <em>{{node.method}}</em>   </p>
-                                        <blockquote>{{node.info}}</blockquote>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
+                        </ul>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 
 </template>
 

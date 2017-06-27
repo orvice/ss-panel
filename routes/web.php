@@ -17,9 +17,9 @@ $app->group('', function () {
     $this->post('/debug', 'App\Controllers\HomeController:postDebug');
     $this->get('/500', 'App\Controllers\HomeController:serverError');
 
-    $this->get('/dashboard', 'App\Controllers\HomeController:index');
-    $this->get('/nodes', 'App\Controllers\HomeController:index');
-    $this->get('/trafficLogs', 'App\Controllers\HomeController:index');
+    $this->get('/dashboard', 'App\Controllers\HomeController:dashboard');
+    $this->get('/nodes', 'App\Controllers\HomeController:dashboard');
+    $this->get('/trafficLogs', 'App\Controllers\HomeController:dashboard');
 })->add(new User());
 
 // User Center
@@ -107,6 +107,7 @@ $app->group('/api', function () {
     // User Resource
     $this->get('/users/{id}/nodes', 'App\Controllers\Api\UserController:nodes')->add(new Api());
     $this->get('/users/{id}/trafficLogs', 'App\Controllers\Api\UserController:trafficLogs')->add(new Api());
+    $this->get('/users/{id}/', 'App\Controllers\Api\UserController:show')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());
     $this->put('/users/{id}', 'App\Controllers\Api\UserController:update')->add(new Api());
 

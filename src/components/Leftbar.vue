@@ -1,20 +1,11 @@
 <template>
 
-    <div class="tm-sidebar-left uk-visible@m">
+    <div>
+        <ul class="uk-nav uk-nav-default">
 
-        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="!$store.state.isLogin">
-            <li class="uk-nav">
-                <router-link tag="li" :to="{ path: '/' }" exact><a>{{ $t("nav.home") }}</a></router-link>
+            <li class="uk-nav-header">
+                {{ $t("user-nav.user-home") }}
             </li>
-            <li class="uk-nav">
-                <router-link tag="li" :to="{ path: '/code' }" exact><a>{{ $t("nav.invite-code") }}</a></router-link>
-            </li>
-            <li class="uk-nav-divider"></li>
-        </ul>
-
-
-        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav v-if="$store.state.isLogin">
-            <li class="uk-nav-header">{{ $t("user-nav.user-home") }}</li>
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'dashboard' }" exact><a href="#"><span class="uk-margin-small-right"
                                                                                           uk-icon="icon: user"></span>
@@ -48,12 +39,6 @@
             </li>
             <li class="uk-nav-divider"></li>
         </ul>
-
-
-        <div>
-            <Lang></Lang>
-        </div>
-
     </div>
 
 
@@ -69,18 +54,7 @@
         name: 'LeftBar',
         data () {
             return {
-                navigation: {
-                    "Pages": {
-                        "Home": "/",
-                        "Code": "/code"
-                    },
-
-                    "Dashboard": {
-                        "Node": "/nodes",
-                        "Profile": "/profile",
-                        "Logout": "/logout",
-                    }
-                }
+                navigation: {}
             }
         },
         methods: {},

@@ -1,16 +1,15 @@
 <template>
 
-    <div>
-        <div ref="container">
-            <div class="uk-width-1-1">
-                <div class="uk-container">
-                    <div class="uk-overflow-auto">
-                        <p class="uk-table uk-table-divider">
-                            {{$t('auth.login')}}
-                        </p>
-
-
-                        <form>
+<div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h1><span class="ion-speedometer"></span> {{$t('auth.login')}} </h1>
+            </div>
+        </div>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl">
+                      <form>
 
                             <div class="uk-margin" v-if="isError">
                                 <div class="uk-inline">
@@ -45,13 +44,13 @@
                                 </p>
                             </div>
                         </div>
-
-                    </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+
+    
 
 </template>
 

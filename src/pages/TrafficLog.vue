@@ -1,14 +1,15 @@
 <template>
 
-    <div>
-        <div ref="container">
-            <div class="uk-width-auto">
-                <div class="uk-container">
-                    <div class="uk-overflow-auto">
-                        <h1 class="uk-table uk-table-divider">
-                            {{ $t("user-nav.traffic-log") }}
-                        </h1>
-
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h3><span class="ion-speedometer"></span> {{ $t("user-nav.traffic-log") }} </h3>
+            </div>
+        </div>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl">
+                    <div class="uk-card uk-card-default uk-card-body">
                         <table class="uk-table uk-table-striped">
                             <thead>
                             <tr>
@@ -24,21 +25,20 @@
                                 <td>#{{log.id}}</td>
                                 <td>{{log.name}}</td>
                                 <td>{{log.rate}}</td>
-                                <td>{{ bytesToSize(log.u+log.d) }}</td>
+                                <td>{{ bytesToSize(log.u + log.d) }}</td>
                                 <td>{{ timeFormat(log.log_time) }}</td>
                             </tr>
                             </tbody>
                         </table>
 
+
                         <pagination :data="data" v-on:pagination-change-page="Results"></pagination>
-
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 
 </template>
 

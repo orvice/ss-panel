@@ -90,6 +90,14 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">有效期</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="expire_time" value="{if $user->expire_time==0}{else}{$user->expireTime()}{/if}" placeholder="永久有效">
+                                        </div>
+                                    </div>
+
                                 </fieldset>
                                 <fieldset class="col-sm-6">
                                     <legend>ShadowSocks连接信息</legend>
@@ -115,9 +123,9 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" id="method">
                                             {foreach $method as $cipher}
-                                               <option value="{$cipher}" {if $user->method==$cipher}selected="selected"{/if} >{$cipher}</option>  
+                                               <option value="{$cipher}" {if $user->method==$cipher}selected="selected"{/if} >{$cipher}</option>
                                             {/foreach}
-                                            </select>  
+                                            </select>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -202,6 +210,7 @@
                     invite_num: $("#invite_num").val(),
                     method: $("#method").val(),
                     enable: $("#enable").val(),
+                    expire_time: $("#expire_time").val() ? Date.parse(new Date($("#expire_time").val()))/1000 : 0,
                     is_admin: $("#is_admin").val(),
                     ref_by: $("#ref_by").val()
                 },
@@ -238,6 +247,19 @@
         });
         $("#error-close").click(function () {
             $("#msg-error").hide(100);
+        });
+
+        laydate.skin('danlan');
+        laydate({
+            elem: '#expire_time', //需显示日期的元素选择器
+            event: 'click', //触发事件
+            format: 'YYYY-MM-DD', //日期格式
+            istime: true, //是否开启时间选择
+            isclear: true, //是否显示清空
+            issure: false, //是否显示确认
+            istoday: true, //是否显示今天
+            fixed: false, //是否固定在可视区域
+            zIndex: 99999999 //css z-index
         });
     })
 </script>

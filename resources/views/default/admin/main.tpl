@@ -19,6 +19,9 @@
     <!-- jQuery 2.1.3 -->
     <script src="/assets/public/js/jquery.min.js"></script>
 
+    <!-- laydate -->
+    <script src="/assets/public/plugins/laydate/laydate.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -128,7 +131,7 @@
                         <i class="fa fa-history"></i> <span>流量记录</span>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="/admin/sys">
                         <i class="fa fa-cog"></i> <span>系统维护</span>

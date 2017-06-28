@@ -42,7 +42,7 @@
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                         </span>
-                        <input type="password" placeholder="Password..." class="form-control" v-="password"/>
+                        <input type="password" placeholder="Password..." class="form-control" v-model="password"/>
                     </div>
                     <!-- If you want to add a checkbox to this form, uncomment this code -->
                     <!-- <div class="checkbox">
@@ -103,6 +103,9 @@
                             console.log(e.response.status);
                         }
                         switch (e.response.data.error_code) {
+                            case code.UserNotExists:
+                                this.errorMsg = this.$t('auth.login-fail');
+                                break;
                             case code.PasswordWrong:
                                 this.errorMsg = this.$t('auth.login-fail');
                                 break;

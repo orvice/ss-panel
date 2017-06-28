@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="content-center">
-            <div class="card card-signup" data-background-color="blue">
+            <div class="card card-signup  card-plain" >
                 <div class="header header-primary text-center">
                     <h4 class="title title-up">{{$t("auth.login")}}</h4>
                     <div class="social-line" v-if="false">
@@ -42,7 +42,7 @@
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                         </span>
-                        <input type="password" placeholder="Password..." class="form-control" v-model="password"/>
+                        <input type="password" placeholder="Password..." class="form-control" v-="password"/>
                     </div>
                     <!-- If you want to add a checkbox to this form, uncomment this code -->
                     <!-- <div class="checkbox">

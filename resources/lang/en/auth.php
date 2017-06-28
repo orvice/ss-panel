@@ -15,7 +15,7 @@ return [
     'send-code' => 'Send Code',
 
     'register-be-a-cat' => 'Register and Be a Cat!',
-    'accept-tos-register' => 'Accept TOS,Register',
+    'create-account' => 'Create Account',
     'username' => 'Username',
 
     'login-fail' => "Invalid Username or Password!",

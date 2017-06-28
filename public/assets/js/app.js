@@ -15413,6 +15413,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -15551,9 +15555,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('a', [_vm._v("Language")]), _vm._v(" "), _c('div', {
+  return _c('div', [_c('ul', {
+    staticClass: "uk-navbar-nav"
+  }, [_c('li', {
+    staticClass: "uk-active"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     attrs: {
-      "uk-dropdown": ""
+      "uk-dropdown": "pos: bottom-right; mode: click; offset: -17;"
     }
   }, [_c('ul', {
     staticClass: "uk-nav uk-dropdown-nav"
@@ -15565,8 +15573,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(v))])])
-  }))])])
-},staticRenderFns: []}
+  }))])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: world"
+    }
+  }), _vm._v(" Language "), _c('span', {
+    staticClass: "ion-ios-arrow-down"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -17376,6 +17397,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* eslint-disable no-new */
 
@@ -17478,7 +17500,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "/"
     }
-  }, [_vm._v("\n                         " + _vm._s(_vm.title) + "\n                    ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                        " + _vm._s(_vm.title) + "\n                    ")])]), _vm._v(" "), _c('div', {
     staticClass: "uk-navbar-right uk-light"
   }, [_c('ul', {
     staticClass: "uk-navbar-nav"
@@ -17488,7 +17510,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "#"
     }
-  }, [_vm._v(_vm._s(_vm.user.data.email)), _c('span', {
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: user"
+    }
+  }), _vm._v(" " + _vm._s(_vm.$store.state.user.data.email)), _c('span', {
     staticClass: "ion-ios-arrow-down"
   })]), _vm._v(" "), _c('div', {
     attrs: {
@@ -17508,7 +17535,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       "exact": ""
     }
-  }, [_c('a', [_vm._v("Logout")])])], 1)])])])])])])]), _vm._v(" "), _c('div', {
+  }, [_c('a', [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: sign-out"
+    }
+  }), _vm._v(" Logout")])])], 1)])])]), _vm._v(" "), _c('Lang')], 1)])])]), _vm._v(" "), _c('div', {
     staticClass: "tm-sidebar-left uk-background-default",
     attrs: {
       "id": "sidebar"
@@ -17709,6 +17741,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -17785,11 +17822,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.checkIn
     }
-  }, [_vm._v(" " + _vm._s(_vm.$t("user-index.checkin")))])]) : _vm._e()])])]), _vm._v(" "), _c('div', [_c('div', {
+  }, [_vm._v("\n                                    " + _vm._s(_vm.$t("user-index.checkin")) + "\n                                ")])]) : _vm._e()])])]), _vm._v(" "), _c('div', [_c('div', {
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                           " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _c('div', {
     staticClass: "uk-card-body"
   }, [_c('p', [_vm._v(_vm._s(_vm.$t("ss.port")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.port))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.password")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.passwd))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.method")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.method))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-protocol")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.protocol))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-plugint")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs_param")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs_param))])])])])])])])])])
 },staticRenderFns: []}

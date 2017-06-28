@@ -15413,6 +15413,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -15551,9 +15555,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('a', [_vm._v("Language")]), _vm._v(" "), _c('div', {
+  return _c('div', [_c('ul', {
+    staticClass: "uk-navbar-nav"
+  }, [_c('li', {
+    staticClass: "uk-active"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     attrs: {
-      "uk-dropdown": ""
+      "uk-dropdown": "pos: bottom-right; mode: click; offset: -17;"
     }
   }, [_c('ul', {
     staticClass: "uk-nav uk-dropdown-nav"
@@ -15565,8 +15573,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(v))])])
-  }))])])
-},staticRenderFns: []}
+  }))])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: world"
+    }
+  }), _vm._v(" Language "), _c('span', {
+    staticClass: "ion-ios-arrow-down"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

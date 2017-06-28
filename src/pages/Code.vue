@@ -1,20 +1,22 @@
 <template>
+
+
+
     <div class="container">
         <div class="content-center">
             <h1 class="title text-center"> {{ $t("nav.invite-code") }}</h1>
-
-            <table class="uk-table uk-table-responsive uk-table-divider">
+            <table class="table">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ $t("nav.invite-code") }}</th>
+                    <th class="text-center">{{ $t("nav.invite-code") }}</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr v-for="code in codes">
                     <td>{{code.id}}</td>
-                    <td><a href="#">{{code.code}}</a></td>
+                    <td><a class="nav-link" href="#">{{code.code}}</a></td>
                 </tr>
                 </tbody>
             </table>

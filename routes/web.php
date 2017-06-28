@@ -12,7 +12,7 @@ use App\Middleware\User;
 $app->group('', function () {
     $this->get('/', 'App\Controllers\HomeController:index');
     $this->get('/code', 'App\Controllers\HomeController:index');
-    $this->get('/tos', 'App\Controllers\HomeController:tos');
+    $this->get('/tos', 'App\Controllers\HomeController:index');
     $this->get('/debug', 'App\Controllers\HomeController:debug');
     $this->post('/debug', 'App\Controllers\HomeController:postDebug');
     $this->get('/500', 'App\Controllers\HomeController:serverError');
@@ -49,9 +49,6 @@ $app->group('/user', function () {
 $app->group('/auth', function () {
     $this->get('/login', 'App\Controllers\HomeController:index');
     $this->get('/register', 'App\Controllers\HomeController:index');
-    $this->post('/register', 'App\Controllers\AuthController:registerHandle');
-    $this->post('/sendcode', 'App\Controllers\AuthController:sendVerifyEmail');
-    $this->get('/logout', 'App\Controllers\AuthController:logout');
 })->add(new Guest());
 
 // Password

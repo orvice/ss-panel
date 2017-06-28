@@ -20,21 +20,21 @@
                      data-nav-image="../assets/img/blurred-image-1.jpg">
 
                     <ul class="navbar-nav">
-                        <router-link tag="li" :to="{ path: '/' }" exact><li class="nav-item"><a class="nav-link">{{ $t("nav.home") }}</a></li></router-link>
-                        <router-link tag="li" :to="{ path: '/code' }" exact><li class="nav-item"><a class="nav-link">{{ $t("nav.invite-code") }}</a></li>
+                        <router-link tag="li" :to="{ name: 'index' }" exact><li class="nav-item"><a class="nav-link">{{ $t("nav.home") }}</a></li></router-link>
+                        <router-link tag="li" :to="{ name: 'code' }" exact><li class="nav-item"><a class="nav-link">{{ $t("nav.invite-code") }}</a></li>
                         </router-link>
                     </ul>
 
                     <ul class="navbar-nav" v-if="!$store.state.isLogin">
-                        <router-link tag="li" :to="{ path: '/auth/login' }" exact><li class="nav-item"><a class="nav-link">{{ $t("auth.login") }}</a></li></router-link>
-                        <router-link tag="li" :to="{ path: '/code' }" exact><li class="nav-item"><a class="nav-link">{{ $t("auth.register") }}</a></li>
-                        </router-link>
+                        <router-link tag="li" :to="{ name: 'login' }" exact><li class="nav-item"><a class="nav-link">{{ $t("auth.login") }}</a></li></router-link>
+                        <router-link tag="li" :to="{ name: 'register' }" exact><li class="nav-item"><a class="nav-link">{{ $t("auth.register") }}</a></li></router-link>
                     </ul>
 
                     <ul class="navbar-nav" v-if="$store.state.isLogin">
-                        <li class="nav-item"><a class="nav-link" href="/dashboard">{{ $t("user-nav.dashboard") }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">{{ $t("nav-user.dashboard") }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="/logout">{{ $t("auth.logout") }}</a></li>
                     </ul>
+
 
                 </div>
             </div>

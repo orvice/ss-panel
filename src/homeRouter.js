@@ -5,6 +5,7 @@ import Code from './pages/Code.vue'
 
 // Auth
 import Login from './pages/Auth/Login.vue'
+import Register from './pages/Auth/Register.vue'
 import Logout from './pages/Auth/Logout.vue'
 
 
@@ -14,6 +15,7 @@ const routes = [
 
     // Auth
     {path: '/auth/login', name: 'login', component: Login},
+    {path: '/auth/register', name: 'register', component: Register},
     {path: '/logout', name: 'logout', component: Logout},
 
 ];

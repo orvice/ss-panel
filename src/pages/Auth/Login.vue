@@ -1,56 +1,63 @@
 <template>
+    <div class="container">
+        <div class="content-center">
+            <div class="card card-signup" data-background-color="blue">
+                <div class="header header-primary text-center">
+                    <h4 class="title title-up">{{$t("auth.login")}}</h4>
+                    <div class="social-line" v-if="false">
+                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-icon-mini">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-google btn-icon  btn-icon-mini">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="content">
 
-<div class="content-padder content-background">
-        <div class="uk-section-small uk-section-default header">
-            <div class="uk-container uk-container-large">
-                <h1><span class="ion-speedometer"></span> {{$t('auth.login')}} </h1>
-            </div>
-        </div>
-        <div class="uk-section-small">
-            <div class="uk-container uk-container-large">
-                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl">
-                      <form>
-
-                            <div class="uk-margin" v-if="isError">
-                                <div class="uk-inline">
-                                    <div class="uk-alert-danger" uk-alert>
-                                        <a class="uk-alert-close" uk-close></a>
-                                        <p>{{errorMsg}}</p>
-                                    </div>
-                                </div>
+                    <div class="alert alert-danger" role="alert" v-if="isError">
+                        <div class="container">
+                            <div class="alert-icon">
+                                <i class="now-ui-icons objects_support-17"></i>
                             </div>
-
-                            <div class="uk-margin">
-                                <div class="uk-inline">
-                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                    <input class="uk-input" type="text" v-model="email">
-                                </div>
-                            </div>
-
-                            <div class="uk-margin">
-                                <div class="uk-inline">
-                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                    <input class="uk-input" type="password" v-model="password">
-                                </div>
-                            </div>
-
-                        </form>
-
-                        <div class="uk-margin">
-                            <div class="uk-inline">
-                                <p uk-margin>
-                                    <button class="uk-button uk-button-primary" @click="login">{{$t('auth.login')}}
-                                    </button>
-                                </p>
-                            </div>
+                            {{errorMsg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">
+				<i class="now-ui-icons ui-1_simple-remove"></i>
+			</span>
+                            </button>
                         </div>
+                    </div>
+
+                    <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="now-ui-icons ui-1_email-85"></i>
+                                        </span>
+                        <input type="text" class="form-control" placeholder="Email..." v-model="email">
+                    </div>
+                    <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                                        </span>
+                        <input type="password" placeholder="Password..." class="form-control" v-model="password"/>
+                    </div>
+                    <!-- If you want to add a checkbox to this form, uncomment this code -->
+                    <!-- <div class="checkbox">
+                      <input id="checkboxSignup" type="checkbox">
+                          <label for="checkboxSignup">
+                          Unchecked
+                          </label>
+                        </div> -->
+                </div>
+                <div class="footer text-center">
+                    <a href="#pablo" @click="login" class="btn btn-neutral btn-round btn-lg">{{$t("auth.login")}}</a>
                 </div>
             </div>
         </div>
     </div>
-
-
-    
 
 </template>
 
@@ -87,8 +94,7 @@
                             id: id,
                         };
                         this.$store.commit(types.Login, user);
-                        this.$cookie.set('Token', token, 1);
-                        this.$router.push({name:"dashboard"});
+                        window.location.href = '/dashboard';
                     })
                     .catch(e => {
                         console.log("error");

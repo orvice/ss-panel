@@ -473,8 +473,10 @@ module.exports = function normalizeComponent (
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeLocale; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return StoreUser; });
 var Login = "Login";
 var ChangeLocale = "ChangeLocale";
+var StoreUser = "StoreUser";
 
 /***/ }),
 /* 3 */
@@ -10348,7 +10350,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         token: null,
         isLogin: false,
         id: 0,
-        lang: 'en'
+        lang: 'en',
+        user: {}
     },
     mutations: (_mutations = {}, _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["b" /* Login */], function (state, user) {
         sessionStorage.token = user.token;
@@ -10359,6 +10362,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["a" /* ChangeLocale */], function (state, locale) {
         state.lang = locale;
         __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.lang = state.lang;
+    }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["c" /* StoreUser */], function (state, user) {
+        state.user = user;
     }), _mutations),
     modules: {}
 
@@ -15460,7 +15465,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "error": "Error",
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
-            "setting": "Setting"
+            "setting": "Setting",
+            "never": "Never"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -15483,6 +15489,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "traffic_rate": "Traffic Rate",
             "online_count": "Online Count",
             "traffic_total": "Traffic Total",
+            "traffic_used": "Traffic Used",
+            "traffic_unused": "Unused Traffic",
             "no_data": "No Data",
             "node": "Node",
             "port": "Port",
@@ -17401,7 +17409,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var token = sessionStorage.getItem('token');
             var id = sessionStorage.getItem('id');
             if (!token) {
-                return false;
+                window.location.href = '/';
             }
             this.$store.commit(__WEBPACK_IMPORTED_MODULE_0__store_types__["b" /* Login */], {
                 token: token,
@@ -17422,6 +17430,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             __WEBPACK_IMPORTED_MODULE_3__http_rest__["a" /* default */].get("").then(function (response) {
                 // JSON responses are automatically parsed.
                 _this2.user = response.data;
+                _this2.$store.commit(__WEBPACK_IMPORTED_MODULE_0__store_types__["c" /* StoreUser */], response.data);
                 console.log(_this2.user);
             }).catch(function (e) {
                 _this2.errors.push(e);
@@ -17694,26 +17703,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -17742,14 +17731,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-container uk-container-large"
   }, [_c('h3', [_c('span', {
     staticClass: "ion-speedometer"
-  }), _vm._v(" " + _vm._s(_vm.$t("user-nav.dashboard")) + " ")])])]), _vm._v(" "), _vm._m(0)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }), _vm._v(" " + _vm._s(_vm.$t("user-nav.dashboard")) + " ")])])]), _vm._v(" "), _c('div', {
     staticClass: "uk-section-small"
   }, [_c('div', {
     staticClass: "uk-container uk-container-large"
   }, [_c('div', {
-    staticClass: "uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl",
+    staticClass: "uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl",
     attrs: {
       "uk-grid": ""
     }
@@ -17757,43 +17744,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-card uk-card-default uk-card-body"
   }, [_c('span', {
     staticClass: "statistics-text"
-  }, [_vm._v("New Registrations")]), _c('br'), _vm._v(" "), _c('span', {
+  }, [_vm._v(_vm._s(_vm.$t("ss.traffic_total")))]), _c('br'), _vm._v(" "), _c('span', {
     staticClass: "statistics-number"
-  }, [_vm._v("\n                                14.164\n                                "), _c('span', {
-    staticClass: "uk-label uk-label-success"
-  }, [_vm._v("\n                                    8% "), _c('span', {
-    staticClass: "ion-arrow-up-c"
-  })])])])]), _vm._v(" "), _c('div', [_c('div', {
+  }, [_vm._v("\n                                " + _vm._s(_vm.$store.state.user.traffic.total) + "\n                            ")])])]), _vm._v(" "), _c('div', [_c('div', {
     staticClass: "uk-card uk-card-default uk-card-body"
   }, [_c('span', {
     staticClass: "statistics-text"
-  }, [_vm._v("Website Traffic")]), _c('br'), _vm._v(" "), _c('span', {
+  }, [_vm._v(_vm._s(_vm.$t("ss.traffic_used")))]), _c('br'), _vm._v(" "), _c('span', {
     staticClass: "statistics-number"
-  }, [_vm._v("\n                                123.238\n                                "), _c('span', {
-    staticClass: "uk-label uk-label-danger"
-  }, [_vm._v("\n                                    13% "), _c('span', {
-    staticClass: "ion-arrow-down-c"
-  })])])])]), _vm._v(" "), _c('div', [_c('div', {
+  }, [_vm._v("\n                               " + _vm._s(_vm.$store.state.user.traffic.used) + "\n                            ")])])]), _vm._v(" "), _c('div', [_c('div', {
     staticClass: "uk-card uk-card-default uk-card-body"
   }, [_c('span', {
     staticClass: "statistics-text"
-  }, [_vm._v("Total Invoices")]), _c('br'), _vm._v(" "), _c('span', {
+  }, [_vm._v(_vm._s(_vm.$t("ss.traffic_unused")))]), _c('br'), _vm._v(" "), _c('span', {
     staticClass: "statistics-number"
-  }, [_vm._v("\n                                2.316\n                                "), _c('span', {
-    staticClass: "uk-label uk-label-success"
-  }, [_vm._v("\n                                    37% "), _c('span', {
-    staticClass: "ion-arrow-up-c"
-  })])])])]), _vm._v(" "), _c('div', [_c('div', {
-    staticClass: "uk-card uk-card-default uk-card-body"
-  }, [_c('span', {
-    staticClass: "statistics-text"
-  }, [_vm._v("Total Income")]), _c('br'), _vm._v(" "), _c('span', {
-    staticClass: "statistics-number"
-  }, [_vm._v("\n                                6.384€\n                                "), _c('span', {
-    staticClass: "uk-label uk-label-success"
-  }, [_vm._v("\n                                    26% "), _c('span', {
-    staticClass: "ion-arrow-up-c"
-  })])])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                                " + _vm._s(_vm.$store.state.user.traffic.unused) + "\n                            ")])])])]), _vm._v(" "), _c('div', {
     staticClass: "uk-child-width-1-1@s uk-child-width-1-2@l",
     attrs: {
       "uk-grid": ""
@@ -17802,23 +17767,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                            Website Traffic\n                        ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.checkin")) + "\n                        ")]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c('div', [_c('div', {
+    staticClass: "uk-card uk-card-default"
+  }, [_c('div', {
+    staticClass: "uk-card-header"
+  }, [_vm._v("\n                           " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _vm._m(1)])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "uk-card-body"
   }, [_c('canvas', {
     attrs: {
       "id": "chart1"
     }
-  })])])]), _vm._v(" "), _c('div', [_c('div', {
-    staticClass: "uk-card uk-card-default"
-  }, [_c('div', {
-    staticClass: "uk-card-header"
-  }, [_vm._v("\n                            Website Traffic\n                        ")]), _vm._v(" "), _c('div', {
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "uk-card-body"
   }, [_c('canvas', {
     attrs: {
       "id": "chart2"
     }
-  })])])])])])])
+  })])
 }]}
 module.exports.render._withStripped = true
 if (false) {

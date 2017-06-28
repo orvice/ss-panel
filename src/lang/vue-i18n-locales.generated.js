@@ -25,7 +25,8 @@ export default {
             "error": "Error",
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
-            "setting": "Setting"
+            "setting": "Setting",
+            "never": "Never"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -48,6 +49,8 @@ export default {
             "traffic_rate": "Traffic Rate",
             "online_count": "Online Count",
             "traffic_total": "Traffic Total",
+            "traffic_used": "Traffic Used",
+            "traffic_unused": "Unused Traffic",
             "no_data": "No Data",
             "node": "Node",
             "port": "Port",

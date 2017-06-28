@@ -25,8 +25,22 @@ class UserController extends BaseController
     public function show(Request $req, Response $res, $args)
     {
         $user = $this->getUserFromArgs($args);
+
         return $this->echoJson($res, [
             'data' => $user,
+            'traffic' => [
+                "usagePercent" => $user->trafficUsagePercent(),
+                "total" => $user->enableTraffic(),
+                "used" => $user->usedTraffic(),
+                "unused" => $user->unusedTraffic(),
+            ],
+            "checkIn" => [
+                "lastCheckInTime" => $user->lastCheckInTime(),
+                "canCheckIn" => $user->isAbleToCheckin(),
+            ],
+            "ss" => [
+              "lastUsedTime" => $user->lastSsTime(),
+            ],
         ]);
     }
 
@@ -49,14 +63,41 @@ class UserController extends BaseController
                 'user_traffic_log.*',
                 'ss_node.name as name'
             ], 'page', $pageNum);
-        $traffic->setPath('/api/users/'.$args['id'].'/trafficLogs');
+        $traffic->setPath('/api/users/' . $args['id'] . '/trafficLogs');
         //return $this->echoJsonWithData($res,$traffic);
-        return $this->echoJson($res,$traffic);
+        return $this->echoJson($res, $traffic);
     }
 
 
     public function update(Request $req, Response $res, $args)
     {
 
+    }
+
+    public function handleCheckIn(Request $request, Response $response, $args)
+    {
+        $user = $this->getUserFromArgs($args);
+
+        if (!$this->user->isAbleToCheckin()) {
+            // @todo
+        }
+        $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
+        $trafficToAdd = Tools::toMB($traffic);
+        $this->user->transfer_enable = $this->user->transfer_enable + $trafficToAdd;
+        $this->user->last_check_in_time = time();
+        $this->user->save();
+        // checkin log
+        try {
+            $log = new CheckInLog();
+            $log->user_id = Auth::getUser()->id;
+            $log->traffic = $trafficToAdd;
+            $log->checkin_at = time();
+            $log->save();
+        } catch (\Exception $e) {
+        }
+        $res['msg'] = sprintf('获得了 %u MB流量.', $traffic);
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
     }
 }

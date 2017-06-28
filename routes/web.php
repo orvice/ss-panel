@@ -99,6 +99,7 @@ $app->group('/admin', function () {
 $app->group('/api', function () {
     // Auth
     $this->post('/token', 'App\Controllers\Api\TokenController:store');
+    $this->post('/createUser', 'App\Controllers\Api\TokenController:createUser');
     $this->get('/token/{token}', 'App\Controllers\Api\TokenController:show');
 
     // User Resource

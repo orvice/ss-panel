@@ -74,7 +74,7 @@
                 let token = sessionStorage.getItem('token');
                 let id = sessionStorage.getItem('id');
                 if (!token) {
-                    return false;
+                    window.location.href = '/';
                 }
                 this.$store.commit(types.Login, {
                     token: token,
@@ -94,6 +94,7 @@
                     .then(response => {
                         // JSON responses are automatically parsed.
                         this.user = response.data;
+                        this.$store.commit(types.StoreUser,response.data);
                         console.log(this.user);
                     })
                     .catch(e => {

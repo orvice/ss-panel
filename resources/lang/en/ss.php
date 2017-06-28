@@ -7,6 +7,8 @@ return [
     'traffic_rate' => "Traffic Rate",
     'online_count' => "Online Count",
     'traffic_total' => "Traffic Total",
+    'traffic_used' => 'Traffic Used',
+    'traffic_unused' => 'Unused Traffic',
     'no_data' => "No Data",
 
     // Base Info

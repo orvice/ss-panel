@@ -473,8 +473,10 @@ module.exports = function normalizeComponent (
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeLocale; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return StoreUser; });
 var Login = "Login";
 var ChangeLocale = "ChangeLocale";
+var StoreUser = "StoreUser";
 
 /***/ }),
 /* 3 */
@@ -10348,7 +10350,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         token: null,
         isLogin: false,
         id: 0,
-        lang: 'en'
+        lang: 'en',
+        user: {}
     },
     mutations: (_mutations = {}, _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["b" /* Login */], function (state, user) {
         sessionStorage.token = user.token;
@@ -10359,6 +10362,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["a" /* ChangeLocale */], function (state, locale) {
         state.lang = locale;
         __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.lang = state.lang;
+    }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["c" /* StoreUser */], function (state, user) {
+        state.user = user;
     }), _mutations),
     modules: {}
 
@@ -15460,7 +15465,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "error": "Error",
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
-            "setting": "Setting"
+            "setting": "Setting",
+            "never": "Never"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -15483,6 +15489,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "traffic_rate": "Traffic Rate",
             "online_count": "Online Count",
             "traffic_total": "Traffic Total",
+            "traffic_used": "Traffic Used",
+            "traffic_unused": "Unused Traffic",
             "no_data": "No Data",
             "node": "Node",
             "port": "Port",
@@ -17799,7 +17807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             console.log("start register");
-            __WEBPACK_IMPORTED_MODULE_0__http_base__["a" /* default */].post("token", {
+            __WEBPACK_IMPORTED_MODULE_0__http_base__["a" /* default */].post("createUser", {
                 email: this.email,
                 password: this.password
             }).then(function (response) {

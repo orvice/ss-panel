@@ -85,7 +85,7 @@
         methods: {
             login() {
                 console.log("start register");
-                http.post("token", {
+                http.post("createUser", {
                     email: this.email,
                     password: this.password,
                 })

@@ -2,13 +2,13 @@
 
     <div>
 
-     <div uk-sticky class="uk-navbar-container tm-navbar-container uk-active">
+        <div uk-sticky class="uk-navbar-container tm-navbar-container uk-active">
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar>
                     <div class="uk-navbar-left">
-                        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
+                        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon></a>
                         <a href="/" class="uk-navbar-item uk-logo">
-                             {{title}}
+                            {{title}}
                         </a>
                     </div>
                     <div class="uk-navbar-right uk-light">
@@ -16,13 +16,13 @@
                             <li class="uk-active">
                                 <a href="#">{{user.data.email}}<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
-                                   <ul class="uk-nav uk-navbar-dropdown-nav">
-                                       <li class="uk-nav-header">Options</li>
-                                       <li><a href="#">Edit Profile</a></li>
-                                       <li class="uk-nav-header">Actions</li>
-                                        
-                                       <router-link tag="li" :to="{ name: 'logout' }" exact><a>Logout</a></router-link>
-                                   </ul>
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li class="uk-nav-header">Options</li>
+                                        <li><a href="#">Edit Profile</a></li>
+                                        <li class="uk-nav-header">Actions</li>
+
+                                        <router-link tag="li" :to="{ name: 'logout' }" exact><a>Logout</a></router-link>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -34,7 +34,7 @@
             <center>
                 <div class="user">
                 </div>
-                <br />
+                <br/>
             </center>
             <LeftBar></LeftBar>
         </div>
@@ -94,7 +94,7 @@
                     .then(response => {
                         // JSON responses are automatically parsed.
                         this.user = response.data;
-                        this.$store.commit(types.StoreUser,response.data);
+                        this.$store.commit(types.StoreUser, response.data);
                         console.log(this.user);
                     })
                     .catch(e => {

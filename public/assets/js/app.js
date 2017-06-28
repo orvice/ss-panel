@@ -17703,6 +17703,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -17715,6 +17721,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+    methods: {
+        checkIn: function checkIn() {
+            console.log("check in");
+        }
+    },
     mounted: function mounted() {}
 });
 
@@ -17767,28 +17778,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.checkin")) + "\n                        ")]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c('div', [_c('div', {
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.checkin")) + "\n                        ")]), _vm._v(" "), _c('div', {
+    staticClass: "uk-card-body"
+  }, [_c('p', [_vm._v(_vm._s(_vm.$t("user-index.last-checkin-at")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.checkIn.lastCheckInTime))])]), _vm._v(" "), (_vm.$store.state.user.checkIn.canCheckIn) ? _c('p', [_c('button', {
+    staticClass: "uk-button uk-button-primary",
+    on: {
+      "click": _vm.checkIn
+    }
+  }, [_vm._v(" " + _vm._s(_vm.$t("user-index.checkin")))])]) : _vm._e()])])]), _vm._v(" "), _c('div', [_c('div', {
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                           " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _vm._m(1)])])])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_vm._v("\n                           " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _c('div', {
     staticClass: "uk-card-body"
-  }, [_c('canvas', {
-    attrs: {
-      "id": "chart1"
-    }
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "uk-card-body"
-  }, [_c('canvas', {
-    attrs: {
-      "id": "chart2"
-    }
-  })])
-}]}
+  }, [_c('p', [_vm._v(_vm._s(_vm.$t("ss.port")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.port))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.password")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.passwd))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.method")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.method))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-protocol")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.protocol))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-plugint")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs_param")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs_param))])])])])])])])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

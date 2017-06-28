@@ -11,7 +11,7 @@
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl">
                     <div>
                         <div class="uk-card uk-card-default uk-card-body">
-                            <span class="statistics-text">{{$t("ss.traffic_total")}}</span><br />
+                            <span class="statistics-text">{{$t("ss.traffic_total")}}</span><br/>
                             <span class="statistics-number">
                                     {{$store.state.user.traffic.total}}
                                 </span>
@@ -19,7 +19,7 @@
                     </div>
                     <div>
                         <div class="uk-card uk-card-default uk-card-body">
-                            <span class="statistics-text">{{$t("ss.traffic_used")}}</span><br />
+                            <span class="statistics-text">{{$t("ss.traffic_used")}}</span><br/>
                             <span class="statistics-number">
                                    {{$store.state.user.traffic.used}}
                                 </span>
@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <div class="uk-card uk-card-default uk-card-body">
-                            <span class="statistics-text">{{$t("ss.traffic_unused")}}</span><br />
+                            <span class="statistics-text">{{$t("ss.traffic_unused")}}</span><br/>
                             <span class="statistics-number">
                                     {{$store.state.user.traffic.unused}}
                                 </span>
@@ -41,17 +41,28 @@
                                 {{$t("user-index.checkin")}}
                             </div>
                             <div class="uk-card-body">
-                                <canvas id="chart1"></canvas>
+                                <p>{{$t("user-index.last-checkin-at")}}: <em>{{$store.state.user.checkIn.lastCheckInTime}}</em>
+                                </p>
+                                <p v-if="$store.state.user.checkIn.canCheckIn">
+                                    <button class="uk-button uk-button-primary" @click="checkIn">
+                                        {{$t("user-index.checkin")}}
+                                    </button>
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header">
-                               {{$t("user-index.connection-info")}}
+                                {{$t("user-index.connection-info")}}
                             </div>
                             <div class="uk-card-body">
-                                <canvas id="chart2"></canvas>
+                                <p>{{$t("ss.port")}}: <em>{{$store.state.user.data.port}}</em></p>
+                                <p>{{$t("ss.password")}}: <em>{{$store.state.user.data.passwd}}</em></p>
+                                <p>{{$t("ss.method")}}: <em>{{$store.state.user.data.method}}</em></p>
+                                <p>{{$t("ss.obfs-protocol")}}: <em>{{$store.state.user.data.protocol}}</em></p>
+                                <p>{{$t("ss.obfs-plugint")}}: <em>{{$store.state.user.data.obfs}}</em></p>
+                                <p>{{$t("ss.obfs_param")}}: <em>{{$store.state.user.data.obfs_param}}</em></p>
                             </div>
                         </div>
                     </div>
@@ -67,12 +78,16 @@
     import rest from '../http/rest'
     export default {
         name: 'Dashboard',
-        components: {
-        },
+        components: {},
         data () {
             return {
                 data: []
             }
+        },
+        methods: {
+            checkIn() {
+                console.log("check in");
+            },
         },
         mounted: function () {
 

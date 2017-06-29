@@ -9,6 +9,7 @@ use Slim\Http\Response;
 use App\Controllers\BaseController;
 use App\Models\Node;
 use App\Models\TrafficLog;
+use App\Utils\Ss as SsUtil;
 
 class UserController extends BaseController
 {
@@ -39,15 +40,23 @@ class UserController extends BaseController
                 "canCheckIn" => $user->isAbleToCheckin(),
             ],
             "ss" => [
-              "lastUsedTime" => $user->lastSsTime(),
+                "lastUsedTime" => $user->lastSsTime(),
             ],
         ]);
     }
 
     public function nodes(Request $req, Response $res, $args)
     {
+        $user = $this->getUserFromArgs($args);
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->echoJsonWithData($res, $nodes);
+        $data = [];
+        foreach ($nodes as $n) {
+            $n->ssArr = SsUtil::genSsAry($n->server, $user->port + $n->offset, $user->passwd, $user->method);
+            $n->ssAr = SsUtil::genQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method);
+            $n->ssrAr = SsUtil::genSsrQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method, $user->protocol, $user->obfs, $user->obfs_param, $user->protocol_param);
+            array_push($data, $n);
+        }
+        return $this->echoJsonWithData($res, $data);
     }
 
     public function trafficLogs(Request $req, Response $res, $args)

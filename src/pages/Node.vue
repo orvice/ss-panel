@@ -17,7 +17,9 @@
                                 <div class="uk-accordion-content">
                                     <p> {{$t("ss.server_addr")}}: <em>{{node.server}}</em></p>
                                     <p> {{$t("ss.method")}}: <em>{{node.method}}</em></p>
+                                    <p> {{$t("ss.traffic_rate")}}: <span class="uk-label uk-label-success">{{node.traffic_rate}}</span></p>
                                     <blockquote>{{node.info}}</blockquote>
+                                    <VueQrcode value="Hello, World!" :options="{ size: 200 }"></VueQrcode>
                                 </div>
                             </li>
 

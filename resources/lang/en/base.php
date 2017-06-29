@@ -7,6 +7,7 @@ return [
     "system-error" => "System Error",
 
     'setting' => 'Setting',
+    'update' => 'Update',
 
     'never' => "Never",
 ];

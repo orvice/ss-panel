@@ -20,6 +20,7 @@ $app->group('', function () {
     $this->get('/dashboard', 'App\Controllers\HomeController:dashboard');
     $this->get('/nodes', 'App\Controllers\HomeController:dashboard');
     $this->get('/trafficLogs', 'App\Controllers\HomeController:dashboard');
+    $this->get('/setting', 'App\Controllers\HomeController:dashboard');
 })->add(new User());
 
 // User Center
@@ -111,6 +112,7 @@ $app->group('/api', function () {
     $this->put('/users/{id}', 'App\Controllers\Api\UserController:update')->add(new Api());
 
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');
+    $this->get('/config/ss', 'App\Controllers\Api\ConfigController:ss');
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');
 });
 

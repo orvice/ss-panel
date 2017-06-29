@@ -15947,6 +15947,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
             "setting": "Setting",
+            "update": "Update",
             "never": "Never"
         },
         "index": {
@@ -17125,6 +17126,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_base__ = __webpack_require__(5);
+//
 //
 //
 //

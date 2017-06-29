@@ -26,6 +26,7 @@ export default {
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
             "setting": "Setting",
+            "update": "Update",
             "never": "Never"
         },
         "index": {

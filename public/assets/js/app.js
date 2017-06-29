@@ -15947,6 +15947,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "something-wrong": "Some Wrong!",
             "system-error": "System Error",
             "setting": "Setting",
+            "update": "Update",
             "never": "Never"
         },
         "index": {
@@ -17143,6 +17144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* eslint-disable no-new */
 
@@ -17933,6 +17935,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* eslint-disable no-new */
 
@@ -18050,7 +18055,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "uk-icon": "icon: user"
     }
-  }), _vm._v(" " + _vm._s(_vm.$store.state.user.data.email)), _c('span', {
+  }), _vm._v("\n                                " + _vm._s(_vm.$store.state.user.data.email)), _c('span', {
     staticClass: "ion-ios-arrow-down"
   })]), _vm._v(" "), _c('div', {
     attrs: {
@@ -18075,7 +18080,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "uk-icon": "icon: sign-out"
     }
-  }), _vm._v(" Logout")])])], 1)])])]), _vm._v(" "), _c('Lang')], 1)])])]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n                                        Logout")])])], 1)])])]), _vm._v(" "), _c('Lang')], 1)])])]), _vm._v(" "), _c('div', {
     staticClass: "tm-sidebar-left uk-background-default",
     attrs: {
       "id": "sidebar"
@@ -20579,9 +20584,47 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_rest__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_base__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20614,11 +20657,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {},
     data: function data() {
         return {
-            data: []
+            data: {},
+            methods: {},
+            protocol: {},
+            obfs: {},
+
+            // From
+            password: this.$store.state.user.data.passwd
         };
     },
 
-    mounted: function mounted() {}
+    methods: {
+        initData: function initData() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_1__http_base__["a" /* default */].get('config/ss').then(function (response) {
+                var data = response.data.data;
+                _this.methods = data.methods;
+                _this.protocol = data.protocol;
+                _this.obfs = data.obfs;
+            }).catch(function (e) {
+                _this.errors.push(e);
+            });
+        },
+        update: function update() {
+            console.log("update");
+        }
+    },
+    mounted: function mounted() {
+        this.initData();
+    }
 });
 
 /***/ }),
@@ -20626,17 +20694,123 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
-    ref: "container"
+  return _c('div', {
+    staticClass: "content-padder content-background"
   }, [_c('div', {
-    staticClass: "uk-width-1-1"
+    staticClass: "uk-section-small uk-section-default header"
   }, [_c('div', {
-    staticClass: "uk-container"
+    staticClass: "uk-container uk-container-large"
+  }, [_c('h3', [_c('span', {
+    staticClass: "ion-speedometer"
+  }), _vm._v(" " + _vm._s(_vm.$t("base.setting")) + " ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-section-small"
   }, [_c('div', {
-    staticClass: "uk-overflow-auto"
-  }, [_c('h1', {
-    staticClass: "uk-table uk-table-divider"
-  }, [_vm._v("\n                        " + _vm._s(_vm.$t("base.setting")) + "\n                    ")]), _vm._v(" "), _c('div')])])])])])
+    staticClass: "uk-container uk-container-large"
+  }, [_c('div', {
+    staticClass: "uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl",
+    attrs: {
+      "uk-grid": ""
+    }
+  }, [_c('div', {
+    staticClass: "uk-card uk-card-default uk-card-body"
+  }, [_c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("ss.password")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.password),
+      expression: "password"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.password)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.password = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-select"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("ss.method")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('select', {
+    staticClass: "uk-select",
+    attrs: {
+      "id": "form-horizontal-select"
+    }
+  }, _vm._l((_vm.methods), function(m) {
+    return _c('option', {
+      domProps: {
+        "value": m
+      }
+    }, [_vm._v(_vm._s(m))])
+  }))])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-select"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("ss.obfs-protocol")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('select', {
+    staticClass: "uk-select",
+    attrs: {
+      "id": "form-horizontal-select"
+    }
+  }, _vm._l((_vm.protocol), function(m) {
+    return _c('option', {
+      domProps: {
+        "value": m
+      }
+    }, [_vm._v(_vm._s(m))])
+  }))])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-select"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("ss.obfs-plugin")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('select', {
+    staticClass: "uk-select",
+    attrs: {
+      "id": "form-horizontal-select"
+    }
+  }, _vm._l((_vm.obfs), function(m) {
+    return _c('option', {
+      domProps: {
+        "value": m
+      }
+    }, [_vm._v(_vm._s(m))])
+  }))])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('button', {
+    staticClass: "uk-button uk-button-primary",
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("base.update")) + "\n                        ")])])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

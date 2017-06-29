@@ -4,12 +4,13 @@
         <div class="content-center">
             <h1 class="title text-center"> {{title}} </h1>
             <h3 class="category" v-if="false"></h3>
-            <h4 class="description text-center" >{{body}}</h4>
+            <h4 class="description text-center">{{body}}</h4>
             <a href="/dashboard"
-               class="btn btn-primary btn-lg btn-round" v-if="$store.state.isLogin" >{{ $t("user-nav.dashboard") }}</a>
-               <router-link  :to="{ name: 'register' }" exact>
-            <a href="/auth/register"
-               class="btn btn-primary btn-lg btn-round" v-if="!$store.state.isLogin" >{{ $t("auth.register") }}</a></router-link>
+               class="btn btn-primary btn-lg btn-round" v-if="$store.state.isLogin">{{ $t("user-nav.dashboard") }}</a>
+            <router-link :to="{ name: 'register' }" exact>
+                <a href="/auth/register"
+                   class="btn btn-primary btn-lg btn-round" v-if="!$store.state.isLogin">{{ $t("auth.register") }}</a>
+            </router-link>
 
         </div>
     </div>
@@ -46,7 +47,6 @@
         mounted: function () {
             this.handleCfg();
         },
-        components: {
-        }
+        components: {}
     }
 </script>

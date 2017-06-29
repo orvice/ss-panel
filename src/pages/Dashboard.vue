@@ -38,6 +38,7 @@
                     <div>
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header">
+                                <span class="uk-margin-small-right" uk-icon="icon: check"></span>
                                 {{$t("user-index.checkin")}}
                             </div>
                             <div class="uk-card-body">
@@ -54,6 +55,7 @@
                     <div>
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header">
+                                <span class="uk-margin-small-right" uk-icon="icon: shrink"></span>
                                 {{$t("user-index.connection-info")}}
                             </div>
                             <div class="uk-card-body">
@@ -74,7 +76,6 @@
 </template>
 
 <script>
-    import axios from 'axios'
     import rest from '../http/rest'
     export default {
         name: 'Dashboard',
@@ -86,7 +87,24 @@
         },
         methods: {
             checkIn() {
+                rest.post('checkIn')
+                    .then(response => {
+                        let traffic = response.data.traffic;
+
+                        UIkit.notification({
+                            message: this.$t('user-index.traffic-got') + traffic,
+                            status: 'primary',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
+
+                    })
+                    .catch(e => {
+                        this.errors.push(e)
+                    });
+
                 console.log("check in");
+                this.$store.state.user.checkIn.canCheckIn = false;
             },
         },
         mounted: function () {

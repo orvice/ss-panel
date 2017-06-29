@@ -104,6 +104,7 @@ $app->group('/api', function () {
 
     // User Resource
     $this->get('/users/{id}/nodes', 'App\Controllers\Api\UserController:nodes')->add(new Api());
+    $this->post('/users/{id}/checkIn', 'App\Controllers\Api\UserController:handleCheckIn')->add(new Api());
     $this->get('/users/{id}/trafficLogs', 'App\Controllers\Api\UserController:trafficLogs')->add(new Api());
     $this->get('/users/{id}/', 'App\Controllers\Api\UserController:show')->add(new Api());
     $this->get('/users/{id}', 'App\Controllers\Api\UserController:show')->add(new Api());

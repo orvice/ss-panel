@@ -10,6 +10,8 @@ use App\Controllers\BaseController;
 use App\Models\Node;
 use App\Models\TrafficLog;
 use App\Utils\Ss as SsUtil;
+use App\Utils\Tools;
+use App\Models\CheckInLog;
 
 class UserController extends BaseController
 {
@@ -87,26 +89,27 @@ class UserController extends BaseController
     {
         $user = $this->getUserFromArgs($args);
 
-        if (!$this->user->isAbleToCheckin()) {
-            // @todo
+        if (!$user->isAbleToCheckin()) {
+            return $this->echoJsonError($response,[]);
         }
-        $traffic = rand(Config::get('checkinMin'), Config::get('checkinMax'));
+        $traffic = rand(conf('checkinMin'), conf('checkinMax'));
         $trafficToAdd = Tools::toMB($traffic);
-        $this->user->transfer_enable = $this->user->transfer_enable + $trafficToAdd;
-        $this->user->last_check_in_time = time();
-        $this->user->save();
+        $user->transfer_enable = $user->transfer_enable + $trafficToAdd;
+        $user->last_check_in_time = time();
+        $user->save();
         // checkin log
         try {
             $log = new CheckInLog();
-            $log->user_id = Auth::getUser()->id;
+            $log->user_id = $user->id;
             $log->traffic = $trafficToAdd;
             $log->checkin_at = time();
             $log->save();
         } catch (\Exception $e) {
+            return $this->echoJsonError($response,[],500);
         }
-        $res['msg'] = sprintf('获得了 %u MB流量.', $traffic);
-        $res['ret'] = 1;
 
-        return $this->echoJson($response, $res);
+        return $this->echoJson($response, [
+            "traffic" => Tools::flowAutoShow($traffic),
+        ]);
     }
 }

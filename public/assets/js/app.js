@@ -15988,6 +15988,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "checkin-des": "You can checkin in each %s hour.",
             "cant-checkin": "Cant't Check-In",
             "last-checkin-at": "Last check-in at",
+            "traffic-got": "Your got ",
             "traffic-info": "Traffic Info",
             "traffic-total": "Total Traffic",
             "traffic-used": "Used Traffic",
@@ -18202,9 +18203,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_rest__ = __webpack_require__(4);
 //
 //
 //
@@ -18280,7 +18279,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18294,7 +18294,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         checkIn: function checkIn() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0__http_rest__["a" /* default */].post('checkIn').then(function (response) {
+                var traffic = response.data.traffic;
+
+                UIkit.notification({
+                    message: _this.$t('user-index.traffic-got') + traffic,
+                    status: 'primary',
+                    pos: 'top-center',
+                    timeout: 5000
+                });
+            }).catch(function (e) {
+                _this.errors.push(e);
+            });
+
             console.log("check in");
+            this.$store.state.user.checkIn.canCheckIn = false;
         }
     },
     mounted: function mounted() {}
@@ -18349,7 +18365,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.checkin")) + "\n                        ")]), _vm._v(" "), _c('div', {
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: check"
+    }
+  }), _vm._v("\n                            " + _vm._s(_vm.$t("user-index.checkin")) + "\n                        ")]), _vm._v(" "), _c('div', {
     staticClass: "uk-card-body"
   }, [_c('p', [_vm._v(_vm._s(_vm.$t("user-index.last-checkin-at")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.checkIn.lastCheckInTime))])]), _vm._v(" "), (_vm.$store.state.user.checkIn.canCheckIn) ? _c('p', [_c('button', {
     staticClass: "uk-button uk-button-primary",
@@ -18360,7 +18381,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-card uk-card-default"
   }, [_c('div', {
     staticClass: "uk-card-header"
-  }, [_vm._v("\n                            " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _c('div', {
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon: shrink"
+    }
+  }), _vm._v("\n                            " + _vm._s(_vm.$t("user-index.connection-info")) + "\n                        ")]), _vm._v(" "), _c('div', {
     staticClass: "uk-card-body"
   }, [_c('p', [_vm._v(_vm._s(_vm.$t("ss.port")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.port))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.password")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.passwd))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.method")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.method))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-protocol")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.protocol))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs-plugint")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.$t("ss.obfs_param")) + ": "), _c('em', [_vm._v(_vm._s(_vm.$store.state.user.data.obfs_param))])])])])])])])])])
 },staticRenderFns: []}
@@ -20095,8 +20121,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "bgSrc": _vm.qrBg,
         "logoSrc": _vm.ssLogo,
         "text": node.ssQr,
-        "height": "200",
-        "width": "200",
+        "height": "400",
+        "width": "400",
         "colorDark": "#000000",
         "colorLight": "#ffffff",
         "autoColor": "true"
@@ -20108,8 +20134,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "bgSrc": _vm.qrBg,
         "logoSrc": _vm.ssrLogo,
         "text": node.ssrQr,
-        "height": "200",
-        "width": "200",
+        "height": "400",
+        "width": "400",
         "colorDark": "#000000",
         "colorLight": "#ffffff",
         "autoColor": "true"

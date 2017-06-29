@@ -15988,6 +15988,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "checkin-des": "You can checkin in each %s hour.",
             "cant-checkin": "Cant't Check-In",
             "last-checkin-at": "Last check-in at",
+            "traffic-got": "Your got ",
             "traffic-info": "Traffic Info",
             "traffic-total": "Total Traffic",
             "traffic-used": "Used Traffic",

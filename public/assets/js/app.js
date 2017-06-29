@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 66);
+/******/ 	return __webpack_require__(__webpack_require__.s = 105);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(20);
 
 /*global toString:true*/
 
@@ -482,7 +482,7 @@ var StoreUser = "StoreUser";
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(22);
+module.exports = __webpack_require__(57);
 
 /***/ }),
 /* 4 */
@@ -491,7 +491,7 @@ module.exports = __webpack_require__(22);
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(13);
 
 
 
@@ -512,7 +512,7 @@ var token = sessionStorage.getItem('token');
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(13);
 
 
 
@@ -528,6 +528,51 @@ var token = sessionStorage.getItem('token');
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+var core = module.exports = {version: '2.4.0'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(10)(function(){
+  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = function(exec){
+  try {
+    return !!exec();
+  } catch(e){
+    return true;
+  }
+};
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10223,17 +10268,17 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
 
 /***/ }),
-/* 7 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(25);
+var normalizeHeaderName = __webpack_require__(60);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -10250,10 +10295,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(11);
+    adapter = __webpack_require__(21);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(11);
+    adapter = __webpack_require__(21);
   }
   return adapter;
 }
@@ -10324,28 +10369,30 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(59)))
 
 /***/ }),
-/* 8 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__types__ = __webpack_require__(2);
+
+
 var _mutations;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
     state: {
         token: null,
         isLogin: false,
@@ -10353,16 +10400,16 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         lang: 'en',
         user: {}
     },
-    mutations: (_mutations = {}, _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["b" /* Login */], function (state, user) {
+    mutations: (_mutations = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default.a(_mutations, __WEBPACK_IMPORTED_MODULE_3__types__["b" /* Login */], function (state, user) {
         sessionStorage.token = user.token;
         sessionStorage.id = user.id;
         state.token = user.token;
         state.isLogin = true;
         state.id = user.id;
-    }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["a" /* ChangeLocale */], function (state, locale) {
+    }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default.a(_mutations, __WEBPACK_IMPORTED_MODULE_3__types__["a" /* ChangeLocale */], function (state, locale) {
         state.lang = locale;
-        __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.lang = state.lang;
-    }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_2__types__["c" /* StoreUser */], function (state, user) {
+        __WEBPACK_IMPORTED_MODULE_1_vue___default.a.config.lang = state.lang;
+    }), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default.a(_mutations, __WEBPACK_IMPORTED_MODULE_3__types__["c" /* StoreUser */], function (state, user) {
         state.user = user;
     }), _mutations),
     modules: {}
@@ -10370,7 +10417,126 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 }));
 
 /***/ }),
-/* 9 */
+/* 14 */
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function(it){
+  if(it == undefined)throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__(36)
+  , defined = __webpack_require__(14);
+module.exports = function(it){
+  return IObject(defined(it));
+};
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil  = Math.ceil
+  , floor = Math.floor;
+module.exports = function(it){
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global    = __webpack_require__(8)
+  , core      = __webpack_require__(6)
+  , ctx       = __webpack_require__(46)
+  , hide      = __webpack_require__(48)
+  , PROTOTYPE = 'prototype';
+
+var $export = function(type, name, source){
+  var IS_FORCED = type & $export.F
+    , IS_GLOBAL = type & $export.G
+    , IS_STATIC = type & $export.S
+    , IS_PROTO  = type & $export.P
+    , IS_BIND   = type & $export.B
+    , IS_WRAP   = type & $export.W
+    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+    , expProto  = exports[PROTOTYPE]
+    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+    , key, own, out;
+  if(IS_GLOBAL)source = name;
+  for(key in source){
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if(own && key in exports)continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function(C){
+      var F = function(a, b, c){
+        if(this instanceof C){
+          switch(arguments.length){
+            case 0: return new C;
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if(IS_PROTO){
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject       = __webpack_require__(49)
+  , IE8_DOM_DEFINE = __webpack_require__(50)
+  , toPrimitive    = __webpack_require__(52)
+  , dP             = Object.defineProperty;
+
+exports.f = __webpack_require__(7) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if(IE8_DOM_DEFINE)try {
+    return dP(O, P, Attributes);
+  } catch(e){ /* empty */ }
+  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+  if('value' in Attributes)O[P] = Attributes.value;
+  return O;
+};
+
+/***/ }),
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12877,7 +13043,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 10 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12895,19 +13061,19 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 11 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(26);
-var buildURL = __webpack_require__(28);
-var parseHeaders = __webpack_require__(29);
-var isURLSameOrigin = __webpack_require__(30);
-var createError = __webpack_require__(12);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(31);
+var settle = __webpack_require__(61);
+var buildURL = __webpack_require__(63);
+var parseHeaders = __webpack_require__(64);
+var isURLSameOrigin = __webpack_require__(65);
+var createError = __webpack_require__(22);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(66);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13003,7 +13169,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(32);
+      var cookies = __webpack_require__(67);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13079,13 +13245,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 12 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(27);
+var enhanceError = __webpack_require__(62);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -13103,7 +13269,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 13 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13115,7 +13281,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 14 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13141,15 +13307,15 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 15 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(40),
+  __webpack_require__(75),
   /* template */
-  __webpack_require__(42),
+  __webpack_require__(77),
   /* styles */
   null,
   /* scopeId */
@@ -13181,13 +13347,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 16 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return langs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Locales; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_i18n_locales_generated__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_i18n_locales_generated__ = __webpack_require__(76);
 
 
 var langs = {
@@ -13201,17 +13367,7 @@ var Locales = {
 };
 
 /***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UserNotExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordWrong; });
-var UserNotExists = 601;
-var PasswordWrong = 602;
-
-/***/ }),
-/* 18 */
+/* 27 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13238,7 +13394,328 @@ module.exports = g;
 
 
 /***/ }),
-/* 19 */
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UserNotExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordWrong; });
+var UserNotExists = 601;
+var PasswordWrong = 602;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(30), __esModule: true };
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(31);
+module.exports = __webpack_require__(6).Object.keys;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(32)
+  , $keys    = __webpack_require__(33);
+
+__webpack_require__(45)('keys', function(){
+  return function keys(it){
+    return $keys(toObject(it));
+  };
+});
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys       = __webpack_require__(34)
+  , enumBugKeys = __webpack_require__(44);
+
+module.exports = Object.keys || function keys(O){
+  return $keys(O, enumBugKeys);
+};
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var has          = __webpack_require__(35)
+  , toIObject    = __webpack_require__(15)
+  , arrayIndexOf = __webpack_require__(38)(false)
+  , IE_PROTO     = __webpack_require__(41)('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function(it, key){
+  return hasOwnProperty.call(it, key);
+};
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(37);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function(it){
+  return toString.call(it).slice(8, -1);
+};
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(15)
+  , toLength  = __webpack_require__(39)
+  , toIndex   = __webpack_require__(40);
+module.exports = function(IS_INCLUDES){
+  return function($this, el, fromIndex){
+    var O      = toIObject($this)
+      , length = toLength(O.length)
+      , index  = toIndex(fromIndex, length)
+      , value;
+    // Array#includes uses SameValueZero equality algorithm
+    if(IS_INCLUDES && el != el)while(length > index){
+      value = O[index++];
+      if(value != value)return true;
+    // Array#toIndex ignores holes, Array#includes - not
+    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+      if(O[index] === el)return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(16)
+  , min       = Math.min;
+module.exports = function(it){
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(16)
+  , max       = Math.max
+  , min       = Math.min;
+module.exports = function(index, length){
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__(42)('keys')
+  , uid    = __webpack_require__(43);
+module.exports = function(key){
+  return shared[key] || (shared[key] = uid(key));
+};
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(8)
+  , SHARED = '__core-js_shared__'
+  , store  = global[SHARED] || (global[SHARED] = {});
+module.exports = function(key){
+  return store[key] || (store[key] = {});
+};
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+var id = 0
+  , px = Math.random();
+module.exports = function(key){
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(17)
+  , core    = __webpack_require__(6)
+  , fails   = __webpack_require__(10);
+module.exports = function(KEY, exec){
+  var fn  = (core.Object || {})[KEY] || Object[KEY]
+    , exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
+};
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(47);
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP         = __webpack_require__(18)
+  , createDesc = __webpack_require__(53);
+module.exports = __webpack_require__(7) ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
+} : function(object, key, value){
+  object[key] = value;
+  return object;
+};
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(9);
+module.exports = function(it){
+  if(!isObject(it))throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(7) && !__webpack_require__(10)(function(){
+  return Object.defineProperty(__webpack_require__(51)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(9)
+  , document = __webpack_require__(8).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(9);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function(it, S){
+  if(!isObject(it))return it;
+  var fn, val;
+  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+module.exports = function(bitmap, value){
+  return {
+    enumerable  : !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable    : !(bitmap & 4),
+    value       : value
+  };
+};
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14252,15 +14729,15 @@ module.exports = plugin;
 
 
 /***/ }),
-/* 20 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(21),
+  __webpack_require__(56),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(78),
   /* styles */
   null,
   /* scopeId */
@@ -14292,7 +14769,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 21 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14300,7 +14777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Lang_vue__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Lang_vue__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Lang_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Lang_vue__);
 //
 //
@@ -14370,16 +14847,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 22 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(10);
-var Axios = __webpack_require__(23);
-var defaults = __webpack_require__(7);
+var bind = __webpack_require__(20);
+var Axios = __webpack_require__(58);
+var defaults = __webpack_require__(12);
 
 /**
  * Create an instance of Axios
@@ -14412,15 +14889,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(14);
-axios.CancelToken = __webpack_require__(38);
-axios.isCancel = __webpack_require__(13);
+axios.Cancel = __webpack_require__(24);
+axios.CancelToken = __webpack_require__(73);
+axios.isCancel = __webpack_require__(23);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(39);
+axios.spread = __webpack_require__(74);
 
 module.exports = axios;
 
@@ -14429,18 +14906,18 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 23 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(7);
+var defaults = __webpack_require__(12);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(33);
-var dispatchRequest = __webpack_require__(34);
-var isAbsoluteURL = __webpack_require__(36);
-var combineURLs = __webpack_require__(37);
+var InterceptorManager = __webpack_require__(68);
+var dispatchRequest = __webpack_require__(69);
+var isAbsoluteURL = __webpack_require__(71);
+var combineURLs = __webpack_require__(72);
 
 /**
  * Create a new instance of Axios
@@ -14521,7 +14998,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 24 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14711,7 +15188,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 25 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14730,13 +15207,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 26 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(12);
+var createError = __webpack_require__(22);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -14762,7 +15239,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 27 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14788,7 +15265,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 28 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14863,7 +15340,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 29 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14907,7 +15384,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 30 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14982,7 +15459,7 @@ module.exports = (
 
 
 /***/ }),
-/* 31 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15025,7 +15502,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 32 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15085,7 +15562,7 @@ module.exports = (
 
 
 /***/ }),
-/* 33 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15144,16 +15621,16 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 34 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(35);
-var isCancel = __webpack_require__(13);
-var defaults = __webpack_require__(7);
+var transformData = __webpack_require__(70);
+var isCancel = __webpack_require__(23);
+var defaults = __webpack_require__(12);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -15230,7 +15707,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 35 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15257,7 +15734,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 36 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15278,7 +15755,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 37 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15297,13 +15774,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 38 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(14);
+var Cancel = __webpack_require__(24);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -15361,7 +15838,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 39 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15395,13 +15872,13 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 40 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lang__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lang__ = __webpack_require__(26);
 //
 //
 //
@@ -15438,7 +15915,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 41 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15551,7 +16028,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -15597,7 +16074,7 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -15732,7 +16209,61 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(80);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(81), __esModule: true };
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(82);
+var $Object = __webpack_require__(6).Object;
+module.exports = function defineProperty(it, key, desc){
+  return $Object.defineProperty(it, key, desc);
+};
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(17);
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !__webpack_require__(7), 'Object', {defineProperty: __webpack_require__(18).f});
+
+/***/ }),
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16545,15 +17076,15 @@ var index_esm = {
 
 
 /***/ }),
-/* 45 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(46),
+  __webpack_require__(85),
   /* template */
-  __webpack_require__(47),
+  __webpack_require__(86),
   /* styles */
   null,
   /* scopeId */
@@ -16585,7 +17116,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16646,7 +17177,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 47 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16688,15 +17219,15 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(49),
+  __webpack_require__(88),
   /* template */
-  __webpack_require__(50),
+  __webpack_require__(89),
   /* styles */
   null,
   /* scopeId */
@@ -16728,7 +17259,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16784,7 +17315,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 50 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16816,15 +17347,15 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(52),
+  __webpack_require__(91),
   /* template */
-  __webpack_require__(53),
+  __webpack_require__(92),
   /* styles */
   null,
   /* scopeId */
@@ -16856,14 +17387,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(28);
 //
 //
 //
@@ -16986,7 +17517,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 53 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17138,15 +17669,15 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(55),
+  __webpack_require__(94),
   /* template */
-  __webpack_require__(56),
+  __webpack_require__(95),
   /* styles */
   null,
   /* scopeId */
@@ -17178,7 +17709,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17210,7 +17741,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 56 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17227,37 +17758,39 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(67);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
-/* 67 */
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_i18n__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_i18n___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_i18n__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__router__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store___ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lang__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_i18n__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__App_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__router__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store___ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lang__ = __webpack_require__(26);
 
 
 
@@ -17266,16 +17799,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_i18n___default.a);
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.lang = __WEBPACK_IMPORTED_MODULE_5__store___["a" /* default */].state.lang;
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_i18n___default.a);
 
-Object.keys(__WEBPACK_IMPORTED_MODULE_6__lang__["a" /* Locales */]).forEach(function (lang) {
-    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.locale(lang, __WEBPACK_IMPORTED_MODULE_6__lang__["a" /* Locales */][lang]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.config.lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
+
+__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default.a(__WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */]).forEach(function (lang) {
+    __WEBPACK_IMPORTED_MODULE_1_vue___default.a.locale(lang, __WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */][lang]);
 });
 
-var lang = __WEBPACK_IMPORTED_MODULE_5__store___["a" /* default */].state.lang;
+var lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
 
 // Ready translated locale messages
 // Create VueI18n instance with options
@@ -17285,12 +17819,12 @@ var lang = __WEBPACK_IMPORTED_MODULE_5__store___["a" /* default */].state.lang;
 //     messages: Locales, // set locale messages
 // });
 
-window.App = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-    router: __WEBPACK_IMPORTED_MODULE_4__router__["a" /* default */],
-    store: __WEBPACK_IMPORTED_MODULE_5__store___["a" /* default */],
+window.App = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
+    router: __WEBPACK_IMPORTED_MODULE_5__router__["a" /* default */],
+    store: __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */],
     // i18n,
     el: '#app',
-    extends: __WEBPACK_IMPORTED_MODULE_3__App_vue___default.a,
+    extends: __WEBPACK_IMPORTED_MODULE_4__App_vue___default.a,
     data: function data() {
         return {
             ids: {},
@@ -17301,15 +17835,15 @@ window.App = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 /***/ }),
-/* 68 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(69),
+  __webpack_require__(108),
   /* template */
-  __webpack_require__(70),
+  __webpack_require__(109),
   /* styles */
   null,
   /* scopeId */
@@ -17341,15 +17875,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 69 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Lang_vue__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Lang_vue__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Lang_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Lang_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_rest__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_base__ = __webpack_require__(5);
@@ -17472,7 +18006,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 70 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17564,30 +18098,30 @@ if (false) {
 }
 
 /***/ }),
-/* 71 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Index_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Index_vue__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Code_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Code_vue__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Code_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__pages_Code_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_Auth_Login_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_Auth_Login_vue__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_Auth_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__pages_Auth_Login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Auth_Logout_vue__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Auth_Logout_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Auth_Logout_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__pages_Auth_Logout_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_Dashboard_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_Dashboard_vue__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_Dashboard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__pages_Dashboard_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_Node_vue__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_Node_vue__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_Node_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__pages_Node_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_TrafficLog_vue__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_TrafficLog_vue__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_TrafficLog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__pages_TrafficLog_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Invite_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Invite_vue__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Invite_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__pages_Invite_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_Setting_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_Setting_vue__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_Setting_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__pages_Setting_vue__);
 
 
@@ -17623,15 +18157,15 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 72 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(73),
+  __webpack_require__(112),
   /* template */
-  __webpack_require__(74),
+  __webpack_require__(113),
   /* styles */
   null,
   /* scopeId */
@@ -17663,7 +18197,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17767,7 +18301,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 74 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17839,15 +18373,15 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(76),
+  __webpack_require__(115),
   /* template */
-  __webpack_require__(78),
+  __webpack_require__(126),
   /* styles */
   null,
   /* scopeId */
@@ -17879,16 +18413,29 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 76 */
+/* 115 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_qrcode__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_qrcode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_qrcode__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_qr__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_rest__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17931,14 +18478,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'Node',
     components: {
-        VueQrcode: __WEBPACK_IMPORTED_MODULE_1_vue_qrcode___default.a
+        VueQr: __WEBPACK_IMPORTED_MODULE_1_vue_qr__["a" /* default */]
     },
     data: function data() {
         return {
+            qrBg: '/assets/img/cat.gif',
+            ssLogo: '/assets/img/ss.png',
+            ssrLogo: '/assets/img/ssr.png',
             nodes: []
         };
     },
 
+    methods: {
+        egg: function egg() {
+            var d = new Date();
+            var month = d.getMonth();
+            console.log(d);
+            console.log(month);
+            if (month == 6) {
+                this.qrBg = '/assets/img/flag.png';
+            }
+        }
+    },
     mounted: function mounted() {
         var _this = this;
 
@@ -17947,1854 +18508,1543 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (e) {
             _this.errors.push(e);
         });
+        this.qrBg = '';
+        this.egg();
     }
 });
 
 /***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 116 */,
+/* 117 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["VueQr"] = factory();
-	else
-		root["VueQr"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_qr_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_qr_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_qr_vue__);
 
-	'use strict';
-	
-	var _Qrcode = __webpack_require__(1);
-	
-	var _Qrcode2 = _interopRequireDefault(_Qrcode);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	module.exports = _Qrcode2.default;
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(2)
-	__vue_script__ = __webpack_require__(6)
-	__vue_template__ = __webpack_require__(17)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "/Users/xiaokai/xeme/vuejs/vue-qrcode/src/Qrcode.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(3);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-149ec87c&file=Qrcode.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Qrcode.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-149ec87c&file=Qrcode.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Qrcode.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n  \n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"Qrcode.vue","sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-	
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-	
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-	
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-	
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-	
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-	
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-	
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-	
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-	
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-	
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = linkElement.href;
-	
-		linkElement.href = URL.createObjectURL(blob);
-	
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _qr = __webpack_require__(7);
-	
-	var _qr2 = _interopRequireDefault(_qr);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  props: {
-	    val: {
-	      type: String,
-	      required: true
-	    },
-	    size: {
-	      type: Number,
-	      default: 100
-	    },
-	    // 'L', 'M', 'Q', 'H'
-	    level: String,
-	    bgColor: {
-	      type: String,
-	      default: '#FFFFFF'
-	    },
-	    fgColor: {
-	      type: String,
-	      default: '#000000'
-	    }
-	  },
-	  watch: {
-	    size: function size() {
-	      this.update();
-	    },
-	    val: function val() {
-	      this.update();
-	    },
-	    level: function level() {
-	      this.update();
-	    },
-	    bgColor: function bgColor() {
-	      this.update();
-	    },
-	    fgColor: function fgColor() {
-	      this.update();
-	    }
-	  },
-	  ready: function ready() {
-	    this.update();
-	  },
-	
-	  methods: {
-	    update: function update() {
-	      var size = this.size;
-	      var bgColor = this.bgColor;
-	      var fgColor = this.fgColor;
-	      var $qr = this.$els.qr;
-	
-	      var qrcode = (0, _qr2.default)(this.val);
-	
-	      var ctx = $qr.getContext('2d');
-	      var cells = qrcode.modules;
-	      var tileW = size / cells.length;
-	      var tileH = size / cells.length;
-	      var scale = (window.devicePixelRatio || 1) / getBackingStorePixelRatio(ctx);
-	
-	      $qr.height = $qr.width = size * scale;
-	      ctx.scale(scale, scale);
-	
-	      cells.forEach(function (row, rdx) {
-	        row.forEach(function (cell, cdx) {
-	          ctx.fillStyle = cell ? fgColor : bgColor;
-	          var w = Math.ceil((cdx + 1) * tileW) - Math.floor(cdx * tileW);
-	          var h = Math.ceil((rdx + 1) * tileH) - Math.floor(rdx * tileH);
-	          ctx.fillRect(Math.round(cdx * tileW), Math.round(rdx * tileH), w, h);
-	        });
-	      });
-	    }
-	  }
-	}; // <template>
-	//   <div>
-	//     <canvas
-	//       :style="{height: size + 'px', width: size + 'px'}"
-	//       height={{size}}
-	//       width={{size}}
-	//       v-el:qr
-	//     ></canvas>
-	//   </div>
-	// </template>
-	//
-	//
-	// <script>
-	
-	function getBackingStorePixelRatio(ctx) {
-	  return ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
-	}
-
-	// </script>
-	//
-	// <style>
-	//
-	//
-	// </style>
-	/* generated by vue-loader */
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var QRCode = __webpack_require__(8);
-	var ErrorCorrectLevel = __webpack_require__(12);
-	
-	var qrcode = function(data, opt) {
-		opt = opt || {};
-		var qr = new QRCode(opt.typeNumber || -1,
-							opt.errorCorrectLevel || ErrorCorrectLevel.H);
-		qr.addData(data);
-		qr.make();
-	
-		return qr;
-	};
-	
-	qrcode.ErrorCorrectLevel = ErrorCorrectLevel;
-	
-	module.exports = qrcode;
-	
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var BitByte = __webpack_require__(9);
-	var RSBlock = __webpack_require__(11);
-	var BitBuffer = __webpack_require__(13);
-	var util = __webpack_require__(14);
-	var Polynomial = __webpack_require__(15);
-	
-	function QRCode(typeNumber, errorCorrectLevel) {
-		this.typeNumber = typeNumber;
-		this.errorCorrectLevel = errorCorrectLevel;
-		this.modules = null;
-		this.moduleCount = 0;
-		this.dataCache = null;
-		this.dataList = [];
-	}
-	
-	// for client side minification
-	var proto = QRCode.prototype;
-	
-	proto.addData = function(data) {
-		var newData = new BitByte(data);
-		this.dataList.push(newData);
-		this.dataCache = null;
-	};
-	
-	proto.isDark = function(row, col) {
-		if (row < 0 || this.moduleCount <= row || col < 0 || this.moduleCount <= col) {
-			throw new Error(row + "," + col);
-		}
-		return this.modules[row][col];
-	};
-	
-	proto.getModuleCount = function() {
-		return this.moduleCount;
-	};
-	
-	proto.make = function() {
-		// Calculate automatically typeNumber if provided is < 1
-		if (this.typeNumber < 1 ){
-			var typeNumber = 1;
-			for (typeNumber = 1; typeNumber < 40; typeNumber++) {
-				var rsBlocks = RSBlock.getRSBlocks(typeNumber, this.errorCorrectLevel);
-	
-				var buffer = new BitBuffer();
-				var totalDataCount = 0;
-				for (var i = 0; i < rsBlocks.length; i++) {
-					totalDataCount += rsBlocks[i].dataCount;
-				}
-	
-				for (var i = 0; i < this.dataList.length; i++) {
-					var data = this.dataList[i];
-					buffer.put(data.mode, 4);
-					buffer.put(data.getLength(), util.getLengthInBits(data.mode, typeNumber) );
-					data.write(buffer);
-				}
-				if (buffer.getLengthInBits() <= totalDataCount * 8)
-					break;
-			}
-			this.typeNumber = typeNumber;
-		}
-		this.makeImpl(false, this.getBestMaskPattern() );
-	};
-	
-	proto.makeImpl = function(test, maskPattern) {
-		
-		this.moduleCount = this.typeNumber * 4 + 17;
-		this.modules = new Array(this.moduleCount);
-		
-		for (var row = 0; row < this.moduleCount; row++) {
-			
-			this.modules[row] = new Array(this.moduleCount);
-			
-			for (var col = 0; col < this.moduleCount; col++) {
-				this.modules[row][col] = null;//(col + row) % 3;
-			}
-		}
-	
-		this.setupPositionProbePattern(0, 0);
-		this.setupPositionProbePattern(this.moduleCount - 7, 0);
-		this.setupPositionProbePattern(0, this.moduleCount - 7);
-		this.setupPositionAdjustPattern();
-		this.setupTimingPattern();
-		this.setupTypeInfo(test, maskPattern);
-		
-		if (this.typeNumber >= 7) {
-			this.setupTypeNumber(test);
-		}
-	
-		if (this.dataCache == null) {
-			this.dataCache = QRCode.createData(this.typeNumber, this.errorCorrectLevel, this.dataList);
-		}
-	
-		this.mapData(this.dataCache, maskPattern);
-	};
-	
-	proto.setupPositionProbePattern = function(row, col)  {
-		
-		for (var r = -1; r <= 7; r++) {
-			
-			if (row + r <= -1 || this.moduleCount <= row + r) continue;
-			
-			for (var c = -1; c <= 7; c++) {
-				
-				if (col + c <= -1 || this.moduleCount <= col + c) continue;
-				
-				if ( (0 <= r && r <= 6 && (c == 0 || c == 6) )
-						|| (0 <= c && c <= 6 && (r == 0 || r == 6) )
-						|| (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
-					this.modules[row + r][col + c] = true;
-				} else {
-					this.modules[row + r][col + c] = false;
-				}
-			}		
-		}		
-	};
-	
-	proto.getBestMaskPattern = function() {
-	
-		var minLostPoint = 0;
-		var pattern = 0;
-	
-		for (var i = 0; i < 8; i++) {
-			
-			this.makeImpl(true, i);
-	
-			var lostPoint = util.getLostPoint(this);
-	
-			if (i == 0 || minLostPoint >  lostPoint) {
-				minLostPoint = lostPoint;
-				pattern = i;
-			}
-		}
-	
-		return pattern;
-	};
-	
-	proto.createMovieClip = function(target_mc, instance_name, depth) {
-	
-		var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth);
-		var cs = 1;
-	
-		this.make();
-	
-		for (var row = 0; row < this.modules.length; row++) {
-			
-			var y = row * cs;
-			
-			for (var col = 0; col < this.modules[row].length; col++) {
-	
-				var x = col * cs;
-				var dark = this.modules[row][col];
-			
-				if (dark) {
-					qr_mc.beginFill(0, 100);
-					qr_mc.moveTo(x, y);
-					qr_mc.lineTo(x + cs, y);
-					qr_mc.lineTo(x + cs, y + cs);
-					qr_mc.lineTo(x, y + cs);
-					qr_mc.endFill();
-				}
-			}
-		}
-		
-		return qr_mc;
-	};
-	
-	proto.setupTimingPattern = function() {
-		
-		for (var r = 8; r < this.moduleCount - 8; r++) {
-			if (this.modules[r][6] != null) {
-				continue;
-			}
-			this.modules[r][6] = (r % 2 == 0);
-		}
-	
-		for (var c = 8; c < this.moduleCount - 8; c++) {
-			if (this.modules[6][c] != null) {
-				continue;
-			}
-			this.modules[6][c] = (c % 2 == 0);
-		}
-	};
-	
-	proto.setupPositionAdjustPattern = function() {
-	
-		var pos = util.getPatternPosition(this.typeNumber);
-		
-		for (var i = 0; i < pos.length; i++) {
-		
-			for (var j = 0; j < pos.length; j++) {
-			
-				var row = pos[i];
-				var col = pos[j];
-				
-				if (this.modules[row][col] != null) {
-					continue;
-				}
-				
-				for (var r = -2; r <= 2; r++) {
-				
-					for (var c = -2; c <= 2; c++) {
-					
-						if (r == -2 || r == 2 || c == -2 || c == 2
-								|| (r == 0 && c == 0) ) {
-							this.modules[row + r][col + c] = true;
-						} else {
-							this.modules[row + r][col + c] = false;
-						}
-					}
-				}
-			}
-		}
-	};
-	
-	proto.setupTypeNumber = function(test) {
-	
-		var bits = util.getBCHTypeNumber(this.typeNumber);
-	
-		for (var i = 0; i < 18; i++) {
-			var mod = (!test && ( (bits >> i) & 1) == 1);
-			this.modules[Math.floor(i / 3)][i % 3 + this.moduleCount - 8 - 3] = mod;
-		}
-	
-		for (var i = 0; i < 18; i++) {
-			var mod = (!test && ( (bits >> i) & 1) == 1);
-			this.modules[i % 3 + this.moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
-		}
-	};
-	
-	proto.setupTypeInfo = function(test, maskPattern) {
-	
-		var data = (this.errorCorrectLevel << 3) | maskPattern;
-		var bits = util.getBCHTypeInfo(data);
-	
-		// vertical		
-		for (var i = 0; i < 15; i++) {
-	
-			var mod = (!test && ( (bits >> i) & 1) == 1);
-	
-			if (i < 6) {
-				this.modules[i][8] = mod;
-			} else if (i < 8) {
-				this.modules[i + 1][8] = mod;
-			} else {
-				this.modules[this.moduleCount - 15 + i][8] = mod;
-			}
-		}
-	
-		// horizontal
-		for (var i = 0; i < 15; i++) {
-	
-			var mod = (!test && ( (bits >> i) & 1) == 1);
-			
-			if (i < 8) {
-				this.modules[8][this.moduleCount - i - 1] = mod;
-			} else if (i < 9) {
-				this.modules[8][15 - i - 1 + 1] = mod;
-			} else {
-				this.modules[8][15 - i - 1] = mod;
-			}
-		}
-	
-		// fixed module
-		this.modules[this.moduleCount - 8][8] = (!test);
-	};
-	
-	proto.mapData = function(data, maskPattern) {
-		
-		var inc = -1;
-		var row = this.moduleCount - 1;
-		var bitIndex = 7;
-		var byteIndex = 0;
-		
-		for (var col = this.moduleCount - 1; col > 0; col -= 2) {
-	
-			if (col == 6) col--;
-	
-			while (true) {
-	
-				for (var c = 0; c < 2; c++) {
-					
-					if (this.modules[row][col - c] == null) {
-						
-						var dark = false;
-	
-						if (byteIndex < data.length) {
-							dark = ( ( (data[byteIndex] >>> bitIndex) & 1) == 1);
-						}
-	
-						var mask = util.getMask(maskPattern, row, col - c);
-	
-						if (mask) {
-							dark = !dark;
-						}
-						
-						this.modules[row][col - c] = dark;
-						bitIndex--;
-	
-						if (bitIndex == -1) {
-							byteIndex++;
-							bitIndex = 7;
-						}
-					}
-				}
-								
-				row += inc;
-	
-				if (row < 0 || this.moduleCount <= row) {
-					row -= inc;
-					inc = -inc;
-					break;
-				}
-			}
-		}
-	};
-	
-	QRCode.PAD0 = 0xEC;
-	QRCode.PAD1 = 0x11;
-	
-	QRCode.createData = function(typeNumber, errorCorrectLevel, dataList) {
-		
-		var rsBlocks = RSBlock.getRSBlocks(typeNumber, errorCorrectLevel);
-		
-		var buffer = new BitBuffer();
-		
-		for (var i = 0; i < dataList.length; i++) {
-			var data = dataList[i];
-			buffer.put(data.mode, 4);
-			buffer.put(data.getLength(), util.getLengthInBits(data.mode, typeNumber) );
-			data.write(buffer);
-		}
-	
-		// calc num max data.
-		var totalDataCount = 0;
-		for (var i = 0; i < rsBlocks.length; i++) {
-			totalDataCount += rsBlocks[i].dataCount;
-		}
-	
-		if (buffer.getLengthInBits() > totalDataCount * 8) {
-			throw new Error("code length overflow. ("
-				+ buffer.getLengthInBits()
-				+ ">"
-				+  totalDataCount * 8
-				+ ")");
-		}
-	
-		// end code
-		if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
-			buffer.put(0, 4);
-		}
-	
-		// padding
-		while (buffer.getLengthInBits() % 8 != 0) {
-			buffer.putBit(false);
-		}
-	
-		// padding
-		while (true) {
-			
-			if (buffer.getLengthInBits() >= totalDataCount * 8) {
-				break;
-			}
-			buffer.put(QRCode.PAD0, 8);
-			
-			if (buffer.getLengthInBits() >= totalDataCount * 8) {
-				break;
-			}
-			buffer.put(QRCode.PAD1, 8);
-		}
-	
-		return QRCode.createBytes(buffer, rsBlocks);
-	};
-	
-	QRCode.createBytes = function(buffer, rsBlocks) {
-	
-		var offset = 0;
-		
-		var maxDcCount = 0;
-		var maxEcCount = 0;
-		
-		var dcdata = new Array(rsBlocks.length);
-		var ecdata = new Array(rsBlocks.length);
-		
-		for (var r = 0; r < rsBlocks.length; r++) {
-	
-			var dcCount = rsBlocks[r].dataCount;
-			var ecCount = rsBlocks[r].totalCount - dcCount;
-	
-			maxDcCount = Math.max(maxDcCount, dcCount);
-			maxEcCount = Math.max(maxEcCount, ecCount);
-			
-			dcdata[r] = new Array(dcCount);
-			
-			for (var i = 0; i < dcdata[r].length; i++) {
-				dcdata[r][i] = 0xff & buffer.buffer[i + offset];
-			}
-			offset += dcCount;
-			
-			var rsPoly = util.getErrorCorrectPolynomial(ecCount);
-			var rawPoly = new Polynomial(dcdata[r], rsPoly.getLength() - 1);
-	
-			var modPoly = rawPoly.mod(rsPoly);
-			ecdata[r] = new Array(rsPoly.getLength() - 1);
-			for (var i = 0; i < ecdata[r].length; i++) {
-	            var modIndex = i + modPoly.getLength() - ecdata[r].length;
-				ecdata[r][i] = (modIndex >= 0)? modPoly.get(modIndex) : 0;
-			}
-	
-		}
-		
-		var totalCodeCount = 0;
-		for (var i = 0; i < rsBlocks.length; i++) {
-			totalCodeCount += rsBlocks[i].totalCount;
-		}
-	
-		var data = new Array(totalCodeCount);
-		var index = 0;
-	
-		for (var i = 0; i < maxDcCount; i++) {
-			for (var r = 0; r < rsBlocks.length; r++) {
-				if (i < dcdata[r].length) {
-					data[index++] = dcdata[r][i];
-				}
-			}
-		}
-	
-		for (var i = 0; i < maxEcCount; i++) {
-			for (var r = 0; r < rsBlocks.length; r++) {
-				if (i < ecdata[r].length) {
-					data[index++] = ecdata[r][i];
-				}
-			}
-		}
-	
-		return data;
-	};
-	
-	module.exports = QRCode;
-	
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var mode = __webpack_require__(10);
-	
-	function QR8bitByte(data) {
-		this.mode = mode.MODE_8BIT_BYTE;
-		this.data = data;
-	}
-	
-	QR8bitByte.prototype = {
-	
-		getLength : function(buffer) {
-			return this.data.length;
-		},
-		
-		write : function(buffer) {
-			for (var i = 0; i < this.data.length; i++) {
-				// not JIS ...
-				buffer.put(this.data.charCodeAt(i), 8);
-			}
-		}
-	};
-	
-	module.exports = QR8bitByte;
-	
-
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		MODE_NUMBER :		1 << 0,
-		MODE_ALPHA_NUM : 	1 << 1,
-		MODE_8BIT_BYTE : 	1 << 2,
-		MODE_KANJI :		1 << 3
-	};
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// ErrorCorrectLevel
-	var ECL = __webpack_require__(12);
-	
-	function QRRSBlock(totalCount, dataCount) {
-		this.totalCount = totalCount;
-		this.dataCount  = dataCount;
-	}
-	
-	QRRSBlock.RS_BLOCK_TABLE = [
-	
-		// L
-		// M
-		// Q
-		// H
-	
-		// 1
-		[1, 26, 19],
-		[1, 26, 16],
-		[1, 26, 13],
-		[1, 26, 9],
-		
-		// 2
-		[1, 44, 34],
-		[1, 44, 28],
-		[1, 44, 22],
-		[1, 44, 16],
-	
-		// 3
-		[1, 70, 55],
-		[1, 70, 44],
-		[2, 35, 17],
-		[2, 35, 13],
-	
-		// 4		
-		[1, 100, 80],
-		[2, 50, 32],
-		[2, 50, 24],
-		[4, 25, 9],
-		
-		// 5
-		[1, 134, 108],
-		[2, 67, 43],
-		[2, 33, 15, 2, 34, 16],
-		[2, 33, 11, 2, 34, 12],
-		
-		// 6
-		[2, 86, 68],
-		[4, 43, 27],
-		[4, 43, 19],
-		[4, 43, 15],
-		
-		// 7		
-		[2, 98, 78],
-		[4, 49, 31],
-		[2, 32, 14, 4, 33, 15],
-		[4, 39, 13, 1, 40, 14],
-		
-		// 8
-		[2, 121, 97],
-		[2, 60, 38, 2, 61, 39],
-		[4, 40, 18, 2, 41, 19],
-		[4, 40, 14, 2, 41, 15],
-		
-		// 9
-		[2, 146, 116],
-		[3, 58, 36, 2, 59, 37],
-		[4, 36, 16, 4, 37, 17],
-		[4, 36, 12, 4, 37, 13],
-		
-		// 10		
-		[2, 86, 68, 2, 87, 69],
-		[4, 69, 43, 1, 70, 44],
-		[6, 43, 19, 2, 44, 20],
-		[6, 43, 15, 2, 44, 16],
-	
-		// 11
-		[4, 101, 81],
-		[1, 80, 50, 4, 81, 51],
-		[4, 50, 22, 4, 51, 23],
-		[3, 36, 12, 8, 37, 13],
-	
-		// 12
-		[2, 116, 92, 2, 117, 93],
-		[6, 58, 36, 2, 59, 37],
-		[4, 46, 20, 6, 47, 21],
-		[7, 42, 14, 4, 43, 15],
-	
-		// 13
-		[4, 133, 107],
-		[8, 59, 37, 1, 60, 38],
-		[8, 44, 20, 4, 45, 21],
-		[12, 33, 11, 4, 34, 12],
-	
-		// 14
-		[3, 145, 115, 1, 146, 116],
-		[4, 64, 40, 5, 65, 41],
-		[11, 36, 16, 5, 37, 17],
-		[11, 36, 12, 5, 37, 13],
-	
-		// 15
-		[5, 109, 87, 1, 110, 88],
-		[5, 65, 41, 5, 66, 42],
-		[5, 54, 24, 7, 55, 25],
-		[11, 36, 12],
-	
-		// 16
-		[5, 122, 98, 1, 123, 99],
-		[7, 73, 45, 3, 74, 46],
-		[15, 43, 19, 2, 44, 20],
-		[3, 45, 15, 13, 46, 16],
-	
-		// 17
-		[1, 135, 107, 5, 136, 108],
-		[10, 74, 46, 1, 75, 47],
-		[1, 50, 22, 15, 51, 23],
-		[2, 42, 14, 17, 43, 15],
-	
-		// 18
-		[5, 150, 120, 1, 151, 121],
-		[9, 69, 43, 4, 70, 44],
-		[17, 50, 22, 1, 51, 23],
-		[2, 42, 14, 19, 43, 15],
-	
-		// 19
-		[3, 141, 113, 4, 142, 114],
-		[3, 70, 44, 11, 71, 45],
-		[17, 47, 21, 4, 48, 22],
-		[9, 39, 13, 16, 40, 14],
-	
-		// 20
-		[3, 135, 107, 5, 136, 108],
-		[3, 67, 41, 13, 68, 42],
-		[15, 54, 24, 5, 55, 25],
-		[15, 43, 15, 10, 44, 16],
-	
-		// 21
-		[4, 144, 116, 4, 145, 117],
-		[17, 68, 42],
-		[17, 50, 22, 6, 51, 23],
-		[19, 46, 16, 6, 47, 17],
-	
-		// 22
-		[2, 139, 111, 7, 140, 112],
-		[17, 74, 46],
-		[7, 54, 24, 16, 55, 25],
-		[34, 37, 13],
-	
-		// 23
-		[4, 151, 121, 5, 152, 122],
-		[4, 75, 47, 14, 76, 48],
-		[11, 54, 24, 14, 55, 25],
-		[16, 45, 15, 14, 46, 16],
-	
-		// 24
-		[6, 147, 117, 4, 148, 118],
-		[6, 73, 45, 14, 74, 46],
-		[11, 54, 24, 16, 55, 25],
-		[30, 46, 16, 2, 47, 17],
-	
-		// 25
-		[8, 132, 106, 4, 133, 107],
-		[8, 75, 47, 13, 76, 48],
-		[7, 54, 24, 22, 55, 25],
-		[22, 45, 15, 13, 46, 16],
-	
-		// 26
-		[10, 142, 114, 2, 143, 115],
-		[19, 74, 46, 4, 75, 47],
-		[28, 50, 22, 6, 51, 23],
-		[33, 46, 16, 4, 47, 17],
-	
-		// 27
-		[8, 152, 122, 4, 153, 123],
-		[22, 73, 45, 3, 74, 46],
-		[8, 53, 23, 26, 54, 24],
-		[12, 45, 15, 28, 46, 16],
-	
-		// 28
-		[3, 147, 117, 10, 148, 118],
-		[3, 73, 45, 23, 74, 46],
-		[4, 54, 24, 31, 55, 25],
-		[11, 45, 15, 31, 46, 16],
-	
-		// 29
-		[7, 146, 116, 7, 147, 117],
-		[21, 73, 45, 7, 74, 46],
-		[1, 53, 23, 37, 54, 24],
-		[19, 45, 15, 26, 46, 16],
-	
-		// 30
-		[5, 145, 115, 10, 146, 116],
-		[19, 75, 47, 10, 76, 48],
-		[15, 54, 24, 25, 55, 25],
-		[23, 45, 15, 25, 46, 16],
-	
-		// 31
-		[13, 145, 115, 3, 146, 116],
-		[2, 74, 46, 29, 75, 47],
-		[42, 54, 24, 1, 55, 25],
-		[23, 45, 15, 28, 46, 16],
-	
-		// 32
-		[17, 145, 115],
-		[10, 74, 46, 23, 75, 47],
-		[10, 54, 24, 35, 55, 25],
-		[19, 45, 15, 35, 46, 16],
-	
-		// 33
-		[17, 145, 115, 1, 146, 116],
-		[14, 74, 46, 21, 75, 47],
-		[29, 54, 24, 19, 55, 25],
-		[11, 45, 15, 46, 46, 16],
-	
-		// 34
-		[13, 145, 115, 6, 146, 116],
-		[14, 74, 46, 23, 75, 47],
-		[44, 54, 24, 7, 55, 25],
-		[59, 46, 16, 1, 47, 17],
-	
-		// 35
-		[12, 151, 121, 7, 152, 122],
-		[12, 75, 47, 26, 76, 48],
-		[39, 54, 24, 14, 55, 25],
-		[22, 45, 15, 41, 46, 16],
-	
-		// 36
-		[6, 151, 121, 14, 152, 122],
-		[6, 75, 47, 34, 76, 48],
-		[46, 54, 24, 10, 55, 25],
-		[2, 45, 15, 64, 46, 16],
-	
-		// 37
-		[17, 152, 122, 4, 153, 123],
-		[29, 74, 46, 14, 75, 47],
-		[49, 54, 24, 10, 55, 25],
-		[24, 45, 15, 46, 46, 16],
-	
-		// 38
-		[4, 152, 122, 18, 153, 123],
-		[13, 74, 46, 32, 75, 47],
-		[48, 54, 24, 14, 55, 25],
-		[42, 45, 15, 32, 46, 16],
-	
-		// 39
-		[20, 147, 117, 4, 148, 118],
-		[40, 75, 47, 7, 76, 48],
-		[43, 54, 24, 22, 55, 25],
-		[10, 45, 15, 67, 46, 16],
-	
-		// 40
-		[19, 148, 118, 6, 149, 119],
-		[18, 75, 47, 31, 76, 48],
-		[34, 54, 24, 34, 55, 25],
-		[20, 45, 15, 61, 46, 16]
-	];
-	
-	QRRSBlock.getRSBlocks = function(typeNumber, errorCorrectLevel) {
-		
-		var rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
-		
-		if (rsBlock == undefined) {
-			throw new Error("bad rs block @ typeNumber:" + typeNumber + "/errorCorrectLevel:" + errorCorrectLevel);
-		}
-	
-		var length = rsBlock.length / 3;
-		
-		var list = new Array();
-		
-		for (var i = 0; i < length; i++) {
-	
-			var count = rsBlock[i * 3 + 0];
-			var totalCount = rsBlock[i * 3 + 1];
-			var dataCount  = rsBlock[i * 3 + 2];
-	
-			for (var j = 0; j < count; j++) {
-				list.push(new QRRSBlock(totalCount, dataCount) );	
-			}
-		}
-		
-		return list;
-	}
-	
-	QRRSBlock.getRsBlockTable = function(typeNumber, errorCorrectLevel) {
-	
-		switch(errorCorrectLevel) {
-		case ECL.L :
-			return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
-		case ECL.M :
-			return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
-		case ECL.Q :
-			return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
-		case ECL.H :
-			return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
-		default :
-			return undefined;
-		}
-	}
-	
-	module.exports = QRRSBlock;
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		L : 1,
-		M : 0,
-		Q : 3,
-		H : 2
-	};
-	
-
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	function QRBitBuffer() {
-		this.buffer = new Array();
-		this.length = 0;
-	}
-	
-	QRBitBuffer.prototype = {
-	
-		get : function(index) {
-			var bufIndex = Math.floor(index / 8);
-			return ( (this.buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
-		},
-		
-		put : function(num, length) {
-			for (var i = 0; i < length; i++) {
-				this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
-			}
-		},
-		
-		getLengthInBits : function() {
-			return this.length;
-		},
-		
-		putBit : function(bit) {
-		
-			var bufIndex = Math.floor(this.length / 8);
-			if (this.buffer.length <= bufIndex) {
-				this.buffer.push(0);
-			}
-		
-			if (bit) {
-				this.buffer[bufIndex] |= (0x80 >>> (this.length % 8) );
-			}
-		
-			this.length++;
-		}
-	};
-	
-	module.exports = QRBitBuffer;
-
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Mode = __webpack_require__(10);
-	var Polynomial = __webpack_require__(15);
-	var math = __webpack_require__(16);
-	
-	var QRMaskPattern = {
-		PATTERN000 : 0,
-		PATTERN001 : 1,
-		PATTERN010 : 2,
-		PATTERN011 : 3,
-		PATTERN100 : 4,
-		PATTERN101 : 5,
-		PATTERN110 : 6,
-		PATTERN111 : 7
-	};
-	
-	var QRUtil = {
-	
-	    PATTERN_POSITION_TABLE : [
-		    [],
-		    [6, 18],
-		    [6, 22],
-		    [6, 26],
-		    [6, 30],
-		    [6, 34],
-		    [6, 22, 38],
-		    [6, 24, 42],
-		    [6, 26, 46],
-		    [6, 28, 50],
-		    [6, 30, 54],		
-		    [6, 32, 58],
-		    [6, 34, 62],
-		    [6, 26, 46, 66],
-		    [6, 26, 48, 70],
-		    [6, 26, 50, 74],
-		    [6, 30, 54, 78],
-		    [6, 30, 56, 82],
-		    [6, 30, 58, 86],
-		    [6, 34, 62, 90],
-		    [6, 28, 50, 72, 94],
-		    [6, 26, 50, 74, 98],
-		    [6, 30, 54, 78, 102],
-		    [6, 28, 54, 80, 106],
-		    [6, 32, 58, 84, 110],
-		    [6, 30, 58, 86, 114],
-		    [6, 34, 62, 90, 118],
-		    [6, 26, 50, 74, 98, 122],
-		    [6, 30, 54, 78, 102, 126],
-		    [6, 26, 52, 78, 104, 130],
-		    [6, 30, 56, 82, 108, 134],
-		    [6, 34, 60, 86, 112, 138],
-		    [6, 30, 58, 86, 114, 142],
-		    [6, 34, 62, 90, 118, 146],
-		    [6, 30, 54, 78, 102, 126, 150],
-		    [6, 24, 50, 76, 102, 128, 154],
-		    [6, 28, 54, 80, 106, 132, 158],
-		    [6, 32, 58, 84, 110, 136, 162],
-		    [6, 26, 54, 82, 110, 138, 166],
-		    [6, 30, 58, 86, 114, 142, 170]
-	    ],
-	
-	    G15 : (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0),
-	    G18 : (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0),
-	    G15_MASK : (1 << 14) | (1 << 12) | (1 << 10)	| (1 << 4) | (1 << 1),
-	
-	    getBCHTypeInfo : function(data) {
-		    var d = data << 10;
-		    while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
-			    d ^= (QRUtil.G15 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) ) ); 	
-		    }
-		    return ( (data << 10) | d) ^ QRUtil.G15_MASK;
-	    },
-	
-	    getBCHTypeNumber : function(data) {
-		    var d = data << 12;
-		    while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
-			    d ^= (QRUtil.G18 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) ) ); 	
-		    }
-		    return (data << 12) | d;
-	    },
-	
-	    getBCHDigit : function(data) {
-	
-		    var digit = 0;
-	
-		    while (data != 0) {
-			    digit++;
-			    data >>>= 1;
-		    }
-	
-		    return digit;
-	    },
-	
-	    getPatternPosition : function(typeNumber) {
-		    return QRUtil.PATTERN_POSITION_TABLE[typeNumber - 1];
-	    },
-	
-	    getMask : function(maskPattern, i, j) {
-		    
-		    switch (maskPattern) {
-			    
-		    case QRMaskPattern.PATTERN000 : return (i + j) % 2 == 0;
-		    case QRMaskPattern.PATTERN001 : return i % 2 == 0;
-		    case QRMaskPattern.PATTERN010 : return j % 3 == 0;
-		    case QRMaskPattern.PATTERN011 : return (i + j) % 3 == 0;
-		    case QRMaskPattern.PATTERN100 : return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 == 0;
-		    case QRMaskPattern.PATTERN101 : return (i * j) % 2 + (i * j) % 3 == 0;
-		    case QRMaskPattern.PATTERN110 : return ( (i * j) % 2 + (i * j) % 3) % 2 == 0;
-		    case QRMaskPattern.PATTERN111 : return ( (i * j) % 3 + (i + j) % 2) % 2 == 0;
-	
-		    default :
-			    throw new Error("bad maskPattern:" + maskPattern);
-		    }
-	    },
-	
-	    getErrorCorrectPolynomial : function(errorCorrectLength) {
-	
-		    var a = new Polynomial([1], 0);
-	
-		    for (var i = 0; i < errorCorrectLength; i++) {
-			    a = a.multiply(new Polynomial([1, math.gexp(i)], 0) );
-		    }
-	
-		    return a;
-	    },
-	
-	    getLengthInBits : function(mode, type) {
-	
-		    if (1 <= type && type < 10) {
-	
-			    // 1 - 9
-	
-			    switch(mode) {
-			    case Mode.MODE_NUMBER 	: return 10;
-			    case Mode.MODE_ALPHA_NUM 	: return 9;
-			    case Mode.MODE_8BIT_BYTE	: return 8;
-			    case Mode.MODE_KANJI  	: return 8;
-			    default :
-				    throw new Error("mode:" + mode);
-			    }
-	
-		    } else if (type < 27) {
-	
-			    // 10 - 26
-	
-			    switch(mode) {
-			    case Mode.MODE_NUMBER 	: return 12;
-			    case Mode.MODE_ALPHA_NUM 	: return 11;
-			    case Mode.MODE_8BIT_BYTE	: return 16;
-			    case Mode.MODE_KANJI  	: return 10;
-			    default :
-				    throw new Error("mode:" + mode);
-			    }
-	
-		    } else if (type < 41) {
-	
-			    // 27 - 40
-	
-			    switch(mode) {
-			    case Mode.MODE_NUMBER 	: return 14;
-			    case Mode.MODE_ALPHA_NUM	: return 13;
-			    case Mode.MODE_8BIT_BYTE	: return 16;
-			    case Mode.MODE_KANJI  	: return 12;
-			    default :
-				    throw new Error("mode:" + mode);
-			    }
-	
-		    } else {
-			    throw new Error("type:" + type);
-		    }
-	    },
-	
-	    getLostPoint : function(qrCode) {
-		    
-		    var moduleCount = qrCode.getModuleCount();
-		    
-		    var lostPoint = 0;
-		    
-		    // LEVEL1
-		    
-		    for (var row = 0; row < moduleCount; row++) {
-	
-			    for (var col = 0; col < moduleCount; col++) {
-	
-				    var sameCount = 0;
-				    var dark = qrCode.isDark(row, col);
-	
-					for (var r = -1; r <= 1; r++) {
-	
-					    if (row + r < 0 || moduleCount <= row + r) {
-						    continue;
-					    }
-	
-					    for (var c = -1; c <= 1; c++) {
-	
-						    if (col + c < 0 || moduleCount <= col + c) {
-							    continue;
-						    }
-	
-						    if (r == 0 && c == 0) {
-							    continue;
-						    }
-	
-						    if (dark == qrCode.isDark(row + r, col + c) ) {
-							    sameCount++;
-						    }
-					    }
-				    }
-	
-				    if (sameCount > 5) {
-					    lostPoint += (3 + sameCount - 5);
-				    }
-			    }
-		    }
-	
-		    // LEVEL2
-	
-		    for (var row = 0; row < moduleCount - 1; row++) {
-			    for (var col = 0; col < moduleCount - 1; col++) {
-				    var count = 0;
-				    if (qrCode.isDark(row,     col    ) ) count++;
-				    if (qrCode.isDark(row + 1, col    ) ) count++;
-				    if (qrCode.isDark(row,     col + 1) ) count++;
-				    if (qrCode.isDark(row + 1, col + 1) ) count++;
-				    if (count == 0 || count == 4) {
-					    lostPoint += 3;
-				    }
-			    }
-		    }
-	
-		    // LEVEL3
-	
-		    for (var row = 0; row < moduleCount; row++) {
-			    for (var col = 0; col < moduleCount - 6; col++) {
-				    if (qrCode.isDark(row, col)
-						    && !qrCode.isDark(row, col + 1)
-						    &&  qrCode.isDark(row, col + 2)
-						    &&  qrCode.isDark(row, col + 3)
-						    &&  qrCode.isDark(row, col + 4)
-						    && !qrCode.isDark(row, col + 5)
-						    &&  qrCode.isDark(row, col + 6) ) {
-					    lostPoint += 40;
-				    }
-			    }
-		    }
-	
-		    for (var col = 0; col < moduleCount; col++) {
-			    for (var row = 0; row < moduleCount - 6; row++) {
-				    if (qrCode.isDark(row, col)
-						    && !qrCode.isDark(row + 1, col)
-						    &&  qrCode.isDark(row + 2, col)
-						    &&  qrCode.isDark(row + 3, col)
-						    &&  qrCode.isDark(row + 4, col)
-						    && !qrCode.isDark(row + 5, col)
-						    &&  qrCode.isDark(row + 6, col) ) {
-					    lostPoint += 40;
-				    }
-			    }
-		    }
-	
-		    // LEVEL4
-		    
-		    var darkCount = 0;
-	
-		    for (var col = 0; col < moduleCount; col++) {
-			    for (var row = 0; row < moduleCount; row++) {
-				    if (qrCode.isDark(row, col) ) {
-					    darkCount++;
-				    }
-			    }
-		    }
-		    
-		    var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
-		    lostPoint += ratio * 10;
-	
-		    return lostPoint;		
-	    }
-	};
-	
-	module.exports = QRUtil;
-
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var math = __webpack_require__(16);
-	
-	function QRPolynomial(num, shift) {
-	
-		if (num.length == undefined) {
-			throw new Error(num.length + "/" + shift);
-		}
-	
-		var offset = 0;
-	
-		while (offset < num.length && num[offset] == 0) {
-			offset++;
-		}
-	
-		this.num = new Array(num.length - offset + shift);
-		for (var i = 0; i < num.length - offset; i++) {
-			this.num[i] = num[i + offset];
-		}
-	}
-	
-	QRPolynomial.prototype = {
-	
-		get : function(index) {
-			return this.num[index];
-		},
-		
-		getLength : function() {
-			return this.num.length;
-		},
-		
-		multiply : function(e) {
-		
-			var num = new Array(this.getLength() + e.getLength() - 1);
-		
-			for (var i = 0; i < this.getLength(); i++) {
-				for (var j = 0; j < e.getLength(); j++) {
-					num[i + j] ^= math.gexp(math.glog(this.get(i) ) + math.glog(e.get(j) ) );
-				}
-			}
-		
-			return new QRPolynomial(num, 0);
-		},
-		
-		mod : function(e) {
-		
-			if (this.getLength() - e.getLength() < 0) {
-				return this;
-			}
-		
-			var ratio = math.glog(this.get(0) ) - math.glog(e.get(0) );
-		
-			var num = new Array(this.getLength() );
-			
-			for (var i = 0; i < this.getLength(); i++) {
-				num[i] = this.get(i);
-			}
-			
-			for (var i = 0; i < e.getLength(); i++) {
-				num[i] ^= math.gexp(math.glog(e.get(i) ) + ratio);
-			}
-		
-			// recursive call
-			return new QRPolynomial(num, 0).mod(e);
-		}
-	};
-	
-	module.exports = QRPolynomial;
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
-
-	var QRMath = {
-	
-		glog : function(n) {
-		
-			if (n < 1) {
-				throw new Error("glog(" + n + ")");
-			}
-			
-			return QRMath.LOG_TABLE[n];
-		},
-		
-		gexp : function(n) {
-		
-			while (n < 0) {
-				n += 255;
-			}
-		
-			while (n >= 256) {
-				n -= 255;
-			}
-		
-			return QRMath.EXP_TABLE[n];
-		},
-		
-		EXP_TABLE : new Array(256),
-		
-		LOG_TABLE : new Array(256)
-	
-	};
-		
-	for (var i = 0; i < 8; i++) {
-		QRMath.EXP_TABLE[i] = 1 << i;
-	}
-	for (var i = 8; i < 256; i++) {
-		QRMath.EXP_TABLE[i] = QRMath.EXP_TABLE[i - 4]
-			^ QRMath.EXP_TABLE[i - 5]
-			^ QRMath.EXP_TABLE[i - 6]
-			^ QRMath.EXP_TABLE[i - 8];
-	}
-	for (var i = 0; i < 255; i++) {
-		QRMath.LOG_TABLE[QRMath.EXP_TABLE[i] ] = i;
-	}
-	
-	module.exports = QRMath;
-
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	module.exports = "\n  <div>\n    <canvas\n      :style=\"{height: size + 'px', width: size + 'px'}\"\n      height={{size}}\n      width={{size}}\n      v-el:qr\n    ></canvas>\n  </div>\n";
-
-/***/ }
-/******/ ])
-});
-;
-//# sourceMappingURL=vue-qrcode.js.map
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__vue_qr_vue___default.a);
 
 /***/ }),
-/* 78 */
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(119),
+  /* template */
+  __webpack_require__(125),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/orvice/workspace/www/ss-panel/node_modules/vue-qr/src/vue-qr.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] vue-qr.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-fc2e04e2", Component.options)
+  } else {
+    hotAPI.reload("data-v-fc2e04e2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util_js__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__awesome_qr_js__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__awesome_qr_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__awesome_qr_js__);
+
+
+var uuidv4 = __webpack_require__(120);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['text', 'size', 'margin', 'colorDark', 'colorLight', 'bgSrc', 'backgroundDimming', 'logoSrc', 'logoScale', 'logoMargin', 'logoCornerRadius', 'whiteMargin', 'dotScale', 'autoColor', 'binarize', 'binarizeThreshold', 'callback'],
+  name: 'vue-qr',
+  data: function data() {
+    return {
+      uuid: ""
+    };
+  },
+  beforeMount: function beforeMount() {
+    this.uuid = uuidv4();
+    console.log(this.bgSrc);
+  },
+  mounted: function mounted() {
+    var that = this;
+    if (this.bgSrc && this.logoSrc) {
+      var bgImg = new Image();
+      var logoImg = new Image();
+      bgImg.src = this.bgSrc;
+      bgImg.onload = function () {
+        logoImg.src = that.logoSrc;
+        logoImg.onload = function () {
+          that.render(bgImg, logoImg);
+        };
+      };
+      return;
+    }
+    if (this.bgSrc) {
+      var img = new Image();
+      img.src = this.bgSrc;
+      img.onload = function () {
+        that.render(img);
+      };
+      return;
+    }
+    if (this.logoSrc) {
+      var _img = new Image();
+      _img.src = this.logoSrc;
+      _img.onload = function () {
+        that.render(undefined, _img);
+      };
+      return;
+    }
+    that.render();
+  },
+
+  methods: {
+    render: function render(img, logoImg) {
+      var that = this;
+      console.log(logoImg);
+      new __WEBPACK_IMPORTED_MODULE_1__awesome_qr_js___default.a().create({
+        text: that.text,
+        size: that.size || 200,
+        margin: that.margin || 20,
+        colorDark: that.colorDark || "#000000",
+        colorLight: that.colorLight || "#FFFFFF",
+        backgroundImage: img,
+        backgroundDimming: that.backgroundDimming || 'rgba(0,0,0,0)',
+        logoImage: logoImg,
+        logoScale: that.logoScale || 0.2,
+        logoMargin: that.logoMargin || 0,
+        logoCornerRadius: that.logoCornerRadius || 8,
+        whiteMargin: __WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* toBoolean */](that.whiteMargin) || true,
+        dotScale: that.dotScale || 0.35,
+        autoColor: __WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* toBoolean */](that.autoColor) || true,
+        binarize: __WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* toBoolean */](that.binarize) || false,
+        binarizeThreshold: that.binarizeThreshold || 128,
+        callback: function callback(dataURI) {
+          that.callback && that.callback(dataURI);
+        },
+        bindElement: that.uuid
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var rng = __webpack_require__(121);
+var bytesToUuid = __webpack_require__(122);
+
+function v4(options, buf, offset) {
+  var i = buf && offset || 0;
+
+  if (typeof(options) == 'string') {
+    buf = options == 'binary' ? new Array(16) : null;
+    options = null;
+  }
+  options = options || {};
+
+  var rnds = options.random || (options.rng || rng)();
+
+  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  rnds[6] = (rnds[6] & 0x0f) | 0x40;
+  rnds[8] = (rnds[8] & 0x3f) | 0x80;
+
+  // Copy bytes to buffer, if provided
+  if (buf) {
+    for (var ii = 0; ii < 16; ++ii) {
+      buf[i + ii] = rnds[ii];
+    }
+  }
+
+  return buf || bytesToUuid(rnds);
+}
+
+module.exports = v4;
+
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
+// browser this is a little complicated due to unknown quality of Math.random()
+// and inconsistent support for the `crypto` API.  We do the best we can via
+// feature-detection
+var rng;
+
+var crypto = global.crypto || global.msCrypto; // for IE 11
+if (crypto && crypto.getRandomValues) {
+  // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
+  var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
+  rng = function whatwgRNG() {
+    crypto.getRandomValues(rnds8);
+    return rnds8;
+  };
+}
+
+if (!rng) {
+  // Math.random()-based (RNG)
+  //
+  // If all else fails, use Math.random().  It's fast, but is of unspecified
+  // quality.
+  var rnds = new Array(16);
+  rng = function() {
+    for (var i = 0, r; i < 16; i++) {
+      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
+      rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    }
+
+    return rnds;
+  };
+}
+
+module.exports = rng;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports) {
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  return bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+module.exports = bytesToUuid;
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = toBoolean;
+function toBoolean(val) {
+  if (val === '') return val
+  return val === 'true' || val == '1'
+}
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * @fileoverview
+ * Awesome-qr.js
+ *
+ * @author Makito <sumimakito@hotmail.com>
+ * @see <a href="https://www.keep.moe/" target="_blank">https://www.keep.moe/</a>
+ * @see <a href="https://github.com/SumiMakito/Awesome-qr.js" target="_blank">https://github.com/SumiMakito/Awesome-qr.js</a>
+ */
+/**
+ * @fileoverview
+ * - Using the 'QRCode for Javascript library'
+ * - Fixed dataset of 'QRCode for Javascript library' for support full-spec.
+ * - this library has no dependencies.
+ *
+ * @author davidshimjs
+ * @see <a href="http://www.d-project.com/" target="_blank">http://www.d-project.com/</a>
+ * @see <a href="http://jeromeetienne.github.com/jquery-qrcode/" target="_blank">http://jeromeetienne.github.com/jquery-qrcode/</a>
+ */
+var AwesomeQRCode;
+
+(function () {
+    //---------------------------------------------------------------------
+// QRCode for JavaScript
+//
+// Copyright (c) 2009 Kazuhiko Arase
+//
+// URL: http://www.d-project.com/
+//
+// Licensed under the MIT license:
+//   http://www.opensource.org/licenses/mit-license.php
+//
+// The word "QR Code" is registered trademark of
+// DENSO WAVE INCORPORATED
+//   http://www.denso-wave.com/qrcode/faqpatent-e.html
+//
+//---------------------------------------------------------------------
+    function QR8bitByte(data) {
+        this.mode = QRMode.MODE_8BIT_BYTE;
+        this.data = data;
+        this.parsedData = [];
+        for (var i = 0, l = this.data.length; i < l; i++) {
+            var byteArray = [];
+            var code = this.data.charCodeAt(i);
+            if (code > 0x10000) {
+                byteArray[0] = 0xF0 | ((code & 0x1C0000) >>> 18);
+                byteArray[1] = 0x80 | ((code & 0x3F000) >>> 12);
+                byteArray[2] = 0x80 | ((code & 0xFC0) >>> 6);
+                byteArray[3] = 0x80 | (code & 0x3F)
+            } else if (code > 0x800) {
+                byteArray[0] = 0xE0 | ((code & 0xF000) >>> 12);
+                byteArray[1] = 0x80 | ((code & 0xFC0) >>> 6);
+                byteArray[2] = 0x80 | (code & 0x3F)
+            } else if (code > 0x80) {
+                byteArray[0] = 0xC0 | ((code & 0x7C0) >>> 6);
+                byteArray[1] = 0x80 | (code & 0x3F)
+            } else {
+                byteArray[0] = code
+            }
+            this.parsedData.push(byteArray)
+        }
+        this.parsedData = Array.prototype.concat.apply([], this.parsedData);
+        if (this.parsedData.length != this.data.length) {
+            this.parsedData.unshift(191);
+            this.parsedData.unshift(187);
+            this.parsedData.unshift(239)
+        }
+    }
+
+    QR8bitByte.prototype = {
+        getLength: function (buffer) {
+            return this.parsedData.length
+        }, write: function (buffer) {
+            for (var i = 0, l = this.parsedData.length; i < l; i++) {
+                buffer.put(this.parsedData[i], 8)
+            }
+        }
+    };
+    function QRCodeModel(typeNumber, errorCorrectLevel) {
+        this.typeNumber = typeNumber;
+        this.errorCorrectLevel = errorCorrectLevel;
+        this.modules = null;
+        this.moduleCount = 0;
+        this.dataCache = null;
+        this.dataList = []
+    }
+
+    QRCodeModel.prototype = {
+        addData: function (data) {
+            var newData = new QR8bitByte(data);
+            this.dataList.push(newData);
+            this.dataCache = null
+        }, isDark: function (row, col) {
+            if (row < 0 || this.moduleCount <= row || col < 0 || this.moduleCount <= col) {
+                throw new Error(row + "," + col)
+            }
+            return this.modules[row][col]
+        }, getModuleCount: function () {
+            return this.moduleCount
+        }, make: function () {
+            this.makeImpl(!1, this.getBestMaskPattern())
+        }, makeImpl: function (test, maskPattern) {
+            this.moduleCount = this.typeNumber * 4 + 17;
+            this.modules = new Array(this.moduleCount);
+            for (var row = 0; row < this.moduleCount; row++) {
+                this.modules[row] = new Array(this.moduleCount);
+                for (var col = 0; col < this.moduleCount; col++) {
+                    this.modules[row][col] = null
+                }
+            }
+            this.setupPositionProbePattern(0, 0);
+            this.setupPositionProbePattern(this.moduleCount - 7, 0);
+            this.setupPositionProbePattern(0, this.moduleCount - 7);
+            this.setupPositionAdjustPattern();
+            this.setupTimingPattern();
+            this.setupTypeInfo(test, maskPattern);
+            if (this.typeNumber >= 7) {
+                this.setupTypeNumber(test)
+            }
+            if (this.dataCache == null) {
+                this.dataCache = QRCodeModel.createData(this.typeNumber, this.errorCorrectLevel, this.dataList)
+            }
+            this.mapData(this.dataCache, maskPattern)
+        }, setupPositionProbePattern: function (row, col) {
+            for (var r = -1; r <= 7; r++) {
+                if (row + r <= -1 || this.moduleCount <= row + r)continue;
+                for (var c = -1; c <= 7; c++) {
+                    if (col + c <= -1 || this.moduleCount <= col + c)continue;
+                    if ((0 <= r && r <= 6 && (c == 0 || c == 6)) || (0 <= c && c <= 6 && (r == 0 || r == 6)) || (2 <= r && r <= 4 && 2 <= c && c <= 4)) {
+                        this.modules[row + r][col + c] = !0
+                    } else {
+                        this.modules[row + r][col + c] = !1
+                    }
+                }
+            }
+        }, getBestMaskPattern: function () {
+            var minLostPoint = 0;
+            var pattern = 0;
+            for (var i = 0; i < 8; i++) {
+                this.makeImpl(!0, i);
+                var lostPoint = QRUtil.getLostPoint(this);
+                if (i == 0 || minLostPoint > lostPoint) {
+                    minLostPoint = lostPoint;
+                    pattern = i
+                }
+            }
+            return pattern
+        }, createMovieClip: function (target_mc, instance_name, depth) {
+            var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth);
+            var cs = 1;
+            this.make();
+            for (var row = 0; row < this.modules.length; row++) {
+                var y = row * cs;
+                for (var col = 0; col < this.modules[row].length; col++) {
+                    var x = col * cs;
+                    var dark = this.modules[row][col];
+                    if (dark) {
+                        qr_mc.beginFill(0, 100);
+                        qr_mc.moveTo(x, y);
+                        qr_mc.lineTo(x + cs, y);
+                        qr_mc.lineTo(x + cs, y + cs);
+                        qr_mc.lineTo(x, y + cs);
+                        qr_mc.endFill()
+                    }
+                }
+            }
+            return qr_mc
+        }, setupTimingPattern: function () {
+            for (var r = 8; r < this.moduleCount - 8; r++) {
+                if (this.modules[r][6] != null) {
+                    continue
+                }
+                this.modules[r][6] = (r % 2 == 0)
+            }
+            for (var c = 8; c < this.moduleCount - 8; c++) {
+                if (this.modules[6][c] != null) {
+                    continue
+                }
+                this.modules[6][c] = (c % 2 == 0)
+            }
+        }, setupPositionAdjustPattern: function () {
+            var pos = QRUtil.getPatternPosition(this.typeNumber);
+            for (var i = 0; i < pos.length; i++) {
+                for (var j = 0; j < pos.length; j++) {
+                    var row = pos[i];
+                    var col = pos[j];
+                    if (this.modules[row][col] != null) {
+                        continue
+                    }
+                    for (var r = -2; r <= 2; r++) {
+                        for (var c = -2; c <= 2; c++) {
+                            if (r == -2 || r == 2 || c == -2 || c == 2 || (r == 0 && c == 0)) {
+                                this.modules[row + r][col + c] = !0
+                            } else {
+                                this.modules[row + r][col + c] = !1
+                            }
+                        }
+                    }
+                }
+            }
+        }, setupTypeNumber: function (test) {
+            var bits = QRUtil.getBCHTypeNumber(this.typeNumber);
+            for (var i = 0; i < 18; i++) {
+                var mod = (!test && ((bits >> i) & 1) == 1);
+                this.modules[Math.floor(i / 3)][i % 3 + this.moduleCount - 8 - 3] = mod
+            }
+            for (var i = 0; i < 18; i++) {
+                var mod = (!test && ((bits >> i) & 1) == 1);
+                this.modules[i % 3 + this.moduleCount - 8 - 3][Math.floor(i / 3)] = mod
+            }
+        }, setupTypeInfo: function (test, maskPattern) {
+            var data = (this.errorCorrectLevel << 3) | maskPattern;
+            var bits = QRUtil.getBCHTypeInfo(data);
+            for (var i = 0; i < 15; i++) {
+                var mod = (!test && ((bits >> i) & 1) == 1);
+                if (i < 6) {
+                    this.modules[i][8] = mod
+                } else if (i < 8) {
+                    this.modules[i + 1][8] = mod
+                } else {
+                    this.modules[this.moduleCount - 15 + i][8] = mod
+                }
+            }
+            for (var i = 0; i < 15; i++) {
+                var mod = (!test && ((bits >> i) & 1) == 1);
+                if (i < 8) {
+                    this.modules[8][this.moduleCount - i - 1] = mod
+                } else if (i < 9) {
+                    this.modules[8][15 - i - 1 + 1] = mod
+                } else {
+                    this.modules[8][15 - i - 1] = mod
+                }
+            }
+            this.modules[this.moduleCount - 8][8] = (!test)
+        }, mapData: function (data, maskPattern) {
+            var inc = -1;
+            var row = this.moduleCount - 1;
+            var bitIndex = 7;
+            var byteIndex = 0;
+            for (var col = this.moduleCount - 1; col > 0; col -= 2) {
+                if (col == 6) col--;
+                while (!0) {
+                    for (var c = 0; c < 2; c++) {
+                        if (this.modules[row][col - c] == null) {
+                            var dark = !1;
+                            if (byteIndex < data.length) {
+                                dark = (((data[byteIndex] >>> bitIndex) & 1) == 1)
+                            }
+                            var mask = QRUtil.getMask(maskPattern, row, col - c);
+                            if (mask) {
+                                dark = !dark
+                            }
+                            this.modules[row][col - c] = dark;
+                            bitIndex--;
+                            if (bitIndex == -1) {
+                                byteIndex++;
+                                bitIndex = 7
+                            }
+                        }
+                    }
+                    row += inc;
+                    if (row < 0 || this.moduleCount <= row) {
+                        row -= inc;
+                        inc = -inc;
+                        break
+                    }
+                }
+            }
+        }
+    };
+    QRCodeModel.PAD0 = 0xEC;
+    QRCodeModel.PAD1 = 0x11;
+    QRCodeModel.createData = function (typeNumber, errorCorrectLevel, dataList) {
+        var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectLevel);
+        var buffer = new QRBitBuffer();
+        for (var i = 0; i < dataList.length; i++) {
+            var data = dataList[i];
+            buffer.put(data.mode, 4);
+            buffer.put(data.getLength(), QRUtil.getLengthInBits(data.mode, typeNumber));
+            data.write(buffer)
+        }
+        var totalDataCount = 0;
+        for (var i = 0; i < rsBlocks.length; i++) {
+            totalDataCount += rsBlocks[i].dataCount
+        }
+        if (buffer.getLengthInBits() > totalDataCount * 8) {
+            throw new Error("code length overflow. (" + buffer.getLengthInBits() + ">" + totalDataCount * 8 + ")")
+        }
+        if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
+            buffer.put(0, 4)
+        }
+        while (buffer.getLengthInBits() % 8 != 0) {
+            buffer.putBit(!1)
+        }
+        while (!0) {
+            if (buffer.getLengthInBits() >= totalDataCount * 8) {
+                break
+            }
+            buffer.put(QRCodeModel.PAD0, 8);
+            if (buffer.getLengthInBits() >= totalDataCount * 8) {
+                break
+            }
+            buffer.put(QRCodeModel.PAD1, 8)
+        }
+        return QRCodeModel.createBytes(buffer, rsBlocks)
+    };
+    QRCodeModel.createBytes = function (buffer, rsBlocks) {
+        var offset = 0;
+        var maxDcCount = 0;
+        var maxEcCount = 0;
+        var dcdata = new Array(rsBlocks.length);
+        var ecdata = new Array(rsBlocks.length);
+        for (var r = 0; r < rsBlocks.length; r++) {
+            var dcCount = rsBlocks[r].dataCount;
+            var ecCount = rsBlocks[r].totalCount - dcCount;
+            maxDcCount = Math.max(maxDcCount, dcCount);
+            maxEcCount = Math.max(maxEcCount, ecCount);
+            dcdata[r] = new Array(dcCount);
+            for (var i = 0; i < dcdata[r].length; i++) {
+                dcdata[r][i] = 0xff & buffer.buffer[i + offset]
+            }
+            offset += dcCount;
+            var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+            var rawPoly = new QRPolynomial(dcdata[r], rsPoly.getLength() - 1);
+            var modPoly = rawPoly.mod(rsPoly);
+            ecdata[r] = new Array(rsPoly.getLength() - 1);
+            for (var i = 0; i < ecdata[r].length; i++) {
+                var modIndex = i + modPoly.getLength() - ecdata[r].length;
+                ecdata[r][i] = (modIndex >= 0) ? modPoly.get(modIndex) : 0
+            }
+        }
+        var totalCodeCount = 0;
+        for (var i = 0; i < rsBlocks.length; i++) {
+            totalCodeCount += rsBlocks[i].totalCount
+        }
+        var data = new Array(totalCodeCount);
+        var index = 0;
+        for (var i = 0; i < maxDcCount; i++) {
+            for (var r = 0; r < rsBlocks.length; r++) {
+                if (i < dcdata[r].length) {
+                    data[index++] = dcdata[r][i]
+                }
+            }
+        }
+        for (var i = 0; i < maxEcCount; i++) {
+            for (var r = 0; r < rsBlocks.length; r++) {
+                if (i < ecdata[r].length) {
+                    data[index++] = ecdata[r][i]
+                }
+            }
+        }
+        return data
+    };
+    var QRMode = {MODE_NUMBER: 1 << 0, MODE_ALPHA_NUM: 1 << 1, MODE_8BIT_BYTE: 1 << 2, MODE_KANJI: 1 << 3};
+    var QRErrorCorrectLevel = {L: 1, M: 0, Q: 3, H: 2};
+    var QRMaskPattern = {
+        PATTERN000: 0,
+        PATTERN001: 1,
+        PATTERN010: 2,
+        PATTERN011: 3,
+        PATTERN100: 4,
+        PATTERN101: 5,
+        PATTERN110: 6,
+        PATTERN111: 7
+    };
+    var QRUtil = {
+        PATTERN_POSITION_TABLE: [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50], [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66], [6, 26, 48, 70], [6, 26, 50, 74], [6, 30, 54, 78], [6, 30, 56, 82], [6, 30, 58, 86], [6, 34, 62, 90], [6, 28, 50, 72, 94], [6, 26, 50, 74, 98], [6, 30, 54, 78, 102], [6, 28, 54, 80, 106], [6, 32, 58, 84, 110], [6, 30, 58, 86, 114], [6, 34, 62, 90, 118], [6, 26, 50, 74, 98, 122], [6, 30, 54, 78, 102, 126], [6, 26, 52, 78, 104, 130], [6, 30, 56, 82, 108, 134], [6, 34, 60, 86, 112, 138], [6, 30, 58, 86, 114, 142], [6, 34, 62, 90, 118, 146], [6, 30, 54, 78, 102, 126, 150], [6, 24, 50, 76, 102, 128, 154], [6, 28, 54, 80, 106, 132, 158], [6, 32, 58, 84, 110, 136, 162], [6, 26, 54, 82, 110, 138, 166], [6, 30, 58, 86, 114, 142, 170]],
+        G15: (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0),
+        G18: (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0),
+        G15_MASK: (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1),
+        getBCHTypeInfo: function (data) {
+            var d = data << 10;
+            while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
+                d ^= (QRUtil.G15 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15)))
+            }
+            return ((data << 10) | d) ^ QRUtil.G15_MASK
+        },
+        getBCHTypeNumber: function (data) {
+            var d = data << 12;
+            while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
+                d ^= (QRUtil.G18 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18)))
+            }
+            return (data << 12) | d
+        },
+        getBCHDigit: function (data) {
+            var digit = 0;
+            while (data != 0) {
+                digit++;
+                data >>>= 1
+            }
+            return digit
+        },
+        getPatternPosition: function (typeNumber) {
+            return QRUtil.PATTERN_POSITION_TABLE[typeNumber - 1]
+        },
+        getMask: function (maskPattern, i, j) {
+            switch (maskPattern) {
+                case QRMaskPattern.PATTERN000:
+                    return (i + j) % 2 == 0;
+                case QRMaskPattern.PATTERN001:
+                    return i % 2 == 0;
+                case QRMaskPattern.PATTERN010:
+                    return j % 3 == 0;
+                case QRMaskPattern.PATTERN011:
+                    return (i + j) % 3 == 0;
+                case QRMaskPattern.PATTERN100:
+                    return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 == 0;
+                case QRMaskPattern.PATTERN101:
+                    return (i * j) % 2 + (i * j) % 3 == 0;
+                case QRMaskPattern.PATTERN110:
+                    return ((i * j) % 2 + (i * j) % 3) % 2 == 0;
+                case QRMaskPattern.PATTERN111:
+                    return ((i * j) % 3 + (i + j) % 2) % 2 == 0;
+                default:
+                    throw new Error("bad maskPattern:" + maskPattern)
+            }
+        },
+        getErrorCorrectPolynomial: function (errorCorrectLength) {
+            var a = new QRPolynomial([1], 0);
+            for (var i = 0; i < errorCorrectLength; i++) {
+                a = a.multiply(new QRPolynomial([1, QRMath.gexp(i)], 0))
+            }
+            return a
+        },
+        getLengthInBits: function (mode, type) {
+            if (1 <= type && type < 10) {
+                switch (mode) {
+                    case QRMode.MODE_NUMBER:
+                        return 10;
+                    case QRMode.MODE_ALPHA_NUM:
+                        return 9;
+                    case QRMode.MODE_8BIT_BYTE:
+                        return 8;
+                    case QRMode.MODE_KANJI:
+                        return 8;
+                    default:
+                        throw new Error("mode:" + mode)
+                }
+            } else if (type < 27) {
+                switch (mode) {
+                    case QRMode.MODE_NUMBER:
+                        return 12;
+                    case QRMode.MODE_ALPHA_NUM:
+                        return 11;
+                    case QRMode.MODE_8BIT_BYTE:
+                        return 16;
+                    case QRMode.MODE_KANJI:
+                        return 10;
+                    default:
+                        throw new Error("mode:" + mode)
+                }
+            } else if (type < 41) {
+                switch (mode) {
+                    case QRMode.MODE_NUMBER:
+                        return 14;
+                    case QRMode.MODE_ALPHA_NUM:
+                        return 13;
+                    case QRMode.MODE_8BIT_BYTE:
+                        return 16;
+                    case QRMode.MODE_KANJI:
+                        return 12;
+                    default:
+                        throw new Error("mode:" + mode)
+                }
+            } else {
+                throw new Error("type:" + type)
+            }
+        },
+        getLostPoint: function (qrCode) {
+            var moduleCount = qrCode.getModuleCount();
+            var lostPoint = 0;
+            for (var row = 0; row < moduleCount; row++) {
+                for (var col = 0; col < moduleCount; col++) {
+                    var sameCount = 0;
+                    var dark = qrCode.isDark(row, col);
+                    for (var r = -1; r <= 1; r++) {
+                        if (row + r < 0 || moduleCount <= row + r) {
+                            continue
+                        }
+                        for (var c = -1; c <= 1; c++) {
+                            if (col + c < 0 || moduleCount <= col + c) {
+                                continue
+                            }
+                            if (r == 0 && c == 0) {
+                                continue
+                            }
+                            if (dark == qrCode.isDark(row + r, col + c)) {
+                                sameCount++
+                            }
+                        }
+                    }
+                    if (sameCount > 5) {
+                        lostPoint += (3 + sameCount - 5)
+                    }
+                }
+            }
+            for (var row = 0; row < moduleCount - 1; row++) {
+                for (var col = 0; col < moduleCount - 1; col++) {
+                    var count = 0;
+                    if (qrCode.isDark(row, col)) count++;
+                    if (qrCode.isDark(row + 1, col)) count++;
+                    if (qrCode.isDark(row, col + 1)) count++;
+                    if (qrCode.isDark(row + 1, col + 1)) count++;
+                    if (count == 0 || count == 4) {
+                        lostPoint += 3
+                    }
+                }
+            }
+            for (var row = 0; row < moduleCount; row++) {
+                for (var col = 0; col < moduleCount - 6; col++) {
+                    if (qrCode.isDark(row, col) && !qrCode.isDark(row, col + 1) && qrCode.isDark(row, col + 2) && qrCode.isDark(row, col + 3) && qrCode.isDark(row, col + 4) && !qrCode.isDark(row, col + 5) && qrCode.isDark(row, col + 6)) {
+                        lostPoint += 40
+                    }
+                }
+            }
+            for (var col = 0; col < moduleCount; col++) {
+                for (var row = 0; row < moduleCount - 6; row++) {
+                    if (qrCode.isDark(row, col) && !qrCode.isDark(row + 1, col) && qrCode.isDark(row + 2, col) && qrCode.isDark(row + 3, col) && qrCode.isDark(row + 4, col) && !qrCode.isDark(row + 5, col) && qrCode.isDark(row + 6, col)) {
+                        lostPoint += 40
+                    }
+                }
+            }
+            var darkCount = 0;
+            for (var col = 0; col < moduleCount; col++) {
+                for (var row = 0; row < moduleCount; row++) {
+                    if (qrCode.isDark(row, col)) {
+                        darkCount++
+                    }
+                }
+            }
+            var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+            lostPoint += ratio * 10;
+            return lostPoint
+        }
+    };
+    var QRMath = {
+        glog: function (n) {
+            if (n < 1) {
+                throw new Error("glog(" + n + ")")
+            }
+            return QRMath.LOG_TABLE[n]
+        }, gexp: function (n) {
+            while (n < 0) {
+                n += 255
+            }
+            while (n >= 256) {
+                n -= 255
+            }
+            return QRMath.EXP_TABLE[n]
+        }, EXP_TABLE: new Array(256), LOG_TABLE: new Array(256)
+    };
+    for (var i = 0; i < 8; i++) {
+        QRMath.EXP_TABLE[i] = 1 << i
+    }
+    for (var i = 8; i < 256; i++) {
+        QRMath.EXP_TABLE[i] = QRMath.EXP_TABLE[i - 4] ^ QRMath.EXP_TABLE[i - 5] ^ QRMath.EXP_TABLE[i - 6] ^ QRMath.EXP_TABLE[i - 8]
+    }
+    for (var i = 0; i < 255; i++) {
+        QRMath.LOG_TABLE[QRMath.EXP_TABLE[i]] = i
+    }
+    function QRPolynomial(num, shift) {
+        if (num.length == undefined) {
+            throw new Error(num.length + "/" + shift)
+        }
+        var offset = 0;
+        while (offset < num.length && num[offset] == 0) {
+            offset++
+        }
+        this.num = new Array(num.length - offset + shift);
+        for (var i = 0; i < num.length - offset; i++) {
+            this.num[i] = num[i + offset]
+        }
+    }
+
+    QRPolynomial.prototype = {
+        get: function (index) {
+            return this.num[index]
+        }, getLength: function () {
+            return this.num.length
+        }, multiply: function (e) {
+            var num = new Array(this.getLength() + e.getLength() - 1);
+            for (var i = 0; i < this.getLength(); i++) {
+                for (var j = 0; j < e.getLength(); j++) {
+                    num[i + j] ^= QRMath.gexp(QRMath.glog(this.get(i)) + QRMath.glog(e.get(j)))
+                }
+            }
+            return new QRPolynomial(num, 0)
+        }, mod: function (e) {
+            if (this.getLength() - e.getLength() < 0) {
+                return this
+            }
+            var ratio = QRMath.glog(this.get(0)) - QRMath.glog(e.get(0));
+            var num = new Array(this.getLength());
+            for (var i = 0; i < this.getLength(); i++) {
+                num[i] = this.get(i)
+            }
+            for (var i = 0; i < e.getLength(); i++) {
+                num[i] ^= QRMath.gexp(QRMath.glog(e.get(i)) + ratio)
+            }
+            return new QRPolynomial(num, 0).mod(e)
+        }
+    };
+    function QRRSBlock(totalCount, dataCount) {
+        this.totalCount = totalCount;
+        this.dataCount = dataCount
+    }
+
+    QRRSBlock.RS_BLOCK_TABLE = [[1, 26, 19], [1, 26, 16], [1, 26, 13], [1, 26, 9], [1, 44, 34], [1, 44, 28], [1, 44, 22], [1, 44, 16], [1, 70, 55], [1, 70, 44], [2, 35, 17], [2, 35, 13], [1, 100, 80], [2, 50, 32], [2, 50, 24], [4, 25, 9], [1, 134, 108], [2, 67, 43], [2, 33, 15, 2, 34, 16], [2, 33, 11, 2, 34, 12], [2, 86, 68], [4, 43, 27], [4, 43, 19], [4, 43, 15], [2, 98, 78], [4, 49, 31], [2, 32, 14, 4, 33, 15], [4, 39, 13, 1, 40, 14], [2, 121, 97], [2, 60, 38, 2, 61, 39], [4, 40, 18, 2, 41, 19], [4, 40, 14, 2, 41, 15], [2, 146, 116], [3, 58, 36, 2, 59, 37], [4, 36, 16, 4, 37, 17], [4, 36, 12, 4, 37, 13], [2, 86, 68, 2, 87, 69], [4, 69, 43, 1, 70, 44], [6, 43, 19, 2, 44, 20], [6, 43, 15, 2, 44, 16], [4, 101, 81], [1, 80, 50, 4, 81, 51], [4, 50, 22, 4, 51, 23], [3, 36, 12, 8, 37, 13], [2, 116, 92, 2, 117, 93], [6, 58, 36, 2, 59, 37], [4, 46, 20, 6, 47, 21], [7, 42, 14, 4, 43, 15], [4, 133, 107], [8, 59, 37, 1, 60, 38], [8, 44, 20, 4, 45, 21], [12, 33, 11, 4, 34, 12], [3, 145, 115, 1, 146, 116], [4, 64, 40, 5, 65, 41], [11, 36, 16, 5, 37, 17], [11, 36, 12, 5, 37, 13], [5, 109, 87, 1, 110, 88], [5, 65, 41, 5, 66, 42], [5, 54, 24, 7, 55, 25], [11, 36, 12], [5, 122, 98, 1, 123, 99], [7, 73, 45, 3, 74, 46], [15, 43, 19, 2, 44, 20], [3, 45, 15, 13, 46, 16], [1, 135, 107, 5, 136, 108], [10, 74, 46, 1, 75, 47], [1, 50, 22, 15, 51, 23], [2, 42, 14, 17, 43, 15], [5, 150, 120, 1, 151, 121], [9, 69, 43, 4, 70, 44], [17, 50, 22, 1, 51, 23], [2, 42, 14, 19, 43, 15], [3, 141, 113, 4, 142, 114], [3, 70, 44, 11, 71, 45], [17, 47, 21, 4, 48, 22], [9, 39, 13, 16, 40, 14], [3, 135, 107, 5, 136, 108], [3, 67, 41, 13, 68, 42], [15, 54, 24, 5, 55, 25], [15, 43, 15, 10, 44, 16], [4, 144, 116, 4, 145, 117], [17, 68, 42], [17, 50, 22, 6, 51, 23], [19, 46, 16, 6, 47, 17], [2, 139, 111, 7, 140, 112], [17, 74, 46], [7, 54, 24, 16, 55, 25], [34, 37, 13], [4, 151, 121, 5, 152, 122], [4, 75, 47, 14, 76, 48], [11, 54, 24, 14, 55, 25], [16, 45, 15, 14, 46, 16], [6, 147, 117, 4, 148, 118], [6, 73, 45, 14, 74, 46], [11, 54, 24, 16, 55, 25], [30, 46, 16, 2, 47, 17], [8, 132, 106, 4, 133, 107], [8, 75, 47, 13, 76, 48], [7, 54, 24, 22, 55, 25], [22, 45, 15, 13, 46, 16], [10, 142, 114, 2, 143, 115], [19, 74, 46, 4, 75, 47], [28, 50, 22, 6, 51, 23], [33, 46, 16, 4, 47, 17], [8, 152, 122, 4, 153, 123], [22, 73, 45, 3, 74, 46], [8, 53, 23, 26, 54, 24], [12, 45, 15, 28, 46, 16], [3, 147, 117, 10, 148, 118], [3, 73, 45, 23, 74, 46], [4, 54, 24, 31, 55, 25], [11, 45, 15, 31, 46, 16], [7, 146, 116, 7, 147, 117], [21, 73, 45, 7, 74, 46], [1, 53, 23, 37, 54, 24], [19, 45, 15, 26, 46, 16], [5, 145, 115, 10, 146, 116], [19, 75, 47, 10, 76, 48], [15, 54, 24, 25, 55, 25], [23, 45, 15, 25, 46, 16], [13, 145, 115, 3, 146, 116], [2, 74, 46, 29, 75, 47], [42, 54, 24, 1, 55, 25], [23, 45, 15, 28, 46, 16], [17, 145, 115], [10, 74, 46, 23, 75, 47], [10, 54, 24, 35, 55, 25], [19, 45, 15, 35, 46, 16], [17, 145, 115, 1, 146, 116], [14, 74, 46, 21, 75, 47], [29, 54, 24, 19, 55, 25], [11, 45, 15, 46, 46, 16], [13, 145, 115, 6, 146, 116], [14, 74, 46, 23, 75, 47], [44, 54, 24, 7, 55, 25], [59, 46, 16, 1, 47, 17], [12, 151, 121, 7, 152, 122], [12, 75, 47, 26, 76, 48], [39, 54, 24, 14, 55, 25], [22, 45, 15, 41, 46, 16], [6, 151, 121, 14, 152, 122], [6, 75, 47, 34, 76, 48], [46, 54, 24, 10, 55, 25], [2, 45, 15, 64, 46, 16], [17, 152, 122, 4, 153, 123], [29, 74, 46, 14, 75, 47], [49, 54, 24, 10, 55, 25], [24, 45, 15, 46, 46, 16], [4, 152, 122, 18, 153, 123], [13, 74, 46, 32, 75, 47], [48, 54, 24, 14, 55, 25], [42, 45, 15, 32, 46, 16], [20, 147, 117, 4, 148, 118], [40, 75, 47, 7, 76, 48], [43, 54, 24, 22, 55, 25], [10, 45, 15, 67, 46, 16], [19, 148, 118, 6, 149, 119], [18, 75, 47, 31, 76, 48], [34, 54, 24, 34, 55, 25], [20, 45, 15, 61, 46, 16]];
+    QRRSBlock.getRSBlocks = function (typeNumber, errorCorrectLevel) {
+        var rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
+        if (rsBlock == undefined) {
+            throw new Error("bad rs block @ typeNumber:" + typeNumber + "/errorCorrectLevel:" + errorCorrectLevel)
+        }
+        var length = rsBlock.length / 3;
+        var list = [];
+        for (var i = 0; i < length; i++) {
+            var count = rsBlock[i * 3 + 0];
+            var totalCount = rsBlock[i * 3 + 1];
+            var dataCount = rsBlock[i * 3 + 2];
+            for (var j = 0; j < count; j++) {
+                list.push(new QRRSBlock(totalCount, dataCount))
+            }
+        }
+        return list
+    };
+    QRRSBlock.getRsBlockTable = function (typeNumber, errorCorrectLevel) {
+        switch (errorCorrectLevel) {
+            case QRErrorCorrectLevel.L:
+                return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+            case QRErrorCorrectLevel.M:
+                return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+            case QRErrorCorrectLevel.Q:
+                return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+            case QRErrorCorrectLevel.H:
+                return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+            default:
+                return undefined
+        }
+    };
+    function QRBitBuffer() {
+        this.buffer = [];
+        this.length = 0
+    }
+
+    QRBitBuffer.prototype = {
+        get: function (index) {
+            var bufIndex = Math.floor(index / 8);
+            return ((this.buffer[bufIndex] >>> (7 - index % 8)) & 1) == 1
+        }, put: function (num, length) {
+            for (var i = 0; i < length; i++) {
+                this.putBit(((num >>> (length - i - 1)) & 1) == 1)
+            }
+        }, getLengthInBits: function () {
+            return this.length
+        }, putBit: function (bit) {
+            var bufIndex = Math.floor(this.length / 8);
+            if (this.buffer.length <= bufIndex) {
+                this.buffer.push(0)
+            }
+            if (bit) {
+                this.buffer[bufIndex] |= (0x80 >>> (this.length % 8))
+            }
+            this.length++
+        }
+    };
+    var QRCodeLimitLength = [[17, 14, 11, 7], [32, 26, 20, 14], [53, 42, 32, 24], [78, 62, 46, 34], [106, 84, 60, 44], [134, 106, 74, 58], [154, 122, 86, 64], [192, 152, 108, 84], [230, 180, 130, 98], [271, 213, 151, 119], [321, 251, 177, 137], [367, 287, 203, 155], [425, 331, 241, 177], [458, 362, 258, 194], [520, 412, 292, 220], [586, 450, 322, 250], [644, 504, 364, 280], [718, 560, 394, 310], [792, 624, 442, 338], [858, 666, 482, 382], [929, 711, 509, 403], [1003, 779, 565, 439], [1091, 857, 611, 461], [1171, 911, 661, 511], [1273, 997, 715, 535], [1367, 1059, 751, 593], [1465, 1125, 805, 625], [1528, 1190, 868, 658], [1628, 1264, 908, 698], [1732, 1370, 982, 742], [1840, 1452, 1030, 790], [1952, 1538, 1112, 842], [2068, 1628, 1168, 898], [2188, 1722, 1228, 958], [2303, 1809, 1283, 983], [2431, 1911, 1351, 1051], [2563, 1989, 1423, 1093], [2699, 2099, 1499, 1139], [2809, 2213, 1579, 1219], [2953, 2331, 1663, 1273]]
+
+    function _isSupportCanvas() {
+        return typeof CanvasRenderingContext2D != "undefined";
+    }
+
+    function _getAndroid() {
+        var android = false;
+        var sAgent = navigator.userAgent;
+
+        if (/android/i.test(sAgent)) { // android
+            android = true;
+            var aMat = sAgent.toString().match(/android ([0-9]\.[0-9])/i);
+
+            if (aMat && aMat[1]) {
+                android = parseFloat(aMat[1]);
+            }
+        }
+
+        return android;
+    }
+
+    var Drawing = !_isSupportCanvas() ? (function () {
+        var Drawing = function (htOption) {
+            this._htOption = htOption;
+        };
+
+        Drawing.prototype.draw = function (oQRCode) {
+            var _htOption = this._htOption;
+            var nCount = oQRCode.getModuleCount();
+            var nWidth = Math.floor(_htOption.size / nCount);
+            var nHeight = Math.floor(_htOption.size / nCount);
+            var aHTML = ['<table style="border:0;border-collapse:collapse;">'];
+
+            for (var row = 0; row < nCount; row++) {
+                aHTML.push('<tr>');
+
+                for (var col = 0; col < nCount; col++) {
+                    aHTML.push('<td style="border:0;border-collapse:collapse;padding:0;margin:0;width:' + nWidth + 'px;height:' + nHeight + 'px;background-color:' + (oQRCode.isDark(row, col) ? _htOption.colorDark : _htOption.colorLight) + ';"></td>');
+                }
+
+                aHTML.push('</tr>');
+            }
+
+            aHTML.push('</table>');
+
+            var nLeftMarginTable = (_htOption.size - elTable.offsetWidth) / 2;
+            var nTopMarginTable = (_htOption.size - elTable.offsetHeight) / 2;
+
+            if (nLeftMarginTable > 0 && nTopMarginTable > 0) {
+                elTable.style.margin = nTopMarginTable + "px " + nLeftMarginTable + "px";
+            }
+        };
+
+        Drawing.prototype.clear = function () {
+        };
+
+        return Drawing;
+    })() : (function () { // Drawing in Canvas
+        function _onMakeImage() {
+            this._elImage.src = this._elCanvas.toDataURL("image/png");
+            this._elImage.style.display = "block";
+            this._elCanvas.style.display = "none";
+        }
+
+        if (this._android && this._android <= 2.1) {
+            var factor = 1 / window.devicePixelRatio;
+            var drawImage = CanvasRenderingContext2D.prototype.drawImage;
+            CanvasRenderingContext2D.prototype.drawImage = function (image, sx, sy, sw, sh, dx, dy, dw, dh) {
+                if (("nodeName" in image) && /img/i.test(image.nodeName)) {
+                    for (var i = arguments.length - 1; i >= 1; i--) {
+                        arguments[i] = arguments[i] * factor;
+                    }
+                } else if (typeof dw == "undefined") {
+                    arguments[1] *= factor;
+                    arguments[2] *= factor;
+                    arguments[3] *= factor;
+                    arguments[4] *= factor;
+                }
+
+                drawImage.apply(this, arguments);
+            };
+        }
+
+        function _safeSetDataURI(fSuccess, fFail) {
+            var self = this;
+            self._fFail = fFail;
+            self._fSuccess = fSuccess;
+
+            // Check it just once
+            if (self._bSupportDataURI === null) {
+                var el = document.createElement("img");
+                var fOnError = function () {
+                    self._bSupportDataURI = false;
+
+                    if (self._fFail) {
+                        self._fFail.call(self);
+                    }
+                };
+                var fOnSuccess = function () {
+                    self._bSupportDataURI = true;
+
+                    if (self._fSuccess) {
+                        self._fSuccess.call(self);
+                    }
+                };
+
+                el.onabort = fOnError;
+                el.onerror = fOnError;
+                el.onload = fOnSuccess;
+                el.src = "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="; // the Image contains 1px data.
+                return;
+            } else if (self._bSupportDataURI === true && self._fSuccess) {
+                self._fSuccess.call(self);
+            } else if (self._bSupportDataURI === false && self._fFail) {
+                self._fFail.call(self);
+            }
+        };
+
+        var Drawing = function (htOption) {
+            this._bIsPainted = false;
+            this._android = _getAndroid();
+
+            this._htOption = htOption;
+            this._elCanvas = document.createElement("canvas");
+            this._elCanvas.width = htOption.size;
+            this._elCanvas.height = htOption.size;
+            this._oContext = this._elCanvas.getContext("2d");
+            this._bIsPainted = false;
+            this._elImage = document.createElement("img");
+            this._elImage.alt = "Scan me!";
+            this._elImage.style.display = "none";
+            this._bSupportDataURI = null;
+            this._callback = htOption.callback;
+            this._bindElement = htOption.bindElement;
+        };
+
+        Drawing.prototype.draw = function (oQRCode) {
+            var _elImage = this._elImage;
+            var _oContext = this._oContext;
+            var _htOption = this._htOption;
+
+            var nCount = oQRCode.getModuleCount();
+            var size = _htOption.size;
+            var margin = _htOption.margin;
+
+            if (margin < 0 || margin * 2 >= size) {
+                margin = 20;
+            }
+
+            var viewportSize = size - 2 * margin;
+
+            var whiteMargin = _htOption.whiteMargin;
+            var backgroundDimming = _htOption.backgroundDimming;
+            var nWidth = viewportSize / nCount;
+            var nHeight = viewportSize / nCount;
+            var dotScale = _htOption.dotScale;
+            _elImage.style.display = "none";
+            this.clear();
+
+            if (dotScale <= 0 || dotScale >= 1) {
+                dotScale = 0.35;
+            }
+
+            _oContext.save();
+            _oContext.translate(margin, margin);
+
+            _oContext.rect(whiteMargin ? 0 : -margin, whiteMargin ? 0 : -margin, size, size);
+            _oContext.fillStyle = "#ffffff";
+            _oContext.fill();
+
+            if (_htOption.backgroundImage !== undefined) {
+                if (_htOption.autoColor) {
+                    var avgRGB = getAverageRGB(_htOption.backgroundImage);
+                    _htOption.colorDark = "rgb(" + avgRGB.r + ", " + avgRGB.g + ", " + avgRGB.b + ")";
+                }
+                _oContext.drawImage(_htOption.backgroundImage,
+                    0, 0, _htOption.backgroundImage.width, _htOption.backgroundImage.height,
+                    whiteMargin ? 0 : -margin, whiteMargin ? 0 : -margin, whiteMargin ? viewportSize : size, whiteMargin ? viewportSize : size);
+                _oContext.rect(whiteMargin ? 0 : -margin, whiteMargin ? 0 : -margin, size, size);
+                _oContext.fillStyle = backgroundDimming;
+                _oContext.fill();
+            } else {
+                _oContext.rect(0, 0, size, size);
+                _oContext.fillStyle = "#ffffff";
+                _oContext.fill();
+            }
+
+            if (_htOption.binarize) {
+                _htOption.colorDark = "#000000";
+                _htOption.colorLight = "#FFFFFF";
+            }
+
+            var agnPatternCenter = QRUtil.getPatternPosition(oQRCode.typeNumber);
+
+            _oContext.fillStyle = "rgba(255, 255, 255, 0.6)";
+            _oContext.fillRect(0, 0, 8 * nWidth, 8 * nHeight);
+            _oContext.fillRect(0, (nCount - 8) * nHeight, 8 * nWidth, 8 * nHeight);
+            _oContext.fillRect((nCount - 8) * nWidth, 0, 8 * nWidth, 8 * nHeight);
+            _oContext.fillRect(8 * nWidth, 6 * nHeight, (nCount - 8 - 8) * nWidth, nHeight);
+            _oContext.fillRect(6 * nWidth, 8 * nHeight, nWidth, (nCount - 8 - 8) * nHeight);
+
+            var edgeCenter = agnPatternCenter[agnPatternCenter.length - 1];
+            for (var i = 0; i < agnPatternCenter.length; i++) {
+                for (var j = 0; j < agnPatternCenter.length; j++) {
+                    var agnX = agnPatternCenter[j];
+                    var agnY = agnPatternCenter[i];
+                    if (agnX !== 6 && agnX !== edgeCenter && agnY !== 6 && agnY !== edgeCenter) continue;
+                    if (agnX === 6 && (agnY === 6 || agnY === edgeCenter)) continue;
+                    if (agnY === 6 && (agnX === 6 || agnX === edgeCenter)) continue;
+                    drawAgnProtector(_oContext, agnX, agnY, nWidth, nHeight);
+                }
+            }
+
+            _oContext.fillStyle = _htOption.colorDark;
+
+            _oContext.fillRect(0, 0, 7 * nWidth, nHeight);
+            _oContext.fillRect((nCount - 7) * nWidth, 0, 7 * nWidth, nHeight);
+            _oContext.fillRect(0, 6 * nHeight, 7 * nWidth, nHeight);
+            _oContext.fillRect((nCount - 7) * nWidth, 6 * nHeight, 7 * nWidth, nHeight);
+            _oContext.fillRect(0, (nCount - 7) * nHeight, 7 * nWidth, nHeight);
+            _oContext.fillRect(0, (nCount - 7 + 6) * nHeight, 7 * nWidth, nHeight);
+            _oContext.fillRect(0, 0, nWidth, 7 * nHeight);
+            _oContext.fillRect(6 * nWidth, 0, nWidth, 7 * nHeight);
+            _oContext.fillRect((nCount - 7) * nWidth, 0, nWidth, 7 * nHeight);
+            _oContext.fillRect((nCount - 7 + 6) * nWidth, 0, nWidth, 7 * nHeight);
+            _oContext.fillRect(0, (nCount - 7) * nHeight, nWidth, 7 * nHeight);
+            _oContext.fillRect(6 * nWidth, (nCount - 7) * nHeight, nWidth, 7 * nHeight);
+
+            for (var i = 0; i < agnPatternCenter.length; i++) {
+                for (var j = 0; j < agnPatternCenter.length; j++) {
+                    var agnX = agnPatternCenter[j];
+                    var agnY = agnPatternCenter[i];
+                    if (agnX !== 6 && agnX !== edgeCenter && agnY !== 6 && agnY !== edgeCenter) continue;
+                    if (agnX === 6 && (agnY === 6 || agnY === edgeCenter)) continue;
+                    if (agnY === 6 && (agnX === 6 || agnX === edgeCenter)) continue;
+                    drawAgn(_oContext, agnX, agnY, nWidth, nHeight);
+                }
+            }
+
+            _oContext.fillRect(2 * nWidth, 2 * nHeight, 3 * nWidth, 3 * nHeight);
+            _oContext.fillRect((nCount - 7 + 2) * nWidth, 2 * nHeight, 3 * nWidth, 3 * nHeight);
+            _oContext.fillRect(2 * nWidth, (nCount - 7 + 2) * nHeight, 3 * nWidth, 3 * nHeight);
+
+            for (var i = 0; i < nCount - 8; i += 2) {
+                _oContext.fillRect((8 + i) * nWidth, 6 * nHeight, nWidth, nHeight);
+                _oContext.fillRect(6 * nWidth, (8 + i) * nHeight, nWidth, nHeight);
+            }
+
+            var xyOffset = (1 - dotScale) * 0.5;
+            for (var row = 0; row < nCount; row++) {
+                for (var col = 0; col < nCount; col++) {
+                    var bIsDark = oQRCode.isDark(row, col);
+
+                    var isBlkPosCtr = ((col < 8 && (row < 8 || row >= nCount - 8)) || (col >= nCount - 8 && row < 8) ||
+                    (col < nCount - 4 && col >= nCount - 4 - 5 && row < nCount - 4 && row >= nCount - 4 - 5));
+                    var isBlkPos = ((col < 7 && (row < 7 || row >= nCount - 7)) || (col >= nCount - 7 && row < 7));
+                    var bProtected = (row === 6 || col === 6 || isBlkPosCtr);
+
+                    for (var i = 0; i < agnPatternCenter.length - 1; i++) {
+                        bProtected = bProtected || (row >= agnPatternCenter[i] - 2 && row <= agnPatternCenter[i] + 2 && col >= agnPatternCenter[i] - 2 && col <= agnPatternCenter[i] + 2);
+                    }
+
+                    var nLeft = col * nWidth + (bProtected ? 0 : (xyOffset * nWidth));
+                    var nTop = row * nHeight + (bProtected ? 0 : (xyOffset * nHeight));
+                    _oContext.strokeStyle = bIsDark ? _htOption.colorDark : _htOption.colorLight;
+                    _oContext.lineWidth = 0.5;
+                    _oContext.fillStyle = bIsDark ? _htOption.colorDark : "rgba(255, 255, 255, 0.6)"; //_htOption.colorLight;
+                    if (!bProtected) _oContext.fillRect(nLeft, nTop, (bProtected ? (isBlkPosCtr ? 1.1 : 1) : dotScale) * nWidth, (bProtected ? (isBlkPosCtr ? 1.1 : 1) : dotScale) * nHeight);
+                }
+            }
+
+            if (whiteMargin) {
+                _oContext.fillStyle = '#FFFFFF';
+                _oContext.fillRect(-margin, -margin, size, margin);
+                _oContext.fillRect(-margin, viewportSize, size, margin);
+                _oContext.fillRect(viewportSize, -margin, margin, size);
+                _oContext.fillRect(-margin, -margin, margin, size);
+            }
+
+            if (_htOption.logoImage !== undefined) {
+                var logoScale = _htOption.logoScale;
+                var logoMargin = _htOption.logoMargin;
+                var logoCornerRadius = _htOption.logoCornerRadius;
+                if (logoScale <= 0 || logoScale >= 1.0) {
+                    logoScale = 0.2;
+                }
+                if (logoMargin < 0) {
+                    logoMargin = 0;
+                }
+                if (logoCornerRadius < 0) {
+                    logoCornerRadius = 0;
+                }
+
+                _oContext.restore();
+
+                var logoSize = viewportSize * logoScale;
+                var x = 0.5 * (size - logoSize);
+                var y = x;
+
+                _oContext.fillStyle = '#FFFFFF';
+                _oContext.save();
+                prepareRoundedCornerClip(_oContext, x - logoMargin, y - logoMargin, logoSize + 2 * logoMargin, logoSize + 2 * logoMargin, logoCornerRadius);
+                _oContext.clip();
+                _oContext.fill();
+                _oContext.restore();
+
+                _oContext.save();
+                prepareRoundedCornerClip(_oContext, x, y, logoSize, logoSize, logoCornerRadius);
+                _oContext.clip();
+                _oContext.drawImage(_htOption.logoImage, x, y, logoSize, logoSize);
+                _oContext.restore();
+            }
+
+            if (_htOption.binarize) {
+                var pixels = _oContext.getImageData(0, 0, size, size);
+                var threshold = 128;
+                if (parseInt(_htOption.binarizeThreshold) > 0 && parseInt(_htOption.binarizeThreshold) < 255) {
+                    threshold = parseInt(_htOption.binarizeThreshold);
+                }
+                for (var i = 0; i < pixels.data.length; i += 4) {
+                    var R = pixels.data[i]; //R(0-255)
+                    var G = pixels.data[i + 1]; //G(0-255)
+                    var B = pixels.data[i + 2]; //G(0-255)
+                    var sum = rgb2gray(R, G, B);
+                    if (sum > threshold) {
+                        pixels.data[i] = 255;
+                        pixels.data[i + 1] = 255;
+                        pixels.data[i + 2] = 255;
+                    } else {
+                        pixels.data[i] = 0;
+                        pixels.data[i + 1] = 0;
+                        pixels.data[i + 2] = 0;
+                    }
+                }
+                _oContext.putImageData(pixels, 0, 0);
+            }
+
+            this._bIsPainted = true;
+            if (this._callback !== undefined) {
+                this._callback(this._elCanvas.toDataURL());
+            }
+            if (this._bindElement !== undefined) {
+                try {
+                    var el = document.getElementById(this._bindElement);
+                    if (el.nodeName === 'IMG') {
+                        el.src = this._elCanvas.toDataURL();
+                    } else {
+                        var elStyle = el.style;
+                        elStyle["background-image"] = 'url(' + this._elCanvas.toDataURL() + ')';
+                        elStyle["background-size"] = 'contain';
+                        elStyle["background-repeat"] = 'no-repeat';
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+        };
+
+        Drawing.prototype.makeImage = function () {
+            if (this._bIsPainted) {
+                _safeSetDataURI.call(this, _onMakeImage);
+            }
+        };
+
+        Drawing.prototype.isPainted = function () {
+            return this._bIsPainted;
+        };
+
+        Drawing.prototype.clear = function () {
+            this._oContext.clearRect(0, 0, this._elCanvas.width, this._elCanvas.height);
+            this._bIsPainted = false;
+        };
+
+        Drawing.prototype.round = function (nNumber) {
+            if (!nNumber) {
+                return nNumber;
+            }
+
+            return Math.floor(nNumber * 1000) / 1000;
+        };
+
+        return Drawing;
+    })();
+
+    function prepareRoundedCornerClip(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+    }
+
+    function rgb2gray(r, g, b) {
+        return 0.30 * r + 0.59 * b + 0.11 * b;
+    }
+
+    function drawAgnProtector(context, centerX, centerY, nWidth, nHeight) {
+        context.fillRect((centerX - 2 + 0.5) * nWidth, (centerY - 2 + 0.5) * nHeight, 4 * nWidth, 4 * nHeight);
+    }
+
+    function drawAgn(context, centerX, centerY, nWidth, nHeight) {
+        context.fillRect((centerX - 2) * nWidth, (centerY - 2) * nHeight, nWidth, 5 * nHeight);
+        context.fillRect((centerX + 2) * nWidth, (centerY - 2) * nHeight, nWidth, 5 * nHeight);
+        context.fillRect((centerX - 2) * nWidth, (centerY - 2) * nHeight, 5 * nWidth, nHeight);
+        context.fillRect((centerX - 2) * nWidth, (centerY + 2) * nHeight, 5 * nWidth, nHeight);
+        context.fillRect(centerX * nWidth, centerY * nHeight, nWidth, nHeight);
+    }
+
+    function _getTypeNumber(sText, nCorrectLevel) {
+        var nType = 1;
+        var length = _getUTF8Length(sText);
+
+        for (var i = 0, len = QRCodeLimitLength.length; i <= len; i++) {
+            var nLimit = 0;
+
+            switch (nCorrectLevel) {
+                case QRErrorCorrectLevel.L:
+                    nLimit = QRCodeLimitLength[i][0];
+                    break;
+                case QRErrorCorrectLevel.M:
+                    nLimit = QRCodeLimitLength[i][1];
+                    break;
+                case QRErrorCorrectLevel.Q:
+                    nLimit = QRCodeLimitLength[i][2];
+                    break;
+                case QRErrorCorrectLevel.H:
+                    nLimit = QRCodeLimitLength[i][3];
+                    break;
+            }
+
+            if (length <= nLimit) {
+                break;
+            } else {
+                nType++;
+            }
+        }
+
+        if (nType > QRCodeLimitLength.length) {
+            throw new Error("Too long data");
+        }
+
+        return nType;
+    }
+
+    function _getUTF8Length(sText) {
+        var replacedText = encodeURI(sText).toString().replace(/\%[0-9a-fA-F]{2}/g, 'a');
+        return replacedText.length + (replacedText.length != sText ? 3 : 0);
+    }
+
+    AwesomeQRCode = function () {
+    };
+
+    AwesomeQRCode.prototype.create = function (vOption) {
+        this._htOption = {
+            size: 800,
+            margin: 20,
+            typeNumber: 4,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRErrorCorrectLevel.H,
+            backgroundImage: undefined,
+            backgroundDimming: 'rgba(0,0,0,0)',
+            logoImage: undefined,
+            logoScale: 0.2,
+            logoMargin: 6,
+            logoCornerRadius: 8,
+            whiteMargin: true,
+            dotScale: 0.35,
+            autoColor: true,
+            binarize: false,
+            binarizeThreshold: 128,
+            callback: undefined,
+            bindElement: undefined
+        };
+
+        if (typeof vOption === 'string') {
+            vOption = {
+                text: vOption
+            };
+        }
+
+        if (vOption) {
+            for (var i in vOption) {
+                this._htOption[i] = vOption[i];
+            }
+        }
+
+        if (this._htOption.useSVG) {
+            Drawing = svgDrawer;
+        }
+
+        this._android = _getAndroid();
+        this._oQRCode = null;
+        this._oDrawing = new Drawing(this._htOption);
+
+        if (this._htOption.text) {
+            this.makeCode(this._htOption.text);
+        }
+    };
+
+    AwesomeQRCode.prototype.makeCode = function (sText) {
+        this._oQRCode = new QRCodeModel(_getTypeNumber(sText, this._htOption.correctLevel), this._htOption.correctLevel);
+        this._oQRCode.addData(sText);
+        this._oQRCode.make();
+        this._oDrawing.draw(this._oQRCode);
+        this.makeImage();
+    };
+
+    AwesomeQRCode.prototype.makeImage = function () {
+        if (typeof this._oDrawing.makeImage == "function" && (!this._android || this._android >= 3)) {
+            this._oDrawing.makeImage();
+        }
+    };
+
+    AwesomeQRCode.prototype.clear = function () {
+        this._oDrawing.clear();
+    };
+
+    AwesomeQRCode.CorrectLevel = QRErrorCorrectLevel;
+
+    function getAverageRGB(imgEl) {
+
+        var blockSize = 5,
+            defaultRGB = {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            canvas = document.createElement('canvas'),
+            context = canvas.getContext && canvas.getContext('2d'),
+            data, width, height,
+            i = -4,
+            length,
+            rgb = {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            count = 0;
+
+        if (!context) {
+            return defaultRGB;
+        }
+
+        height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+        width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+        context.drawImage(imgEl, 0, 0);
+
+        try {
+            data = context.getImageData(0, 0, width, height);
+        } catch (e) {
+            return defaultRGB;
+        }
+
+        length = data.data.length;
+
+        while ((i += blockSize * 4) < length) {
+            if (data.data[i] > 200 || data.data[i + 1] > 200 || data.data[i + 2] > 200) continue;
+            ++count;
+            rgb.r += data.data[i];
+            rgb.g += data.data[i + 1];
+            rgb.b += data.data[i + 2];
+        }
+
+        rgb.r = ~~(rgb.r / count);
+        rgb.g = ~~(rgb.g / count);
+        rgb.b = ~~(rgb.b / count);
+
+        return rgb;
+    }
+})();
+
+(function (window, factory) {
+    if (true) {
+        module.exports = factory;
+    } else if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else {
+        window.eventUtil = factory();
+    }
+})(this, function () {
+    return new AwesomeQRCode();
+});
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('img', _vm._b({}, 'img', {
+    id: _vm.uuid
+  }))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-fc2e04e2", module.exports)
+  }
+}
+
+/***/ }),
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -19833,14 +20083,38 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "uk-accordion-content"
     }, [_c('p', [_vm._v(" " + _vm._s(_vm.$t("ss.server_addr")) + ": "), _c('em', [_vm._v(_vm._s(node.server))])]), _vm._v(" "), _c('p', [_vm._v(" " + _vm._s(_vm.$t("ss.method")) + ": "), _c('em', [_vm._v(_vm._s(node.method))])]), _vm._v(" "), _c('p', [_vm._v(" " + _vm._s(_vm.$t("ss.traffic_rate")) + ": "), _c('span', {
       staticClass: "uk-label uk-label-success"
-    }, [_vm._v(_vm._s(node.traffic_rate))])]), _vm._v(" "), _c('blockquote', [_vm._v(_vm._s(node.info))]), _vm._v(" "), _c('VueQrcode', {
+    }, [_vm._v(_vm._s(node.traffic_rate))])]), _vm._v(" "), _c('blockquote', [_vm._v(_vm._s(node.info))]), _vm._v(" "), _c('div', {
+      staticClass: "uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl",
       attrs: {
-        "value": "Hello, World!",
-        "options": {
-          size: 200
-        }
+        "uk-grid": ""
       }
-    })], 1)])
+    }, [_c('div', {
+      staticClass: "uk-card uk-card-default uk-card-body"
+    }, [_c('VueQr', {
+      attrs: {
+        "bgSrc": _vm.qrBg,
+        "logoSrc": _vm.ssLogo,
+        "text": node.ssQr,
+        "height": "200",
+        "width": "200",
+        "colorDark": "#000000",
+        "colorLight": "#ffffff",
+        "autoColor": "true"
+      }
+    })], 1), _vm._v(" "), _c('div', {
+      staticClass: "uk-card uk-card-default uk-card-body"
+    }, [_c('VueQr', {
+      attrs: {
+        "bgSrc": _vm.qrBg,
+        "logoSrc": _vm.ssrLogo,
+        "text": node.ssrQr,
+        "height": "200",
+        "width": "200",
+        "colorDark": "#000000",
+        "colorLight": "#ffffff",
+        "autoColor": "true"
+      }
+    })], 1)])], 1)])
   }))])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -19852,15 +20126,15 @@ if (false) {
 }
 
 /***/ }),
-/* 79 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(80),
+  __webpack_require__(128),
   /* template */
-  __webpack_require__(83),
+  __webpack_require__(131),
   /* styles */
   null,
   /* scopeId */
@@ -19892,7 +20166,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19900,9 +20174,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_util__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_util__ = __webpack_require__(130);
 //
 //
 //
@@ -19990,7 +20264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 81 */
+/* 129 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -20058,7 +20332,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 82 */
+/* 130 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20076,7 +20350,7 @@ var bytesToSize = function bytesToSize(bytes) {
 var timeFormat = function timeFormat(t) {};
 
 /***/ }),
-/* 83 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -20121,15 +20395,15 @@ if (false) {
 }
 
 /***/ }),
-/* 84 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(85),
+  __webpack_require__(133),
   /* template */
-  __webpack_require__(86),
+  __webpack_require__(134),
   /* styles */
   null,
   /* scopeId */
@@ -20161,7 +20435,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20209,7 +20483,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 86 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -20234,15 +20508,15 @@ if (false) {
 }
 
 /***/ }),
-/* 87 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(88),
+  __webpack_require__(136),
   /* template */
-  __webpack_require__(89),
+  __webpack_require__(137),
   /* styles */
   null,
   /* scopeId */
@@ -20274,7 +20548,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20322,7 +20596,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 89 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

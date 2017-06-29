@@ -52,8 +52,8 @@ class UserController extends BaseController
         $data = [];
         foreach ($nodes as $n) {
             $n->ssArr = SsUtil::genSsAry($n->server, $user->port + $n->offset, $user->passwd, $user->method);
-            $n->ssAr = SsUtil::genQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method);
-            $n->ssrAr = SsUtil::genSsrQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method, $user->protocol, $user->obfs, $user->obfs_param, $user->protocol_param);
+            $n->ssQr = SsUtil::genQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method);
+            $n->ssrQr = SsUtil::genSsrQrStr($n->server, $user->port + $n->offset, $user->passwd, $user->method, $user->protocol, $user->obfs, $user->obfs_param, $user->protocol_param);
             array_push($data, $n);
         }
         return $this->echoJsonWithData($res, $data);

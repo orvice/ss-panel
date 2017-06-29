@@ -17,9 +17,23 @@
                                 <div class="uk-accordion-content">
                                     <p> {{$t("ss.server_addr")}}: <em>{{node.server}}</em></p>
                                     <p> {{$t("ss.method")}}: <em>{{node.method}}</em></p>
-                                    <p> {{$t("ss.traffic_rate")}}: <span class="uk-label uk-label-success">{{node.traffic_rate}}</span></p>
+                                    <p> {{$t("ss.traffic_rate")}}: <span
+                                            class="uk-label uk-label-success">{{node.traffic_rate}}</span></p>
                                     <blockquote>{{node.info}}</blockquote>
-                                    <VueQrcode value="Hello, World!" :options="{ size: 200 }"></VueQrcode>
+
+                                    <div uk-grid
+                                         class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl">
+                                        <div class="uk-card uk-card-default uk-card-body">
+                                            <VueQr :bgSrc='qrBg' :logoSrc="ssLogo" :text="node.ssQr" height="200"
+                                                   width="200" colorDark="#000000" colorLight="#ffffff"
+                                                   autoColor="true"></VueQr>
+                                        </div>
+                                        <div class="uk-card uk-card-default uk-card-body">
+                                            <VueQr :bgSrc='qrBg' :logoSrc="ssrLogo" :text="node.ssrQr" height="200"
+                                                   width="200" colorDark="#000000" colorLight="#ffffff"
+                                                   autoColor="true"></VueQr>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
 
@@ -35,17 +49,32 @@
 
 <script>
     import axios from 'axios'
-    import VueQrcode from 'vue-qrcode'
+    import VueQr from 'vue-qr'
     import rest from '../http/rest'
     export default {
         name: 'Node',
         components: {
-            VueQrcode,
+            VueQr,
         },
         data () {
             return {
+                qrBg: '/assets/img/cat.gif',
+                ssLogo: '/assets/img/ss.png',
+                ssrLogo: '/assets/img/ssr.png',
                 nodes: []
             }
+        },
+        methods: {
+            egg(){
+                let d = new Date();
+                let month = d.getMonth();
+                console.log(d);
+                console.log(month);
+                if (month == 6) {
+                    this.qrBg = '/assets/img/flag.png';
+                }
+            },
+
         },
         mounted: function () {
             rest.get(`nodes`)
@@ -54,7 +83,9 @@
                 })
                 .catch(e => {
                     this.errors.push(e)
-                })
+                });
+            this.qrBg = '';
+            this.egg();
         },
     }
 </script>

@@ -36,13 +36,13 @@
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_email-85"></i>
                                         </span>
-                        <input type="text" class="form-control" placeholder="Email..." v-model="email">
+                        <input type="text" class="form-control" :placeholder="$t('auth.email')" v-model="email">
                     </div>
                     <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                         </span>
-                        <input type="password" placeholder="Password..." class="form-control" v-model="password"/>
+                        <input type="password" :placeholder="$t('auth.password')" class="form-control" v-model="password"/>
                     </div>
                     <!-- If you want to add a checkbox to this form, uncomment this code -->
                     <!-- <div class="checkbox">

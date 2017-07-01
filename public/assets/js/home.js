@@ -16012,19 +16012,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     "zh_cn": {
         "auth": {
             "login": "登陆",
-            "register": "Register",
-            "logout": "Logout",
-            "email": "Email",
-            "password": "Password",
-            "password-repeat": "Repeat Password",
-            "remember-me": "Remember Me",
-            "forgot-password": "Forgot Password",
-            "activation-code": "Activation Code",
-            "send-code": "Send Code",
-            "register-be-a-cat": "Register and Be a Cat!",
-            "accept-tos-register": "Accept TOS,Register",
-            "username": "Username",
-            "login-fail": "password or username wrong!"
+            "register": "注册",
+            "logout": "退出",
+            "email": "邮箱",
+            "password": "密码",
+            "password-repeat": "重复密码",
+            "remember-me": "记住我",
+            "forgot-password": "忘记密码",
+            "activation-code": "激活码",
+            "send-code": "发送激活码",
+            "register-be-a-cat": "注册，然后变成一只猫",
+            "accept-tos-register": "接受用户协议并注册",
+            "username": "用户名",
+            "login-fail": "用户名或密码错误！"
+        },
+        "base": {
+            "success": "成功",
+            "error": "错误",
+            "something-wrong": "有东西出错了",
+            "system-error": "系统错误",
+            "setting": "设置",
+            "update": "更新",
+            "never": "从不"
+        },
+        "user-index": {
+            "announcement": "公告",
+            "faq": "常见问题",
+            "checkin": "签到",
+            "checkin-des": "每 %s 小时可以签到一次。",
+            "cant-checkin": "无法签到",
+            "last-checkin-at": "上次签到时间",
+            "traffic-got": "你获得了 ",
+            "traffic-info": "流量使用情况",
+            "traffic-total": "总流量",
+            "traffic-used": "已用流量",
+            "traffic-unused": "剩余流量",
+            "connection-info": "链接信息",
+            "last-used": "上次使用于"
         }
     }
 });
@@ -17557,7 +17581,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "placeholder": "Email..."
+      "placeholder": _vm.$t('auth.email')
     },
     domProps: {
       "value": (_vm.email)
@@ -17580,7 +17604,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "password",
-      "placeholder": "Password..."
+      "placeholder": _vm.$t('auth.password')
     },
     domProps: {
       "value": (_vm.password)

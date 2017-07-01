@@ -35,6 +35,7 @@ $app->register(\Pongtan\Providers\ViewServiceProvider::class);
 $app->register(\Pongtan\Providers\EloquentServiceProvider::class);
 $app->register(\Pongtan\Providers\CacheServiceProvider::class);
 $app->register(\App\Providers\TokenStorageServiceProvider::class);
+$app->register(\App\Providers\DbConfigServiceProvider::class);
 
 require $basePath . '/routes/web.php';
 

@@ -9,6 +9,14 @@ if (!function_exists('conf')) {
     }
 }
 
+if (!function_exists('db_config')) {
+    function db_config($key)
+    {
+        return app()->make(\App\Services\Config\DbConfig::class)->get($key);
+    }
+}
+
+
 if (!function_exists('user')) {
 
     /**

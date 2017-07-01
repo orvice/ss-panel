@@ -17480,11 +17480,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -17569,9 +17564,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "container"
-  }, [_vm._m(3), _vm._v("\n                            " + _vm._s(_vm.errorMsg) + "\n                            "), _vm._m(4)])]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [_vm._m(3), _vm._v("\n                        " + _vm._s(_vm.errorMsg) + "\n                    ")])]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "input-group form-group-no-border"
-  }, [_vm._m(5), _vm._v(" "), _c('input', {
+  }, [_vm._m(4), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -17594,7 +17589,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })]), _vm._v(" "), _c('div', {
     staticClass: "input-group form-group-no-border"
-  }, [_vm._m(6), _vm._v(" "), _c('input', {
+  }, [_vm._m(5), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -17659,21 +17654,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "now-ui-icons objects_support-17"
   })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('button', {
-    staticClass: "close",
-    attrs: {
-      "type": "button",
-      "data-dismiss": "alert",
-      "aria-label": "Close"
-    }
-  }, [_c('span', {
-    attrs: {
-      "aria-hidden": "true"
-    }
-  }, [_c('i', {
-    staticClass: "now-ui-icons ui-1_simple-remove"
-  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
     staticClass: "input-group-addon"

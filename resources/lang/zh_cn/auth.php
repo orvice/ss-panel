@@ -3,21 +3,21 @@
 return [
 
     'login' => '登陆',
-    'register' => 'Register',
-    'logout' => 'Logout',
-    'email' => 'Email',
-    'password' => 'Password',
-    'password-repeat' => 'Repeat Password',
-    'remember-me' => 'Remember Me',
-    'forgot-password' => 'Forgot Password',
+    'register' => '注册',
+    'logout' => '退出',
+    'email' => '邮箱',
+    'password' => '密码',
+    'password-repeat' => '重复密码',
+    'remember-me' => '记住我',
+    'forgot-password' => '忘记密码',
 
-    'activation-code' => 'Activation Code',
-    'send-code' => 'Send Code',
+    'activation-code' => '激活码',
+    'send-code' => '发送激活码',
 
-    'register-be-a-cat' => 'Register and Be a Cat!',
-    'accept-tos-register' => 'Accept TOS,Register',
-    'username' => 'Username',
+    'register-be-a-cat' => '注册，然后变成一只猫',
+    'accept-tos-register' => '接受用户协议并注册',
+    'username' => '用户名',
 
-    'login-fail' => "password or username wrong!",
+    'login-fail' => "用户名或密码错误！",
 
 ];

@@ -20,6 +20,9 @@ class UserController extends BaseController
     const CurrentPassword = 102;
     const NewPasswordRepeatWrong = 103;
 
+    const EmptyInput = 701;
+
+
     /**
      * @param $args
      * @return User
@@ -85,9 +88,22 @@ class UserController extends BaseController
     }
 
 
-    public function update(Request $req, Response $res, $args)
+    public function update(Request $request, Response $response, $args)
     {
-        // @todo
+        $user = $this->getUserFromArgs($args);
+        $input = file_get_contents("php://input");
+        $arr = json_decode($input, true);
+        foreach ($arr as $k => $v) {
+            if ($v == '') {
+                return $this->echoJson($response, [
+                    'error_code' => self::EmptyInput,
+                ], 400);
+            }
+            $user->$k = $v;
+        }
+
+        $user->save();
+        return $this->echoJsonWithData($response, []);
     }
 
     public function handleCheckIn(Request $request, Response $response, $args)

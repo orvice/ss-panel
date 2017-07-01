@@ -24,7 +24,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.method")}}</label>
                             <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select">
+                                <select class="uk-select" id="form-horizontal-select" v-model="ssMethod" >
                                     <option v-for="m in methods" :value="m">{{m}}</option>
                                 </select>
                             </div>
@@ -33,7 +33,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-protocol")}}</label>
                             <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select">
+                                <select class="uk-select" id="form-horizontal-select" v-model="ssProtocol">
                                     <option v-for="m in protocol" :value="m">{{m}}</option>
                                 </select>
                             </div>
@@ -42,8 +42,8 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-plugin")}}</label>
                             <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select">
-                                    <option v-for="m in obfs" :value="m">{{m}}</option>
+                                <select class="uk-select" id="form-horizontal-select" v-model="ssObfs">
+                                    <option v-for="m in obfs" :value="m" >{{m}}</option>
                                 </select>
                             </div>
                         </div>
@@ -121,6 +121,9 @@
 
                 // SS From
                 password: this.$store.state.user.data.passwd,
+                ssProtocol: '',
+                ssMethod: '',
+                ssObfs: '',
 
                 // Password From
                 currentPassword: '',
@@ -145,15 +148,26 @@
                 // @todo
                 console.log("update");
                 rest.put('', {
-                    current_password: this.currentPassword,
-                    new_password: this.newPassword,
-                    new_password_repeat: this.newPasswordRepeat,
+                    passwd: this.password,
+                    method: this.ssMethod,
+                    protocol: this.ssProtocol,
+                    obfs: this.ssObfs,
                 })
                     .then(response => {
-
+                        UIkit.notification({
+                            message: this.$t('base.success'),
+                            status: 'primary',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
                     })
                     .catch(e => {
-
+                        UIkit.notification({
+                            message: this.$t('base.something-wrong'),
+                            status: 'danger',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
                     });
             },
             updatePassword(){

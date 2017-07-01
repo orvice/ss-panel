@@ -21,6 +21,8 @@ $app->group('', function () {
     $this->get('/nodes', 'App\Controllers\HomeController:dashboard');
     $this->get('/trafficLogs', 'App\Controllers\HomeController:dashboard');
     $this->get('/setting', 'App\Controllers\HomeController:dashboard');
+    $this->get('/invite', 'App\Controllers\HomeController:dashboard');
+    $this->get('/profile', 'App\Controllers\HomeController:dashboard');
 })->add(new User());
 
 // User Center

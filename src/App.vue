@@ -18,13 +18,13 @@
                                     {{$store.state.user.data.email}}<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li class="uk-nav-header">Options</li>
-                                        <li><a href="#">Edit Profile</a></li>
-                                        <li class="uk-nav-header">Actions</li>
+                                        <router-link tag="li" :to="{ name: 'setting' }" exact><a><span
+                                                class="uk-margin-small-right" uk-icon="icon: settings"></span>
+                                            {{$t('base.setting')}}</a></router-link>
 
                                         <router-link tag="li" :to="{ name: 'logout' }" exact><a><span
                                                 class="uk-margin-small-right" uk-icon="icon: sign-out"></span>
-                                            Logout</a></router-link>
+                                            {{$t('auth.logout')}}</a></router-link>
                                     </ul>
                                 </div>
                             </li>

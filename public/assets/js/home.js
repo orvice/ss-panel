@@ -499,7 +499,7 @@ var id = sessionStorage.getItem('id');
 var token = sessionStorage.getItem('token');
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: '/api/users/' + id + '/',
+    baseURL: '/api/',
     headers: {
         Authorization: 'Bearer ' + token
     }
@@ -520,7 +520,7 @@ var id = sessionStorage.getItem('id');
 var token = sessionStorage.getItem('token');
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: '/api/',
+    baseURL: '/api/users/' + id + '/',
     headers: {
         Authorization: 'Bearer ' + token
     }
@@ -10268,7 +10268,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
 /* 12 */
@@ -13368,6 +13368,21 @@ var Locales = {
 
 /***/ }),
 /* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UserNotExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CurrentPasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NewPasswordRepeatWrong; });
+var UserNotExists = 601;
+var PasswordWrong = 602;
+
+var CurrentPasswordWrong = 102;
+var NewPasswordRepeatWrong = 103;
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13392,21 +13407,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UserNotExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PasswordWrong; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CurrentPasswordWrong; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NewPasswordRepeatWrong; });
-var UserNotExists = 601;
-var PasswordWrong = 602;
-
-var CurrentPasswordWrong = 102;
-var NewPasswordRepeatWrong = 103;
 
 /***/ }),
 /* 29 */
@@ -17158,8 +17158,8 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_rest__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_base__ = __webpack_require__(4);
 //
 //
 //
@@ -17301,7 +17301,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(4);
 //
 //
 //
@@ -17429,9 +17429,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(27);
 //
 //
 //
@@ -17883,8 +17883,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Leftbar_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Lang_vue__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Lang_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Lang_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_rest__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_rest__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_base__ = __webpack_require__(4);
 //
 //
 //
@@ -18286,9 +18286,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_base__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(27);
 //
 //
 //

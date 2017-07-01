@@ -8,8 +8,10 @@
         </div>
         <div class="uk-section-small">
             <div class="uk-container uk-container-large">
-                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@xl">
                     <div class="uk-card uk-card-default uk-card-body">
+
+                        <span class="statistics-text">{{$t("user-index.connection-info")}}</span><br/>
 
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">{{$t("ss.password")}}</label>
@@ -53,6 +55,48 @@
                         </div>
 
                     </div>
+
+
+                    <div class="uk-card uk-card-default uk-card-body">
+
+                        <span class="statistics-text">{{$t("auth.update-password")}}</span><br/>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("auth.current-password")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="currentPassword">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("auth.new-password")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="newPassword">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("auth.password-repeat")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="newPasswordRepeat">
+                            </div>
+                        </div>
+
+
+                        <div class="uk-margin">
+                            <button class="uk-button uk-button-primary" @click="updatePassword">
+                                {{$t("auth.update-password")}}
+                            </button>
+                        </div>
+
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -64,6 +108,7 @@
 <script>
     import rest from '../http/rest'
     import http from '../http/base'
+    import * as code from '../code/auth'
     export default {
         name: 'Setting',
         components: {},
@@ -74,8 +119,13 @@
                 protocol: {},
                 obfs: {},
 
-                // From
+                // SS From
                 password: this.$store.state.user.data.passwd,
+
+                // Password From
+                currentPassword: '',
+                newPassword: '',
+                newPasswordRepeat: '',
             }
         },
         methods: {
@@ -92,7 +142,57 @@
                     })
             },
             update(){
+                // @todo
                 console.log("update");
+                rest.put('', {
+                    current_password: this.currentPassword,
+                    new_password: this.newPassword,
+                    new_password_repeat: this.newPasswordRepeat,
+                })
+                    .then(response => {
+
+                    })
+                    .catch(e => {
+
+                    });
+            },
+            updatePassword(){
+                // @todo
+                rest.put('password', {
+                    current_password: this.currentPassword,
+                    new_password: this.newPassword,
+                    new_password_repeat: this.newPasswordRepeat,
+                })
+                    .then(response => {
+                        UIkit.notification({
+                            message: this.$t('base.success'),
+                            status: 'primary',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
+                    })
+                    .catch(e => {
+                        let msg = '';
+                        switch (e.response.data.error_code) {
+                            case code.CurrentPasswordWrong:
+                                msg = this.$t('auth.current-password-wrong');
+                                break;
+                            case code.NewPasswordRepeatWrong:
+                                msg = this.$t('auth.password-repeat-wrong');
+                                break;
+                            default:
+                                msg = this.$t('base.system-error');
+                                break;
+                        }
+                        UIkit.notification({
+                            message: msg,
+                            status: 'danger',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
+
+                    });
+                console.log("update password");
             },
         },
         mounted: function () {

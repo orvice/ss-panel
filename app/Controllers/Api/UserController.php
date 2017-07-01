@@ -12,9 +12,14 @@ use App\Models\TrafficLog;
 use App\Utils\Ss as SsUtil;
 use App\Utils\Tools;
 use App\Models\CheckInLog;
+use App\Utils\Hash;
 
 class UserController extends BaseController
 {
+
+    const CurrentPassword = 102;
+    const NewPasswordRepeatWrong = 103;
+
     /**
      * @param $args
      * @return User
@@ -82,7 +87,7 @@ class UserController extends BaseController
 
     public function update(Request $req, Response $res, $args)
     {
-
+        // @todo
     }
 
     public function handleCheckIn(Request $request, Response $response, $args)
@@ -90,7 +95,7 @@ class UserController extends BaseController
         $user = $this->getUserFromArgs($args);
 
         if (!$user->isAbleToCheckin()) {
-            return $this->echoJsonError($response,[]);
+            return $this->echoJsonError($response, []);
         }
         $traffic = rand(conf('checkinMin'), conf('checkinMax'));
         $trafficToAdd = Tools::toMB($traffic);
@@ -105,11 +110,41 @@ class UserController extends BaseController
             $log->checkin_at = time();
             $log->save();
         } catch (\Exception $e) {
-            return $this->echoJsonError($response,[],500);
+            return $this->echoJsonError($response, [], 500);
         }
 
         return $this->echoJson($response, [
             "traffic" => Tools::flowAutoShow($traffic),
         ]);
     }
+
+    public function updatePassword(Request $request, Response $response, $args)
+    {
+        $user = $this->getUserFromArgs($args);
+        $currentPassword = $request->getParam('current_password');
+        $newPassword = $request->getParam('new_password');
+        $newPasswordRepeat = $request->getParam('new_password_repeat');
+
+        // check current password
+        if (!Hash::checkPassword($user->pass, $currentPassword)) {
+            return $this->echoJson($response, [
+                'error_code' => self::CurrentPassword,
+            ], 400);
+        }
+
+        // check new password
+        if ($newPassword != $newPasswordRepeat) {
+            return $this->echoJson($response, [
+                'error_code' => self::NewPasswordRepeatWrong,
+            ], 400);
+        }
+
+        // Update Password
+        $hashPwd = Hash::passwordHash($newPasswordRepeat);
+        $user->pass = $hashPwd;
+        $user->save();
+
+        return $this->echoJsonWithData($response, []);
+    }
+
 }

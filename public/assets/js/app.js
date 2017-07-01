@@ -13398,10 +13398,15 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UserNotExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UserNotExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CurrentPasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NewPasswordRepeatWrong; });
 var UserNotExists = 601;
 var PasswordWrong = 602;
+
+var CurrentPasswordWrong = 102;
+var NewPasswordRepeatWrong = 103;
 
 /***/ }),
 /* 29 */
@@ -15930,8 +15935,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "register": "Register",
             "logout": "Logout",
             "email": "Email",
+            "current-password": "Current Password",
             "password": "Password",
+            "new-password": "New Password",
             "password-repeat": "Repeat Password",
+            "update-password": "Update Password",
             "remember-me": "Remember Me",
             "forgot-password": "Forgot Password",
             "activation-code": "Activation Code",
@@ -15939,7 +15947,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "register-be-a-cat": "Register and Be a Cat!",
             "create-account": "Create Account",
             "username": "Username",
-            "login-fail": "Invalid Username or Password!"
+            "login-fail": "Invalid Username or Password!",
+            "current-password-wrong": "Current Password Wrong",
+            "password-repeat-wrong": "Password does not match the confirm password."
         },
         "base": {
             "success": "Success",
@@ -17523,10 +17533,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(e.response.status);
                 }
                 switch (e.response.data.error_code) {
-                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["b" /* UserNotExists */]:
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["d" /* UserNotExists */]:
                         _this.errorMsg = _this.$t('auth.login-fail');
                         break;
-                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["a" /* PasswordWrong */]:
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["c" /* PasswordWrong */]:
                         _this.errorMsg = _this.$t('auth.login-fail');
                         break;
                     default:
@@ -20590,6 +20600,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_rest__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_base__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_auth__ = __webpack_require__(28);
 //
 //
 //
@@ -20653,6 +20664,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -20666,8 +20722,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             protocol: {},
             obfs: {},
 
-            // From
-            password: this.$store.state.user.data.passwd
+            // SS From
+            password: this.$store.state.user.data.passwd,
+
+            // Password From
+            currentPassword: '',
+            newPassword: '',
+            newPasswordRepeat: ''
         };
     },
 
@@ -20685,7 +20746,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         update: function update() {
+            // @todo
             console.log("update");
+            __WEBPACK_IMPORTED_MODULE_0__http_rest__["a" /* default */].put('', {
+                current_password: this.currentPassword,
+                new_password: this.newPassword,
+                new_password_repeat: this.newPasswordRepeat
+            }).then(function (response) {}).catch(function (e) {});
+        },
+        updatePassword: function updatePassword() {
+            var _this2 = this;
+
+            // @todo
+            __WEBPACK_IMPORTED_MODULE_0__http_rest__["a" /* default */].put('password', {
+                current_password: this.currentPassword,
+                new_password: this.newPassword,
+                new_password_repeat: this.newPasswordRepeat
+            }).then(function (response) {
+                UIkit.notification({
+                    message: _this2.$t('base.success'),
+                    status: 'primary',
+                    pos: 'top-center',
+                    timeout: 5000
+                });
+            }).catch(function (e) {
+                var msg = '';
+                switch (e.response.data.error_code) {
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["a" /* CurrentPasswordWrong */]:
+                        msg = _this2.$t('auth.current-password-wrong');
+                        break;
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["b" /* NewPasswordRepeatWrong */]:
+                        msg = _this2.$t('auth.password-repeat-wrong');
+                        break;
+                    default:
+                        msg = _this2.$t('base.system-error');
+                        break;
+                }
+                UIkit.notification({
+                    message: msg,
+                    status: 'danger',
+                    pos: 'top-center',
+                    timeout: 5000
+                });
+            });
+            console.log("update password");
         }
     },
     mounted: function mounted() {
@@ -20711,13 +20815,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "uk-container uk-container-large"
   }, [_c('div', {
-    staticClass: "uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl",
+    staticClass: "uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@xl",
     attrs: {
       "uk-grid": ""
     }
   }, [_c('div', {
     staticClass: "uk-card uk-card-default uk-card-body"
-  }, [_c('div', {
+  }, [_c('span', {
+    staticClass: "statistics-text"
+  }, [_vm._v(_vm._s(_vm.$t("user-index.connection-info")))]), _c('br'), _vm._v(" "), _c('div', {
     staticClass: "uk-margin"
   }, [_c('label', {
     staticClass: "uk-form-label",
@@ -20814,7 +20920,108 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.update
     }
-  }, [_vm._v("\n                            " + _vm._s(_vm.$t("base.update")) + "\n                        ")])])])])])])])
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("base.update")) + "\n                        ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-card uk-card-default uk-card-body"
+  }, [_c('span', {
+    staticClass: "statistics-text"
+  }, [_vm._v(_vm._s(_vm.$t("auth.update-password")))]), _c('br'), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("auth.current-password")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.currentPassword),
+      expression: "currentPassword"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.currentPassword)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.currentPassword = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("auth.new-password")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.newPassword),
+      expression: "newPassword"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.newPassword)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.newPassword = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("auth.password-repeat")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.newPasswordRepeat),
+      expression: "newPasswordRepeat"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.newPasswordRepeat)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.newPasswordRepeat = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('button', {
+    staticClass: "uk-button uk-button-primary",
+    on: {
+      "click": _vm.updatePassword
+    }
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("auth.update-password")) + "\n                        ")])])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

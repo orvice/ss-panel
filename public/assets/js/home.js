@@ -13398,10 +13398,15 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UserNotExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UserNotExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CurrentPasswordWrong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NewPasswordRepeatWrong; });
 var UserNotExists = 601;
 var PasswordWrong = 602;
+
+var CurrentPasswordWrong = 102;
+var NewPasswordRepeatWrong = 103;
 
 /***/ }),
 /* 29 */
@@ -15930,8 +15935,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "register": "Register",
             "logout": "Logout",
             "email": "Email",
+            "current-password": "Current Password",
             "password": "Password",
+            "new-password": "New Password",
             "password-repeat": "Repeat Password",
+            "update-password": "Update Password",
             "remember-me": "Remember Me",
             "forgot-password": "Forgot Password",
             "activation-code": "Activation Code",
@@ -15939,7 +15947,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "register-be-a-cat": "Register and Be a Cat!",
             "create-account": "Create Account",
             "username": "Username",
-            "login-fail": "Invalid Username or Password!"
+            "login-fail": "Invalid Username or Password!",
+            "current-password-wrong": "Current Password Wrong",
+            "password-repeat-wrong": "Password does not match the confirm password."
         },
         "base": {
             "success": "Success",
@@ -17523,10 +17533,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(e.response.status);
                 }
                 switch (e.response.data.error_code) {
-                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["b" /* UserNotExists */]:
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["d" /* UserNotExists */]:
                         _this.errorMsg = _this.$t('auth.login-fail');
                         break;
-                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["a" /* PasswordWrong */]:
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["c" /* PasswordWrong */]:
                         _this.errorMsg = _this.$t('auth.login-fail');
                         break;
                     default:
@@ -18390,7 +18400,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(e.response.status);
                 }
                 switch (e.response.data.error_code) {
-                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["a" /* PasswordWrong */]:
+                    case __WEBPACK_IMPORTED_MODULE_2__code_auth__["c" /* PasswordWrong */]:
                         _this.errorMsg = _this.$t('auth.login-fail');
                         break;
                     default:

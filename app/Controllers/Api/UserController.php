@@ -12,6 +12,7 @@ use App\Models\TrafficLog;
 use App\Utils\Ss as SsUtil;
 use App\Utils\Tools;
 use App\Models\CheckInLog;
+use App\Models\InviteCode;
 use App\Utils\Hash;
 
 class UserController extends BaseController
@@ -161,6 +162,43 @@ class UserController extends BaseController
         $user->save();
 
         return $this->echoJsonWithData($response, []);
+    }
+
+    public function inviteCodes(Request $req, Response $res, $args)
+    {
+        $pageNum = 1;
+        if (isset($req->getQueryParams()['page'])) {
+            $pageNum = $req->getQueryParams()['page'];
+        }
+        $traffic = InviteCode::where('user_id', $args['id'])
+            ->orderBy('ss_invite_code.id', 'desc')
+            ->paginate(15, [
+                'ss_invite_code.*',
+            ], 'page', $pageNum);
+        $traffic->setPath('/api/users/' . $args['id'] . '/inviteCodes');
+        //return $this->echoJsonWithData($res,$traffic);
+        return $this->echoJson($res, $traffic);
+    }
+
+    public function genInviteCodes(Request $request, Response $response, $args)
+    {
+        $user = $this->getUserFromArgs($args);
+        $n = $user->invite_num;
+        if ($n < 1) {
+            return $this->echoJson($response, [
+            ], 400);
+        }
+        for ($i = 0; $i < $n; ++$i) {
+            $char = Tools::genRandomChar(32);
+            $code = new InviteCode();
+            $code->code = $char;
+            $code->user_id = $user->id;
+            $code->save();
+        }
+        $user->invite_num = 0;
+        $user->save();
+
+        return $this->echoJsonWithData($response);
     }
 
 }

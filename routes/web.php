@@ -114,6 +114,8 @@ $app->group('/api', function () {
     $this->put('/users/{id}', 'App\Controllers\Api\UserController:update')->add(new Api());
     $this->put('/users/{id}/', 'App\Controllers\Api\UserController:update')->add(new Api());
     $this->put('/users/{id}/password', 'App\Controllers\Api\UserController:updatePassword')->add(new Api());
+    $this->get('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:inviteCodes')->add(new Api());
+    $this->post('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:genInviteCodes')->add(new Api());
 
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');
     $this->get('/config/ss', 'App\Controllers\Api\ConfigController:ss');

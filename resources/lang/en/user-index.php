@@ -19,4 +19,6 @@ return [
     'connection-info' => 'Connection Info',
 
     'last-used' => 'Last used at',
+
+    'gen-invite-code' => 'Generate invitation code',
 ];

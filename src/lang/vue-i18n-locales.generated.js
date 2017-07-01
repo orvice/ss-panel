@@ -79,7 +79,8 @@ export default {
             "traffic-used": "Used Traffic",
             "traffic-unused": "Unused Traffic",
             "connection-info": "Connection Info",
-            "last-used": "Last used at"
+            "last-used": "Last used at",
+            "gen-invite-code": "Generate invitation code"
         },
         "user-nav": {
             "dashboard": "Dashboard",

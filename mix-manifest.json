@@ -1,4 +1,5 @@
 {
     "/public/assets/js/app.js": "/public/assets/js/app.js",
-    "/public/assets/js/home.js": "/public/assets/js/home.js"
+    "/public/assets/js/home.js": "/public/assets/js/home.js",
+    "/public/assets/js/admin.js": "/public/assets/js/admin.js"
 }

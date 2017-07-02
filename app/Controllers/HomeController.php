@@ -27,6 +27,11 @@ class HomeController extends BaseController
         return $this->view('dashboard');
     }
 
+    public function admin()
+    {
+        return $this->view('admin');
+    }
+
     public function code()
     {
         $codes = InviteCode::where('user_id', '=', '0')->take(10)->get();

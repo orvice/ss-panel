@@ -1,12 +1,8 @@
 <?php
 
-use App\Middleware\Auth;
-use App\Middleware\Guest;
 use App\Middleware\Admin;
 use App\Middleware\Api;
 use App\Middleware\Mu;
-use App\Middleware\User;
-
 
 // Home
 $app->group('', function () {
@@ -23,36 +19,22 @@ $app->group('', function () {
     $this->get('/setting', 'App\Controllers\HomeController:dashboard');
     $this->get('/invite', 'App\Controllers\HomeController:dashboard');
     $this->get('/profile', 'App\Controllers\HomeController:dashboard');
-})->add(new User());
+});
 
-// User Center
-$app->group('/user', function () {
-    $this->get('', 'App\Controllers\UserController:index');
-    $this->get('/', 'App\Controllers\UserController:index');
-    $this->post('/checkin', 'App\Controllers\UserController:doCheckin');
-    $this->get('/node', 'App\Controllers\UserController:node');
-    $this->get('/node/{id}', 'App\Controllers\UserController:nodeInfo');
-    $this->get('/profile', 'App\Controllers\UserController:profile');
-    $this->get('/invite', 'App\Controllers\UserController:invite');
-    $this->post('/invite', 'App\Controllers\UserController:doInvite');
-    $this->get('/edit', 'App\Controllers\UserController:edit');
-    $this->post('/password', 'App\Controllers\UserController:updatePassword');
-    $this->post('/sspwd', 'App\Controllers\UserController:updateSsPwd');
-    $this->post('/method', 'App\Controllers\UserController:updateMethod');
-    $this->post('/protocol', 'App\Controllers\UserController:updateProtocol');
-    $this->post('/obfs', 'App\Controllers\UserController:updateObfs');
-    $this->get('/sys', 'App\Controllers\UserController:sys');
-    $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
-    $this->get('/kill', 'App\Controllers\UserController:kill');
-    $this->post('/kill', 'App\Controllers\UserController:handleKill');
-    $this->get('/logout', 'App\Controllers\AuthController:logout');
-})->add(new Auth())->add(new User());
 
 // Auth
 $app->group('/auth', function () {
     $this->get('/login', 'App\Controllers\HomeController:index');
     $this->get('/register', 'App\Controllers\HomeController:index');
-})->add(new Guest());
+});
+
+// Admin
+$app->group('/admin', function () {
+    $this->get('', 'App\Controllers\HomeController:admin');
+    $this->get('/', 'App\Controllers\HomeController:admin');
+    $this->get('/{pages}', 'App\Controllers\HomeController:admin');
+    $this->get('/{pages}/{params}', 'App\Controllers\HomeController:admin');
+});
 
 // Password
 $app->group('/password', function () {
@@ -60,10 +42,10 @@ $app->group('/password', function () {
     $this->post('/reset', 'App\Controllers\PasswordController:handleReset');
     $this->get('/token/{token}', 'App\Controllers\PasswordController:token');
     $this->post('/token/{token}', 'App\Controllers\PasswordController:handleToken');
-})->add(new Guest());
+});
 
 // Admin
-$app->group('/admin', function () {
+$app->group('/admin2', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
@@ -96,7 +78,7 @@ $app->group('/admin', function () {
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
     $this->get('/logout', 'App\Controllers\AdminController:logout');
-})->add(new Admin())->add(new User());
+})->add(new Admin());
 
 // API
 $app->group('/api', function () {
@@ -138,7 +120,7 @@ $app->group('/mu/v2', function () {
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
     $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
-})->add(new Mu())->add(new User());
+})->add(new Mu());
 
 // res
 $app->group('/res', function () {

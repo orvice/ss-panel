@@ -28,7 +28,11 @@ export default {
             "username": "Username",
             "login-fail": "Invalid Username or Password!",
             "current-password-wrong": "Current Password Wrong",
-            "password-repeat-wrong": "Password does not match the confirm password."
+            "password-repeat-wrong": "Password does not match the confirm password.",
+            "invite-code-invalid": "Invite Code Invalid",
+            "email-invalid": "Email Invalid",
+            "password-too-short": "Password Too Short",
+            "email-used": "Email Used"
         },
         "base": {
             "success": "Success",

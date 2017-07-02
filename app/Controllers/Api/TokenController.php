@@ -55,8 +55,8 @@ class TokenController extends BaseController implements AuthCode
         }
         // @todo
         $ttl = config('auth.session_timeout');
-        if ($rememberMe) {
-            $ttl = 3600 * 24 * 7;
+            if ($rememberMe) {
+                $ttl = 3600 * 24 * 7;
         }
         $token = Factory::getTokenStorage()->store($user, $ttl);
         $this->logger->info(sprintf("login user %d token: %s  ttl:  %d", $user->id, $token->getAccessToken(), $ttl));
@@ -88,12 +88,12 @@ class TokenController extends BaseController implements AuthCode
 
     public function createUser(Request $request, $response, $args)
     {
-        $name = $request->getParam('name');
+        $name = $request->getParam('userName');
         $email = $request->getParam('email');
         $email = strtolower($email);
-        $passwd = $request->getParam('passwd');
-        $repasswd = $request->getParam('repasswd');
-        $code = $request->getParam('code');
+        $passwd = $request->getParam('password');
+        $repasswd = $request->getParam('passwordRepeat');
+        $code = $request->getParam('inviteCode');
         $verifycode = $request->getParam('verifycode');
 
         // check code
@@ -157,7 +157,17 @@ class TokenController extends BaseController implements AuthCode
 
         if ($user->save()) {
             $c->delete();
+
+            $ttl = config('auth.session_timeout');
+            $token = Factory::getTokenStorage()->store($user, $ttl);
+            $this->logger->info(sprintf("login user %d token: %s  ttl:  %d", $user->id, $token->getAccessToken(), $ttl));
+
             return $this->echoJson($response, [
+                'msg' => '',
+                'data' => [
+                    'token' => $token->getAccessToken(),
+                    'user_id' => $user->id,
+                ],
                 'user' => $user,
             ]);
         }

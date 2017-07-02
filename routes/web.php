@@ -102,6 +102,10 @@ $app->group('/api', function () {
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');
     $this->get('/config/ss', 'App\Controllers\Api\ConfigController:ss');
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');
+
+    // Admin
+    $this->get('/admin/config', 'App\Controllers\Api\Admin\ConfigController:index')->add(new Admin());
+    $this->put('/admin/config', 'App\Controllers\Api\Admin\ConfigController:update')->add(new Admin());
 });
 
 // mu

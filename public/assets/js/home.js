@@ -15933,6 +15933,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
     "en": {
+        "admin-nav": {
+            "nodes": "Nodes",
+            "config": "Config",
+            "users": "Users"
+        },
         "alert": {
             "success": "Success",
             "error": "Whoops"

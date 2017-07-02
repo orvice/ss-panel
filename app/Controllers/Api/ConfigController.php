@@ -14,7 +14,7 @@ class ConfigController extends BaseController
     {
         // @todo
         $data = [
-            'app' => 'ss-panel',
+            'app' => db_config('appName','ss-panel4'),
             'version' => get_version(),
         ];
         return $this->echoJsonWithData($response, $data);

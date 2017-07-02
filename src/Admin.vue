@@ -49,7 +49,7 @@
 <script>
     /* eslint-disable no-new */
     import * as types from './store/types'
-    import LeftBar from './components/Leftbar.vue'
+    import LeftBar from './components/AdminLeftbar.vue'
     import Lang from './components/Lang.vue'
     import rest from './http/rest'
     import http from './http/base'

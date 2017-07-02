@@ -18,17 +18,13 @@ class MysqlConfig implements ModelConfigInterface
 
     /**
      * @param $key
-     * @param null $default
      * @return null|string
      */
-    public function get($key,$default = null)
+    public function get($key)
     {
         $m = $this->getByKey($key);
         if ($m) {
             return $m->value;
-        }
-        if($default){
-            return $default;
         }
         return '';
     }

@@ -17714,6 +17714,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (e) {});
         },
         update: function update() {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_1__http_admin__["a" /* default */].put('config', {
+                appName: this.appName,
+                checkInMin: this.checkInMin,
+                checkInMax: this.checkInMax
+            }).then(function (response) {
+                UIkit.notification({
+                    message: _this2.$t('base.success'),
+                    status: 'primary',
+                    pos: 'top-center',
+                    timeout: 5000
+                });
+            }).catch(function (e) {
+                UIkit.notification({
+                    message: _this2.$t('base.something-wrong'),
+                    status: 'danger',
+                    pos: 'top-center',
+                    timeout: 5000
+                });
+            });
             console.log("update config");
         }
     },

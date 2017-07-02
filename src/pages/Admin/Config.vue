@@ -79,6 +79,27 @@
                     })
             },
             update(){
+                admin.put('config', {
+                    appName: this.appName,
+                    checkInMin: this.checkInMin,
+                    checkInMax: this.checkInMax,
+                })
+                    .then(response => {
+                        UIkit.notification({
+                            message: this.$t('base.success'),
+                            status: 'primary',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
+                    })
+                    .catch(e => {
+                        UIkit.notification({
+                            message: this.$t('base.something-wrong'),
+                            status: 'danger',
+                            pos: 'top-center',
+                            timeout: 5000
+                        });
+                    });
                 console.log("update config");
             },
         },

@@ -79,5 +79,6 @@ class DbConfig
 
     public function flushAll()
     {
+        $this->redis->flushdb();
     }
 }

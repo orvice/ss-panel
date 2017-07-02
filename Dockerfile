@@ -12,9 +12,8 @@ COPY . /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install dependencies with Composer.
-# --prefer-source fixes issues with download limits on Github.
-# --no-interaction makes sure composer can run fully automated
-RUN composer install --prefer-source --no-interactionn && chmod -R 777 storage
+RUN cd /var/www/html && composer install --no-scripts
+RUN chmod -R 777 storage
 
 #COPY docker-entrypoint.sh /entrypoint.sh
 

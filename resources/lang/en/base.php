@@ -10,4 +10,8 @@ return [
     'update' => 'Update',
 
     'never' => "Never",
+
+    'app-name' => 'App Name',
+    'checkInMax' => 'Check-In Max Traffic',
+    'checkInMin' => 'Check-In Min Traffic',
 ];

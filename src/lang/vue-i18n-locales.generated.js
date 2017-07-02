@@ -37,7 +37,10 @@ export default {
             "system-error": "System Error",
             "setting": "Setting",
             "update": "Update",
-            "never": "Never"
+            "never": "Never",
+            "app-name": "App Name",
+            "checkInMax": "Check-In Max Traffic",
+            "checkInMin": "Check-In Min Traffic"
         },
         "index": {
             "sign-up-now": "Sign Up Now",

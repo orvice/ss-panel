@@ -15833,7 +15833,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "system-error": "System Error",
             "setting": "Setting",
             "update": "Update",
-            "never": "Never"
+            "never": "Never",
+            "app-name": "App Name",
+            "checkInMax": "Check-In Max Traffic",
+            "checkInMin": "Check-In Min Traffic"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -17650,6 +17653,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -17658,13 +17695,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {},
     data: function data() {
         return {
-            cfgs: {}
+            cfgs: {},
+            appName: '',
+            checkInMin: '',
+            checkInMax: ''
         };
     },
 
     methods: {
         getCfgs: function getCfgs() {
-            __WEBPACK_IMPORTED_MODULE_1__http_admin__["a" /* default */].get('config').then(function (response) {}).catch(function (e) {});
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_1__http_admin__["a" /* default */].get('config').then(function (response) {
+                _this.cfgs = response.data.data;
+                _this.appName = _this.cfgs.appName;
+                _this.checkInMin = _this.cfgs.checkInMin;
+                _this.checkInMax = _this.cfgs.checkInMax;
+            }).catch(function (e) {});
+        },
+        update: function update() {
+            console.log("update config");
         }
     },
     mounted: function mounted() {
@@ -17685,19 +17735,116 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "uk-container uk-container-large"
   }, [_c('h3', [_c('span', {
     staticClass: "ion-speedometer"
-  }), _vm._v(" " + _vm._s(_vm.$t("admin-nav.config")) + " ")])])]), _vm._v(" "), _vm._m(0)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }), _vm._v(" " + _vm._s(_vm.$t("admin-nav.config")) + " ")])])]), _vm._v(" "), _c('div', {
     staticClass: "uk-section-small"
   }, [_c('div', {
     staticClass: "uk-container uk-container-large"
   }, [_c('div', {
-    staticClass: "uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl",
+    staticClass: "uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl",
     attrs: {
       "uk-grid": ""
     }
-  })])])
-}]}
+  }, [_c('div', {
+    staticClass: "uk-card uk-card-default uk-card-body"
+  }, [_c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.app-name")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.appName),
+      expression: "appName"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.appName)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.appName = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.checkInMin")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.checkInMin),
+      expression: "checkInMin"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.checkInMin)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.checkInMin = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.checkInMax")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.checkInMax),
+      expression: "checkInMax"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.checkInMax)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.checkInMax = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('button', {
+    staticClass: "uk-button uk-button-primary",
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("\n                            " + _vm._s(_vm.$t("base.update")) + "\n                        ")])])])])])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

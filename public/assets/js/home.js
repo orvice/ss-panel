@@ -15970,7 +15970,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "system-error": "System Error",
             "setting": "Setting",
             "update": "Update",
-            "never": "Never"
+            "never": "Never",
+            "app-name": "App Name",
+            "checkInMax": "Check-In Max Traffic",
+            "checkInMin": "Check-In Min Traffic"
         },
         "index": {
             "sign-up-now": "Sign Up Now",

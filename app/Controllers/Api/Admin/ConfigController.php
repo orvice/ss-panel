@@ -6,13 +6,14 @@ namespace App\Controllers\Api\Admin;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Controllers\BaseController;
+use App\Contracts\Codes\Cfg;
 
-class ConfigController extends BaseController
+class ConfigController extends BaseController implements Cfg
 {
     private $cfgs = [
-        "appName",
-        'checkinMin',
-        'checkinMax',
+        self::AppName,
+        self::CheckInMin,
+        self::CheckInMax,
     ];
 
     public function index(Request $request, Response $response, $args)

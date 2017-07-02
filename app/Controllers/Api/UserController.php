@@ -15,8 +15,9 @@ use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Utils\Hash;
 use App\Contracts\Codes\Auth as AuthCode;
+use App\Contracts\Codes\Cfg;
 
-class UserController extends BaseController implements AuthCode
+class UserController extends BaseController implements AuthCode,Cfg
 {
 
     /**
@@ -109,7 +110,7 @@ class UserController extends BaseController implements AuthCode
         if (!$user->isAbleToCheckin()) {
             return $this->echoJsonError($response, []);
         }
-        $traffic = rand(conf('checkinMin'), conf('checkinMax'));
+        $traffic = rand(conf(self::CheckInMin), conf(self::CheckInMax));
         $trafficToAdd = Tools::toMB($traffic);
         $user->transfer_enable = $user->transfer_enable + $trafficToAdd;
         $user->last_check_in_time = time();

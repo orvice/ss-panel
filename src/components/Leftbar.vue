@@ -37,6 +37,13 @@
                                                                                         uk-icon="icon: settings"></span>
                     {{ $t("base.setting") }} </a></router-link>
             </li>
+
+            <li class="uk-nav" v-if="$store.state.user.data.is_admin">
+                <a href="/admin"><span class="uk-margin-small-right"
+                                  uk-icon="icon:  more-vertical"></span>
+                    {{ $t("user-nav.admin-panel") }} </a>
+            </li>
+
             <li class="uk-nav-divider"></li>
         </ul>
     </div>

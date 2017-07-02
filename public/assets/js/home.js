@@ -14830,6 +14830,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* eslint-disable no-new */
 
@@ -16234,7 +16241,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "uk-icon": "icon: settings"
     }
-  }), _vm._v("\n                " + _vm._s(_vm.$t("base.setting")) + " ")])])], 1), _vm._v(" "), _c('li', {
+  }), _vm._v("\n                " + _vm._s(_vm.$t("base.setting")) + " ")])])], 1), _vm._v(" "), (_vm.$store.state.user.data.is_admin) ? _c('li', {
+    staticClass: "uk-nav"
+  }, [_c('a', {
+    attrs: {
+      "href": "/admin"
+    }
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon:  more-vertical"
+    }
+  }), _vm._v("\n                " + _vm._s(_vm.$t("user-nav.admin-panel")) + " ")])]) : _vm._e(), _vm._v(" "), _c('li', {
     staticClass: "uk-nav-divider"
   })])])
 },staticRenderFns: []}

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
-import App from './App.vue'
+import Admin from './Admin.vue'
 import router from './adminRouter'
 import store  from './store/'
 import {Locales} from './lang'
@@ -31,7 +31,7 @@ window.App = new Vue({
     store,
     // i18n,
     el: '#app',
-    extends: App,
+    extends: Admin,
     data: () => ({
         ids: {},
         page: false,

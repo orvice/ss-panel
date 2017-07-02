@@ -99,10 +99,11 @@
                         // JSON responses are automatically parsed.
                         this.user = response.data;
                         this.$store.commit(types.StoreUser, response.data);
-                        console.log(this.user);
+                        if(!this.user.data.is_admin){
+                            window.location.href = '/';
+                        }
                     })
                     .catch(e => {
-                        sessionStorage.removeItem('token');
                         window.location.href = '/';
                     })
             }

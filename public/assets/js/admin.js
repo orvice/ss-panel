@@ -14816,6 +14816,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* eslint-disable no-new */
 
@@ -16220,7 +16227,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "uk-icon": "icon: settings"
     }
-  }), _vm._v("\n                " + _vm._s(_vm.$t("base.setting")) + " ")])])], 1), _vm._v(" "), _c('li', {
+  }), _vm._v("\n                " + _vm._s(_vm.$t("base.setting")) + " ")])])], 1), _vm._v(" "), (_vm.$store.state.user.data.is_admin) ? _c('li', {
+    staticClass: "uk-nav"
+  }, [_c('a', {
+    attrs: {
+      "href": "/admin"
+    }
+  }, [_c('span', {
+    staticClass: "uk-margin-small-right",
+    attrs: {
+      "uk-icon": "icon:  more-vertical"
+    }
+  }), _vm._v("\n                " + _vm._s(_vm.$t("user-nav.admin-panel")) + " ")])]) : _vm._e(), _vm._v(" "), _c('li', {
     staticClass: "uk-nav-divider"
   })])])
 },staticRenderFns: []}
@@ -17124,15 +17142,141 @@ var index_esm = {
 /* 105 */,
 /* 106 */,
 /* 107 */,
-/* 108 */
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var disposed = false
+module.exports = __webpack_require__(141);
+
+
+/***/ }),
+/* 141 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_i18n__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Admin_vue__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Admin_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Admin_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__adminRouter__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store___ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lang__ = __webpack_require__(26);
+
+
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_i18n___default.a);
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.config.lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
+
+__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default.a(__WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */]).forEach(function (lang) {
+    __WEBPACK_IMPORTED_MODULE_1_vue___default.a.locale(lang, __WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */][lang]);
+});
+
+var lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
+
+// Ready translated locale messages
+// Create VueI18n instance with options
+// const i18n = new VueI18n({
+//     fallback: 'en',
+//     locale: lang, // set locale
+//     messages: Locales, // set locale messages
+// });
+
+window.App = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
+    router: __WEBPACK_IMPORTED_MODULE_5__adminRouter__["a" /* default */],
+    store: __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */],
+    // i18n,
+    el: '#app',
+    extends: __WEBPACK_IMPORTED_MODULE_4__Admin_vue___default.a,
+    data: function data() {
+        return {
+            ids: {},
+            page: false,
+            component: false
+        };
+    }
+});
+
+/***/ }),
+/* 142 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue__);
+
+
+
+// Pages
+
+
+var routes = [{ path: '/admin', name: 'index', component: __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default.a }];
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    routes: routes,
+    mode: 'history',
+    history: true,
+    linkActiveClass: 'active'
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(109),
+  null,
   /* template */
-  __webpack_require__(110),
+  null,
   /* styles */
   null,
   /* scopeId */
@@ -17140,9 +17284,32 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/orvice/workspace/www/ss-panel/src/App.vue"
+Component.options.__file = "/Users/orvice/workspace/www/ss-panel/src/pages/Admin/Index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(145),
+  /* template */
+  __webpack_require__(146),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/orvice/workspace/www/ss-panel/src/Admin.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Admin.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -17151,9 +17318,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-60270e2c", Component.options)
+    hotAPI.createRecord("data-v-4d0ec0cc", Component.options)
   } else {
-    hotAPI.reload("data-v-60270e2c", Component.options)
+    hotAPI.reload("data-v-4d0ec0cc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -17164,7 +17331,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 109 */
+/* 145 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17279,9 +17446,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // JSON responses are automatically parsed.
                 _this2.user = response.data;
                 _this2.$store.commit(__WEBPACK_IMPORTED_MODULE_0__store_types__["c" /* StoreUser */], response.data);
-                console.log(_this2.user);
+                if (!_this2.user.data.is_admin) {
+                    window.location.href = '/';
+                }
             }).catch(function (e) {
-                _this2.errors.push(e);
+                window.location.href = '/';
             });
         }
     },
@@ -17298,7 +17467,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 110 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17388,155 +17557,9 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-60270e2c", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-4d0ec0cc", module.exports)
   }
 }
-
-/***/ }),
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(141);
-
-
-/***/ }),
-/* 141 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_router__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_i18n___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_i18n__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__adminRouter__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store___ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lang__ = __webpack_require__(26);
-
-
-
-
-
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_i18n___default.a);
-
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.config.lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
-
-__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default.a(__WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */]).forEach(function (lang) {
-    __WEBPACK_IMPORTED_MODULE_1_vue___default.a.locale(lang, __WEBPACK_IMPORTED_MODULE_7__lang__["a" /* Locales */][lang]);
-});
-
-var lang = __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */].state.lang;
-
-// Ready translated locale messages
-// Create VueI18n instance with options
-// const i18n = new VueI18n({
-//     fallback: 'en',
-//     locale: lang, // set locale
-//     messages: Locales, // set locale messages
-// });
-
-window.App = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
-    router: __WEBPACK_IMPORTED_MODULE_5__adminRouter__["a" /* default */],
-    store: __WEBPACK_IMPORTED_MODULE_6__store___["a" /* default */],
-    // i18n,
-    el: '#app',
-    extends: __WEBPACK_IMPORTED_MODULE_4__App_vue___default.a,
-    data: function data() {
-        return {
-            ids: {},
-            page: false,
-            component: false
-        };
-    }
-});
-
-/***/ }),
-/* 142 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue__);
-
-
-
-// Pages
-
-
-var routes = [{ path: '/admin', name: 'index', component: __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default.a }];
-
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    routes: routes,
-    mode: 'history',
-    history: true,
-    linkActiveClass: 'active'
-});
-
-/* harmony default export */ __webpack_exports__["a"] = (router);
-
-/***/ }),
-/* 143 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  null,
-  /* template */
-  null,
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/orvice/workspace/www/ss-panel/src/pages/Admin/Index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-
-module.exports = Component.exports
-
 
 /***/ })
 /******/ ]);

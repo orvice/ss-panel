@@ -38,6 +38,8 @@ class Token implements TokenInterface
     public function getUser()
     {
         $uid = $this->cache->get($this->accessToken);
-        return User::find($uid);
+        $user =  User::find($uid);
+        $user->isLogin  = true;
+        return $user;
     }
 }

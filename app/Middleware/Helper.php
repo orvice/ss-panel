@@ -2,6 +2,7 @@
 
 namespace App\Middleware;
 
+use Slim\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Services\Factory;
@@ -36,5 +37,18 @@ trait Helper
         $user = new UserModel();
         $user->isLogin = false;
         return $user;
+    }
+
+    /**
+     * @param $response
+     * @param $data
+     * @param int $statusCode
+     *
+     * @return mixed
+     */
+    public function echoJson(Response $response, $data = [], $statusCode = 200)
+    {
+        $newResponse = $response->withJson($data, $statusCode);
+        return $newResponse;
     }
 }

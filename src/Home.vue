@@ -32,7 +32,7 @@
 
                     <ul class="navbar-nav" v-if="$store.state.isLogin">
                         <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="now-ui-icons users_single-02"></i> {{ $t("user-nav.dashboard") }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/logout"><i class="now-ui-icons media-1_button-power"></i>{{ $t("auth.logout") }}</a></li>
+                        <router-link tag="li" :to="{ name: 'logout' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons media-1_button-power"></i>{{ $t("auth.logout") }}</a></li></router-link>
                     </ul>
 
 

@@ -12,14 +12,29 @@ class Api
     public function __invoke(Request $request, Response $response, $next)
     {
         $user = $this->getUserFromReq($request);
-        if (!$user) {
-            $newResponse = $response->withJson([
-
-            ], 401);
-            return $newResponse;
+        if (!$user || !$user->isLogin) {
+            return $this->denied($response);
+        }
+        if (!$user->isAdmin()) {
+            $id = $request->getAttribute('routeInfo')[2]['id'];
+            if ($id != $user->id) {
+                return $this->denied($response);
+            }
         }
         $response = $next($request, $response);
 
         return $response;
+    }
+
+    /**
+     * @param Response $response
+     * @return Response
+     */
+    public function denied(Response $response)
+    {
+        $newResponse = $response->withJson([
+
+        ], 401);
+        return $newResponse;
     }
 }

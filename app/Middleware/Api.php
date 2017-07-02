@@ -33,7 +33,8 @@ class Api
     public function denied(Response $response)
     {
         $newResponse = $response->withJson([
-
+            "error_code" => 401,
+            "message" => "Access Denied",
         ], 401);
         return $newResponse;
     }

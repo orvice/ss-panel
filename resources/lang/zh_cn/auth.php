@@ -15,6 +15,7 @@ return [
     'send-code' => '发送激活码',
 
     'register-be-a-cat' => '注册，然后变成一只猫',
+    'create-account' => '创建账户',
     'accept-tos-register' => '接受用户协议并注册',
     'username' => '用户名',
 

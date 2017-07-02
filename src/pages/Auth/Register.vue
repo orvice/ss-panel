@@ -35,19 +35,19 @@
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons users_circle-08"></i>
                                         </span>
-                            <input type="text" class="form-control" placeholder="First Name...">
+                            <input type="text" class="form-control" :placeholder="$t('auth.username')">
                         </div>
                         <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_email-85"></i>
                                         </span>
-                            <input type="text" class="form-control" placeholder="Email...">
+                            <input type="text" class="form-control" :placeholder="$t('auth.email')">
                         </div>
                         <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                         </span>
-                            <input type="password" placeholder="Password..." class="form-control" />
+                            <input type="password" :placeholder="$t('auth.password')" class="form-control" />
                         </div>
                         <!-- If you want to add a checkbox to this form, uncomment this code -->
                         <!-- <div class="checkbox">

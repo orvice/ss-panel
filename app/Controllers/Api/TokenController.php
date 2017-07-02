@@ -10,17 +10,17 @@ use App\Services\Factory;
 use App\Utils\Hash;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use App\Contracts\Codes\Auth as AuthCode;
+use App\Models\InviteCode;
+use App\Utils\Check;
+use App\Utils\Http;
+use App\Utils\Tools;
 
 /**
  *  ApiController.
  */
-class TokenController extends BaseController
+class TokenController extends BaseController implements AuthCode
 {
-
-    // Login Error Code
-    const UserNotExist = 601;
-    const UserPasswordWrong = 602;
-
 
     /**
      * @param Request $request
@@ -73,8 +73,8 @@ class TokenController extends BaseController
     public function show(Request $request, Response $response, $args)
     {
         $token = Factory::getTokenStorage()->get($args['token']);
-        if(!$token){
-            return $this->echoJson($response,[],404);
+        if (!$token) {
+            return $this->echoJson($response, [], 404);
         }
         return $this->echoJson($response, [
             'msg' => '',
@@ -99,65 +99,45 @@ class TokenController extends BaseController
         // check code
         $c = InviteCode::where('code', $code)->first();
         if ($c == null) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::WrongCode;
-            $res['msg'] = '邀请码无效';
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'error_code' => self::InviteCodeWrong,
+            ], 400);
         }
 
         // check email format
         if (!Check::isEmailLegal($email)) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::IllegalEmail;
-            $res['msg'] = '邮箱无效';
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'error_code' => self::EmailWrong,
+            ], 400);
         }
         // check pwd length
         if (strlen($passwd) < 8) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::PasswordTooShort;
-            $res['msg'] = '密码太短';
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'error_code' => self::PasswordTooShort,
+            ], 400);
         }
 
         // check pwd re
         if ($passwd != $repasswd) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::PasswordNotEqual;
-            $res['msg'] = '两次密码输入不符';
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'error_code' => self::NewPasswordRepeatWrong,
+            ], 400);
         }
 
         // check email
         $user = User::where('email', $email)->first();
         if ($user != null) {
-            $res['ret'] = 0;
-            $res['error_code'] = self::EmailUsed;
-            $res['msg'] = '邮箱已经被注册了';
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'error_code' => self::EmailUsed,
+            ], 400);
         }
 
-        // verify email
-        if (Config::get('emailVerifyEnabled') && !EmailVerify::checkVerifyCode($email, $verifycode)) {
-            $res['ret'] = 0;
-            $res['msg'] = '邮箱验证代码不正确';
-
-            return $this->echoJson($response, $res);
-        }
 
         // check ip limit
         $ip = Http::getClientIP();
         $ipRegCount = Check::getIpRegCount($ip);
-        if ($ipRegCount >= Config::get('ipDayLimit')) {
-            $res['ret'] = 0;
-            $res['msg'] = '当前IP注册次数超过限制';
-
-            return $this->echoJson($response, $res);
+        if ($ipRegCount >= 100) {
+            // @todo
         }
 
         // do reg user
@@ -170,22 +150,20 @@ class TokenController extends BaseController
         $user->t = 0;
         $user->u = 0;
         $user->d = 0;
-        $user->transfer_enable = Tools::toGB(Config::get('defaultTraffic'));
-        $user->invite_num = Config::get('inviteNum');
+        $user->transfer_enable = db_config('defaultTraffic', 1);
+        $user->invite_num = db_config('invite_num', 10);
         $user->reg_ip = Http::getClientIP();
         $user->ref_by = $c->user_id;
 
         if ($user->save()) {
-            $res['ret'] = 1;
-            $res['msg'] = '注册成功';
             $c->delete();
-
-            return $this->echoJson($response, $res);
+            return $this->echoJson($response, [
+                'user' => $user,
+            ]);
         }
-        $res['ret'] = 0;
-        $res['msg'] = '未知错误';
 
-        return $this->echoJson($response, $res);
+        return $this->echoJson($response, [
+        ], 500);
     }
 
 }

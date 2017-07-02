@@ -10,9 +10,9 @@ if (!function_exists('conf')) {
 }
 
 if (!function_exists('db_config')) {
-    function db_config($key)
+    function db_config($key, $default = null)
     {
-        return app()->make(\App\Services\Config\DbConfig::class)->get($key);
+        return app()->make(\App\Services\Config\DbConfig::class)->get($key, $default);
     }
 }
 

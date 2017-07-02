@@ -14,15 +14,10 @@ use App\Utils\Tools;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Utils\Hash;
+use App\Contracts\Codes\Auth as AuthCode;
 
-class UserController extends BaseController
+class UserController extends BaseController implements AuthCode
 {
-
-    const CurrentPassword = 102;
-    const NewPasswordRepeatWrong = 103;
-
-    const EmptyInput = 701;
-
 
     /**
      * @param $args

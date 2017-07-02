@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Slim\Http\Response;
 use App\Services\Factory;
 use Interop\Container\ContainerInterface;
 use Pongtan\Http\Controller;
@@ -37,5 +38,18 @@ class BaseController extends Controller
     public function getUser()
     {
         return user();
+    }
+
+    /**
+     * @param Response $response
+     * @param $data
+     * @param int $statusCode
+     * @return mixed
+     */
+    public function echoJsonWithData(Response $response, $data = [], $statusCode = 200)
+    {
+        return $this->echoJson($response, [
+            'data' => $data,
+        ], $statusCode);
     }
 }

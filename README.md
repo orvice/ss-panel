@@ -2,7 +2,7 @@
 
 Let's talk about cat.  Based on [LightFish](https://github.com/Pongtan/LightFish).
 
-[安装文档](https://sspanel.xyz/docs)
+[Demo](https://demo.sspanel.xyz/)|[API Document](https://doc.sspanel.xyz/)| [安装文档](https://sspanel.xyz/docs)
 
 [![Build Status](https://travis-ci.org/orvice/ss-panel.svg?branch=master)](https://travis-ci.org/orvice/ss-panel) [![Coverage Status](https://coveralls.io/repos/github/orvice/ss-panel/badge.svg?branch=master)](https://coveralls.io/github/orvice/ss-panel?branch=master) [![Join the chat at https://gitter.im/orvice/ss-panel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/orvice/ss-panel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 

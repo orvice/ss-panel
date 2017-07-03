@@ -1,6 +1,8 @@
 # ss-panel
 
-Let's talk about cat.  Based on [LightFish](https://github.com/Pongtan/LightFish).
+Let's talk about cat.  A simple panel for shadowsocks.
+
+Based on [LightFish](https://github.com/Pongtan/LightFish) and [Vue.js](https://vuejs.org).
 
 [Demo](https://demo.sspanel.xyz/)|[API Document](https://doc.sspanel.xyz/)| [安装文档](https://sspanel.xyz/docs)
 
@@ -8,77 +10,40 @@ Let's talk about cat.  Based on [LightFish](https://github.com/Pongtan/LightFish
 
 ## About
 
-Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to download ss-panel.
-
-## Install with Docker
-
-```bash
-docker pull orvice/ss-panel
-```
-
-## Requirements
-
-* PHP 5.6 or newer
-* Web server with URL rewriting
-* MySQL
+Please visit [releases pages](https://github.com/orvice/ss-panel/releases) to download source.
 
 ## Supported Server
 
 * [shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
 * [shadowsocksrss manyuser](https://github.com/breakwa11/shadowsocks/tree/manyuser)
 * [shadowsocks-go mu](https://github.com/orvice/shadowsocks-go)
+* [shadowsocks-go mu ng](https://github.com/catpie/ss-go-mu)
 
+## Install with Docker
 
-## Install
-
-### Step 0
-
-```
-进入网站根目录下执行下面命令
-git clone https://github.com/monokoo/ss-panel.git
-mv ss-panel/.git . && rm -rf ss-panel && git reset --hard
+### Get it 
+```bash
+docker pull orvice/ss-panel
 ```
 
-### Step 1
+### Install with Docker-compose
 
-```
-$ curl -sS https://getcomposer.org/installer | php
-$ php composer.phar  install
-```
+[Install docker-compose](https://docs.docker.com/compose/install/)
 
-### Step 2
-
-```
-cp .env.example .env
+```bash
+wget https://raw.githubusercontent.com/orvice/ss-panel/master/docker-compose.yml
+docker-compose up -d
 ```
 
-then edit .env
-
-```
-chmod -R 777 storage
-```
-
-### Step 3
-
-Import the sql to you mysql database.
-
-### Step 4
-
-Nginx Config example:
-
-if you download ss-panel on path /home/www/ss-panel
+Visit `ip:8080`
 
 
-```
-root /home/www/ss-panel/public;
 
-location / {
-    try_files $uri $uri/ /index.php$is_args$args;
-}
-    
-```
+You can also install manual with Nginx or other web server,[check wiki](https://github.com/orvice/ss-panel/wiki/Install-with-Nginx).
 
-### Step 5 Config
-
-view config guide on [wiki](https://github.com/orvice/ss-panel/wiki/v3-Config)
-
+## Thanks to
+* [LightFish](https://github.com/Pongtan/LightFish)
+* [Vue.js](https://vuejs.org)
+* [UIKit](https://getuikit.com)
+* [UIAdmin](https://github.com/ConsoleTVs/UIAdmin)
+* [Now UI Kit](https://github.com/creativetimofficial/now-ui-kit)

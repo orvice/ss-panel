@@ -17,7 +17,7 @@ services:
         - $PWD/mysql_data:/var/lib/mysql:Z
 
   ss-panel:
-      image: orvice/ss-panel:dev
+      image: orvice/ss-panel:master
       ports:
         - 8080:80
       environment:

@@ -11,9 +11,11 @@
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl">
                     <div class="uk-card uk-card-default uk-card-body">
                         <div class="uk-margin">
-                            <router-link tag="li" :to="{ name: 'node-add' }" exact><button class="uk-button uk-button-primary" >
-                                {{$t("admin.node-add")}}
-                            </button></router-link>
+                            <router-link tag="li" :to="{ name: 'node-add' }" exact>
+                                <button class="uk-button uk-button-primary">
+                                    {{$t("admin.node-add")}}
+                                </button>
+                            </router-link>
                         </div>
 
                         <table class="uk-table uk-table-striped">
@@ -23,6 +25,7 @@
                                 <th>{{$t("ss.node")}}</th>
                                 <th>{{$t("ss.server_addr")}}</th>
                                 <th>{{$t("ss.traffic_rate")}}</th>
+                                <th>{{$t("admin.action")}}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,6 +34,11 @@
                                 <td>{{node.name}}</td>
                                 <td>{{node.server}}</td>
                                 <td>{{node.traffic_rate}}</td>
+                                <td> <div class="uk-margin">
+                                    <button class="uk-button uk-button-danger" @click="deleteNode(node.id)">
+                                        {{$t("admin.delete")}}
+                                    </button>
+                                </div></td>
                             </tr>
                             </tbody>
                         </table>
@@ -49,7 +57,7 @@
 <script>
     import admin from '../../http/admin'
     import pagination from 'laravel-vue-pagination-uikit'
-    import {bytesToSize} from '../../tools/util'
+    import {bytesToSize,notify} from '../../tools/util'
     export default {
         name: 'Node',
         components: {
@@ -76,6 +84,16 @@
             },
             timeFormat(ut){
                 return new Date(ut * 1e3).toISOString();
+            },
+            deleteNode(id){
+                admin.delete(`nodes/` + id)
+                    .then(response => {
+                        notify(this.$t('base.success'),'primary');
+                        this.Results();
+                    })
+                    .catch(e => {
+                        notify(this.$t('base.something-wrong'),'danger');
+                    })
             },
             bytesToSize,
         },

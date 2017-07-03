@@ -49,6 +49,13 @@ class NodeController extends BaseController
         return $this->saveModel($res, Node::find($args['id']), $arr);
     }
 
+    public function delete(Request $req, Response $res, $args)
+    {
+        $node = Node::find($args['id']);
+        $node->delete();
+        return $this->echoJsonWithData($res, []);
+    }
+
     public function trafficLogs(Request $req, Response $res, $args)
     {
         $pageNum = 1;

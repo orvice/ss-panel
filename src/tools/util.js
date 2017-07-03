@@ -8,3 +8,12 @@ export const bytesToSize = function (bytes) {
 
 export const timeFormat = function (t) {
 };
+
+export const notify = function(message,status){
+    UIkit.notification({
+        message: message,
+        status: status,
+        pos: 'top-center',
+        timeout: 5000
+    });
+};

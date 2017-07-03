@@ -16,6 +16,7 @@ const routes = [
     // Auth
     {path: '/auth/login', name: 'login', component: Login},
     {path: '/auth/register', name: 'register', component: Register},
+    {path: '/auth/register/:code', name: 'registerWithCode', component: Register},
     {path: '/logout', name: 'logout', component: Logout},
 
 ];

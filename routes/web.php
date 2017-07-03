@@ -26,6 +26,7 @@ $app->group('', function () {
 $app->group('/auth', function () {
     $this->get('/login', 'App\Controllers\HomeController:index');
     $this->get('/register', 'App\Controllers\HomeController:index');
+    $this->get('/register/{code}', 'App\Controllers\HomeController:index');
 });
 
 // Admin

@@ -4,7 +4,7 @@
         <ul class="uk-nav uk-nav-default">
 
             <li class="uk-nav-header">
-                {{ $t("user-nav.user-home") }}
+                {{ $t("user-nav.admin-panel") }}
             </li>
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'dashboard' }" exact><a href="#"><span class="uk-margin-small-right"

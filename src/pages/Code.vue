@@ -16,7 +16,7 @@
                 <tbody>
                 <tr v-for="code in codes">
                     <td>{{code.id}}</td>
-                    <td><a class="nav-link" href="#">{{code.code}}</a></td>
+                    <td><router-link to="/auth/register/"><a  href="#">{{code.code}}</a></router-link></td>
                 </tr>
                 </tbody>
             </table>

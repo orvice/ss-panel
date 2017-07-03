@@ -7,19 +7,28 @@ services:
     command:
     - --loglevel warning
     volumes:
-    - $PWD/redis_data:/var/lib/redis:Z
+      - $PWD/redis_data:/var/lib/redis:Z
 
   mysql:
       image: mysql
       environment:
-        MYSQL_ROOT_PASSWORD: sspanel
+        - MYSQL_ROOT_PASSWORD: sspanel
       volumes:
         - $PWD/mysql_data:/var/lib/mysql:Z
 
   ss-panel:
-      image: orvice/ss-panel
+      image: orvice/ss-panel:dev
       ports:
         - 8080:80
-      # @todo
-      #volumes:
-      #  - $PWD/html:/var/www/html
+      environment:
+        - AUTH_SALT=
+        - AUTH_PASSWORD_ENCRYPTION_TYPE=sha256
+
+        - APP_MU_KEY=
+
+        - DB_HOST=mysql
+        - DB_DATABASE=sspanel
+        - DB_USERNAME=sspanel
+        - DB_PASSWORD=sspanel
+
+        - REDIS_HOST=redis

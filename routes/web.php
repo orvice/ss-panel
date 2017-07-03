@@ -49,19 +49,8 @@ $app->group('/password', function () {
 $app->group('/admin2', function () {
     $this->get('', 'App\Controllers\AdminController:index');
     $this->get('/', 'App\Controllers\AdminController:index');
-    $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
+
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
-    // app config
-    $this->get('/config', 'App\Controllers\AdminController:config');
-    $this->put('/config', 'App\Controllers\AdminController:updateConfig');
-    // Node Mange
-    $this->get('/node', 'App\Controllers\Admin\NodeController:index');
-    $this->get('/node/create', 'App\Controllers\Admin\NodeController:create');
-    $this->post('/node', 'App\Controllers\Admin\NodeController:add');
-    $this->get('/node/{id}/edit', 'App\Controllers\Admin\NodeController:edit');
-    $this->put('/node/{id}', 'App\Controllers\Admin\NodeController:update');
-    $this->delete('/node/{id}', 'App\Controllers\Admin\NodeController:delete');
-    $this->get('/node/{id}/delete', 'App\Controllers\Admin\NodeController:deleteGet');
 
     // User Mange
     $this->get('/user', 'App\Controllers\Admin\UserController:index');
@@ -74,11 +63,9 @@ $app->group('/admin2', function () {
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');
     $this->post('/test/sendmail', 'App\Controllers\Admin\TestController:sendMailPost');
 
-    $this->get('/profile', 'App\Controllers\AdminController:profile');
     $this->get('/invite', 'App\Controllers\AdminController:invite');
     $this->post('/invite', 'App\Controllers\AdminController:addInvite');
     $this->get('/sys', 'App\Controllers\AdminController:sys');
-    $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
 
 // API
@@ -109,6 +96,9 @@ $app->group('/api', function () {
     $this->put('/admin/config', 'App\Controllers\Api\Admin\ConfigController:update')->add(new Admin());
     $this->get('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:index')->add(new Admin());
     $this->post('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:store')->add(new Admin());
+    $this->get('/admin/invites', 'App\Controllers\Api\Admin\InviteController:index')->add(new Admin());
+    $this->post('/admin/invites', 'App\Controllers\Api\Admin\InviteController:store')->add(new Admin());
+    $this->delete('/admin/invites/{id}', 'App\Controllers\Api\Admin\InviteController:delete')->add(new Admin());
     $this->delete('/admin/nodes/{id}', 'App\Controllers\Api\Admin\NodeController:delete')->add(new Admin());
     $this->get('/admin/trafficLogs', 'App\Controllers\Api\Admin\TrafficLogController:index')->add(new Admin());
 });

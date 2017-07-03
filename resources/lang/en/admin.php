@@ -5,4 +5,7 @@ return [
     'delete' => 'Delete',
     'action' => 'Action',
     'node-add' => 'Add Node',
+
+    'num' => 'Number',
+    'prefix' => 'Prefix',
 ];

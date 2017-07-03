@@ -11,11 +11,19 @@
                                                                                           uk-icon="icon: user"></span>
                     {{ $t("user-nav.admin-panel") }}</a></router-link>
             </li>
+
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'nodes' }" exact><a href="#"><span class="uk-margin-small-right"
                                                                                       uk-icon="icon: server"></span>
                     {{$t("ss.node")}}</a></router-link>
             </li>
+
+            <li class="uk-nav">
+                <router-link tag="li" :to="{ name: 'invites' }" exact><a href="#"><span class="uk-margin-small-right"
+                                                                                      uk-icon="icon: nut"></span>
+                    {{$t("nav.invite-code")}}</a></router-link>
+            </li>
+
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'trafficLogs' }" exact><a href="#"><span
                         class="uk-margin-small-right"

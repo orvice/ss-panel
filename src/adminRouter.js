@@ -7,6 +7,8 @@ import Config from './pages/Admin/Config.vue'
 import Node from './pages/Admin/Node.vue'
 import NodeAdd from './pages/Admin/NodeAdd.vue'
 import User from './pages/Admin/User.vue'
+import Invite from './pages/Admin/Invite.vue'
+import InviteAdd from './pages/Admin/InviteAdd.vue'
 import TrafficLog from './pages/Admin/TrafficLog.vue'
 
 import Logout from './pages/Auth/Logout.vue'
@@ -21,6 +23,8 @@ const routes = [
     {path: '/admin/config', name: 'config', component: Config},
     {path: '/admin/nodes', name: 'nodes', component: Node},
     {path: '/admin/nodes/create', name: 'node-add', component: NodeAdd},
+    {path: '/admin/invites', name: 'invites', component: Invite},
+    {path: '/admin/invites/create', name: 'invite-add', component: InviteAdd},
     {path: '/admin/trafficLogs', name: 'trafficLogs', component: TrafficLog},
     {path: '/admin/users', name: 'users', component: User},
 ];

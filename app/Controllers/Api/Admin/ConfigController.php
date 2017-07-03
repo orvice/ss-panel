@@ -15,6 +15,9 @@ class ConfigController extends BaseController implements Cfg
         self::AppName,
         self::CheckInMin,
         self::CheckInMax,
+        self::CheckInTime,
+        self::DefaultTraffic,
+        self::DefaultInviteNum,
     ];
 
     public function index(Request $request, Response $response, $args)

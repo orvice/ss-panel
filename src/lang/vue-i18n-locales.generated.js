@@ -44,7 +44,11 @@ export default {
             "never": "Never",
             "app-name": "App Name",
             "checkInMax": "Check-In Max Traffic",
-            "checkInMin": "Check-In Min Traffic"
+            "checkInMin": "Check-In Min Traffic",
+            "checkInTime": "Check-In Time Interval",
+            "hour": "Hour",
+            "default-traffic": "Default Traffic",
+            "default-invite-num": "Default Invite Number"
         },
         "index": {
             "sign-up-now": "Sign Up Now",

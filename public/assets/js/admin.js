@@ -15837,7 +15837,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             "never": "Never",
             "app-name": "App Name",
             "checkInMax": "Check-In Max Traffic",
-            "checkInMin": "Check-In Min Traffic"
+            "checkInMin": "Check-In Min Traffic",
+            "checkInTime": "Check-In Time Interval",
+            "hour": "Hour",
+            "default-traffic": "Default Traffic",
+            "default-invite-num": "Default Invite Number"
         },
         "index": {
             "sign-up-now": "Sign Up Now",
@@ -17647,6 +17651,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -17658,7 +17686,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             cfgs: {},
             appName: '',
             checkInMin: '',
-            checkInMax: ''
+            checkInMax: '',
+            checkInTime: '',
+
+            defaultTraffic: '',
+            defaultInviteNum: ''
         };
     },
 
@@ -17671,6 +17703,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.appName = _this.cfgs.appName;
                 _this.checkInMin = _this.cfgs.checkInMin;
                 _this.checkInMax = _this.cfgs.checkInMax;
+                _this.checkInTime = _this.cfgs.checkInTime;
+                _this.defaultTraffic = _this.cfgs.defaultTraffic;
+                _this.defaultInviteNum = _this.cfgs.defaultInviteNum;
             }).catch(function (e) {});
         },
         update: function update() {
@@ -17679,7 +17714,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             __WEBPACK_IMPORTED_MODULE_1__http_admin__["a" /* default */].put('config', {
                 appName: this.appName,
                 checkInMin: this.checkInMin,
-                checkInMax: this.checkInMax
+                checkInMax: this.checkInMax,
+                checkInTime: this.checkInTime,
+                defaultTraffic: this.defaultTraffic,
+                defaultInviteNum: this.defaultInviteNum
             }).then(function (response) {
                 UIkit.notification({
                     message: _this2.$t('base.success'),
@@ -17836,6 +17874,96 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.checkInMax = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.checkInTime")) + " (" + _vm._s(_vm.$t("base.hour")) + " )")]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.checkInTime),
+      expression: "checkInTime"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.checkInTime)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.checkInTime = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.default-traffic")) + " (GB)")]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.defaultTraffic),
+      expression: "defaultTraffic"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.defaultTraffic)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.defaultTraffic = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-margin"
+  }, [_c('label', {
+    staticClass: "uk-form-label",
+    attrs: {
+      "for": "form-horizontal-text"
+    }
+  }, [_vm._v(_vm._s(_vm.$t("base.default-invite-num")))]), _vm._v(" "), _c('div', {
+    staticClass: "uk-form-controls"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.defaultInviteNum),
+      expression: "defaultInviteNum"
+    }],
+    staticClass: "uk-input",
+    attrs: {
+      "id": "form-horizontal-text",
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.defaultInviteNum)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.defaultInviteNum = $event.target.value
       }
     }
   })])]), _vm._v(" "), _c('div', {

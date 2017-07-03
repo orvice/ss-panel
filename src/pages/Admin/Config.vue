@@ -35,6 +35,30 @@
                             </div>
                         </div>
 
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.checkInTime")}} ({{$t("base.hour")}} )</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="checkInTime">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.default-traffic")}} (GB)</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="defaultTraffic">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.default-invite-num")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="defaultInviteNum">
+                            </div>
+                        </div>
+
 
                         <div class="uk-margin">
                             <button class="uk-button uk-button-primary" @click="update">
@@ -64,6 +88,10 @@
                 appName: '',
                 checkInMin: '',
                 checkInMax: '',
+                checkInTime:'',
+
+                defaultTraffic: '',
+                defaultInviteNum: '',
             }
         },
         methods: {
@@ -74,6 +102,9 @@
                         this.appName = this.cfgs.appName;
                         this.checkInMin = this.cfgs.checkInMin;
                         this.checkInMax = this.cfgs.checkInMax;
+                        this.checkInTime = this.cfgs.checkInTime;
+                        this.defaultTraffic = this.cfgs.defaultTraffic;
+                        this.defaultInviteNum = this.cfgs.defaultInviteNum;
                     })
                     .catch(e => {
                     })
@@ -83,6 +114,9 @@
                     appName: this.appName,
                     checkInMin: this.checkInMin,
                     checkInMax: this.checkInMax,
+                    checkInTime: this.checkInTime,
+                    defaultTraffic: this.defaultTraffic,
+                    defaultInviteNum: this.defaultInviteNum,
                 })
                     .then(response => {
                         UIkit.notification({

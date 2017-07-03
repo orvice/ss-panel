@@ -20,6 +20,7 @@ services:
       image: orvice/ss-panel:master
       ports:
         - 8080:80
+      container_name: ss-panel
       environment:
         - AUTH_SALT=
         - AUTH_PASSWORD_ENCRYPTION_TYPE=sha256

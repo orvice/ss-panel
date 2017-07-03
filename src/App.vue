@@ -59,7 +59,8 @@
         data () {
             return {
                 title: 'ss-panel',
-                user: {},
+                user: {
+                },
             }
         },
         methods: {

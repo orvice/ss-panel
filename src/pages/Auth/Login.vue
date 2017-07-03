@@ -18,6 +18,12 @@
                 </div>
                 <div class="content">
 
+                    <div class="header header-primary text-center" v-if="false">
+                        <div class="logo-container">
+                            <img src="/assets/img/logo.png" alt="">
+                        </div>
+                    </div>
+
                     <div class="alert alert-danger" role="alert" v-if="isError">
                         <div class="container">
                             <div class="alert-icon">

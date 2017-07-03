@@ -107,6 +107,8 @@ $app->group('/api', function () {
     // Admin
     $this->get('/admin/config', 'App\Controllers\Api\Admin\ConfigController:index')->add(new Admin());
     $this->put('/admin/config', 'App\Controllers\Api\Admin\ConfigController:update')->add(new Admin());
+    $this->get('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:index')->add(new Admin());
+    $this->post('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:store')->add(new Admin());
     $this->get('/admin/trafficLogs', 'App\Controllers\Api\Admin\TrafficLogController:index')->add(new Admin());
 });
 

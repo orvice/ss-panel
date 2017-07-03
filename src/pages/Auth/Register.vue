@@ -127,7 +127,8 @@
                             id: id,
                         };
                         this.$store.commit(types.Login, user);
-                        this.$router.push({name: "dashboard"});
+                        window.location.href = '/dashboard';
+                        //this.$router.push({name: "dashboard"});
                     })
                     .catch(e => {
                         console.log("error");

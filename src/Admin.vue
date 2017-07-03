@@ -59,7 +59,8 @@
         data () {
             return {
                 title: 'ss-panel',
-                user: {},
+                user: {
+                },
             }
         },
         methods: {
@@ -99,7 +100,7 @@
                         // JSON responses are automatically parsed.
                         this.user = response.data;
                         this.$store.commit(types.StoreUser, response.data);
-                        if(!this.user.data.is_admin){
+                        if (!this.user.data.is_admin) {
                             window.location.href = '/';
                         }
                     })

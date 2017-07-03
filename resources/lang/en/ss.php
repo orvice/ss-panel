@@ -3,6 +3,8 @@
 return [
 
     // Node Info
+    'node_name' => 'Node Name',
+    'node_info' => 'Node Info',
     'server_addr' => "Server Addr",
     'traffic_rate' => "Traffic Rate",
     'online_count' => "Online Count",

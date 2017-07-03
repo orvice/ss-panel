@@ -5,6 +5,10 @@ export default {
             "config": "Config",
             "users": "Users"
         },
+        "admin": {
+            "add": "Add",
+            "node-add": "Add Node"
+        },
         "alert": {
             "success": "Success",
             "error": "Whoops"
@@ -67,6 +71,8 @@ export default {
             "tos": "TOS"
         },
         "ss": {
+            "node_name": "Node Name",
+            "node_info": "Node Info",
             "server_addr": "Server Addr",
             "traffic_rate": "Traffic Rate",
             "online_count": "Online Count",

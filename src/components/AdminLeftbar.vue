@@ -14,7 +14,7 @@
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'nodes' }" exact><a href="#"><span class="uk-margin-small-right"
                                                                                       uk-icon="icon: server"></span>
-                    {{ $t("user-nav.node-list") }}</a></router-link>
+                    {{$t("ss.node")}}</a></router-link>
             </li>
             <li class="uk-nav">
                 <router-link tag="li" :to="{ name: 'trafficLogs' }" exact><a href="#"><span

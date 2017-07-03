@@ -7,6 +7,7 @@
     "tracy/tracy": "^2.4",
     "shadowsocks/shadowsocks": "0.1.*",
     "zircote/swagger-php": "^2.0",
+    "illuminate/pagination": "^5.4",
     "martinlindhe/laravel-vue-i18n-generator": "^0.1.13"
   },
   "require-dev": {
@@ -14,8 +15,8 @@
     "phploc/phploc": "*",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "*",
-    "squizlabs/php_codesniffer": "2.*",
-    "illuminate/pagination": "^5.3"
+    "squizlabs/php_codesniffer": "2.*"
+
   },
   "autoload": {
     "classmap": [

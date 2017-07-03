@@ -43,7 +43,7 @@
         <div class="wrapper">
             <div class="page-header clear-filter" >
                 <div class="page-header-image" data-parallax="true"
-                     style="background-image: url('../assets/img/header.jpg');">
+                     style="background-image: url('/assets/img/header.jpg');">
                 </div>
                 <router-view></router-view>
             </div>
@@ -127,14 +127,12 @@
                         console.log(this.user);
                     })
                     .catch(e => {
-                        this.errors.push(e)
                     })
             }
         },
         mounted: function () {
             this.handleCfg();
             this.checkToken();
-            this.initUser();
             this.checkLang();
         },
         components: {

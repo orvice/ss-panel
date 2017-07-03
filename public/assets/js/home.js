@@ -18064,15 +18064,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // JSON responses are automatically parsed.
                 _this2.user = response.data;
                 console.log(_this2.user);
-            }).catch(function (e) {
-                _this2.errors.push(e);
-            });
+            }).catch(function (e) {});
         }
     },
     mounted: function mounted() {
         this.handleCfg();
         this.checkToken();
-        this.initUser();
         this.checkLang();
     },
     components: {
@@ -18201,7 +18198,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "page-header-image",
     staticStyle: {
-      "background-image": "url('../assets/img/header.jpg')"
+      "background-image": "url('/assets/img/header.jpg')"
     },
     attrs: {
       "data-parallax": "true"

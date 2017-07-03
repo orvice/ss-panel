@@ -16878,7 +16878,74 @@ var index_esm = {
 /* 93 */,
 /* 94 */,
 /* 95 */,
-/* 96 */,
+/* 96 */
+/***/ (function(module, exports) {
+
+module.exports = {
+    props: {
+        data: {
+            type: Object,
+            default: function() {
+                return {
+                    current_page: 1,
+                    data: [],
+                    from: 1,
+                    last_page: 1,
+                    next_page_url: null,
+                    per_page: 10,
+                    prev_page_url: null,
+                    to: 1,
+                    total: 0,
+                }
+            }
+        },
+        limit: {
+            type: Number,
+            default: 0
+        }
+    },
+
+    template: '<ul class="uk-pagination"  v-if="data.total > data.per_page" uk-margin>\
+		<li class="page-item" v-if="data.prev_page_url">\
+			<a class="page-link" href="#" aria-label="Previous" @click.prevent="selectPage(--data.current_page)"><span aria-hidden="true">&laquo;</span></a>\
+		</li>\
+		<li class="page-item" v-for="n in getPages()" :class="{ \'uk-active\': n == data.current_page }"><a class="page-link" href="#" @click.prevent="selectPage(n)">{{ n }}</a></li>\
+		<li class="page-item" v-if="data.next_page_url">\
+			<a class="page-link" href="#" aria-label="Next" @click.prevent="selectPage(++data.current_page)"><span aria-hidden="true">&raquo;</span></a>\
+		</li>\
+	</ul>',
+
+    methods: {
+        selectPage: function(page) {
+            this.$emit('pagination-change-page', page);
+        },
+        getPages: function() {
+            if (this.limit === -1) {
+                return 0;
+            }
+
+            if (this.limit === 0) {
+                return this.data.last_page;
+            }
+
+            var start = this.data.current_page - this.limit,
+                end   = this.data.current_page + this.limit + 1,
+                pages = [],
+                index;
+
+            start = start < 1 ? 1 : start;
+            end   = end >= this.data.last_page ? this.data.last_page + 1 : end;
+
+            for (index = start; index < end; index++) {
+                pages.push(index);
+            }
+
+            return pages;
+        }
+    }
+};
+
+/***/ }),
 /* 97 */,
 /* 98 */,
 /* 99 */,
@@ -16911,7 +16978,24 @@ var index_esm = {
 /* 126 */,
 /* 127 */,
 /* 128 */,
-/* 129 */,
+/* 129 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return bytesToSize; });
+/* unused harmony export timeFormat */
+var bytesToSize = function bytesToSize(bytes) {
+    if (bytes === 0) return '0 B';
+    var k = 1000,
+        // or 1024
+    sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+    return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+};
+
+var timeFormat = function timeFormat(t) {};
+
+/***/ }),
 /* 130 */,
 /* 131 */,
 /* 132 */,
@@ -17255,10 +17339,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* eslint-disable no-new */
 
@@ -17295,7 +17375,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "tag": "li",
       "to": {
-        name: 'dashboard'
+        name: 'index'
       },
       "exact": ""
     }
@@ -17308,7 +17388,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "uk-icon": "icon: user"
     }
-  }), _vm._v("\n                " + _vm._s(_vm.$t("user-nav.dashboard")))])])], 1), _vm._v(" "), _c('li', {
+  }), _vm._v("\n                " + _vm._s(_vm.$t("user-nav.admin-panel")))])])], 1), _vm._v(" "), _c('li', {
     staticClass: "uk-nav"
   }, [_c('router-link', {
     attrs: {
@@ -17366,25 +17446,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "uk-icon": "icon: settings"
     }
   }), _vm._v("\n                " + _vm._s(_vm.$t("admin-nav.config")) + " ")])])], 1), _vm._v(" "), _c('li', {
-    staticClass: "uk-nav"
-  }, [_c('router-link', {
-    attrs: {
-      "tag": "li",
-      "to": {
-        name: 'invite'
-      },
-      "exact": ""
-    }
-  }, [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_c('span', {
-    staticClass: "uk-margin-small-right",
-    attrs: {
-      "uk-icon": "icon: users"
-    }
-  }), _vm._v("\n                " + _vm._s(_vm.$t("user-nav.invite-friend")) + " ")])])], 1), _vm._v(" "), _c('li', {
     staticClass: "uk-nav-divider"
   })])])
 },staticRenderFns: []}
@@ -17507,6 +17568,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_Admin_Node_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__pages_Admin_Node_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Admin_User_vue__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Admin_User_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__pages_Admin_User_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_Admin_TrafficLog_vue__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_Admin_TrafficLog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__pages_Admin_TrafficLog_vue__);
 
 
 
@@ -17516,7 +17579,8 @@ if (false) {
 
 
 
-var routes = [{ path: '/admin', name: 'index', component: __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default.a }, { path: '/admin/config', name: 'config', component: __WEBPACK_IMPORTED_MODULE_3__pages_Admin_Config_vue___default.a }, { path: '/admin/nodes', name: 'nodes', component: __WEBPACK_IMPORTED_MODULE_4__pages_Admin_Node_vue___default.a }, { path: '/admin/users', name: 'users', component: __WEBPACK_IMPORTED_MODULE_5__pages_Admin_User_vue___default.a }];
+
+var routes = [{ path: '/admin', name: 'index', component: __WEBPACK_IMPORTED_MODULE_2__pages_Admin_Index_vue___default.a }, { path: '/admin/config', name: 'config', component: __WEBPACK_IMPORTED_MODULE_3__pages_Admin_Config_vue___default.a }, { path: '/admin/nodes', name: 'nodes', component: __WEBPACK_IMPORTED_MODULE_4__pages_Admin_Node_vue___default.a }, { path: '/admin/trafficLogs', name: 'trafficLogs', component: __WEBPACK_IMPORTED_MODULE_6__pages_Admin_TrafficLog_vue___default.a }, { path: '/admin/users', name: 'users', component: __WEBPACK_IMPORTED_MODULE_5__pages_Admin_User_vue___default.a }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: routes,
@@ -18026,6 +18090,189 @@ if (Component.esModule && Object.keys(Component.esModule).some(function (key) {r
 
 module.exports = Component.exports
 
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(157),
+  /* template */
+  __webpack_require__(158),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/orvice/workspace/www/ss-panel/src/pages/Admin/TrafficLog.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TrafficLog.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2b5bb2d2", Component.options)
+  } else {
+    hotAPI.reload("data-v-2b5bb2d2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 157 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_admin__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_util__ = __webpack_require__(129);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'TrafficLog',
+    components: {
+        pagination: __WEBPACK_IMPORTED_MODULE_2_laravel_vue_pagination_uikit___default.a
+    },
+    data: function data() {
+        return {
+            data: {}
+        };
+    },
+
+    methods: {
+        Results: function Results(page) {
+            var _this = this;
+
+            if (typeof page === 'undefined') {
+                page = 1;
+            }
+
+            __WEBPACK_IMPORTED_MODULE_1__http_admin__["a" /* default */].get('trafficLogs?page=' + page).then(function (response) {
+                _this.data = response.data;
+                _this.logs = response.data.data;
+            }).catch(function (e) {
+                _this.errors.push(e);
+            });
+        },
+        timeFormat: function timeFormat(ut) {
+            return new Date(ut * 1e3).toISOString();
+        },
+
+        bytesToSize: __WEBPACK_IMPORTED_MODULE_3__tools_util__["a" /* bytesToSize */]
+    },
+    mounted: function mounted() {
+        this.Results();
+    }
+});
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "content-padder content-background"
+  }, [_c('div', {
+    staticClass: "uk-section-small uk-section-default header"
+  }, [_c('div', {
+    staticClass: "uk-container uk-container-large"
+  }, [_c('h3', [_c('span', {
+    staticClass: "ion-speedometer"
+  }), _vm._v(" " + _vm._s(_vm.$t("user-nav.traffic-log")) + " ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "uk-section-small"
+  }, [_c('div', {
+    staticClass: "uk-container uk-container-large"
+  }, [_c('div', {
+    staticClass: "uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl",
+    attrs: {
+      "uk-grid": ""
+    }
+  }, [_c('div', {
+    staticClass: "uk-card uk-card-default uk-card-body"
+  }, [_c('table', {
+    staticClass: "uk-table uk-table-striped"
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.$t("ss.node")))]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.$t("ss.traffic_rate")))]), _vm._v(" "), _c('th', [_vm._v("Traffic")]), _vm._v(" "), _c('th', [_vm._v("time")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.data.data), function(log) {
+    return _c('tr', [_c('td', [_vm._v("#" + _vm._s(log.id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(log.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(log.rate))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.bytesToSize(log.u + log.d)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.timeFormat(log.log_time)))])])
+  }))]), _vm._v(" "), _c('pagination', {
+    attrs: {
+      "data": _vm.data
+    },
+    on: {
+      "pagination-change-page": _vm.Results
+    }
+  })], 1)])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2b5bb2d2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

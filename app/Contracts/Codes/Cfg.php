@@ -12,4 +12,6 @@ interface Cfg
     const CheckInTime = 'checkInTime';
     const DefaultTraffic = 'defaultTraffic';
     const DefaultInviteNum = 'defaultInviteNum';
+
+    const MuKey = 'muKey';
 }

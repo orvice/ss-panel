@@ -5,8 +5,9 @@ namespace App\Middleware;
 use App\Utils\Helper;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Contracts\Codes\Cfg;
 
-class Mu
+class Mu implements Cfg
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
@@ -18,7 +19,7 @@ class Mu
 
             return $newResponse;
         }
-        if ($key != config('app.mu_key')) {
+        if ($key != db_config(self::MuKey)) {
             $res['ret'] = 0;
             $res['msg'] = 'token is  invalid';
             $newResponse = $response->withJson($res, 401);

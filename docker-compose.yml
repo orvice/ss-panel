@@ -30,7 +30,6 @@ services:
         - ADMIN_PASS=
 
         - APP_LANG=en
-        - APP_MU_KEY=
 
         - AUTH_SALT=
         - AUTH_PASSWORD_ENCRYPTION_TYPE=bcrypt

@@ -18,6 +18,8 @@ class ConfigController extends BaseController implements Cfg
         self::CheckInTime,
         self::DefaultTraffic,
         self::DefaultInviteNum,
+
+        self::MuKey,
     ];
 
     public function index(Request $request, Response $response, $args)

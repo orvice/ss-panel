@@ -56,7 +56,8 @@ export default {
             "checkInTime": "Check-In Time Interval",
             "hour": "Hour",
             "default-traffic": "Default Traffic",
-            "default-invite-num": "Default Invite Number"
+            "default-invite-num": "Default Invite Number",
+            "mu-key": "MU API Key"
         },
         "index": {
             "sign-up-now": "Sign Up Now",

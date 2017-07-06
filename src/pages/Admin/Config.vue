@@ -59,6 +59,14 @@
                             </div>
                         </div>
 
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.mu-key")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="muKey">
+                            </div>
+                        </div>
+
 
                         <div class="uk-margin">
                             <button class="uk-button uk-button-primary" @click="update">
@@ -92,6 +100,7 @@
 
                 defaultTraffic: '',
                 defaultInviteNum: '',
+                muKey: '',
             }
         },
         methods: {
@@ -105,6 +114,7 @@
                         this.checkInTime = this.cfgs.checkInTime;
                         this.defaultTraffic = this.cfgs.defaultTraffic;
                         this.defaultInviteNum = this.cfgs.defaultInviteNum;
+                        this.muKey = this.cfgs.muKey;
                     })
                     .catch(e => {
                     })
@@ -117,6 +127,7 @@
                     checkInTime: this.checkInTime,
                     defaultTraffic: this.defaultTraffic,
                     defaultInviteNum: this.defaultInviteNum,
+                    muKey: this.muKey,
                 })
                     .then(response => {
                         UIkit.notification({

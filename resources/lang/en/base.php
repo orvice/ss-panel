@@ -18,4 +18,6 @@ return [
     'hour' => 'Hour',
     'default-traffic' => 'Default Traffic',
     'default-invite-num' => 'Default Invite Number',
+
+    'mu-key' => 'MU API Key',
 ];

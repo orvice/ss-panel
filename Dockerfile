@@ -15,9 +15,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN cd /var/www/html && composer install --no-scripts
 RUN chmod -R 777 storage
 
-#COPY docker-entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 80
 
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

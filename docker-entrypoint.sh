@@ -14,3 +14,6 @@ else
   echo "skip create admin"
   php xcat createAdmin "$ADMIN_EMAIL" "$ADMIN_PASS"
 fi
+
+echo 'Starting Web....'
+exec "$@"

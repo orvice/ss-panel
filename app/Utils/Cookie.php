@@ -19,4 +19,15 @@ class Cookie
 
         return '';
     }
+
+    public function te(){
+        $isNewUser = false;
+        $user = null;
+        $u = function(){
+
+        };
+
+        // do else
+
+    }
 }

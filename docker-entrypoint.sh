@@ -8,11 +8,11 @@ else
 fi
 
 
-if [ "$ADMIN_EMAIL" != "" ] || [ "$ADMIN_PASS" != "" ];then
+if [ "$ADMIN_EMAIL" != "" ] && [ "$ADMIN_PASS" != "" ];then
   echo "create admin"
+  php xcat createAdmin "$ADMIN_EMAIL" "$ADMIN_PASS"
 else
   echo "skip create admin"
-  php xcat createAdmin "$ADMIN_EMAIL" "$ADMIN_PASS"
 fi
 
 echo 'Starting Web....'

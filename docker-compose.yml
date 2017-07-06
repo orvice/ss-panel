@@ -21,6 +21,9 @@ services:
       ports:
         - 8080:80
       container_name: ss-panel
+      depends_on:
+        - mysql
+        - redis
       environment:
         - MIGRATION=true
         - ADMIN_EMAIL=

@@ -10,4 +10,9 @@ use Pongtan\Database\Model as BaseModel;
 class Model extends BaseModel
 {
     public $timestamps = false;
+
+    public function getPdo()
+    {
+        $this->getConnection()->getPdo();
+    }
 }

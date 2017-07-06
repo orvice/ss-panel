@@ -127,7 +127,7 @@ class UserController extends BaseController implements AuthCode,Cfg
         }
 
         return $this->echoJson($response, [
-            "traffic" => Tools::flowAutoShow($traffic),
+            "traffic" => Tools::flowAutoShow($trafficToAdd),
         ]);
     }
 

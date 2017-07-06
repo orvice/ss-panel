@@ -1,6 +1,0 @@
-#!/usr/bin/env php
-<?php
-$app = require './bootstrap/app.php';
-
-$m = new \App\Command\Migration();
-$m->getMigrator()->run(base_path('databases'));

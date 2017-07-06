@@ -25,6 +25,8 @@ services:
         - MIGRATION=true
         - AUTH_SALT=
         - AUTH_PASSWORD_ENCRYPTION_TYPE=sha256
+        - ADMIN_EMAIL=
+        - ADMIN_PASS=
 
         - APP_MU_KEY=
 

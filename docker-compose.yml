@@ -23,13 +23,13 @@ services:
       container_name: ss-panel
       environment:
         - MIGRATION=true
-        - AUTH_SALT=
-        - AUTH_PASSWORD_ENCRYPTION_TYPE=sha256
         - ADMIN_EMAIL=
         - ADMIN_PASS=
 
         - APP_MU_KEY=
-
+        
+        - AUTH_SALT=
+        - AUTH_PASSWORD_ENCRYPTION_TYPE=bcrypt
 
         - DB_HOST=mysql
         - DB_DATABASE=sspanel

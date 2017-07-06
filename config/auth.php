@@ -5,7 +5,7 @@
  */
 
 return [
-    'password_encryption_type' => env('AUTH_PASSWORD_ENCRYPTION_TYPE', 'sha256'),
+    'password_encryption_type' => env('AUTH_PASSWORD_ENCRYPTION_TYPE', 'bcrypt'),
     'salt' => env("AUTH_SALT", ''),
     'session_timeout' => 3600 * 24,
     'email_verify_enabled' => env('APP_EmailVerifyEnabled', false),

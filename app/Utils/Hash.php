@@ -7,6 +7,11 @@ use App\Services\Factory;
 
 class Hash
 {
+
+    const MD5 = 'md5';
+    const SHA256 = 'sha256';
+    const BCRYPT = 'bcrypt';
+
     /**
      * @param $str
      *
@@ -16,14 +21,36 @@ class Hash
     {
         $method = config('auth.password_encryption_type');
         switch ($method) {
-            case 'md5':
+            case self::MD5:
                 return self::md5WithSalt($str);
-            case 'sha256':
+            case self::SHA256:
                 return self::sha256WithSalt($str);
+            case self::BCRYPT:
+                return self::genBcryptHash($str);
             default:
+
         }
 
         return $str;
+    }
+
+    /**
+     * @param $s
+     * @return bool|string
+     */
+    public static function genBcryptHash($s)
+    {
+        return password_hash($s, PASSWORD_DEFAULT);
+    }
+
+    /**
+     * @param $pass
+     * @param $hash
+     * @return bool
+     */
+    public static function bcryptVerify($pass, $hash)
+    {
+        return password_verify($pass, $hash);
     }
 
 
@@ -58,14 +85,14 @@ class Hash
     public static function checkPassword($hashedPassword, $password)
     {
         $method = config('auth.password_encryption_type');
-        if($method == 'bcrypt'){
-            // @todo
+        if ($method == self::BCRYPT) {
+            return self::bcryptVerify($password, $hashedPassword);
         }
         $truePassword = self::passwordHash($password);
         if ($hashedPassword == $truePassword) {
             return true;
         }
-        Factory::getLogger()->error("true: ". $truePassword .  "  input: ".$hashedPassword);
+        Factory::getLogger()->error("true: " . $truePassword . "  input: " . $hashedPassword);
         return false;
     }
 }

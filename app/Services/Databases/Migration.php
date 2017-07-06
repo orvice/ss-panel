@@ -1,17 +1,14 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Services\Databases;
 
 use App\Models\Model;
 use Illuminate\Database\Migrations\Migrator;
-use Illuminate\Database\ConnectionResolver;
 use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Facade;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Container\Container;
 use Illuminate\Support\Facades\App;
+use App\Services\FakeApp;
 
 class Migration
 {

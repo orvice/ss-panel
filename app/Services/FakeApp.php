@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Services;
 
 
 use Pongtan\FakeLaravel\Application as FakeLaravel;

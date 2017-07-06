@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\Console\Command;
 
 use App\Models\User;
 use App\Services\Config;

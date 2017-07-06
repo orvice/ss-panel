@@ -13,6 +13,7 @@ class Kernel
     protected $commands = [
         Commands\Migration::class,
         Commands\GenLang::class,
+        Commands\CreateAdmin::class,
     ];
 
     public function __construct()

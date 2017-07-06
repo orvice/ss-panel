@@ -22,10 +22,12 @@ services:
         - 8080:80
       container_name: ss-panel
       environment:
+        - MIGRATION=true
         - AUTH_SALT=
         - AUTH_PASSWORD_ENCRYPTION_TYPE=sha256
 
         - APP_MU_KEY=
+
 
         - DB_HOST=mysql
         - DB_DATABASE=sspanel

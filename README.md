@@ -41,6 +41,10 @@ Visit `ip:8080`
 
 You can also install manual with Nginx or other web server,[check wiki](https://github.com/orvice/ss-panel/wiki/Install-with-Nginx).
 
+## ToDo
+* Full unit test for api
+* Unit test for Front
+
 ## Thanks to
 * [LightFish](https://github.com/Pongtan/LightFish)
 * [Vue.js](https://vuejs.org)

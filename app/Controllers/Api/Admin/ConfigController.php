@@ -19,6 +19,7 @@ class ConfigController extends BaseController implements Cfg
         self::DefaultTraffic,
         self::DefaultInviteNum,
 
+        self::AppLang,
         self::MuKey,
     ];
 

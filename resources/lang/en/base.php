@@ -19,5 +19,6 @@ return [
     'default-traffic' => 'Default Traffic',
     'default-invite-num' => 'Default Invite Number',
 
+    'lang' => 'Language',
     'mu-key' => 'MU API Key',
 ];

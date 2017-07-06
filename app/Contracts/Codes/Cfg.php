@@ -13,5 +13,6 @@ interface Cfg
     const DefaultTraffic = 'defaultTraffic';
     const DefaultInviteNum = 'defaultInviteNum';
 
+    const AppLang = 'appLang';
     const MuKey = 'muKey';
 }

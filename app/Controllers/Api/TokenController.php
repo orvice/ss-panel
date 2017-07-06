@@ -11,6 +11,7 @@ use App\Utils\Hash;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Contracts\Codes\Auth as AuthCode;
+use App\Contracts\Codes\Cfg;
 use App\Models\InviteCode;
 use App\Utils\Check;
 use App\Utils\Http;
@@ -19,7 +20,7 @@ use App\Utils\Tools;
 /**
  *  ApiController.
  */
-class TokenController extends BaseController implements AuthCode
+class TokenController extends BaseController implements AuthCode,Cfg
 {
 
     /**
@@ -150,8 +151,8 @@ class TokenController extends BaseController implements AuthCode
         $user->t = 0;
         $user->u = 0;
         $user->d = 0;
-        $user->transfer_enable = db_config('defaultTraffic', 1);
-        $user->invite_num = db_config('invite_num', 10);
+        $user->transfer_enable = db_config(self::DefaultTraffic, 1);
+        $user->invite_num = db_config(self::DefaultInviteNum, 10);
         $user->reg_ip = Http::getClientIP();
         $user->ref_by = $c->user_id;
 

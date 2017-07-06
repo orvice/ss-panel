@@ -29,6 +29,7 @@ services:
         - ADMIN_EMAIL=
         - ADMIN_PASS=
 
+        - APP_LANG=en
         - APP_MU_KEY=
 
         - AUTH_SALT=

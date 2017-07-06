@@ -110,7 +110,7 @@ class UserController extends BaseController implements AuthCode,Cfg
         if (!$user->isAbleToCheckin()) {
             return $this->echoJsonError($response, []);
         }
-        $traffic = rand(conf(self::CheckInMin), conf(self::CheckInMax));
+        $traffic = rand(db_config(self::CheckInMin), db_config(self::CheckInMax));
         $trafficToAdd = Tools::toMB($traffic);
         $user->transfer_enable = $user->transfer_enable + $trafficToAdd;
         $user->last_check_in_time = time();

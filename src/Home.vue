@@ -97,7 +97,6 @@
                         document.title = response.data.data.app;
                     })
                     .catch(e => {
-                        this.errors.push(e)
                     })
             },
             checkToken: function () {

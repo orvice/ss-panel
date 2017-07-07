@@ -4,8 +4,10 @@ namespace Tests\Mu;
 
 use App\Services\Config;
 use Tests\TestCase;
+use App\Contracts\Codes\Cfg;
+use App\Services\Config\DbConfig;
 
-class MuTest extends TestCase
+class MuTest extends TestCase implements Cfg
 {
     protected $muKey = 'muKey';
 
@@ -16,12 +18,20 @@ class MuTest extends TestCase
 
     public function setUp()
     {
-        $this->setTestingEnv();
+        $this->markTestIncomplete();
+    }
+
+    /**
+     * @return DbConfig
+     */
+    public function getCfg()
+    {
+        return app()->make(DbConfig::class);
     }
 
     protected function setMuKey()
     {
-        Config::set('muKey', $this->muKey);
+        $this->getCfg()->set(self::MuKey,$this->muKey);
     }
 
     public function testUsers()

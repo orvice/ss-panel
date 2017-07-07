@@ -50,7 +50,7 @@ class HomeController extends BaseController
         $res = [
             'server_info' => $server,
             'ip' => Http::getClientIP(),
-            'version' => config('app.version'),
+            'version' => get_version(),
             'reg_count' => Check::getIpRegCount(Http::getClientIP()),
             'e' => Factory::getCache()->has('ez370Y84NT5cBkuxoGHTYR5UqGdlKaS5zwOW515hLoSBG7ogtG5MgGNBdhUprMpn'),
             // 'user' => user(),

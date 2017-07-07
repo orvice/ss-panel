@@ -3,6 +3,7 @@
 namespace App\Utils;
 
 use Pongtan\Services\Config;
+use Slim\Http\Request;
 
 class Helper
 {
@@ -18,7 +19,7 @@ class Helper
         return false;
     }
 
-    public static function getTokenFromReq($request)
+    public static function getTokenFromReq(Request $request)
     {
         if ($request->hasHeader('Token')) {
             return $request->getHeaderLine('Token');
@@ -32,7 +33,7 @@ class Helper
         return $accessToken;
     }
 
-    public static function getMuKeyFromReq($request)
+    public static function getMuKeyFromReq(Request $request)
     {
         if ($request->hasHeader('Key')) {
             return $request->getHeaderLine('Key');

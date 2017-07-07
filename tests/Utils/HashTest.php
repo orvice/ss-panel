@@ -11,21 +11,10 @@ class HashTest extends TestCase
 {
     public function testHash()
     {
-        Config::set('pwdMethod', 'md5');
-        $this->hashTest();
-
-        Config::set('pwdMethod', 'sha256');
-        $this->hashTest();
-
-        Config::set('pwdMethod', 'default');
+        // @todo more hash
         $this->hashTest();
     }
 
-    public function testCookieHash()
-    {
-        $str = Tools::genRandomChar();
-        Hash::cookieHash($str);
-    }
 
     public function hashTest()
     {

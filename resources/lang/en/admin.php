@@ -8,4 +8,6 @@ return [
 
     'num' => 'Number',
     'prefix' => 'Prefix',
+
+    'home-message' => 'Home Message',
 ];

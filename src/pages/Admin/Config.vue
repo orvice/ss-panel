@@ -36,7 +36,8 @@
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.checkInTime")}} ({{$t("base.hour")}} )</label>
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("base.checkInTime")}} ({{$t("base.hour")}} )</label>
                             <div class="uk-form-controls">
                                 <input class="uk-input" id="form-horizontal-text" type="text"
                                        v-model="checkInTime">
@@ -44,7 +45,8 @@
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.default-traffic")}} (GB)</label>
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("base.default-traffic")}} (GB)</label>
                             <div class="uk-form-controls">
                                 <input class="uk-input" id="form-horizontal-text" type="text"
                                        v-model="defaultTraffic">
@@ -52,7 +54,8 @@
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.default-invite-num")}}</label>
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("base.default-invite-num")}}</label>
                             <div class="uk-form-controls">
                                 <input class="uk-input" id="form-horizontal-text" type="text"
                                        v-model="defaultInviteNum">
@@ -64,6 +67,14 @@
                             <div class="uk-form-controls">
                                 <input class="uk-input" id="form-horizontal-text" type="text"
                                        v-model="muKey">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("admin.home-message")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="homeMessage">
                             </div>
                         </div>
 
@@ -96,11 +107,13 @@
                 appName: '',
                 checkInMin: '',
                 checkInMax: '',
-                checkInTime:'',
+                checkInTime: '',
 
                 defaultTraffic: '',
                 defaultInviteNum: '',
                 muKey: '',
+
+                homeMessage: '',
             }
         },
         methods: {
@@ -115,6 +128,7 @@
                         this.defaultTraffic = this.cfgs.defaultTraffic;
                         this.defaultInviteNum = this.cfgs.defaultInviteNum;
                         this.muKey = this.cfgs.muKey;
+                        this.homeMessage = this.cfgs.homeMessage;
                     })
                     .catch(e => {
                     })
@@ -128,6 +142,7 @@
                     defaultTraffic: this.defaultTraffic,
                     defaultInviteNum: this.defaultInviteNum,
                     muKey: this.muKey,
+                    homeMessage: this.homeMessage,
                 })
                     .then(response => {
                         UIkit.notification({

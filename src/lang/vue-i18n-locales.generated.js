@@ -11,7 +11,8 @@ export default {
             "action": "Action",
             "node-add": "Add Node",
             "num": "Number",
-            "prefix": "Prefix"
+            "prefix": "Prefix",
+            "home-message": "Home Message"
         },
         "alert": {
             "success": "Success",
@@ -134,7 +135,8 @@ export default {
             "action": "操作",
             "node-add": "添加节点",
             "num": "数量",
-            "prefix": "前缀"
+            "prefix": "前缀",
+            "home-message": "首页消息公告"
         },
         "alert": {
             "success": "成功!",

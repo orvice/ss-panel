@@ -21,6 +21,8 @@ class ConfigController extends BaseController implements Cfg
 
         self::AppLang,
         self::MuKey,
+
+        self::HomeMessage,
     ];
 
     public function index(Request $request, Response $response, $args)
@@ -37,8 +39,8 @@ class ConfigController extends BaseController implements Cfg
         $cfg = $this->getCfg();
         $input = file_get_contents("php://input");
         $arr = json_decode($input, true);
-        foreach ($arr as $k => $v){
-            $cfg->set($k,$v);
+        foreach ($arr as $k => $v) {
+            $cfg->set($k, $v);
         }
         $cfg->flushAll();
         return $this->echoJsonWithData($response);

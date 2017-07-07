@@ -8,4 +8,6 @@ return [
 
     'num' => '数量',
     'prefix' => '前缀',
+
+    'home-message' => '首页消息公告',
 ];

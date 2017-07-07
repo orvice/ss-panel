@@ -15,4 +15,6 @@ interface Cfg
 
     const AppLang = 'appLang';
     const MuKey = 'muKey';
+
+    const HomeMessage = 'homeMessage';
 }

@@ -38,9 +38,10 @@
                 http.get("config")
                     .then(response => {
                         document.title = response.data.data.app;
+                        this.title = response.data.data.app;
+                        this.body = response.data.data.index_message;
                     })
                     .catch(e => {
-                        this.errors.push(e)
                     })
             },
         },

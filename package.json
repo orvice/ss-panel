@@ -12,7 +12,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap-sass": "^3.3.7",
-    "jquery": "^3.1.0",
+    "jquery": "^3.2.1",
     "laravel-mix": "^1.0.7",
     "lodash": "^4.16.2",
     "transform-runtime": "0.0.0"

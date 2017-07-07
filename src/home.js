@@ -6,6 +6,8 @@ import router from './homeRouter'
 import store  from './store/'
 import {Locales} from './lang'
 
+window.$ = window.jQuery = require('jquery');
+
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 

@@ -17,4 +17,8 @@ interface Cfg
     const MuKey = 'muKey';
 
     const HomeMessage = 'homeMessage';
+
+    const MailgunDomain = 'mailgunDomain';
+    const MailgunKey = 'mailgunKey';
+    const MailgunSender = 'mailgunSender';
 }

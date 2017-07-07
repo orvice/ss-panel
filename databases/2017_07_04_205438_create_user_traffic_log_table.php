@@ -27,8 +27,9 @@ class CreateUserTrafficLogTable extends Migration
             $table->string('traffic', 32);
             $table->integer('log_time');
 
-            
-
+            $table->index('user_id', 'user_id');
+            $table->index('node_id', 'node_id');
+            $table->index('log_time', 'log_time');
             
 
         });

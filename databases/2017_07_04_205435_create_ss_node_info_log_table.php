@@ -24,7 +24,8 @@ class CreateSsNodeInfoLogTable extends Migration
             $table->string('load', 32);
             $table->integer('log_time');
 
-            
+            $table->index('node_id', 'node_id');
+            $table->index('log_time', 'log_time');
 
             
 

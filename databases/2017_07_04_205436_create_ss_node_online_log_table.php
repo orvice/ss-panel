@@ -23,7 +23,8 @@ class CreateSsNodeOnlineLogTable extends Migration
             $table->integer('online_user');
             $table->integer('log_time');
 
-            
+            $table->index('node_id', 'node_id');
+            $table->index('log_time', 'log_time');
 
             
 

@@ -54,16 +54,14 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="/dashboard">
-                                    Dashboard
-                                </a>
+                               Made with ♥
                             </li>
                         </ul>
                     </nav>
                     <div class="copyright">
                         &copy;
                         {{year}}, Powered by
-                        <a href="https://github.com/orvice/ss-panel" target="_blank">ss-panel</a>.
+                        <a href="https://github.com/orvice/ss-panel" target="_blank">ss-panel</a> {{version}}.
                     </div>
                 </div>
             </footer>
@@ -86,6 +84,7 @@
                 title: 'ss-panel',
                 user: {},
                 year: 2017,
+                version: 4,
             }
         },
         methods: {
@@ -94,6 +93,7 @@
                     .then(response => {
                         // JSON responses are automatically parsed.
                         this.title = response.data.data.app;
+                        this.version = response.data.data.version;
                         document.title = response.data.data.app;
                     })
                     .catch(e => {

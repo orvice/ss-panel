@@ -9,11 +9,21 @@ export const bytesToSize = function (bytes) {
 export const timeFormat = function (t) {
 };
 
-export const notify = function(message,status){
+export const notify = function (message, status) {
     UIkit.notification({
         message: message,
         status: status,
         pos: 'top-center',
         timeout: 5000
     });
+};
+
+export const getLang = function () {
+    const lang = navigator.language || navigator.userLanguage;
+    switch (lang) {
+        case 'zh-CN':
+            return 'zh_cn';
+        default:
+            return 'en';
+    }
 };

@@ -10,4 +10,15 @@ return [
     'update' => "更新",
 
     'never' => "从不",
+
+    'app-name' => '站点名',
+    'checkInMax' => '签到最多流量',
+    'checkInMin' => '签到最少流量',
+    'checkInTime' => '2次签到时间间隔',
+    'hour' => '小时',
+    'default-traffic' => '用户初始流量',
+    'default-invite-num' => '用户初始邀请码数量',
+
+    'lang' => '语言',
+    'mu-key' => 'MU API Key',
 ];

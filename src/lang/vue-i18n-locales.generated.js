@@ -57,6 +57,7 @@ export default {
             "hour": "Hour",
             "default-traffic": "Default Traffic",
             "default-invite-num": "Default Invite Number",
+            "lang": "Language",
             "mu-key": "MU API Key"
         },
         "index": {
@@ -122,13 +123,33 @@ export default {
         }
     },
     "zh_cn": {
+        "admin-nav": {
+            "nodes": "节点",
+            "config": "配置",
+            "users": "用户"
+        },
+        "admin": {
+            "add": "添加",
+            "delete": "删除",
+            "action": "操作",
+            "node-add": "添加节点",
+            "num": "数量",
+            "prefix": "前缀"
+        },
+        "alert": {
+            "success": "成功!",
+            "error": "出错了!"
+        },
         "auth": {
             "login": "登陆",
             "register": "注册",
             "logout": "退出",
             "email": "邮箱",
+            "current-password": "当前密码",
             "password": "密码",
+            "new-password": "新密码",
             "password-repeat": "重复密码",
+            "update-password": "更新密码",
             "remember-me": "记住我",
             "forgot-password": "忘记密码",
             "activation-code": "激活码",
@@ -137,7 +158,13 @@ export default {
             "create-account": "创建账户",
             "accept-tos-register": "接受用户协议并注册",
             "username": "用户名",
-            "login-fail": "用户名或密码错误！"
+            "login-fail": "用户名或密码错误！",
+            "current-password-wrong": "当前密码错误",
+            "password-repeat-wrong": "两次密码输入不一致",
+            "invite-code-invalid": "邀请码错误",
+            "email-invalid": "邮箱不合法",
+            "password-too-short": "密码太短",
+            "email-used": "邮箱已经被使用"
         },
         "base": {
             "success": "成功",
@@ -146,7 +173,50 @@ export default {
             "system-error": "系统错误",
             "setting": "设置",
             "update": "更新",
-            "never": "从不"
+            "never": "从不",
+            "app-name": "站点名",
+            "checkInMax": "签到最多流量",
+            "checkInMin": "签到最少流量",
+            "checkInTime": "2次签到时间间隔",
+            "hour": "小时",
+            "default-traffic": "用户初始流量",
+            "default-invite-num": "用户初始邀请码数量",
+            "lang": "语言",
+            "mu-key": "MU API Key"
+        },
+        "index": {
+            "sign-up-now": "立即注册",
+            "info": "over the wall!",
+            "enter-user-center": "用户中心"
+        },
+        "nav": {
+            "home": "主页",
+            "user-center": "用户中心",
+            "download": "下载",
+            "invite-code": "邀请码",
+            "pages": "页面",
+            "about": "关于",
+            "about-des": "A way to share shadowsocks.",
+            "user": "用户",
+            "tos": "TOS"
+        },
+        "ss": {
+            "node_name": "节点名字",
+            "node_info": "节点信息",
+            "server_addr": "节点地址",
+            "traffic_rate": "流量费率",
+            "online_count": "在线数",
+            "traffic_total": "总流量",
+            "traffic_used": "已用流量",
+            "traffic_unused": "剩余流量",
+            "no_data": "无数据",
+            "node": "节点",
+            "port": "端口",
+            "password": "密码",
+            "method": "加密方式",
+            "obfs-protocol": "obfs Protocol",
+            "obfs-plugin": "obfs Plugin",
+            "obfs_param": "obfs Param"
         },
         "user-index": {
             "announcement": "公告",
@@ -161,7 +231,19 @@ export default {
             "traffic-used": "已用流量",
             "traffic-unused": "剩余流量",
             "connection-info": "链接信息",
-            "last-used": "上次使用于"
+            "last-used": "上次使用于",
+            "gen-invite-code": "生成邀请码"
+        },
+        "user-nav": {
+            "dashboard": "控制面板",
+            "user-home": "用户中心",
+            "node-list": "节点列表",
+            "my-profile": "个人信息",
+            "traffic-log": "流量日志",
+            "edit-profile": "编辑",
+            "invite-friend": "邀请好友",
+            "admin-panel": "管理面板",
+            "join-at": "加入于"
         }
     }
 }

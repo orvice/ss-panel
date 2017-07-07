@@ -19,4 +19,5 @@ return [
     'connection-info' => '链接信息',
 
     'last-used' => '上次使用于',
+    'gen-invite-code' => '生成邀请码',
 ];

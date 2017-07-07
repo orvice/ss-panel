@@ -63,7 +63,7 @@
                                 <p>{{$t("ss.password")}}: <em>{{$store.state.user.data.passwd}}</em></p>
                                 <p>{{$t("ss.method")}}: <em>{{$store.state.user.data.method}}</em></p>
                                 <p>{{$t("ss.obfs-protocol")}}: <em>{{$store.state.user.data.protocol}}</em></p>
-                                <p>{{$t("ss.obfs-plugint")}}: <em>{{$store.state.user.data.obfs}}</em></p>
+                                <p>{{$t("ss.obfs-plugin")}}: <em>{{$store.state.user.data.obfs}}</em></p>
                                 <p>{{$t("ss.obfs_param")}}: <em>{{$store.state.user.data.obfs_param}}</em></p>
                             </div>
                         </div>

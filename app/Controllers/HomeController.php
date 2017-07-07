@@ -58,10 +58,6 @@ class HomeController extends BaseController
         return $this->echoJson($response, $res);
     }
 
-    public function tos()
-    {
-        return $this->view('tos');
-    }
 
     public function serverError(){
         throw new Exception("500");

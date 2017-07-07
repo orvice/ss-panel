@@ -12,7 +12,10 @@ export default {
             "node-add": "Add Node",
             "num": "Number",
             "prefix": "Prefix",
-            "home-message": "Home Message"
+            "home-message": "Home Message",
+            "users-total": "Total Users",
+            "nodes-total": "Total Nodes",
+            "traffic-total": "Total Traffic"
         },
         "alert": {
             "success": "Success",
@@ -136,7 +139,10 @@ export default {
             "node-add": "添加节点",
             "num": "数量",
             "prefix": "前缀",
-            "home-message": "首页消息公告"
+            "home-message": "首页消息公告",
+            "users-total": "总用户",
+            "nodes-total": "节点数量",
+            "traffic-total": "产生流量"
         },
         "alert": {
             "success": "成功!",

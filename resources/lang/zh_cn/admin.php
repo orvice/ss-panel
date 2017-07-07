@@ -10,4 +10,8 @@ return [
     'prefix' => '前缀',
 
     'home-message' => '首页消息公告',
+
+    'users-total' => '总用户',
+    'nodes-total' => '节点数量',
+    'traffic-total' => '产生流量',
 ];

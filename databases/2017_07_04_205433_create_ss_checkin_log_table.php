@@ -24,9 +24,8 @@ class CreateSsCheckinLogTable extends Migration
             $table->double('traffic');
             $table->nullableTimestamps();
 
-            
+            $table->index('user_id', 'user_id');
 
-            
 
         });
     }

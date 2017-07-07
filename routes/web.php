@@ -92,6 +92,7 @@ $app->group('/api', function () {
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');
 
     // Admin
+    $this->get('/admin/info', 'App\Controllers\Api\Admin\InfoController:index')->add(new Admin());
     $this->get('/admin/config', 'App\Controllers\Api\Admin\ConfigController:index')->add(new Admin());
     $this->put('/admin/config', 'App\Controllers\Api\Admin\ConfigController:update')->add(new Admin());
     $this->get('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:index')->add(new Admin());

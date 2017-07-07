@@ -10,4 +10,9 @@ return [
     'prefix' => 'Prefix',
 
     'home-message' => 'Home Message',
+
+
+    'users-total' => 'Total Users',
+    'nodes-total' => 'Total Nodes',
+    'traffic-total' => 'Total Traffic',
 ];

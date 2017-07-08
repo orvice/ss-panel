@@ -7,6 +7,7 @@ use App\Middleware\Mu;
 // Home
 $app->group('', function () {
     $this->get('/', 'App\Controllers\HomeController:index');
+    $this->get('/doc', 'App\Controllers\HomeController:doc');
     $this->get('/code', 'App\Controllers\HomeController:index');
     $this->get('/tos', 'App\Controllers\HomeController:index');
     $this->get('/debug', 'App\Controllers\HomeController:debug');

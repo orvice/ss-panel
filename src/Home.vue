@@ -12,7 +12,7 @@
                         <span class="navbar-toggler-bar bar3"></span>
                     </button>
                     <a class="navbar-brand" href="/" rel="tooltip"
-                        data-placement="bottom" target="_blank">
+                       data-placement="bottom" target="_blank">
                         {{title}}
                     </a>
                 </div>
@@ -20,19 +20,35 @@
                      data-nav-image="../assets/img/blurred-image-1.jpg">
 
                     <ul class="navbar-nav">
-                        <router-link tag="li" :to="{ name: 'index' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons ui-1_send"></i> {{ $t("nav.home") }}</a></li></router-link>
-                        <router-link tag="li" :to="{ name: 'code' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons transportation_air-baloon"></i>{{ $t("nav.invite-code") }}</a></li>
+                        <router-link tag="li" :to="{ name: 'index' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i class="now-ui-icons ui-1_send"></i>
+                                {{ $t("nav.home") }}</a></li>
+                        </router-link>
+                        <router-link tag="li" :to="{ name: 'code' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i
+                                    class="now-ui-icons transportation_air-baloon"></i>{{ $t("nav.invite-code") }}</a>
+                            </li>
                         </router-link>
                     </ul>
 
                     <ul class="navbar-nav" v-if="!$store.state.isLogin">
-                        <router-link tag="li" :to="{ name: 'login' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons users_single-02"></i> {{ $t("auth.login") }}</a></li></router-link>
-                        <router-link tag="li" :to="{ name: 'register' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons users_circle-08"></i>{{ $t("auth.register") }}</a></li></router-link>
+                        <router-link tag="li" :to="{ name: 'login' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i class="now-ui-icons users_single-02"></i>
+                                {{ $t("auth.login") }}</a></li>
+                        </router-link>
+                        <router-link tag="li" :to="{ name: 'register' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i
+                                    class="now-ui-icons users_circle-08"></i>{{ $t("auth.register") }}</a></li>
+                        </router-link>
                     </ul>
 
                     <ul class="navbar-nav" v-if="$store.state.isLogin">
-                        <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="now-ui-icons users_single-02"></i> {{ $t("user-nav.dashboard") }}</a></li>
-                        <router-link tag="li" :to="{ name: 'logout' }" exact><li class="nav-item"><a class="nav-link"><i class="now-ui-icons media-1_button-power"></i>{{ $t("auth.logout") }}</a></li></router-link>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard"><i
+                                class="now-ui-icons users_single-02"></i> {{ $t("user-nav.dashboard") }}</a></li>
+                        <router-link tag="li" :to="{ name: 'logout' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i
+                                    class="now-ui-icons media-1_button-power"></i>{{ $t("auth.logout") }}</a></li>
+                        </router-link>
                     </ul>
 
 
@@ -41,7 +57,7 @@
         </nav>
         <!-- End Navbar -->
         <div class="wrapper">
-            <div class="page-header clear-filter" >
+            <div class="page-header clear-filter">
                 <div class="page-header-image" data-parallax="true"
                      style="background-image: url('/assets/img/header.jpg');">
                 </div>
@@ -54,7 +70,7 @@
                     <nav>
                         <ul>
                             <li>
-                               Made with ♥
+                                Made with ♥
                             </li>
                         </ul>
                     </nav>
@@ -76,6 +92,7 @@
     import Lang from './components/Lang.vue'
     import rest from './http/rest'
     import http from './http/base'
+    import {getLang} from './tools/util'
 
     export default {
         name: 'App',
@@ -114,7 +131,8 @@
                 let lang = sessionStorage.getItem('lang');
                 console.log("get lang from session: " + lang);
                 if (!lang) {
-                    return false;
+                    console.log("load default lang: ", getLang());
+                    return this.$store.commit(types.ChangeLocale, getLang());
                 }
                 this.$store.commit(types.ChangeLocale, lang);
             },

@@ -3,14 +3,13 @@
 namespace App\Controllers;
 
 use App\Services\Factory;
-use Psr\Http\Message\ServerRequestInterface;
-//use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\InviteCode;
 use App\Utils\Check;
 use App\Utils\Http;
 use Exception;
+use Swagger;
 
 /**
  *  HomeController.
@@ -59,8 +58,33 @@ class HomeController extends BaseController
     }
 
 
-    public function serverError(){
+    public function serverError()
+    {
         throw new Exception("500");
+    }
+
+
+    /**
+     * @SWG\Info(title="ss-panel API", version="4.0")
+     */
+
+    /**
+     * @SWG\Get(
+     *     path="https://demo.sspanel.xyz/doc",
+     *     @SWG\Response(response="200", description="Api for ss-panel")
+     * )
+     */
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     */
+    public function doc(Request $request, Response $response, $args)
+    {
+        $swagger = Swagger\scan(base_path('app'));
+        header('Content-Type: application/json');
+        echo $swagger;
     }
 
 

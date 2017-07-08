@@ -13,6 +13,8 @@ return [
     'update-password' => '更新密码',
     'remember-me' => '记住我',
     'forgot-password' => '忘记密码',
+    'send-reset-email' => '发送重置邮件',
+    'reset-password' => '重置密码',
 
     'activation-code' => '激活码',
     'send-code' => '发送激活码',

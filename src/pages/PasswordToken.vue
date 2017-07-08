@@ -10,18 +10,8 @@
                         </div>
                     </div>
 
-                    <h4 class="title title-up">{{$t("auth.login")}}</h4>
-                    <div class="social-line" v-if="false">
-                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-icon-mini">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-neutral btn-google btn-icon  btn-icon-mini">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                    </div>
+                    <h4 class="title title-up">{{$t("auth.forgot-password")}}</h4>
+
                 </div>
                 <div class="content">
 
@@ -34,12 +24,22 @@
                         </div>
                     </div>
 
+                    <div class="alert alert-primary" role="alert" v-if="isSuccess">
+                        <div class="container">
+                            <div class="alert-icon">
+                                <i class="now-ui-icons objects_support-17"></i>
+                            </div>
+                            {{successMsg}}
+                        </div>
+                    </div>
+
                     <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_email-85"></i>
                                         </span>
                         <input type="text" class="form-control" :placeholder="$t('auth.email')" v-model="email">
                     </div>
+
                     <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
@@ -50,22 +50,10 @@
 
                 </div>
                 <div class="footer text-center">
-                    <a href="#pablo" @click="login" class="btn btn-neutral btn-round btn-lg">{{$t("auth.login")}}</a>
+                    <a href="#pablo" @click="reset"
+                       class="btn btn-neutral btn-round btn-lg">{{$t("auth.reset-password")}}</a>
                 </div>
-                <div class="pull-left">
-                    <router-link :to="{ name: 'register' }" exact>
-                        <h6>
-                            <a class="link">{{ $t("auth.register") }}</a>
-                        </h6>
-                    </router-link>
-                </div>
-                <div class="pull-right">
-                    <router-link :to="{ name: 'password-reset' }" exact>
-                        <h6>
-                            <a class="link">{{ $t("auth.forgot-password") }}</a>
-                        </h6>
-                    </router-link>
-                </div>
+
             </div>
         </div>
     </div>
@@ -73,39 +61,35 @@
 </template>
 
 <script>
-    import http from '../../http/base'
-    import * as types from '../../store/types'
-    import * as code from '../../code/auth'
+    import http from '../http/base'
+    import * as types from '../store/types'
+    import * as code from '../code/auth'
     export default {
-        name: 'Login',
+        name: 'PasswordReset',
         components: {},
         data () {
             return {
                 isError: false,
+                isSuccess: false,
                 errorMsg: '',
+                successMsg: '',
                 email: '',
                 password: '',
                 message: '',
             }
         },
         methods: {
-            login() {
-                console.log("start login");
-                http.post("token", {
+            reset() {
+                console.log("start reset");
+                http.post("password", {
                     email: this.email,
-                    password: this.password,
                 })
                     .then(response => {
                         console.log("success");
-                        // Save token in cookie
-                        let token = response.data.data.token;
-                        let id = response.data.data.user_id;
-                        let user = {
-                            token: token,
-                            id: id,
-                        };
-                        this.$store.commit(types.Login, user);
-                        window.location.href = '/dashboard';
+                        this.isError = false;
+                        this.isSuccess = true;
+                        this.successMsg = this.$t("base.success");
+                        // window.location.href = '/';
                     })
                     .catch(e => {
                         console.log("error");
@@ -114,16 +98,11 @@
                             console.log(e.response.status);
                         }
                         switch (e.response.data.error_code) {
-                            case code.UserNotExists:
-                                this.errorMsg = this.$t('auth.login-fail');
-                                break;
-                            case code.PasswordWrong:
-                                this.errorMsg = this.$t('auth.login-fail');
-                                break;
                             default:
                                 this.errorMsg = this.$t('base.system-error');
                                 break;
                         }
+                        this.errorMsg = this.$t('base.system-error');
                     })
             }
         }

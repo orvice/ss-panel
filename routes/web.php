@@ -9,6 +9,8 @@ $app->group('', function () {
     $this->get('/', 'App\Controllers\HomeController:index');
     $this->get('/doc', 'App\Controllers\HomeController:doc');
     $this->get('/code', 'App\Controllers\HomeController:index');
+    $this->get('/password', 'App\Controllers\HomeController:index');
+    $this->get('/password/{token}', 'App\Controllers\HomeController:index');
     $this->get('/tos', 'App\Controllers\HomeController:index');
     $this->get('/debug', 'App\Controllers\HomeController:debug');
     $this->post('/debug', 'App\Controllers\HomeController:postDebug');
@@ -38,36 +40,6 @@ $app->group('/admin', function () {
     $this->get('/{pages}/{params}', 'App\Controllers\HomeController:admin');
 });
 
-// Password
-$app->group('/password', function () {
-    $this->get('/reset', 'App\Controllers\PasswordController:reset');
-    $this->post('/reset', 'App\Controllers\PasswordController:handleReset');
-    $this->get('/token/{token}', 'App\Controllers\PasswordController:token');
-    $this->post('/token/{token}', 'App\Controllers\PasswordController:handleToken');
-});
-
-// Admin
-$app->group('/admin2', function () {
-    $this->get('', 'App\Controllers\AdminController:index');
-    $this->get('/', 'App\Controllers\AdminController:index');
-
-    $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
-
-    // User Mange
-    $this->get('/user', 'App\Controllers\Admin\UserController:index');
-    $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
-    $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
-    $this->delete('/user/{id}', 'App\Controllers\Admin\UserController:delete');
-    $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
-
-    // Test
-    $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');
-    $this->post('/test/sendmail', 'App\Controllers\Admin\TestController:sendMailPost');
-
-    $this->get('/invite', 'App\Controllers\AdminController:invite');
-    $this->post('/invite', 'App\Controllers\AdminController:addInvite');
-    $this->get('/sys', 'App\Controllers\AdminController:sys');
-})->add(new Admin());
 
 // API
 $app->group('/api', function () {
@@ -88,9 +60,17 @@ $app->group('/api', function () {
     $this->get('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:inviteCodes')->add(new Api());
     $this->post('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:genInviteCodes')->add(new Api());
 
+    // Config
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');
     $this->get('/config/ss', 'App\Controllers\Api\ConfigController:ss');
+
+    // Code
     $this->get('/codes', 'App\Controllers\Api\CodeController:index');
+
+    // Password Token
+    $this->post('/password', 'App\Controllers\Api\PasswordController:store');
+    $this->get('/password/{token}', 'App\Controllers\Api\PasswordController:show');
+    $this->post('/password/{token}', 'App\Controllers\Api\PasswordController:verify');
 
     // Admin
     $this->get('/admin/info', 'App\Controllers\Api\Admin\InfoController:index')->add(new Admin());
@@ -103,6 +83,9 @@ $app->group('/api', function () {
     $this->delete('/admin/invites/{id}', 'App\Controllers\Api\Admin\InviteController:delete')->add(new Admin());
     $this->delete('/admin/nodes/{id}', 'App\Controllers\Api\Admin\NodeController:delete')->add(new Admin());
     $this->get('/admin/trafficLogs', 'App\Controllers\Api\Admin\TrafficLogController:index')->add(new Admin());
+
+    // Etc
+    $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
 });
 
 // mu
@@ -123,7 +106,3 @@ $app->group('/mu/v2', function () {
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
 })->add(new Mu());
 
-// res
-$app->group('/res', function () {
-    $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
-});

@@ -50,7 +50,7 @@ class DbConfig
     {
         if ($this->redis->exists($this->genKey($key)) > 0) {
             $v = $this->redis->get($this->genKey($key));
-            $this->logger->info("get config $key from cache $v");
+            $this->logger->debug("get config $key from cache $v");
             if (!$v) {
                 return $default;
             }
@@ -58,7 +58,7 @@ class DbConfig
         }
 
         $value = $this->db->get($key);
-        $this->logger->info("get config $key from db $value");
+        $this->logger->debug("get config $key from db $value");
         $this->redis->set($this->genKey($key), $value);
         if (!$value) {
             return $default;

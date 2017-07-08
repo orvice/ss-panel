@@ -13,6 +13,8 @@ return [
     'update-password' => 'Update Password',
     'remember-me' => 'Remember Me',
     'forgot-password' => 'Forgot Password',
+    'send-reset-email' => 'Send Reset Mail',
+    'reset-password' => 'Reset Password',
 
     'activation-code' => 'Activation Code',
     'send-code' => 'Send Code',

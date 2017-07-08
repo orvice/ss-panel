@@ -66,7 +66,7 @@ class CreateAdmin extends Base implements Cfg
             $user->t = 0;
             $user->u = 0;
             $user->d = 0;
-            $user->transfer_enable = db_config(self::DefaultTraffic, 1);
+            $user->transfer_enable = Tools::toGB(db_config(self::DefaultTraffic, 1));
             $user->invite_num = db_config(self::DefaultInviteNum, 10);
             $user->reg_ip = '127.0.0.1';
             $user->ref_by = 0;

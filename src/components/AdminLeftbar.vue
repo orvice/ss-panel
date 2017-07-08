@@ -35,6 +35,11 @@
                                                                                         uk-icon="icon: settings"></span>
                     {{ $t("admin-nav.config") }} </a></router-link>
             </li>
+            <li class="uk-nav">
+                <router-link tag="li" :to="{ name: 'mail' }" exact><a href="#"><span class="uk-margin-small-right"
+                                                                                       uk-icon="icon: mail"></span>
+                    {{ $t("admin-nav.mail-setting") }} </a></router-link>
+            </li>
 
 
 

@@ -15,4 +15,8 @@ return [
     'users-total' => 'Total Users',
     'nodes-total' => 'Total Nodes',
     'traffic-total' => 'Total Traffic',
+
+    'mailgun-key' => 'Mailgun Key',
+    'mailgun-domain' => 'Mailgun Domain',
+    'mailgun-sender' => 'Mailgun Sender',
 ];

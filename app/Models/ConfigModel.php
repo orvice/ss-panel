@@ -5,4 +5,6 @@ namespace App\Models;
 class ConfigModel extends Model
 {
     protected $table = 'sp_config';
+
+    public $timestamps = true;
 }

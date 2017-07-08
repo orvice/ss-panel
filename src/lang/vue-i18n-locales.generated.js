@@ -3,7 +3,8 @@ export default {
         "admin-nav": {
             "nodes": "Nodes",
             "config": "Config",
-            "users": "Users"
+            "users": "Users",
+            "mail-setting": "Mail Setting"
         },
         "admin": {
             "add": "Add",
@@ -15,7 +16,10 @@ export default {
             "home-message": "Home Message",
             "users-total": "Total Users",
             "nodes-total": "Total Nodes",
-            "traffic-total": "Total Traffic"
+            "traffic-total": "Total Traffic",
+            "mailgun-key": "Mailgun Key",
+            "mailgun-domain": "Mailgun Domain",
+            "mailgun-sender": "Mailgun Sender"
         },
         "alert": {
             "success": "Success",
@@ -130,7 +134,8 @@ export default {
         "admin-nav": {
             "nodes": "节点",
             "config": "配置",
-            "users": "用户"
+            "users": "用户",
+            "mail-setting": "邮件配置"
         },
         "admin": {
             "add": "添加",

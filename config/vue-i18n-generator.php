@@ -3,12 +3,8 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Laravel translations path
+    | translations path
     |--------------------------------------------------------------------------
-    |
-    | The default path where the translations are stored by Laravel.
-    | Note: the path will be prepended to point to the App directory.
-    |
     */
 
     'langPath' => '/resources/lang',

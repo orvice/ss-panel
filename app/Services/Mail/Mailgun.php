@@ -2,10 +2,10 @@
 
 namespace App\Services\Mail;
 
-use App\Services\Config;
+use App\Contracts\Codes\Cfg;
 use Mailgun\Mailgun as MailgunService;
 
-class Mailgun extends Base
+class Mailgun extends Base implements Cfg
 {
     private $config, $mg, $domain, $sender;
 
@@ -26,9 +26,9 @@ class Mailgun extends Base
     public function getConfig()
     {
         return [
-            'key' => Config::get('mailgun_key'),
-            'domain' => Config::get('mailgun_domain'),
-            'sender' => Config::get('mailgun_sender'),
+            'key' => db_config(self::MailgunKey),
+            'domain' => db_config(self::MailgunDomain),
+            'sender' => db_config(self::MailgunSender),
         ];
     }
 

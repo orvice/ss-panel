@@ -13,7 +13,7 @@
     "pongtan/fake-laravel": "^0.0.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.0",
+    "phpunit/phpunit": "~6.0",
     "phploc/phploc": "*",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "*",

@@ -7,6 +7,7 @@ namespace App\Contracts\Codes;
 interface Cfg
 {
     const AppName = 'appName';
+    const AppUri = 'appUri';
     const CheckInMin = 'checkInMin';
     const CheckInMax = 'checkInMax';
     const CheckInTime = 'checkInTime';

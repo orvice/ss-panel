@@ -2,7 +2,27 @@
 
 namespace App\Services\Mail;
 
-abstract class Base
+use App\Contracts\MailService;
+use Twig_Environment;
+
+class Base implements MailService
 {
-    abstract public function send($to, $subject, $text, $file);
+    /**
+     * @return Twig_Environment
+     */
+    private function getView()
+    {
+        return app()->make('view');
+    }
+
+
+    public function genHtml($template, $param)
+    {
+        return $this->getView()->render($template . ".html", $param);
+    }
+
+
+    public function send($to, $subject, $template, $params, $file)
+    {
+    }
 }

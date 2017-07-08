@@ -57,7 +57,7 @@
         </nav>
         <!-- End Navbar -->
         <div class="wrapper">
-            <div class="page-header clear-filter">
+            <div class="page-header clear-filter" filter-color="blue">
                 <div class="page-header-image" data-parallax="true"
                      style="background-image: url('/assets/img/header.jpg');">
                 </div>

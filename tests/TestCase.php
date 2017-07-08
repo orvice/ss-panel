@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use PHPUnit\Framework\TestCase as TestCaseLib;
 use PHPUnit_Framework_TestCase;
 use Slim\Http\Body;
 use Slim\Http\Environment;
@@ -11,7 +12,7 @@ use Slim\Http\RequestBody;
 use Slim\Http\Response;
 use Slim\Http\Uri;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends TestCaseLib
 {
     public $app;
 

@@ -20,6 +20,14 @@
                         </div>
 
                         <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">{{$t("base.app-uri")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="appUri">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">{{$t("base.checkInMin")}}</label>
                             <div class="uk-form-controls">
                                 <input class="uk-input" id="form-horizontal-text" type="text"
@@ -105,6 +113,7 @@
             return {
                 cfgs: {},
                 appName: '',
+                appUri: '',
                 checkInMin: '',
                 checkInMax: '',
                 checkInTime: '',
@@ -122,6 +131,7 @@
                     .then(response => {
                         this.cfgs = response.data.data;
                         this.appName = this.cfgs.appName;
+                        this.appUri = this.cfgs.appUri,
                         this.checkInMin = this.cfgs.checkInMin;
                         this.checkInMax = this.cfgs.checkInMax;
                         this.checkInTime = this.cfgs.checkInTime;
@@ -136,6 +146,7 @@
             update(){
                 admin.put('config', {
                     appName: this.appName,
+                    appUri: this.appUri,
                     checkInMin: this.checkInMin,
                     checkInMax: this.checkInMax,
                     checkInTime: this.checkInTime,

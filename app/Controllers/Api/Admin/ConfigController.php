@@ -13,6 +13,7 @@ class ConfigController extends BaseController implements Cfg
 {
     private $cfgs = [
         self::AppName,
+        self::AppUri,
         self::CheckInMin,
         self::CheckInMax,
         self::CheckInTime,

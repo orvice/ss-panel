@@ -12,6 +12,7 @@ return [
     'never' => "Never",
 
     'app-name' => 'App Name',
+    'app-uri' => 'Site Url',
     'checkInMax' => 'Check-In Max Traffic',
     'checkInMin' => 'Check-In Min Traffic',
     'checkInTime' => 'Check-In Time Interval',

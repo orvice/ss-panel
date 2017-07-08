@@ -33,16 +33,21 @@ class Mailgun extends Base implements Cfg
     }
 
     /**
+     * @param $to
+     * @param $subject
+     * @param $template
+     * @param $params
+     * @param null $file
      * @codeCoverageIgnore
      */
-    public function send($to, $subject, $text, $file)
+    public function send($to, $subject, $template, $params, $file = null)
     {
         $this->mg->sendMessage($this->domain,
             [
                 'from' => $this->sender,
                 'to' => $to,
                 'subject' => $subject,
-                'html' => $text,
+                'html' => $this->genHtml($template,$params),
             ],
             [
                 'inline' => $file,

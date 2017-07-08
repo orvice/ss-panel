@@ -21,4 +21,7 @@ interface Auth
     const PasswordTooShort = 803;
     const EmailUsed = 804;
 
+    // Password
+    const EmailNotExist = 901;
+
 }

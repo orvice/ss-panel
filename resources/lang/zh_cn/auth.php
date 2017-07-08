@@ -15,6 +15,7 @@ return [
     'forgot-password' => '忘记密码',
     'send-reset-email' => '发送重置邮件',
     'reset-password' => '重置密码',
+    'email-no-exist' => '邮箱不存在',
 
     'activation-code' => '激活码',
     'send-code' => '发送激活码',

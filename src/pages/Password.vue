@@ -88,9 +88,10 @@
                             console.log(e.response.status);
                         }
                         switch (e.response.data.error_code) {
+                            case code.EmailNotExist:
+                                return this.errorMsg = this.$t('auth.email-no-exist');
                             default:
                                 this.errorMsg = this.$t('base.system-error');
-                                break;
                         }
                         this.errorMsg = this.$t('base.system-error');
                     })

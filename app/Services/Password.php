@@ -27,7 +27,8 @@ class Password implements Cfg
     /**
      * @return MailService
      */
-    private  function getMailService(){
+    private function getMailService()
+    {
         return app()->make(MailService::class);
     }
 
@@ -36,7 +37,7 @@ class Password implements Cfg
      *
      * @return bool
      */
-    public  function sendResetEmail($email)
+    public function sendResetEmail($email)
     {
         $pwdRst = new PasswordReset();
         $pwdRst->email = $email;
@@ -46,15 +47,17 @@ class Password implements Cfg
         if (!$pwdRst->save()) {
             return false;
         }
-        $subject = sprintf("%s-%s",db_config(self::AppName),lang('auth.reset-password'));
+        $subject = sprintf("%s   %s", db_config(self::AppName), lang('auth.reset-password'));
         $resetUrl = self::genUri($pwdRst->token);
         try {
-            $template = 'mail/password/reset';
-            $this->mail->send($email,$subject,$template,[
+            // @todo trans email template
+            $template = 'email/password/reset';
+            $this->mail->send($email, $subject, $template, [
+                'subject' => $subject,
                 'resetUrl' => $resetUrl
             ]);
         } catch (Exception $e) {
-            return false;
+            throw $e;
         }
 
         return true;
@@ -64,7 +67,9 @@ class Password implements Cfg
     {
     }
 
-    public static function genUri($token){
-        return sprintf("%s/password/%s",db_config(self::AppUri),$token);
+    public static function genUri($token)
+    {
+        $uri = db_config(self::AppUri);
+        return sprintf("%s/password/%s", rtrim($uri,'/'), $token);
     }
 }

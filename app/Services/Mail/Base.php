@@ -22,7 +22,7 @@ class Base implements MailService
     }
 
 
-    public function send($to, $subject, $template, $params, $file)
+    public function send($to, $subject, $template, $params, $file = NULL)
     {
     }
 }

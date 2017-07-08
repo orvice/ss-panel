@@ -15,6 +15,7 @@ return [
     'forgot-password' => 'Forgot Password',
     'send-reset-email' => 'Send Reset Mail',
     'reset-password' => 'Reset Password',
+    'email-no-exist' => 'Email no exist',
 
     'activation-code' => 'Activation Code',
     'send-code' => 'Send Code',

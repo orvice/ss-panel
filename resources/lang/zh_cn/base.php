@@ -12,6 +12,7 @@ return [
     'never' => "从不",
 
     'app-name' => '站点名',
+    'app-uri' => '网站地址',
     'checkInMax' => '签到最多流量',
     'checkInMin' => '签到最少流量',
     'checkInTime' => '2次签到时间间隔',

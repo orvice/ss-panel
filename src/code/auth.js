@@ -9,3 +9,6 @@ export const InviteCodeWrong = 801;
 export const EmailWrong = 802;
 export const PasswordTooShort = 803;
 export const EmailUsed = 804;
+
+// Password
+export const EmailNotExist = 901;

@@ -23,5 +23,6 @@ interface Auth
 
     // Password
     const EmailNotExist = 901;
+    const LinkExpired = 902;
 
 }

@@ -12,3 +12,4 @@ export const EmailUsed = 804;
 
 // Password
 export const EmailNotExist = 901;
+export const LinkExpired = 902;

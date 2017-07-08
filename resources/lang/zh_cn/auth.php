@@ -16,6 +16,7 @@ return [
     'send-reset-email' => '发送重置邮件',
     'reset-password' => '重置密码',
     'email-no-exist' => '邮箱不存在',
+    'link-expired' => '链接已经失效',
 
     'activation-code' => '激活码',
     'send-code' => '发送激活码',

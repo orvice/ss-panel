@@ -35,13 +35,6 @@
 
                     <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
-                                            <i class="now-ui-icons ui-1_email-85"></i>
-                                        </span>
-                        <input type="text" class="form-control" :placeholder="$t('auth.email')" v-model="email">
-                    </div>
-
-                    <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                         </span>
                         <input type="password" :placeholder="$t('auth.password')" class="form-control"
@@ -75,21 +68,22 @@
                 successMsg: '',
                 email: '',
                 password: '',
+                token:  this.inviteCode = this.$route.params.token,
                 message: '',
             }
         },
         methods: {
             reset() {
-                console.log("start reset");
-                http.post("password", {
+                console.log("start reset password");
+                http.post("password/"+this.token, {
                     email: this.email,
+                    password: this.password,
                 })
                     .then(response => {
                         console.log("success");
                         this.isError = false;
                         this.isSuccess = true;
                         this.successMsg = this.$t("base.success");
-                        // window.location.href = '/';
                     })
                     .catch(e => {
                         console.log("error");
@@ -98,11 +92,13 @@
                             console.log(e.response.status);
                         }
                         switch (e.response.data.error_code) {
+                            case code.LinkExpired:
+                                return this.errorMsg = this.$t('auth.link-expired');
                             default:
                                 this.errorMsg = this.$t('base.system-error');
                                 break;
                         }
-                        this.errorMsg = this.$t('base.system-error');
+                        return this.errorMsg = this.$t('base.system-error');
                     })
             }
         }

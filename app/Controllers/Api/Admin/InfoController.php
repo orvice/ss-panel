@@ -16,7 +16,7 @@ class InfoController extends BaseController
         $a = new Analytic();
         return $this->echoJsonWithData($res, [
             'usersTotal' => $a->getTotalUser(),
-            'nodesTotal' => $a->getTotalUser(),
+            'nodesTotal' => $a->getTotalNode(),
             'trafficTotal' => $a->getTrafficTotal(),
         ]);
     }

@@ -58,7 +58,7 @@
         },
         data () {
             return {
-                qrBg: '/assets/img/cat.gif',
+                qrBg: '/assets/img/snow.jpg',
                 ssLogo: '/assets/img/ss.png',
                 ssrLogo: '/assets/img/ssr.png',
                 nodes: []
@@ -70,7 +70,7 @@
                 let month = d.getMonth();
                 console.log(d);
                 console.log(month);
-                if (month == 6) {
+                if (month == 5) {
                     this.qrBg = '/assets/img/flag.png';
                 }
             },

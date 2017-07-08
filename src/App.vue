@@ -53,6 +53,7 @@
     import Lang from './components/Lang.vue'
     import rest from './http/rest'
     import http from './http/base'
+    import {getLang} from './tools/util'
 
     export default {
         name: 'App',
@@ -90,7 +91,8 @@
                 let lang = sessionStorage.getItem('lang');
                 console.log("get lang from session: " + lang);
                 if (!lang) {
-                    return false;
+                    console.log("load default lang: ", getLang());
+                    return this.$store.commit(types.ChangeLocale, getLang());
                 }
                 this.$store.commit(types.ChangeLocale, lang);
             },

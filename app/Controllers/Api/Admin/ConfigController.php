@@ -24,6 +24,10 @@ class ConfigController extends BaseController implements Cfg
         self::MuKey,
 
         self::HomeMessage,
+
+        self::MailgunKey,
+        self::MailgunDomain,
+        self::MailgunSender,
     ];
 
     public function index(Request $request, Response $response, $args)

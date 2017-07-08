@@ -1,7 +1,6 @@
 <template>
 
 
-
     <div class="container">
         <div class="content-center">
             <h1 class="title text-center"> {{ $t("nav.invite-code") }}</h1>
@@ -16,7 +15,9 @@
                 <tbody>
                 <tr v-for="code in codes">
                     <td>{{code.id}}</td>
-                    <td><router-link to="/auth/register/"><a  href="#">{{code.code}}</a></router-link></td>
+                    <td>
+                        <router-link :to=genRegPath(code.code) ><a href="#">{{code.code}}</a></router-link>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -33,6 +34,11 @@
         data () {
             return {
                 codes: []
+            }
+        },
+        methods: {
+            genRegPath(code){
+                return '/auth/register/' + code;
             }
         },
         mounted: function () {

@@ -1,7 +1,7 @@
 <template>
 
     <div class="container">
-        <div class="content-center">
+        <div class="content-center brand">
             <h1 class="title text-center"> {{title}} </h1>
             <h3 class="category" v-if="false"></h3>
             <h4 class="description text-center">{{body}}</h4>

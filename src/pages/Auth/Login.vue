@@ -3,6 +3,13 @@
         <div class="content-center">
             <div class="card card-signup  card-plain" >
                 <div class="header header-primary text-center">
+
+                    <div class="header header-primary text-center" v-if="false">
+                        <div class="logo-container">
+                            <img class="n-logo" src="/assets/img/logo.png" alt="" width="30%">
+                        </div>
+                    </div>
+
                     <h4 class="title title-up">{{$t("auth.login")}}</h4>
                     <div class="social-line" v-if="false">
                         <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-icon-mini">
@@ -17,12 +24,6 @@
                     </div>
                 </div>
                 <div class="content">
-
-                    <div class="header header-primary text-center" v-if="false">
-                        <div class="logo-container">
-                            <img src="/assets/img/logo.png" alt="">
-                        </div>
-                    </div>
 
                     <div class="alert alert-danger" role="alert" v-if="isError">
                         <div class="container">

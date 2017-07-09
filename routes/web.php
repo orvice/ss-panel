@@ -88,6 +88,17 @@ $app->group('/api', function () {
     // Etc
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
     $this->get('/doc', 'App\Controllers\HomeController:doc');
+
+    // mu
+    $this->group('/mu', function () {
+        $this->get('/users', 'App\Controllers\MuV2\UserController:index');
+        $this->post('/users/{id}/traffic', 'App\Controllers\MuV2\UserController:addTraffic');
+        $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
+        $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
+        $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
+        $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
+    })->add(new Mu());
+
 })->add(new Cors());
 
 // mu

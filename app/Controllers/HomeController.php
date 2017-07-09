@@ -63,14 +63,35 @@ class HomeController extends BaseController
         throw new Exception("500");
     }
 
-
     /**
-     * @SWG\Info(title="ss-panel API", version="4.0")
+     * @SWG\Swagger(
+     *     schemes={"https"},
+     *     host="demo.sspanel.xyz",
+     *     basePath="/api/",
+     *     @SWG\Info(
+     *         version="4.0.0",
+     *         title="ss-panel api",
+     *         description="Api for ss-panel",
+     *         termsOfService="http://swagger.io/terms/",
+     *         @SWG\Contact(
+     *             email="sspanel@orx.me"
+     *         ),
+     *         @SWG\License(
+     *             name="Apache 2.0",
+     *             url="http://www.apache.org/licenses/LICENSE-2.0.html"
+     *         )
+     *     ),
+     *     @SWG\ExternalDocumentation(
+     *         description="Find out more about ss-panel",
+     *         url="https://doc.sspanel.xyz/"
+     *     )
+     * )
      */
+
 
     /**
      * @SWG\Get(
-     *     path="https://demo.sspanel.xyz/doc",
+     *     path="/doc",
      *     @SWG\Response(response="200", description="Api for ss-panel")
      * )
      */

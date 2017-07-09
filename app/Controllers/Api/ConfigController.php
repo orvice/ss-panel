@@ -17,6 +17,7 @@ class ConfigController extends BaseController implements Cfg
         $data = [
             'app' => db_config(self::AppName,'ss-panel4'),
             'index_message' => db_config(self::HomeMessage,'Like a butterfly...'),
+            'analyticsId' => db_config(self::GoogleAnalyticsId,''),
             'version' => get_version(),
         ];
         return $this->echoJsonWithData($response, $data);

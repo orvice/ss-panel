@@ -10,6 +10,11 @@ class ApiLimit
 {
     use Helper;
 
+    public function __construct()
+    {
+        $this->init();
+    }
+
     public function __invoke(Request $request, Response $response, $next)
     {
 

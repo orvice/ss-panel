@@ -3,15 +3,21 @@
 namespace App\Middleware;
 
 use Slim\Http\Response;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Services\Factory;
 use App\Utils\Http;
 use App\Models\User as UserModel;
-use App\Services\Auth\User as AuthUser;
 
 trait Helper
 {
+
+    private $logger;
+
+    public function init()
+    {
+        $this->logger = Factory::getLogger();
+    }
+
     /**
      * @param ServerRequestInterface $request
      * @return UserModel

@@ -8,13 +8,16 @@ interface Cfg
 {
     const AppName = 'appName';
     const AppUri = 'appUri';
+    const AppLang = 'appLang';
+    const GoogleAnalyticsId = 'googleAnalyticsId';
+
     const CheckInMin = 'checkInMin';
     const CheckInMax = 'checkInMax';
     const CheckInTime = 'checkInTime';
     const DefaultTraffic = 'defaultTraffic';
     const DefaultInviteNum = 'defaultInviteNum';
 
-    const AppLang = 'appLang';
+
     const MuKey = 'muKey';
 
     const HomeMessage = 'homeMessage';

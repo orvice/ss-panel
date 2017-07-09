@@ -16,6 +16,7 @@ class ConfigController extends BaseController implements Cfg
         self::AppName,
         self::AppLang,
         self::AppUri,
+        self::GoogleAnalyticsId,
 
         // CheckIn and traffic
         self::CheckInMin,

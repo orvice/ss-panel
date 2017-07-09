@@ -123,6 +123,21 @@ return [
             'database' => 1,
         ],
 
+        'token' => [
+            'host' => env('REDIS_HOST', 'localhost'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 2,
+        ],
+
+
+        'token-bucket' => [
+            'host' => env('REDIS_HOST', 'localhost'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 3,
+        ],
+
     ],
 
 ];

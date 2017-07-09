@@ -9,6 +9,7 @@ interface Cfg
     const AppName = 'appName';
     const AppUri = 'appUri';
     const AppLang = 'appLang';
+    const CorsHosts = 'corsHosts';
     const GoogleAnalyticsId = 'googleAnalyticsId';
 
     const CheckInMin = 'checkInMin';

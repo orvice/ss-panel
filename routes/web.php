@@ -3,6 +3,7 @@
 use App\Middleware\Admin;
 use App\Middleware\Api;
 use App\Middleware\Mu;
+use App\Middleware\Cors;
 
 // Home
 $app->group('', function () {
@@ -86,7 +87,7 @@ $app->group('/api', function () {
 
     // Etc
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
-});
+})->add(new Cors());
 
 // mu
 $app->group('/mu', function () {

@@ -1992,16 +1992,16 @@
         },
         {
             "name": "pongtan/utils",
-            "version": "v0.1.1",
+            "version": "v0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/utils.git",
-                "reference": "383f4d19cabc7e952dc07084cd6c8e56bcfc76bd"
+                "reference": "3f86eba48a2ce6c3cd4343b0c95581fdc1540f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/utils/zipball/383f4d19cabc7e952dc07084cd6c8e56bcfc76bd",
-                "reference": "383f4d19cabc7e952dc07084cd6c8e56bcfc76bd",
+                "url": "https://api.github.com/repos/Pongtan/utils/zipball/3f86eba48a2ce6c3cd4343b0c95581fdc1540f45",
+                "reference": "3f86eba48a2ce6c3cd4343b0c95581fdc1540f45",
                 "shasum": ""
             },
             "require": {
@@ -2036,7 +2036,7 @@
                 "Pongtan",
                 "utils"
             ],
-            "time": "2017-07-09T07:15:02+00:00"
+            "time": "2017-07-09T07:34:38+00:00"
         },
         {
             "name": "predis/predis",

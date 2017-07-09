@@ -4,8 +4,9 @@ namespace App\Utils;
 
 
 use Psr\Http\Message\ServerRequestInterface;
+use Pongtan\Utils\Http as HttpLib;
 
-class Http
+class Http extends HttpLib
 {
     /**
      * @codeCoverageIgnore

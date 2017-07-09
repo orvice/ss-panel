@@ -11,6 +11,33 @@ use App\Contracts\Codes\Cfg;
 
 class ConfigController extends BaseController implements Cfg
 {
+
+    /**
+     * @SWG\Definition(definition="Configs", type="object", required={""})
+     */
+
+    /**
+     * @SWG\Get(
+     *     path="/config",
+     *     summary="Get Config",
+     *     tags={"config"},
+     *     description="Get config of site",
+     *     produces={ "application/json"},
+     *     @SWG\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @SWG\Schema(
+     *             type="array",
+     *             @SWG\Items(ref="#/definitions/Configs")
+     *         ),
+     *     ),
+     *     @SWG\Response(
+     *         response="400",
+     *         description="Invalid tag value",
+     *     ),
+     * )
+     */
+
     public function index(Request $request, Response $response, $args)
     {
         // @todo

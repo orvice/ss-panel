@@ -72,7 +72,6 @@ class HomeController extends BaseController
      *         version="4.0.0",
      *         title="ss-panel api",
      *         description="Api for ss-panel",
-     *         termsOfService="http://swagger.io/terms/",
      *         @SWG\Contact(
      *             email="sspanel@orx.me"
      *         ),
@@ -83,7 +82,7 @@ class HomeController extends BaseController
      *     ),
      *     @SWG\ExternalDocumentation(
      *         description="Find out more about ss-panel",
-     *         url="https://doc.sspanel.xyz/"
+     *         url="https://github.com/orvice/ss-panel"
      *     )
      * )
      */

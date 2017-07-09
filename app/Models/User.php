@@ -6,6 +6,30 @@ namespace App\Models;
  * User Model
  */
 
+/**
+ *  @SWG\Definition(
+ *   definition="MuUser",
+ *   type="object",
+ *   allOf={
+ *       @SWG\Schema(ref="#/definitions/MuUser"),
+ *       @SWG\Schema(
+ *           required={"id","passwd"},
+ *           @SWG\Property(property="id", format="int64", type="integer"),
+ *           @SWG\Property(property="password", format="string", type="string"),
+ *           @SWG\Property(property="t", format="int64", type="integer"),
+ *           @SWG\Property(property="u", format="int64", type="integer"),
+ *           @SWG\Property(property="d", format="int64", type="integer"),
+ *           @SWG\Property(property="transfer_enable", format="int64", type="integer"),
+ *           @SWG\Property(property="port", format="int64", type="integer"),
+ *           @SWG\Property(property="enable", format="int64", type="integer"),
+ *           @SWG\Property(property="method", format="string", type="string"),
+ *           @SWG\Property(property="protocol", format="string", type="string"),
+ *           @SWG\Property(property="obfs", format="string", type="string"),
+ *       )
+ *   }
+ * )
+ */
+
 use App\Services\Config;
 use App\Utils\Hash;
 use App\Utils\Tools;

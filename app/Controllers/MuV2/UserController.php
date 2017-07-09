@@ -13,12 +13,31 @@ use App\Utils\Tools;
 
 class UserController extends BaseController
 {
-    // User List
+    /**
+     * @SWG\Get(
+     *     path="/mu/users",
+     *     summary="Get Users",
+     *     tags={"Mu"},
+     *     description="Get users list",
+     *     produces={ "application/json"},
+     *     @SWG\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @SWG\Schema(
+     *             type="array",
+     *             @SWG\Items(ref="#/definitions/MuUser")
+     *         ),
+     *     ),
+     *     @SWG\Response(
+     *         response="400",
+     *         description="Invalid tag value",
+     *     ),
+     * )
+     */
     public function index($request, $response, $args)
     {
         $users = User::all();
         $res = [
-            'msg' => 'ok',
             'data' => $users,
         ];
 
@@ -63,14 +82,15 @@ class UserController extends BaseController
             'ret' => 1,
             'msg' => 'ok',
         ];
-        if (Config::get('log_traffic_dynamodb')) {
+
+        // @todo
+        $saveToDynamo  = false;
+        if ($saveToDynamo) {
             try {
                 $client = new DynamoTrafficLog();
                 $id = $client->store($u, $d, $nodeId, $id, $totalTraffic, $rate);
                 $res['id'] = $id;
             } catch (\Exception $e) {
-                $res['msg'] = $e->getMessage();
-                Logger::error($e->getMessage());
             }
         }
 

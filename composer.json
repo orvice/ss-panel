@@ -1,7 +1,7 @@
 {
   "require": {
     "pongtan/framework": "0.1.*",
-    "pongtan/utils": "dev-master",
+    "pongtan/utils": "0.1.*",
     "ramsey/uuid": "^3.3",
     "china-shevy/sendcloud-email-v2": "dev-master",
     "tracy/tracy": "^2.4",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dbe01da6d735f81bbbbd4af7e895e29",
+    "content-hash": "ee44598681def7acebcddfc61817933f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1992,16 +1992,16 @@
         },
         {
             "name": "pongtan/utils",
-            "version": "dev-master",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/utils.git",
-                "reference": "688a08502c2a609d9ee3a955257f419239bc7fb8"
+                "reference": "383f4d19cabc7e952dc07084cd6c8e56bcfc76bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/utils/zipball/688a08502c2a609d9ee3a955257f419239bc7fb8",
-                "reference": "688a08502c2a609d9ee3a955257f419239bc7fb8",
+                "url": "https://api.github.com/repos/Pongtan/utils/zipball/383f4d19cabc7e952dc07084cd6c8e56bcfc76bd",
+                "reference": "383f4d19cabc7e952dc07084cd6c8e56bcfc76bd",
                 "shasum": ""
             },
             "require": {
@@ -2009,11 +2009,13 @@
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.0"
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "autoload": {
-                "classmap": [],
+                "classmap": [
+                    "tests"
+                ],
                 "files": [],
                 "psr-4": {
                     "Pongtan\\Utils\\": "src"
@@ -2034,7 +2036,7 @@
                 "Pongtan",
                 "utils"
             ],
-            "time": "2016-09-04 06:53:47"
+            "time": "2017-07-09T07:15:02+00:00"
         },
         {
             "name": "predis/predis",
@@ -5278,7 +5280,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "pongtan/utils": 20,
         "china-shevy/sendcloud-email-v2": 20,
         "phpmd/phpmd": 0
     },

@@ -132,8 +132,10 @@
                 console.log("get lang from session: " + lang);
                 if (!lang) {
                     console.log("load default lang: ", getLang());
+                    document.body.lang = navigator.language || navigator.userLanguage;
                     return this.$store.commit(types.ChangeLocale, getLang());
                 }
+                document.body.lang = navigator.language || navigator.userLanguage;
                 this.$store.commit(types.ChangeLocale, lang);
             },
             initUser(){

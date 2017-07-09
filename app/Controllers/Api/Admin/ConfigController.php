@@ -12,19 +12,25 @@ use App\Services\Config\DbConfig;
 class ConfigController extends BaseController implements Cfg
 {
     private $cfgs = [
+        // App base
         self::AppName,
+        self::AppLang,
         self::AppUri,
+
+        // CheckIn and traffic
         self::CheckInMin,
         self::CheckInMax,
         self::CheckInTime,
         self::DefaultTraffic,
         self::DefaultInviteNum,
 
-        self::AppLang,
+        // Mu
         self::MuKey,
 
+        // Message
         self::HomeMessage,
 
+        // Mailgun
         self::MailgunKey,
         self::MailgunDomain,
         self::MailgunSender,

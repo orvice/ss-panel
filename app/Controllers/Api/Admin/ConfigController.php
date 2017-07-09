@@ -52,6 +52,9 @@ class ConfigController extends BaseController implements Cfg
         $input = file_get_contents("php://input");
         $arr = json_decode($input, true);
         foreach ($arr as $k => $v) {
+            if(!$v){
+                continue;
+            }
             $cfg->set($k, $v);
         }
         $cfg->flushAll();

@@ -87,6 +87,7 @@ $app->group('/api', function () {
 
     // Etc
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
+    $this->get('/doc', 'App\Controllers\HomeController:doc');
 })->add(new Cors());
 
 // mu

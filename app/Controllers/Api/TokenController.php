@@ -20,9 +20,49 @@ use App\Utils\Tools;
 /**
  *  ApiController.
  */
-class TokenController extends BaseController implements AuthCode,Cfg
+class TokenController extends BaseController implements AuthCode, Cfg
 {
+    /**
+     *  @SWG\Definition(
+     *   definition="LoginParam",
+     *   type="object",
+     *   allOf={
+     *       @SWG\Schema(ref="#/definitions/LoginParam"),
+     *       @SWG\Schema(
+     *           required={"email","password"},
+     *           @SWG\Property(property="email", format="string", type="integer"),
+     *           @SWG\Property(property="password", format="string", type="integer")
+     *       )
+     *   }
+     * )
+     */
 
+    /**
+     * @SWG\Post(
+     *     path="/token",
+     *     tags={"Auth"},
+     *     operationId="createToken",
+     *     summary="Create token with email and password",
+     *     description="",
+     *     consumes={"application/json"},
+     *     produces={"application/json"},
+     *     @SWG\Parameter(
+     *         name="body",
+     *         in="body",
+     *         description="Email and password",
+     *         required=true,
+     *         @SWG\Schema(ref="#/definitions/LoginParam"),
+     *     ),
+     *     @SWG\Response(
+     *         response=200,
+     *         description="Success",
+     *     ),
+     *     @SWG\Response(
+     *         response=400,
+     *         description="Email or passwrod wring",
+     *     ),
+     * )
+     */
     /**
      * @param Request $request
      * @param $response
@@ -56,8 +96,8 @@ class TokenController extends BaseController implements AuthCode,Cfg
         }
         // @todo
         $ttl = config('auth.session_timeout');
-            if ($rememberMe) {
-                $ttl = 3600 * 24 * 7;
+        if ($rememberMe) {
+            $ttl = 3600 * 24 * 7;
         }
         $token = Factory::getTokenStorage()->store($user, $ttl);
         $this->logger->info(sprintf("login user %d token: %s  ttl:  %d", $user->id, $token->getAccessToken(), $ttl));

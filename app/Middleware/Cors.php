@@ -14,7 +14,7 @@ class Cors implements Cfg
 
     public function __invoke(Request $request, Response $response, $next)
     {
-        $origin = $request->getHeaderLine('Referer');
+        $origin = $request->getHeaderLine('origin');
         $origin  = rtrim($origin,'/');
         $response = $next($request, $response);
         return $response

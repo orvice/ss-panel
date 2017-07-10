@@ -12,7 +12,7 @@ services:
   mysql:
       image: mysql
       environment:
-        - MYSQL_ROOT_PASSWORD: sspanel
+        - MYSQL_ROOT_PASSWORD=sspanel
       volumes:
         - $PWD/mysql_data:/var/lib/mysql:Z
 

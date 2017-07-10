@@ -4,17 +4,20 @@ services:
   redis:
     restart: always
     image: redis:latest
+    container_name: sspanel_redis
     command:
     - --loglevel warning
     volumes:
-      - $PWD/redis_data:/var/lib/redis:Z
+      - ./redis_data:/var/lib/redis:Z
 
   mysql:
       image: mysql
+      container_name: sspanel_mysql
       environment:
         - MYSQL_ROOT_PASSWORD=sspanel
+        - MYSQL_DATABASE=sspanel
       volumes:
-        - $PWD/mysql_data:/var/lib/mysql:Z
+        - ./mysql_data:/var/lib/mysql:Z
 
   ss-panel:
       image: orvice/ss-panel:master

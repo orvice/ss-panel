@@ -79,6 +79,9 @@ $app->group('/api', function () {
     $this->put('/admin/config', 'App\Controllers\Api\Admin\ConfigController:update')->add(new Admin());
     $this->get('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:index')->add(new Admin());
     $this->post('/admin/nodes', 'App\Controllers\Api\Admin\NodeController:store')->add(new Admin());
+    $this->get('/admin/users', 'App\Controllers\Api\Admin\UserController:index')->add(new Admin());
+    $this->get('/admin/users/{id}', 'App\Controllers\Api\Admin\UserController:show')->add(new Admin());
+    $this->put('/admin/users/{id}', 'App\Controllers\Api\Admin\UserController:update')->add(new Admin());
     $this->get('/admin/invites', 'App\Controllers\Api\Admin\InviteController:index')->add(new Admin());
     $this->post('/admin/invites', 'App\Controllers\Api\Admin\InviteController:store')->add(new Admin());
     $this->delete('/admin/invites/{id}', 'App\Controllers\Api\Admin\InviteController:delete')->add(new Admin());

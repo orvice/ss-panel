@@ -4,6 +4,8 @@ services:
   redis:
     restart: always
     image: redis:latest
+    ports:
+        - 6379:6379
     container_name: sspanel_redis
     command:
     - --loglevel warning
@@ -11,15 +13,19 @@ services:
       - ./redis_data:/var/lib/redis:Z
 
   mysql:
+      restart: always
       image: mysql
       container_name: sspanel_mysql
       environment:
         - MYSQL_ROOT_PASSWORD=sspanel
         - MYSQL_DATABASE=sspanel
+        - MYSQL_USER=sspanel
+        - MYSQL_PASSWORD=sspanel
       volumes:
         - ./mysql_data:/var/lib/mysql:Z
 
   ss-panel:
+      restart: always
       image: orvice/ss-panel:master
       ports:
         - 8080:80

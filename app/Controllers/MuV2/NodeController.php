@@ -16,6 +16,7 @@ class NodeController extends BaseController
     {
         $users = User::all();
         $res = [
+            'ret' => 1,
             'msg' => 'ok',
             'data' => $users,
         ];

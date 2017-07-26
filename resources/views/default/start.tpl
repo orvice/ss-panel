@@ -9,8 +9,8 @@
     <h3>适用人群</h3>
     <p>
         <ul>
-            <li>能够免费接入 ipv6 却需要付费访问 ipv4 的校园网用户，包括但不限于东北大学南湖校区，东北大学浑南校区。</li>
             <li>有访问国外受限网站或加速访问国外网站需求的用户。</li>
+            <li>能够免费接入 ipv6 却需要付费访问 ipv4 的校园网用户，包括但不限于东北大学南湖校区，东北大学浑南校区。</li>
         </ul>
     </p>
 
@@ -24,7 +24,7 @@
     </p>
 
     <h3>服务介绍</h3>
-    <p>我们目前共有日本、美国共三个节点。</p>
+    <p>我们目前共有日本、美国共五个节点。</p>
     <p>所有节点均提供 ipv6-ipv4 双向支持。</p>
     <p>有关节点的详细信息，查看<a href="/node">节点列表</a>。 </p>
 
@@ -37,8 +37,8 @@
     <p>
         本站根据校园网 ipv6 协议免费，同时服务器流量比校园网网费便宜而实现。
     </p>
-    <p>本站支持 Shadowsocks 和 ShadowsocksR 代理传输，有关 Shadowsocks(R) 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> 和 <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> 以及 <a href="https://breakwa11.github.io">SSR 官方网站</a> </p>
-    <p><a href="http://vc2tea.com/whats-shadowsocks/">写给非专业人士看的 Shadowsocks 简介</a><br><a href="https://plus点goo去掉我gle点com/+GhostAssassin/posts/TtWFAQmSMVE">SS 和虚拟（V）专用（P）网（N）辨析</a></p>
+    <p>本站支持 Shadowsocks 代理传输，有关 Shadowsocks 的详细信息，前往 <a href="https://github.com/shadowsocks/shadowsocks">Shadowsocks 开源项目</a> 和 <a href="https://shadowsocks.org/en/index.html">Shadowsocks 官方网站</a> </p>
+    <p><a href="http://vc2tea.com/whats-shadowsocks/">写给非专业人士看的 Shadowsocks 简介</a></p>
     <h3>如何开始</h3>
     <p>
         首先注册。<a href="/code">找邀请码戳这里</a>

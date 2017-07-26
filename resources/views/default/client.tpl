@@ -4,7 +4,6 @@
 <div class="container">
     <div class="page-header">
         <h1>客户端下载</h1>
-        <p class="pink-text">注：你只有使用支持 SSR 的客户端才能使用 SSR 特性。</p>
     </div>
     <div class="col-md-12">
         <div class="box box-success">
@@ -15,7 +14,6 @@
                 <dl class="dl-horizontal">
                     <dt>C#版本（推荐）</dt>
                     <dd><a href="https://github.com/shadowsocks/shadowsocks-windows/releases">Github下载</a></dd>
-                    <dd><a class="pink-text" href="https://github.com/shadowsocksr/shadowsocksr-csharp/releases">Github下载（SSR）</a></dd>
                     <dt>Qt版本</dt>
                     <dd><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">Github下载</a></dd>
                     <dt>.NET框架（用于C#版）</dt>
@@ -33,8 +31,6 @@
                 <dl class="dl-horizontal">
                     <dt>Github下载（推荐）</dt>
                     <dd><a href="https://github.com/shadowsocks/shadowsocks-android/releases">点此进入</a></dd>
-                    <dt>Github下载（SSR）（推荐）</dt>
-                    <dd><a class="pink-text" href="https://github.com/shadowsocksr/shadowsocksr-android/releases">点此进入</a></dd>
                     <dt>Play商店（有广告）</dt>
                     <dd><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks&hl=zh_CN">点此进入</a></dd>
                 </dl>
@@ -50,11 +46,11 @@
                 <dl class="dl-horizontal">
                     <dt>Wingy（￥6）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/wingy-free-proxy-utility-for/id1148026741?mt=8">App Store</a></dd>
-                    <dt>Shadowrocket（SSR）（￥18）</dt>
+                    <dt>Shadowrocket（￥18）</dt>
                     <dd><a class="pink-text" href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8">App Store</a></dd>
-                    <dt>Potatso 2（SSR）（￥30）</dt>
+                    <dt>Potatso 2（￥30）</dt>
                     <dd><a class="pink-text" href="https://itunes.apple.com/cn/app/potatso-2-%E5%BC%BA%E5%A4%A7%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/id1162704202?mt=8">App Store</a></dd>
-                    <dt>Potatso（SSR）（￥30）</dt>
+                    <dt>Potatso（￥30）</dt>
                     <dd><a class="pink-text" href="https://itunes.apple.com/cn/app/potatso/id1070901416?mt=8">App Store</a></dd>
                     <dt>Surge（￥328）</dt>
                     <dd><a href="https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8">App Store</a></dd>

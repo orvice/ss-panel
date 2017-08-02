@@ -14,7 +14,8 @@ services:
       image: mysql
       container_name: sspanel_mysql
       environment:
-        - MYSQL_ROOT_PASSWORD=sspanel
+        - MYSQL_USER=sspanel
+        - MYSQL_PASSWORD=sspanel
         - MYSQL_DATABASE=sspanel
       volumes:
         - ./mysql_data:/var/lib/mysql:Z

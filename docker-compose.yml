@@ -39,7 +39,7 @@ services:
 
         - DB_HOST=mysql
         - DB_DATABASE=sspanel
-        - DB_USERNAME=sspanel
+        - DB_USERNAME=root
         - DB_PASSWORD=sspanel
 
         - REDIS_HOST=redis

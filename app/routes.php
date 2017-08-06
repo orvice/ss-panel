@@ -130,7 +130,7 @@ $app->group('/ping', function () {
     $this->get('/', 'App\Controllers\PingController:index');
     $this->post('/launch', 'App\Controllers\PingController:launch');
     $this->get('/status', 'App\Controllers\PingController:status');
-    $this->get('/status/proxy', 'App\Controllers\PingController:status_proxy');
+    $this->post('/status', 'App\Controllers\PingController:status_proxy');
 })->add(new Auth());
 
 // res

@@ -49,45 +49,31 @@
         $("#msg-ing").css('display', 'block');
         $(".small-box-footer").attr('href', '#!');
         $.ajax({
-            url: "/ping/token",
-            method: "GET",
+            url: "/ping/launch",
+            method: "POST",
+            data: {
+                node: $("#node" + id.toString()).html()
+            },
             success: function (msg) {
                 var dataObj = eval("(" + msg + ")");
-                if (!dataObj['ret'])
-                    return;
-                var token = dataObj['data']['token'];
-                $.ajax({
-                    url: "http://network.cool2645.com:801/api/jobs",
-                    method: "POST",
-                    data: {
-                        config: "mu_api_v2_token",
-                        website: "{$config['baseUrl']}" + "/api",
-                        node: $("#node" + id.toString()).html(),
-                        token: token,
-                        docker: "cool2645/shadowsocks-pip"
-                    },
-                    success: function (msg) {
-                        var dataObj = eval("(" + msg + ")");
-                        if (!dataObj) {
-                            $("#msg-h4").html("与服务器通信失败。");
-                            $("#msg-ing").removeClass("alert-success");
-                            $("#msg-ing").addClass("alert-danger");
-                        }
-                        else if (!dataObj.result) {
-                            $("#msg-h4").html("发生错误：" + dataObj.msg);
-                            $("#msg-ing").removeClass("alert-success");
-                            $("#msg-ing").addClass("alert-danger");
-                        }
-                        else {
-                            window.location.href = "/status";
-                        }
-                    },
-                    error: function (xhr) {
-                        $("#msg-h4").html("与服务器通信错误。");
-                        $("#msg-ing").removeClass("alert-success");
-                        $("#msg-ing").addClass("alert-danger");
-                    }
-                })
+                if (!dataObj) {
+                    $("#msg-h4").html("与服务器通信失败。");
+                    $("#msg-ing").removeClass("alert-success");
+                    $("#msg-ing").addClass("alert-danger");
+                }
+                else if (!dataObj.result) {
+                    $("#msg-h4").html("发生错误：" + dataObj.msg);
+                    $("#msg-ing").removeClass("alert-success");
+                    $("#msg-ing").addClass("alert-danger");
+                }
+                else {
+                    window.location.href = "/status";
+                }
+            },
+            error: function (xhr) {
+                $("#msg-h4").html("与服务器通信错误。");
+                $("#msg-ing").removeClass("alert-success");
+                $("#msg-ing").addClass("alert-danger");
             }
         });
     };

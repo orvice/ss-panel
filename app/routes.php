@@ -128,7 +128,7 @@ $app->group('/admin', function () {
 $app->group('/ping', function () {
     $this->get('', 'App\Controllers\PingController:index');
     $this->get('/', 'App\Controllers\PingController:index');
-    $this->get('/token', 'App\Controllers\PingController:getToken');
+    $this->post('/launch', 'App\Controllers\PingController:launch');
 })->add(new Auth());
 
 // res

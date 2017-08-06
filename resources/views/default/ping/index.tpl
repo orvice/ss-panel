@@ -21,25 +21,38 @@
                 </div>
             </div>
         </div>
-        <!-- START PROGRESS BARS -->
-        <div class="row">
-            {foreach $nodes as $node}
-            <div class="col-lg-3 col-xs-12 col-sm-6">
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3 style="font-size: 28px;">{$node->name}</h3>
 
-                        <p id="node{$node->id}">{$node->server}</p>
+        {if $active}
+            <!-- START PROGRESS BARS -->
+            <div class="row">
+                {foreach $nodes as $node}
+                    <div class="col-lg-3 col-xs-12 col-sm-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3 style="font-size: 28px;">{$node->name}</h3>
+
+                                <p id="node{$node->id}">{$node->server}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-speedometer"></i>
+                            </div>
+                            <a href="javascript: launch({$node->id})" class="small-box-footer"> 新建测试 <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-speedometer"></i>
+                {/foreach}
+            </div>
+            <!-- /.row --><!-- END PROGRESS BARS -->
+        {else}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="msg-ing" class="alert alert-warning">
+                        <h4 id="msg-h4">
+                            请先激活服务再进行测试！
+                        </h4>
                     </div>
-                    <a href="javascript: launch({$node->id})" class="small-box-footer"> 新建测试 <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            {/foreach}
-        </div>
-        <!-- /.row --><!-- END PROGRESS BARS -->
+        {/if}
     </section>
     <!-- /.content -->
 </div><!-- /.content-wrapper -->

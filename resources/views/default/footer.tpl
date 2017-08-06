@@ -29,7 +29,6 @@
 					<li><a class="white-text" href="https://status.2645net.work">节点状态监控</a></li>
 					<li><a class="white-text" href="/ping">服务可用性测试</a></li>
 					<li><a class="white-text" href="/scs">服务器托管服务</a></li>
-					<li><a class="white-text" href="http://finance.2645net.work/">财政报表</a></li>
 				</ul>
 			</div>
 		</div>

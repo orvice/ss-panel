@@ -30,8 +30,9 @@ class PingController extends BaseController
 
     public function index($request, $response, $args)
     {
+        $active = $this->user->enable;
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->display('ping/index.tpl');
+        return $this->view()->assign('nodes', $nodes)->assign('active', $active)->display('ping/index.tpl');
     }
 
     public function launch($request, $response, $args)

@@ -18,16 +18,12 @@
                     <th>Run ID</th>
                     <th>Node Addr</th>
                     <th>Port</th>
-                    <th>Docker</th>
                     <th>Status</th>
-                    <th>Rejudge</th>
-                    <th>Rerun</th>
                 </tr>
                 <tr v-for="job in jobs">
                     <td>{{ job.id }}</td>
                     <td>{{ job.node_addr }}</td>
                     <td>{{ job.port }}</td>
-                    <td>{{ job.docker }}</td>
                     <td>
                         <a v-if="job.status === 'Queuing'" v-bind:href="'/status/' + job.id" class="btn btn-info">Queuing</a>
                         <a v-else-if="job.status === 'Starting'" v-bind:href="'/status/' + job.id" class="btn btn-warning">Starting</a>
@@ -36,12 +32,6 @@
                        <a v-else-if="job.status === 'Passing'" v-bind:href="'/status/' + job.id" class="btn btn-success">Passing</a>
                         <a v-else-if="job.status === 'Failing'" v-bind:href="'/status/' + job.id" class="btn btn-danger">Failing</a>
                        <a v-else v-bind:href="'/status/' + job.id" class="btn btn-default">Undefined</a>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" v-bind:onclick="'rejudge(' + job.id + ')'">Rejudge</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" v-bind:onclick="'rerun(' + job.id + ')'">Rerun</button>
                     </td>
                 </tr>
             </table>

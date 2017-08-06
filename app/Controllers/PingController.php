@@ -76,7 +76,7 @@ class PingController extends BaseController
 
     public function status_proxy($request, $response, $args)
     {
-        $url = "http://127.0.0.1:801/api/status?page=" . $request->getParam("page");
+        $url = "http://127.0.0.1:801/api/status/port/" . $this->user->port;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

@@ -24,10 +24,10 @@
         <!-- START PROGRESS BARS -->
         <div class="row">
             {foreach $nodes as $node}
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-12 col-sm-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>{$node->name}</h3>
+                        <h3 style="font-size: 28px;">{$node->name}</h3>
 
                         <p id="node{$node->id}">{$node->server}</p>
                     </div>
@@ -67,7 +67,7 @@
                     $("#msg-ing").addClass("alert-danger");
                 }
                 else {
-                    window.location.href = "/status";
+                    window.location.href = "/ping/status";
                 }
             },
             error: function (xhr) {

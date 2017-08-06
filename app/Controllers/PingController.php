@@ -67,4 +67,24 @@ class PingController extends BaseController
         }
     }
 
+    public function status($request, $response, $args)
+    {
+        $nodes = Node::where('type', 1)->orderBy('sort')->get();
+        return $this->view()->assign('nodes', $nodes)->display('ping/status.tpl');
+
+    }
+
+    public function status_proxy($request, $response, $args)
+    {
+        $url = "http://127.0.0.1:801/api/status?page=" . $request->getParam("page");
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        $output = curl_exec($ch);
+        return $output;
+
+    }
+
 }

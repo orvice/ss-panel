@@ -124,6 +124,18 @@ $app->group('/admin', function () {
     $this->get('/logout', 'App\Controllers\AdminController:logout');
 })->add(new Admin());
 
+// Ping
+$app->group('/ping', function () {
+    $this->get('', 'App\Controllers\PingController:index');
+    $this->get('/', 'App\Controllers\PingController:index');
+    $this->get('/token', 'App\Controllers\PingController:getToken');
+})->add(new Auth());
+
+// res
+$app->group('/ping', function () {
+    $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
+});
+
 // API
 $app->group('/api', function () {
     $this->get('/token/{token}', 'App\Controllers\ApiController:token');

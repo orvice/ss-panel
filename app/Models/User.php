@@ -164,4 +164,14 @@ class User extends Model
         return InviteCode::where('user_id', $uid)->get();
     }
 
+    public function expireTime()
+    {
+        $expire = $this->attributes['expire_time'];
+        if($expire === 0){
+            return '永不过期';
+        }
+        else{
+            return date('Y-m-d', $expire);
+        }
+    }
 }

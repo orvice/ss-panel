@@ -88,6 +88,8 @@
                             <dd>{$user->user_name}</dd>
                             <dt>邮箱</dt>
                             <dd>{$user->email}</dd>
+                            <dt>有效期</dt>
+                            <dd>{$user->expireTime()}</dd>
                         </dl>
 
                     </div>
@@ -101,6 +103,7 @@
     </section>
     <!-- /.content -->
 </div><!-- /.content-wrapper -->
+<<<<<<< HEAD
 
 <script>
     $(document).ready(function () {
@@ -127,4 +130,6 @@
     })
 </script>
 
+=======
+>>>>>>> origin/v3
 {include file='user/footer.tpl'}

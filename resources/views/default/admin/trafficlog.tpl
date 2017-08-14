@@ -22,6 +22,31 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
+                <div class="box form-inline">
+                    <div class="form-group">
+                        <label for="labelUser">用户</label>
+                        <select id="search-user">
+                            <option value="0">所有人</option>
+                        {foreach $users as $user}
+                            <option value="{$user->id}" {if $user->id==$seleUser}selected="selected"{/if}>
+                                {$user->user_name}
+                            </option>  
+                        {/foreach}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelNode">节点</label>
+                        <select id="search-node">
+                            <option value="0">所有节点</option>
+                        {foreach $nodes as $node}
+                            <option value="{$node->id}" {if $node->id==$seleNode}selected="selected"{/if}>
+                                {$node->name}
+                            </option>  
+                        {/foreach}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="log-search">搜索</button>
+                </div>
                 <div class="box">
                     <div class="box-body table-responsive no-padding">
                         {$logs->render()}
@@ -55,5 +80,12 @@
 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<script>
+    $(document).ready(function () {
+        $("#log-search").click(function () {
+            window.setTimeout("location.href='/admin/trafficlog/"+$("#search-node").val()+"/"+$("#search-user").val()+"'", 500);
+        })
+    })
+</script>
 
 {include file='user/footer.tpl'}

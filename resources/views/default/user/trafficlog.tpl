@@ -22,6 +22,20 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
+                <div class="box form-inline">
+                     <div class="form-group">
+                        <label for="labelNode">节点</label>
+                        <select id="search-node">
+                            <option value="0">所有节点</option>
+                        {foreach $nodes as $node}
+                            <option value="{$node->id}" {if $node->id==$seleNode}selected="selected"{/if}>
+                                {$node->name}
+                            </option>  
+                        {/foreach}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="log-search">搜索</button>
+                </div>
                 <div class="box">
                     <div class="box-body table-responsive no-padding">
                         {$logs->render()}
@@ -50,8 +64,14 @@
                 </div><!-- /.box -->
             </div>
         </div>
-
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<script>
+    $(document).ready(function () {
+        $("#log-search").click(function () {
+            window.setTimeout("location.href='/user/trafficlog/"+$("#search-node").val()+"'", 500);
+        })
+    })
+</script>
 
 {include file='user/footer.tpl'}

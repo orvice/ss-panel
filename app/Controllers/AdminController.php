@@ -127,6 +127,7 @@ class AdminController extends UserController
         $res['msg'] = "更新成功";
         return $response->getBody()->write(json_encode($res));
     }
+	
     public function cleanNodelog($request, $response, $args)
     {
         if($clean = NodeInfoLog::TRUNCATE()){
@@ -136,6 +137,7 @@ class AdminController extends UserController
         $res['ret'] = 0;
         return $response->getBody()->write(json_encode($res));
     }
+
     public function cleanOnlinelog($request, $response, $args)
     {
         if($clean = NodeOnlineLog::TRUNCATE()){
@@ -145,6 +147,7 @@ class AdminController extends UserController
         $res['ret'] = 0;
         return $response->getBody()->write(json_encode($res));
     }
+
     public function cleantrafficlog($request, $response, $args)
     {
         if($clean = TrafficLog::TRUNCATE()){
@@ -154,6 +157,7 @@ class AdminController extends UserController
         $res['ret'] = 0;
         return $response->getBody()->write(json_encode($res));
     }
+
     public function sysinfo($request, $response, $args)
     {
         return $this->view()->display('admin/sys.tpl');

@@ -205,23 +205,10 @@ class User extends Model
         return InviteCode::where('user_id', $uid)->get();
     }
 
-<<<<<<< HEAD
     public function refByUsers()
     {
         $uid = $this->attributes['id'];
         return User::where('ref_by', $uid)->get();
     }
 
-=======
-    public function expireTime()
-    {
-        $expire = $this->attributes['expire_time'];
-        if($expire === 0){
-            return '永不过期';
-        }
-        else{
-            return date('Y-m-d', $expire);
-        }
-    }
->>>>>>> origin/v3
 }

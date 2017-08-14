@@ -57,7 +57,6 @@ $app->group('/user', function () {
     $this->post('/method', 'App\Controllers\UserController:updateMethod');
     $this->get('/sys', 'App\Controllers\UserController:sys');
     $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
-    $this->get('/trafficlog/{nid}', 'App\Controllers\UserController:trafficLog');
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->post('/freeze', 'App\Controllers\UserController:freeze');
@@ -88,8 +87,6 @@ $app->group('/admin', function () {
     $this->get('/', 'App\Controllers\AdminController:index');
     $this->get('/sys', 'App\Controllers\AdminController:sysinfo');
     $this->get('/trafficlog', 'App\Controllers\AdminController:trafficLog');
-    $this->get('/trafficlog/{nid}', 'App\Controllers\AdminController:trafficLog');
-    $this->get('/trafficlog/{nid}/{uid}', 'App\Controllers\AdminController:trafficLog');
     $this->get('/checkinlog', 'App\Controllers\AdminController:checkinLog');
     $this->post('/cleannodelog', 'App\Controllers\AdminController:cleanNodelog');
     $this->post('/cleanonlinelog', 'App\Controllers\AdminController:cleanOnlinelog');

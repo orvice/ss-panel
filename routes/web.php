@@ -60,6 +60,9 @@ $app->group('/api', function () {
     $this->put('/users/{id}/password', 'App\Controllers\Api\UserController:updatePassword')->add(new Api());
     $this->get('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:inviteCodes')->add(new Api());
     $this->post('/users/{id}/inviteCodes', 'App\Controllers\Api\UserController:genInviteCodes')->add(new Api());
+    // Pay
+    $this->post('/users/{id}/pay/paypal', 'App\Controllers\Api\UserPayController:paypal')->add(new Api());
+    $this->post('/users/{id}/pay/alipay', 'App\Controllers\Api\UserPayController:alipay')->add(new Api());
 
     // Config
     $this->get('/config', 'App\Controllers\Api\ConfigController:index');

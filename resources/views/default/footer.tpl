@@ -3,9 +3,9 @@
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="white-text">关于</h5>
-				<p class="grey-text text-lighten-4">本站提供校园网上网及科学上网、出国加速服务</p>
+				<p class="grey-text text-lighten-4">本站提供校园网上网及网络加速服务</p>
 				<p class="grey-text text-lighten-4">快速高效，使用方便，价格低廉，稳定性强</p>
-				<p class="grey-text text-lighten-4">更多信息参考 <a href="/start" class="grey-text text-lighten-4">Shadowsocks 服务介绍</a></p>
+				<p class="grey-text text-lighten-4">更多信息参考 <a href="/start" class="grey-text text-lighten-4">服务介绍</a></p>
 
 
 			</div>
@@ -35,7 +35,7 @@
 	</div>
 	<div class="footer-copyright">
 		<div class="container">
-			&copy; {$config["appName"]} Maintained by <a class="orange-text text-lighten-3" href="http://www.cool2645.com">2645 Studio</a> Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
+			&copy; {$config["appName"]} Maintained by <a class="orange-text text-lighten-3" href="http://wenshu.court.gov.cn/content/content?DocID=970f7940-1024-4c3e-bdd1-a76000af7d33">The Name of People</a> Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
 		 Theme by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 		</div>
 		<div style="display:none;">

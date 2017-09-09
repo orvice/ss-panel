@@ -41,6 +41,11 @@ class UserController extends BaseController
         return $this->view()->assign('msg', $msg)->display('user/index.tpl');
     }
 
+    public function payment($request, $response, $args)
+    {
+        return $this->view()->display('user/payment.tpl');
+    }
+
     public function node($request, $response, $args)
     {
         $msg = DbConfig::get('user-node');

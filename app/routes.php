@@ -40,6 +40,7 @@ $app->get('/node', 'App\Controllers\HomeController:node');
 $app->get('/client', 'App\Controllers\HomeController:client');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
 $app->post('/debug', 'App\Controllers\HomeController:postDebug');
+$app->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
 
 // User Center
 $app->group('/user', function () {
@@ -60,6 +61,7 @@ $app->group('/user', function () {
     $this->get('/kill', 'App\Controllers\UserController:kill');
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->post('/freeze', 'App\Controllers\UserController:freeze');
+    $this->get('/payment', 'App\Controllers\UserController:payment');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 

@@ -16,6 +16,7 @@ class Config extends PongtanConfig
             "checkinTime" => self::get("checkinTime"),
             "checkinMin" => self::get("checkinMin"),
             "checkinMax" => self::get("checkinMax"),
+            "paypalPdtAT" => self::get("paypalPdtAT"),
         ];
     }
 

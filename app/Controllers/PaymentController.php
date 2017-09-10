@@ -53,7 +53,7 @@ class PaymentController extends BaseController
         if (!$res) {
             //HTTP ERROR
         } else {
-            return var_dump($res);
+            return $res . " tx_token:" . $tx_token;
             // parse the data
             $lines = explode("\n", trim($res));
             $keyarray = array();
@@ -86,4 +86,62 @@ class PaymentController extends BaseController
 
     }
 
+    function eapay()
+    {
+        $appid = Config::get('eapayAppId');
+        $key = Config::get('eapayAppKey');
+
+        $data = array(
+            'appid'        => $appid,
+            'out_trade_no' => '145600008999562358963008',
+            'total_fee'    => '0.01',
+            'subject'      => 'test',
+            'body'         => '测试充值0.01元',
+            'show_url'     => 'https://eapay.cc/'
+        );
+        ksort($data);
+        $sign_str = '';
+        foreach ($data as $k=>$v) $sign_str.= "{$k}={$v}&";
+        $sign_str = "{$sign_str}key={$key}";
+        $data['sign'] = strtoupper(md5($sign_str));
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.eapay.cc/v1/order/add");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+//set cacert.pem verisign certificate path in curl using 'CURLOPT_CAINFO' field here,
+//if your server does not bundled with default verisign certificates.
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: api.eapay.cc"));
+        $res = curl_exec($ch);
+        curl_close($ch);
+
+        return $res;
+    }
+
+    function eapay_callback($request, $response, $args)
+    {
+        $key = Config::get('eapayAppKey');
+
+        $data = array(
+            'out_trade_no'  => $request->getParam('out_trade_no'),
+            'pay_method'    => $request->getParam('pay_method'),
+            'total_fee'     => $request->getParam('total_fee'),
+            'trade_no'      => $request->getParam('trade_no')
+        );
+        ksort($data);
+        $sign_str = '';
+        foreach ($data as $k=>$v) $sign_str.= "{$k}={$v}&";
+        $sign_str = "{$sign_str}key={$key}";
+        $data['sign'] = strtoupper(md5($sign_str));
+
+        if($data['sign'] == $request->getParam('sign')) {
+            return "SUCCESS";
+        }
+    }
+
 }
+
+

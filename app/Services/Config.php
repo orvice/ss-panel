@@ -17,6 +17,8 @@ class Config extends PongtanConfig
             "checkinMin" => self::get("checkinMin"),
             "checkinMax" => self::get("checkinMax"),
             "paypalPdtAT" => self::get("paypalPdtAT"),
+            "eapayAppId" => self::get("eapayAppId"),
+            "eapayAppKey" => self::get("eapayAppKey"),
         ];
     }
 

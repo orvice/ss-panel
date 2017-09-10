@@ -41,6 +41,8 @@ $app->get('/client', 'App\Controllers\HomeController:client');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
 $app->post('/debug', 'App\Controllers\HomeController:postDebug');
 $app->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
+$app->post('/pay/eapay', 'App\Controllers\PaymentController:eapay');
+$app->post('/pay/eapay/async', 'App\Controllers\PaymentController:eapay_callback');
 
 // User Center
 $app->group('/user', function () {

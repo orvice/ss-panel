@@ -108,11 +108,18 @@ class UserController extends BaseController
         }
 
         $user = Auth::getUser();
-        if($user->enable)
-            return $this->view()->assign('ssr', $ssr)
-                ->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)
-                ->assign('jsonr', $jsonr)->assign('jsonr_show', $jsonr_show)->assign('ssrqr', $ssrqr)
-                ->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+        if($user->enable) {
+            if ($ssr)
+                return $this->view()->assign('ssr', $ssr)
+                    ->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)
+                    ->assign('jsonr', $jsonr)->assign('jsonr_show', $jsonr_show)->assign('ssrqr', $ssrqr)
+                    ->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+            else
+                return $this->view()->assign('ssr', $ssr)
+                    ->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)
+                    ->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+        }
+
         else
             return $this->redirect($response,'/user');
     }

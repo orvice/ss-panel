@@ -21,5 +21,5 @@ RUN chmod -R 777 storage
 
 EXPOSE 80
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT sh /entrypoint.sh
 CMD ["apache2-foreground"]

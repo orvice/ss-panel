@@ -160,7 +160,7 @@
                                     </td>
                                     <td>
                                         {if $payment->type == "mo"}
-                                            {$payment->num} 月
+                                            {$payment->num} 个月
                                         {else}
                                             {$payment->num} GiB
                                         {/if}

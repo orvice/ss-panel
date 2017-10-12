@@ -21,7 +21,7 @@
     <h3>联系我们</h3>
     <p>
         <ul>
-            <li>发送邮件到<a href="mailto:wangkule@cool2645.com">wangkule@cool2645.com</a>或联系本站管理员来商讨此事。</li>
+            <li>联系本站管理员来商讨此事。</li>
        </ul>
     </p>
     </p>

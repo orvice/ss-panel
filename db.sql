@@ -180,11 +180,16 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `order_num` bigint(20) NOT NULL,
-  `transaction_num` bigint(20) NOT NULL,
-  `method` varchar(32) NOT NULL,
-  `method2` varchar(32) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `expire_at` int(11) NOT NULL,
+  `order_num` varchar(256) NOT NULL,
+  `transaction_num` varchar(256),
+  `transaction_num2` varchar(256),
+  `method` varchar(32),
+  `method2` varchar(32),
+  `type` varchar(32) NOT NULL,
+  `num` float NOT NULL,
+  `price` int(11) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

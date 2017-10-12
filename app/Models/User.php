@@ -143,6 +143,40 @@ class User extends Model
             $this->addInviteCode();
         }
     }
+    
+    public function extendPayment($month_num)
+    {
+        $nowtime = time();
+        if(!$this->attributes['freeze']) {
+            $this->attributes['enable'] = true;
+            $this->attributes['expire_time'] = strtotime("+".$month_num." month",
+                $nowtime > $this->attributes['expire_time'] ? $nowtime : $this->attributes['expire_time']);
+        }
+        else {
+            $this->attributes['expire_time'] = strtotime("+".$month_num." month",
+                $this->attributes['expire_time']);
+        }
+        //邀请激励机制
+        if($this->attributes['last_get_gift_time'] == 0 && $this->attributes['ref_by'] != 0)
+        {
+            //Bonus for current user
+            $this->attributes['expire_time'] = strtotime("+15 day", $this->attributes['expire_time']);
+            //Bonus for ref user
+            $ref_user = User::find($this->attributes['ref_by']);
+            if(!empty($ref_user))
+            {
+                $ref_user->expire_time = strtotime("+15 day",
+                    $nowtime > $ref_user->expire_time ? $nowtime : $ref_user->expire_time);
+                $ref_user->save();
+            }
+        }
+        $this->attributes['last_get_gift_time'] = $nowtime;
+        //记log
+        if (!$this->save()) {
+            return false;
+        }
+        return true;
+    }
 
     public function trafficUsagePercent()
     {
@@ -193,10 +227,15 @@ class User extends Model
     }
 
     /*
-     * @param traffic 单位 MB
+     * @param traffic 单位 GB
      */
-    public function addTraffic($traffic)
+    public function extendTraffic($traffic)
     {
+        $this->transfer_enable += Tools::toGB($traffic);
+        if($this->save())
+            return true;
+        else
+            return false;
     }
 
     public function inviteCodes()

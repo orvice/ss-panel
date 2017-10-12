@@ -35,7 +35,7 @@
 	</div>
 	<div class="footer-copyright">
 		<div class="container">
-			&copy; {$config["appName"]} Maintained by <a class="orange-text text-lighten-3" href="http://wenshu.court.gov.cn/content/content?DocID=970f7940-1024-4c3e-bdd1-a76000af7d33">The Name of People</a> Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
+			&copy; {$config["appName"]} Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> {$config["version"]}
 		 Theme by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 		</div>
 		<div style="display:none;">

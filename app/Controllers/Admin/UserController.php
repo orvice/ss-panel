@@ -66,33 +66,9 @@ class UserController extends AdminController
     {
         $id = $args['id'];
         $user = User::find($id);
-        $nowtime = time();
-        if(!$user->freeze) {
-            $user->enable = true;
-            $user->expire_time = strtotime("+".$request->getParam('month_num')." month",
-            $nowtime > $user->expire_time ? $nowtime : $user->expire_time);
-        }
-        else {  
-            $user->expire_time = strtotime("+".$request->getParam('month_num')." month",
-                $user->expire_time);
-        }
-        //邀请激励机制
-        if($user->last_get_gift_time == 0 && $user->ref_by != 0)
-        {
-            //Bonus for current user
-            $user->expire_time = strtotime("+15 day", $user->expire_time);
-            //Bonus for ref user
-            $ref_user = User::find($user->ref_by);
-            if(!empty($ref_user))
-            {
-                $ref_user->expire_time = strtotime("+15 day",
-                    $nowtime > $ref_user->expire_time ? $nowtime : $ref_user->expire_time);
-                $ref_user->save();
-            }
-        }
-        $user->last_get_gift_time = $nowtime;
-        //记log
-        if (!$user->save()) {
+        $r = $user->extendPayment($request->getParam('month_num'));
+
+        if (!$r) {
             $rs['ret'] = 0;
             $rs['msg'] = "修改失败";
             return $response->getBody()->write(json_encode($rs));

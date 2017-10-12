@@ -44,8 +44,7 @@ $app->get('/node', 'App\Controllers\HomeController:node');
 $app->get('/client', 'App\Controllers\HomeController:client');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
 $app->post('/debug', 'App\Controllers\HomeController:postDebug');
-$app->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
-$app->post('/pay/eapay', 'App\Controllers\PaymentController:eapay');
+//$app->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
 $app->post('/pay/eapay/async', 'App\Controllers\PaymentController:eapay_callback');
 
 // User Center
@@ -68,6 +67,8 @@ $app->group('/user', function () {
     $this->post('/kill', 'App\Controllers\UserController:handleKill');
     $this->post('/freeze', 'App\Controllers\UserController:freeze');
     $this->get('/payment', 'App\Controllers\UserController:payment');
+    $this->post('/payment/eapay/mo', 'App\Controllers\PaymentController:newMonthTrans');
+    $this->post('/payment/eapay/da', 'App\Controllers\PaymentController:newDataTrans');
     $this->get('/logout', 'App\Controllers\UserController:logout');
 })->add(new Auth());
 

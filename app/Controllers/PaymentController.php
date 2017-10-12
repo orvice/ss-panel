@@ -7,6 +7,7 @@ use App\Models\InviteCode;
 use App\Models\TrafficLog;
 use App\Models\User;
 use App\Models\Node;
+use App\Models\Payment;
 use App\Models\NodeInfoLog;
 use App\Models\NodeOnlineLog;
 use App\Services\Analytics;
@@ -86,18 +87,18 @@ class PaymentController extends BaseController
 
     }
 
-    function eapay()
+    function eapay($no, $fee, $sbj, $body)
     {
         $appid = Config::get('eapayAppId');
         $key = Config::get('eapayAppKey');
 
         $data = array(
             'appid'        => $appid,
-            'out_trade_no' => '145600008999562358963008',
-            'total_fee'    => '0.01',
-            'subject'      => 'test',
-            'body'         => '测试充值0.01元',
-            'show_url'     => 'https://eapay.cc/'
+            'out_trade_no' => $no,
+            'total_fee'    => $fee,
+            'subject'      => $sbj,
+            'body'         => $body,
+            'show_url'     => Config::get('baseUrl') . '/user/payment'
         );
         ksort($data);
         $sign_str = '';
@@ -138,7 +139,91 @@ class PaymentController extends BaseController
         $data['sign'] = strtoupper(md5($sign_str));
 
         if($data['sign'] == $request->getParam('sign')) {
-            return "SUCCESS";
+            $payment = Payment::where('order_num', '=', $data['out_trade_no'])->first();
+            if ($payment == null) {
+                return $response->getBody()->write("FAIL");
+            } else {
+                $payment->method = $data['pay_method'];
+                $payment->transaction_num = $data['trade_no'];
+                $payment->status = "payed";
+                $payment->save();
+                if($payment->type == "mo") {
+                    $user = User::find($payment->user_id);
+                    $r = $user->extendPayment($payment->num);
+                    if(!$r)
+                        return $response->getBody()->write("FAIL");
+                    else
+                    {
+                        $payment->status = "ok";
+                        $payment->save();
+                        return $response->getBody()->write("SUCCESS");
+                    }
+                } elseif($payment->type == "da") {
+                    $user = User::find($payment->user_id);
+                    $r = $user->extendTraffic($payment->num);
+                    if(!$r)
+                        return $response->getBody()->write("FAIL");
+                    else
+                    {
+                        $payment->status = "ok";
+                        $payment->save();
+                        return $response->getBody()->write("SUCCESS");
+                    }
+                }
+            }
+        } else {
+            return $response->getBody()->write("FAIL");
+        }
+    }
+
+    function newMonthTrans($request, $response, $args) {
+        $l = ceil($request->getParam('length'));
+        $l = $l > 0 ? $l : 1;
+        $p = ceil($l * (10 + (7.5 - 2.5 * $l > 0 ? 7.5 - 2.5 * $l : 0)));
+        $no = "132729" . time() . $this->user->id;
+        $payment = new Payment();
+        $payment->user_id = $this->user->id;
+        $payment->order_num = $no;
+        $payment->method2 = "eapay";
+        $payment->price = $p;
+        $payment->type = "mo";
+        $payment->num = $l;
+        $payment->status = "created";
+        $payment->save();
+        $res = $this->eapay($no, $p, "2645 Network - 服务开通", "开通/续期 " . $l . " 个月");
+        $resj = json_decode($res);
+        if($resj->status) {
+            $payment->status = "opened";
+            $payment->transaction_num2 = $resj->data->no;
+            $payment->save();
+            return $response->getBody()->write($res);
+        } else {
+            return $response->getBody()->write(json_encode(['result' => false]));
+        }
+    }
+
+    function newDataTrans($request, $response, $args) {
+        $l = ceil($request->getParam('amount'));
+        $l = $l > 0 ? $l : 1;
+        $p = ceil($l / 10);
+        $no = "232729" . time() . $this->user->id;
+        $payment = new Payment();
+        $payment->user_id = $this->user->id;
+        $payment->order_num = $no;
+        $payment->method2 = "eapay";
+        $payment->price = $p;
+        $payment->type = "da";
+        $payment->num = $l;
+        $payment->status = "created";
+        $payment->save();
+        $res = $this->eapay($no, $p, "2645 Network - 流量包开通", "叠加 " . $l . " GiB");
+        $resj = json_decode($res);
+        if($resj->status) {
+            $payment->status = "opened";
+            $payment->transaction_num2 = $resj->data->no;
+            return $response->getBody()->write($res);
+        } else {
+            return $response->getBody()->write(json_encode(['result' => false]));
         }
     }
 

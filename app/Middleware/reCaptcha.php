@@ -16,7 +16,7 @@ class reCaptcha
             $response = $next($request, $response);
             return $response;
         }
-        if (!AuthService::checkReCaptcha() && $request->getRequestTarget() != '/reCaptcha') {
+        if (!AuthService::checkReCaptcha() && $request->getRequestTarget() != '/reCaptcha' && $request->getRequestTarget() != '/pay/eapay/async') {
             $newResponse = $response->withStatus(302)->withHeader('Location', '/reCaptcha');
             return $newResponse;
         }

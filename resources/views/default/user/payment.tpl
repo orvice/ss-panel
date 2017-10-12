@@ -56,7 +56,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">×</span>
-                                    <input type="number" name="length" min="1" placeholder="输入月数" class="form-control" value="3">
+                                    <input type="number" name="length" min="1" placeholder="输入月数" class="form-control"
+                                           value="3">
                                     <span class="input-group-addon">个月</span>
                                     <span class="input-group-addon">=<span id="price1">30</span>元</span>
                                     <div class="input-group-btn">
@@ -84,7 +85,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">×</span>
-                                    <input type="number" name="amount" placeholder="输入流量" min="1" class="form-control" value="100">
+                                    <input type="number" name="amount" placeholder="输入流量" min="1" class="form-control"
+                                           value="100">
                                     <span class="input-group-addon">GiB</span>
                                     <span class="input-group-addon">=<span id="price2">10</span>元</span>
                                     <div class="input-group-btn">
@@ -167,13 +169,19 @@
                                     </td>
                                     <td>
                                         {if $payment->status == "opened"}
-                                            待付款&gt;_&lt;
+                                            {if $payment->method2 == "eapay"}
+                                                <a class="btn btn-success btn-sm" target="_blank"
+                                                   href="https://api.eapay.cc/v1/order/pay/no/{$payment->transaction_num2}">待付款&gt;_&lt;</a>
+                                            {else}
+                                                <a class="btn btn-success btn-sm" target="_blank"
+                                                   href="#">待付款&gt;_&lt;</a>
+                                            {/if}
                                         {elseif $payment->status == "created"}
                                             已创建
                                         {elseif $payment->status == "payed"}
-                                            已付款o(*￣▽￣*)ブ
+                                            已付款￣▽￣
                                         {elseif $payment->status == "ok"}
-                                            已完成o(*￣▽￣*)ブ
+                                            已完成￣▽￣
                                         {/if}
                                     </td>
                                     <td>{$payment->get_created_time()}</td>

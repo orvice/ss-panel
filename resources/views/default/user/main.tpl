@@ -102,6 +102,12 @@
                 </li>
 
                 <li>
+                    <a href="/user/payment">
+                        <i class="fa fa-money"></i> <span>充值与续费</span>
+                    </a>
+                </li>
+
+                <li>
                     {if $user->enable }
                     <a href="/user/node">
                         <i class="fa fa-sitemap"></i> <span>节点列表</span>

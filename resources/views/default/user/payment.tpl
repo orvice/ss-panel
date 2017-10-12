@@ -142,12 +142,43 @@
                         <table class="table table-hover">
                             <tbody>
                             <tr>
-                                <th>##</th>
-                                <th>用户名</th>
+                                <th>订单号</th>
+                                <th>业务</th>
+                                <th>数量</th>
                                 <th>状态</th>
-                                <th>注册时间</th>
-                                <th>上次续费时间</th>
+                                <th>创建时间</th>
                             </tr>
+                            {foreach $payments as $payment}
+                                <tr>
+                                    <td>{$payment->order_num}</td>
+                                    <td>
+                                        {if $payment->type == "mo"}
+                                            包月服务
+                                        {else}
+                                            流量叠加
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {if $payment->type == "mo"}
+                                            {$payment->num} 月
+                                        {else}
+                                            {$payment->num} GiB
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {if $payment->status == "opened"}
+                                            待付款&gt;_&lt;
+                                        {elseif $payment->status == "created"}
+                                            已创建
+                                        {elseif $payment->status == "payed"}
+                                            已付款o(*￣▽￣*)ブ
+                                        {elseif $payment->status == "ok"}
+                                            已完成o(*￣▽￣*)ブ
+                                        {/if}
+                                    </td>
+                                    <td>{$payment->get_created_time()}</td>
+                                </tr>
+                            {/foreach}
                             </tbody>
                         </table>
                     </div><!-- /.box-body -->

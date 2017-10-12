@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CheckInLog;
 use App\Models\InviteCode;
 use App\Models\Node;
+use App\Models\Payment;
 use App\Models\TrafficLog;
 use App\Services\Auth;
 use App\Services\Config;
@@ -43,7 +44,9 @@ class UserController extends BaseController
 
     public function payment($request, $response, $args)
     {
-        return $this->view()->display('user/payment.tpl');
+        $user = Auth::getUser();
+        $payments = Payment::where('user_id', $user->id)->orderBy('id', 'desc')->get();
+        return $this->view()->assign('payments', $payments)->display('user/payment.tpl');
     }
 
     public function node($request, $response, $args)

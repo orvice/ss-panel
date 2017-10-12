@@ -6,6 +6,7 @@ use App\Middleware\Api;
 use App\Middleware\Auth;
 use App\Middleware\Guest;
 use App\Middleware\Mu;
+use App\Middleware\reCaptcha;
 use Slim\App;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
@@ -28,9 +29,12 @@ $app = new App([
     ]
 ]);
 $app->add(new WhoopsMiddleware);
+$app->add(new reCaptcha);
 
 
 // Home
+$app->get('/reCaptcha', 'App\Controllers\HomeController:reCaptcha');
+$app->post('/reCaptcha', 'App\Controllers\HomeController:handleReCaptcha');
 $app->get('/', 'App\Controllers\HomeController:index');
 $app->get('/code', 'App\Controllers\HomeController:code');
 $app->get('/tos', 'App\Controllers\HomeController:tos');

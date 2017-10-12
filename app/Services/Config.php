@@ -19,6 +19,7 @@ class Config extends PongtanConfig
             "paypalPdtAT" => self::get("paypalPdtAT"),
             "eapayAppId" => self::get("eapayAppId"),
             "eapayAppKey" => self::get("eapayAppKey"),
+            "reCaptchaKey" => self::get("reCaptchaKey")
         ];
     }
 

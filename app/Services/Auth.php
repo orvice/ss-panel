@@ -27,6 +27,28 @@ class Auth
     {
         return Factory::newSessionCache();
     }
+
+    public static function authReCaptcha($ip, $time)
+    {
+        $sid = Tools::genSID();
+        Cookie::set([
+            'csid' => $sid
+        ], $time + time());
+        self::getCache()->set($sid, $ip, $time);
+    }
+
+    public static function checkReCaptcha()
+    {
+        if (Helper::isTesting()) {
+            return true;
+        }
+        $sid = Cookie::get('csid');
+        $value = self::getCache()->get($sid);
+        if ($value == null || !$value) {
+            return false;
+        } else
+            return true;
+    }
     
     public static function login($uid, $time)
     {

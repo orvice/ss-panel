@@ -185,11 +185,13 @@ CREATE TABLE `payment` (
   `transaction_num2` varchar(256),
   `method` varchar(32),
   `method2` varchar(32),
+  `create_time` int(11),
+  `pay_time` int(11),
   `type` varchar(32) NOT NULL,
   `num` float NOT NULL,
   `price` int(11) NOT NULL,
   `status` varchar(32) NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

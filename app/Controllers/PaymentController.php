@@ -146,6 +146,7 @@ class PaymentController extends BaseController
                 $payment->method = $data['pay_method'];
                 $payment->transaction_num = $data['trade_no'];
                 $payment->status = "payed";
+                $payment->pay_time = time();
                 $payment->save();
                 if($payment->type == "mo") {
                     $user = User::find($payment->user_id);
@@ -180,7 +181,8 @@ class PaymentController extends BaseController
         $l = ceil($request->getParam('length'));
         $l = $l > 0 ? $l : 1;
         $p = ceil($l * (10 + (7.5 - 2.5 * $l > 0 ? 7.5 - 2.5 * $l : 0)));
-        $no = "132729" . time() . $this->user->id;
+        $t = time();
+        $no = "132729" . $t . $this->user->id;
         $payment = new Payment();
         $payment->user_id = $this->user->id;
         $payment->order_num = $no;
@@ -188,6 +190,7 @@ class PaymentController extends BaseController
         $payment->price = $p;
         $payment->type = "mo";
         $payment->num = $l;
+        $payment->create_time = $t;
         $payment->status = "created";
         $payment->save();
         $res = $this->eapay($no, $p, "2645 Network - 服务开通", "开通/续期 " . $l . " 个月");
@@ -206,7 +209,8 @@ class PaymentController extends BaseController
         $l = ceil($request->getParam('amount'));
         $l = $l > 0 ? $l : 1;
         $p = ceil($l / 10);
-        $no = "232729" . time() . $this->user->id;
+        $t = time();
+        $no = "232729" . $t . $this->user->id;
         $payment = new Payment();
         $payment->user_id = $this->user->id;
         $payment->order_num = $no;
@@ -214,6 +218,7 @@ class PaymentController extends BaseController
         $payment->price = $p;
         $payment->type = "da";
         $payment->num = $l;
+        $payment->create_time = $t;
         $payment->status = "created";
         $payment->save();
         $res = $this->eapay($no, $p, "2645 Network - 流量包开通", "叠加 " . $l . " GiB");

@@ -29,23 +29,24 @@ $app = new App([
     ]
 ]);
 $app->add(new WhoopsMiddleware);
-$app->add(new reCaptcha);
 
-
-// Home
+//$this->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
+$app->post('/pay/eapay/async', 'App\Controllers\PaymentController:eapay_callback');
 $app->get('/reCaptcha', 'App\Controllers\HomeController:reCaptcha');
 $app->post('/reCaptcha', 'App\Controllers\HomeController:handleReCaptcha');
-$app->get('/', 'App\Controllers\HomeController:index');
-$app->get('/code', 'App\Controllers\HomeController:code');
-$app->get('/tos', 'App\Controllers\HomeController:tos');
-$app->get('/scs', 'App\Controllers\HomeController:scs');
-$app->get('/start', 'App\Controllers\HomeController:start');
-$app->get('/node', 'App\Controllers\HomeController:node');
-$app->get('/client', 'App\Controllers\HomeController:client');
-$app->get('/debug', 'App\Controllers\HomeController:debug');
-$app->post('/debug', 'App\Controllers\HomeController:postDebug');
-//$app->get('/pay/paypal', 'App\Controllers\PaymentController:paypal');
-$app->post('/pay/eapay/async', 'App\Controllers\PaymentController:eapay_callback');
+
+// Home
+$app->group(null, function () {
+    $this->get('/', 'App\Controllers\HomeController:index');
+    $this->get('/code', 'App\Controllers\HomeController:code');
+    $this->get('/tos', 'App\Controllers\HomeController:tos');
+    $this->get('/scs', 'App\Controllers\HomeController:scs');
+    $this->get('/start', 'App\Controllers\HomeController:start');
+    $this->get('/node', 'App\Controllers\HomeController:node');
+    $this->get('/client', 'App\Controllers\HomeController:client');
+    $this->get('/debug', 'App\Controllers\HomeController:debug');
+    $this->post('/debug', 'App\Controllers\HomeController:postDebug');
+})->add(new reCaptcha);
 
 // User Center
 $app->group('/user', function () {
@@ -80,7 +81,7 @@ $app->group('/auth', function () {
     $this->post('/register', 'App\Controllers\AuthController:registerHandle');
     $this->post('/sendcode', 'App\Controllers\AuthController:sendVerifyEmail');
     $this->get('/logout', 'App\Controllers\AuthController:logout');
-})->add(new Guest());
+})->add(new Guest())->add(new reCaptcha);
 
 // Password
 $app->group('/password', function () {
@@ -88,7 +89,7 @@ $app->group('/password', function () {
     $this->post('/reset', 'App\Controllers\PasswordController:handleReset');
     $this->get('/token/{token}', 'App\Controllers\PasswordController:token');
     $this->post('/token/{token}', 'App\Controllers\PasswordController:handleToken');
-})->add(new Guest());
+})->add(new Guest())->add(new reCaptcha);
 
 // Admin
 $app->group('/admin', function () {

@@ -43,7 +43,7 @@ class PingController extends BaseController
         $node_server = $request->getParam("node");
         $node_data = Node::where('server', $node_server)->first();
         if ($storage->store($tokenStr, $this->user, $expireTime)) {
-            $url = "http://ping.2645net.work/api/jobs";
+            $url = "https://ping.2645net.work/api/jobs";
             $post_data = array(
                 "config" => "mu_api_v2_token",
                 "website" => Config::getPublicConfig()['baseUrl'] . "/api",
@@ -77,7 +77,7 @@ class PingController extends BaseController
 
     public function status_proxy($request, $response, $args)
     {
-        $url = "http://ping.2645net.work/api/status/port/" . $this->user->port;
+        $url = "https://ping.2645net.work/api/status/port/" . $this->user->port;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

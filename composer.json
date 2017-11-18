@@ -11,7 +11,8 @@
     "martinlindhe/laravel-vue-i18n-generator": "^0.1.13",
     "illuminate/events": "^5.4",
     "pongtan/fake-laravel": "^0.0.1",
-    "paypal/rest-api-sdk-php": "^1.12"
+    "paypal/rest-api-sdk-php": "^1.12",
+    "latrell/alipay": "^1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "~6.0",

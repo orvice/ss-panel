@@ -7,10 +7,10 @@
     "tracy/tracy": "^2.4",
     "shadowsocks/shadowsocks": "0.1.*",
     "zircote/swagger-php": "^2.0",
-    "illuminate/pagination": "^5.4",
+    "illuminate/pagination": "^5.5",
     "martinlindhe/laravel-vue-i18n-generator": "^0.1.13",
-    "illuminate/events": "^5.4",
-    "pongtan/fake-laravel": "^0.0.1",
+    "illuminate/events": "^5.5",
+    "pongtan/fake-laravel": "^5.5",
     "paypal/rest-api-sdk-php": "^1.12",
     "latrell/alipay": "^1.2"
   },

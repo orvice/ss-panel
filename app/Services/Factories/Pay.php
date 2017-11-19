@@ -16,6 +16,7 @@ class Pay
         $apiContext = new ApiContext(
             new OAuthTokenCredential(config('paypal.client_id'), config('paypal.secret'))
         );
+        $apiContext->setConfig(config('paypal'));
         return $apiContext;
     }
 }

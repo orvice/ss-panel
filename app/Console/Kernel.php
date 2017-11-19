@@ -14,6 +14,7 @@ class Kernel
         Commands\Migration::class,
         Commands\GenLang::class,
         Commands\CreateAdmin::class,
+        Commands\V2rayInit::class,
     ];
 
     public function __construct()

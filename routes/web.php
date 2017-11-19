@@ -102,6 +102,7 @@ $app->group('/api', function () {
         $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
         $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
         $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
+        $this->get('/nodes/{id}/v2rayUsers', 'App\Controllers\MuV2\NodeController:v2rayUsers');
         $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
     })->add(new Mu());
 
@@ -122,6 +123,7 @@ $app->group('/mu/v2', function () {
     $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
     $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
+    $this->get('/nodes/{id}/v2rayUsers', 'App\Controllers\MuV2\NodeController:v2rayUsers');
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');
 })->add(new Mu());
 

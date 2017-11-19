@@ -9,6 +9,7 @@ use App\Models\NodeOnlineLog;
 use App\Models\TrafficLog;
 use App\Models\User;
 use App\Utils\Tools;
+use App\Services\V2rayGenerator;
 
 class NodeController extends BaseController
 {
@@ -108,5 +109,24 @@ class NodeController extends BaseController
         ];
 
         return $this->echoJson($response, $res);
+    }
+
+    public function v2rayUsers($request, $response, $args)
+    {
+        $node = Node::find($args['id']);
+        $users = User::all();
+
+        $v = new V2rayGenerator();
+        $v->setPort($node->v2ray_port);
+
+        foreach ($users as $user) {
+            if ($user->enable == 0) {
+                continue;
+            }
+            $email = sprintf("%s@sspanel.io", $user->v2ray_uuid);
+            $v->addUser($user->v2ray_uuid, $user->v2ray_level, $user->v2ray_alter_id, $email);
+        }
+
+        return $this->echoJson($response, $v->getArr());
     }
 }

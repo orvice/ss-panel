@@ -12,6 +12,16 @@ class Node extends Model
 {
     protected $table = 'ss_node';
 
+    /**
+     *
+     * @var array
+     */
+    protected $casts = [
+        'ss_enable' => 'boolean',
+        'v2ray_enable' => 'boolean',
+        'https_enable' => 'boolean',
+    ];
+
     public function getLastNodeInfoLog()
     {
         $id = $this->attributes['id'];

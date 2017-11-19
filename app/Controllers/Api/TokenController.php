@@ -195,6 +195,9 @@ class TokenController extends BaseController implements AuthCode, Cfg
         $user->invite_num = db_config(self::DefaultInviteNum, 10);
         $user->reg_ip = Http::getClientIP();
         $user->ref_by = $c->user_id;
+        $user->v2ray_uuid = Tools::genUUID();
+        $user->v2ray_alter_id = config('v2ray.alter_id');
+        $user->v2ray_level = config('v2ray.level');
 
         if ($user->save()) {
             $c->delete();

@@ -4,7 +4,7 @@
 
 <p>你的续费将于 {$expiredate} 到期，为了保证您的正常使用，请及时续费。</p>
 
-<p>更多信息请登录 <a href="http://network.cool2645.com/user">http://network.cool2645.com/user</a> 用户中心查看。</p>
+<p>更多信息请登录 <a href="https://2645net.work/user">https://2645net.work/user</a> 用户中心查看。</p>
 
 <p>我们希望在过去的时间里您使用的愉快，同时欢迎您继续订阅我们的服务。你的支持是我们不断发展的动力！</p>
 

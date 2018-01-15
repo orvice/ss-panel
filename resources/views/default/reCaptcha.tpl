@@ -8,20 +8,20 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
     <link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css" type="text/css" media="screen,projection" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function onSubmit(token) {
+            document.getElementById('smt-w').style.display = 'none';
             document.getElementById("demo-form").submit();
         }
     </script>
     <script src="https://recaptcha.net/recaptcha/api.js"></script>
     <script>
-        function reCaptcha() {
+        window.setTimeout(function () {
             grecaptcha.execute();
-        }
-        $(function () {
-            reCaptcha();
-        });
+            window.setTimeout(function () {
+                document.getElementById('smt').style.display = 'block';
+            }, 3000);
+        }, 2000);
     </script>
 </head>
 <body>
@@ -40,15 +40,17 @@
 
                         <div class="cf-highlight-inverse cf-form-stacked">
                             <form id='demo-form' action="/reCaptcha" method="POST">
-                                <p>Please wait a second, this check will be completed in short automatically.</p>
-                                <p>If not, you can click the continue button.</p>
+                                <p>This process is automatic.</p>
+                                <p>Please allow up to 5 seconds while the check will be completed shortly.</p>
                                 <div class="g-recaptcha"
                                      data-sitekey="6LcCz0AUAAAAAHqslJnKV91GxN1SjlXhTEPKnoEl"
                                      data-callback="onSubmit"
                                      data-size="invisible">
                                 </div>
                                 <br/>
-                                <button onClick="reCaptcha()">Continue</button>
+                                <div id="smt-w">
+                                    <button id="smt" style="display: none" onClick="grecaptcha.execute()">Continue</button>
+                                </div>
                             </form>
                         </div>
                     </div>

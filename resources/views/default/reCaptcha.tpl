@@ -16,12 +16,15 @@
     </script>
     <script src="https://recaptcha.net/recaptcha/api.js"></script>
     <script>
-        window.setTimeout(function () {
-            grecaptcha.execute();
-            window.setTimeout(function () {
-                document.getElementById('smt').style.display = 'block';
-            }, 3000);
+        timer = window.setInterval(function () {
+            if(grecaptcha) {
+                grecaptcha.execute();
+                window.clearInterval(timer);
+            }
         }, 2000);
+        window.setTimeout(function () {
+            document.getElementById('smt').style.display = 'block';
+        }, 6000);
     </script>
 </head>
 <body>

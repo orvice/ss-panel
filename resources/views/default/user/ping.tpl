@@ -1,4 +1,4 @@
-{include file='ping/main.tpl'}
+{include file='user/main.tpl'}
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -80,7 +80,7 @@
                     $("#msg-ing").addClass("alert-danger");
                 }
                 else {
-                    window.location.href = "/ping/status";
+                    window.location.href = "https://stat.2645net.work/task/" + dataObj.data.ID;
                 }
             },
             error: function (xhr) {
@@ -92,4 +92,4 @@
     };
 </script>
 
-{include file='ping/footer.tpl'}
+{include file='user/footer.tpl'}

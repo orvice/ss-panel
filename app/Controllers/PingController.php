@@ -2,19 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Models\CheckInLog;
-use App\Models\InviteCode;
-use App\Models\TrafficLog;
-use App\Models\User;
 use App\Models\Node;
-use App\Models\NodeInfoLog;
-use App\Models\NodeOnlineLog;
-use App\Services\Analytics;
-use App\Services\Config;
-use App\Utils\Tools;
-use App\Services\Mail;
 use App\Services\Auth;
-use App\Services\Factory;
+use App\Services\DbConfig;
 
 /**
  *  Ping Controller
@@ -28,64 +18,50 @@ class PingController extends BaseController
         $this->user = Auth::getUser();
     }
 
+    public function view()
+    {
+        $userFooter = DbConfig::get('user-footer');
+        return parent::view()->assign('userFooter', $userFooter);
+    }
+
     public function index($request, $response, $args)
     {
         $active = $this->user->enable;
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->assign('active', $active)->display('ping/index.tpl');
+        return $this->view()->assign('nodes', $nodes)->assign('active', $active)->display('user/ping.tpl');
     }
 
     public function launch($request, $response, $args)
     {
-        $tokenStr = Tools::genToken();
-        $storage = Factory::createTokenStorage();
-        $expireTime = time() + 3600 * 24 * 7;
         $node_server = $request->getParam("node");
-        $node_data = Node::where('server', $node_server)->first();
-        if ($storage->store($tokenStr, $this->user, $expireTime)) {
-            $url = "https://ping.2645net.work/api/jobs";
-            $post_data = array(
-                "config" => "mu_api_v2_token",
-                "website" => Config::getPublicConfig()['baseUrl'] . "/api",
-                "token" => $tokenStr,
-                "docker" => "cool2645/shadowsocks-pip",
-                "node" => $node_server . ":" . ($node_data['custom_method'] ? "custom_method" : $node_data['method']),
-                "user_id" => $this->user->id
-            );
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            // post数据
-            curl_setopt($ch, CURLOPT_POST, 1);
-            // post的变量
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
-            $output = curl_exec($ch);
-            return $output;
-        } else {
-            return json_encode(['ret' => false], true);
+        $node = Node::where('server', $node_server)->first();
+        $ary['server'] = $node->server;
+        $ary['server_port'] = $this->user->port;
+        $ary['password'] = $this->user->passwd;
+        $ary['method'] = $node->method;
+        if ($node->custom_method) {
+            $ary['method'] = $this->user->method;
         }
-    }
-
-    public function status($request, $response, $args)
-    {
-        $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->display('ping/status.tpl');
-
-    }
-
-    public function status_proxy($request, $response, $args)
-    {
-        $url = "https://ping.2645net.work/api/status/port/" . $this->user->port;
+        $json = json_encode($ary);
+        $url = "https://stat.2645net.work/api/task";
+        $post_data = array(
+            "class" =>"tester",
+            "server_name" => $node->name,
+            "ip_ver" => 6,
+            "ss_json" => $json,
+        );
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
 
         $output = curl_exec($ch);
+        curl_close($ch);
         return $output;
-
     }
 
 }

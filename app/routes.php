@@ -40,7 +40,7 @@ $app->group(null, function () {
     $this->get('/', 'App\Controllers\HomeController:index');
     $this->get('/code', 'App\Controllers\HomeController:code');
     $this->get('/tos', 'App\Controllers\HomeController:tos');
-    $this->get('/scs', 'App\Controllers\HomeController:scs');
+    //$this->get('/scs', 'App\Controllers\HomeController:scs');
     $this->get('/start', 'App\Controllers\HomeController:start');
     $this->get('/node', 'App\Controllers\HomeController:node');
     $this->get('/client', 'App\Controllers\HomeController:client');

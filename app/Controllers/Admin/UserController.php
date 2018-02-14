@@ -13,12 +13,22 @@ class UserController extends AdminController
     public function index($request, $response, $args)
     {
         $pageNum = 1;
+        $search_email = '';
         if (isset($request->getQueryParams()["page"])) {
             $pageNum = $request->getQueryParams()["page"];
         }
-        $users = User::orderBy('t','desc')->paginate(15, ['*'], 'page', $pageNum);
-        $users->setPath('/admin/user');
-        return $this->view()->assign('users', $users)->display('admin/user/index.tpl');
+        if (isset($request->getQueryParams()["email"])) {
+            $search_email = $request->getQueryParams()["email"];
+            $users = User::orderBy('t','desc')->where('email', 'like', '%'.$search_email.'%')
+                ->paginate(15, ['*'], 'page', $pageNum);
+            $users->setPath('/admin/user?email=' . urlencode($request->getQueryParams()["email"]));
+        } else {
+            $users = User::orderBy('t','desc')->paginate(15, ['*'], 'page', $pageNum);
+            $users->setPath('/admin/user');
+        }
+        return $this->view()->assign('users', $users)
+            ->assign('search_email', $search_email)
+            ->display('admin/user/index.tpl');
     }
 
     public function edit($request, $response, $args)

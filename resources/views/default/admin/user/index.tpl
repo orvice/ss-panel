@@ -28,6 +28,13 @@
                 </div>
             </div>
         </div>
+        <div class="row" style="margin-top: 0.6em; margin-bottom: 0.3em; margin-left: 0em; margin-right: 0em;">
+            <form method="get" class="form-inline">
+                <input class="form-control" id="search_email"
+                       name="email" placeholder="搜索用户邮箱..." value="{$search_email}">
+                <button type="submit" id="search" class="btn btn-primary">搜索</button>
+            </form>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">

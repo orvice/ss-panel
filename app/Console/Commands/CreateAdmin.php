@@ -70,6 +70,9 @@ class CreateAdmin extends Base implements Cfg
             $user->invite_num = db_config(self::DefaultInviteNum, 10);
             $user->reg_ip = '127.0.0.1';
             $user->ref_by = 0;
+            $user->v2ray_uuid = Tools::genUUID();
+            $user->v2ray_alter_id = config('v2ray.alter_id');
+            $user->v2ray_level = config('v2ray.level');
         }
         return $user->save();
     }

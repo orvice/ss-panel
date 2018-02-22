@@ -8,7 +8,7 @@
         </div>
         <div class="uk-section-small">
             <div class="uk-container uk-container-large">
-                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-4@xl">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
                     <div class="uk-card uk-card-default uk-card-body">
 
                         <div class="uk-margin">

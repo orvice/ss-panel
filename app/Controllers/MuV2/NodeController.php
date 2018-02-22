@@ -16,9 +16,19 @@ class NodeController extends BaseController
     public function users($request, $response, $args)
     {
         $users = User::all();
+        $data = [];
+        foreach ($users as $user){
+            $user->v2ray_user = [
+                "uuid" => $user->v2ray_uuid,
+                "email" => sprintf("%s@sspanel.xyz", $user->v2ray_uuid),
+                "alter_id" => $user->v2ray_alter_id,
+                "level" => $user->v2ray_level,
+            ];
+            array_push($data, $user);
+        }
         $res = [
             'msg' => 'ok',
-            'data' => $users,
+            'data' => $data,
         ];
 
         return $this->echoJson($response, $res);

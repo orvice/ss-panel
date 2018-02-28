@@ -11,6 +11,9 @@ return [
 
     'never' => "从不",
 
+    'enable' => '启用',
+    'disable' => '关闭',
+
     'app-name' => '站点名',
     'app-uri' => '网站地址',
     'checkInMax' => '签到最多流量',

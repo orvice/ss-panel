@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'ss' => 'Shadowsocks',
     // Node Info
     'node_name' => '节点名字',
     'node_info' => '节点信息',

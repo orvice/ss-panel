@@ -68,6 +68,7 @@ export default {
             "mail-setting": "邮件配置"
         },
         "ss": {
+            "ss": "Shadowsocks",
             "node_name": "节点名字",
             "node_info": "节点信息",
             "server_addr": "节点地址",
@@ -93,6 +94,8 @@ export default {
             "setting": "设置",
             "update": "更新",
             "never": "从不",
+            "enable": "启用",
+            "disable": "关闭",
             "app-name": "站点名",
             "app-uri": "网站地址",
             "checkInMax": "签到最多流量",
@@ -201,6 +204,7 @@ export default {
             "mail-setting": "Mail Setting"
         },
         "ss": {
+            "ss": "Shadowsocks",
             "node_name": "Node Name",
             "node_info": "Node Info",
             "server_addr": "Server Addr",
@@ -231,6 +235,8 @@ export default {
             "setting": "Setting",
             "update": "Update",
             "never": "Never",
+            "enable": "Enable",
+            "disable": "Disable",
             "app-name": "App Name",
             "app-uri": "Site Url",
             "checkInMax": "Check-In Max Traffic",

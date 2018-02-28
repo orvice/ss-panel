@@ -11,6 +11,9 @@ return [
 
     'never' => "Never",
 
+    'enable' => 'Enable',
+    'disable' => 'Disable',
+
     'app-name' => 'App Name',
     'app-uri' => 'Site Url',
     'checkInMax' => 'Check-In Max Traffic',

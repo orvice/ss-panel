@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'ss' => 'Shadowsocks',
     // Node Info
     'node_name' => 'Node Name',
     'node_info' => 'Node Info',

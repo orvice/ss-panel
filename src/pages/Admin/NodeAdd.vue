@@ -38,6 +38,49 @@
                             </div>
                         </div>
 
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("ss.ss")}}</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" v-model="ss_enable">
+                                    <option value="1">{{$t("base.enable")}}</option>
+                                    <option value="0">{{$t("base.disable")}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("ss.v2ray")}}</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" v-model="v2ray_enable">
+                                    <option value="1">{{$t("base.enable")}}</option>
+                                    <option value="0">{{$t("base.disable")}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("ss.v2ray-port")}}</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="form-horizontal-text" type="text"
+                                       v-model="v2ray_port">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label"
+                                   for="form-horizontal-text">{{$t("ss.v2ray-protocol")}}</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" v-model="v2ray_protocol">
+                                    <option value="tcp">tcp</option>
+                                    <option value="ws">ws</option>
+                                    <option value="kcp">kcp</option>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="uk-margin">
                             <button class="uk-button uk-button-primary" @click="add">
@@ -58,12 +101,13 @@
     import admin from '../../http/admin'
     import pagination from 'laravel-vue-pagination-uikit'
     import {bytesToSize} from '../../tools/util'
+
     export default {
         name: 'NodeAdd',
         components: {
             pagination,
         },
-        data () {
+        data() {
             return {
                 data: {},
                 name: '',
@@ -73,10 +117,14 @@
                 status: 1,
                 offset: 1,
                 sort: 0,
+                ss_enable: 1,
+                v2ray_enable: 0,
+                v2ray_protocol: 'tcp',
+                v2ray_port: 808,
             }
         },
         methods: {
-            add(){
+            add() {
                 admin.post('nodes', {
                     name: this.name,
                     server: this.server,
@@ -85,6 +133,10 @@
                     status: this.status,
                     offset: this.offset,
                     sort: this.sort,
+                    v2ray_enable: this.v2ray_enable,
+                    ss_enable: this.ss_enable,
+                    v2ray_protocol: this.v2ray_protocol,
+                    v2ray_port: this.v2ray_port,
                 })
                     .then(response => {
                         UIkit.notification({

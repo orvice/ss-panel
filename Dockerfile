@@ -16,7 +16,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 ## Copy front
-COPY  --from=builder /opt/app/public/assets/js/build /usr/share/nginx/html/public/assets/js/build
+COPY  --from=front-builder /opt/app/public/assets/js/build /usr/share/nginx/html/public/assets/js/build
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

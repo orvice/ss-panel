@@ -11,8 +11,8 @@ let mix = require('laravel-mix').mix;
  |
  */
 
-mix.js('src/home.js', 'public/assets/js');
+mix.js('src/home.js', 'public/assets/js/build');
 
-mix.js('src/app.js', 'public/assets/js');
+mix.js('src/app.js', 'public/assets/js/build');
 
-mix.js('src/admin.js', 'public/assets/js');
+mix.js('src/admin.js', 'public/assets/js/build');

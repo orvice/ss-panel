@@ -1,3 +1,11 @@
+FROM node:8.9 as front-builder
+
+RUN mkdir -p /opt/app
+ADD . /opt/app/
+WORKDIR /opt/app
+RUN npm install
+RUN npm run prod
+
 FROM orvice/apache-base
 MAINTAINER orvice<orvice@orx.me>
 
@@ -7,6 +15,8 @@ WORKDIR /var/www/html
 # Install sspanel
 COPY . /var/www/html
 
+## Copy front
+COPY  --from=front-builder /opt/app/public/assets/js/build /usr/share/nginx/html/public/assets/js/build
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

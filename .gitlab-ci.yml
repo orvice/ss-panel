@@ -9,7 +9,7 @@ stages:
 
 build:
   stage: build
-  image: gitlab/dind
+  image: docker
   script:
     - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
     - docker login -u "$CI_BUILD_USER"  -p "$CI_BUILD_TOKEN" $CI_REGISTRY

@@ -1,3 +1,11 @@
+FROM node:8.9 as front-builder
+
+RUN mkdir -p /opt/app
+ADD . /opt/app/
+WORKDIR /opt/app
+RUN npm install
+RUN npm run prod
+
 FROM orvice/apache-base
 MAINTAINER orvice<orvice@orx.me>
 

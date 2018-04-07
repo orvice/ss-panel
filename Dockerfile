@@ -10,6 +10,11 @@ FROM orvice/apache-base
 MAINTAINER orvice<orvice@orx.me>
 
 ENV SSPANEL_VERSION 4.0.0
+
+RUN apt-get update && apt-get install -y \
+        netcat \
+        && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /var/www/html
 
 # Install sspanel

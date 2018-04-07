@@ -1,5 +1,16 @@
 #!/bin/bash
 echo "Entry ss-panel"
+
+echo -n "waiting for MySQL connection..."
+
+while ! nc -w 1 $DB_HOST 3306 > /dev/null 2>&1
+do
+  echo -n .
+  sleep 1
+done
+
+echo 'ok'
+
 if [ "$MIGRATION" = "false" ];then
     echo "Skip database migration"
 else

@@ -27,6 +27,7 @@ class NodeController extends BaseController
             array_push($data, $user);
         }
         $res = [
+            'ret' => 1,
             'msg' => 'ok',
             'data' => $data,
         ];

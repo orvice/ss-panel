@@ -37,6 +37,42 @@
                         <div class="form-horizontal">
                             <div class="row">
                                 <fieldset class="col-sm-6">
+                                    <legend>描述信息</legend>
+                                    <div class="form-group">
+                                        <label for="type" class="col-sm-3 control-label">是否显示</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="type">
+                                                <option value="1" selected="selected">显示</option>
+                                                <option value="0">隐藏</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="status" class="col-sm-3 control-label">节点状态</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="status" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sort" class="col-sm-3 control-label">排序</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="sort" type="number" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="info" class="col-sm-3 control-label">节点描述</label>
+
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" id="info" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="col-sm-6">
                                     <legend>连接信息</legend>
                                     <div class="form-group">
                                         <label for="title" class="col-sm-3 control-label">节点名称</label>
@@ -72,7 +108,6 @@
                                         <div class="col-sm-9">
                                             <input class="form-control" id="rate" value="1">
                                         </div>
-
                                     </div>
 
                                     <div class="form-group">
@@ -97,38 +132,151 @@
 
                                 </fieldset>
                                 <fieldset class="col-sm-6">
-                                    <legend>描述信息</legend>
+                                    <legend>SSR 特性</legend>
                                     <div class="form-group">
-                                        <label for="type" class="col-sm-3 control-label">是否显示</label>
+                                        <label for="ssr" class="col-sm-3 control-label">SSR 特性</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="type">
-                                                <option value="1" selected="selected">显示</option>
-                                                <option value="0">隐藏</option>
+                                            <select class="form-control" id="ssr">
+                                                <option value="0" selected>不支持</option>
+                                                <option value="1">支持</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="status" class="col-sm-3 control-label">节点状态</label>
+                                        <label for="custom_rss" class="col-sm-3 control-label">自定义协议</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="status" value="">
+                                            <select class="form-control" id="custom_rss">
+                                                <option value="0" selected>不支持</option>
+                                                <option value="1">支持</option>
+                                            </select>
+                                            <p class="help-block">
+                                                单端口多用户模式该项无效。
+                                            </p>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="sort" class="col-sm-3 control-label">排序</label>
+                                        <label for="protocol" class="col-sm-3 control-label">协议</label>
 
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="sort" type="number" value="">
+                                            <select class="form-control" id="protocol">
+                                                {foreach $protocol as $protocol_method}
+                                                    <option value="{$protocol_method}">{$protocol_method}</option>
+                                                {/foreach}
+                                            </select>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="info" class="col-sm-3 control-label">节点描述</label>
+                                        <label for="protocol_param" class="col-sm-3 control-label">协议参数</label>
 
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" id="info" rows="3"></textarea>
+                                            <input class="form-control" id="protocol_param">
+                                            <p class="help-block">
+                                                在 auth_chain_* 协议中表示最多允许同时连接的客户端数。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="obfs" class="col-sm-3 control-label">混淆</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="obfs">
+                                                {foreach $obfs as $obfs_method}
+                                                    <option value="{$obfs_method}">{$obfs_method}</option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="obfs_param" class="col-sm-3 control-label">混淆参数</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="obfs_param">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ssr_port" class="col-sm-3 control-label">单端口多用户</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="ssr_port" value="0">
+                                            <p class="help-block">
+                                                设置该项为 0 为多端口多用户模式，填入端口号来启用单端口多用户模式。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="add_port_only" class="col-sm-3 control-label">仅使用单端口</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="add_port_only">
+                                                <option value="0" selected>否</option>
+                                                <option value="1" >是</option>
+                                            </select>
+                                            <p class="help-block">
+                                                仅使用单端口时仍然显示 ss 配置（多端口）。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="add_method" class="col-sm-3 control-label">单端口多用户加密方式</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="add_method">
+                                                {foreach $ssrmethod as $cipher}
+                                                    <option value="{$cipher}">{$cipher}</option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="add_passwd" class="col-sm-3 control-label">单端口多用户密码</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="add_passwd">
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <fieldset class="col-sm-6">
+                                    <legend>V2Ray 特性</legend>
+                                    <div class="form-group">
+                                        <label for="v2ray" class="col-sm-3 control-label">V2Ray 特性</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="v2ray">
+                                                <option value="0" selected>不支持</option>
+                                                <option value="1">支持</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="v2ray_port" class="col-sm-3 control-label">端口</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="v2ray_port">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="v2ray_protocol" class="col-sm-3 control-label">协议</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="v2ray_protocol">
+                                                {foreach $v2rayprotocol as $protocol_name => $protocol_method}
+                                                    <option value="{$protocol_method}">{$protocol_name}</option>
+                                                {/foreach}
+                                            </select>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -161,11 +309,24 @@
                     server: $("#server").val(),
                     method: $("#method").val(),
                     custom_method: $("#custom_method").val(),
+                    custom_rss: $("#custom_rss").val(),
                     rate: $("#rate").val(),
                     info: $("#info").val(),
                     type: $("#type").val(),
                     status: $("#status").val(),
-                    sort: $("#sort").val()
+                    sort: $("#sort").val(),
+                    ssr: $("#ssr").val(),
+                    protocol: $("#protocol").val(),
+                    protocol_param: $("#protocol_param").val(),
+                    obfs: $("#obfs").val(),
+                    obfs_param: $("#obfs_param").val(),
+                    ssr_port: $("#ssr_port").val(),
+                    add_port_only: $("#add_port_only").val(),
+                    add_method: $("#add_method").val(),
+                    add_passwd: $("#add_passwd").val(),
+                    v2ray: $("#v2ray").val(),
+                    v2ray_port: $("#v2ray_port").val(),
+                    v2ray_protocol: $("#v2ray_protocol").val(),
                 },
                 success: function (data) {
                     if (data.ret) {

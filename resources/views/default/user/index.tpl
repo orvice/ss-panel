@@ -109,6 +109,18 @@
                             <dd>{$user->passwd}</dd>
                             <dt>自定义加密方式</dt>
                             <dd>{$user->method}</dd>
+                            <dt>自定义协议插件</dt>
+                            <dd>{$user->protocol}</dd>
+                            <dt>自定义协议参数</dt>
+                            <dd>{$user->protocol_param}</dd>
+                            <dt>混淆插件</dt>
+                            <dd>{$user->obfs}</dd>
+                            <dt>混淆参数</dt>
+                            <dd>{$user->obfs_param}</dd>
+                            <dt>V2Ray UUID</dt>
+                            <dd>{$user->v2ray_uuid}</dd>
+                            <dt>V2Ray Alter ID</dt>
+                            <dd>{$user->v2ray_alter_id}</dd>
                             <dt>上次使用</dt>
                             <dd>{$user->lastSsTime()}</dd>
                         </dl>

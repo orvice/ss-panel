@@ -29,6 +29,8 @@ class XCat
                 return $this->install();
             case("createAdmin"):
                 return $this->createAdmin();
+            case("initV2ray"):
+                return $this->initV2ray();
             case("resetTraffic"):
                 return $this->resetTraffic();
             case("sendDiaryMail"):
@@ -77,15 +79,40 @@ class XCat
             $user->invite_num = Config::get('inviteNum');
             $user->ref_by = 0;
             $user->is_admin = 1;
+            $user->v2ray_uuid = Tools::genUUID();
+            $user->v2ray_level = 2;
+            $user->v2ray_alter_id = 64;
             if ($user->save()) {
                 echo "Successful/添加成功!";
+
                 return true;
             }
             echo "添加失败";
+
             return false;
         }
         echo "cancel";
+
         return false;
+    }
+
+    public function initV2ray()
+    {
+        try {
+            $users = User::all();
+            foreach ($users as $user) {
+                if (strlen($user->v2ray_uuid) == 0) {
+                    $user->v2ray_uuid = Tools::genUUID();
+                    $user->save();
+                }
+            }
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+
+            return false;
+        }
+        echo "完成！";
+        return true;
     }
 
     public function resetTraffic()
@@ -97,8 +124,10 @@ class XCat
             ]);
         } catch (\Exception $e) {
             echo $e->getMessage();
+
             return false;
         }
+
         return "reset traffic successful";
     }
 }

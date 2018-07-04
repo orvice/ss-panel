@@ -51,6 +51,12 @@ $app->group('/user', function () {
     $this->post('/password', 'App\Controllers\UserController:updatePassword');
     $this->post('/sspwd', 'App\Controllers\UserController:updateSsPwd');
     $this->post('/method', 'App\Controllers\UserController:updateMethod');
+    $this->post('/protocol', 'App\Controllers\UserController:updateProtocol');
+    $this->post('/protocol-param', 'App\Controllers\UserController:updateProtocolParam');
+    $this->post('/obfs', 'App\Controllers\UserController:updateObfs');
+    $this->post('/obfs-param', 'App\Controllers\UserController:updateObfsParam');
+    $this->post('/v2ray-uuid', 'App\Controllers\UserController:updateV2rayUUID');
+    $this->post('/v2ray-alterid', 'App\Controllers\UserController:updateV2rayAlterID');
     $this->get('/sys', 'App\Controllers\UserController:sys');
     $this->get('/trafficlog', 'App\Controllers\UserController:trafficLog');
     $this->get('/trafficlog/{nid}', 'App\Controllers\UserController:trafficLog');
@@ -105,6 +111,7 @@ $app->group('/admin', function () {
     $this->get('/user', 'App\Controllers\Admin\UserController:index');
     $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
     $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
+    $this->patch('/user/{id}/v2ray-uuid', 'App\Controllers\Admin\UserController:updateV2rayUUID');
     $this->delete('/user/{id}', 'App\Controllers\Admin\UserController:delete');
     $this->get('/user/{id}/delete', 'App\Controllers\Admin\UserController:deleteGet');
 
@@ -139,6 +146,7 @@ $app->group('/mu/v2', function () {
     $this->get('/users', 'App\Controllers\MuV2\UserController:index');
     $this->post('/users/{id}/traffic', 'App\Controllers\MuV2\UserController:addTraffic');
     $this->get('/nodes/{id}/users', 'App\Controllers\MuV2\NodeController:users');
+    $this->get('/nodes/{id}/v2rayUsers', 'App\Controllers\MuV2\NodeController:v2rayUsers');
     $this->post('/nodes/{id}/online_count', 'App\Controllers\MuV2\NodeController:onlineUserLog');
     $this->post('/nodes/{id}/info', 'App\Controllers\MuV2\NodeController:info');
     $this->post('/nodes/{id}/traffic', 'App\Controllers\MuV2\NodeController:postTraffic');

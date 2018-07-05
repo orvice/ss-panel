@@ -87,6 +87,42 @@ class User extends Model
         $this->save();
     }
 
+    public function updateProtocol($protocol)
+    {
+        $this->protocol = $protocol;
+        $this->save();
+    }
+
+    public function updateProtocolParam($protocol_param)
+    {
+        $this->protocol_param = $protocol_param;
+        $this->save();
+    }
+
+    public function updateObfs($obfs)
+    {
+        $this->obfs = $obfs;
+        $this->save();
+    }
+
+    public function updateObfsParam($obfs_param)
+    {
+        $this->obfs_param = $obfs_param;
+        $this->save();
+    }
+
+    public function updateV2rayUUID()
+    {
+        $this->v2ray_uuid = Tools::genUUID();
+        $this->save();
+    }
+
+    public function updateV2rayAlterID($alter_id)
+    {
+        $this->v2ray_alter_id = $alter_id;
+        $this->save();
+    }
+
     public function addInviteCode()
     {
         $uid = $this->attributes['id'];
@@ -167,10 +203,9 @@ class User extends Model
     public function expireTime()
     {
         $expire = $this->attributes['expire_time'];
-        if($expire === 0){
+        if ($expire === 0) {
             return '永不过期';
-        }
-        else{
+        } else {
             return date('Y-m-d', $expire);
         }
     }

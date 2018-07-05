@@ -3,8 +3,8 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\AdminController;
-use App\Models\User;
 use App\Models\Node;
+use App\Models\User;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
@@ -29,7 +29,11 @@ class UserController extends AdminController
 
         }
         $method = Node::getCustomerMethod();
-        return $this->view()->assign('user', $user)->assign('method', $method)->display('admin/user/edit.tpl');
+        $protocol = Node::getProtocolMethod();
+        $obfs = Node::getObfsMethod();
+
+        return $this->view()->assign('user', $user)->assign('method', $method)
+            ->assign('protocol', $protocol)->assign('obfs', $obfs)->display('admin/user/edit.tpl');
     }
 
     public function update($request, $response, $args)
@@ -49,6 +53,12 @@ class UserController extends AdminController
         $user->transfer_enable = Tools::toGB($request->getParam('transfer_enable'));
         $user->invite_num = $request->getParam('invite_num');
         $user->method = $request->getParam('method');
+        $user->protocol = $request->getParam('method');
+        $user->protocol_param = $request->getParam('protocol_param');
+        $user->obfs = $request->getParam('obfs');
+        $user->obfs_param = $request->getParam('obfs_param');
+        $user->v2ray_level = $request->getParam('v2ray_level');
+        $user->v2ray_alter_id = $request->getParam('v2ray_alter_id');
         $user->enable = $request->getParam('enable');
         $user->is_admin = $request->getParam('is_admin');
         $user->ref_by = $request->getParam('ref_by');
@@ -59,6 +69,24 @@ class UserController extends AdminController
         }
         $rs['ret'] = 1;
         $rs['msg'] = "修改成功";
+        return $response->getBody()->write(json_encode($rs));
+    }
+
+    public function updateV2rayUUID($request, $response, $args)
+    {
+        $id = $args['id'];
+        $user = User::find($id);
+
+        $user->v2ray_uuid = Tools::genUUID();
+        if (!$user->save()) {
+            $rs['ret'] = 0;
+            $rs['msg'] = "修改失败";
+
+            return $response->getBody()->write(json_encode($rs));
+        }
+        $rs['ret'] = 1;
+        $rs['msg'] = "修改成功";
+
         return $response->getBody()->write(json_encode($rs));
     }
 

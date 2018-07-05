@@ -12,6 +12,11 @@ use App\Services\DbConfig;
 use App\Utils\Hash;
 use App\Utils\Tools;
 
+function safe_base64_encode($str)
+{
+    return strtr(rtrim(base64_encode($str), '='), '+/=',
+        '-_,');
+}
 
 /**
  *  HomeController
@@ -46,7 +51,9 @@ class UserController extends BaseController
         $msg = DbConfig::get('user-node');
         $user = Auth::getUser();
         $nodes = Node::where('type', 1)->orderBy('sort')->get();
-        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg', $msg)->display('user/node.tpl');
+
+        return $this->view()->assign('nodes', $nodes)->assign('user', $user)->assign('msg',
+            $msg)->display('user/node.tpl');
     }
 
 
@@ -67,14 +74,157 @@ class UserController extends BaseController
         }
         $json = json_encode($ary);
         $json_show = json_encode($ary, JSON_PRETTY_PRINT);
-        $ssurl = $ary['method'] . ":" . $ary['password'] . "@" . $ary['server'] . ":" . $ary['server_port'];
-        $ssqr = "ss://" . base64_encode($ssurl);
+        $ssurl = $ary['method'].":".$ary['password']."@".$ary['server'].":".$ary['server_port'];
+        $ssqr = "ss://".base64_encode($ssurl);
 
-        $surge_base = Config::get('baseUrl') . "/downloads/ProxyBase.conf";
+        $surge_base = Config::get('baseUrl')."/downloads/ProxyBase.conf";
         $surge_proxy = "#!PROXY-OVERRIDE:ProxyBase.conf\n";
         $surge_proxy .= "[Proxy]\n";
-        $surge_proxy .= "Proxy = custom," . $ary['server'] . "," . $ary['server_port'] . "," . $ary['method'] . "," . $ary['password'] . "," . Config::get('baseUrl') . "/downloads/SSEncrypt.module";
-        return $this->view()->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy)->display('user/nodeinfo.tpl');
+        $surge_proxy .= "Proxy = custom,".$ary['server'].",".$ary['server_port'].",".$ary['method'].",".$ary['password'].",".Config::get('baseUrl')."/downloads/SSEncrypt.module";
+
+        $ss = $node->ss;
+        $ssr = $node->ssr && !$node->add_port_only;
+        $ssr_add = $node->ssr && $node->ssr_port != 0;
+        $v2ray = $node->v2ray;
+        if ($ssr) {
+            $aryr['server'] = $node->server;
+            $aryr['protocol'] = $node->protocol;
+            $aryr['protocol_param'] = $node->protocol_param;
+            $aryr['obfs'] = $node->obfs;
+            $aryr['obfs_param'] = $node->obfs_param;
+            if ($node->custom_rss) {
+                $ary['protocol'] = $this->user->protocol;
+                $aryr['protocol_param'] = $this->user->protocol_param;
+                $aryr['obfs'] = $this->user->obfs;
+                $aryr['obfs_param'] = $this->user->obfs_param;
+            }
+            $aryr['server_port'] = $this->user->port;
+            $aryr['password'] = $this->user->passwd;
+            $aryr['method'] = $this->user->method;
+            $jsonr = json_encode($aryr);
+            $jsonr_show = json_encode($aryr, JSON_PRETTY_PRINT);
+            $ssrurl = $aryr['server'].":".$aryr['server_port'].":".$aryr['protocol'].":".$aryr['method'].":".$aryr['obfs'].":".safe_base64_encode($aryr['password'])
+                ."/?obfsparam=".safe_base64_encode($aryr['obfs_param'])."&protoparam=".safe_base64_encode($aryr['protocol_param'])."&udpport=1";
+            $ssrqr = "ssr://".safe_base64_encode($ssrurl);
+        }
+        if ($ssr_add) {
+            $aryrd['server'] = $node->server;
+            $aryrd['server_port'] = $node->ssr_port;
+            $aryrd['password'] = $node->add_passwd;
+            $aryrd['method'] = $node->add_method;
+            $aryrd['protocol'] = $node->protocol;
+            $aryrd['protocol_param'] = strval($this->user->port).":".$this->user->passwd;
+            $aryrd['obfs'] = $node->obfs;
+            $aryrd['obfs_param'] = $node->obfs_param;
+            $jsonrd = json_encode($aryrd);
+            $jsonrd_show = json_encode($aryrd, JSON_PRETTY_PRINT);
+            $ssrdurl = $aryrd['server'].":".$aryrd['server_port'].":".$aryrd['protocol'].":".$aryrd['method'].":".$aryrd['obfs'].":".safe_base64_encode($aryrd['password'])
+                ."/?obfsparam=".safe_base64_encode($aryrd['obfs_param'])."&protoparam=".safe_base64_encode($aryrd['protocol_param'])."&udpport=1";
+            $ssrdqr = "ssr://".safe_base64_encode($ssrdurl);
+        }
+        if ($v2ray) {
+            $arr = [
+                "inbound" => [
+                    "port" => 1080,
+                    "listen" => "127.0.0.1",
+                    "protocol" => "socks",
+                    "domainOverride" => ["tls", "http"],
+                    "settings" => [
+                        "auth" => "noauth",
+                        "udp" => false,
+                        "ip" => "127.0.0.1",
+                    ],
+                ],
+                "outbound" => [
+                    "protocol" => "vmess",
+                    "settings" => [
+                        "vnext" => [
+                            [
+                                "address" => $node->server,
+                                "port" => $node->v2ray_port,
+                                "users" => [
+                                    [
+                                        "id" => $this->user->v2ray_uuid,
+                                        "alterId" => $this->user->v2ray_alter_id,
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    "streamSettings" => [
+                        "network" => $node->v2ray_protocol
+                    ]
+                ],
+                "inboundDetour" => [],
+                "outboundDetour" => [
+                    [
+                        "protocol" => "freedom",
+                        "settings" => null,
+                        "tag" => "direct",
+                    ],
+                ],
+                "routing" => [
+                    "strategy" => "rules",
+                    "settings" => [
+                        "rules" => [
+                            [
+                                "type" => "field",
+                                "ip" => [
+                                    "0.0.0.0/8",
+                                    "10.0.0.0/8",
+                                    "100.64.0.0/10",
+                                    "127.0.0.0/8",
+                                    "169.254.0.0/16",
+                                    "172.16.0.0/12",
+                                    "192.0.0.0/24",
+                                    "192.0.2.0/24",
+                                    "192.168.0.0/16",
+                                    "198.18.0.0/15",
+                                    "198.51.100.0/24",
+                                    "203.0.113.0/24",
+                                    "::1/128",
+                                    "fc00::/7",
+                                    "fe80::/10",
+                                ],
+                                "outboundTag" => "direct",
+                            ],
+                        ],
+                    ],
+                ],
+            ];
+            $ng = [
+                "add" => $node->server,
+                "aid" => $this->user->v2ray_alter_id,
+                "id" => $this->user->v2ray_uuid,
+                "net" => $node->v2ray_protocol,
+                "port" => $node->v2ray_port,
+                "v" => 2,
+                "ps" => $node->name,
+            ];
+            $jsonv = json_encode($arr);
+            $jsonv_show = json_encode($arr, JSON_PRETTY_PRINT);
+            $ngqr = "vmess://".base64_encode(json_encode($ng));
+        }
+
+        $user = Auth::getUser();
+        if ($user->enable) {
+            $temp = $this->view()->assign('ss', $ss)->assign('ssr', $ssr)->assign('ssr_add', $ssr_add)->assign('v2ray', $v2ray)
+                ->assign('json', $json)->assign('json_show', $json_show)->assign('ssqr', $ssqr)
+                ->assign('surge_base', $surge_base)->assign('surge_proxy', $surge_proxy);
+            if ($ssr) {
+                $temp = $temp->assign('jsonr', $jsonr)->assign('jsonr_show', $jsonr_show)->assign('ssrqr', $ssrqr);
+            }
+            if ($ssr_add) {
+                $temp = $temp->assign('jsonrd', $jsonrd)->assign('jsonrd_show', $jsonrd_show)->assign('ssrdqr', $ssrdqr);
+            }
+            if ($v2ray) {
+                $temp = $temp->assign('jsonv', $jsonv)->assign('jsonv_show', $jsonv_show)->assign('ngqr', $ngqr);
+            }
+
+            return $temp->display('user/nodeinfo.tpl');
+        } else {
+            return $this->redirect($response, '/user');
+        }
     }
 
     public function profile($request, $response, $args)
@@ -85,7 +235,11 @@ class UserController extends BaseController
     public function edit($request, $response, $args)
     {
         $method = Node::getCustomerMethod();
-        return $this->view()->assign('method', $method)->display('user/edit.tpl');
+        $protocol = Node::getProtocolMethod();
+        $obfs = Node::getObfsMethod();
+
+        return $this->view()->assign('method', $method)->assign('protocol', $protocol)->assign('obfs',
+            $obfs)->display('user/edit.tpl');
     }
 
 
@@ -175,6 +329,68 @@ class UserController extends BaseController
         $method = strtolower($method);
         $user->updateMethod($method);
         $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateProtocol($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $protocol = $request->getParam('protocol');
+        $protocol = strtolower($protocol);
+        $user->updateProtocol($protocol);
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateProtocolParam($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $param = $request->getParam('protocol-param');
+        $user->updateProtocolParam($param);
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateObfs($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $obfs = $request->getParam('obfs');
+        $obfs = strtolower($obfs);
+        $user->updateObfs($obfs);
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateObfsParam($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $param = $request->getParam('obfs-param');
+        $user->updateObfsParam($param);
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateV2rayUUID($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $user->updateV2rayUUID();
+        $res['ret'] = 1;
+
+        return $this->echoJson($response, $res);
+    }
+
+    public function updateV2rayAlterID($request, $response, $args)
+    {
+        $user = Auth::getUser();
+        $param = $request->getParam('v2ray-alterid');
+        $user->updateV2rayAlterID($param);
+        $res['ret'] = 1;
+
         return $this->echoJson($response, $res);
     }
 

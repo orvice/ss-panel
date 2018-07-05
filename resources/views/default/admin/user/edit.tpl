@@ -120,6 +120,90 @@
                                             </select>  
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">自定义协议插件</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <select class="form-control" id="protocol">
+                                                    {foreach $protocol as $cipher}
+                                                        <option value="{$cipher}" {if $user->protocol==$cipher}selected="selected"{/if} >{$cipher}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">自定义协议参数</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" id="protocol_param" value="{$user->protocol_param}" class="form-control">
+                                            </div>
+                                            <p class="help-block">
+                                                在 auth_chain_* 协议中表示最多允许同时连接的客户端数。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">混淆插件</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <select class="form-control" id="obfs">
+                                                    {foreach $obfs as $cipher}
+                                                        <option value="{$cipher}" {if $user->obfs==$cipher}selected="selected"{/if} >{$cipher}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">混淆参数</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" id="obfs_param" value="{$user->obfs_param}" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">V2Ray UUID</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" id="v2ray-uuid" value="{$user->v2ray_uuid}" class="form-control" disabled>
+                                                <div class="input-group-btn">
+                                                    <button type="submit" id="v2ray-uuid-update" class="btn btn-primary">更换</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">V2Ray Alter ID</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" id="v2ray-alterid" value="{$user->v2ray_alter_id}" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">V2Ray Level</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" id="v2ray-level" value="{$user->v2ray_level}" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </div>
                             <div class="row">
@@ -201,6 +285,12 @@
                     transfer_enable: $("#transfer_enable").val(),
                     invite_num: $("#invite_num").val(),
                     method: $("#method").val(),
+                    protocol: $("#protocol").val(),
+                    protocol_param: $("#protocol_param").val(),
+                    obfs: $("#obfs").val(),
+                    obfs_param: $("#obfs_param").val(),
+                    v2ray_level: $("#v2ray-level").val(),
+                    v2ray_alter_id: $("#v2ray-alterid").val(),
                     enable: $("#enable").val(),
                     is_admin: $("#is_admin").val(),
                     ref_by: $("#ref_by").val()
@@ -224,7 +314,30 @@
                 }
             });
         }
-
+        function submit_v2ray_uuid() {
+            $.ajax({
+                type: "PATCH",
+                url: "/admin/user/{$user->id}/v2ray-uuid",
+                dataType: "json",
+                success: function (data) {
+                    if (data.ret) {
+                        $("#msg-error").hide(100);
+                        $("#msg-success").show(100);
+                        $("#msg-success-p").html(data.msg);
+                        window.setTimeout("history.go(0)", 1000);
+                    } else {
+                        $("#msg-error").hide(10);
+                        $("#msg-error").show(100);
+                        $("#msg-error-p").html(data.msg);
+                    }
+                },
+                error: function (jqXHR) {
+                    $("#msg-error").hide(10);
+                    $("#msg-error").show(100);
+                    $("#msg-error-p").html("发生错误：" + jqXHR.status);
+                }
+            });
+        }
         $("html").keydown(function (event) {
             if (event.keyCode == 13) {
                 login();
@@ -232,6 +345,9 @@
         });
         $("#submit").click(function () {
             submit();
+        });
+        $("#v2ray-uuid-update").click(function () {
+            submit_v2ray_uuid();
         });
         $("#ok-close").click(function () {
             $("#msg-success").hide(100);

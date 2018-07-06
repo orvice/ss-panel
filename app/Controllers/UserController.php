@@ -93,7 +93,7 @@ class UserController extends BaseController
             $aryr['obfs'] = $node->obfs;
             $aryr['obfs_param'] = $node->obfs_param;
             if ($node->custom_rss) {
-                $ary['protocol'] = $this->user->protocol;
+                $aryr['protocol'] = $this->user->protocol;
                 $aryr['protocol_param'] = $this->user->protocol_param;
                 $aryr['obfs'] = $this->user->obfs;
                 $aryr['obfs_param'] = $this->user->obfs_param;

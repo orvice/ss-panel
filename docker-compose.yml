@@ -16,6 +16,7 @@ services:
       environment:
         - MYSQL_ROOT_PASSWORD=sspanel
         - MYSQL_DATABASE=sspanel
+        - MYSQL_USER=sspanel
       volumes:
         - ./mysql_data:/var/lib/mysql:Z
 
@@ -39,7 +40,7 @@ services:
 
         - DB_HOST=mysql
         - DB_DATABASE=sspanel
-        - DB_USERNAME=root
+        - DB_USERNAME=sspanel
         - DB_PASSWORD=sspanel
 
         - REDIS_HOST=redis

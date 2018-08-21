@@ -6,7 +6,7 @@ WORKDIR /opt/app
 RUN npm install
 RUN npm run prod
 
-FROM orvice/apache-base
+FROM orvice/apache-base:71
 MAINTAINER orvice<orvice@orx.me>
 
 ENV SSPANEL_VERSION 4.0.0

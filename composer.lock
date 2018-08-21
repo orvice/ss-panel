@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baf6d96a91614a40ea2d29ef910f235e",
+    "content-hash": "9bc178b63800953d09c7cbfeb35090d1",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1913,23 +1913,23 @@
         },
         {
             "name": "pongtan/fake-laravel",
-            "version": "5.5.1",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pongtan/fake-laravel.git",
-                "reference": "071d6b47bb26bce468a9acc57d1922a8e5bab1aa"
+                "reference": "aa90cd2cb6af7c50a5bdbe90df905b74e24af3f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pongtan/fake-laravel/zipball/071d6b47bb26bce468a9acc57d1922a8e5bab1aa",
-                "reference": "071d6b47bb26bce468a9acc57d1922a8e5bab1aa",
+                "url": "https://api.github.com/repos/Pongtan/fake-laravel/zipball/aa90cd2cb6af7c50a5bdbe90df905b74e24af3f6",
+                "reference": "aa90cd2cb6af7c50a5bdbe90df905b74e24af3f6",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^5.5"
+                "illuminate/contracts": "^5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.0"
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "autoload": {
@@ -1954,7 +1954,7 @@
                 "app",
                 "laravel"
             ],
-            "time": "2017-11-19T13:20:53+00:00"
+            "time": "2018-08-21T15:56:36+00:00"
         },
         {
             "name": "pongtan/framework",

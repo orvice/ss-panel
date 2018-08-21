@@ -10,7 +10,7 @@
     "illuminate/pagination": "^5.5",
     "martinlindhe/laravel-vue-i18n-generator": "^0.1.13",
     "illuminate/events": "^5.5",
-    "pongtan/fake-laravel": "^5.5",
+    "pongtan/fake-laravel": "^5.6",
     "paypal/rest-api-sdk-php": "^1.12",
     "latrell/alipay": "^1.2"
   },

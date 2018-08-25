@@ -9,94 +9,95 @@
         <div class="uk-section-small">
             <div class="uk-container uk-container-large">
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@xl">
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
 
-                        <span class="statistics-text">{{$t("user-index.connection-info")}}</span><br/>
+                            <span class="statistics-text">{{$t("user-index.connection-info")}}</span><br/>
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">{{$t("ss.password")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="password">
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-horizontal-text">{{$t("ss.password")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="password">
+                                </div>
                             </div>
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.method")}}</label>
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" id="form-horizontal-select" v-model="ssMethod" >
+                                        <option v-for="m in methods" :value="m">{{m}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-protocol")}}</label>
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" id="form-horizontal-select" v-model="ssProtocol">
+                                        <option v-for="m in protocol" :value="m">{{m}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-plugin")}}</label>
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" id="form-horizontal-select" v-model="ssObfs">
+                                        <option v-for="m in obfs" :value="m" >{{m}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <button class="uk-button uk-button-primary" @click="update">
+                                    {{$t("base.update")}}
+                                </button>
+                            </div>
+
                         </div>
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.method")}}</label>
-                            <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select" v-model="ssMethod" >
-                                    <option v-for="m in methods" :value="m">{{m}}</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-protocol")}}</label>
-                            <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select" v-model="ssProtocol">
-                                    <option v-for="m in protocol" :value="m">{{m}}</option>
-                                </select>
-                            </div>
-                        </div>
+                        <div class="uk-card uk-card-default uk-card-body">
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-select">{{$t("ss.obfs-plugin")}}</label>
-                            <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select" v-model="ssObfs">
-                                    <option v-for="m in obfs" :value="m" >{{m}}</option>
-                                </select>
-                            </div>
-                        </div>
+                            <span class="statistics-text">{{$t("auth.update-password")}}</span><br/>
 
-                        <div class="uk-margin">
-                            <button class="uk-button uk-button-primary" @click="update">
-                                {{$t("base.update")}}
-                            </button>
+                            <div class="uk-margin">
+                                <label class="uk-form-label"
+                                       for="form-horizontal-text">{{$t("auth.current-password")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="currentPassword">
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-horizontal-text">{{$t("auth.new-password")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="newPassword">
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label"
+                                       for="form-horizontal-text">{{$t("auth.password-repeat")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="newPasswordRepeat">
+                                </div>
+                            </div>
+
+
+                            <div class="uk-margin">
+                                <button class="uk-button uk-button-primary" @click="updatePassword">
+                                    {{$t("auth.update-password")}}
+                                </button>
+                            </div>
+
                         </div>
 
                     </div>
-
-
-                    <div class="uk-card uk-card-default uk-card-body">
-
-                        <span class="statistics-text">{{$t("auth.update-password")}}</span><br/>
-
-                        <div class="uk-margin">
-                            <label class="uk-form-label"
-                                   for="form-horizontal-text">{{$t("auth.current-password")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="currentPassword">
-                            </div>
-                        </div>
-
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">{{$t("auth.new-password")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="newPassword">
-                            </div>
-                        </div>
-
-                        <div class="uk-margin">
-                            <label class="uk-form-label"
-                                   for="form-horizontal-text">{{$t("auth.password-repeat")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="newPasswordRepeat">
-                            </div>
-                        </div>
-
-
-                        <div class="uk-margin">
-                            <button class="uk-button uk-button-primary" @click="updatePassword">
-                                {{$t("auth.update-password")}}
-                            </button>
-                        </div>
-
-                    </div>
-
-
                 </div>
             </div>
         </div>

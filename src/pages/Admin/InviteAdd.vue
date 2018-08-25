@@ -9,34 +9,36 @@
         <div class="uk-section-small">
             <div class="uk-container uk-container-large">
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
 
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label"
-                                   for="form-horizontal-text">{{$t("admin.num")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="num">
+                            <div class="uk-margin">
+                                <label class="uk-form-label"
+                                       for="form-horizontal-text">{{$t("admin.num")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="num">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label"
-                                   for="form-horizontal-text">{{$t("admin.prefix")}}</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input" id="form-horizontal-text" type="text"
-                                       v-model="prefix">
+                            <div class="uk-margin">
+                                <label class="uk-form-label"
+                                       for="form-horizontal-text">{{$t("admin.prefix")}}</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-horizontal-text" type="text"
+                                           v-model="prefix">
+                                </div>
                             </div>
+
+
+                            <div class="uk-margin">
+                                <button class="uk-button uk-button-primary" @click="add">
+                                    {{$t("admin.add")}}
+                                </button>
+                            </div>
+
                         </div>
-
-
-                        <div class="uk-margin">
-                            <button class="uk-button uk-button-primary" @click="add">
-                                {{$t("admin.add")}}
-                            </button>
-                        </div>
-
                     </div>
                 </div>
             </div>

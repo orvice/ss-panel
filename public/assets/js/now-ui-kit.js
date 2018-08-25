@@ -27,7 +27,11 @@ var navbar_initialized,
 
 $(document).ready(function(){
     //  Activate the Tooltips
-    $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
+    try{
+        $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
+    }catch(e){
+        console.log(e);
+    }
 
     // Activate Popovers and set color for popovers
     $('[data-toggle="popover"]').each(function(){
@@ -76,9 +80,13 @@ $(document).ready(function(){
     }
 
     // Activate Carousel
-	$('.carousel').carousel({
-        interval: 4000
-    });
+    try {
+        $('.carousel').carousel({
+            interval: 4000
+        });
+    } catch ( e ){
+        console.log(e);
+    }
 
     $('.date-picker').each(function(){
         $(this).datepicker({

@@ -12,23 +12,6 @@
                         </a>
                     </div>
                     <div class="uk-navbar-right uk-light">
-                        <ul class="uk-navbar-nav">
-                            <li class="uk-active">
-                                <a href="#"> <span class="uk-margin-small-right" uk-icon="icon: user"></span>
-                                    {{$store.state.user.data.email}}<span class="ion-ios-arrow-down"></span></a>
-                                <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <router-link tag="li" :to="{ name: 'setting' }" exact><a><span
-                                                class="uk-margin-small-right" uk-icon="icon: settings"></span>
-                                            {{$t('base.setting')}}</a></router-link>
-
-                                        <router-link tag="li" :to="{ name: 'logout' }" exact><a><span
-                                                class="uk-margin-small-right" uk-icon="icon: sign-out"></span>
-                                            {{$t('auth.logout')}}</a></router-link>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
                         <Lang></Lang>
                     </div>
                 </nav>
@@ -36,8 +19,7 @@
         </div>
         <div id="sidebar" class="tm-sidebar-left uk-background-default">
             <center>
-                <div class="user">
-                </div>
+                <div class="user"><a href="#">{{$store.state.user.data.email}}</a></div>
                 <br/>
             </center>
             <LeftBar></LeftBar>

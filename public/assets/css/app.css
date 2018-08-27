@@ -105,3 +105,22 @@ html, body{
         margin-left: 300px;
     }
 }
+
+
+#bodyClick {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: auto;
+    content: "";
+    z-index: 99;
+    overflow-x: hidden;
+    background-color: #00000038;;
+    -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}

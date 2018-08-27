@@ -50,14 +50,7 @@
 
                 </div>
                 <div class="footer text-center">
-                    <a href="#pablo" @click="login" class="btn btn-neutral btn-round btn-lg">{{$t("auth.login")}}</a>
-                </div>
-                <div class="pull-left">
-                    <router-link :to="{ name: 'register' }" exact>
-                        <h6>
-                            <a class="link">{{ $t("auth.register") }}</a>
-                        </h6>
-                    </router-link>
+                    <a href="#pablo" @click="login" class="btn btn-primary btn-lg btn-round">{{$t("auth.login")}}</a>
                 </div>
                 <div class="pull-right">
                     <router-link :to="{ name: 'password-reset' }" exact>

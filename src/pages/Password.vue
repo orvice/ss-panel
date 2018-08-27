@@ -1,54 +1,45 @@
 <template>
-    <div class="container">
-        <div class="content-center">
-            <div class="card card-signup  card-plain">
-                <div class="header header-primary text-center">
-
-                    <div class="header header-primary text-center" v-if="false">
-                        <div class="logo-container">
-                            <img class="n-logo" src="/assets/img/logo.png" alt="" width="30%">
-                        </div>
+<div class="container">
+    <div class="content-center">
+        <div class="card card-signup  card-plain">
+            <div class="header header-primary text-center">
+                <div class="header header-primary text-center" v-if="false">
+                    <div class="logo-container">
+                        <img class="n-logo" src="/assets/img/logo.png" alt="" width="30%">
                     </div>
-
-                    <h4 class="title title-up">{{$t("auth.forgot-password")}}</h4>
-
                 </div>
-                <div class="content">
-
-                    <div class="alert alert-danger" role="alert" v-if="isError">
-                        <div class="container">
-                            <div class="alert-icon">
-                                <i class="now-ui-icons objects_support-17"></i>
-                            </div>
-                            {{errorMsg}}
+                <h4 class="title title-up">{{$t("auth.forgot-password")}}</h4>
+            </div>
+            <div class="content">
+                <div class="alert alert-danger" role="alert" v-if="isError">
+                    <div class="container">
+                        <div class="alert-icon">
+                            <i class="now-ui-icons objects_support-17"></i>
                         </div>
+                        {{errorMsg}}
                     </div>
-
-                    <div class="alert alert-primary" role="alert" v-if="isSuccess">
-                        <div class="container">
-                            <div class="alert-icon">
-                                <i class="now-ui-icons objects_support-17"></i>
-                            </div>
-                            {{successMsg}}
+                </div>
+                <div class="alert alert-primary" role="alert" v-if="isSuccess">
+                    <div class="container">
+                        <div class="alert-icon">
+                            <i class="now-ui-icons objects_support-17"></i>
                         </div>
+                        {{successMsg}}
                     </div>
-
-                    <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons ui-1_email-85"></i>
-                                        </span>
-                        <input type="text" class="form-control" :placeholder="$t('auth.email')" v-model="email">
-                    </div>
-
                 </div>
-                <div class="footer text-center">
-                    <a   href="#pablo" @click="reset" class="btn btn-neutral btn-round btn-lg">{{$t("auth.send-reset-email")}}</a>
+                <div class="input-group form-group-no-border">
+                    <span class="input-group-addon">
+                        <i class="now-ui-icons ui-1_email-85"></i>
+                    </span>
+                    <input type="text" class="form-control" :placeholder="$t('auth.email')" v-model="email">
                 </div>
-
+            </div>
+            <div class="footer text-center">
+                <a   href="#pablo" @click="reset" class="btn btn-primary btn-lg btn-round">{{$t("auth.send-reset-email")}}</a>
             </div>
         </div>
     </div>
-
+</div>
 </template>
 
 <script>

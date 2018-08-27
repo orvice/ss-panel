@@ -25,19 +25,19 @@ var navbar_initialized,
     backgroundOrange = false,
     toggle_initialized = false;
 
-$(document).ready(function(){
+$(document).ready(function() {
     //  Activate the Tooltips
-    try{
+    try {
         $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
 
     // Activate Popovers and set color for popovers
-    $('[data-toggle="popover"]').each(function(){
+    $('[data-toggle="popover"]').each(function() {
         color_class = $(this).data('color');
         $(this).popover({
-            template: '<div class="popover '+ color_class +' " role="tooltip"><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+            template: '<div class="popover ' + color_class + ' " role="tooltip"><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
         });
     });
 
@@ -46,19 +46,19 @@ $(document).ready(function(){
 
     // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
 
-    if($('.navbar[color-on-scroll]').length != 0){
+    if ($('.navbar[color-on-scroll]').length != 0) {
         nowuiKit.checkScrollForTransparentNavbar();
         $(window).on('scroll', nowuiKit.checkScrollForTransparentNavbar)
     }
 
-    $('.form-control').on("focus", function(){
+    $('.form-control').on("focus", function() {
         $(this).parent('.input-group').addClass("input-group-focus");
-    }).on("blur", function(){
+    }).on("blur", function() {
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
 
     // Activate bootstrapSwitch
-    $('.bootstrap-switch').each(function(){
+    $('.bootstrap-switch').each(function() {
         $this = $(this);
         data_on_label = $this.data('on-label') || '';
         data_off_label = $this.data('off-label') || '';
@@ -69,11 +69,11 @@ $(document).ready(function(){
         });
     });
 
-    if( $(window).width() < 992 ){
+    if ($(window).width() < 992) {
         nowuiKit.initRightMenu();
     }
 
-    if ($(window).width() >= 992){
+    if ($(window).width() >= 992) {
         big_image = $('.page-header-image[data-parallax="true"]');
 
         $(window).on('scroll', nowuiKitDemo.checkScrollForParallax);
@@ -84,96 +84,110 @@ $(document).ready(function(){
         $('.carousel').carousel({
             interval: 4000
         });
-    } catch ( e ){
+    } catch (e) {
         console.log(e);
     }
 
-    $('.date-picker').each(function(){
+    $('.date-picker').each(function() {
         $(this).datepicker({
-            templates:{
+            templates: {
                 leftArrow: '<i class="now-ui-icons arrows-1_minimal-left"></i>',
                 rightArrow: '<i class="now-ui-icons arrows-1_minimal-right"></i>'
             }
         }).on('show', function() {
-                $('.datepicker').addClass('open');
+            $('.datepicker').addClass('open');
 
-                datepicker_color = $(this).data('datepicker-color');
-                if( datepicker_color.length != 0){
-                    $('.datepicker').addClass('datepicker-'+ datepicker_color +'');
-                }
-            }).on('hide', function() {
-                $('.datepicker').removeClass('open');
-            });
+            datepicker_color = $(this).data('datepicker-color');
+            if (datepicker_color.length != 0) {
+                $('.datepicker').addClass('datepicker-' + datepicker_color + '');
+            }
+        }).on('hide', function() {
+            $('.datepicker').removeClass('open');
+        });
     });
 
 
 });
 
-$(window).resize(function(){
-    if( $(window).width() < 992 ){
+$(window).resize(function() {
+    if ($(window).width() < 992) {
         nowuiKit.initRightMenu();
     }
 });
 
 nowuiKit = {
-    misc:{
+    misc: {
         navbar_menu_visible: 0
     },
 
     checkScrollForTransparentNavbar: debounce(function() {
-            if($(document).scrollTop() > scroll_distance ) {
-                if(transparent) {
-                    transparent = false;
-                    $('.navbar[color-on-scroll]').removeClass('navbar-transparent');
-                }
-            } else {
-                if( !transparent ) {
-                    transparent = true;
-                    $('.navbar[color-on-scroll]').addClass('navbar-transparent');
-                }
+        if ($(document).scrollTop() > scroll_distance) {
+            if (transparent) {
+                transparent = false;
+                $('.navbar[color-on-scroll]').removeClass('navbar-transparent');
             }
+        } else {
+            if (!transparent) {
+                transparent = true;
+                $('.navbar[color-on-scroll]').addClass('navbar-transparent');
+            }
+        }
     }, 17),
 
-    initRightMenu: function(){
-        if(!toggle_initialized){
+    initRightMenu: function() {
+        if (!toggle_initialized) {
+
+            $toggle = $('.navbar-nav');
+            $toggle.click(function() {
+                if (toggle_initialized) {
+                    console.log('navbar-nav');
+                    $('html').removeClass('nav-open');
+                    nowuiKit.misc.navbar_menu_visible = 0;
+                    setTimeout(function() {
+                        $toggle.removeClass('toggled');
+                        $('#bodyClick').remove();
+                    }, 550);
+                }
+            });
+
             $toggle = $('.navbar-toggler');
 
-            $toggle.click(function (){
-                if(nowuiKit.misc.navbar_menu_visible == 1) {
+            $toggle.click(function() {
+                if (nowuiKit.misc.navbar_menu_visible == 1) {
                     $('html').removeClass('nav-open');
-                   nowuiKit.misc.navbar_menu_visible = 0;
-                    setTimeout(function(){
-                       $toggle.removeClass('toggled');
-                       $('#bodyClick').remove();
-                   }, 550);
+                    nowuiKit.misc.navbar_menu_visible = 0;
+                    setTimeout(function() {
+                        $toggle.removeClass('toggled');
+                        $('#bodyClick').remove();
+                    }, 550);
 
                 } else {
 
-                   setTimeout(function(){
-                       $toggle.addClass('toggled');
-                   }, 580);
+                    setTimeout(function() {
+                        $toggle.addClass('toggled');
+                    }, 580);
 
-                   $navbar = $(this).parent('.navbar-translate').siblings('.navbar-collapse');
-                   background_image = $navbar.data('nav-image');
-                   if(background_image != undefined){
-                      $navbar.css('background',"url('" + background_image + "')")
-                             .removeAttr('data-nav-image')
-                             .css('background-size',"cover")
-                             .addClass('has-image');
-                   }
+                    $navbar = $(this).parent('.navbar-translate').siblings('.navbar-collapse');
+                    background_image = $navbar.data('nav-image');
+                    if (background_image != undefined) {
+                        $navbar.css('background', "url('" + background_image + "')")
+                            .removeAttr('data-nav-image')
+                            .css('background-size', "cover")
+                            .addClass('has-image');
+                    }
 
-                   div = '<div id="bodyClick"></div>';
-                   $(div).appendTo('body').click(function() {
-                       $('html').removeClass('nav-open');
-                       nowuiKit.misc.navbar_menu_visible = 0;
-                        setTimeout(function(){
-                           $toggle.removeClass('toggled');
-                           $('#bodyClick').remove();
+                    div = '<div id="bodyClick"></div>';
+                    $(div).appendTo('body').click(function() {
+                        $('html').removeClass('nav-open');
+                        nowuiKit.misc.navbar_menu_visible = 0;
+                        setTimeout(function() {
+                            $toggle.removeClass('toggled');
+                            $('#bodyClick').remove();
                         }, 550);
-                   });
+                    });
 
-                  $('html').addClass('nav-open');
-                   nowuiKit.misc.navbar_menu_visible = 1;
+                    $('html').addClass('nav-open');
+                    nowuiKit.misc.navbar_menu_visible = 1;
 
                 }
             });
@@ -181,13 +195,13 @@ nowuiKit = {
         }
     },
 
-    initSliders: function(){
+    initSliders: function() {
         // Sliders for demo purpose in refine cards section
         var slider = document.getElementById('sliderRegular');
 
         noUiSlider.create(slider, {
             start: 40,
-            connect: [true,false],
+            connect: [true, false],
             range: {
                 min: 0,
                 max: 100
@@ -197,11 +211,11 @@ nowuiKit = {
         var slider2 = document.getElementById('sliderDouble');
 
         noUiSlider.create(slider2, {
-            start: [ 20, 60 ],
+            start: [20, 60],
             connect: true,
             range: {
-                min:  0,
-                max:  100
+                min: 0,
+                max: 100
             }
         });
     }
@@ -212,15 +226,15 @@ var big_image;
 
 // Javascript just for Demo purpose, remove it from your project
 nowuiKitDemo = {
-    checkScrollForParallax: debounce(function(){
+    checkScrollForParallax: debounce(function() {
         var current_scroll = $(this).scrollTop();
 
         oVal = ($(window).scrollTop() / 3);
         big_image.css({
-            'transform':'translate3d(0,' + oVal +'px,0)',
-            '-webkit-transform':'translate3d(0,' + oVal +'px,0)',
-            '-ms-transform':'translate3d(0,' + oVal +'px,0)',
-            '-o-transform':'translate3d(0,' + oVal +'px,0)'
+            'transform': 'translate3d(0,' + oVal + 'px,0)',
+            '-webkit-transform': 'translate3d(0,' + oVal + 'px,0)',
+            '-ms-transform': 'translate3d(0,' + oVal + 'px,0)',
+            '-o-transform': 'translate3d(0,' + oVal + 'px,0)'
         });
 
     }, 6)
@@ -233,14 +247,15 @@ nowuiKitDemo = {
 // leading edge, instead of the trailing.
 
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		}, wait);
-		if (immediate && !timeout) func.apply(context, args);
-	};
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        }, wait);
+        if (immediate && !timeout) func.apply(context, args);
+    };
 };

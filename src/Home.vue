@@ -19,7 +19,8 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation"
                      data-nav-image="../assets/img/blurred-image-1.jpg">
 
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav" v-if="!$store.state.isLogin">
+
                         <router-link tag="li" :to="{ name: 'index' }" exact>
                             <li class="nav-item"><a class="nav-link"><i class="now-ui-icons ui-1_send"></i>
                                 {{ $t("nav.home") }}</a></li>
@@ -29,9 +30,7 @@
                                     class="now-ui-icons transportation_air-baloon"></i>{{ $t("nav.invite-code") }}</a>
                             </li>
                         </router-link>
-                    </ul>
 
-                    <ul class="navbar-nav" v-if="!$store.state.isLogin">
                         <router-link tag="li" :to="{ name: 'login' }" exact>
                             <li class="nav-item"><a class="nav-link"><i class="now-ui-icons users_single-02"></i>
                                 {{ $t("auth.login") }}</a></li>
@@ -43,6 +42,17 @@
                     </ul>
 
                     <ul class="navbar-nav" v-if="$store.state.isLogin">
+
+                        <router-link tag="li" :to="{ name: 'index' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i class="now-ui-icons ui-1_send"></i>
+                                {{ $t("nav.home") }}</a></li>
+                        </router-link>
+                        <router-link tag="li" :to="{ name: 'code' }" exact>
+                            <li class="nav-item"><a class="nav-link"><i
+                                    class="now-ui-icons transportation_air-baloon"></i>{{ $t("nav.invite-code") }}</a>
+                            </li>
+                        </router-link>
+
                         <li class="nav-item"><a class="nav-link" href="/dashboard"><i
                                 class="now-ui-icons users_single-02"></i> {{ $t("user-nav.dashboard") }}</a></li>
                         <router-link tag="li" :to="{ name: 'logout' }" exact>
@@ -50,7 +60,6 @@
                                     class="now-ui-icons media-1_button-power"></i>{{ $t("auth.logout") }}</a></li>
                         </router-link>
                     </ul>
-
 
                 </div>
             </div>

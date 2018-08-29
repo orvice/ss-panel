@@ -2019,7 +2019,7 @@ body {
   padding-bottom: 0.5rem;
   line-height: 1.625rem; }
 .navbar .navbar-toggler {
-  width: 0px;
+  width: 37px;
   height: 27px;
   vertical-align: middle;
   outline: 0;
@@ -3533,7 +3533,7 @@ Created using IcoMoon - icomoon.io
     margin-left: -2px; }
 
   [class*="navbar-toggleable-"] .navbar-collapse {
-    width: 150px; }
+    width: 300px; }
 
   .button-dropdown {
     display: none; }
@@ -3613,11 +3613,11 @@ Created using IcoMoon - icomoon.io
     -ms-transform: translate3d(-150px, 0, 0);
     transform: translate3d(-150px, 0, 0); }
   .nav-open .navbar-translate {
-    -webkit-transform: translate3d(-150px, 0, 0);
-    -moz-transform: translate3d(-150px, 0, 0);
-    -o-transform: translate3d(-150px, 0, 0);
-    -ms-transform: translate3d(-150px, 0, 0);
-    transform: translate3d(-150px, 0, 0); }
+    -webkit-transform: translate3d(-300px, 0, 0);
+    -moz-transform: translate3d(-300px, 0, 0);
+    -o-transform: translate3d(-300px, 0, 0);
+    -ms-transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-300px, 0, 0); }
   .nav-open .menu-on-left .navbar-collapse {
     -webkit-transform: translate3d(0px, 0, 0);
     -moz-transform: translate3d(0px, 0, 0);
@@ -3839,7 +3839,7 @@ Created using IcoMoon - icomoon.io
     opacity: 1;
     top: 0;
     left: auto;
-    right: 150px;
+    right: 300px;
     content: "";
     z-index: 9999;
     overflow-x: hidden;

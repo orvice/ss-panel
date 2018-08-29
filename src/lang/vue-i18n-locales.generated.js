@@ -170,7 +170,7 @@ export default {
             "home": "Home",
             "user-center": "User Center",
             "download": "Download",
-            "invite-code": "Invite Code",
+            "invite-code": "InviteCode",
             "pages": "Pages",
             "about": "About",
             "about-des": "A way to share shadowsocks.",

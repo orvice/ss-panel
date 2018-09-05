@@ -13,8 +13,8 @@ $togb = $tomb*1024;
 //Define DB Connection  数据库信息
 define('DB_HOST','localhost');
 define('DB_USER','root');
-define('DB_PWD','password');
-define('DB_DBNAME','db');
+define('DB_PWD','radpass');
+define('DB_DBNAME','shadowsocks');
 define('DB_CHARSET','utf8');
 define('DB_TYPE','mysql'); 
 /*
@@ -31,8 +31,8 @@ $check_min = 1;
 $check_max = 100;
 
 //name
-$site_name = "ss-panel";
-$site_url  = "https://panel.com/";
+$site_name = "52VPN";
+$site_url  = "http://www.52vpn.cf/";
 /**
  * 站点盐值，用于加密密码
  * 第一次安装请修改此值，安装后请勿修改！！否则会使所有密码失效，仅限加密方式不为1的时候有效

@@ -46,7 +46,7 @@ $Users = new Ss\User\User();
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d'])); ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['u']+$rs['d'])); ?></td>
                                         <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
-                                        <td><?php echo date('Y-m-d H:i:s',$rs['last_check_in_time']); ?></td>
+                                        <td><?php echo date('Y-m-d H:i:s',$rs['reg_date']); ?></td>
                                         <td>
 <?php 
 if ( $rs['ref_by'] != 0 ){

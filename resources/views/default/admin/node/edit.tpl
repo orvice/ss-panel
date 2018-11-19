@@ -281,7 +281,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="v2ray_protocol" class="col-sm-3 control-label">协议</label>
+                                        <label for="v2ray_protocol" class="col-sm-3 control-label">传输协议</label>
 
                                         <div class="col-sm-9">
                                             <select class="form-control" id="v2ray_protocol">
@@ -291,6 +291,25 @@
                                                         {$protocol_name}
                                                     </option>
                                                 {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="v2ray_path" class="col-sm-3 control-label">WS Path / H2 Path</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="form-control" id="v2ray_path" value="{$node->v2ray_path}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="v2ray_tls" class="col-sm-3 control-label">TLS</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="v2ray_tls" value="{$node->v2ray_tls}">
+                                                <option value="0" {if $node->v2ray_tls==0}selected={/if}>不启用</option>
+                                                <option value="1" {if $node->v2ray_tls==1}selected={/if}>启用</option>
                                             </select>
                                         </div>
                                     </div>
@@ -342,6 +361,8 @@
                     v2ray: $("#v2ray").val(),
                     v2ray_port: $("#v2ray_port").val(),
                     v2ray_protocol: $("#v2ray_protocol").val(),
+                    v2ray_path: $("#v2ray_path").val(),
+                    v2ray_tls: $("#v2ray_tls").val(),
                 },
                 success: function (data) {
                     if (data.ret) {

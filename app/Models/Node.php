@@ -157,6 +157,8 @@ class Node extends Model
             "TCP" => "tcp",
             "mKCP" => "kcp",
             "WebSocket" => "ws",
+            "HTTP/2" => "http",
+            "DomainSocket" => "domainsocket",
         ];
     }
 }

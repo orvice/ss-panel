@@ -79,6 +79,8 @@ CREATE TABLE `ss_node` (
   `v2ray` tinyint(4) NOT NULL DEFAULT '0',
   `v2ray_port` int(11) NOT NULL DEFAULT '8100',
   `v2ray_protocol` varchar(64) NOT NULL DEFAULT 'tcp',
+  `v2ray_path` varchar(64) NOT NULL DEFAULT '/ray',
+  `v2ray_tls` int(3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

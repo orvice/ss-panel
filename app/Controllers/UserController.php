@@ -201,6 +201,22 @@ class UserController extends BaseController
                 "v" => 2,
                 "ps" => $node->name,
             ];
+            if ($node->v2ray_protocol == 'ws') {
+                $arr['outbound']['streamSettings']['wsSettings'] = [
+                    'path' => $node->v2ray_path,
+                ];
+                $ng['path'] = $node->v2ray_path;
+            }
+            if ($node->v2ray_protocol == 'http') {
+                $arr['outbound']['streamSettings']['httpSettings'] = [
+                    'path' => $node->v2ray_path,
+                ];
+                $ng['path'] = $node->v2ray_path;
+            }
+            if ($node->v2ray_tls) {
+                $arr['outbound']['streamSettings']['security'] = 'tls';
+                $ng['tls'] = 'tls';
+            }
             $jsonv = json_encode($arr);
             $jsonv_show = json_encode($arr, JSON_PRETTY_PRINT);
             $ngqr = "vmess://".base64_encode(json_encode($ng));

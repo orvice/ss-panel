@@ -54,6 +54,8 @@ class NodeController extends AdminController
         $node->v2ray = $request->getParam('v2ray');
         $node->v2ray_port = $request->getParam('v2ray_port');
         $node->v2ray_protocol = $request->getParam('v2ray_protocol');
+        $node->v2ray_path = $request->getParam('v2ray_path');
+        $node->v2ray_tls = $request->getParam('v2ray_tls');
         if (!$node->save()) {
             $rs['ret'] = 0;
             $rs['msg'] = "添加失败";
@@ -113,6 +115,8 @@ class NodeController extends AdminController
         $node->v2ray = $request->getParam('v2ray');
         $node->v2ray_port = $request->getParam('v2ray_port');
         $node->v2ray_protocol = $request->getParam('v2ray_protocol');
+        $node->v2ray_path = $request->getParam('v2ray_path');
+        $node->v2ray_tls = $request->getParam('v2ray_tls');
         if (!$node->save()) {
             $rs['ret'] = 0;
             $rs['msg'] = "修改失败";

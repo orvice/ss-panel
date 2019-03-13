@@ -148,7 +148,7 @@
 
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" id="protocol-param" placeholder="输入新协议参数" class="form-control">
+                                        <input type="text" id="protocol-param" value="{$user->protocol_param}"  placeholder="输入新协议参数" class="form-control">
                                         <div class="input-group-btn">
                                             <button type="submit" id="protocol-param-update" class="btn btn-primary">修改</button>
                                         </div>
@@ -181,13 +181,15 @@
 
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" id="obfs-param" placeholder="输入新混淆参数" class="form-control">
+                                        <input type="text" id="obfs-param" value="{$user->obfs_param}" placeholder="输入新混淆参数" class="form-control">
                                         <div class="input-group-btn">
                                             <button type="submit" id="obfs-param-update" class="btn btn-primary">修改</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+							
+							<hr>
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">V2Ray UUID</label>
@@ -207,7 +209,7 @@
 
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" id="v2ray-alterid" placeholder="输入新 Alter ID" class="form-control">
+                                        <input type="text" id="v2ray-alterid" value="{$user->v2ray_alter_id}" placeholder="输入新 Alter ID" class="form-control">
                                         <div class="input-group-btn">
                                             <button type="submit" id="v2ray-alterid-update" class="btn btn-primary">修改</button>
                                         </div>

@@ -11,7 +11,7 @@
     <section class="content">
         <!-- START PROGRESS BARS -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div class="callout callout-warning">
                     <h4>注意!</h4>
 
@@ -19,7 +19,7 @@
                 </div>
             </div>
             {if $ss}
-                <div class="col-md-6">
+                <div class="col-lg-9">
                     <div class="box box-solid">
                         <div class="box-header">
                             <i class="fa fa-code"></i>
@@ -28,7 +28,7 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <textarea class="form-control" rows="6">{$json_show}</textarea>
+                            <textarea class="form-control" rows="3">{$json_show}</textarea>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -53,7 +53,7 @@
                     <!-- /.box -->
                 </div>
                 <!-- /.col (right) -->
-                <div class="col-md-6">
+                <div class="col-lg-3">
                     <div class="box box-solid">
                         <div class="box-header">
                             <i class="fa fa-qrcode"></i>
@@ -75,7 +75,7 @@
         </div>
         {if $ssr}
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-9">
                     <div class="box box-solid bg-maroon-gradient">
                         <div class="box-header">
                             <i class="fa fa-code"></i>
@@ -93,7 +93,7 @@
                         <div class="box-header">
                             <i class="fa fa-code"></i>
 
-                            <h3 class="box-title">SSRR 配置地址</h3>
+                            <h3 class="box-title">SSR 配置地址</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -110,12 +110,12 @@
                 </div>
                 <!-- /.col (right) -->
 
-                <div class="col-md-6">
+                <div class="col-lg-3">
                     <div class="box box-solid bg-maroon-gradient">
                         <div class="box-header">
                             <i class="fa fa-qrcode"></i>
 
-                            <h3 class="box-title">SSRR 配置二维码</h3>
+                            <h3 class="box-title">SSR 配置二维码</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -131,8 +131,9 @@
             </div>
         {/if}
         {if $ssr_add}
+			<!-- 单端口 -->
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-9">
                     <div class="box box-solid bg-maroon">
                         <div class="box-header">
                             <i class="fa fa-code"></i>
@@ -150,7 +151,7 @@
                         <div class="box-header">
                             <i class="fa fa-code"></i>
 
-                            <h3 class="box-title">SSRR 配置地址</h3>
+                            <h3 class="box-title">SSR 配置地址</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -167,12 +168,12 @@
                 </div>
                 <!-- /.col (right) -->
 
-                <div class="col-md-6">
+                <div class="col-lg-3">
                     <div class="box box-solid bg-maroon">
                         <div class="box-header">
                             <i class="fa fa-qrcode"></i>
 
-                            <h3 class="box-title">SSRR 配置二维码</h3>
+                            <h3 class="box-title">SSR 配置二维码</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -189,7 +190,7 @@
         {/if}
         {if $v2ray}
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="box box-solid bg-fuchsia">
                         <div class="box-header">
                             <i class="fa fa-code"></i>
@@ -198,19 +199,51 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <textarea class="form-control" rows="6">{$jsonv_show}</textarea>
+                            <textarea class="form-control" rows="10">{$jsonv_show}</textarea>
                         </div>
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
+                </div>
+                <!-- /.col (right) -->
+
+                <div class="col-lg-3">
                     <div class="box box-solid bg-fuchsia">
                         <div class="box-header">
-                            <i class="fa fa-code"></i>
+                            <i class="fa fa-qrcode"></i>
 
-                            <h3 class="box-title">v2rayNG 配置地址</h3>
+                            <h3 class="box-title">BifrostV 配置二维码&地址</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <div class="text-center">
+                                <div id="bfv-qr"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="bfv-qr-text" class="form-control" value="{$bfvqr}">
+                                <div class="input-group-btn">
+                                    <a class="btn btn-primary btn-flat" href="{$bfvqr}">></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col (right) -->
+
+                <div class="col-lg-3">
+                    <div class="box box-solid bg-fuchsia">
+                        <div class="box-header">
+                            <i class="fa fa-qrcode"></i>
+
+                            <h3 class="box-title">v2rayNG 配置二维码&地址</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="text-center">
+                                <div id="ng-qr"></div>
+                            </div>
                             <div class="input-group">
                                 <input type="text" id="ng-qr-text" class="form-control" value="{$ngqr}">
                                 <div class="input-group-btn">
@@ -223,29 +256,10 @@
                     <!-- /.box -->
                 </div>
                 <!-- /.col (right) -->
-
-                <div class="col-md-6">
-                    <div class="box box-solid bg-fuchsia">
-                        <div class="box-header">
-                            <i class="fa fa-qrcode"></i>
-
-                            <h3 class="box-title">v2rayNG 配置二维码</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="text-center">
-                                <div id="ng-qr"></div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!-- /.col (right) -->
             </div>
         {/if}
         {if $ss}
-            <div class="row">
+            <div class="row hide">
                 <div class="col-md-12">
                     <div class="box box-solid">
                         <div class="box-header">
@@ -318,6 +332,10 @@
           var text_ngqrcode = jQuery('#ng-qr-text').val();
           jQuery('#ng-qr').qrcode({
             "text": text_ngqrcode
+          });
+          var text_bfvqrcode = jQuery('#bfv-qr-text').val();
+          jQuery('#bfv-qr').qrcode({
+            "text": text_bfvqrcode
           });
           var text_surge_base = jQuery('#surge-base-text').val();
           jQuery('#surge-base-qr').qrcode({

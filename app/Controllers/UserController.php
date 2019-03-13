@@ -122,6 +122,7 @@ class UserController extends BaseController
                 ."/?obfsparam=".safe_base64_encode($aryrd['obfs_param'])."&protoparam=".safe_base64_encode($aryrd['protocol_param'])."&udpport=1";
             $ssrdqr = "ssr://".safe_base64_encode($ssrdurl);
         }
+		if(empty($this->user->v2ray_uuid)) $v2ray=false;
         if ($v2ray) {
             $arr = [
                 "inbound" => [
@@ -200,6 +201,7 @@ class UserController extends BaseController
                 "port" => $node->v2ray_port,
                 "v" => 2,
                 "ps" => $node->name,
+                "type" => "http", //TCP的HTTP伪装
             ];
             if ($node->v2ray_protocol == 'ws') {
                 $arr['outbound']['streamSettings']['wsSettings'] = [
@@ -220,6 +222,7 @@ class UserController extends BaseController
             $jsonv = json_encode($arr);
             $jsonv_show = json_encode($arr, JSON_PRETTY_PRINT);
             $ngqr = "vmess://".base64_encode(json_encode($ng));
+            $bfvqr = "bfv://{$node->server}:{$node->v2ray_port}/vmess/1?rtype=lanchina&dns=8.8.8.8&uid={$this->user->v2ray_uuid}&aid={$this->user->v2ray_alter_id}&sec=auto&tcp=header%3Dhttp%26req%3D#".str_replace('+','%20',urlencode($node->name));
         }
 
         $user = Auth::getUser();
@@ -234,7 +237,7 @@ class UserController extends BaseController
                 $temp = $temp->assign('jsonrd', $jsonrd)->assign('jsonrd_show', $jsonrd_show)->assign('ssrdqr', $ssrdqr);
             }
             if ($v2ray) {
-                $temp = $temp->assign('jsonv', $jsonv)->assign('jsonv_show', $jsonv_show)->assign('ngqr', $ngqr);
+                $temp = $temp->assign('jsonv', $jsonv)->assign('jsonv_show', $jsonv_show)->assign('ngqr', $ngqr)->assign('bfvqr', $bfvqr);
             }
 
             return $temp->display('user/nodeinfo.tpl');

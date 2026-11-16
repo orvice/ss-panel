@@ -29,21 +29,10 @@ jobs:
     permissions:
       contents: read
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
-      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      # Install the cosign tool except on PR
-      # https://github.com/sigstore/cosign-installer
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@main
-        with:
-          cosign-release: 'v1.13.1'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
